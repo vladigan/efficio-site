@@ -1,0 +1,100 @@
+# Efficio.tech — Netlify Deployment Config
+# Deploy: Netlify Dashboard → Sites → "Add new site" → drag-and-drop website/ folder
+# OR connect via GitHub and set publish directory to "website"
+
+[build]
+  # Set to "." if you drag-drop the website/ folder directly.
+  # Set to "website" if deploying from the repo root via GitHub.
+  publish = "."
+
+# ─── Redirects ────────────────────────────────────────────────────────────────
+
+# Book / Audit shortcuts → Calendly directly
+[[redirects]]
+  from   = "/book"
+  to     = "https://calendly.com/efficio-tech/strategy-call"
+  status = 302
+
+[[redirects]]
+  from   = "/audit"
+  to     = "https://calendly.com/efficio-tech/strategy-call"
+  status = 302
+
+# Unsubscribe → contact section (replace with real handler when available)
+[[redirects]]
+  from   = "/unsubscribe"
+  to     = "/#contact"
+  status = 302
+
+# Onboarding shortlink
+[[redirects]]
+  from   = "/onboard"
+  to     = "/onboarding.html"
+  status = 301
+
+[[redirects]]
+  from   = "/start"
+  to     = "/onboarding.html"
+  status = 301
+
+# ─── Security Headers (all pages) ─────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options           = "DENY"
+    X-Content-Type-Options    = "nosniff"
+    X-XSS-Protection          = "1; mode=block"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# ─── Cache Headers (assets) ───────────────────────────────────────────────────
+# Cache fonts and images aggressively (1 year — content-hashed)
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS and JS — long cache, immutable once deployed
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images — 30 day cache
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# HTML — no cache (always fresh)
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ─── Forms ────────────────────────────────────────────────────────────────────
+# Both forms have data-netlify="true" in HTML — no extra config needed here.
+# View submissions: Netlify Dashboard → Your Site → Forms tab
+#
+# SETUP: After first deploy, go to Forms → audit-request → Notifications
+#        Add your email (brady@efficio.tech) to get notified on every submission.
+#
+# Forms registered:
+#   audit-request     — index.html free audit / contact form
+#   client-onboarding — onboarding.html new client intake form

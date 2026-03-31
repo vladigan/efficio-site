@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Problem — Efficio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:    #080c14;
+    --surf:  #0f1623;
+    --bd:    rgba(255,255,255,.08);
+    --white: #f0f4ff;
+    --text:  #94a3b8;
+    --blue:  #2563eb;
+    --glow:  rgba(37,99,235,.35);
+    --r:     10px;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    background: var(--surf);
+    border: 1px solid var(--bd);
+    border-radius: 20px;
+    padding: 56px 48px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  .icon {
+    width: 72px; height: 72px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bd);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+  }
+  .icon svg { color: var(--text); }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800; color: var(--white);
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  p {
+    font-size: .95rem; line-height: 1.7;
+    color: var(--text); margin-bottom: 32px;
+  }
+  .actions {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 32px; border-radius: var(--r);
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    background: linear-gradient(135deg, var(--blue), #1d4ed8);
+    color: #fff; border: 1px solid rgba(59,130,246,.4);
+    box-shadow: 0 0 40px var(--glow); transition: all .2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px var(--glow); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 32px; border-radius: var(--r);
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--bd); color: var(--text); transition: all .2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,.04); color: var(--white); }
+  .footer-note {
+    margin-top: 28px; font-size: .8rem; color: var(--text);
+  }
+  .footer-note a { color: var(--blue); text-decoration: none; }
+  .footer-note a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 14s1.5 2 3 2 3-2 3-2"/>
+      <path d="M9 9h.01M15 9h.01"/>
+      <circle cx="12" cy="12" r="10"/>
+    </svg>
+  </div>
+  <h1>No worries — let's talk.</h1>
+  <p>Checkout was cancelled. If you have questions about pricing, what's included, or whether Efficio is a fit for your business, we're happy to chat before you commit.</p>
+
+  <div class="actions">
+    <a href="https://calendly.com/efficio-tech/strategy-call" target="_blank" class="btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      Book a Free Strategy Call
+    </a>
+    <a href="/#pricing" class="btn-ghost">Back to Pricing</a>
+  </div>
+
+  <div class="footer-note">
+    Or email us directly at <a href="mailto:contact@efficio.tech">contact@efficio.tech</a>
+  </div>
+</div>
+</body>
+</html>

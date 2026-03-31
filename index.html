@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Efficio is an AI technology company that engineers automation systems for modern businesses. Our platform powers companies across industries — from SMBs to government contractors." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/" />
+  <title>Efficio — AI Engineering Platform | We Build the Automation Infrastructure</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://efficio.tech/" />
+  <meta property="og:title" content="Efficio — AI Engineering Platform" />
+  <meta property="og:description" content="Efficio engineers enterprise-grade AI automation systems. Our technology powers businesses across industries — deployed in 72 hours." />
+  <meta property="og:image" content="https://efficio.tech/og-image.png" />
+  <meta property="og:site_name" content="Efficio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Efficio — AI Engineering Platform" />
+  <meta name="twitter:description" content="Efficio engineers AI automation systems for modern businesses. The technology backbone behind multiple companies." />
+  <meta name="twitter:image" content="https://efficio.tech/og-image.png" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Efficio","url":"https://efficio.tech","description":"Elite AI automation company — lead scraping, smart outreach, proposal generation, CRM intelligence, email automation.","email":"contact@efficio.tech","areaServed":"United States","serviceType":["AI Lead Scraping","Smart Outreach","Proposal Generator","CRM Intelligence","Email Automation","Business Analytics"],"priceRange":"$997 - $3,500/month"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+
+<style>
+:root{
+  --bg:#050a16;--bg2:#07101f;--bg3:#0c1728;
+  --surf:#0f1e33;--surf2:#132540;--surf3:#1a2f4f;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;
+  --violet:#8b5cf6;--indigo:#6366f1;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;--dim:#1e293b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --r:8px;--r2:14px;--r3:24px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;z-index:200;width:0%;
+  background:linear-gradient(90deg,var(--purple),var(--purple2),var(--pink));
+  box-shadow:0 0 12px var(--glow2);transition:width .1s linear}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:all .3s}
+.nav.scrolled{background:rgba(5,10,22,.92);backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:14px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:34px;height:34px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:#fff;
+  box-shadow:0 0 24px var(--glow),0 0 48px var(--glow2)}
+.logo-text{font-size:17px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;
+  color:var(--text);transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.btn-nav{padding:10px 22px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 20px var(--glow2);transition:all .2s}
+.btn-nav:hover{background:var(--purple2);transform:translateY(-1px);
+  box-shadow:0 0 36px var(--glow),0 8px 24px rgba(124,58,237,.25)}
+.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.ham span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+#mn{position:fixed;top:0;right:0;bottom:0;width:260px;background:var(--bg2);
+  border-left:1px solid var(--bd);z-index:300;padding:72px 20px 32px;
+  transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;gap:4px}
+#mn.open{transform:translateX(0)}
+#mn a{padding:12px 16px;border-radius:var(--r);font-size:15px;font-weight:500;
+  color:var(--text);transition:all .2s;display:block}
+#mn a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+#mn .btn-nav{margin-top:16px;text-align:center;display:block}
+#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;backdrop-filter:blur(4px)}
+#ov.open{display:block}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 100px}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 75% 50%,rgba(124,58,237,.13),transparent),
+             radial-gradient(ellipse 50% 80% at 15% 40%,rgba(99,102,241,.09),transparent)}
+.hero-dots{position:absolute;inset:0;
+  background-image:radial-gradient(rgba(168,85,247,.14) 1px,transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,#000 25%,transparent 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:28px}
+.pill-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero-h1{font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;line-height:1.06;
+  letter-spacing:-.04em;color:var(--white);margin-bottom:24px}
+.grad-purple{background:linear-gradient(95deg,var(--purple2),var(--purple3),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.08rem;color:var(--text);line-height:1.78;margin-bottom:40px;max-width:460px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;
+  border-radius:var(--r2);font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 40px var(--glow),0 8px 32px rgba(124,58,237,.25);transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);
+  box-shadow:0 0 60px var(--glow),0 12px 40px rgba(124,58,237,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;
+  border-radius:var(--r2);font-size:15px;font-weight:600;
+  border:1px solid var(--bd);color:var(--text);transition:all .25s}
+.btn-outline:hover{background:rgba(124,58,237,.08);color:var(--white);border-color:var(--bd2)}
+.hero-trust{display:flex;align-items:center;flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);padding:0 18px}
+.ti:first-child{padding-left:0}
+.ti-sep{width:1px;height:14px;background:var(--dim)}
+.ti svg{color:var(--purple3);flex-shrink:0}
+
+/* ORBITAL */
+.hero-right{display:flex;justify-content:center;align-items:center}
+.orbital{position:relative;width:480px;height:480px;display:flex;justify-content:center;align-items:center}
+.orbital::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.22),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.orbit-core{position:absolute;z-index:10;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:78px;height:78px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 0 0 10px rgba(124,58,237,.14),0 0 0 20px rgba(124,58,237,.07),
+             0 0 0 34px rgba(124,58,237,.03),0 0 60px var(--glow);
+  animation:cpulse 3s ease-in-out infinite}
+@keyframes cpulse{
+  0%,100%{box-shadow:0 0 0 10px rgba(124,58,237,.14),0 0 0 20px rgba(124,58,237,.07),0 0 0 34px rgba(124,58,237,.03),0 0 60px rgba(124,58,237,.38)}
+  50%{box-shadow:0 0 0 12px rgba(124,58,237,.2),0 0 0 26px rgba(124,58,237,.1),0 0 0 44px rgba(124,58,237,.05),0 0 80px rgba(124,58,237,.5)}}
+.core-ai{font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:.04em;line-height:1}
+.core-sub{font-size:.48rem;font-weight:600;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase}
+.orbit-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.orbit-ring.r1{width:162px;height:162px;border:1px solid rgba(124,58,237,.32)}
+.orbit-ring.r2{width:246px;height:246px;border:1px solid rgba(124,58,237,.22)}
+.orbit-ring.r3{width:334px;height:334px;border:1px solid rgba(124,58,237,.15)}
+.orbit-ring.r4{width:422px;height:422px;border:1px solid rgba(124,58,237,.09)}
+.ring-spin{position:absolute;top:50%;left:50%;border-radius:50%}
+.ring-spin.s1{width:162px;height:162px;animation:ocw 9s linear infinite;animation-delay:-2s}
+.ring-spin.s2{width:246px;height:246px;animation:occw 14s linear infinite;animation-delay:-5s}
+.ring-spin.s3{width:334px;height:334px;animation:ocw 20s linear infinite;animation-delay:-9s}
+.ring-spin.s4{width:422px;height:422px;animation:occw 28s linear infinite;animation-delay:-14s}
+@keyframes ocw{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes occw{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.orbit-node{position:absolute;top:-16px;left:50%;transform:translateX(-50%)}
+.node-chip{display:flex;align-items:center;gap:7px;padding:6px 13px;border-radius:100px;
+  background:var(--surf2);border:1px solid var(--bd2);white-space:nowrap;
+  box-shadow:0 0 20px rgba(124,58,237,.22),0 4px 14px rgba(0,0,0,.45)}
+.s1 .node-chip{animation:ccw9 9s linear infinite}
+.s2 .node-chip{animation:cw14 14s linear infinite}
+.s3 .node-chip{animation:ccw20 20s linear infinite}
+.s4 .node-chip{animation:cw28 28s linear infinite}
+@keyframes ccw9{to{transform:rotate(-360deg)}}
+@keyframes cw14{to{transform:rotate(360deg)}}
+@keyframes ccw20{to{transform:rotate(-360deg)}}
+@keyframes cw28{to{transform:rotate(360deg)}}
+.node-icon{font-size:13px}
+.node-lbl{font-size:.72rem;font-weight:700;color:var(--white);letter-spacing:.02em}
+
+/* STATS BAR */
+.stats-bar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
+  background:rgba(7,16,31,.75);padding:48px 0}
+.stats-inner{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-block{text-align:center;padding:12px 20px;border-right:1px solid var(--bd)}
+.stat-block:last-child{border-right:none}
+.stat-num{font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;letter-spacing:-.035em}
+.stat-lbl{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.stat-note{font-size:.69rem;color:var(--dim);margin-top:4px}
+
+/* TICKER */
+.ticker{overflow:hidden;padding:15px 0;background:rgba(5,8,18,.7);
+  border-bottom:1px solid var(--bd);position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;
+  z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.tick-track{display:flex;width:max-content;animation:ticker 44s linear infinite}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.tick-item{display:flex;align-items:center;gap:8px;padding:0 28px;
+  font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap}
+.tick-item svg{color:var(--purple3);opacity:.8;flex-shrink:0}
+.tick-dot{width:4px;height:4px;border-radius:50%;background:var(--dim);flex-shrink:0}
+
+/* SECTIONS */
+.section{padding:110px 0}
+.section-alt{background:rgba(7,14,26,.55)}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.s-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:18px}
+.s-title{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800;letter-spacing:-.04em;
+  color:var(--white);line-height:1.14;margin-bottom:16px}
+.s-sub{font-size:1rem;color:var(--text);line-height:1.75;max-width:580px;margin-bottom:56px}
+.text-center{text-align:center}
+.text-center .s-sub{margin-left:auto;margin-right:auto}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}.rv.d6{transition-delay:.6s}
+
+/* PAIN POINTS */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--bd);border-radius:var(--r2);overflow:hidden}
+.pain-card{background:var(--surf);padding:36px 30px;position:relative;transition:background .25s;overflow:hidden}
+.pain-card:hover{background:var(--surf2)}
+.pain-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--purple2),transparent);
+  opacity:0;transition:opacity .3s}
+.pain-card:hover::after{opacity:1}
+.pain-emoji{font-size:2rem;margin-bottom:16px;display:block}
+.pain-h{font-size:1.02rem;font-weight:700;color:var(--white);margin-bottom:8px;
+  letter-spacing:-.025em;line-height:1.3}
+.pain-p{font-size:.88rem;color:var(--text);line-height:1.62}
+
+/* PROCESS */
+.process-track{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.process-track::before{content:'';position:absolute;top:52px;
+  left:calc(16.67% + 24px);right:calc(16.67% + 24px);height:1px;
+  background:linear-gradient(90deg,var(--purple),var(--purple2),var(--purple));opacity:.35}
+.process-step{padding:0 36px;text-align:center}
+.step-num{width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;font-weight:800;color:#fff;margin:0 auto 30px;
+  box-shadow:0 0 0 10px rgba(124,58,237,.1),0 0 40px var(--glow2);
+  position:relative;z-index:1}
+.step-ring{position:absolute;inset:-13px;border-radius:50%;
+  border:1px dashed rgba(168,85,247,.38);animation:sring 14s linear infinite}
+@keyframes sring{to{transform:rotate(360deg)}}
+.step-h{font-size:1.18rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.025em}
+.step-p{font-size:.9rem;color:var(--text);line-height:1.65}
+
+/* FEATURE CARDS */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:36px 30px;position:relative;overflow:hidden;transition:all .25s}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--purple2),transparent);
+  opacity:0;transition:opacity .3s}
+.feat-card:hover{background:var(--surf2);border-color:var(--bd2);
+  transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.35),0 0 40px rgba(124,58,237,.1)}
+.feat-card:hover::before{opacity:1}
+.feat-icon{width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:20px;
+  background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.22)}
+.feat-h{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.025em}
+.feat-p{font-size:.88rem;color:var(--text);line-height:1.65}
+
+/* ROI */
+.roi-wrap{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r3);
+  overflow:hidden;border:1px solid var(--bd)}
+.roi-before{background:var(--surf);padding:56px 48px}
+.roi-after{background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(99,102,241,.07));
+  padding:56px 48px;position:relative;border-left:1px solid var(--bd2)}
+.roi-after::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,.13),transparent);pointer-events:none}
+.roi-after>*{position:relative;z-index:1}
+.roi-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px}
+.roi-before .roi-tag{color:var(--muted)}
+.roi-after .roi-tag{color:var(--purple3)}
+.roi-heading{font-size:1.45rem;font-weight:800;line-height:1.2;margin-bottom:32px;letter-spacing:-.03em}
+.roi-before .roi-heading{color:var(--text)}
+.roi-after .roi-heading{color:var(--white)}
+.roi-list{display:flex;flex-direction:column;gap:16px}
+.roi-row{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;line-height:1.55}
+.roi-row-icon{flex-shrink:0;margin-top:1px;font-size:1.1rem}
+.roi-before .roi-row{color:var(--muted)}
+.roi-after .roi-row{color:var(--text)}
+.roi-after .roi-row strong{color:var(--white)}
+.roi-metric{margin-top:36px;padding:24px;background:rgba(124,58,237,.12);
+  border:1px solid var(--bd2);border-radius:var(--r2)}
+.roi-big{font-size:2.6rem;font-weight:800;line-height:1;letter-spacing:-.04em;
+  background:linear-gradient(90deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.roi-big-lbl{font-size:.8rem;color:var(--muted);font-weight:500}
+
+/* PRICING */
+.pricing-toggle-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px}
+.tog-lbl{font-size:.9rem;font-weight:600;color:var(--text);transition:color .2s}
+.tog-lbl.active{color:var(--white)}
+.tog-sw{width:52px;height:28px;border-radius:100px;background:var(--surf2);
+  border:1px solid var(--bd);position:relative;cursor:pointer;transition:all .3s}
+.tog-sw.on{background:var(--purple);border-color:var(--purple2)}
+.tog-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;
+  background:#fff;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.tog-sw.on .tog-knob{transform:translateX(24px)}
+.save-badge{padding:3px 10px;border-radius:100px;background:rgba(74,222,128,.1);
+  border:1px solid rgba(74,222,128,.25);font-size:.68rem;font-weight:700;
+  color:#4ade80;letter-spacing:.06em;text-transform:uppercase}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.price-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r3);
+  padding:40px 36px;position:relative;transition:all .25s}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.price-card.pop{background:linear-gradient(180deg,rgba(124,58,237,.13),rgba(7,16,31,.7));
+  border-color:var(--bd2);box-shadow:0 0 0 1px var(--bd2),0 0 60px rgba(124,58,237,.12)}
+.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  padding:4px 16px;border-radius:100px;
+  background:linear-gradient(90deg,var(--purple),var(--purple2));
+  font-size:.68rem;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase;
+  box-shadow:0 0 20px var(--glow);white-space:nowrap}
+.price-tier{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:10px}
+.price-name{font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.03em}
+.price-desc{font-size:.85rem;color:var(--text);line-height:1.55;margin-bottom:28px;min-height:50px}
+.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
+.price-curr{font-size:1.2rem;font-weight:700;color:var(--text);margin-top:6px}
+.price-num{font-size:3rem;font-weight:800;line-height:1;color:var(--white);letter-spacing:-.04em}
+.price-per{font-size:.85rem;color:var(--muted)}
+.price-setup{font-size:.75rem;color:var(--muted);margin-bottom:28px;min-height:18px}
+.price-div{height:1px;background:var(--bd);margin-bottom:24px}
+.price-feats{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.pfi{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--text)}
+.pfi-check{color:var(--purple3);flex-shrink:0;margin-top:1px;font-size:14px;font-weight:700}
+.pfi.off{opacity:.38}
+.btn-price{display:block;width:100%;padding:14px;border-radius:var(--r);
+  font-size:15px;font-weight:700;text-align:center;transition:all .25s}
+.btn-price.out{border:1px solid var(--bd2);color:var(--text)}
+.btn-price.out:hover{background:rgba(124,58,237,.09);color:var(--white)}
+.btn-price.sol{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);box-shadow:0 0 28px var(--glow2)}
+.btn-price.sol:hover{box-shadow:0 0 50px var(--glow),0 8px 24px rgba(124,58,237,.25);transform:translateY(-1px)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
+.faq-item{border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--bd2)}
+.faq-q{width:100%;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;text-align:left;font-size:.97rem;font-weight:600;color:var(--white);
+  background:var(--surf);cursor:pointer;transition:background .2s}
+.faq-q:hover{background:var(--surf2)}
+.faq-item.open .faq-q{background:rgba(124,58,237,.07)}
+.faq-chevron{width:20px;height:20px;flex-shrink:0;color:var(--purple3);transition:transform .3s}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;background:var(--surf)}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 28px 22px;font-size:.9rem;color:var(--text);line-height:1.7}
+
+/* CTA SECTION */
+#cta{position:relative;overflow:hidden;padding:130px 0;
+  background:linear-gradient(135deg,rgba(124,58,237,.13),rgba(99,102,241,.08),rgba(236,72,153,.06))}
+#cta::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 85% at 50% 50%,rgba(124,58,237,.2),transparent);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 32px;text-align:center}
+.cta-h{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);
+  letter-spacing:-.04em;line-height:1.14;margin-bottom:20px}
+.cta-sub{font-size:1.05rem;color:var(--text);line-height:1.72;margin-bottom:40px}
+.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:17px 36px;
+  border-radius:var(--r2);font-size:16px;font-weight:700;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 60px var(--glow),0 12px 40px rgba(124,58,237,.3);transition:all .25s}
+.btn-cta:hover{transform:translateY(-3px);
+  box-shadow:0 0 80px var(--glow),0 16px 50px rgba(124,58,237,.4)}
+.cta-note{font-size:.8rem;color:var(--muted);margin-top:20px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-desc{font-size:.88rem;color:var(--text);line-height:1.7;margin-top:14px;
+  margin-bottom:20px;max-width:300px}
+.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;color:var(--text);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-div{height:1px;background:var(--bd);margin-bottom:28px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.82rem;color:var(--muted)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.footer-legal a:hover{color:var(--text)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:60px}
+  .orbital{width:380px;height:380px}
+  .orbit-ring.r4,.ring-spin.s4{width:340px;height:340px}
+  .orbit-ring.r3,.ring-spin.s3{width:260px;height:260px}
+  .orbit-ring.r2,.ring-spin.s2{width:195px;height:195px}
+  .orbit-ring.r1,.ring-spin.s1{width:138px;height:138px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.btn-nav{display:none}
+  .ham{display:flex}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .stat-block:nth-child(2){border-right:none}
+  .stat-block:nth-child(3){border-top:1px solid var(--bd)}
+  .stat-block:nth-child(4){border-top:1px solid var(--bd)}
+  .pain-grid{grid-template-columns:1fr}
+  .process-track{grid-template-columns:1fr;gap:48px}
+  .process-track::before{display:none}
+  .feat-grid{grid-template-columns:1fr}
+  .roi-wrap{grid-template-columns:1fr}
+  .roi-after{border-left:none;border-top:1px solid var(--bd2)}
+  .pricing-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .orbital{width:320px;height:320px}
+  .orbit-ring.r4,.ring-spin.s4{display:none}
+  .orbit-ring.r3,.ring-spin.s3{width:280px;height:280px}
+  .orbit-ring.r2,.ring-spin.s2{width:205px;height:205px}
+  .orbit-ring.r1,.ring-spin.s1{width:138px;height:138px}
+  .hero-right{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .engine-grid{grid-template-columns:1fr}
+  .engine-metric{grid-template-columns:repeat(2,1fr)}
+  .powers-grid{grid-template-columns:1fr}
+}
+
+/* THE ENGINE */
+.engine-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.code-window{background:#070d1a;border:1px solid var(--bd2);border-radius:var(--r2);overflow:hidden;
+  box-shadow:0 0 60px rgba(124,58,237,.14),0 24px 48px rgba(0,0,0,.5)}
+.code-topbar{display:flex;align-items:center;gap:6px;padding:13px 18px;
+  background:rgba(124,58,237,.07);border-bottom:1px solid var(--bd)}
+.code-dots{display:flex;gap:6px}
+.cdot{width:11px;height:11px;border-radius:50%}
+.cdot.r{background:#ff5f56}.cdot.y{background:#ffbd2e}.cdot.g{background:#27c93f}
+.code-fname{font-size:.7rem;font-weight:600;color:var(--muted);margin-left:10px;
+  letter-spacing:.04em;font-family:'Courier New',monospace}
+.code-body{padding:22px 24px;font-family:'Courier New',Consolas,monospace;
+  font-size:.78rem;line-height:1.85;overflow-x:auto}
+.code-body pre{margin:0;background:none;font-family:inherit;font-size:inherit;
+  line-height:inherit;color:var(--w2)}
+.ck{color:#c084fc}.cf{color:#60a5fa}.cs{color:#34d399}
+.cc{color:#475569;font-style:italic}
+.engine-info{display:flex;flex-direction:column;gap:28px}
+.stack-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.stack-badge{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--r);
+  background:var(--surf);border:1px solid var(--bd);font-size:.77rem;font-weight:600;
+  color:var(--text);transition:all .2s;cursor:default}
+.stack-badge:hover{border-color:var(--bd2);color:var(--white);background:var(--surf2)}
+.stack-badge-icon{font-size:.95rem}
+.engine-metric{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px}
+.em-block{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:16px 18px;transition:border-color .2s;text-align:center}
+.em-block:hover{border-color:var(--bd2)}
+.em-num{font-size:1.4rem;font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.em-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+
+/* POWERS */
+.powers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.power-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:32px 28px;position:relative;overflow:hidden;transition:all .25s}
+.power-card:hover{background:var(--surf2);border-color:var(--bd2);transform:translateY(-3px);
+  box-shadow:0 16px 48px rgba(0,0,0,.3),0 0 32px rgba(124,58,237,.08)}
+.power-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--purple2),transparent);opacity:0;transition:opacity .3s}
+.power-card:hover::before{opacity:1}
+.power-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;
+  font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.22);color:#4ade80;margin-bottom:16px}
+.power-live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 6px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
+.power-soon{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;
+  font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.18);color:var(--muted);margin-bottom:16px}
+.power-name{font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.025em}
+.power-desc{font-size:.86rem;color:var(--text);line-height:1.62}
+.power-sector{font-size:.72rem;font-weight:600;color:var(--muted);margin-top:16px;
+  text-transform:uppercase;letter-spacing:.08em;padding-top:16px;border-top:1px solid var(--bd)}
+
+@media(max-width:1024px){
+  .engine-grid{grid-template-columns:1fr}
+  .engine-metric{grid-template-columns:repeat(4,1fr)}
+  .powers-grid{grid-template-columns:repeat(2,1fr)}
+}
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr}}
+.testi-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:1.75rem;transition:all .3s;position:relative}
+.testi-card:hover{border-color:var(--bd2);box-shadow:0 0 32px var(--glow2)}
+.testi-stars{display:flex;gap:.2rem;margin-bottom:1rem;color:#f59e0b;font-size:.95rem}
+.testi-quote{font-size:.9rem;color:var(--text);line-height:1.75;margin-bottom:1.25rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,0.1);box-shadow:0 4px 14px rgba(0,0,0,0.4)}
+.testi-name{font-size:.88rem;font-weight:700;color:var(--white)}
+.testi-role{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">E</div>
+      <span class="logo-text">Efficio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#pain">Problem</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#engine">Technology</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="ov" onclick="closeMobile()"></div>
+<div id="mn">
+  <a href="#pain" onclick="closeMobile()">Problem</a>
+  <a href="#how" onclick="closeMobile()">How It Works</a>
+  <a href="#features" onclick="closeMobile()">Features</a>
+  <a href="#engine" onclick="closeMobile()">Technology</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner container">
+
+    <!-- Left copy -->
+    <div>
+      <div class="hero-pill rv vis">
+        <span class="pill-dot"></span>
+        AI Engineering Platform
+      </div>
+      <h1 class="hero-h1 rv vis">
+        We Engineer the<br>
+        <span class="grad-purple">Future of Automation.</span>
+      </h1>
+      <p class="hero-sub rv vis">
+        Efficio is the AI technology company that builds enterprise-grade automation infrastructure. Our systems power businesses across industries — from SMBs to government contractors — deployed and live in 72 hours.
+      </p>
+      <div class="hero-ctas rv vis">
+        <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Free Strategy Call
+        </a>
+        <a href="#features" class="btn-outline">
+          See What We Automate
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="hero-trust rv vis">
+        <div class="ti">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          No long-term contracts
+        </div>
+        <div class="ti-sep"></div>
+        <div class="ti">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Live in 72 hours
+        </div>
+        <div class="ti-sep"></div>
+        <div class="ti">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          U.S.-based team
+        </div>
+      </div>
+    </div>
+
+    <!-- ORBITAL DIAGRAM -->
+    <div class="hero-right">
+      <div class="orbital">
+        <!-- Rings (visual) -->
+        <div class="orbit-ring r1"></div>
+        <div class="orbit-ring r2"></div>
+        <div class="orbit-ring r3"></div>
+        <div class="orbit-ring r4"></div>
+
+        <!-- Rotating spinners + nodes -->
+        <div class="ring-spin s1">
+          <div class="orbit-node">
+            <div class="node-chip">
+              <span class="node-icon">🗄️</span>
+              <span class="node-lbl">CRM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ring-spin s2">
+          <div class="orbit-node">
+            <div class="node-chip">
+              <span class="node-icon">📤</span>
+              <span class="node-lbl">Outreach</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ring-spin s3">
+          <div class="orbit-node">
+            <div class="node-chip">
+              <span class="node-icon">📄</span>
+              <span class="node-lbl">Proposals</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ring-spin s4">
+          <div class="orbit-node">
+            <div class="node-chip">
+              <span class="node-icon">📊</span>
+              <span class="node-lbl">Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Core -->
+        <div class="orbit-core">
+          <span class="core-ai">AI</span>
+          <span class="core-sub">Core</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-block rv vis">
+      <div class="stat-num" data-target="18000" data-suffix="+" data-sep>0+</div>
+      <div class="stat-lbl">Leads Scraped</div>
+      <div class="stat-note">Nationwide, verified</div>
+    </div>
+    <div class="stat-block rv vis">
+      <div class="stat-num" data-target="3.2" data-prefix="$" data-suffix="M" data-dec="1">$0M</div>
+      <div class="stat-lbl">Revenue Generated</div>
+      <div class="stat-note">Across client portfolios</div>
+    </div>
+    <div class="stat-block rv vis">
+      <div class="stat-num" data-target="60" data-suffix="+">0+</div>
+      <div class="stat-lbl">AI Modules</div>
+      <div class="stat-note">Deployed and active</div>
+    </div>
+    <div class="stat-block rv vis">
+      <div class="stat-num">24/7</div>
+      <div class="stat-lbl">Always On</div>
+      <div class="stat-note">No sick days. No vacations.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tick-track" id="tickTrack">
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Lead Generation</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Smart Outreach</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Proposal Generator</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>CRM Intelligence</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Automation</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics Dashboard</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Lead Generation</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Smart Outreach</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Proposal Generator</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>CRM Intelligence</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Automation</div>
+    <div class="tick-dot"></div>
+    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics Dashboard</div>
+    <div class="tick-dot"></div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="section section-alt" id="pain">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">Pain Points</div>
+      <h2 class="s-title rv vis">Sound Familiar?</h2>
+      <p class="s-sub rv vis">You didn't start a business to do data entry. But here you are.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card rv vis d1">
+        <span class="pain-emoji">📞</span>
+        <div class="pain-h">Still answering your own phones?</div>
+        <p class="pain-p">Every incoming call is an interruption. Scheduling, rescheduling, voicemails — time you'll never get back.</p>
+      </div>
+      <div class="pain-card rv vis d2">
+        <span class="pain-emoji">📋</span>
+        <div class="pain-h">Writing quotes manually — again?</div>
+        <p class="pain-p">Copy-pasting line items. Redoing last week's work. Hoping you didn't miss something. Then waiting days for a response.</p>
+      </div>
+      <div class="pain-card rv vis d3">
+        <span class="pain-emoji">🧊</span>
+        <div class="pain-h">Leads going cold while you're busy?</div>
+        <p class="pain-p">You had a great call. Then life happened. Two weeks passed. They went with someone who followed up first.</p>
+      </div>
+      <div class="pain-card rv vis d4">
+        <span class="pain-emoji">🗂️</span>
+        <div class="pain-h">Paying someone to enter data all day?</div>
+        <p class="pain-p">Your CRM isn't updating itself. Someone's copying spreadsheets into spreadsheets while real work waits.</p>
+      </div>
+      <div class="pain-card rv vis d5">
+        <span class="pain-emoji">📬</span>
+        <div class="pain-h">Drowning in follow-up emails?</div>
+        <p class="pain-p">Clients need reminders. Prospects need nurturing. You need a clone. Instead you have a growing inbox and creeping guilt.</p>
+      </div>
+      <div class="pain-card rv vis d6">
+        <span class="pain-emoji">🎯</span>
+        <div class="pain-h">No idea which marketing is working?</div>
+        <p class="pain-p">You're spending on ads, referrals, cold outreach — with no clear picture of what's actually driving revenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:64px">
+      <div class="s-label rv vis">The Process</div>
+      <h2 class="s-title rv vis">Simple. Fast. Permanent.</h2>
+      <p class="s-sub rv vis">Three phases. Seventy-two hours to your first live automation. No drawn-out onboarding, no six-month roadmaps.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step rv vis d1">
+        <div class="step-num">
+          <span class="step-ring"></span>
+          01
+        </div>
+        <h3 class="step-h">Audit Your Workflow</h3>
+        <p class="step-p">We spend 60 minutes mapping every bottleneck in your business — from first contact to closed deal. You'll see exactly where time is bleeding out.</p>
+      </div>
+      <div class="process-step rv vis d2">
+        <div class="step-num">
+          <span class="step-ring" style="animation-delay:-4s"></span>
+          02
+        </div>
+        <h3 class="step-h">Deploy Your AI Stack</h3>
+        <p class="step-p">Our engineers configure and launch your custom AI modules within 72 hours. CRM synced. Outreach live. Proposals generating automatically. No IT required on your end.</p>
+      </div>
+      <div class="process-step rv vis d3">
+        <div class="step-num">
+          <span class="step-ring" style="animation-delay:-8s"></span>
+          03
+        </div>
+        <h3 class="step-h">Optimize and Scale</h3>
+        <p class="step-p">Weekly performance reports. Continuous tuning based on real data. As your business grows, your AI stack grows with it — no rebuilding from scratch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">What We Automate</div>
+      <h2 class="s-title rv vis">60+ Modules. One Team.</h2>
+      <p class="s-sub rv vis">Every module is built, configured, and maintained by Efficio. You run your business. We run your AI.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card rv vis d1">
+        <div class="feat-icon">🔍</div>
+        <h3 class="feat-h">AI Lead Scraping</h3>
+        <p class="feat-p">We've already scraped 18,000+ verified business leads nationwide. Your pipeline never runs dry. Filter by industry, location, rating, and revenue signals.</p>
+      </div>
+      <div class="feat-card rv vis d2">
+        <div class="feat-icon">✉️</div>
+        <h3 class="feat-h">Hyper-Personalized Outreach</h3>
+        <p class="feat-p">5 proven email strategies auto-selected per lead. A 3-step drip sequence (Day 0/3/7) running 24/7 with built-in unsubscribe compliance.</p>
+      </div>
+      <div class="feat-card rv vis d3">
+        <div class="feat-icon">📄</div>
+        <h3 class="feat-h">Instant Proposal Generator</h3>
+        <p class="feat-p">Client fills out a form. A professional, branded proposal lands in their inbox in under 60 seconds. No more quoting from memory.</p>
+      </div>
+      <div class="feat-card rv vis d4">
+        <div class="feat-icon">🗄️</div>
+        <h3 class="feat-h">CRM Intelligence</h3>
+        <p class="feat-p">Every lead, every touchpoint, every reply automatically logged and categorized. Know who's hot, who needs a nudge, and who to drop — without lifting a finger.</p>
+      </div>
+      <div class="feat-card rv vis d5">
+        <div class="feat-icon">📊</div>
+        <h3 class="feat-h">Live Analytics Dashboard</h3>
+        <p class="feat-p">A real-time view of your pipeline, campaign performance, reply rates, and revenue attribution. Finally know what's working.</p>
+      </div>
+      <div class="feat-card rv vis d6">
+        <div class="feat-icon">🔔</div>
+        <h3 class="feat-h">Inbox Monitor + Auto-Reply</h3>
+        <p class="feat-p">AI categorizes every incoming reply — INTERESTED, OOO, BOUNCE, NOT INTERESTED — and routes them automatically. Hot leads never get buried.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ENGINE -->
+<section class="section" id="engine">
+  <div class="container">
+    <div class="engine-grid">
+
+      <!-- Code window -->
+      <div class="rv vis">
+        <div class="code-window">
+          <div class="code-topbar">
+            <div class="code-dots">
+              <div class="cdot r"></div>
+              <div class="cdot y"></div>
+              <div class="cdot g"></div>
+            </div>
+            <span class="code-fname">efficio_engine.py</span>
+          </div>
+          <div class="code-body">
+<pre><span class="cc"># Core AI pipeline — production</span>
+<span class="ck">import</span> anthropic
+<span class="ck">from</span> efficio.pipeline <span class="ck">import</span> LeadPipeline
+
+<span class="ck">async def</span> <span class="cf">process_batch</span>(leads):
+    client = anthropic.<span class="cf">Anthropic</span>()
+
+    <span class="ck">for</span> lead <span class="ck">in</span> leads:
+        <span class="cc"># AI-powered personalization layer</span>
+        msg = <span class="ck">await</span> client.messages.<span class="cf">create</span>(
+            model=<span class="cs">"claude-opus-4-6"</span>,
+            messages=[{
+                <span class="cs">"role"</span>: <span class="cs">"user"</span>,
+                <span class="cs">"content"</span>: <span class="cf">build_prompt</span>(lead)
+            }]
+        )
+        <span class="ck">await</span> LeadPipeline.<span class="cf">dispatch</span>(
+            lead=lead, message=msg
+        )</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack info -->
+      <div class="engine-info rv vis d2">
+        <div>
+          <div class="s-label">The Engine</div>
+          <h2 class="s-title">Built on Elite<br>AI Infrastructure</h2>
+          <p class="s-sub" style="margin-bottom:0">Every Efficio automation runs on a proprietary stack engineered in-house — combining Python pipelines, state-of-the-art language models, and custom NLP layers built for production.</p>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px">Tech Stack</div>
+          <div class="stack-badges">
+            <div class="stack-badge"><span class="stack-badge-icon">🐍</span>Python</div>
+            <div class="stack-badge"><span class="stack-badge-icon">🤖</span>Claude AI</div>
+            <div class="stack-badge"><span class="stack-badge-icon">🧠</span>NLP</div>
+            <div class="stack-badge"><span class="stack-badge-icon">⚡</span>ML Pipelines</div>
+            <div class="stack-badge"><span class="stack-badge-icon">🔗</span>REST APIs</div>
+            <div class="stack-badge"><span class="stack-badge-icon">☁️</span>Cloud Infra</div>
+          </div>
+        </div>
+        <div class="engine-metric">
+          <div class="em-block">
+            <div class="em-num">60+</div>
+            <div class="em-lbl">AI Modules</div>
+          </div>
+          <div class="em-block">
+            <div class="em-num">&lt;72h</div>
+            <div class="em-lbl">Deploy Time</div>
+          </div>
+          <div class="em-block">
+            <div class="em-num">24/7</div>
+            <div class="em-lbl">Runtime</div>
+          </div>
+          <div class="em-block">
+            <div class="em-num">99.9%</div>
+            <div class="em-lbl">Uptime SLA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POWERS -->
+<section class="section section-alt" id="powers">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">Powered By Efficio</div>
+      <h2 class="s-title rv vis">One Platform.<br>Multiple Companies.</h2>
+      <p class="s-sub rv vis">Efficio isn't just a service — it's the AI backbone behind a growing portfolio of ventures. Our technology platform powers companies across industries.</p>
+    </div>
+    <div class="powers-grid">
+
+      <div class="power-card rv vis d1">
+        <div class="power-live"><span class="power-live-dot"></span>Live</div>
+        <div class="power-name">BNGCENT</div>
+        <p class="power-desc">AI-powered proposal generation, bid intelligence, and compliance monitoring for U.S. federal government contracting. Built entirely on Efficio's automation infrastructure.</p>
+        <div class="power-sector">Government Contracting · bngcent.com</div>
+      </div>
+
+      <div class="power-card rv vis d2">
+        <div class="power-live"><span class="power-live-dot"></span>Live</div>
+        <div class="power-name">Career Co-Pilots</div>
+        <p class="power-desc">Automated resume optimization, AI-powered job matching, and intelligent application pipelines. Efficio's NLP stack applied to the career services market.</p>
+        <div class="power-sector">Career Services</div>
+      </div>
+
+      <div class="power-card rv vis d3" style="border-style:dashed">
+        <div class="power-soon">Coming Soon</div>
+        <div class="power-name" style="color:var(--text)">Your Industry</div>
+        <p class="power-desc">Efficio's technology platform is available for enterprise licensing and white-label deployment. Build on the same infrastructure that powers our portfolio.</p>
+        <div class="power-sector">Enterprise Licensing Available</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROI SECTION -->
+<section class="section" id="roi">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">The Math</div>
+      <h2 class="s-title rv vis">What Would an Extra 20 Hours/Week Do?</h2>
+      <p class="s-sub rv vis">That's what the average Efficio client reclaims. Here's where those hours were going.</p>
+    </div>
+    <div class="roi-wrap rv vis">
+      <div class="roi-before">
+        <div class="roi-tag">⚠ Before Efficio</div>
+        <div class="roi-heading">The manual business. Exhausting by design.</div>
+        <div class="roi-list">
+          <div class="roi-row"><span class="roi-row-icon">❌</span>6+ hours/day on manual follow-ups, data entry, and scheduling</div>
+          <div class="roi-row"><span class="roi-row-icon">❌</span>Hot leads cooling off while you're handling admin work</div>
+          <div class="roi-row"><span class="roi-row-icon">❌</span>Writing the same proposal 8 different times this month</div>
+          <div class="roi-row"><span class="roi-row-icon">❌</span>No visibility into which campaigns or channels actually close deals</div>
+          <div class="roi-row"><span class="roi-row-icon">❌</span>Hiring headcount to handle tasks that software should own</div>
+        </div>
+      </div>
+      <div class="roi-after">
+        <div class="roi-tag">✦ After Efficio</div>
+        <div class="roi-heading">The automated business. Built to scale.</div>
+        <div class="roi-list">
+          <div class="roi-row"><span class="roi-row-icon">✓</span><span>AI handles outreach, follow-ups, and data entry <strong>around the clock</strong></span></div>
+          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Hot leads flagged in real-time — <strong>you focus on closing, not chasing</strong></span></div>
+          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Professional proposals <strong>generated in 45 seconds</strong> from a single form</span></div>
+          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Live dashboard shows <strong>exactly what's driving revenue</strong></span></div>
+          <div class="roi-row"><span class="roi-row-icon">✓</span><span>One Efficio subscription replaces <strong>2–3 full-time hires</strong></span></div>
+        </div>
+        <div class="roi-metric">
+          <div class="roi-big">20 hrs/wk</div>
+          <div class="roi-big-lbl">Average time reclaimed per client in the first 30 days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:0">
+      <div class="s-label rv vis">Client Results</div>
+      <h2 class="s-title rv vis">What our clients say</h2>
+      <p class="s-sub rv vis">Real businesses. Real outcomes. No fluff.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card rv vis">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"We were spending 30+ hours a week on manual follow-ups and data entry. Efficio automated 80% of that in the first month. Our pipeline doubled and we didn't hire a single person."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=11" alt="Michael R.">
+          <div>
+            <div class="testi-name">Michael R.</div>
+            <div class="testi-role">CEO, Midwest HVAC Services</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card rv vis">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The lead scraping and outreach automation alone paid for itself in week two. I was skeptical about AI tools but Efficio is legitimately different — it actually works end-to-end."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=44" alt="Sarah K.">
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-role">VP Marketing, Bridgeline Media</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card rv vis">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"We went from 12 qualified leads a month to over 80. The proposal generator alone saves our team 6 hours per pitch. I can't imagine running this business without Efficio now."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=53" alt="Tom B.">
+          <div>
+            <div class="testi-name">Tom B.</div>
+            <div class="testi-role">Founder, Clearpath B2B</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:20px">
+      <div class="s-label rv vis">Pricing</div>
+      <h2 class="s-title rv vis">Transparent. Scalable. Worth It.</h2>
+      <p class="s-sub rv vis" style="margin-bottom:36px">No hidden fees. No surprise invoices. Pick the tier that fits your business today — upgrade anytime.</p>
+    </div>
+    <div class="pricing-toggle-wrap rv vis">
+      <span class="tog-lbl active" id="lbl-mo">Monthly</span>
+      <div class="tog-sw" id="togSw" onclick="togglePricing()">
+        <div class="tog-knob"></div>
+      </div>
+      <span class="tog-lbl" id="lbl-yr">Annual</span>
+      <span class="save-badge">Save 20%</span>
+    </div>
+    <div class="pricing-grid rv vis">
+
+      <!-- Starter -->
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Pilot</div>
+        <div class="price-desc">Perfect for solo operators and small teams testing AI automation for the first time.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num" data-mo="997" data-yr="797">997</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup" data-mo="+ $497 setup fee" data-yr="+ $497 setup fee">+ $497 setup fee</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Lead scraping — up to 500/mo</div>
+          <div class="pfi"><span class="pfi-check">✓</span>3-step email drip sequence</div>
+          <div class="pfi"><span class="pfi-check">✓</span>CRM with reply tracking</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Basic analytics dashboard</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Email support</div>
+          <div class="pfi off"><span class="pfi-check">✓</span>Proposal generator</div>
+          <div class="pfi off"><span class="pfi-check">✓</span>A/B campaign testing</div>
+        </div>
+        <!-- TODO: Replace href with your Stripe payment link for Starter plan -->
+        <a href="#" class="btn-price out">Get Started</a>
+      </div>
+
+      <!-- Growth - Most Popular -->
+      <div class="price-card pop">
+        <div class="pop-badge">Most Popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-name">Full Stack</div>
+        <div class="price-desc">Our most popular tier. The complete AI operating system for growing businesses.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num" data-mo="2497" data-yr="1997">2,497</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup" data-mo="+ $997 setup fee" data-yr="+ $997 setup fee">+ $997 setup fee</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Lead scraping — up to 3,000/mo</div>
+          <div class="pfi"><span class="pfi-check">✓</span>5-strategy hyper-personalized outreach</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Full CRM + suppression management</div>
+          <div class="pfi"><span class="pfi-check">✓</span>AI proposal generator (unlimited)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>A/B testing + campaign analytics</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Inbox monitor + auto-routing</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Priority Slack support</div>
+        </div>
+        <!-- TODO: Replace href with your Stripe payment link for Growth plan -->
+        <a href="#" class="btn-price sol">Get Started</a>
+      </div>
+
+      <!-- Scale -->
+      <div class="price-card">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-name">Scale</div>
+        <div class="price-desc">Custom modules, dedicated engineering hours, and white-glove onboarding for serious operators.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num" data-mo="3497" data-yr="2797">3,497</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup" data-mo="+ $1,497 setup fee" data-yr="+ $1,497 setup fee">+ $1,497 setup fee</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Unlimited lead scraping</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Everything in Growth</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Custom module development</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Dedicated account engineer</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Weekly strategy sessions</div>
+          <div class="pfi"><span class="pfi-check">✓</span>White-label options available</div>
+          <div class="pfi"><span class="pfi-check">✓</span>24/7 priority support</div>
+        </div>
+        <!-- TODO: Replace href with your Stripe payment link for Scale plan -->
+        <a href="#" class="btn-price out">Get Started</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:.82rem;color:var(--muted)">
+      Not sure which tier fits? <a href="https://calendly.com/efficio-tech/strategy-call" style="color:var(--purple3);font-weight:600" target="_blank" rel="noopener">Book a free 20-minute call</a> — we'll tell you exactly what you need.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">FAQ</div>
+      <h2 class="s-title rv vis">Straight Answers.</h2>
+    </div>
+    <div class="faq-list rv vis">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quickly can we get started?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Fast. After our strategy call, we begin configuration immediately. Most clients have their first live automations running within 72 hours. The full stack — outreach, CRM, proposals, analytics — is typically complete within one week.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need any technical knowledge?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">None. That's the point. You tell us what your business does and what's eating your time. We handle everything else — configuration, integrations, testing, and ongoing maintenance. You just log into a dashboard and see results.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will this work with my existing tools?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Efficio integrates with Gmail, Outlook, Google Workspace, common CRMs, and most business software via API. During onboarding, we map your current stack and configure integrations before anything goes live.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is there a contract or minimum commitment?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">No long-term contracts. You subscribe monthly and can cancel anytime. Annual billing is available with a 20% discount for clients who want to commit. We'd rather earn your loyalty than lock you in.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How is Efficio different from hiring a VA or developer?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">A VA works 8 hours a day, makes mistakes, and needs management. A developer builds something once and leaves. Efficio runs 24/7, improves over time, and never calls in sick. For the cost of one mid-level hire, you get an entire AI team plus the engineers who maintain it.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does "60+ modules" actually mean?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Modules are discrete automation units — each handles one specific task: scraping leads from Google Maps, writing personalized emails, generating proposals, tracking replies, updating your CRM, firing follow-up sequences, and so on. They work independently and together as a system tailored to your business.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I see a demo before committing?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Book a free strategy call and we'll walk through a live demo of the full stack — including leads already scraped in your industry. No pitch deck. Real software, real data, real results.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="rv vis">
+      <div class="s-label" style="margin:0 auto 20px;width:fit-content">Free Strategy Call</div>
+      <h2 class="cta-h">Ready to Stop Doing<br><span class="grad-purple">Everything Manually?</span></h2>
+      <p class="cta-sub">Book a 20-minute call. We'll audit your workflow, show you a live demo, and tell you exactly what Efficio would automate in your business — no pitch, no pressure.</p>
+      <div class="cta-actions">
+        <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-cta" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book My Free Strategy Call
+        </a>
+      </div>
+      <p class="cta-note">No credit card. No commitment. Just 20 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="logo">
+          <div class="logo-mark">E</div>
+          <span class="logo-text">Efficio</span>
+        </a>
+        <p class="footer-desc">Efficio is an AI technology company that engineers automation infrastructure for modern businesses. Our platform powers ventures across industries — from SMBs to government contractors.</p>
+        <a href="mailto:contact@efficio.tech" style="font-size:.85rem;color:var(--purple3);font-weight:500">contact@efficio.tech</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#how">How It Works</a>
+          <a href="onboarding.html">Client Onboarding</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#faq">FAQ</a>
+          <a href="mailto:contact@efficio.tech">Contact</a>
+          <a href="https://calendly.com/efficio-tech/strategy-call" target="_blank" rel="noopener">Book a Call</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">CAN-SPAM Compliance</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-div"></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Efficio, a division of BNG Contracting Enterprises LLC. All rights reserved. efficio.tech</p>
+      <!-- TODO: Replace with real company address -->
+      <p class="footer-copy">United States · contact@efficio.tech</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SCROLL PROGRESS
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  prog.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// MOBILE MENU
+document.getElementById('ham').addEventListener('click', () => {
+  document.getElementById('mn').classList.add('open');
+  document.getElementById('ov').classList.add('open');
+});
+function closeMobile() {
+  document.getElementById('mn').classList.remove('open');
+  document.getElementById('ov').classList.remove('open');
+}
+
+// SCROLL REVEAL
+const rvEls = document.querySelectorAll('.rv');
+const rvObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); } });
+}, { threshold: 0.12 });
+rvEls.forEach(el => { if (!el.classList.contains('vis')) rvObs.observe(el); });
+
+// COUNTER ANIMATION
+function animateCounter(el, target, prefix, suffix, decimals, duration) {
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val = target * eased;
+    const formatted = decimals
+      ? val.toFixed(1)
+      : Math.floor(val).toLocaleString();
+    el.textContent = (prefix || '') + formatted + (suffix || '');
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseFloat(el.dataset.target);
+    if (isNaN(target)) return;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = !!el.dataset.dec;
+    animateCounter(el, target, prefix, suffix, decimals, 1800);
+    statsObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => statsObs.observe(el));
+
+// PRICING TOGGLE
+let isAnnual = false;
+function togglePricing() {
+  isAnnual = !isAnnual;
+  const sw = document.getElementById('togSw');
+  const lblMo = document.getElementById('lbl-mo');
+  const lblYr = document.getElementById('lbl-yr');
+  sw.classList.toggle('on', isAnnual);
+  lblMo.classList.toggle('active', !isAnnual);
+  lblYr.classList.toggle('active', isAnnual);
+  document.querySelectorAll('.price-num').forEach(el => {
+    const val = isAnnual ? parseInt(el.dataset.yr) : parseInt(el.dataset.mo);
+    el.textContent = val.toLocaleString();
+  });
+  document.querySelectorAll('.price-setup').forEach(el => {
+    el.textContent = isAnnual ? el.dataset.yr : el.dataset.mo;
+  });
+}
+
+// FAQ ACCORDION
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>

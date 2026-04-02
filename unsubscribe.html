@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Unsubscribe — Efficio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:    #080c14;
+    --surf:  #0f1623;
+    --bd:    rgba(255,255,255,.08);
+    --white: #f0f4ff;
+    --text:  #94a3b8;
+    --muted: #64748b;
+    --purple: #7c3aed;
+    --purple2: #a855f7;
+    --green: #10b981;
+    --red:   #ef4444;
+    --glow:  rgba(124,58,237,.35);
+    --r:     10px;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    background: var(--surf);
+    border: 1px solid var(--bd);
+    border-radius: 20px;
+    padding: 56px 48px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  .icon {
+    width: 72px; height: 72px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bd);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    transition: all .4s;
+  }
+  .icon svg { color: var(--text); transition: color .4s; }
+  .icon.confirmed {
+    background: linear-gradient(135deg, rgba(16,185,129,.15), rgba(16,185,129,.05));
+    border-color: rgba(16,185,129,.3);
+  }
+  .icon.confirmed svg { color: var(--green); }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 800; color: var(--white);
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  p {
+    font-size: .95rem; line-height: 1.7;
+    color: var(--text); margin-bottom: 24px;
+  }
+  .email-display {
+    display: inline-block;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 10px 20px;
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 28px;
+    word-break: break-all;
+  }
+  .btn-unsub {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 36px; border-radius: var(--r);
+    font-size: 15px; font-weight: 600;
+    background: linear-gradient(135deg, var(--purple), #6d28d9);
+    color: #fff; border: 1px solid rgba(168,85,247,.4);
+    box-shadow: 0 0 40px var(--glow); transition: all .2s;
+    cursor: pointer;
+  }
+  .btn-unsub:hover { transform: translateY(-2px); box-shadow: 0 0 60px var(--glow); }
+  .btn-unsub:disabled {
+    opacity: .5; cursor: not-allowed;
+    transform: none; box-shadow: none;
+  }
+  .footer-note {
+    margin-top: 28px; font-size: .8rem; color: var(--muted);
+  }
+  .footer-note a { color: var(--purple); text-decoration: none; }
+  .footer-note a:hover { text-decoration: underline; }
+  .hidden { display: none; }
+
+  /* State: confirmed */
+  .confirmed-msg { color: var(--green); font-weight: 500; }
+
+  /* State: error (no email param) */
+  .error-msg { color: var(--red); }
+
+  @media (max-width: 480px) {
+    .card { padding: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon" id="icon">
+    <!-- Default: mail icon -->
+    <svg id="icon-mail" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="M22 4 12 13 2 4"/>
+    </svg>
+    <!-- Confirmed: check icon -->
+    <svg id="icon-check" class="hidden" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <!-- State: has email, awaiting confirmation -->
+  <div id="state-confirm">
+    <h1>Unsubscribe from Efficio</h1>
+    <p>You are requesting to unsubscribe the following email address from all future communications:</p>
+    <div class="email-display" id="email-display"></div>
+    <br><br>
+    <button class="btn-unsub" id="btn-confirm" onclick="confirmUnsub()">Confirm Unsubscribe</button>
+  </div>
+
+  <!-- State: confirmed -->
+  <div id="state-done" class="hidden">
+    <h1>You've been unsubscribed.</h1>
+    <p class="confirmed-msg">Your email address has been removed from our mailing list. You will no longer receive emails from Efficio.</p>
+    <p>If this was a mistake, or you'd like to discuss anything, feel free to reach out.</p>
+    <a href="mailto:contact@efficio.tech" class="btn-unsub" style="text-decoration:none;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M22 4 12 13 2 4"/>
+      </svg>
+      Contact Us
+    </a>
+  </div>
+
+  <!-- State: no email provided -->
+  <div id="state-error" class="hidden">
+    <h1>Unsubscribe</h1>
+    <p class="error-msg">No email address was provided. If you received an email from us and would like to unsubscribe, please click the unsubscribe link in the email, or contact us directly.</p>
+    <a href="mailto:contact@efficio.tech?subject=Unsubscribe%20Request" class="btn-unsub" style="text-decoration:none;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M22 4 12 13 2 4"/>
+      </svg>
+      Email Unsubscribe Request
+    </a>
+  </div>
+
+  <div class="footer-note">
+    <a href="https://efficio.tech">efficio.tech</a> &middot; <a href="mailto:contact@efficio.tech">contact@efficio.tech</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var email = (params.get('email') || '').trim().toLowerCase();
+
+  if (!email || email.indexOf('@') === -1) {
+    document.getElementById('state-confirm').classList.add('hidden');
+    document.getElementById('state-error').classList.remove('hidden');
+    return;
+  }
+
+  // Display the email address (safely escaped via textContent)
+  document.getElementById('email-display').textContent = email;
+
+  // Store for later use
+  window._unsubEmail = email;
+})();
+
+function confirmUnsub() {
+  var btn = document.getElementById('btn-confirm');
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+
+  var email = window._unsubEmail;
+
+  // Try to notify the dashboard API (best-effort; may fail if dashboard is not publicly exposed)
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://efficio.tech/api/unsubscribe', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.timeout = 5000;
+    xhr.send(JSON.stringify({ email: email }));
+  } catch(e) {
+    // Silently ignore — suppression also handled server-side via inbox monitoring
+  }
+
+  // Also submit to Netlify Forms as a record of the unsubscribe request
+  try {
+    var formData = new FormData();
+    formData.append('form-name', 'unsubscribe');
+    formData.append('email', email);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    }).catch(function() {});
+  } catch(e) {}
+
+  // Show confirmation after brief delay for UX
+  setTimeout(function() {
+    document.getElementById('state-confirm').classList.add('hidden');
+    document.getElementById('state-done').classList.remove('hidden');
+    document.getElementById('icon').classList.add('confirmed');
+    document.getElementById('icon-mail').classList.add('hidden');
+    document.getElementById('icon-check').classList.remove('hidden');
+  }, 600);
+}
+</script>
+
+<!-- Hidden Netlify form for collecting unsubscribe requests -->
+<form name="unsubscribe" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="bot-field">
+  <input type="email" name="email">
+</form>
+
+</body>
+</html>

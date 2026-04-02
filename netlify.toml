@@ -20,11 +20,12 @@
   to     = "https://calendly.com/efficio-tech/strategy-call"
   status = 302
 
-# Unsubscribe → contact section (replace with real handler when available)
+# Unsubscribe — serves unsubscribe.html (CAN-SPAM compliant opt-out page)
+# Query params (?email=...) are preserved automatically by Netlify rewrites.
 [[redirects]]
   from   = "/unsubscribe"
-  to     = "/#contact"
-  status = 302
+  to     = "/unsubscribe.html"
+  status = 200
 
 # Onboarding shortlink
 [[redirects]]

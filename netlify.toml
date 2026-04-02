@@ -12,12 +12,12 @@
 # Book / Audit shortcuts → Calendly directly
 [[redirects]]
   from   = "/book"
-  to     = "https://calendly.com/brady-bngcent/30min"
+  to     = "https://calendly.com/brady-bngcent/efficio-strategy-call"
   status = 302
 
 [[redirects]]
   from   = "/audit"
-  to     = "https://calendly.com/brady-bngcent/30min"
+  to     = "https://calendly.com/brady-bngcent/efficio-strategy-call"
   status = 302
 
 # Unsubscribe — serves unsubscribe.html (CAN-SPAM compliant opt-out page)

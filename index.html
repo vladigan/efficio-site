@@ -220,7 +220,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}.rv.d6{transition-delay:.6s}
 
 /* PAIN POINTS */
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
   background:var(--bd);border-radius:var(--r2);overflow:hidden}
 .pain-card{background:var(--surf);padding:36px 30px;position:relative;transition:background .25s;overflow:hidden}
 .pain-card:hover{background:var(--surf2)}
@@ -252,7 +252,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .step-p{font-size:.9rem;color:var(--text);line-height:1.65}
 
 /* FEATURE CARDS */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .feat-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
   padding:36px 30px;position:relative;overflow:hidden;transition:all .25s}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -267,34 +267,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.22)}
 .feat-h{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.025em}
 .feat-p{font-size:.88rem;color:var(--text);line-height:1.65}
-
-/* ROI */
-.roi-wrap{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r3);
-  overflow:hidden;border:1px solid var(--bd)}
-.roi-before{background:var(--surf);padding:56px 48px}
-.roi-after{background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(99,102,241,.07));
-  padding:56px 48px;position:relative;border-left:1px solid var(--bd2)}
-.roi-after::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,.13),transparent);pointer-events:none}
-.roi-after>*{position:relative;z-index:1}
-.roi-tag{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px}
-.roi-before .roi-tag{color:var(--muted)}
-.roi-after .roi-tag{color:var(--purple3)}
-.roi-heading{font-size:1.45rem;font-weight:800;line-height:1.2;margin-bottom:32px;letter-spacing:-.03em}
-.roi-before .roi-heading{color:var(--text)}
-.roi-after .roi-heading{color:var(--white)}
-.roi-list{display:flex;flex-direction:column;gap:16px}
-.roi-row{display:flex;align-items:flex-start;gap:12px;font-size:.9rem;line-height:1.55}
-.roi-row-icon{flex-shrink:0;margin-top:1px;font-size:1.1rem}
-.roi-before .roi-row{color:var(--muted)}
-.roi-after .roi-row{color:var(--text)}
-.roi-after .roi-row strong{color:var(--white)}
-.roi-metric{margin-top:36px;padding:24px;background:rgba(124,58,237,.12);
-  border:1px solid var(--bd2);border-radius:var(--r2)}
-.roi-big{font-size:2.6rem;font-weight:800;line-height:1;letter-spacing:-.04em;
-  background:linear-gradient(90deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
-.roi-big-lbl{font-size:.8rem;color:var(--muted);font-weight:500}
 
 /* PRICING */
 .pricing-toggle-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px}
@@ -416,8 +388,6 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
   .process-track{grid-template-columns:1fr;gap:48px}
   .process-track::before{display:none}
   .feat-grid{grid-template-columns:1fr}
-  .roi-wrap{grid-template-columns:1fr}
-  .roi-after{border-left:none;border-top:1px solid var(--bd2)}
   .pricing-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
@@ -428,71 +398,9 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
   .orbit-ring.r1,.ring-spin.s1{width:138px;height:138px}
   .hero-right{display:none}
   .hero-inner{grid-template-columns:1fr}
-  .engine-grid{grid-template-columns:1fr}
-  .engine-metric{grid-template-columns:repeat(2,1fr)}
-  .powers-grid{grid-template-columns:1fr}
 }
 
-/* THE ENGINE */
-.engine-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.code-window{background:#070d1a;border:1px solid var(--bd2);border-radius:var(--r2);overflow:hidden;
-  box-shadow:0 0 60px rgba(124,58,237,.14),0 24px 48px rgba(0,0,0,.5)}
-.code-topbar{display:flex;align-items:center;gap:6px;padding:13px 18px;
-  background:rgba(124,58,237,.07);border-bottom:1px solid var(--bd)}
-.code-dots{display:flex;gap:6px}
-.cdot{width:11px;height:11px;border-radius:50%}
-.cdot.r{background:#ff5f56}.cdot.y{background:#ffbd2e}.cdot.g{background:#27c93f}
-.code-fname{font-size:.7rem;font-weight:600;color:var(--muted);margin-left:10px;
-  letter-spacing:.04em;font-family:'Courier New',monospace}
-.code-body{padding:22px 24px;font-family:'Courier New',Consolas,monospace;
-  font-size:.78rem;line-height:1.85;overflow-x:auto}
-.code-body pre{margin:0;background:none;font-family:inherit;font-size:inherit;
-  line-height:inherit;color:var(--w2)}
-.ck{color:#c084fc}.cf{color:#60a5fa}.cs{color:#34d399}
-.cc{color:#475569;font-style:italic}
-.engine-info{display:flex;flex-direction:column;gap:28px}
-.stack-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-.stack-badge{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--r);
-  background:var(--surf);border:1px solid var(--bd);font-size:.77rem;font-weight:600;
-  color:var(--text);transition:all .2s;cursor:default}
-.stack-badge:hover{border-color:var(--bd2);color:var(--white);background:var(--surf2)}
-.stack-badge-icon{font-size:.95rem}
-.engine-metric{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:4px}
-.em-block{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:16px 18px;transition:border-color .2s;text-align:center}
-.em-block:hover{border-color:var(--bd2)}
-.em-num{font-size:1.4rem;font-weight:800;line-height:1;
-  background:linear-gradient(135deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
-.em-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
 
-/* POWERS */
-.powers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.power-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:32px 28px;position:relative;overflow:hidden;transition:all .25s}
-.power-card:hover{background:var(--surf2);border-color:var(--bd2);transform:translateY(-3px);
-  box-shadow:0 16px 48px rgba(0,0,0,.3),0 0 32px rgba(124,58,237,.08)}
-.power-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--purple2),transparent);opacity:0;transition:opacity .3s}
-.power-card:hover::before{opacity:1}
-.power-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;
-  font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.22);color:#4ade80;margin-bottom:16px}
-.power-live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 6px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
-.power-soon{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;
-  font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.18);color:var(--muted);margin-bottom:16px}
-.power-name{font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.025em}
-.power-desc{font-size:.86rem;color:var(--text);line-height:1.62}
-.power-sector{font-size:.72rem;font-weight:600;color:var(--muted);margin-top:16px;
-  text-transform:uppercase;letter-spacing:.08em;padding-top:16px;border-top:1px solid var(--bd)}
-
-@media(max-width:1024px){
-  .engine-grid{grid-template-columns:1fr}
-  .engine-metric{grid-template-columns:repeat(4,1fr)}
-  .powers-grid{grid-template-columns:repeat(2,1fr)}
-}
 /* ======= ENHANCED ORBITAL ======= */
 .orbit-core{animation:cpulse2 2.5s ease-in-out infinite!important}
 @keyframes cpulse2{
@@ -503,102 +411,9 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
 .ring-spin.s3{animation:ocw 26s linear infinite;animation-delay:-9s}
 .ring-spin.s4{animation:occw 36s linear infinite;animation-delay:-14s}
 
-/* ======= AI FLOW SECTION ======= */
-.ai-flow-wrap{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;padding:20px 0 40px}
-.ai-flow-node{flex:0 0 auto}
-.flow-node-inner{width:178px;padding:28px 18px 24px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--bd);text-align:center;transition:border-color .4s,box-shadow .4s}
-.flow-node-inner.center-node{background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(99,102,241,.07));border-color:var(--bd2);animation:nodeGlowPulse 3s ease-in-out infinite}
-@keyframes nodeGlowPulse{0%,100%{box-shadow:0 0 40px rgba(124,58,237,.3),0 0 80px rgba(124,58,237,.12)}50%{box-shadow:0 0 65px rgba(124,58,237,.52),0 0 130px rgba(124,58,237,.24)}}
-.flow-node-inner.side-node{animation:sideNodePulse 3.5s ease-in-out infinite}
-@keyframes sideNodePulse{0%,100%{box-shadow:0 0 20px rgba(124,58,237,.12)}50%{box-shadow:0 0 36px rgba(124,58,237,.28),0 0 0 1px var(--bd2)}}
-.fn-icon{width:54px;height:54px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:rgba(124,58,237,.1);border:1px solid var(--bd2);transition:box-shadow .4s}
-.center-node .fn-icon{background:linear-gradient(135deg,var(--purple),var(--purple2));border-color:transparent;box-shadow:0 0 28px var(--glow),0 0 56px var(--glow2)}
-.fn-title{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.02em}
-.fn-sub{font-size:.7rem;color:var(--muted);line-height:1.55}
-.flow-conn{display:flex;align-items:center;padding:0 6px;align-self:center;flex-shrink:0}
-.flow-pipe{width:76px;height:2px;background:rgba(124,58,237,.15);position:relative;overflow:hidden}
-.flow-pulse{position:absolute;top:-2px;left:0;width:14px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--purple2),var(--purple3));box-shadow:0 0 10px var(--glow);animation:pipePulse 1.8s linear infinite}
-.flow-conn:last-of-type .flow-pulse{animation-delay:.7s}
-@keyframes pipePulse{0%{left:-14px;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% + 14px);opacity:0}}
-.flow-arrowhead{color:var(--purple2);font-size:1.2rem;margin-left:-1px;line-height:1;animation:arrowBounce 1.8s ease-in-out infinite}
-@keyframes arrowBounce{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(5px);opacity:1}}
-.flow-details{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-@media(max-width:768px){.flow-details{grid-template-columns:1fr}.ai-flow-wrap{flex-direction:column;gap:0}.flow-conn{transform:rotate(90deg);padding:6px 0}}
-.flow-detail-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:28px 24px;transition:all .25s}
-.flow-detail-card:hover{border-color:var(--bd2);background:var(--surf2);transform:translateY(-2px)}
-.fdc-icon{font-size:1.6rem;margin-bottom:14px}
-.fdc-title{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.02em}
-.fdc-text{font-size:.85rem;color:var(--text);line-height:1.65}
-
-/* ======= LIVE DEMO DASHBOARD ======= */
-.demo-browser{background:#06101e;border:1px solid var(--bd2);border-radius:var(--r2);overflow:hidden;box-shadow:0 0 80px rgba(124,58,237,.2),0 32px 64px rgba(0,0,0,.6)}
-.demo-chrome{display:flex;align-items:center;gap:6px;padding:11px 16px;background:rgba(124,58,237,.06);border-bottom:1px solid var(--bd)}
-.demo-url-bar{flex:1;margin:0 12px;background:rgba(0,0,0,.4);border:1px solid var(--bd);border-radius:5px;padding:3px 10px;font-size:.7rem;color:var(--muted);font-family:monospace}
-.demo-status-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(124,58,237,.15);border:1px solid var(--bd2);color:var(--purple3);white-space:nowrap}
-.demo-body{display:grid;grid-template-columns:1fr 1fr 1fr}
-@media(max-width:768px){.demo-body{grid-template-columns:1fr}}
-.demo-panel{padding:18px 16px;border-right:1px solid var(--bd);overflow:hidden;min-height:260px}
-.demo-panel:last-child{border-right:none}
-.dp-title{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.dp-live{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.7);animation:pdot 1.5s ease-in-out infinite}
-.d-lead{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:var(--r);background:var(--surf2);border:1px solid var(--bd);font-size:.68rem;color:var(--text);margin-bottom:6px;opacity:0;transform:translateX(-10px);transition:opacity .45s,transform .45s}
-.d-lead.show{opacity:1;transform:translateX(0)}
-.ld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.ld-g{background:#4ade80;box-shadow:0 0 5px rgba(74,222,128,.6)}
-.ld-y{background:#f59e0b;box-shadow:0 0 5px rgba(245,158,11,.5)}
-.ld-b{background:#64748b}
-.eline{height:7px;border-radius:3px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.12);margin-bottom:8px;position:relative;overflow:hidden}
-.eline::after{content:'';position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,var(--purple),var(--purple2));width:0;transition:width 1.1s ease}
-.eline.typed::after{width:var(--w,80%)}
-.e-cursor{display:inline-block;width:2px;height:12px;background:var(--purple2);vertical-align:text-bottom;animation:eblink .8s step-end infinite;margin-left:3px}
-@keyframes eblink{0%,100%{opacity:1}50%{opacity:0}}
-.d-proposal{background:rgba(124,58,237,.07);border:1px solid var(--bd2);border-radius:var(--r);padding:14px;font-size:.7rem;color:var(--text);line-height:1.65;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
-.d-proposal.show{opacity:1;transform:translateY(0)}
-.dp-head{font-weight:700;color:var(--white);font-size:.78rem;margin-bottom:8px}
-.dp-badge-g{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:100px;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:#4ade80;margin-bottom:8px}
-
-/* ======= TECH STACK GRID ======= */
-.tech-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-@media(max-width:1024px){.tech-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:500px){.tech-grid{grid-template-columns:repeat(2,1fr)}}
-.ti-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px 12px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;transition:all .25s;cursor:default}
-.ti-card:hover{border-color:var(--bd2);background:var(--surf2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3),0 0 24px rgba(124,58,237,.12)}
-.ti-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.15)}
-.ti-icon img{width:28px;height:28px;object-fit:contain}
-.ti-icon span{font-size:1.4rem;line-height:1}
-.ti-name{font-size:.72rem;font-weight:600;color:var(--w2);text-align:center;letter-spacing:.02em}
-
-/* ======= BEFORE/AFTER ROI SLIDER ======= */
-.ba-outer{position:relative;border-radius:var(--r3);overflow:hidden;border:1px solid var(--bd);user-select:none;-webkit-user-select:none;cursor:col-resize}
-.ba-panels{display:grid;grid-template-columns:1fr 1fr;min-height:460px}
-@media(max-width:768px){.ba-panels{grid-template-columns:1fr!important;min-height:auto}.ba-divider-line{display:none}.ba-bef-tag,.ba-aft-tag{display:none}}
-.ba-before-panel{background:var(--surf);padding:56px 48px;overflow:hidden}
-.ba-after-panel{background:linear-gradient(145deg,rgba(124,58,237,.14),rgba(99,102,241,.07));padding:56px 48px;position:relative;border-left:1px solid var(--bd2);overflow:hidden}
-.ba-after-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,.13),transparent);pointer-events:none}
-.ba-after-panel>*{position:relative;z-index:1}
-.ba-divider-line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:4px;background:var(--purple2);z-index:20;cursor:col-resize;box-shadow:0 0 16px var(--glow),0 0 32px rgba(124,58,237,.35)}
-.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--purple);border:2px solid var(--purple2);display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px var(--glow),0 4px 14px rgba(0,0,0,.45);cursor:col-resize;transition:transform .15s}
-.ba-handle:hover{transform:translate(-50%,-50%) scale(1.12)}
-.ba-handle-arrows{color:#fff;font-size:.75rem;letter-spacing:-2px;font-weight:700}
-.ba-bef-tag,.ba-aft-tag{position:absolute;top:20px;padding:5px 14px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;z-index:15;pointer-events:none}
-.ba-bef-tag{left:20px;background:rgba(0,0,0,.55);color:var(--muted);border:1px solid var(--bd)}
-.ba-aft-tag{right:20px;background:rgba(124,58,237,.25);color:var(--purple3);border:1px solid var(--bd2)}
-@media(max-width:768px){.ba-before-panel,.ba-after-panel{padding:36px 28px}}
-
 /* ======= PARALLAX ======= */
 .hero-bg,.hero-dots{will-change:transform}
 
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-@media(max-width:900px){.testi-grid{grid-template-columns:1fr}}
-.testi-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:1.75rem;transition:all .3s;position:relative}
-.testi-card:hover{border-color:var(--bd2);box-shadow:0 0 32px var(--glow2)}
-.testi-stars{display:flex;gap:.2rem;margin-bottom:1rem;color:#f59e0b;font-size:.95rem}
-.testi-quote{font-size:.9rem;color:var(--text);line-height:1.75;margin-bottom:1.25rem;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:.75rem}
-.testi-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,0.1);box-shadow:0 4px 14px rgba(0,0,0,0.4)}
-.testi-name{font-size:.88rem;font-weight:700;color:var(--white)}
-.testi-role{font-size:.75rem;color:var(--muted);margin-top:.15rem}
 </style>
 </head>
 <body>
@@ -615,8 +430,6 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
     <ul class="nav-links">
       <li><a href="#pain">Problem</a></li>
       <li><a href="#how">How It Works</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#engine">Technology</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -631,8 +444,6 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
 <div id="mn">
   <a href="#pain" onclick="closeMobile()">Problem</a>
   <a href="#how" onclick="closeMobile()">How It Works</a>
-  <a href="#features" onclick="closeMobile()">Features</a>
-  <a href="#engine" onclick="closeMobile()">Technology</a>
   <a href="#pricing" onclick="closeMobile()">Pricing</a>
   <a href="#faq" onclick="closeMobile()">FAQ</a>
   <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
@@ -655,14 +466,14 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
         <span class="grad-purple">Future of Automation.</span>
       </h1>
       <p class="hero-sub rv vis">
-        Efficio is the AI technology company that builds enterprise-grade automation infrastructure. Our systems power businesses across industries — from SMBs to government contractors — deployed and live in 72 hours.
+        Efficio builds enterprise-grade AI automation that reclaims 20+ hours per week and replaces 2-3 full-time hires. From lead gen to proposals to CRM — deployed and live in 72 hours.
       </p>
       <div class="hero-ctas rv vis">
         <a href="https://calendly.com/efficio-tech/strategy-call" class="btn-primary" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Book Free Strategy Call
         </a>
-        <a href="#features" class="btn-outline">
+        <a href="#how" class="btn-outline">
           See What We Automate
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -823,19 +634,9 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
         <p class="pain-p">You had a great call. Then life happened. Two weeks passed. They went with someone who followed up first.</p>
       </div>
       <div class="pain-card rv vis d4">
-        <span class="pain-emoji">🗂️</span>
-        <div class="pain-h">Paying someone to enter data all day?</div>
-        <p class="pain-p">Your CRM isn't updating itself. Someone's copying spreadsheets into spreadsheets while real work waits.</p>
-      </div>
-      <div class="pain-card rv vis d5">
         <span class="pain-emoji">📬</span>
         <div class="pain-h">Drowning in follow-up emails?</div>
         <p class="pain-p">Clients need reminders. Prospects need nurturing. You need a clone. Instead you have a growing inbox and creeping guilt.</p>
-      </div>
-      <div class="pain-card rv vis d6">
-        <span class="pain-emoji">🎯</span>
-        <div class="pain-h">No idea which marketing is working?</div>
-        <p class="pain-p">You're spending on ads, referrals, cold outreach — with no clear picture of what's actually driving revenue.</p>
       </div>
     </div>
   </div>
@@ -875,257 +676,37 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
         <p class="step-p">Weekly performance reports. Continuous tuning based on real data. As your business grows, your AI stack grows with it — no rebuilding from scratch.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- FEATURES -->
-<section class="section section-alt" id="features">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">What We Automate</div>
-      <h2 class="s-title rv vis">60+ Modules. One Team.</h2>
-      <p class="s-sub rv vis">Every module is built, configured, and maintained by Efficio. You run your business. We run your AI.</p>
+    <!-- KEY CAPABILITIES -->
+    <div class="text-center" style="margin-top:80px;margin-bottom:48px">
+      <h3 class="s-title rv vis" style="font-size:clamp(1.5rem,2.5vw,2rem)">What We Automate</h3>
     </div>
     <div class="feat-grid">
       <div class="feat-card rv vis d1">
         <div class="feat-icon">🔍</div>
         <h3 class="feat-h">AI Lead Scraping</h3>
-        <p class="feat-p">We've already scraped 18,000+ verified business leads nationwide. Your pipeline never runs dry. Filter by industry, location, rating, and revenue signals.</p>
+        <p class="feat-p">18,000+ verified leads scraped nationwide. Filter by industry, location, and revenue signals. Your pipeline never runs dry.</p>
       </div>
       <div class="feat-card rv vis d2">
         <div class="feat-icon">✉️</div>
-        <h3 class="feat-h">Hyper-Personalized Outreach</h3>
-        <p class="feat-p">5 proven email strategies auto-selected per lead. A 3-step drip sequence (Day 0/3/7) running 24/7 with built-in unsubscribe compliance.</p>
+        <h3 class="feat-h">Smart Outreach</h3>
+        <p class="feat-p">5 proven email strategies auto-selected per lead. A 3-step drip sequence running 24/7 with built-in compliance.</p>
       </div>
       <div class="feat-card rv vis d3">
         <div class="feat-icon">📄</div>
-        <h3 class="feat-h">Instant Proposal Generator</h3>
-        <p class="feat-p">Client fills out a form. A professional, branded proposal lands in their inbox in under 60 seconds. No more quoting from memory.</p>
+        <h3 class="feat-h">Instant Proposals</h3>
+        <p class="feat-p">Client fills out a form. A professional, branded proposal lands in their inbox in under 60 seconds.</p>
       </div>
       <div class="feat-card rv vis d4">
         <div class="feat-icon">🗄️</div>
         <h3 class="feat-h">CRM Intelligence</h3>
-        <p class="feat-p">Every lead, every touchpoint, every reply automatically logged and categorized. Know who's hot, who needs a nudge, and who to drop — without lifting a finger.</p>
-      </div>
-      <div class="feat-card rv vis d5">
-        <div class="feat-icon">📊</div>
-        <h3 class="feat-h">Live Analytics Dashboard</h3>
-        <p class="feat-p">A real-time view of your pipeline, campaign performance, reply rates, and revenue attribution. Finally know what's working.</p>
-      </div>
-      <div class="feat-card rv vis d6">
-        <div class="feat-icon">🔔</div>
-        <h3 class="feat-h">Inbox Monitor + Auto-Reply</h3>
-        <p class="feat-p">AI categorizes every incoming reply — INTERESTED, OOO, BOUNCE, NOT INTERESTED — and routes them automatically. Hot leads never get buried.</p>
+        <p class="feat-p">Every lead, touchpoint, and reply automatically logged. Know who's hot, who needs a nudge, and who to drop.</p>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- THE ENGINE -->
-<section class="section" id="engine">
-  <div class="container">
-    <div class="engine-grid">
-
-      <!-- Code window -->
-      <div class="rv vis">
-        <div class="code-window">
-          <div class="code-topbar">
-            <div class="code-dots">
-              <div class="cdot r"></div>
-              <div class="cdot y"></div>
-              <div class="cdot g"></div>
-            </div>
-            <span class="code-fname">efficio_engine.py</span>
-          </div>
-          <div class="code-body">
-<pre><span class="cc"># Core AI pipeline — production</span>
-<span class="ck">import</span> anthropic
-<span class="ck">from</span> efficio.pipeline <span class="ck">import</span> LeadPipeline
-
-<span class="ck">async def</span> <span class="cf">process_batch</span>(leads):
-    client = anthropic.<span class="cf">Anthropic</span>()
-
-    <span class="ck">for</span> lead <span class="ck">in</span> leads:
-        <span class="cc"># AI-powered personalization layer</span>
-        msg = <span class="ck">await</span> client.messages.<span class="cf">create</span>(
-            model=<span class="cs">"claude-opus-4-6"</span>,
-            messages=[{
-                <span class="cs">"role"</span>: <span class="cs">"user"</span>,
-                <span class="cs">"content"</span>: <span class="cf">build_prompt</span>(lead)
-            }]
-        )
-        <span class="ck">await</span> LeadPipeline.<span class="cf">dispatch</span>(
-            lead=lead, message=msg
-        )</pre>
-          </div>
-        </div>
-      </div>
-
-      <!-- Stack info -->
-      <div class="engine-info rv vis d2">
-        <div>
-          <div class="s-label">The Engine</div>
-          <h2 class="s-title">Built on Elite<br>AI Infrastructure</h2>
-          <p class="s-sub" style="margin-bottom:0">Every Efficio automation runs on a proprietary stack engineered in-house — combining Python pipelines, state-of-the-art language models, and custom NLP layers built for production.</p>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px">Tech Stack</div>
-          <div class="stack-badges">
-            <div class="stack-badge"><span class="stack-badge-icon">🐍</span>Python</div>
-            <div class="stack-badge"><span class="stack-badge-icon">🤖</span>Claude AI</div>
-            <div class="stack-badge"><span class="stack-badge-icon">🧠</span>NLP</div>
-            <div class="stack-badge"><span class="stack-badge-icon">⚡</span>ML Pipelines</div>
-            <div class="stack-badge"><span class="stack-badge-icon">🔗</span>REST APIs</div>
-            <div class="stack-badge"><span class="stack-badge-icon">☁️</span>Cloud Infra</div>
-          </div>
-        </div>
-        <div class="engine-metric">
-          <div class="em-block">
-            <div class="em-num">60+</div>
-            <div class="em-lbl">AI Modules</div>
-          </div>
-          <div class="em-block">
-            <div class="em-num">&lt;72h</div>
-            <div class="em-lbl">Deploy Time</div>
-          </div>
-          <div class="em-block">
-            <div class="em-num">24/7</div>
-            <div class="em-lbl">Runtime</div>
-          </div>
-          <div class="em-block">
-            <div class="em-num">99.9%</div>
-            <div class="em-lbl">Uptime SLA</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- POWERS -->
-<section class="section section-alt" id="powers">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">Powered By Efficio</div>
-      <h2 class="s-title rv vis">One Platform.<br>Multiple Companies.</h2>
-      <p class="s-sub rv vis">Efficio isn't just a service — it's the AI backbone behind a growing portfolio of ventures. Our technology platform powers companies across industries.</p>
-    </div>
-    <div class="powers-grid">
-
-      <div class="power-card rv vis d1">
-        <div class="power-live"><span class="power-live-dot"></span>Live</div>
-        <div class="power-name">BNGCENT</div>
-        <p class="power-desc">AI-powered proposal generation, bid intelligence, and compliance monitoring for U.S. federal government contracting. Built entirely on Efficio's automation infrastructure.</p>
-        <div class="power-sector">Government Contracting · bngcent.com</div>
-      </div>
-
-      <div class="power-card rv vis d2">
-        <div class="power-live"><span class="power-live-dot"></span>Live</div>
-        <div class="power-name">Career Co-Pilots</div>
-        <p class="power-desc">Automated resume optimization, AI-powered job matching, and intelligent application pipelines. Efficio's NLP stack applied to the career services market.</p>
-        <div class="power-sector">Career Services</div>
-      </div>
-
-      <div class="power-card rv vis d3" style="border-style:dashed">
-        <div class="power-soon">Coming Soon</div>
-        <div class="power-name" style="color:var(--text)">Your Industry</div>
-        <p class="power-desc">Efficio's technology platform is available for enterprise licensing and white-label deployment. Build on the same infrastructure that powers our portfolio.</p>
-        <div class="power-sector">Enterprise Licensing Available</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ROI SECTION -->
-<section class="section" id="roi">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">The Math</div>
-      <h2 class="s-title rv vis">What Would an Extra 20 Hours/Week Do?</h2>
-      <p class="s-sub rv vis">That's what the average Efficio client reclaims. Here's where those hours were going.</p>
-    </div>
-    <div class="roi-wrap rv vis">
-      <div class="roi-before">
-        <div class="roi-tag">⚠ Before Efficio</div>
-        <div class="roi-heading">The manual business. Exhausting by design.</div>
-        <div class="roi-list">
-          <div class="roi-row"><span class="roi-row-icon">❌</span>6+ hours/day on manual follow-ups, data entry, and scheduling</div>
-          <div class="roi-row"><span class="roi-row-icon">❌</span>Hot leads cooling off while you're handling admin work</div>
-          <div class="roi-row"><span class="roi-row-icon">❌</span>Writing the same proposal 8 different times this month</div>
-          <div class="roi-row"><span class="roi-row-icon">❌</span>No visibility into which campaigns or channels actually close deals</div>
-          <div class="roi-row"><span class="roi-row-icon">❌</span>Hiring headcount to handle tasks that software should own</div>
-        </div>
-      </div>
-      <div class="roi-after">
-        <div class="roi-tag">✦ After Efficio</div>
-        <div class="roi-heading">The automated business. Built to scale.</div>
-        <div class="roi-list">
-          <div class="roi-row"><span class="roi-row-icon">✓</span><span>AI handles outreach, follow-ups, and data entry <strong>around the clock</strong></span></div>
-          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Hot leads flagged in real-time — <strong>you focus on closing, not chasing</strong></span></div>
-          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Professional proposals <strong>generated in 45 seconds</strong> from a single form</span></div>
-          <div class="roi-row"><span class="roi-row-icon">✓</span><span>Live dashboard shows <strong>exactly what's driving revenue</strong></span></div>
-          <div class="roi-row"><span class="roi-row-icon">✓</span><span>One Efficio subscription replaces <strong>2–3 full-time hires</strong></span></div>
-        </div>
-        <div class="roi-metric">
-          <div class="roi-big">20 hrs/wk</div>
-          <div class="roi-big-lbl">Average time reclaimed per client in the first 30 days</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:0">
-      <div class="s-label rv vis">Client Results</div>
-      <h2 class="s-title rv vis">What our clients say</h2>
-      <p class="s-sub rv vis">Real businesses. Real outcomes. No fluff.</p>
-    </div>
-    <div class="testi-grid">
-
-      <div class="testi-card rv vis">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"We were spending 30+ hours a week on manual follow-ups and data entry. Efficio automated 80% of that in the first month. Our pipeline doubled and we didn't hire a single person."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=14" alt="Michael R.">
-          <div>
-            <div class="testi-name">Michael R.</div>
-            <div class="testi-role">CEO, Midwest HVAC Services</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card rv vis">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The lead scraping and outreach automation alone paid for itself in week two. I was skeptical about AI tools but Efficio is legitimately different — it actually works end-to-end."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=26" alt="Sarah K.">
-          <div>
-            <div class="testi-name">Sarah K.</div>
-            <div class="testi-role">VP Marketing, Bridgeline Media</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card rv vis">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"We went from 12 qualified leads a month to over 80. The proposal generator alone saves our team 6 hours per pitch. I can't imagine running this business without Efficio now."</p>
-        <div class="testi-author">
-          <img class="testi-avatar" src="https://i.pravatar.cc/150?img=52" alt="Tom B.">
-          <div>
-            <div class="testi-name">Tom B.</div>
-            <div class="testi-role">Founder, Clearpath B2B</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
 <section class="section section-alt" id="pricing">
@@ -1274,22 +855,6 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
         <div class="faq-a"><div class="faq-a-inner">A VA works 8 hours a day, makes mistakes, and needs management. A developer builds something once and leaves. Efficio runs 24/7, improves over time, and never calls in sick. For the cost of one mid-level hire, you get an entire AI team plus the engineers who maintain it.</div></div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What does "60+ modules" actually mean?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Modules are discrete automation units — each handles one specific task: scraping leads from Google Maps, writing personalized emails, generating proposals, tracking replies, updating your CRM, firing follow-up sequences, and so on. They work independently and together as a system tailored to your business.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can I see a demo before committing?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Book a free strategy call and we'll walk through a live demo of the full stack — including leads already scraped in your industry. No pitch deck. Real software, real data, real results.</div></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1327,7 +892,7 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
       <div>
         <div class="footer-col-title">Product</div>
         <div class="footer-links">
-          <a href="#features">Features</a>
+          <a href="#how">Features</a>
           <a href="#pricing">Pricing</a>
           <a href="#how">How It Works</a>
           <a href="onboarding.html">Client Onboarding</a>

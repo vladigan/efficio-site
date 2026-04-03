@@ -414,6 +414,49 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
 /* ======= PARALLAX ======= */
 .hero-bg,.hero-dots{will-change:transform}
 
+/* ─── PLATFORM PREVIEW ─── */
+.eff-frame{max-width:880px;margin:0 auto;background:rgba(5,10,22,.95);border:1px solid var(--bd2);border-radius:var(--r3);overflow:hidden;box-shadow:0 0 80px var(--glow),0 0 140px var(--glow2),0 32px 80px rgba(0,0,0,.5)}
+.eff-titlebar{display:flex;align-items:center;gap:10px;padding:13px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--bd)}
+.eff-dots{display:flex;gap:6px}
+.eff-dot-r{width:10px;height:10px;border-radius:50%;background:#FF5F57}
+.eff-dot-y{width:10px;height:10px;border-radius:50%;background:#FEBC2E}
+.eff-dot-g{width:10px;height:10px;border-radius:50%;background:#28C840}
+.eff-url{flex:1;margin:0 14px;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:5px;padding:5px 12px;font-size:.65rem;color:var(--muted);font-family:monospace}
+.eff-live{display:flex;align-items:center;gap:6px;font-size:.65rem;font-weight:700;color:#4ade80;letter-spacing:.08em;text-transform:uppercase}
+.eff-live-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:effPulse 1.5s ease infinite}
+@keyframes effPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.eff-body{padding:24px}
+.eff-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.eff-stat{background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 16px;text-align:center}
+.eff-stat-val{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--purple2),var(--purple3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
+.eff-stat-lbl{font-size:.67rem;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.eff-pipeline{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:24px;flex-wrap:wrap;row-gap:8px}
+.eff-pipe-step{padding:8px 16px;border-radius:var(--r);font-size:.72rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--bd);text-align:center}
+.eff-pipe-step.eff-pipe-active{color:var(--purple3);border-color:var(--bd2);background:rgba(124,58,237,.08)}
+.eff-pipe-step.eff-pipe-won{color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.08)}
+.eff-pipe-count{display:block;font-size:.6rem;font-weight:400;color:var(--muted);margin-top:2px;font-family:monospace}
+.eff-pipe-arrow{width:20px;height:1px;background:var(--bd);flex-shrink:0}
+.eff-feed-label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eff-feed-label::after{content:'';flex:1;height:1px;background:var(--bd)}
+.eff-feed{display:flex;flex-direction:column;gap:6px}
+.eff-feed-row{display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:var(--r);transition:all .3s}
+.eff-feed-row:hover{background:rgba(124,58,237,.06);border-color:var(--bd2)}
+.eff-feed-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.eff-fdot-sent{background:var(--purple2);box-shadow:0 0 6px var(--glow2)}
+.eff-fdot-reply{background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.5)}
+.eff-feed-action{font-size:.72rem;font-weight:700;color:var(--w2);min-width:50px}
+.eff-feed-detail{font-size:.75rem;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eff-feed-time{font-size:.65rem;color:var(--muted);flex-shrink:0}
+.eff-caption{text-align:center;font-size:.92rem;color:var(--muted);margin-top:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+@media(max-width:768px){
+  .eff-stats-row{grid-template-columns:1fr}
+  .eff-pipeline{flex-direction:column;align-items:stretch}
+  .eff-pipe-arrow{width:1px;height:12px;margin:0 auto}
+  .eff-feed-row{flex-wrap:wrap;gap:6px}
+  .eff-feed-detail{min-width:100%;order:3}
+  .eff-feed-time{order:2;margin-left:auto}
+}
+
 </style>
 </head>
 <body>
@@ -707,6 +750,73 @@ footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
   </div>
 </section>
 
+
+<!-- SEE THE PLATFORM -->
+<section class="section section-alt" id="see-platform">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="s-label rv vis">See The Platform</div>
+      <h2 class="s-title rv vis">Your AI automation, <span class="grad-purple">visualized</span></h2>
+      <p class="s-sub rv vis">Watch leads flow from discovery to meeting — all running automatically, 24/7.</p>
+    </div>
+    <div class="eff-frame rv vis">
+      <div class="eff-titlebar">
+        <div class="eff-dots"><span class="eff-dot-r"></span><span class="eff-dot-y"></span><span class="eff-dot-g"></span></div>
+        <div class="eff-url">efficio.tech/dashboard — Command Center</div>
+        <div class="eff-live"><span class="eff-live-dot"></span>LIVE</div>
+      </div>
+      <div class="eff-body">
+        <div class="eff-stats-row">
+          <div class="eff-stat">
+            <div class="eff-stat-val">18,071</div>
+            <div class="eff-stat-lbl">Leads</div>
+          </div>
+          <div class="eff-stat">
+            <div class="eff-stat-val">214</div>
+            <div class="eff-stat-lbl">Emails Sent</div>
+          </div>
+          <div class="eff-stat">
+            <div class="eff-stat-val">6</div>
+            <div class="eff-stat-lbl">Replies</div>
+          </div>
+        </div>
+        <div class="eff-pipeline">
+          <div class="eff-pipe-step eff-pipe-active">Leads<span class="eff-pipe-count">18,071</span></div>
+          <div class="eff-pipe-arrow"></div>
+          <div class="eff-pipe-step eff-pipe-active">Contacted<span class="eff-pipe-count">214</span></div>
+          <div class="eff-pipe-arrow"></div>
+          <div class="eff-pipe-step eff-pipe-active">Replied<span class="eff-pipe-count">6</span></div>
+          <div class="eff-pipe-arrow"></div>
+          <div class="eff-pipe-step">Meeting<span class="eff-pipe-count">2</span></div>
+          <div class="eff-pipe-arrow"></div>
+          <div class="eff-pipe-step eff-pipe-won">Won<span class="eff-pipe-count">1</span></div>
+        </div>
+        <div class="eff-feed-label">Recent Outreach</div>
+        <div class="eff-feed">
+          <div class="eff-feed-row">
+            <span class="eff-feed-dot eff-fdot-sent"></span>
+            <span class="eff-feed-action">Sent</span>
+            <span class="eff-feed-detail">Aire Serv of Houston — Competitor Advantage email</span>
+            <span class="eff-feed-time">3m ago</span>
+          </div>
+          <div class="eff-feed-row">
+            <span class="eff-feed-dot eff-fdot-sent"></span>
+            <span class="eff-feed-action">Sent</span>
+            <span class="eff-feed-detail">Precision HVAC Solutions — ROI Case Study email</span>
+            <span class="eff-feed-time">11m ago</span>
+          </div>
+          <div class="eff-feed-row">
+            <span class="eff-feed-dot eff-fdot-reply"></span>
+            <span class="eff-feed-action">Reply</span>
+            <span class="eff-feed-detail">Summit Mechanical — Interested, requesting proposal</span>
+            <span class="eff-feed-time">1h ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="eff-caption rv vis">AI-powered lead generation running 24/7. Every lead scored, contacted, and tracked.</p>
+  </div>
+</section>
 
 <!-- PRICING -->
 <section class="section section-alt" id="pricing">

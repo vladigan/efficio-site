@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+  <meta name="description" content="Real screenshots and mock-ups of dashboards and agents Efficio has built for small and medium businesses — operational boards, sales pipelines, agent interfaces, revenue analytics." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/screenshots.html" />
+  <title>Screenshots — Dashboards & Agents | Efficio.tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<style>
+:root{--bg:#050a16;--bg2:#07101f;--bg3:#0c1728;--surf:#0f1e33;--surf2:#132540;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --r:8px;--r2:14px;--r3:24px;--green:#10b981;--teal:#14b8a6;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(5,10,22,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 0 20px var(--glow2)}
+.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
+.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
+.btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative}
+.hero{padding:140px 0 40px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(124,58,237,.14),transparent)}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:var(--white);font-weight:800;
+  letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .lead{font-size:1.15rem;color:var(--w2);max-width:760px;margin-bottom:8px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+  background:rgba(124,58,237,.1);border:1px solid var(--bd2);font-size:.82rem;
+  color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* SCREENSHOT CARD */
+.shots{max-width:1200px;margin:40px auto 60px;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.shot{background:linear-gradient(180deg,var(--surf),var(--bg3));border:1px solid var(--bd);
+  border-radius:var(--r2);overflow:hidden;transition:all .2s}
+.shot:hover{transform:translateY(-3px);border-color:var(--bd2);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.shot-head{padding:22px 24px 14px;border-bottom:1px solid var(--bd3)}
+.shot .cat{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);
+  letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.shot h3{color:var(--white);font-size:1.15rem;font-weight:700;margin-bottom:4px;letter-spacing:-.015em}
+.shot .biz{color:var(--muted);font-size:.82rem;font-weight:500}
+
+/* MINI DASHBOARD RENDERS */
+.render{padding:18px;background:#06101e;border-top:1px solid var(--bd3);border-bottom:1px solid var(--bd3);
+  min-height:260px}
+.render .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;
+  padding-bottom:10px;border-bottom:1px solid var(--bd3)}
+.render .topbar .ttl{color:var(--white);font-size:.84rem;font-weight:700}
+.render .topbar .tag{padding:2px 8px;border-radius:100px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);
+  color:var(--green);font-size:.66rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+.render .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.render .kpi{padding:8px 10px;background:var(--bg3);border:1px solid var(--bd3);border-radius:6px}
+.render .kpi .v{color:var(--white);font-size:1.1rem;font-weight:800;font-family:'JetBrains Mono',monospace;line-height:1.1}
+.render .kpi .l{color:var(--muted);font-size:.64rem;margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.render .kpi .d{color:var(--green);font-size:.68rem;margin-top:2px;font-weight:600;font-family:'JetBrains Mono',monospace}
+.render .kpi .d.down{color:var(--red)}
+/* bars */
+.render .bars{display:flex;align-items:flex-end;gap:4px;height:70px;padding:6px 0;border-top:1px solid var(--bd3);margin-top:8px}
+.render .bar{flex:1;background:linear-gradient(180deg,var(--purple2),var(--purple));border-radius:2px 2px 0 0;position:relative;min-width:8px}
+.render .bar.alt{background:linear-gradient(180deg,var(--teal),#0d9488)}
+.render .bar.highlight{background:linear-gradient(180deg,var(--pink),#db2777)}
+/* pipeline funnel mini */
+.render .funnel{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.render .funnel .row{display:flex;align-items:center;gap:8px;font-size:.68rem}
+.render .funnel .row .label{width:80px;color:var(--text);flex-shrink:0;font-weight:500}
+.render .funnel .row .fbar{flex:1;height:14px;background:var(--bg3);border-radius:3px;position:relative;overflow:hidden;border:1px solid var(--bd3)}
+.render .funnel .row .fbar .fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple2));border-radius:3px}
+.render .funnel .row .fbar .fill.g{background:linear-gradient(90deg,#0d9488,var(--teal))}
+.render .funnel .row .fbar .fill.a{background:linear-gradient(90deg,#d97706,var(--amber))}
+.render .funnel .row .n{width:30px;text-align:right;color:var(--w2);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600}
+/* chat transcript */
+.render .chat{display:flex;flex-direction:column;gap:8px;font-size:.74rem;padding:4px 2px}
+.render .chat .msg{padding:8px 12px;border-radius:10px;max-width:85%;line-height:1.45}
+.render .chat .msg.user{align-self:flex-end;background:var(--purple);color:#fff;border-bottom-right-radius:2px}
+.render .chat .msg.bot{align-self:flex-start;background:var(--surf2);color:var(--w2);border:1px solid var(--bd3);border-bottom-left-radius:2px}
+.render .chat .cite{color:var(--muted);font-size:.64rem;margin-top:4px;font-family:'JetBrains Mono',monospace}
+/* table */
+.render .tbl{width:100%;border-collapse:collapse;font-size:.72rem}
+.render .tbl th{text-align:left;color:var(--muted);font-weight:600;padding:5px 8px;border-bottom:1px solid var(--bd3);
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase}
+.render .tbl td{padding:6px 8px;border-bottom:1px solid var(--bd3);color:var(--w2)}
+.render .tbl td .pill{padding:1px 8px;border-radius:100px;font-size:.62rem;font-weight:600}
+.render .tbl td .pill.hot{background:rgba(239,68,68,.15);color:var(--red)}
+.render .tbl td .pill.warm{background:rgba(245,158,11,.15);color:var(--amber)}
+.render .tbl td .pill.cool{background:rgba(16,185,129,.15);color:var(--green)}
+/* caption */
+.shot .caption{padding:18px 24px}
+.shot .caption p{color:var(--w2);font-size:.88rem;line-height:1.55;margin:0}
+.shot .caption .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.shot .caption .chip{padding:3px 10px;border-radius:100px;background:rgba(124,58,237,.14);border:1px solid var(--bd3);
+  color:var(--purple3);font-size:.7rem;font-weight:600;letter-spacing:.02em}
+
+/* NOTE */
+.note{max-width:1100px;margin:20px auto 0;padding:18px 24px;background:rgba(245,158,11,.06);
+  border:1px solid rgba(245,158,11,.2);border-left:3px solid var(--amber);border-radius:var(--r);
+  color:var(--w2);font-size:.88rem;line-height:1.55}
+.note strong{color:var(--amber)}
+
+/* CTA */
+.cta{margin:56px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;
+  background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(236,72,153,.08));
+  border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(168,85,247,.18),transparent);pointer-events:none}
+.cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
+.cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
+.cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;
+  border-radius:var(--r);font-weight:700;font-size:1rem;box-shadow:0 0 30px var(--glow),0 10px 30px rgba(124,58,237,.2);transition:all .2s;position:relative}
+.cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
+
+footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
+footer .wrap{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+footer .col-brand p{color:var(--muted);font-size:.88rem;margin-top:10px;max-width:300px}
+footer .col-links{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+footer .col-links h5{color:var(--white);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+footer .col-links a{display:block;padding:5px 0;font-size:.88rem;color:var(--muted);transition:color .2s}
+footer .col-links a:hover{color:var(--white)}
+footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top:1px solid var(--bd3);color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:900px){.nav-links{display:none}.shots{grid-template-columns:1fr}.hero h1{font-size:2rem}footer .wrap{grid-template-columns:1fr}footer .col-links{grid-template-columns:repeat(2,1fr)}.render .kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="agents.html">Agents</a></li>
+    <li><a href="why-us.html">Why Us</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+</div></nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="hero-pill"><span class="dot"></span>Screenshots</span>
+    <h1>What a <span class="accent">shipped</span> Efficio build actually looks like.</h1>
+    <p class="lead">Six representative screens from the dashboards and agents we ship — the real functional views, not marketing stills. Two show the Agent Ops cockpit (how you deploy and track your AI workforce). The rest show business and admin dashboards that live alongside them.</p>
+  </div>
+</section>
+
+<div class="note"><strong>A note on these images.</strong> The screens below are rendered in-browser as live HTML/SVG (not static images). That's intentional — so you can see the real design system at actual resolution. Client-specific data has been replaced with representative placeholders, the layouts and interactions are genuine.</div>
+
+<div class="shots">
+
+  <!-- 1 - Pipeline Dashboard -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">Dashboard · Revenue Operations</div>
+      <h3>Sales Pipeline & Revenue Board</h3>
+      <div class="biz">Built for a 12-person SaaS team</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">Q2 Pipeline · This Week</div><div class="tag">LIVE</div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="v">$1.24M</div><div class="l">Pipeline</div><div class="d">+12%</div></div>
+        <div class="kpi"><div class="v">$340K</div><div class="l">Committed</div><div class="d">+8%</div></div>
+        <div class="kpi"><div class="v">23%</div><div class="l">Win rate</div><div class="d">+2pt</div></div>
+        <div class="kpi"><div class="v">47d</div><div class="l">Avg cycle</div><div class="d down">+3d</div></div>
+      </div>
+      <div class="funnel">
+        <div class="row"><span class="label">Discovery</span><div class="fbar"><div class="fill" style="width:92%"></div></div><span class="n">84</span></div>
+        <div class="row"><span class="label">Demo</span><div class="fbar"><div class="fill" style="width:68%"></div></div><span class="n">47</span></div>
+        <div class="row"><span class="label">Proposal</span><div class="fbar"><div class="fill g" style="width:40%"></div></div><span class="n">22</span></div>
+        <div class="row"><span class="label">Negotiation</span><div class="fbar"><div class="fill a" style="width:22%"></div></div><span class="n">9</span></div>
+        <div class="row"><span class="label">Closed Won</span><div class="fbar"><div class="fill g" style="width:12%"></div></div><span class="n">4</span></div>
+      </div>
+    </div>
+    <div class="caption">
+      <p>Pulls live from HubSpot + Stripe. Weekly movement highlighted, stale deals in negotiation flagged. Click any stage to drill into deals; click any deal to see full history.</p>
+      <div class="meta"><span class="chip">HubSpot</span><span class="chip">Stripe</span><span class="chip">Slack alerts</span></div>
+    </div>
+  </div>
+
+  <!-- 2 - Operations Dashboard -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">Dashboard · Field Operations</div>
+      <h3>Technician Utilization Board</h3>
+      <div class="biz">Built for a 40-truck service business</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">Active Jobs · Today</div><div class="tag">LIVE</div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="v">28/40</div><div class="l">Trucks out</div><div class="d">70%</div></div>
+        <div class="kpi"><div class="v">112</div><div class="l">Jobs today</div><div class="d">+14</div></div>
+        <div class="kpi"><div class="v">96%</div><div class="l">On-time</div><div class="d">+2pt</div></div>
+        <div class="kpi"><div class="v">$28K</div><div class="l">Revenue</div><div class="d">+$3K</div></div>
+      </div>
+      <div class="bars">
+        <div class="bar" style="height:35%"></div><div class="bar" style="height:55%"></div>
+        <div class="bar highlight" style="height:82%"></div><div class="bar" style="height:65%"></div>
+        <div class="bar" style="height:45%"></div><div class="bar alt" style="height:72%"></div>
+        <div class="bar" style="height:58%"></div><div class="bar highlight" style="height:88%"></div>
+        <div class="bar" style="height:38%"></div><div class="bar alt" style="height:62%"></div>
+        <div class="bar" style="height:48%"></div><div class="bar" style="height:55%"></div>
+      </div>
+    </div>
+    <div class="caption">
+      <p>Live dispatch overlay — jobs per hour across the week, technician-level drill-down, SLA breach alerts. Replaced a three-spreadsheet workflow the ops manager ran every morning.</p>
+      <div class="meta"><span class="chip">ServiceTitan</span><span class="chip">GPS feed</span><span class="chip">Postgres</span></div>
+    </div>
+  </div>
+
+  <!-- 3 - Knowledge Agent -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">Agent · Internal Knowledge</div>
+      <h3>Slack-native Knowledge Agent</h3>
+      <div class="biz">Built for a remote-first 60-person team</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">#ai-ops · Thread</div><div class="tag">ACTIVE</div></div>
+      <div class="chat">
+        <div class="msg user">What's our refund policy for a customer on month 6 of annual billing?</div>
+        <div class="msg bot">For annual billing, prorated refunds are available within the first 60 days only. At month 6, the customer is outside the refund window. Options: credit toward next renewal, pause subscription, or downgrade. <span class="cite">source: Finance Playbook · Refunds · v3.2</span></div>
+        <div class="msg user">What if they're closing the business?</div>
+        <div class="msg bot">Business closure is covered under the "Hardship Exception" clause — up to 50% prorated refund available with director approval. File via the refund request form, tag @brady for sign-off. <span class="cite">source: Finance Playbook · Exceptions · v3.2</span></div>
+      </div>
+    </div>
+    <div class="caption">
+      <p>Plain-English answers against your SOPs, past tickets, Notion docs. Every answer cites the source. When it doesn't know, it says so and suggests where to look.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Slack</span><span class="chip">Notion</span><span class="chip">RAG</span></div>
+    </div>
+  </div>
+
+  <!-- 4 - AGENT OPS COCKPIT -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">Dashboard · Agent Operations</div>
+      <h3>Agent Ops Cockpit</h3>
+      <div class="biz">The deploy-and-track layer every build ships with</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">AI Workforce · This Week</div><div class="tag">LIVE</div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="v">7</div><div class="l">Agents live</div><div class="d">+1</div></div>
+        <div class="kpi"><div class="v">1,721</div><div class="l">Runs</div><div class="d">+12%</div></div>
+        <div class="kpi"><div class="v">93%</div><div class="l">Success</div><div class="d">+1pt</div></div>
+        <div class="kpi"><div class="v">$27.91</div><div class="l">Spend</div><div class="d">-$4</div></div>
+      </div>
+      <table class="tbl" style="margin-top:6px">
+        <thead><tr><th>Agent</th><th>Runs</th><th>Success</th><th>Cost</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Support Triage</td><td>1,247</td><td>94%</td><td>$18.42</td><td><span class="pill cool">running</span></td></tr>
+          <tr><td>Billing Reconcile</td><td>342</td><td>99%</td><td>$4.10</td><td><span class="pill cool">running</span></td></tr>
+          <tr><td>Lead Qualifier</td><td>88</td><td>88%</td><td>$2.83</td><td><span class="pill cool">running</span></td></tr>
+          <tr><td>Prospect Researcher</td><td>26</td><td>69%</td><td>$1.91</td><td><span class="pill warm">needs review</span></td></tr>
+          <tr><td>Monday Rollup</td><td>4</td><td>100%</td><td>$0.65</td><td><span class="pill cool">idle</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="caption">
+      <p>Every Efficio agent ships with this cockpit. Live activity, success rates, cost per run, queues, approval gates, kill switches. The "AI workforce you can actually see" — deploy new agents, tweak prompts, roll back versions, pause anything in one click.</p>
+      <div class="meta"><span class="chip">React</span><span class="chip">Postgres</span><span class="chip">Approval gates</span><span class="chip">Cost tracking</span></div>
+    </div>
+  </div>
+
+  <!-- 5 - Customer Health -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">Dashboard · Customer Success</div>
+      <h3>Customer Health & Churn Signals</h3>
+      <div class="biz">Built for a 400-account B2B SaaS</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">At-Risk Accounts · This Week</div><div class="tag">7 FLAGGED</div></div>
+      <div class="kpis">
+        <div class="kpi"><div class="v">92%</div><div class="l">Healthy</div><div class="d">+1pt</div></div>
+        <div class="kpi"><div class="v">7</div><div class="l">At risk</div><div class="d down">+2</div></div>
+        <div class="kpi"><div class="v">$840K</div><div class="l">ARR risk</div><div class="d down">+$120K</div></div>
+        <div class="kpi"><div class="v">3</div><div class="l">Expansion</div><div class="d">+1</div></div>
+      </div>
+      <table class="tbl" style="margin-top:6px">
+        <thead><tr><th>Account</th><th>ARR</th><th>Signal</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Acme Corp</td><td>$220K</td><td>Usage down 40% · 14 days</td><td><span class="pill hot">Critical</span></td></tr>
+          <tr><td>Riverbend Inc</td><td>$180K</td><td>Champion left company</td><td><span class="pill hot">Critical</span></td></tr>
+          <tr><td>Northwind Ltd</td><td>$95K</td><td>Support tickets ↑ 3×</td><td><span class="pill warm">Warning</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="caption">
+      <p>Pulls usage telemetry, ticket patterns, and champion-departure signals into a single board. Red accounts auto-create CSM tasks with suggested outreach context.</p>
+      <div class="meta"><span class="chip">Segment</span><span class="chip">Zendesk</span><span class="chip">HubSpot</span><span class="chip">Custom API</span></div>
+    </div>
+  </div>
+
+  <!-- 6 - Weekly rollup (AI Admin example) -->
+  <div class="shot">
+    <div class="shot-head">
+      <div class="cat">AI Admin · Reporting</div>
+      <h3>Monday Rollup Admin</h3>
+      <div class="biz">Built for a 25-person founder-led team</div>
+    </div>
+    <div class="render">
+      <div class="topbar"><div class="ttl">Week of April 20 · Rollup</div><div class="tag">DELIVERED 7:14AM</div></div>
+      <div class="chat">
+        <div class="msg bot"><strong style="color:var(--white)">This week at a glance</strong><br>+$42K new MRR (best week of Q2), 3 wins closed, 2 at-risk accounts saved.</div>
+        <div class="msg bot"><strong style="color:var(--white)">Off-track</strong><br>Engineering shipped 2 of 4 planned features (Auth v2 slipped to next week). Sales missed target by 12% — pipeline coverage at 2.1× (target 3×).</div>
+        <div class="msg bot"><strong style="color:var(--white)">Worth your attention</strong><br>Support ticket volume up 35% — triaged to "new onboarding flow" by the support agent. Customer success flagged Acme Corp as critical (-40% usage). <span class="cite">full report · linked sources · all tickets</span></div>
+      </div>
+    </div>
+    <div class="caption">
+      <p>Every Monday at 7am, before standup. Pulls from Linear, HubSpot, Stripe, Zendesk; auto-categorizes into wins, blockers, and attention-needed. Links back to source for drill-down.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Linear</span><span class="chip">Stripe</span><span class="chip">Email</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta">
+  <h3>Want to see one of these built for your business?</h3>
+  <p>Pick the dashboard or agent that most looks like your gap. We'll walk you through what it'd take, what it'd cost, and how fast we can ship it.</p>
+  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn" target="_blank" rel="noopener">Book a 20-min call →</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="col-brand">
+      <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+      <p>We are your AI team. Custom AI dashboards, agents, and automations for small and medium businesses — built to fit, owned by you.</p>
+    </div>
+    <div class="col-links">
+      <div><h5>Services</h5><a href="services.html#dashboards">Dashboards</a><a href="services.html#agents">AI Agents</a><a href="services.html#automations">Automation</a><a href="services.html#data">Data Pipelines</a></div>
+      <div><h5>Company</h5><a href="why-us.html">Why Us</a><a href="how-it-works.html">How It Works</a><a href="screenshots.html">Screenshots</a><a href="demo.html">Demo</a></div>
+      <div><h5>Get started</h5><a href="pricing.html">Pricing</a><a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a Call</a><a href="onboarding.html">Onboarding</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+  <div class="legal">
+    <div>© 2026 Efficio. All rights reserved.</div>
+    <div>Miami, FL · contact@efficio.tech</div>
+  </div>
+</footer>
+
+</body>
+</html>

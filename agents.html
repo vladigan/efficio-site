@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+  <meta name="description" content="The AI agents and AI admins Efficio builds. Support triage, billing reconciliation, inventory, HR, data query, knowledge chat, prospect research — plus the dashboards to deploy and track them all." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/agents.html" />
+  <title>Agent Catalog — AI Agents & AI Admins | Efficio.tech</title>
+  <meta property="og:title" content="AI Agent Catalog — Efficio.tech" />
+  <meta property="og:description" content="Production AI agents and admins. Customer-facing, internal ops, finance, HR, data, research. All with deploy-and-track dashboards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<style>
+:root{--bg:#050a16;--bg2:#07101f;--bg3:#0c1728;--surf:#0f1e33;--surf2:#132540;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --r:8px;--r2:14px;--r3:24px;--green:#10b981;--teal:#14b8a6;--amber:#f59e0b;--blue:#3b82f6;--red:#ef4444}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:rgba(5,10,22,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:var(--r);background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 0 20px var(--glow2)}
+.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
+.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
+.btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative}
+.hero{padding:140px 0 40px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(124,58,237,.14),transparent)}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);color:var(--white);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .lead{font-size:1.15rem;color:var(--w2);max-width:760px;margin-bottom:8px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;background:rgba(124,58,237,.1);border:1px solid var(--bd2);font-size:.82rem;color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.filter{max-width:1200px;margin:20px auto 0;padding:0 32px;display:flex;gap:8px;flex-wrap:wrap}
+.filter button{padding:8px 16px;background:transparent;border:1px solid var(--bd);border-radius:100px;color:var(--text);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter button:hover{color:var(--white);border-color:var(--bd2)}
+.filter button.active{background:var(--purple);color:#fff;border-color:var(--purple2);box-shadow:0 0 20px var(--glow2)}
+
+.agents{max-width:1200px;margin:40px auto 60px;padding:0 32px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.agent{background:linear-gradient(180deg,var(--surf),var(--bg3));border:1px solid var(--bd);border-radius:var(--r2);padding:26px;display:flex;flex-direction:column;gap:12px;transition:all .2s}
+.agent:hover{transform:translateY(-3px);border-color:var(--bd2);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.agent-head{display:flex;gap:14px;align-items:flex-start}
+.agent-icon{width:46px;height:46px;border-radius:var(--r);background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;font-weight:800;box-shadow:0 6px 18px var(--glow2);flex-shrink:0}
+.agent.admin .agent-icon{background:linear-gradient(135deg,#f59e0b,#ec4899)}
+.agent.customer .agent-icon{background:linear-gradient(135deg,#10b981,#14b8a6)}
+.agent.sales .agent-icon{background:linear-gradient(135deg,#6366f1,#a855f7)}
+.agent.research .agent-icon{background:linear-gradient(135deg,#3b82f6,#8b5cf6)}
+.agent.data .agent-icon{background:linear-gradient(135deg,#06b6d4,#3b82f6)}
+.agent-head h3{color:var(--white);font-size:1.12rem;font-weight:700;margin-bottom:4px;letter-spacing:-.015em}
+.agent-head .cat{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.agent p.desc{color:var(--w2);font-size:.92rem;line-height:1.55;margin:0}
+.agent .outputs{font-size:.83rem;color:var(--text);padding-top:2px}
+.agent .outputs strong{color:var(--w2);font-weight:600}
+.agent .stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:12px;border-top:1px solid var(--bd3)}
+.agent .chip{padding:3px 10px;border-radius:100px;background:rgba(124,58,237,.12);border:1px solid var(--bd3);color:var(--purple3);font-size:.7rem;font-weight:600;letter-spacing:.02em}
+
+/* section divider */
+.cat-header{max-width:1200px;margin:30px auto 10px;padding:0 32px;display:flex;align-items:center;gap:14px}
+.cat-header .ln{flex:1;height:1px;background:var(--bd)}
+.cat-header .lbl{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--purple3);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+
+.sec{padding:60px 0;border-top:1px solid var(--bd3)}
+.sec .wrap{max-width:1100px}
+.sec h2{color:var(--white);font-size:1.8rem;font-weight:800;letter-spacing:-.025em;margin-bottom:24px}
+.sec p{color:var(--w2);margin-bottom:14px;max-width:800px}
+.concept{padding:20px 0;border-bottom:1px solid var(--bd3)}
+.concept:last-child{border-bottom:none}
+.concept h3{color:var(--white);font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.concept p{color:var(--w2);font-size:.96rem;margin:0}
+
+.cta{margin:56px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(236,72,153,.08));border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(168,85,247,.18),transparent);pointer-events:none}
+.cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
+.cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
+.cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;border-radius:var(--r);font-weight:700;font-size:1rem;box-shadow:0 0 30px var(--glow),0 10px 30px rgba(124,58,237,.2);transition:all .2s;position:relative}
+.cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
+
+footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
+footer .wrap{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+footer .col-brand p{color:var(--muted);font-size:.88rem;margin-top:10px;max-width:300px}
+footer .col-links{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+footer .col-links h5{color:var(--white);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+footer .col-links a{display:block;padding:5px 0;font-size:.88rem;color:var(--muted);transition:color .2s}
+footer .col-links a:hover{color:var(--white)}
+footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top:1px solid var(--bd3);color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:900px){.nav-links{display:none}.agents{grid-template-columns:1fr}.hero h1{font-size:2rem}footer .wrap{grid-template-columns:1fr}footer .col-links{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="agents.html" class="active" style="color:var(--white)">Agents</a></li>
+    <li><a href="why-us.html">Why Us</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+</div></nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="hero-pill"><span class="dot"></span>Agent Catalog</span>
+    <h1>Your AI workforce — <span class="accent">customer-facing, internal, and everywhere between.</span></h1>
+    <p class="lead">A sampling of agents we've built for SMBs and for our own four businesses. Customer-facing, internal admins, sales, research, data. Every one comes with a deploy-and-track dashboard so you can see what it's doing. Don't see yours? Most of what we ship is net-new.</p>
+  </div>
+</section>
+
+<div class="filter">
+  <button class="active" data-f="all">All</button>
+  <button data-f="customer">Customer-facing</button>
+  <button data-f="admin">AI Admins · Internal</button>
+  <button data-f="sales">Sales & Growth</button>
+  <button data-f="research">Research</button>
+  <button data-f="data">Data & Reporting</button>
+</div>
+
+<div class="cat-header"><span class="lbl">Customer-facing agents</span><span class="ln"></span></div>
+<div class="agents">
+
+  <div class="agent customer">
+    <div class="agent-head">
+      <div class="agent-icon">T</div>
+      <div><div class="cat">Customer · Support</div><h3>Support Triage Agent</h3></div>
+    </div>
+    <p class="desc">Reads inbound support tickets, categorizes by issue type and urgency, drafts a reply grounded in your help-docs and past resolutions. Routes ambiguous cases to a human with prior-ticket context.</p>
+    <div class="outputs"><strong>Outcome:</strong> 60–80% of tickets auto-drafted within 2 minutes; urgency classification better than first-pass human triage.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Zendesk / Intercom</span><span class="chip">RAG</span></div>
+  </div>
+
+  <div class="agent customer">
+    <div class="agent-head">
+      <div class="agent-icon">K</div>
+      <div><div class="cat">Customer · Knowledge</div><h3>Knowledge Chat Agent</h3></div>
+    </div>
+    <p class="desc">Slack-native or web chat trained on your SOPs, playbooks, product docs, past tickets. Answers grounded in your real content with source citations. Says "I don't know" rather than guessing.</p>
+    <div class="outputs"><strong>Outcome:</strong> new-hire onboarding time halved; institutional knowledge no longer trapped in five people's heads.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Notion / Confluence</span><span class="chip">RAG</span><span class="chip">Slack</span></div>
+  </div>
+
+  <div class="agent customer">
+    <div class="agent-head">
+      <div class="agent-icon">Q</div>
+      <div><div class="cat">Customer · Commerce</div><h3>Quoting & Estimating</h3></div>
+    </div>
+    <p class="desc">Takes an inbound request, pulls historicals on similar jobs and the customer's record, produces a draft quote with reasoning — ready for your team to edit and send, or send as-is on approve.</p>
+    <div class="outputs"><strong>Outcome:</strong> first-draft quote in minutes, not hours; consistent pricing across reps.</div>
+    <div class="stack"><span class="chip">Claude / GPT</span><span class="chip">Your DB</span><span class="chip">QuickBooks</span></div>
+  </div>
+
+  <div class="agent customer">
+    <div class="agent-head">
+      <div class="agent-icon">C</div>
+      <div><div class="cat">Customer · Comms</div><h3>Concierge Reply Agent</h3></div>
+    </div>
+    <p class="desc">Lives on your inbox, drafts replies to general inquiries, booking requests, feature asks — in your voice, grounded in your SOPs. Human-approve gate by default; remove when confidence is high.</p>
+    <div class="outputs"><strong>Outcome:</strong> 3–5× reply throughput; every message answered within an hour, nights and weekends included.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Gmail</span><span class="chip">Calendly</span></div>
+  </div>
+
+</div>
+
+<div class="cat-header"><span class="lbl">AI Admins · The back-office</span><span class="ln"></span></div>
+<div class="agents">
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">$</div>
+      <div><div class="cat">Admin · Finance</div><h3>Billing Reconciliation Admin</h3></div>
+    </div>
+    <p class="desc">Matches Stripe (or other PSP) charges to invoices to GL. Flags variances, refunds, chargebacks. Drafts reversal journal entries for the finance lead to approve before posting.</p>
+    <div class="outputs"><strong>Outcome:</strong> month-end close cut from days to hours; exceptions surfaced before they become audit findings.</div>
+    <div class="stack"><span class="chip">Stripe</span><span class="chip">QuickBooks / Xero</span><span class="chip">Claude</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">A</div>
+      <div><div class="cat">Admin · Finance</div><h3>AR Chase Admin</h3></div>
+    </div>
+    <p class="desc">Watches overdue invoices. Drafts polite, escalating reminders at 7/14/30/60 days. Stops the moment payment lands. Escalates to the AR lead when it's time for a human call.</p>
+    <div class="outputs"><strong>Outcome:</strong> DSO drops ~20%; AR lead's Tuesday mornings come back.</div>
+    <div class="stack"><span class="chip">QuickBooks</span><span class="chip">Email</span><span class="chip">Slack</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">H</div>
+      <div><div class="cat">Admin · HR</div><h3>Onboarding Admin</h3></div>
+    </div>
+    <p class="desc">New hire paperwork, account provisioning checklist, welcome kit assembly, orientation scheduling, manager notifications. Every step logged, nothing dropped.</p>
+    <div class="outputs"><strong>Outcome:</strong> new hires productive on day one; HR stops being the bottleneck.</div>
+    <div class="stack"><span class="chip">Gusto / Rippling</span><span class="chip">Okta / Google</span><span class="chip">Notion</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">E</div>
+      <div><div class="cat">Admin · Finance</div><h3>Expense Sorter</h3></div>
+    </div>
+    <p class="desc">Reads expense submissions, categorizes by GL code, flags policy violations, drafts approvals for the manager. Learns your categorization preferences over time.</p>
+    <div class="outputs"><strong>Outcome:</strong> 90% of expenses auto-categorized; policy violations caught pre-reimbursement.</div>
+    <div class="stack"><span class="chip">Expensify / Brex</span><span class="chip">QuickBooks</span><span class="chip">Slack</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">I</div>
+      <div><div class="cat">Admin · Operations</div><h3>Inventory Monitor</h3></div>
+    </div>
+    <p class="desc">Watches stock levels across your system of record. Forecasts reorder points from historical velocity. Drafts POs when thresholds are hit, ready for ops approval.</p>
+    <div class="outputs"><strong>Outcome:</strong> fewer stockouts, lower carrying cost, the same small ops team handles 2× the SKUs.</div>
+    <div class="stack"><span class="chip">Shopify / NetSuite</span><span class="chip">Your warehouse</span><span class="chip">Claude</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">O</div>
+      <div><div class="cat">Admin · Operations</div><h3>Ops Triage Admin</h3></div>
+    </div>
+    <p class="desc">Incoming ops issues (emails, PagerDuty, forms) get categorized, routed to the right queue, with severity-1 escalated to on-call inside 60 seconds. Every handoff has full context attached.</p>
+    <div class="outputs"><strong>Outcome:</strong> on-call only gets paged for real fires; normal issues route themselves.</div>
+    <div class="stack"><span class="chip">PagerDuty</span><span class="chip">Slack</span><span class="chip">Claude</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">P</div>
+      <div><div class="cat">Admin · Compliance</div><h3>Policy Watcher</h3></div>
+    </div>
+    <p class="desc">Reads configs, documents, data flows, and access grants against your stated policy. Weekly report of drift, exceptions, and anything that's changed without a ticket.</p>
+    <div class="outputs"><strong>Outcome:</strong> compliance posture doesn't rot between audits; drift is known before the auditor finds it.</div>
+    <div class="stack"><span class="chip">Your stack</span><span class="chip">Claude</span><span class="chip">Notion / Drive</span></div>
+  </div>
+
+  <div class="agent admin">
+    <div class="agent-head">
+      <div class="agent-icon">R</div>
+      <div><div class="cat">Admin · Reporting</div><h3>Monday Rollup Admin</h3></div>
+    </div>
+    <p class="desc">Every Monday at 7am, pulls from Linear / Jira / Stripe / Zendesk / Salesforce. Assembles a one-page leadership digest — wins, misses, attention-needed, links back to source.</p>
+    <div class="outputs"><strong>Outcome:</strong> leadership walks into Monday informed; nobody spends Friday afternoon assembling the same report.</div>
+    <div class="stack"><span class="chip">Linear / Jira</span><span class="chip">Stripe</span><span class="chip">Email</span></div>
+  </div>
+
+</div>
+
+<div class="cat-header"><span class="lbl">Sales & growth agents</span><span class="ln"></span></div>
+<div class="agents">
+
+  <div class="agent sales">
+    <div class="agent-head">
+      <div class="agent-icon">L</div>
+      <div><div class="cat">Sales · Inbound</div><h3>Lead Qualifier</h3></div>
+    </div>
+    <p class="desc">Reads web forms or emails, enriches the lead (company, revenue band, tech stack), scores buying intent, auto-books a discovery call for hot ones, routes them to your inbox with context.</p>
+    <div class="outputs"><strong>Outcome:</strong> qualified leads on your calendar within 60 seconds of submission; junk auto-discarded.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Clearbit</span><span class="chip">Calendly</span><span class="chip">Slack</span></div>
+  </div>
+
+  <div class="agent sales">
+    <div class="agent-head">
+      <div class="agent-icon">F</div>
+      <div><div class="cat">Sales · Follow-up</div><h3>Follow-up Sequencer</h3></div>
+    </div>
+    <p class="desc">Tracks every open conversation, drafts personalized next touches referencing what was actually discussed, stops on reply, escalates stalled deals to you with a recovery suggestion.</p>
+    <div class="outputs"><strong>Outcome:</strong> 3–5× lift in reply rate vs. generic drip; no awkward "Hi! following up!" from a bot that forgot the thread.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">HubSpot</span><span class="chip">Gmail</span></div>
+  </div>
+
+</div>
+
+<div class="cat-header"><span class="lbl">Research agents</span><span class="ln"></span></div>
+<div class="agents">
+
+  <div class="agent research">
+    <div class="agent-head">
+      <div class="agent-icon">D</div>
+      <div><div class="cat">Research · Sourcing</div><h3>Prospect Researcher</h3></div>
+    </div>
+    <p class="desc">Name + company in, 1-page brief out. Public info, recent news, funding, hiring signals, relevant context. Ready before the call — no more last-minute panic research.</p>
+    <div class="outputs"><strong>Outcome:</strong> consistent pre-call briefs across the team; zero manual research time.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Web search</span><span class="chip">Public sources</span></div>
+  </div>
+
+  <div class="agent research">
+    <div class="agent-head">
+      <div class="agent-icon">M</div>
+      <div><div class="cat">Research · Market</div><h3>Market Signal Agent</h3></div>
+    </div>
+    <p class="desc">Watches a list of competitors, customers, or partners. Surfaces anything interesting — product launches, leadership changes, funding, press mentions — in a weekly digest.</p>
+    <div class="outputs"><strong>Outcome:</strong> never missing a beat on your ecosystem; no more "wait, when did they launch that?"</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Web + RSS</span><span class="chip">Email digest</span></div>
+  </div>
+
+</div>
+
+<div class="cat-header"><span class="lbl">Data & reporting agents</span><span class="ln"></span></div>
+<div class="agents">
+
+  <div class="agent data">
+    <div class="agent-head">
+      <div class="agent-icon">X</div>
+      <div><div class="cat">Data · Query</div><h3>Data Question Agent</h3></div>
+    </div>
+    <p class="desc">Plain-English questions against your own warehouse. "Which customers added a seat in the last 30 days but haven't used the new feature?" Returns a list, a number, or a chart — grounded in your records with full SQL trail for audit.</p>
+    <div class="outputs"><strong>Outcome:</strong> analytics questions answered without ticketing a data analyst.</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Postgres / Snowflake</span><span class="chip">Text-to-SQL</span></div>
+  </div>
+
+  <div class="agent data">
+    <div class="agent-head">
+      <div class="agent-icon">V</div>
+      <div><div class="cat">Data · Anomalies</div><h3>Metric Watcher</h3></div>
+    </div>
+    <p class="desc">Watches your key metrics continuously — revenue, signups, errors, latency, whatever matters. Flags anomalies with context and likely causes, so you see the problem before the meeting does.</p>
+    <div class="outputs"><strong>Outcome:</strong> less "why is this graph weird?" in standup; more "we caught it and here's what it is."</div>
+    <div class="stack"><span class="chip">Claude</span><span class="chip">Your warehouse</span><span class="chip">Slack alerts</span></div>
+  </div>
+
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Every agent ships with a dashboard to watch it</h2>
+    <p>An agent you can't see is an agent you can't trust. That's why every Efficio agent — customer-facing, admin, sales, whatever — comes with a <strong>deploy-and-track dashboard</strong> as part of the build. One console, every agent, live.</p>
+
+    <div class="concept">
+      <h3>Deploy</h3>
+      <p>Spin up a new agent with one click. Set budgets, voice, tool access, escalation rules. Run in dry-mode for a week before it touches anything real.</p>
+    </div>
+    <div class="concept">
+      <h3>Track</h3>
+      <p>Every call, every reply, every tool invocation logged and searchable. See what the agent handled, what it escalated, what it cost, which prompts have drifted.</p>
+    </div>
+    <div class="concept">
+      <h3>Adjust</h3>
+      <p>Tweak the prompt, update the knowledge base, change approval rules — without redeploying. Every change versioned, revertable, compared.</p>
+    </div>
+    <div class="concept">
+      <h3>Kill</h3>
+      <p>Kill switch on every agent. Pause one, pause all, roll back a version. Because things go wrong and you shouldn't need to page engineering to stop them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>How we think about building agents</h2>
+    <div class="concept"><h3>Narrow first, general later</h3>
+      <p>An agent that does one job well beats five that sort-of do ten. We start with a single deterministic outcome and widen from there.</p>
+    </div>
+    <div class="concept"><h3>Grounded, not hallucinated</h3>
+      <p>Every agent cites the record it read from. If the answer isn't in the grounding data, the agent says "I don't know" — doesn't guess. That's table stakes.</p>
+    </div>
+    <div class="concept"><h3>Human-in-the-loop by default</h3>
+      <p>Anything an agent <em>writes</em> (sends, posts, files, bills, books) passes through a human approval step by default. We remove that only after you're confident.</p>
+    </div>
+    <div class="concept"><h3>Model-agnostic</h3>
+      <p>We build on Claude, GPT, Gemini, and local open-weight models. Per agent, based on cost, latency, privacy, and task fit. Lock-in to any single vendor is a bad idea.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h3>Your business, 3 hours lighter per day.</h3>
+  <p>Pick the job your team dislikes most. We'll tell you whether an agent or admin makes sense, what it'd cost, and how fast we can ship — plus the dashboard to watch it run.</p>
+  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn" target="_blank" rel="noopener">Book a 20-min call →</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="col-brand">
+      <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+      <p>We are your AI team. Custom AI agents, AI admins, and the dashboards to deploy and monitor them — built to fit, owned by you.</p>
+    </div>
+    <div class="col-links">
+      <div><h5>Services</h5><a href="services.html#agents">AI Agents</a><a href="services.html#admins">AI Admins</a><a href="services.html#dashboards">Dashboards</a><a href="agents.html">Agent Catalog</a></div>
+      <div><h5>Company</h5><a href="why-us.html">Why Us</a><a href="how-it-works.html">How It Works</a><a href="screenshots.html">Screenshots</a><a href="demo.html">Demo</a></div>
+      <div><h5>Get started</h5><a href="pricing.html">Pricing</a><a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a Call</a><a href="onboarding.html">Onboarding</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+  <div class="legal">
+    <div>© 2026 Efficio. All rights reserved.</div>
+    <div>Miami, FL · contact@efficio.tech</div>
+  </div>
+</footer>
+
+<script>
+const buttons = document.querySelectorAll('.filter button');
+const agents = document.querySelectorAll('.agent');
+const catHeaders = document.querySelectorAll('.cat-header');
+buttons.forEach(b => {
+  b.addEventListener('click', () => {
+    const f = b.getAttribute('data-f');
+    buttons.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    agents.forEach(a => {
+      if (f === 'all' || a.classList.contains(f)) a.style.display = '';
+      else a.style.display = 'none';
+    });
+    // hide category headers when filtering to a single category
+    catHeaders.forEach(h => h.style.display = (f === 'all') ? '' : 'none');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Efficio pricing — AI retainers from $997/mo. Custom dashboards, AI agents, and continuous builds. Two service lines, one calendar link." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/pricing.html" />
+  <title>Pricing — Efficio.tech</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://efficio.tech/pricing.html" />
+  <meta property="og:title" content="Pricing — Efficio.tech" />
+  <meta property="og:description" content="Two service lines. Custom operational dashboards from $2,500." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+
+<style>
+:root{
+  --bg:#050a16;--bg2:#07101f;--bg3:#0c1728;
+  --surf:#0f1e33;--surf2:#132540;--surf3:#1a2f4f;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;
+  --violet:#8b5cf6;--indigo:#6366f1;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;--dim:#1e293b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --r:8px;--r2:14px;--r3:24px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* NAV (compact version) */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(5,10,22,.92);backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff}
+.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;
+  color:var(--text);transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);transition:all .2s}
+.btn-nav:hover{background:var(--purple2)}
+
+/* HERO */
+.hero{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 50% 30%,rgba(124,58,237,.12),transparent);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 32px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:24px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.6)}
+.hero-h1{font-size:clamp(2.4rem,4.8vw,3.8rem);font-weight:800;line-height:1.08;
+  letter-spacing:-.04em;color:var(--white);margin-bottom:18px}
+.grad-purple{background:linear-gradient(95deg,var(--purple2),var(--purple3),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:var(--text);line-height:1.7;max-width:600px;margin:0 auto 32px}
+
+/* SECTION */
+.section{padding:60px 0 100px}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.section-head{text-align:center;margin-bottom:48px}
+.s-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:18px}
+.s-title{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;letter-spacing:-.04em;
+  color:var(--white);line-height:1.15;margin-bottom:14px}
+.s-sub{font-size:.98rem;color:var(--text);line-height:1.7;max-width:640px;margin:0 auto}
+
+/* PRICING CARDS */
+.pricing-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto}
+.pricing-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.price-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r3);
+  padding:36px 32px;position:relative;transition:all .25s}
+.price-card:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.price-card.pop{background:linear-gradient(180deg,rgba(124,58,237,.13),rgba(7,16,31,.7));
+  border-color:var(--bd2);box-shadow:0 0 0 1px var(--bd2),0 0 50px rgba(124,58,237,.1)}
+.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  padding:4px 16px;border-radius:100px;
+  background:linear-gradient(90deg,var(--purple),var(--purple2));
+  font-size:.66rem;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase;
+  box-shadow:0 0 20px var(--glow);white-space:nowrap}
+.price-tier{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:10px}
+.price-name{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.03em}
+.price-desc{font-size:.85rem;color:var(--text);line-height:1.55;margin-bottom:24px;min-height:52px}
+.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
+.price-curr{font-size:1.1rem;font-weight:700;color:var(--text);margin-top:6px}
+.price-num{font-size:2.6rem;font-weight:800;line-height:1;color:var(--white);letter-spacing:-.04em}
+.price-per{font-size:.8rem;color:var(--muted)}
+.price-setup{font-size:.72rem;color:var(--muted);margin-bottom:24px;min-height:16px}
+.price-div{height:1px;background:var(--bd);margin-bottom:22px}
+.price-feats{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pfi{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--text)}
+.pfi-check{color:var(--purple3);flex-shrink:0;margin-top:1px;font-size:14px;font-weight:700}
+.pfi.off{opacity:.38}
+.btn-price{display:block;width:100%;padding:13px;border-radius:var(--r);
+  font-size:14px;font-weight:700;text-align:center;transition:all .25s}
+.btn-price.out{border:1px solid var(--bd2);color:var(--text)}
+.btn-price.out:hover{background:rgba(124,58,237,.09);color:var(--white)}
+.btn-price.sol{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);box-shadow:0 0 22px var(--glow2)}
+.btn-price.sol:hover{box-shadow:0 0 40px var(--glow);transform:translateY(-1px)}
+
+/* RETAINER STRIPE */
+.retainer-strip{max-width:1100px;margin:28px auto 0;padding:24px 30px;
+  border:1px dashed var(--bd2);border-radius:var(--r3);background:rgba(124,58,237,.04);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+/* TOGGLE / TABS */
+.tab-row{display:flex;gap:6px;justify-content:center;margin:36px auto 24px;
+  padding:4px;background:var(--surf);border:1px solid var(--bd);border-radius:100px;
+  width:fit-content}
+.tab-btn{padding:9px 22px;border-radius:100px;font-size:.82rem;font-weight:600;color:var(--text);
+  background:none;cursor:pointer;border:none;transition:all .2s;font-family:inherit}
+.tab-btn.active{background:var(--purple);color:#fff}
+
+/* COMPARISON */
+.compare{max-width:860px;margin:80px auto 0;border:1px solid var(--bd);border-radius:var(--r3);
+  padding:36px;background:var(--surf)}
+.compare h3{color:var(--white);font-size:1.2rem;margin-bottom:14px;letter-spacing:-.02em}
+.compare p{font-size:.92rem;color:var(--text);line-height:1.7;margin-bottom:10px}
+.compare strong{color:var(--w2)}
+.compare ul{list-style:none;margin-top:14px}
+.compare li{padding:8px 0 8px 22px;position:relative;font-size:.9rem;color:var(--text)}
+.compare li::before{content:'→';position:absolute;left:0;color:var(--purple3);font-weight:700}
+
+/* CTA */
+.final-cta{padding:90px 0 120px;text-align:center}
+.cta-h{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--white);
+  letter-spacing:-.03em;margin-bottom:16px}
+.cta-sub{font-size:1rem;color:var(--text);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;
+  border-radius:var(--r2);font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 40px var(--glow),0 8px 28px rgba(124,58,237,.25);transition:all .25s}
+.btn-cta:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:40px 0}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:.82rem;color:var(--muted)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{font-size:.82rem;color:var(--muted)}
+.footer-legal a:hover{color:var(--text)}
+
+@media(max-width:900px){
+  .pricing-grid-2,.pricing-grid-3{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">E</div>
+      <span class="logo-text">Efficio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="agents.html">Agents</a></li>
+      <li><a href="why-us.html">Why Us</a></li>
+      <li><a href="pricing.html" style="color:var(--white)">Pricing</a></li>
+    </ul>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="pill-dot"></span>Two service lines · one calendar link</div>
+    <h1 class="hero-h1">
+      Straight <span class="grad-purple">pricing.</span><br>
+      No setup traps.
+    </h1>
+    <p class="hero-sub">
+      Efficio builds two things. Pick whichever one is actually broken in your operation — or do both.
+      Every tier routes to the same 15-minute discovery call.
+    </p>
+  </div>
+</section>
+
+<!-- TAB ROW -->
+<div class="tab-row">
+  <button class="tab-btn active" data-tab="dashboards" onclick="showTab('dashboards')">Dashboard Builds</button>
+  <button class="tab-btn" data-tab="automation" onclick="showTab('automation')">AI Automation</button>
+</div>
+
+<!-- DASHBOARD BUILDS SECTION -->
+<section class="section" id="tab-dashboards">
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Service Line 1</div>
+      <h2 class="s-title">Custom Ops Dashboards &amp; Database Builds</h2>
+      <p class="s-sub">
+        Fixed-scope builds. First mockup in 72 hours or your deposit back. Brady built the
+        dashboards running his own 4 businesses — <a href="index.html#dashboards" style="color:var(--purple3);font-weight:600">see them here</a>.
+      </p>
+    </div>
+
+    <div class="pricing-grid-3">
+
+      <!-- Starter -->
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Starter Dashboard</div>
+        <div class="price-desc">One page of KPIs + data connectors. Exactly what you'd check on Monday morning.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">2,500</span>
+          <span class="price-per">one-time</span>
+        </div>
+        <div class="price-setup">Delivered in 2 weeks</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Single-page operator dashboard</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Up to 3 data source connectors</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Mobile-responsive UI</div>
+          <div class="pfi"><span class="pfi-check">✓</span>First mockup in 72h or deposit back</div>
+          <div class="pfi"><span class="pfi-check">✓</span>1 round of revisions included</div>
+          <div class="pfi off"><span class="pfi-check">✓</span>Pipeline / CRM module</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price out" target="_blank" rel="noopener">Book Discovery Call</a>
+      </div>
+
+      <!-- Operations -->
+      <div class="price-card pop">
+        <div class="pop-badge">Most Common</div>
+        <div class="price-tier">Operations</div>
+        <div class="price-name">Operations Dashboard</div>
+        <div class="price-desc">Multi-page dashboard + pipeline/CRM module + automated reporting.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">7,500</span>
+          <span class="price-per">one-time</span>
+        </div>
+        <div class="price-setup">Delivered in 3–4 weeks</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Multi-page dashboard (ops / sales / finance)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Pipeline / CRM module (kanban or table)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Automated weekly report (email or Telegram)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Up to 6 data source connectors</div>
+          <div class="pfi"><span class="pfi-check">✓</span>First mockup in 72h or deposit back</div>
+          <div class="pfi"><span class="pfi-check">✓</span>2 rounds of revisions included</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price sol" target="_blank" rel="noopener">Book Discovery Call</a>
+      </div>
+
+      <!-- Full Pipeline -->
+      <div class="price-card">
+        <div class="price-tier">Full Pipeline</div>
+        <div class="price-name">Full Pipeline Build</div>
+        <div class="price-desc">End-to-end database design + pipeline + dashboard + automation.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">15,000</span>
+          <span class="price-per">one-time</span>
+        </div>
+        <div class="price-setup">Delivered in 4–6 weeks</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span>Custom database design (SQLite/Postgres)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>End-to-end agent pipeline (ingest → reason → act)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Multi-page operator dashboard</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Workflow automation (schedulers, alerts)</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Unlimited data source connectors</div>
+          <div class="pfi"><span class="pfi-check">✓</span>3 rounds of revisions included</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price out" target="_blank" rel="noopener">Book Discovery Call</a>
+      </div>
+    </div>
+
+    <!-- Retainer -->
+    <div class="retainer-strip">
+      <div>
+        <div class="price-tier" style="margin-bottom:4px">Retainer (optional)</div>
+        <div class="price-name" style="font-size:1.1rem;margin-bottom:4px">Ongoing Maintenance + Feature Additions</div>
+        <p style="font-size:.85rem;color:var(--text);margin:0;max-width:640px">
+          After handover, most clients retain us month-to-month to add panels, tune alerts,
+          and handle the occasional schema migration. Cancel anytime.
+        </p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:1.7rem;font-weight:800;color:var(--white);letter-spacing:-.03em">$2,000–$5,000<span style="font-size:.82rem;color:var(--muted);font-weight:500"> /mo</span></div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener" style="font-size:.82rem;color:var(--purple3);font-weight:600">Discuss retainer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI AUTOMATION SECTION -->
+<section class="section" id="tab-automation" style="display:none">
+  <div class="container">
+    <div class="section-head">
+      <div class="s-label">Service Line 2</div>
+      <h2 class="s-title">Your AI Team — Pilot → Growth → Full Stack</h2>
+      <p class="s-sub">
+        Three tiers, three levels of access. Each tier centers on one flagship AI deliverable plus a live chat channel
+        with the team. The bigger the tier, the faster we ship and the more often we talk. Month-to-month, cancel anytime.
+      </p>
+    </div>
+
+    <div class="pricing-grid-3">
+
+      <!-- Pilot -->
+      <div class="price-card">
+        <div class="price-tier">Pilot</div>
+        <div class="price-name">Pilot</div>
+        <div class="price-desc">A custom AI command center built around your business — one interactive dashboard where you see what's happening and what AI tools are running for you.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">997</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup">Month-to-month · Cancel anytime</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Custom AI interactive dashboard</strong></div>
+          <div class="pfi"><span class="pfi-check">✓</span>Built specifically for your workflow</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Monthly 30-min strategy call</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Shared Slack / Teams / Chat channel</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Uptime monitoring + error alerts</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Ongoing tweaks and prompt tuning</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price out" target="_blank" rel="noopener">Book Discovery Call</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="price-card pop">
+        <div class="pop-badge">Most Common</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-name">Growth</div>
+        <div class="price-desc">Everything in Pilot, plus a custom AI agent — proposal generator, quote bot, intake bot, email triage, whichever solves your #1 ops leak.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">2,500</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup">Month-to-month · Cancel anytime</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Everything in Pilot</strong></div>
+          <div class="pfi"><span class="pfi-check">✓</span>Custom AI agent for your biggest time sink</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Biweekly 30-min strategy call</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Priority response in shared channel</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Agent monitoring + monthly tuning</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Swap the agent if a bigger problem emerges</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price sol" target="_blank" rel="noopener">Talk to Brady</a>
+      </div>
+
+      <!-- Full Stack -->
+      <div class="price-card">
+        <div class="price-tier">Full Stack</div>
+        <div class="price-name">Full Stack</div>
+        <div class="price-desc">Everything in Growth, plus continuous AI builds — we keep shipping new agents and improvements every month. Weekly cadence, written roadmap.</div>
+        <div class="price-amount">
+          <span class="price-curr">$</span>
+          <span class="price-num">3,500</span>
+          <span class="price-per">/mo</span>
+        </div>
+        <div class="price-setup">Month-to-month · Cancel anytime</div>
+        <div class="price-div"></div>
+        <div class="price-feats">
+          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Everything in Growth</strong></div>
+          <div class="pfi"><span class="pfi-check">✓</span>Continuous AI builds — new agents on demand</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Weekly 45-min strategy call</div>
+          <div class="pfi"><span class="pfi-check">✓</span>First-priority response + 24h SLA</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Custom integrations with your existing tools</div>
+          <div class="pfi"><span class="pfi-check">✓</span>Written 90-day roadmap, refreshed quarterly</div>
+        </div>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-price out" target="_blank" rel="noopener">Talk to Brady</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<div class="container">
+  <div class="compare">
+    <h3>Which service line is right for me?</h3>
+    <p><strong>Pick Dashboard Builds</strong> if your team spends hours reconciling spreadsheets,
+      your data is siloed across three or more tools, or your Monday status meeting is a copy-paste
+      exercise. Fixed-scope, one-time price, 2–6 week delivery.</p>
+    <p><strong>Pick AI Automation</strong> if owner/operator time is your bottleneck —
+      manual quoting, slow intake, repetitive email, missed follow-ups, or any workflow where
+      "if we just had a bot for this…" keeps coming up. Month-to-month retainer, cancel anytime.</p>
+    <p><strong>Many clients do both.</strong> A dashboard makes the AI automation visible in real
+      time, and the AI automation fills the dashboard with actual conversions to measure.</p>
+    <ul>
+      <li>Same 15-minute discovery call routes to either service line — Brady will tell you honestly which one fits.</li>
+      <li>Same team does both, so a combined client doesn't get handed off between specialists.</li>
+      <li>Volume discount on the retainer if you're running an automation subscription alongside the dashboard.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="cta-h">Book the <span class="grad-purple">15-minute call.</span></h2>
+    <p class="cta-sub">
+      Brady screen-shares the four dashboards running his businesses and tells you —
+      in plain English — which of the above is actually the right next move for your operation.
+    </p>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-cta" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Your Free Discovery Call
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Efficio, a division of BNG Contracting Enterprise LLC. efficio.tech</p>
+    <div class="footer-legal">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showTab(tab) {
+  document.getElementById('tab-dashboards').style.display = (tab === 'dashboards') ? '' : 'none';
+  document.getElementById('tab-automation').style.display = (tab === 'automation') ? '' : 'none';
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+}
+</script>
+
+</body>
+</html>

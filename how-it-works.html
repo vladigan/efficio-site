@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+  <meta name="description" content="Efficio's four-stage build process: 20-min discovery, fixed-scope proposal, week-1 working cut, iterate to done. Week-by-week, what you actually get." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/how-it-works.html" />
+  <title>How It Works — Efficio.tech</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://efficio.tech/how-it-works.html" />
+  <meta property="og:title" content="How It Works — Efficio.tech" />
+  <meta property="og:description" content="4 stages: discovery, scope, build, iterate. First working cut in week 1. Typical project 2–4 weeks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<style>
+:root{--bg:#050a16;--bg2:#07101f;--bg3:#0c1728;--surf:#0f1e33;--surf2:#132540;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --r:8px;--r2:14px;--r3:24px;--green:#10b981}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(5,10,22,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 0 20px var(--glow2)}
+.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
+.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
+.btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;position:relative}
+.hero{padding:140px 0 40px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(124,58,237,.14),transparent)}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);color:var(--white);font-weight:800;
+  letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .lead{font-size:1.15rem;color:var(--w2);max-width:720px;margin-bottom:8px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+  background:rgba(124,58,237,.1);border:1px solid var(--bd2);font-size:.82rem;
+  color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* TIMELINE */
+.timeline{position:relative;max-width:1100px;margin:60px auto;padding:0 32px}
+.timeline::before{content:"";position:absolute;left:72px;top:40px;bottom:40px;width:2px;
+  background:linear-gradient(180deg,var(--purple2),var(--pink),var(--purple));opacity:.4}
+.stage{position:relative;padding:32px 0 40px 120px;border-bottom:1px solid var(--bd3)}
+.stage:last-child{border-bottom:none}
+.stage .dot{position:absolute;left:60px;top:38px;width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.82rem;
+  box-shadow:0 0 20px var(--glow),0 0 40px var(--glow2);z-index:1}
+.stage .meta{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stage .tag{padding:3px 10px;border-radius:100px;background:rgba(124,58,237,.14);
+  border:1px solid var(--bd2);color:var(--purple3);font-size:.72rem;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase}
+.stage .tag.dur{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:var(--green)}
+.stage h2{color:var(--white);font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+.stage p{margin-bottom:12px;color:var(--w2);font-size:1rem;max-width:760px}
+.stage p strong{color:var(--white)}
+.stage .outputs{margin-top:18px;padding:18px 22px;background:var(--surf);border:1px solid var(--bd);
+  border-left:3px solid var(--purple2);border-radius:var(--r);max-width:760px}
+.stage .outputs-label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.stage .outputs ul{list-style:none;padding:0}
+.stage .outputs li{padding:5px 0 5px 22px;position:relative;color:var(--w2);font-size:.92rem}
+.stage .outputs li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* FAQ */
+.sec{padding:60px 0;border-top:1px solid var(--bd3)}
+.sec h2{color:var(--white);font-size:1.8rem;font-weight:800;letter-spacing:-.025em;margin-bottom:24px}
+.faq-item{padding:22px 0;border-bottom:1px solid var(--bd3)}
+.faq-item:last-child{border-bottom:none}
+.faq-item h3{color:var(--white);font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.faq-item p{color:var(--w2);font-size:.96rem}
+
+/* CTA */
+.cta{margin:56px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;
+  background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(236,72,153,.08));
+  border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(168,85,247,.18),transparent);pointer-events:none}
+.cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
+.cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
+.cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;
+  border-radius:var(--r);font-weight:700;font-size:1rem;
+  box-shadow:0 0 30px var(--glow),0 10px 30px rgba(124,58,237,.2);transition:all .2s;position:relative}
+.cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
+
+footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
+footer .wrap{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+footer .col-brand p{color:var(--muted);font-size:.88rem;margin-top:10px;max-width:300px}
+footer .col-links{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+footer .col-links h5{color:var(--white);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+footer .col-links a{display:block;padding:5px 0;font-size:.88rem;color:var(--muted);transition:color .2s}
+footer .col-links a:hover{color:var(--white)}
+footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top:1px solid var(--bd3);
+  color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (max-width:900px){.nav-links{display:none}.timeline::before{left:22px}.stage{padding-left:60px}.stage .dot{left:10px}.hero h1{font-size:2rem}footer .wrap{grid-template-columns:1fr}footer .col-links{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="how-it-works.html" class="active" style="color:var(--white)">How It Works</a></li>
+      <li><a href="agents.html">Agents</a></li>
+      <li><a href="why-us.html">Why Us</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="hero-pill"><span class="dot"></span>How It Works</span>
+    <h1>From first call to <span class="accent">live system</span> — usually in 3 weeks.</h1>
+    <p class="lead">A transparent, four-stage process. Fixed scope. Fixed price. No surprises, no "phase 2 to be quoted later." You see progress every week, and you see something working by the end of week one.</p>
+  </div>
+</section>
+
+<div class="timeline">
+  <div class="stage">
+    <div class="dot">1</div>
+    <div class="meta">
+      <span class="tag">Stage 01</span>
+      <span class="tag dur">20 minutes · Free</span>
+    </div>
+    <h2>Discovery call</h2>
+    <p>A no-pitch, no-obligation 20-minute call. We ask three questions: <strong>what's slow or painful in your business right now, what have you already tried, and what's in your current stack.</strong> We listen, we ask follow-ups, and we form a quick working hypothesis of where AI fits and where it doesn't.</p>
+    <p>If we can't help — wrong size, wrong problem, wrong stage — we'll tell you on the call and point you somewhere useful. Most calls end one of three ways: proposal incoming, a specific recommendation we can't help with, or a "come back in 6 months when X is true." All three are valid.</p>
+    <div class="outputs">
+      <div class="outputs-label">You leave the call with</div>
+      <ul>
+        <li>A clear read on whether there's a fit</li>
+        <li>1–2 concrete opportunities we've flagged</li>
+        <li>An estimate range for the work if we proceed</li>
+        <li>Zero obligation and no follow-up spam</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="dot">2</div>
+    <div class="meta">
+      <span class="tag">Stage 02</span>
+      <span class="tag dur">2–4 business days</span>
+    </div>
+    <h2>Written scope & proposal</h2>
+    <p>If there's a fit, we come back within a few days with a written scope. It spells out <strong>exactly what we'll build, exactly what you're paying, and exactly what "done" looks like.</strong> Payment is split — 50% to kick off, 50% on delivery. Month-to-month retainer terms if that's the arrangement.</p>
+    <p>Fixed price means no change-order ambushes mid-build. If the scope legitimately grows after we're underway (you want an extra view, a new integration), we quote that as an add-on so you decide — we don't decide for you.</p>
+    <div class="outputs">
+      <div class="outputs-label">You get</div>
+      <ul>
+        <li>Written project scope with acceptance criteria</li>
+        <li>Itemized deliverables and timeline</li>
+        <li>Fixed price for the build</li>
+        <li>Clear retainer terms (if applicable)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="dot">3</div>
+    <div class="meta">
+      <span class="tag">Stage 03</span>
+      <span class="tag dur">2–4 weeks</span>
+    </div>
+    <h2>Build & first working cut</h2>
+    <p>Kickoff, access provisioned, work begins. <strong>By the end of week 1, there is a working version in your hands</strong> — rough, incomplete, but real. You click through it, tell us what's wrong, what's missing, what's surprising. We iterate from there.</p>
+    <p>You see progress weekly. Async updates on Slack, email, or whichever channel you prefer. One 30-minute sync per week only if you want one — most clients don't.</p>
+    <div class="outputs">
+      <div class="outputs-label">By the end</div>
+      <ul>
+        <li>Live system running under your domain / infrastructure</li>
+        <li>Full source code in a repo you control</li>
+        <li>Runbook + documentation</li>
+        <li>Monitoring and error-reporting wired up</li>
+        <li>Handoff walkthrough with your team</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="dot">4</div>
+    <div class="meta">
+      <span class="tag">Stage 04</span>
+      <span class="tag dur">Month-to-month, optional</span>
+    </div>
+    <h2>Retainer & iteration</h2>
+    <p>Most clients want us to keep building after launch — the initial build surfaces the next five things they want. That's when we roll into a monthly retainer. <strong>Month-to-month, cancel anytime</strong>, a set number of hours per month, priorities set by you. No 12-month commitments, no punitive exit clauses.</p>
+    <p>Don't want ongoing support? Fine. Everything's documented, the code is yours, and you can take it in-house or hand it to another vendor. We designed delivery so you <em>could</em> fire us cleanly — which, incidentally, is why very few clients do.</p>
+    <div class="outputs">
+      <div class="outputs-label">Retainer tiers</div>
+      <ul>
+        <li>Growth — $2,500/mo · ~20 hrs, one agent or dashboard ongoing</li>
+        <li>Full Stack — $3,500/mo · ~30 hrs, agents + dashboards evolving in parallel</li>
+        <li>Dedicated — $7,500/mo · ~60 hrs, we act as your AI team</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Common questions about how we work</h2>
+
+    <div class="faq-item">
+      <h3>Who owns the code we build together?</h3>
+      <p>You do. Full source, your repository, your infrastructure, your data. If Efficio shut down tomorrow, nothing you have would break and nothing would disappear. We design delivery explicitly so you can fire us without penalty.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if the scope changes mid-project?</h3>
+      <p>Small in-scope changes — wording, styling, tweaks — are included. Structural changes get quoted as add-ons, transparently, before we build them. You decide whether to proceed. No surprise bills.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How does payment work?</h3>
+      <p>Builds: 50% to kick off, 50% on delivery. Retainers: monthly, first month prorated, cancel anytime with 30 days notice. Stripe checkout for convenience; wire or ACH if you prefer.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you work nights/weekends for rush projects?</h3>
+      <p>Not usually. Rushed AI builds produce fragile AI builds. If you truly need same-week turnaround, we'll tell you honestly what we can deliver in that window — which is often less than you need.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where's the team based?</h3>
+      <p>Miami-based. Work is done async across US time zones. We've done video calls from 7am to 9pm ET, and we'll meet where you're comfortable.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can you work within our security / compliance requirements?</h3>
+      <p>Usually yes — dedicated VPCs, SSO, SOC 2 paperwork, data residency. The exception is heavily regulated spaces (healthcare PHI, financial SOC 1, government clearance) where we'll want to talk about your specific stack before committing.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h3>Let's figure out if we're a fit.</h3>
+  <p>20 minutes, free, no pitch. You tell us what's slow or painful. We tell you whether we can help — and if we can't, we tell you that too.</p>
+  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn" target="_blank" rel="noopener">Book a 20-min call →</a>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="col-brand">
+      <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+      <p>We are your AI team. Custom AI dashboards, agents, and automations for small and medium businesses — built to fit, owned by you.</p>
+    </div>
+    <div class="col-links">
+      <div>
+        <h5>Services</h5>
+        <a href="services.html#dashboards">Dashboards</a>
+        <a href="services.html#agents">AI Agents</a>
+        <a href="services.html#automations">Automation</a>
+        <a href="services.html#data">Data Pipelines</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="why-us.html">Why Us</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="screenshots.html">Screenshots</a>
+        <a href="demo.html">Demo</a>
+      </div>
+      <div>
+        <h5>Get started</h5>
+        <a href="pricing.html">Pricing</a>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a Call</a>
+        <a href="onboarding.html">Onboarding</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="legal">
+    <div>© 2026 Efficio. All rights reserved.</div>
+    <div>Miami, FL · contact@efficio.tech</div>
+  </div>
+</footer>
+</body>
+</html>

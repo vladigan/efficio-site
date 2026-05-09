@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reliable Cooling & Heating — CEO Dashboard (Demo) | Efficio</title>
+<meta name="description" content="Sample CEO command center built by Efficio for an HVAC operator. Lead intake, dispatch, after-hours receptionist, quote follow-up — all in one place.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://efficio.tech/demos/hvac/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%23F97316'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>R</text></svg>">
+<style>
+:root{
+  --void:#030712;--deep:#060E1C;--surf:#0C1A2E;--surf2:#0F2035;
+  --blue:#2563EB;--blue2:#3B82F6;--blue3:#60A5FA;
+  --cyan:#06B6D4;--cyan2:#22D3EE;
+  --green:#10B981;--green2:#34D399;
+  --amber:#F59E0B;--red:#EF4444;--purple:#7C3AED;
+  --accent:#F97316;--accent2:#FB923C;
+  --white:#FFFFFF;--text:#94A3B8;--muted:#475569;--dim:#1E293B;
+  --bd:rgba(255,255,255,.06);--bd2:rgba(249,115,22,.35);
+  --glow:rgba(249,115,22,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--void);color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.5;padding-bottom:80px}
+a{color:var(--accent2);text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* TOPBAR */
+.topbar{background:var(--deep);border-bottom:1px solid var(--bd);padding:14px 26px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
+.tb-left{display:flex;align-items:center;gap:12px}
+.tb-mark{width:34px;height:34px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),#EA580C);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:16px;color:#fff;
+  box-shadow:0 0 16px var(--glow)}
+.tb-co{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.tb-tag{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
+.tb-right{display:flex;align-items:center;gap:14px}
+.tb-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.tb-status{display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:14px;
+  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
+  font-size:10.5px;color:var(--green2);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 6px rgba(16,185,129,.7);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* DEMO RIBBON */
+.ribbon{background:linear-gradient(90deg,rgba(249,115,22,.16),rgba(249,115,22,.04));
+  border-bottom:1px solid var(--bd2);padding:9px 26px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ribbon-text{font-size:12px;color:var(--accent2);font-weight:600}
+.ribbon-text strong{color:var(--white)}
+.ribbon-cta{font-size:12px;font-weight:700;color:var(--accent2);
+  padding:5px 12px;border-radius:6px;border:1px solid var(--bd2);transition:all .2s}
+.ribbon-cta:hover{background:rgba(249,115,22,.1)}
+
+/* CONTENT */
+.content{max-width:1320px;margin:0 auto;padding:24px 26px}
+.page-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:20px;flex-wrap:wrap}
+.ph-left h1{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:-.02em;line-height:1.2}
+.ph-left .ph-sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.ph-right{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:7px;
+  font-size:12px;font-weight:600;transition:all .15s;cursor:pointer;white-space:nowrap;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#EA580C);color:#fff;
+  border-color:rgba(251,146,60,.4);box-shadow:0 0 18px var(--glow)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 28px var(--glow)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border-color:var(--bd)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:var(--white)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat-card{background:var(--surf);border:1px solid var(--bd);border-radius:12px;
+  padding:18px 20px;position:relative;overflow:hidden;transition:border-color .2s}
+.stat-card:hover{border-color:rgba(249,115,22,.25)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent2),transparent);opacity:0;transition:opacity .3s}
+.stat-card:hover::before{opacity:1}
+.stat-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.stat-icon.orange{background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.22)}
+.stat-icon.cyan{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2)}
+.stat-icon.green{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)}
+.stat-icon.amber{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)}
+.stat-icon svg{width:16px;height:16px;stroke-width:2}
+.stat-icon.orange svg{stroke:var(--accent2)}
+.stat-icon.cyan svg{stroke:var(--cyan2)}
+.stat-icon.green svg{stroke:var(--green2)}
+.stat-icon.amber svg{stroke:var(--amber)}
+.stat-val{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;
+  background:linear-gradient(90deg,var(--accent2),#FCD34D);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.stat-delta{font-size:10.5px;color:var(--green2);margin-top:8px;display:flex;align-items:center;gap:4px;font-weight:600}
+.stat-delta.neg{color:var(--red)}
+
+/* GRID */
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:22px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.card-dark{background:var(--deep);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.sec-meta{font-size:11px;color:var(--muted)}
+
+/* AGENT CARDS */
+.agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.agent-card{background:var(--deep);border:1px solid var(--bd);border-radius:10px;padding:16px;transition:border-color .2s}
+.agent-card:hover{border-color:rgba(249,115,22,.25)}
+.agent-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.agent-name{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.agent-mission{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+.agent-pill{font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:10px;letter-spacing:.04em;text-transform:uppercase;flex-shrink:0;margin-left:10px}
+.pill-running{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.25)}
+.pill-idle{background:rgba(148,163,184,.1);color:var(--text);border:1px solid var(--bd)}
+.pill-attn{background:rgba(245,158,11,.12);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.agent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;padding:10px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.as-cell{text-align:center}
+.as-val{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--white)}
+.as-lbl{font-size:9.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
+.agent-meta{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;line-height:1.7}
+.agent-meta .ml{color:var(--text)}
+
+/* TIMELINE */
+.feed{max-height:520px;overflow-y:auto;padding-right:6px}
+.feed::-webkit-scrollbar{width:4px}
+.feed::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
+.feed-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);position:relative}
+.feed-item:last-child{border-bottom:none}
+.feed-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.fi-orange{background:rgba(249,115,22,.12);color:var(--accent2);border:1px solid rgba(249,115,22,.22)}
+.fi-cyan{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.fi-green{background:rgba(16,185,129,.1);color:var(--green2);border:1px solid rgba(16,185,129,.2)}
+.fi-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.feed-body{flex:1;min-width:0}
+.feed-line{font-size:12.5px;color:var(--white);font-weight:500;line-height:1.5}
+.feed-line .agent-tag{color:var(--accent2);font-weight:600}
+.feed-line .num{color:var(--cyan2);font-family:'JetBrains Mono',monospace;font-weight:600}
+.feed-detail{font-size:11.5px;color:var(--text);margin-top:3px;line-height:1.5}
+.feed-time{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:5px}
+
+/* WEEK CALENDAR */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day-col{background:var(--deep);border:1px solid var(--bd);border-radius:8px;padding:10px 8px;min-height:160px}
+.day-col.today{border-color:var(--bd2);background:linear-gradient(180deg,rgba(249,115,22,.08),var(--deep) 30%)}
+.day-name{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;text-align:center;margin-bottom:2px}
+.day-date{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--white);text-align:center;margin-bottom:10px}
+.day-col.today .day-date{color:var(--accent2)}
+.day-event{background:rgba(249,115,22,.08);border-left:2px solid var(--accent);border-radius:4px;
+  padding:5px 7px;margin-bottom:5px;font-size:10.5px;color:var(--white);line-height:1.35}
+.day-event.cyan{background:rgba(6,182,212,.08);border-left-color:var(--cyan)}
+.day-event.green{background:rgba(16,185,129,.08);border-left-color:var(--green)}
+.day-event .et{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:2px}
+
+/* GOALS */
+.goal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px}
+.goal-row .gl{color:var(--text)}
+.goal-row .gv{font-family:'JetBrains Mono',monospace;color:var(--white);font-weight:600}
+.prog-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s}
+.prog-fill.green{background:linear-gradient(90deg,var(--green),var(--green2))}
+.prog-fill.cyan{background:linear-gradient(90deg,var(--cyan),var(--cyan2))}
+.prog-fill.amber{background:linear-gradient(90deg,#D97706,var(--amber))}
+
+/* ATTN LIST */
+.attn-item{display:flex;gap:10px;padding:11px;border-radius:8px;background:var(--deep);border:1px solid var(--bd);margin-bottom:8px;cursor:pointer;transition:all .15s}
+.attn-item:hover{border-color:var(--bd2);background:var(--surf2)}
+.attn-pic{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),#EA580C)}
+.attn-pic.b2{background:linear-gradient(135deg,var(--cyan),var(--blue2))}
+.attn-pic.b3{background:linear-gradient(135deg,var(--green),var(--cyan))}
+.attn-pic.b4{background:linear-gradient(135deg,var(--purple),var(--blue))}
+.attn-body{flex:1;min-width:0}
+.attn-row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.attn-name{font-size:12px;color:var(--white);font-weight:600}
+.attn-time{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.attn-msg{font-size:11.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.attn-tag{display:inline-block;padding:1px 7px;border-radius:9px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:5px}
+.tag-hot{background:rgba(239,68,68,.12);color:#FCA5A5;border:1px solid rgba(239,68,68,.22)}
+.tag-warm{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.tag-cool{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+
+/* PIPELINE */
+.pipe-row{display:flex;align-items:center;gap:12px;padding:10px;border-bottom:1px solid var(--bd);font-size:12px}
+.pipe-row:last-child{border-bottom:none}
+.pipe-row .pn{flex:1;color:var(--white);font-weight:500}
+.pipe-row .pa{font-family:'JetBrains Mono',monospace;color:var(--text)}
+.pipe-row .pv{font-family:'JetBrains Mono',monospace;color:var(--green2);font-weight:600}
+.pipe-stage{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.ps-new{background:rgba(6,182,212,.12);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.ps-quoted{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.ps-scheduled{background:rgba(124,58,237,.12);color:#C4B5FD;border:1px solid rgba(124,58,237,.25)}
+.ps-won{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.22)}
+
+/* FOOTER CTA */
+.cta-bar{position:fixed;bottom:0;left:0;right:0;background:var(--deep);border-top:1px solid var(--bd2);
+  padding:14px 26px;display:flex;justify-content:space-between;align-items:center;z-index:50;
+  box-shadow:0 -8px 28px rgba(0,0,0,.5);flex-wrap:wrap;gap:12px}
+.cta-text{font-size:13px;color:var(--text)}
+.cta-text strong{color:var(--white);font-weight:700}
+.cta-text .powered{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-right:14px}
+.cta-btn{padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,var(--accent),#EA580C);color:#fff;
+  border:1px solid rgba(251,146,60,.4);box-shadow:0 0 22px var(--glow);transition:all .2s}
+.cta-btn:hover{transform:translateY(-1px);box-shadow:0 0 32px var(--glow)}
+
+/* MOBILE */
+@media(max-width:980px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .grid-2-1,.grid-2{grid-template-columns:1fr}
+  .agents-grid{grid-template-columns:1fr}
+  .week-grid{grid-template-columns:repeat(3,1fr)}
+  .topbar{padding:12px 16px}
+  .content{padding:18px 16px}
+  .ribbon{padding:8px 16px}
+  .cta-bar{padding:12px 16px}
+  body{padding-bottom:140px}
+  .ph-right{width:100%}
+}
+@media(max-width:540px){
+  .stats-row{grid-template-columns:1fr 1fr;gap:10px}
+  .week-grid{grid-template-columns:repeat(2,1fr)}
+  .tb-time,.tb-status{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="tb-left">
+    <div class="tb-mark">R</div>
+    <div>
+      <div class="tb-co">Reliable Cooling &amp; Heating</div>
+      <div class="tb-tag">CEO Command Center · Tampa FL</div>
+    </div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-time" id="clock">—</div>
+    <div class="tb-status"><span class="status-dot"></span> 4 agents live</div>
+  </div>
+</header>
+
+<!-- DEMO RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-text"><strong>Sample dashboard</strong> — this is what an Efficio CEO Command Center looks like for an HVAC operator. Numbers are illustrative.</div>
+  <a class="ribbon-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Want this for your shop? →</a>
+</div>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="ph-left">
+      <h1>This Week — May 4 to May 10</h1>
+      <div class="ph-sub">12 techs · 4 agents shipping · last sync 2 minutes ago</div>
+    </div>
+    <div class="ph-right">
+      <button class="btn btn-ghost">⟲ Refresh</button>
+      <button class="btn btn-primary">+ New Workflow</button>
+    </div>
+  </div>
+
+  <!-- KPI STRIP -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div class="stat-val">47</div>
+      <div class="stat-lbl">Calls captured this month</div>
+      <div class="stat-delta">▲ 18% vs April</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="stat-val">32</div>
+      <div class="stat-lbl">Jobs booked / dispatched</div>
+      <div class="stat-delta">▲ 22% vs April</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="stat-val">15</div>
+      <div class="stat-lbl">Quotes in follow-up queue</div>
+      <div class="stat-delta neg">▼ 3 closed today</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="stat-val">$42K</div>
+      <div class="stat-lbl">Booked revenue MTD</div>
+      <div class="stat-delta">▲ on pace for $58K</div>
+    </div>
+  </div>
+
+  <!-- ROW 1: ACTIVITY + ATTN -->
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="sec-head">
+        <div class="sec-title">Live Agent Activity</div>
+        <div class="sec-meta">Last 7 days · 142 events</div>
+      </div>
+      <div class="feed">
+
+        <div class="feed-item">
+          <div class="feed-icon fi-orange">📞</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Lead Intake Bot</span> answered after-hours call from <span class="num">+1 813-555-0142</span> — booked <strong>Wed 9-11am</strong> for AC not cooling, 1985 sq ft Carrollwood</div>
+            <div class="feed-detail">Caller: Margaret Hollis · Lead score 87 (homeowner, urgency keywords detected, in service area) · Tech assigned: Diego R.</div>
+            <div class="feed-time">Today · 11:42 PM (3 minutes ago)</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📲</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Quote Follow-Up</span> sent SMS to <strong>Jose Vargas</strong> on $4,800 condenser quote (Day 3 follow-up)</div>
+            <div class="feed-detail">"Hi Jose — wanted to check in on the Carrier 3-ton quote from Tuesday. Happy to lock in the spring pricing if you're ready, or answer any questions."</div>
+            <div class="feed-time">Today · 4:15 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">✓</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Dispatch Coordinator</span> resolved scheduling conflict — moved <strong>Tom W.'s</strong> 2pm install from <strong>Bryan</strong> to <strong>Marcus</strong> (Bryan's morning job ran long, customer notified)</div>
+            <div class="feed-detail">Customer SMS sent: "Hey Tom — quick heads up, your tech today will be Marcus instead of Bryan. Same arrival window, 2-4pm. Reply C to confirm."</div>
+            <div class="feed-time">Today · 1:08 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-amber">⚠</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">After-Hours Receptionist</span> flagged <strong>3 missed callbacks</strong> from yesterday's overnight queue — needs your review</div>
+            <div class="feed-detail">No-shows on bot's morning callback attempts. 1 voicemail, 2 ringing/no answer. Reschedule strategy: SMS at 5pm today + retry call tomorrow 9am.</div>
+            <div class="feed-time">Today · 10:30 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-orange">📞</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Lead Intake Bot</span> qualified <span class="num">8</span> calls overnight — <span class="num">6</span> booked, <span class="num">2</span> outside service area (referred out)</div>
+            <div class="feed-detail">Bookings: 3 maintenance, 2 no-cool diagnostics, 1 commercial RTU walkthrough. Avg call length 2:14. Avg booking time 38 sec after qualification.</div>
+            <div class="feed-time">Today · 7:00 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📲</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Quote Follow-Up</span> closed <strong>$3,200 ductwork quote</strong> — Sarah K. signed and paid 50% deposit via Stripe link</div>
+            <div class="feed-detail">Day-7 follow-up converted. Loop closed at 4:51pm Wed. Job scheduled May 14-15. Marcus + apprentice assigned.</div>
+            <div class="feed-time">Yesterday · 4:51 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">✓</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Dispatch Coordinator</span> auto-routed <span class="num">14</span> service calls today — average drive time <span class="num">17 min</span>, down from 26 min last month</div>
+            <div class="feed-detail">Geographic clustering + tech-skill matching. Saved approx 2.1 tech-hours today.</div>
+            <div class="feed-time">Yesterday · 6:00 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-orange">📞</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">After-Hours Receptionist</span> handled <strong>emergency no-cool call</strong> at 2:47am — 89-year-old customer, escalated to on-call tech Bryan</div>
+            <div class="feed-detail">Bryan dispatched within 18 min. Capacitor replaced on-site. Invoice $312. Customer left 5-star Google review next morning.</div>
+            <div class="feed-time">May 7 · 2:47 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📲</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Quote Follow-Up</span> sent <span class="num">11</span> Day-1 thank-you texts after Tuesday's appointments — <span class="num">7</span> review requests, <span class="num">4</span> upsells offered</div>
+            <div class="feed-detail">Review request opt-in rate 64%. Upsell view rate 27% (filter subscription, surge protector, duct cleaning).</div>
+            <div class="feed-time">May 6 · 5:30 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">✓</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Lead Intake Bot</span> hit <strong>weekly milestone</strong> — first 100% capture week (zero missed inbound calls)</div>
+            <div class="feed-detail">7-day rolling: 47 calls answered, 0 voicemail-only, 0 hung up before pickup. Average ring-to-answer 1.8 sec.</div>
+            <div class="feed-time">May 5 · 11:59 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-amber">⚠</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Dispatch Coordinator</span> escalated parts shortage — <strong>R-410A refrigerant</strong> low at warehouse, 4 jobs at risk this week</div>
+            <div class="feed-detail">Auto-ordered from Johnstone (ETA Wed AM). Jobs Tue PM rescheduled to Thu. Customers SMS'd; 3 confirmed, 1 pending.</div>
+            <div class="feed-time">May 4 · 8:14 AM</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ATTN -->
+    <div class="card">
+      <div class="sec-head">
+        <div class="sec-title">Needs Your Attention</div>
+        <div class="sec-meta">4 items</div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic">JV</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Jose Vargas</div><div class="attn-time">2h ago</div></div>
+          <div class="attn-msg">"Can you do $4,500 even? My neighbor got a similar..."</div>
+          <div class="attn-tag tag-hot">Negotiating · $4,800</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b2">EC</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Elena Cruz</div><div class="attn-time">5h ago</div></div>
+          <div class="attn-msg">"Need to push install to next week — son's graduation Sat..."</div>
+          <div class="attn-tag tag-warm">Reschedule · Sat install</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b3">DM</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Don Mickelson</div><div class="attn-time">Yesterday</div></div>
+          <div class="attn-msg">"Got the maintenance plan question — want to upgrade to premium"</div>
+          <div class="attn-tag tag-cool">Upsell · +$340/yr</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b4">RW</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Riverside Apts (B. Tate)</div><div class="attn-time">2d ago</div></div>
+          <div class="attn-msg">"Need 12-unit RTU service contract proposal by Friday..."</div>
+          <div class="attn-tag tag-hot">Commercial · $14K/yr</div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin-top:18px;margin-bottom:10px">
+        <div class="sec-title">Performance vs Goals</div>
+        <div class="sec-meta">May target</div>
+      </div>
+
+      <div class="goal-row"><div class="gl">Booked revenue</div><div class="gv">$42K / $58K</div></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:72%"></div></div>
+
+      <div class="goal-row"><div class="gl">Quote close rate</div><div class="gv">38% / 35%</div></div>
+      <div class="prog-bar"><div class="prog-fill green" style="width:100%"></div></div>
+
+      <div class="goal-row"><div class="gl">Same-day dispatch %</div><div class="gv">81% / 85%</div></div>
+      <div class="prog-bar"><div class="prog-fill amber" style="width:81%"></div></div>
+
+      <div class="goal-row"><div class="gl">Avg first-response</div><div class="gv">2.1 min / &lt; 5 min</div></div>
+      <div class="prog-bar"><div class="prog-fill green" style="width:100%"></div></div>
+
+      <div class="goal-row"><div class="gl">Google reviews this mo.</div><div class="gv">19 / 25</div></div>
+      <div class="prog-bar"><div class="prog-fill cyan" style="width:76%"></div></div>
+    </div>
+  </div>
+
+  <!-- AGENT GRID -->
+  <div class="card" style="margin-bottom:22px">
+    <div class="sec-head">
+      <div class="sec-title">Your Agents</div>
+      <div class="sec-meta">All systems nominal · 4 of 4 active</div>
+    </div>
+    <div class="agents-grid">
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Lead Intake Bot</div>
+            <div class="agent-mission">Answers every inbound call, qualifies (homeowner / area / urgency), books in dispatch calendar, never sleeps.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">47</div><div class="as-lbl">Calls / mo</div></div>
+          <div class="as-cell"><div class="as-val">68%</div><div class="as-lbl">Book rate</div></div>
+          <div class="as-cell"><div class="as-val">1.8s</div><div class="as-lbl">Pickup</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">3 min ago — booked Carrollwood AC call</span></div>
+          <div>Next: <span class="ml">on inbound call (always-on)</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Dispatch Coordinator</div>
+            <div class="agent-mission">Routes service calls by location + tech skill, balances loads, handles same-day reshuffles, SMS-confirms with customer.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">142</div><div class="as-lbl">Routes / wk</div></div>
+          <div class="as-cell"><div class="as-val">17m</div><div class="as-lbl">Avg drive</div></div>
+          <div class="as-cell"><div class="as-val">81%</div><div class="as-lbl">Same-day</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">14 min ago — re-routed Tom W. to Marcus</span></div>
+          <div>Next: <span class="ml">5pm batch · tomorrow's schedule lock</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">After-Hours Receptionist</div>
+            <div class="agent-mission">Answers nights/weekends/holidays, distinguishes emergency vs callback, escalates to on-call tech only when needed.</div>
+          </div>
+          <div class="agent-pill pill-attn">3 attn</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">23</div><div class="as-lbl">Calls / wk</div></div>
+          <div class="as-cell"><div class="as-val">4</div><div class="as-lbl">Escalations</div></div>
+          <div class="as-cell"><div class="as-val">$2.1K</div><div class="as-lbl">Saved</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">2:47am — 89-yr-old emergency, dispatched Bryan</span></div>
+          <div>Next: <span class="ml">tonight 6pm — mode switch on</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Quote Follow-Up</div>
+            <div class="agent-mission">SMS / email cadence on open quotes Day 1 / 3 / 7 / 14. Stops on reply. Auto-sends Stripe deposit link on yes.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">15</div><div class="as-lbl">Open quotes</div></div>
+          <div class="as-cell"><div class="as-val">38%</div><div class="as-lbl">Close rate</div></div>
+          <div class="as-cell"><div class="as-val">$31K</div><div class="as-lbl">In pipeline</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">7h ago — Jose V. Day-3 SMS sent</span></div>
+          <div>Next: <span class="ml">tomorrow 9am · 4 Day-7 follow-ups</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEEK -->
+  <div class="card-dark" style="margin-bottom:22px">
+    <div class="sec-head">
+      <div class="sec-title">This Week — At a Glance</div>
+      <div class="sec-meta">May 4 → May 10 · 32 jobs scheduled</div>
+    </div>
+    <div class="week-grid">
+      <div class="day-col">
+        <div class="day-name">Mon</div>
+        <div class="day-date">4</div>
+        <div class="day-event"><div class="et">8:00am</div>Maintenance · 6 stops</div>
+        <div class="day-event cyan"><div class="et">2:00pm</div>Install · Hernandez ($6.2K)</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Tue</div>
+        <div class="day-date">5</div>
+        <div class="day-event"><div class="et">9:00am</div>Diag · 4 calls</div>
+        <div class="day-event green"><div class="et">11:30am</div>Sale closed · K. ($3.2K)</div>
+        <div class="day-event cyan"><div class="et">3:00pm</div>Install · Patel ($4.8K)</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Wed</div>
+        <div class="day-date">6</div>
+        <div class="day-event"><div class="et">all day</div>Service · 11 stops</div>
+        <div class="day-event"><div class="et">2:00pm</div>Quote walk · Riverside</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Thu</div>
+        <div class="day-date">7</div>
+        <div class="day-event cyan"><div class="et">7:00am</div>Install · 2-day start</div>
+        <div class="day-event"><div class="et">1:00pm</div>Diag · 3 calls</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Fri</div>
+        <div class="day-date">8</div>
+        <div class="day-event cyan"><div class="et">7:00am</div>Install · 2-day finish</div>
+        <div class="day-event"><div class="et">3:00pm</div>Maintenance · 4 stops</div>
+      </div>
+      <div class="day-col today">
+        <div class="day-name">Sat</div>
+        <div class="day-date">9</div>
+        <div class="day-event"><div class="et">9:00am</div>Maintenance · 5 stops</div>
+        <div class="day-event"><div class="et">11:00am</div>Diag · M. Hollis</div>
+        <div class="day-event green"><div class="et">2:00pm</div>Quote close · Vargas?</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Sun</div>
+        <div class="day-date">10</div>
+        <div class="day-event"><div class="et">on-call</div>Bryan · emerg. only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="card">
+    <div class="sec-head">
+      <div class="sec-title">Open Pipeline — Top 8</div>
+      <div class="sec-meta">$31,400 weighted</div>
+    </div>
+
+    <div class="pipe-row">
+      <span class="pipe-stage ps-quoted">Quoted</span>
+      <div class="pn">Riverside Apartments — 12-unit RTU contract</div>
+      <div class="pa">B. Tate · 2d</div>
+      <div class="pv">$14,000/yr</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-quoted">Quoted</span>
+      <div class="pn">Jose Vargas — Carrier 3-ton condenser</div>
+      <div class="pa">Day 3 · today</div>
+      <div class="pv">$4,800</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-scheduled">Scheduled</span>
+      <div class="pn">Elena Cruz — full system replace, 4-ton</div>
+      <div class="pa">Reschedule · Sat</div>
+      <div class="pv">$8,400</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-new">New lead</span>
+      <div class="pn">Margaret Hollis — Carrollwood, AC not cooling</div>
+      <div class="pa">Lead Intake · 3m</div>
+      <div class="pv">~$450 svc</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-quoted">Quoted</span>
+      <div class="pn">Don Mickelson — premium maint plan upgrade</div>
+      <div class="pa">Reply · 1d</div>
+      <div class="pv">$340/yr</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-won">Won</span>
+      <div class="pn">Sarah Kowalski — ductwork rework</div>
+      <div class="pa">Closed · yest</div>
+      <div class="pv">$3,200</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-quoted">Quoted</span>
+      <div class="pn">Brett Liu — surge protector + filter sub</div>
+      <div class="pa">Day 1 · today</div>
+      <div class="pv">$485</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-new">New lead</span>
+      <div class="pn">Tampa Auto Group — commercial walkthrough</div>
+      <div class="pa">Web form · 4h</div>
+      <div class="pv">~$22K est</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- CTA BAR -->
+<div class="cta-bar">
+  <div class="cta-text">
+    <span class="powered">Powered by Efficio</span>
+    <strong>Want this dashboard for your HVAC business?</strong>  Pilot from $997/mo. 30-day refund. Month-to-month.
+  </div>
+  <a class="cta-btn" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Schedule Strategy Call →</a>
+</div>
+
+<script>
+function pad(n){return n<10?'0'+n:n}
+function tick(){
+  const d=new Date();
+  const t=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  const el=document.getElementById('clock');if(el)el.textContent=t+' EST';
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

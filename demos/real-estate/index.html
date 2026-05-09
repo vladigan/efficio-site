@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bayside Realty Group — CEO Dashboard (Demo) | Efficio</title>
+<meta name="description" content="Sample CEO command center built by Efficio for a real estate brokerage. Inbound lead response, showing scheduler, drip campaigns, closing coordinator.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://efficio.tech/demos/real-estate/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%2310B981'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>B</text></svg>">
+<style>
+:root{
+  --void:#030712;--deep:#060E1C;--surf:#0C1A2E;--surf2:#0F2035;
+  --blue:#2563EB;--blue2:#3B82F6;--blue3:#60A5FA;
+  --cyan:#06B6D4;--cyan2:#22D3EE;
+  --green:#10B981;--green2:#34D399;
+  --amber:#F59E0B;--red:#EF4444;--purple:#7C3AED;
+  --accent:#10B981;--accent2:#34D399;
+  --white:#FFFFFF;--text:#94A3B8;--muted:#475569;--dim:#1E293B;
+  --bd:rgba(255,255,255,.06);--bd2:rgba(16,185,129,.35);
+  --glow:rgba(16,185,129,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--void);color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.5;padding-bottom:80px}
+a{color:var(--accent2);text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+
+.topbar{background:var(--deep);border-bottom:1px solid var(--bd);padding:14px 26px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40}
+.tb-left{display:flex;align-items:center;gap:12px}
+.tb-mark{width:34px;height:34px;border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),#059669);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:16px;color:#fff;
+  box-shadow:0 0 16px var(--glow)}
+.tb-co{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.tb-tag{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
+.tb-right{display:flex;align-items:center;gap:14px}
+.tb-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.tb-status{display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:14px;
+  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
+  font-size:10.5px;color:var(--green2);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 6px rgba(16,185,129,.7);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.ribbon{background:linear-gradient(90deg,rgba(16,185,129,.16),rgba(16,185,129,.04));
+  border-bottom:1px solid var(--bd2);padding:9px 26px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ribbon-text{font-size:12px;color:var(--accent2);font-weight:600}
+.ribbon-text strong{color:var(--white)}
+.ribbon-cta{font-size:12px;font-weight:700;color:var(--accent2);
+  padding:5px 12px;border-radius:6px;border:1px solid var(--bd2);transition:all .2s}
+.ribbon-cta:hover{background:rgba(16,185,129,.1)}
+
+.content{max-width:1320px;margin:0 auto;padding:24px 26px}
+.page-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:20px;flex-wrap:wrap}
+.ph-left h1{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:-.02em;line-height:1.2}
+.ph-left .ph-sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.ph-right{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:7px;
+  font-size:12px;font-weight:600;transition:all .15s;cursor:pointer;white-space:nowrap;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#059669);color:#fff;
+  border-color:rgba(52,211,153,.4);box-shadow:0 0 18px var(--glow)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 28px var(--glow)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border-color:var(--bd)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:var(--white)}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat-card{background:var(--surf);border:1px solid var(--bd);border-radius:12px;
+  padding:18px 20px;position:relative;overflow:hidden;transition:border-color .2s}
+.stat-card:hover{border-color:rgba(16,185,129,.25)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent2),transparent);opacity:0;transition:opacity .3s}
+.stat-card:hover::before{opacity:1}
+.stat-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.stat-icon.green{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.22)}
+.stat-icon.cyan{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2)}
+.stat-icon.blue{background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2)}
+.stat-icon.amber{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)}
+.stat-icon svg{width:16px;height:16px;stroke-width:2}
+.stat-icon.green svg{stroke:var(--green2)}
+.stat-icon.cyan svg{stroke:var(--cyan2)}
+.stat-icon.blue svg{stroke:var(--blue3)}
+.stat-icon.amber svg{stroke:var(--amber)}
+.stat-val{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:800;
+  background:linear-gradient(90deg,var(--green2),var(--cyan2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.stat-delta{font-size:10.5px;color:var(--green2);margin-top:8px;display:flex;align-items:center;gap:4px;font-weight:600}
+.stat-delta.neg{color:var(--red)}
+
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:22px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.card-dark{background:var(--deep);border:1px solid var(--bd);border-radius:12px;padding:20px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.sec-meta{font-size:11px;color:var(--muted)}
+
+.agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.agent-card{background:var(--deep);border:1px solid var(--bd);border-radius:10px;padding:16px;transition:border-color .2s}
+.agent-card:hover{border-color:rgba(16,185,129,.25)}
+.agent-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.agent-name{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.agent-mission{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+.agent-pill{font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:10px;letter-spacing:.04em;text-transform:uppercase;flex-shrink:0;margin-left:10px}
+.pill-running{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.25)}
+.pill-idle{background:rgba(148,163,184,.1);color:var(--text);border:1px solid var(--bd)}
+.pill-attn{background:rgba(245,158,11,.12);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.agent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;padding:10px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.as-cell{text-align:center}
+.as-val{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--white)}
+.as-lbl{font-size:9.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
+.agent-meta{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;line-height:1.7}
+.agent-meta .ml{color:var(--text)}
+
+.feed{max-height:520px;overflow-y:auto;padding-right:6px}
+.feed::-webkit-scrollbar{width:4px}
+.feed::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
+.feed-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.feed-item:last-child{border-bottom:none}
+.feed-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.fi-green{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.22)}
+.fi-cyan{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.fi-blue{background:rgba(37,99,235,.1);color:var(--blue3);border:1px solid rgba(37,99,235,.2)}
+.fi-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.feed-body{flex:1;min-width:0}
+.feed-line{font-size:12.5px;color:var(--white);font-weight:500;line-height:1.5}
+.feed-line .agent-tag{color:var(--green2);font-weight:600}
+.feed-line .num{color:var(--cyan2);font-family:'JetBrains Mono',monospace;font-weight:600}
+.feed-detail{font-size:11.5px;color:var(--text);margin-top:3px;line-height:1.5}
+.feed-time{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:5px}
+
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day-col{background:var(--deep);border:1px solid var(--bd);border-radius:8px;padding:10px 8px;min-height:160px}
+.day-col.today{border-color:var(--bd2);background:linear-gradient(180deg,rgba(16,185,129,.08),var(--deep) 30%)}
+.day-name{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;text-align:center;margin-bottom:2px}
+.day-date{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--white);text-align:center;margin-bottom:10px}
+.day-col.today .day-date{color:var(--accent2)}
+.day-event{background:rgba(16,185,129,.08);border-left:2px solid var(--accent);border-radius:4px;
+  padding:5px 7px;margin-bottom:5px;font-size:10.5px;color:var(--white);line-height:1.35}
+.day-event.cyan{background:rgba(6,182,212,.08);border-left-color:var(--cyan)}
+.day-event.amber{background:rgba(245,158,11,.08);border-left-color:var(--amber)}
+.day-event .et{font-size:9.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:2px}
+
+.goal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12px}
+.goal-row .gl{color:var(--text)}
+.goal-row .gv{font-family:'JetBrains Mono',monospace;color:var(--white);font-weight:600}
+.prog-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s}
+.prog-fill.cyan{background:linear-gradient(90deg,var(--cyan),var(--cyan2))}
+.prog-fill.amber{background:linear-gradient(90deg,#D97706,var(--amber))}
+
+.attn-item{display:flex;gap:10px;padding:11px;border-radius:8px;background:var(--deep);border:1px solid var(--bd);margin-bottom:8px;cursor:pointer;transition:all .15s}
+.attn-item:hover{border-color:var(--bd2);background:var(--surf2)}
+.attn-pic{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;
+  background:linear-gradient(135deg,var(--green),#059669)}
+.attn-pic.b2{background:linear-gradient(135deg,var(--cyan),var(--blue2))}
+.attn-pic.b3{background:linear-gradient(135deg,var(--purple),var(--blue))}
+.attn-pic.b4{background:linear-gradient(135deg,var(--amber),#D97706)}
+.attn-body{flex:1;min-width:0}
+.attn-row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.attn-name{font-size:12px;color:var(--white);font-weight:600}
+.attn-time{font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.attn-msg{font-size:11.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.attn-tag{display:inline-block;padding:1px 7px;border-radius:9px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:5px}
+.tag-hot{background:rgba(239,68,68,.12);color:#FCA5A5;border:1px solid rgba(239,68,68,.22)}
+.tag-warm{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.tag-cool{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+
+.pipe-row{display:flex;align-items:center;gap:12px;padding:10px;border-bottom:1px solid var(--bd);font-size:12px}
+.pipe-row:last-child{border-bottom:none}
+.pipe-row .pn{flex:1;color:var(--white);font-weight:500}
+.pipe-row .pa{font-family:'JetBrains Mono',monospace;color:var(--text)}
+.pipe-row .pv{font-family:'JetBrains Mono',monospace;color:var(--green2);font-weight:600}
+.pipe-stage{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.ps-new{background:rgba(6,182,212,.12);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.ps-tour{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.ps-offer{background:rgba(124,58,237,.12);color:#C4B5FD;border:1px solid rgba(124,58,237,.25)}
+.ps-escrow{background:rgba(37,99,235,.12);color:var(--blue3);border:1px solid rgba(37,99,235,.22)}
+.ps-closed{background:rgba(16,185,129,.12);color:var(--green2);border:1px solid rgba(16,185,129,.22)}
+
+.cta-bar{position:fixed;bottom:0;left:0;right:0;background:var(--deep);border-top:1px solid var(--bd2);
+  padding:14px 26px;display:flex;justify-content:space-between;align-items:center;z-index:50;
+  box-shadow:0 -8px 28px rgba(0,0,0,.5);flex-wrap:wrap;gap:12px}
+.cta-text{font-size:13px;color:var(--text)}
+.cta-text strong{color:var(--white);font-weight:700}
+.cta-text .powered{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-right:14px}
+.cta-btn{padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,var(--accent),#059669);color:#fff;
+  border:1px solid rgba(52,211,153,.4);box-shadow:0 0 22px var(--glow);transition:all .2s}
+.cta-btn:hover{transform:translateY(-1px);box-shadow:0 0 32px var(--glow)}
+
+@media(max-width:980px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .grid-2-1,.grid-2{grid-template-columns:1fr}
+  .agents-grid{grid-template-columns:1fr}
+  .week-grid{grid-template-columns:repeat(3,1fr)}
+  .topbar{padding:12px 16px}
+  .content{padding:18px 16px}
+  .ribbon{padding:8px 16px}
+  .cta-bar{padding:12px 16px}
+  body{padding-bottom:140px}
+  .ph-right{width:100%}
+}
+@media(max-width:540px){
+  .stats-row{grid-template-columns:1fr 1fr;gap:10px}
+  .week-grid{grid-template-columns:repeat(2,1fr)}
+  .tb-time,.tb-status{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="tb-left">
+    <div class="tb-mark">B</div>
+    <div>
+      <div class="tb-co">Bayside Realty Group</div>
+      <div class="tb-tag">CEO Command Center · 14 agents · San Diego</div>
+    </div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-time" id="clock">—</div>
+    <div class="tb-status"><span class="status-dot"></span> 4 agents live</div>
+  </div>
+</header>
+
+<div class="ribbon">
+  <div class="ribbon-text"><strong>Sample dashboard</strong> — this is what an Efficio CEO Command Center looks like for a residential brokerage. Numbers are illustrative.</div>
+  <a class="ribbon-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Want this for your brokerage? →</a>
+</div>
+
+<main class="content">
+
+  <div class="page-header">
+    <div class="ph-left">
+      <h1>Q2 Snapshot — May 4 to May 10</h1>
+      <div class="ph-sub">14 producing agents · 4 systems shipping · last sync 4 min ago</div>
+    </div>
+    <div class="ph-right">
+      <button class="btn btn-ghost">⟲ Refresh</button>
+      <button class="btn btn-primary">+ New Listing</button>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+      <div class="stat-val">89</div>
+      <div class="stat-lbl">New leads this quarter</div>
+      <div class="stat-delta">▲ 31% vs Q1</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="stat-val">23</div>
+      <div class="stat-lbl">Showings booked this week</div>
+      <div class="stat-delta">▲ 8 vs last week</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="stat-val">5</div>
+      <div class="stat-lbl">Deals in escrow</div>
+      <div class="stat-delta">▲ 2 closing this month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="stat-val">$1.2M</div>
+      <div class="stat-lbl">GCI booked Q2 to date</div>
+      <div class="stat-delta">▲ 84% of $1.4M target</div>
+    </div>
+  </div>
+
+  <div class="grid-2-1">
+    <div class="card">
+      <div class="sec-head">
+        <div class="sec-title">Live Agent Activity</div>
+        <div class="sec-meta">Last 7 days · 218 events</div>
+      </div>
+      <div class="feed">
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">⚡</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Inbound Lead Responder</span> replied to <strong>Zillow inquiry</strong> on 1247 Coronado Ave in <span class="num">38 sec</span> — caller booked Sat 11am tour</div>
+            <div class="feed-detail">Lead: Priya Nair · Qualified: pre-approved $850K, relocating from SF, target close June 30. Routed to agent Maria Chen.</div>
+            <div class="feed-time">Today · 11:38 PM (4 minutes ago)</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📅</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Showing Scheduler</span> booked <span class="num">7</span> tours for Saturday — all 3 listing agents' calendars deconflicted, MLS access codes auto-generated</div>
+            <div class="feed-detail">9am Pacific Beach · 11am Coronado · 12:30pm Mission Hills · 2pm North Park · 3:15pm Hillcrest · 4pm La Jolla · 5:30pm Ocean Beach.</div>
+            <div class="feed-time">Today · 6:14 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-blue">📨</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Listing Drip Campaign</span> sent <strong>Tuesday market update</strong> to 412 sphere contacts — <span class="num">38%</span> open rate, <span class="num">14</span> property-link clicks</div>
+            <div class="feed-detail">Top click: 412 Bayview Terrace ($1.34M, just listed). 3 contacts replied requesting tour info — auto-routed to Showing Scheduler.</div>
+            <div class="feed-time">Today · 9:00 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-amber">🏁</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Closing Coordinator</span> <strong>3-day countdown</strong> on Coronado escrow — appraisal back, loan committee approved, awaiting final HOA cert</div>
+            <div class="feed-detail">Buyer: Hartman family ($1.85M). Closing date: May 12. Outstanding: HOA cert (requested 5/2, follow-up sent today). All other docs green.</div>
+            <div class="feed-time">Today · 8:30 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">⚡</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Inbound Lead Responder</span> handled <span class="num">14</span> inquiries overnight — <span class="num">9</span> qualified, <span class="num">3</span> tours booked, <span class="num">2</span> not-yet-pre-approved (nurturing)</div>
+            <div class="feed-detail">Avg response time 41 sec. Sources: Zillow 6, Realtor.com 4, brokerage site 3, IG ad 1.</div>
+            <div class="feed-time">Today · 6:00 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📅</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Showing Scheduler</span> moved <strong>Garcia tour</strong> from 4pm Sat → 10am Sun — buyer's flight delay; listing agent + sellers SMS'd</div>
+            <div class="feed-detail">All 3 parties confirmed within 8 min. Lockbox code refreshed for new window.</div>
+            <div class="feed-time">Yesterday · 7:45 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-blue">📨</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Listing Drip Campaign</span> auto-sent <strong>price-drop alert</strong> on 8821 Mission Hills Dr — 48 saved-search subscribers notified within 6 min of MLS update</div>
+            <div class="feed-detail">$1.45M → $1.39M. 11 click-throughs, 2 tour requests in first hour.</div>
+            <div class="feed-time">Yesterday · 2:18 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-amber">🏁</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Closing Coordinator</span> closed <strong>Ortega Pacific Beach deal</strong> — keys handed over 3:00pm, $42K commission booked</div>
+            <div class="feed-detail">Buyers: Tomas + Lucia Ortega. $1.4M cash. 18-day close from offer. All-time agency record.</div>
+            <div class="feed-time">May 7 · 3:00 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-green">⚡</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Inbound Lead Responder</span> caught <strong>FSBO referral</strong> from past client — listing presentation booked for Wed 4pm</div>
+            <div class="feed-detail">Lead: Daniel Wexler (referred by Patel, closed 2024). Property: 4BR Mission Hills, est $2.1M. Routed to top listing agent Sarah Im.</div>
+            <div class="feed-time">May 6 · 4:22 PM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-cyan">📅</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Showing Scheduler</span> deconflicted overlapping tour requests on 412 Bayview Terrace — <span class="num">3</span> back-to-back same-day slots, all confirmed</div>
+            <div class="feed-detail">Listing agent Marco was double-booked Sat. Auto-rerouted: 1pm Marco · 2pm covering agent Tina · 3:30pm Marco. Sellers approved at 11am.</div>
+            <div class="feed-time">May 5 · 11:14 AM</div>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <div class="feed-icon fi-amber">🏁</div>
+          <div class="feed-body">
+            <div class="feed-line"><span class="agent-tag">Closing Coordinator</span> flagged <strong>title issue</strong> on Hillcrest deal — undisclosed mechanic's lien, $14K open. Title co. notified, sellers' attorney looped in</div>
+            <div class="feed-detail">Resolution path: lien payoff at close from seller proceeds. Does not delay closing. Buyer's lender notified.</div>
+            <div class="feed-time">May 4 · 10:45 AM</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sec-head">
+        <div class="sec-title">Needs Your Attention</div>
+        <div class="sec-meta">4 items</div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic">PN</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Priya Nair (lead)</div><div class="attn-time">12m ago</div></div>
+          <div class="attn-msg">"Looks great — can you also check 1183 Sunset Cliffs?"</div>
+          <div class="attn-tag tag-hot">Pre-approved · $850K</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b2">DW</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Daniel Wexler (FSBO ref)</div><div class="attn-time">3h ago</div></div>
+          <div class="attn-msg">"Sarah, want to confirm we're meeting at the property Wed 4..."</div>
+          <div class="attn-tag tag-hot">Listing pres · ~$2.1M</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b3">HF</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Hartman family (escrow)</div><div class="attn-time">8h ago</div></div>
+          <div class="attn-msg">"HOA still hasn't sent cert — anything we can do to push?"</div>
+          <div class="attn-tag tag-warm">Closing May 12</div>
+        </div>
+      </div>
+
+      <div class="attn-item">
+        <div class="attn-pic b4">JP</div>
+        <div class="attn-body">
+          <div class="attn-row1"><div class="attn-name">Janelle Park (sphere)</div><div class="attn-time">2d ago</div></div>
+          <div class="attn-msg">"Loved the market update — how's our valuation looking..."</div>
+          <div class="attn-tag tag-cool">Past client · CMA req</div>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin-top:18px;margin-bottom:10px">
+        <div class="sec-title">Performance vs Goals</div>
+        <div class="sec-meta">Q2 target</div>
+      </div>
+
+      <div class="goal-row"><div class="gl">GCI booked</div><div class="gv">$1.2M / $1.4M</div></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:84%"></div></div>
+
+      <div class="goal-row"><div class="gl">Lead-to-tour rate</div><div class="gv">26% / 22%</div></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:100%"></div></div>
+
+      <div class="goal-row"><div class="gl">Avg lead response</div><div class="gv">41s / &lt; 5 min</div></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:100%"></div></div>
+
+      <div class="goal-row"><div class="gl">Close rate (in escrow)</div><div class="gv">88% / 85%</div></div>
+      <div class="prog-bar"><div class="prog-fill cyan" style="width:100%"></div></div>
+
+      <div class="goal-row"><div class="gl">New listings signed</div><div class="gv">11 / 16</div></div>
+      <div class="prog-bar"><div class="prog-fill amber" style="width:69%"></div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:22px">
+    <div class="sec-head">
+      <div class="sec-title">Your Agents</div>
+      <div class="sec-meta">All systems nominal · 4 of 4 active</div>
+    </div>
+    <div class="agents-grid">
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Inbound Lead Responder</div>
+            <div class="agent-mission">Replies to Zillow / Realtor.com / IDX / IG / web inquiries in under 60 seconds. Qualifies, captures pre-approval, routes by neighborhood + price band.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">89</div><div class="as-lbl">Leads / Q</div></div>
+          <div class="as-cell"><div class="as-val">41s</div><div class="as-lbl">Avg reply</div></div>
+          <div class="as-cell"><div class="as-val">68%</div><div class="as-lbl">Qualified</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">4 min ago — replied to Priya N.</span></div>
+          <div>Next: <span class="ml">on inbound (always-on)</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Showing Scheduler</div>
+            <div class="agent-mission">Books tours across agent calendars + listing agent calendars. Auto-generates lockbox codes, SMS-confirms, handles reschedules.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">23</div><div class="as-lbl">Tours / wk</div></div>
+          <div class="as-cell"><div class="as-val">2.4</div><div class="as-lbl">Avg per lead</div></div>
+          <div class="as-cell"><div class="as-val">94%</div><div class="as-lbl">Show rate</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">6h ago — Sat lineup confirmed</span></div>
+          <div>Next: <span class="ml">tomorrow 7am · Sun batch</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Listing Drip Campaign</div>
+            <div class="agent-mission">Weekly market update + new-listing alerts to sphere + saved-search subscribers. Auto-segments by neighborhood, price band, buyer/seller intent.</div>
+          </div>
+          <div class="agent-pill pill-running">Running</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">412</div><div class="as-lbl">In sphere</div></div>
+          <div class="as-cell"><div class="as-val">38%</div><div class="as-lbl">Open rate</div></div>
+          <div class="as-cell"><div class="as-val">7</div><div class="as-lbl">Tours / mo</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">14h ago — Tue update sent</span></div>
+          <div>Next: <span class="ml">Tue 9am · weekly batch</span></div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div>
+            <div class="agent-name">Closing Coordinator</div>
+            <div class="agent-mission">Tracks every escrow milestone (inspection / appraisal / loan / HOA / title / final walk). Pings sellers / lenders / title co. when stuck. Surfaces blockers daily.</div>
+          </div>
+          <div class="agent-pill pill-attn">1 attn</div>
+        </div>
+        <div class="agent-stats">
+          <div class="as-cell"><div class="as-val">5</div><div class="as-lbl">In escrow</div></div>
+          <div class="as-cell"><div class="as-val">21d</div><div class="as-lbl">Avg close</div></div>
+          <div class="as-cell"><div class="as-val">88%</div><div class="as-lbl">On-time</div></div>
+        </div>
+        <div class="agent-meta">
+          <div>Last run: <span class="ml">16h ago — Hartman HOA follow-up</span></div>
+          <div>Next: <span class="ml">tomorrow 9am · daily milestone scan</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-dark" style="margin-bottom:22px">
+    <div class="sec-head">
+      <div class="sec-title">This Week — Tours & Closings</div>
+      <div class="sec-meta">May 4 → May 10 · 23 tours / 2 closings</div>
+    </div>
+    <div class="week-grid">
+      <div class="day-col">
+        <div class="day-name">Mon</div>
+        <div class="day-date">4</div>
+        <div class="day-event"><div class="et">10am</div>Listing pres · Patel</div>
+        <div class="day-event cyan"><div class="et">2pm</div>2 tours · La Jolla</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Tue</div>
+        <div class="day-date">5</div>
+        <div class="day-event"><div class="et">9am</div>Drip campaign send</div>
+        <div class="day-event cyan"><div class="et">all day</div>4 tours scattered</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Wed</div>
+        <div class="day-date">6</div>
+        <div class="day-event amber"><div class="et">11am</div>Final walk · Pacific Bch</div>
+        <div class="day-event"><div class="et">4pm</div>FSBO pres · Wexler</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Thu</div>
+        <div class="day-date">7</div>
+        <div class="day-event amber"><div class="et">3pm</div>Ortega close · $42K GCI</div>
+        <div class="day-event cyan"><div class="et">6pm</div>Open house prep</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Fri</div>
+        <div class="day-date">8</div>
+        <div class="day-event"><div class="et">9am</div>Inspection · Coronado</div>
+        <div class="day-event cyan"><div class="et">2pm</div>3 tours · North Park</div>
+      </div>
+      <div class="day-col today">
+        <div class="day-name">Sat</div>
+        <div class="day-date">9</div>
+        <div class="day-event cyan"><div class="et">9am-6pm</div>7 tours · all neighborhoods</div>
+        <div class="day-event"><div class="et">2pm</div>Open house · Bayview</div>
+      </div>
+      <div class="day-col">
+        <div class="day-name">Sun</div>
+        <div class="day-date">10</div>
+        <div class="day-event cyan"><div class="et">10am</div>Garcia tour (rescheduled)</div>
+        <div class="day-event"><div class="et">1pm</div>Open house · Mission Hills</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-head">
+      <div class="sec-title">Active Deals — In-Flight Pipeline</div>
+      <div class="sec-meta">$8.7M total transaction volume · 5 in escrow + 3 active offers</div>
+    </div>
+
+    <div class="pipe-row">
+      <span class="pipe-stage ps-escrow">Escrow</span>
+      <div class="pn">Hartman family — 1488 Coronado Ave</div>
+      <div class="pa">Closes May 12</div>
+      <div class="pv">$1.85M</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-closed">Closed</span>
+      <div class="pn">Ortega family — Pacific Beach 3BR</div>
+      <div class="pa">May 7 · 18-day close</div>
+      <div class="pv">$1.40M</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-escrow">Escrow</span>
+      <div class="pn">Vu / Daniels — Hillcrest condo</div>
+      <div class="pa">Closes May 22 · lien resolved</div>
+      <div class="pv">$945K</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-offer">Offer accepted</span>
+      <div class="pn">Garcia — La Jolla view 4BR</div>
+      <div class="pa">Inspection Mon</div>
+      <div class="pv">$2.4M</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-tour">Touring</span>
+      <div class="pn">Priya Nair — buyer side, ~$850K</div>
+      <div class="pa">Sat 11am · Coronado</div>
+      <div class="pv">~$25K GCI est</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-tour">Touring</span>
+      <div class="pn">412 Bayview Terrace — listing</div>
+      <div class="pa">3 tours Sat · listed Mon</div>
+      <div class="pv">$1.34M</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-new">Listing pitch</span>
+      <div class="pn">Wexler — Mission Hills 4BR (FSBO ref)</div>
+      <div class="pa">Wed 4pm pres</div>
+      <div class="pv">~$2.1M</div>
+    </div>
+    <div class="pipe-row">
+      <span class="pipe-stage ps-new">New lead</span>
+      <div class="pn">Janelle Park — past client, CMA req</div>
+      <div class="pa">2d · sphere</div>
+      <div class="pv">~$1.6M est</div>
+    </div>
+  </div>
+
+</main>
+
+<div class="cta-bar">
+  <div class="cta-text">
+    <span class="powered">Powered by Efficio</span>
+    <strong>Want this dashboard for your brokerage?</strong>  Pilot from $997/mo. 30-day refund. Month-to-month.
+  </div>
+  <a class="cta-btn" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Schedule Strategy Call →</a>
+</div>
+
+<script>
+function pad(n){return n<10?'0'+n:n}
+function tick(){
+  const d=new Date();
+  const t=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  const el=document.getElementById('clock');if(el)el.textContent=t+' PT';
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

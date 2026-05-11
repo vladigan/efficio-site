@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efficio — See Your AI Cockpit</title>
+<style>
+  /* ── reset + base ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #7c83ff;
+    --accent:  #5eb8ff;
+    --tertiary:#b794f6;
+    --grad:    linear-gradient(135deg, #7c83ff, #b794f6);
+    --bg:      #f3f4fa;
+    --surface: #ffffff;
+    --border:  #e5e7ef;
+    --text:    #1a1f2e;
+    --muted:   #6b7584;
+    --green:   #0f9b72;
+    --red:     #e53e3e;
+    --amber:   #d97706;
+    --radius:  14px;
+    --shadow:  0 4px 20px rgba(124,131,255,.10);
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+
+  /* ── header bar ───────────────────────────────────────────── */
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    background: var(--grad);
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .header-text h1 { font-size: 15px; font-weight: 800; letter-spacing: -.02em; }
+  .header-text p  { font-size: 11px; color: var(--muted); }
+
+  /* ── layout ───────────────────────────────────────────────── */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 16px 64px;
+  }
+  .intro {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .intro h2 {
+    font-size: 28px; font-weight: 800; letter-spacing: -.03em;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .intro p {
+    color: var(--muted); font-size: 15px; margin-top: 6px;
+  }
+
+  /* ── form card ────────────────────────────────────────────── */
+  .form-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label {
+    font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .field input[type=number],
+  .field select {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fafbff;
+    transition: border-color .15s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7584' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+  .field input[type=number]:focus,
+  .field select:focus { outline: none; border-color: var(--primary); }
+
+  /* checkboxes */
+  .checkbox-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .checkbox-group label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--text);
+    text-transform: none; letter-spacing: 0;
+    background: #f3f4fa; border: 1px solid var(--border);
+    border-radius: 8px; padding: 6px 12px;
+    cursor: pointer; transition: all .15s;
+    white-space: nowrap;
+  }
+  .checkbox-group label:hover { border-color: var(--primary); background: #ededff; }
+  .checkbox-group input[type=checkbox] { accent-color: var(--primary); }
+
+  /* radio tiers */
+  .tier-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tier-option { display: none; }
+  .tier-label {
+    display: flex; flex-direction: column;
+    border: 2px solid var(--border);
+    border-radius: 12px; padding: 14px 18px;
+    cursor: pointer; transition: all .15s;
+    min-width: 140px;
+  }
+  .tier-label:hover { border-color: var(--primary); }
+  .tier-option:checked + .tier-label {
+    border-color: var(--primary);
+    background: #ededff;
+  }
+  .tier-name { font-size: 14px; font-weight: 700; }
+  .tier-price { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* company name field */
+  .company-name-wrap {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .company-name-wrap input[type=text] {
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fafbff;
+    width: 100%;
+    transition: border-color .15s;
+  }
+  .company-name-wrap input[type=text]:focus { outline: none; border-color: var(--primary); }
+
+  /* generate button */
+  .btn-generate {
+    display: block; width: 100%;
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--grad);
+    color: #fff;
+    font-size: 15px; font-weight: 700; letter-spacing: .02em;
+    border: none; border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(124,131,255,.35);
+    transition: opacity .15s, transform .1s;
+  }
+  .btn-generate:hover { opacity: .92; transform: translateY(-1px); }
+  .btn-generate:active { transform: translateY(0); }
+
+  /* ── mockup shell ─────────────────────────────────────────── */
+  #mockup { display: none; }
+  #mockup.visible { display: block; }
+
+  .mockup-wrap {
+    background: #10131f;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 60px rgba(0,0,0,.35);
+    border: 1px solid #2a2d3e;
+  }
+
+  /* ── mockup topbar ─────────────────────────────────────────── */
+  .mock-topbar {
+    background: #181b2a;
+    border-bottom: 1px solid #2a2d3e;
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .mock-topbar-left {
+    display: flex; align-items: center; gap: 10px;
+    flex: 1; min-width: 180px;
+  }
+  .mock-logo {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: var(--grad);
+    color: #fff; font-weight: 800; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mock-company-name {
+    font-size: 14px; font-weight: 700; color: #e8eaf6;
+    letter-spacing: -.01em;
+  }
+  .mock-powered-by {
+    font-size: 10px; color: #555a7a;
+    margin-top: 1px;
+  }
+  .mock-kpi-bar {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .kpi-card {
+    background: #1e2233;
+    border: 1px solid #2a2d3e;
+    border-radius: 10px;
+    padding: 8px 14px;
+    min-width: 120px;
+  }
+  .kpi-label { font-size: 10px; color: #555a7a; letter-spacing: .06em; text-transform: uppercase; }
+  .kpi-val { font-size: 20px; font-weight: 800; color: #e8eaf6; letter-spacing: -.02em; margin-top: 1px; }
+  .kpi-delta { font-size: 10px; margin-top: 2px; }
+  .kpi-delta.up { color: #0f9b72; }
+  .kpi-delta.down { color: #e53e3e; }
+  .kpi-delta.neutral { color: #555a7a; }
+
+  /* ── mockup body ───────────────────────────────────────────── */
+  .mock-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #2a2d3e;
+  }
+  @media (max-width: 680px) { .mock-body { grid-template-columns: 1fr; } }
+
+  .mock-panel {
+    background: #181b2a;
+    padding: 18px;
+  }
+  .mock-panel.full-width {
+    grid-column: 1 / -1;
+  }
+  .panel-title {
+    font-size: 11px; font-weight: 700;
+    color: #7c83ff; letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .panel-title .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+  }
+
+  /* agent cards */
+  .agent-list { display: flex; flex-direction: column; gap: 10px; }
+  .agent-card {
+    background: #1e2233;
+    border: 1px solid #2a2d3e;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .agent-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7c83ff22, #b794f622);
+    border: 1px solid #7c83ff33;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .agent-info { flex: 1; }
+  .agent-name { font-size: 13px; font-weight: 700; color: #e8eaf6; }
+  .agent-desc { font-size: 11px; color: #7e85a0; margin-top: 2px; }
+  .agent-count {
+    font-size: 11px; font-weight: 700;
+    background: #7c83ff22; color: #7c83ff;
+    border: 1px solid #7c83ff33;
+    border-radius: 6px; padding: 2px 8px;
+    white-space: nowrap; align-self: center;
+  }
+
+  /* reply queue */
+  .reply-list { display: flex; flex-direction: column; gap: 8px; }
+  .reply-item {
+    background: #1e2233;
+    border: 1px solid #2a2d3e;
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .reply-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--grad);
+    color: #fff; font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .reply-body { flex: 1; }
+  .reply-sender { font-size: 12px; font-weight: 700; color: #e8eaf6; }
+  .reply-preview { font-size: 11px; color: #7e85a0; margin-top: 2px; }
+  .reply-action {
+    font-size: 10px; font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 5px;
+    white-space: nowrap; align-self: center;
+    flex-shrink: 0;
+  }
+  .reply-action.book { background: #0f9b7222; color: #0f9b72; border: 1px solid #0f9b7233; }
+  .reply-action.quote { background: #5eb8ff22; color: #5eb8ff; border: 1px solid #5eb8ff33; }
+  .reply-action.follow { background: #d9770622; color: #d97706; border: 1px solid #d9770633; }
+  .reply-action.close { background: #7c83ff22; color: #7c83ff; border: 1px solid #7c83ff33; }
+
+  /* build pipeline */
+  .pipeline-weeks { display: flex; flex-direction: column; gap: 10px; }
+  .week-row {
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .week-badge {
+    font-size: 10px; font-weight: 700; color: #555a7a;
+    background: #1e2233; border: 1px solid #2a2d3e;
+    border-radius: 6px; padding: 3px 8px;
+    white-space: nowrap; min-width: 56px; text-align: center;
+    margin-top: 2px;
+  }
+  .week-badge.active {
+    background: #7c83ff22; color: #7c83ff; border-color: #7c83ff44;
+  }
+  .week-items { flex: 1; }
+  .week-item {
+    font-size: 12px; color: #c4c7da;
+    padding: 3px 0;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .week-item::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #7c83ff; flex-shrink: 0;
+  }
+  .week-item.done { color: #0f9b72; }
+  .week-item.done::before { background: #0f9b72; }
+
+  /* pain stat banner */
+  .pain-banner {
+    background: linear-gradient(135deg, #7c83ff18, #b794f612);
+    border: 1px solid #7c83ff33;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: #a8afc8;
+    line-height: 1.5;
+  }
+  .pain-banner strong { color: #b794f6; }
+
+  /* bottom CTA */
+  .mock-cta {
+    background: #10131f;
+    border-top: 1px solid #2a2d3e;
+    padding: 20px;
+    text-align: center;
+  }
+  .mock-cta p {
+    font-size: 14px; color: #a8afc8; margin-bottom: 12px;
+  }
+  .mock-cta strong { color: #e8eaf6; }
+  .mock-cta a {
+    display: inline-block;
+    background: var(--grad);
+    color: #fff; text-decoration: none;
+    font-weight: 700; font-size: 14px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(124,131,255,.35);
+    transition: opacity .15s;
+  }
+  .mock-cta a:hover { opacity: .88; }
+  .mock-disclaimer {
+    font-size: 11px; color: #3a3f56;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+
+  /* scroll animation */
+  #mockup { transition: opacity .3s; }
+
+  /* ── utility ───────────────────────────────────────────────── */
+  .section-label {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- header -->
+<header class="site-header">
+  <div class="logo-mark">E</div>
+  <div class="header-text">
+    <h1>Efficio</h1>
+    <p>We're your AI team — see your version</p>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="intro">
+    <h2>What would your AI cockpit look like?</h2>
+    <p>Fill in 5 fields. We'll render a mockup of the system we'd build for your business in 3 weeks.</p>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="form-grid">
+
+      <!-- company name -->
+      <div class="field full">
+        <label>Your company name (optional)</label>
+        <div class="company-name-wrap">
+          <input type="text" id="f-company" placeholder="e.g. Peak HVAC Services" maxlength="60">
+        </div>
+      </div>
+
+      <!-- industry -->
+      <div class="field">
+        <label>Industry</label>
+        <select id="f-industry">
+          <option value="">— select —</option>
+          <option value="hvac">HVAC</option>
+          <option value="roofing">Roofing</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="electrical">Electrical</option>
+          <option value="landscaping">Landscaping</option>
+          <option value="cleaning">Cleaning</option>
+          <option value="auto_repair">Auto Repair</option>
+          <option value="pest_control">Pest Control</option>
+          <option value="accounting">Accounting</option>
+          <option value="real_estate">Real Estate</option>
+          <option value="insurance">Insurance</option>
+          <option value="construction">Construction</option>
+          <option value="dental">Dental</option>
+          <option value="law">Law</option>
+          <option value="medical">Medical</option>
+        </select>
+      </div>
+
+      <!-- team size -->
+      <div class="field">
+        <label>Team size (people)</label>
+        <input type="number" id="f-size" min="1" max="100" placeholder="e.g. 6">
+      </div>
+
+      <!-- pain -->
+      <div class="field">
+        <label>Biggest pain right now</label>
+        <select id="f-pain">
+          <option value="">— select —</option>
+          <option value="missed_calls">Missed calls / no-answer leads</option>
+          <option value="slow_estimates">Slow estimate follow-up</option>
+          <option value="dispatch_chaos">Dispatch chaos</option>
+          <option value="billing_chase">Billing chase / collections</option>
+          <option value="scheduling">Scheduling overload</option>
+          <option value="inventory">Inventory / supply tracking</option>
+          <option value="lead_intake">Lead intake + qualification</option>
+          <option value="quote_drafting">Quote drafting time</option>
+        </select>
+      </div>
+
+      <!-- tier -->
+      <div class="field">
+        <label>Tier of interest</label>
+        <div class="tier-group">
+          <input type="radio" name="tier" id="t-pilot" value="pilot" class="tier-option">
+          <label class="tier-label" for="t-pilot">
+            <span class="tier-name">Pilot</span>
+            <span class="tier-price">$997 / mo</span>
+          </label>
+          <input type="radio" name="tier" id="t-growth" value="growth" class="tier-option" checked>
+          <label class="tier-label" for="t-growth">
+            <span class="tier-name">Growth</span>
+            <span class="tier-price">$2,500 / mo</span>
+          </label>
+          <input type="radio" name="tier" id="t-operator" value="operator" class="tier-option">
+          <label class="tier-label" for="t-operator">
+            <span class="tier-name">Operator</span>
+            <span class="tier-price">$3,500 / mo</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- tools -->
+      <div class="field full">
+        <label>Tools they use today</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" value="google_workspace"> Google Workspace</label>
+          <label><input type="checkbox" value="microsoft_365"> Microsoft 365</label>
+          <label><input type="checkbox" value="quickbooks"> QuickBooks</label>
+          <label><input type="checkbox" value="servicetitan"> ServiceTitan</label>
+          <label><input type="checkbox" value="jobber"> Jobber</label>
+          <label><input type="checkbox" value="hubspot"> HubSpot</label>
+          <label><input type="checkbox" value="salesforce"> Salesforce</label>
+          <label><input type="checkbox" value="spreadsheets"> Custom spreadsheets</label>
+          <label><input type="checkbox" value="paper"> Paper / whiteboard</label>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn-generate" onclick="generateDemo()">Generate My AI Cockpit Preview</button>
+  </div>
+
+  <!-- MOCKUP OUTPUT -->
+  <div id="mockup">
+    <div class="mockup-wrap">
+
+      <!-- top bar -->
+      <div class="mock-topbar">
+        <div class="mock-topbar-left">
+          <div class="mock-logo">E</div>
+          <div>
+            <div class="mock-company-name" id="m-company-name">[Your Company]</div>
+            <div class="mock-powered-by">AI Cockpit · powered by Efficio</div>
+          </div>
+        </div>
+        <div class="mock-kpi-bar" id="m-kpi-bar">
+          <!-- injected by JS -->
+        </div>
+      </div>
+
+      <!-- body panels -->
+      <div class="mock-body">
+
+        <!-- left: agents -->
+        <div class="mock-panel">
+          <div class="panel-title"><span class="dot"></span> Active AI Agents</div>
+          <div id="m-pain-banner" class="pain-banner"></div>
+          <div class="agent-list" id="m-agent-list">
+            <!-- injected -->
+          </div>
+        </div>
+
+        <!-- right: reply queue -->
+        <div class="mock-panel">
+          <div class="panel-title"><span class="dot"></span> Reply Queue — AI-suggested actions</div>
+          <div class="reply-list" id="m-reply-list">
+            <!-- injected -->
+          </div>
+        </div>
+
+        <!-- bottom: pipeline -->
+        <div class="mock-panel full-width">
+          <div class="panel-title">Build Pipeline — what ships and when</div>
+          <div class="pipeline-weeks" id="m-pipeline">
+            <!-- injected -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="mock-cta">
+        <p>Want this for <strong id="m-cta-company">[your company]</strong>? We build it in 3 weeks.</p>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank">
+          Book 15 min — free strategy call
+        </a>
+        <p class="mock-disclaimer">
+          This is a mockup based on what we'd build for businesses like yours. Real numbers depend on your actual data and workflows.
+          All figures shown are synthetic and for illustration only.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Brand colours (inline, no import needed) ──────────────────────────────
+const BRAND = {
+  primary: '#7c83ff',
+  accent: '#5eb8ff',
+  tertiary: '#b794f6',
+  green: '#0f9b72',
+};
+
+// ── Per-industry data ─────────────────────────────────────────────────────
+const INDUSTRY_DATA = {
+  hvac: {
+    label: 'HVAC',
+    painStat: 'HVAC shops miss 37% of inbound calls during peak season — each missed call is an average $380 lost job (ACCA 2023). Most owners are still dispatching off a whiteboard and chasing invoices by hand.',
+    kpis: [
+      { label: 'Missed calls this week', val: '14', delta: '↑3 vs last week', dir: 'down' },
+      { label: 'Open jobs', val: '23', delta: '8 awaiting dispatch', dir: 'neutral' },
+      { label: 'Techs deployed today', val: '5', delta: '2 en route', dir: 'neutral' },
+      { label: 'Outstanding invoices', val: '$12,480', delta: '6 aged 30+ days', dir: 'down' },
+    ],
+    agents: [
+      { icon: '📞', name: 'Inbound Triage Agent', desc: 'Answers, qualifies, and routes every missed call. Books callbacks automatically.', count: '41 calls handled today' },
+      { icon: '📋', name: 'Estimate Follow-up Agent', desc: 'Sends follow-up sequences to open estimates at 24h, 72h, 7-day intervals.', count: '18 emails sent' },
+      { icon: '🗺️', name: 'Dispatch Optimizer', desc: 'Routes same-day jobs by tech location and skill set. Updates crew dashboard live.', count: '7 jobs routed' },
+    ],
+    replies: [
+      { initials: 'MK', sender: 'Mike K.', preview: '"Are you guys available Thursday? We need the A/C serviced before the weekend."', action: 'book', actionLabel: 'Draft booking' },
+      { initials: 'SR', sender: 'Sun Realty', preview: '"Need 4 units serviced — tenant complaints coming in. What\'s your rate for commercial?"', action: 'quote', actionLabel: 'Draft quote' },
+      { initials: 'JD', sender: 'Jim D.', preview: '"Haven\'t heard back on the $1,840 estimate from last Tuesday."', action: 'follow', actionLabel: 'Send follow-up' },
+      { initials: 'LP', sender: 'Lori P.', preview: '"Our system broke down again. Same tech as last time if possible."', action: 'book', actionLabel: 'Book + assign' },
+      { initials: 'DH', sender: 'DH Properties', preview: '"Invoice #1142 — we need a corrected one with the commercial tax rate."', action: 'close', actionLabel: 'Fix + resend' },
+    ],
+  },
+
+  roofing: {
+    label: 'Roofing',
+    painStat: 'Roofing contractors lose 28% of estimate leads by not following up within 24 hours — most are buried in active jobs (NRCA). Seasonal surge means some shops quote 60 jobs and close 8.',
+    kpis: [
+      { label: 'New leads this week', val: '19', delta: '↑4 vs last week', dir: 'up' },
+      { label: 'Open estimates', val: '31', delta: '12 not followed up', dir: 'down' },
+      { label: 'Active crews', val: '4', delta: '2 mid-job', dir: 'neutral' },
+      { label: 'Avg estimate close time', val: '9 days', delta: '↓2 days', dir: 'up' },
+    ],
+    agents: [
+      { icon: '🏠', name: 'Lead Intake Agent', desc: 'Captures every web + call lead, scores urgency, drops into priority queue.', count: '19 leads this week' },
+      { icon: '📩', name: 'Estimate Follow-up Agent', desc: 'Fires 24h / 72h / 7-day touches on every open estimate until reply or decline.', count: '12 emails sent today' },
+      { icon: '🔧', name: 'Crew Scheduler', desc: 'Matches new installs to crew availability and material delivery windows.', count: '4 jobs scheduled' },
+    ],
+    replies: [
+      { initials: 'TW', sender: 'Tom W.', preview: '"We got 3 quotes and yours is still in the running. Any room on price?"', action: 'close', actionLabel: 'Send close' },
+      { initials: 'CH', sender: 'City Housing', preview: '"Hail damage claim approved — need a contractor start date within 10 days."', action: 'book', actionLabel: 'Lock in date' },
+      { initials: 'BL', sender: 'Barb L.', preview: '"Is that estimate from April still valid? We\'re finally ready to move forward."', action: 'quote', actionLabel: 'Refresh estimate' },
+      { initials: 'AM', sender: 'A. Morales', preview: '"The soffit job — can you finish next week? Raining this weekend."', action: 'book', actionLabel: 'Reschedule' },
+      { initials: 'RG', sender: 'Ridge Group', preview: '"Need 3 commercial buildings inspected. Who do I call for a site visit?"', action: 'book', actionLabel: 'Draft reply' },
+    ],
+  },
+
+  plumbing: {
+    label: 'Plumbing',
+    painStat: 'Plumbing shops average 22 calls per day — 30% go to voicemail during dispatched hours. Each unbooked emergency call is $600-$900 in lost revenue (IBISWorld).',
+    kpis: [
+      { label: 'Missed calls today', val: '7', delta: '↑2 vs yesterday', dir: 'down' },
+      { label: 'Active dispatch', val: '6 techs', delta: '2 available now', dir: 'neutral' },
+      { label: 'Open invoices', val: '$8,310', delta: '4 aged 45+ days', dir: 'down' },
+      { label: 'Estimate close rate', val: '61%', delta: '↑5% this month', dir: 'up' },
+    ],
+    agents: [
+      { icon: '📞', name: 'Emergency Triage Agent', desc: 'Catches all missed calls, triages urgent vs. scheduled, texts ETA to the caller.', count: '31 calls handled' },
+      { icon: '🔩', name: 'Dispatch Coordinator', desc: 'Routes jobs to nearest available tech, updates job board in real time.', count: '11 jobs routed today' },
+      { icon: '💵', name: 'Invoice Chase Agent', desc: 'Auto-sends aging reminders at 15, 30, 45 days. Logs every response.', count: '6 reminders sent' },
+    ],
+    replies: [
+      { initials: 'KM', sender: 'Karen M.', preview: '"Pipe burst in the basement — is anyone available today?"', action: 'book', actionLabel: 'Emergency book' },
+      { initials: 'PL', sender: 'Plaza Mgmt', preview: '"3 units need water heaters replaced by end of month. Can you quote all 3?"', action: 'quote', actionLabel: 'Multi-unit quote' },
+      { initials: 'JR', sender: 'Joe R.', preview: '"Invoice 4421 — I paid this last week, why\'s it showing overdue?"', action: 'close', actionLabel: 'Confirm payment' },
+      { initials: 'SN', sender: 'S. Nguyen', preview: '"Slow drain in kitchen and bathroom. Probably need a camera."', action: 'book', actionLabel: 'Book inspection' },
+      { initials: 'HB', sender: 'Harborview HOA', preview: '"Annual backflow testing due in June. How many units can you handle in a day?"', action: 'quote', actionLabel: 'Scope + quote' },
+    ],
+  },
+
+  electrical: {
+    label: 'Electrical',
+    painStat: 'Electrical contractors spend 35% of billable hours on admin and dispatch coordination (NECA). Permit paperwork alone eats 4-6 hrs per job for shops without a dedicated admin.',
+    kpis: [
+      { label: 'Open permits', val: '8', delta: '3 past due date', dir: 'down' },
+      { label: 'Active jobs', val: '17', delta: '4 pending inspection', dir: 'neutral' },
+      { label: 'Quotes sent this week', val: '12', delta: '5 not yet followed up', dir: 'down' },
+      { label: 'Revenue this month', val: '$47,200', delta: '↑8% vs last month', dir: 'up' },
+    ],
+    agents: [
+      { icon: '⚡', name: 'Permit Tracker Agent', desc: 'Monitors all open permits, flags delays, drafts status emails to inspectors.', count: '8 permits tracked' },
+      { icon: '📋', name: 'Quote Follow-up Agent', desc: 'Follows up on every open quote at 24h and 72h automatically.', count: '14 emails sent' },
+      { icon: '🗓️', name: 'Inspection Scheduler', desc: 'Coordinates inspection windows with city, crew, and client in one thread.', count: '4 scheduled today' },
+    ],
+    replies: [
+      { initials: 'BT', sender: 'BuildTech LLC', preview: '"Panel upgrade quote — we need this done before the tenant moves in Aug 1."', action: 'book', actionLabel: 'Lock in date' },
+      { initials: 'CP', sender: 'City Permit Dept', preview: '"Permit #EL-2241 — inspection rescheduled to May 6 at 10am."', action: 'close', actionLabel: 'Confirm + notify crew' },
+      { initials: 'MR', sender: 'M. Rivera', preview: '"Breaker keeps tripping. Third time this week. Is this an emergency call?"', action: 'book', actionLabel: 'Triage + book' },
+      { initials: 'WH', sender: 'Westside Hotel', preview: '"Need EV charger install quote for 8 parking spots. Who should I speak to?"', action: 'quote', actionLabel: 'Route to sales' },
+      { initials: 'GF', sender: 'G. Frank', preview: '"Invoice from March still shows unpaid but I sent the check 3 weeks ago."', action: 'close', actionLabel: 'Confirm + close' },
+    ],
+  },
+
+  landscaping: {
+    label: 'Landscaping',
+    painStat: 'Service-business owners average 60+ hrs/wk with 40%+ on admin (Gusto SMB). Landscaping shops lose estimate windows when quotes stack up during peak season — a booked crew beats the best salesperson every time.',
+    kpis: [
+      { label: 'Leads in queue', val: '24', delta: '8 waiting on quotes', dir: 'down' },
+      { label: 'Active contracts', val: '38', delta: '6 up for renewal', dir: 'neutral' },
+      { label: 'Crews deployed today', val: '5', delta: 'All on schedule', dir: 'up' },
+      { label: 'Open invoices', val: '$6,140', delta: '3 aged 30+ days', dir: 'down' },
+    ],
+    agents: [
+      { icon: '🌿', name: 'Estimate Intake Agent', desc: 'Catches every inbound, qualifies property size and scope, queues draft quote.', count: '11 leads processed' },
+      { icon: '📆', name: 'Seasonal Renewal Agent', desc: 'Drafts renewal outreach for contracts expiring in 30-60 days.', count: '6 renewals drafted' },
+      { icon: '🚛', name: 'Crew Dispatcher', desc: 'Routes daily jobs with drive-time optimization and material checklist.', count: '5 crews routed' },
+    ],
+    replies: [
+      { initials: 'KL', sender: 'Karen L.', preview: '"Looking for weekly maintenance quote on a 1/2 acre commercial lot."', action: 'quote', actionLabel: 'Draft quote' },
+      { initials: 'RS', sender: 'R. Simmons', preview: '"Drought damage in the front — can someone come look this week?"', action: 'book', actionLabel: 'Book site visit' },
+      { initials: 'DP', sender: 'D. Park HOA', preview: '"Renewing our spring contract — same scope as last year, just update the price."', action: 'close', actionLabel: 'Send renewal' },
+      { initials: 'JM', sender: 'J. Martinez', preview: '"Back yard is a mess from the storm. Emergency cleanup — how fast can you come?"', action: 'book', actionLabel: 'Urgent book' },
+      { initials: 'CF', sender: 'C. Fletcher', preview: '"Invoice #880 — think I overpaid by $140 last month."', action: 'close', actionLabel: 'Audit + reply' },
+    ],
+  },
+
+  cleaning: {
+    label: 'Cleaning',
+    painStat: 'Cleaning businesses lose up to 30% of new inquiries because owners are on-site when the call comes in (BLS). Recurring vs. one-time intake confusion is the single biggest source of under-billing.',
+    kpis: [
+      { label: 'Inbound requests today', val: '9', delta: '4 still unresponded', dir: 'down' },
+      { label: 'Recurring clients', val: '62', delta: '5 paused this month', dir: 'neutral' },
+      { label: 'Today\'s jobs', val: '14', delta: '12 confirmed', dir: 'up' },
+      { label: 'Open invoices', val: '$3,890', delta: '2 aged 30+ days', dir: 'down' },
+    ],
+    agents: [
+      { icon: '🧹', name: 'Intake + Booking Agent', desc: 'Answers every inquiry, qualifies recurring vs. one-time, books the slot.', count: '9 inquiries handled' },
+      { icon: '🔁', name: 'Recurring Client Agent', desc: 'Monitors paused contracts, sends reactivation nudges at 7 and 14 days.', count: '5 nudges sent' },
+      { icon: '💵', name: 'Invoice Agent', desc: 'Sends invoices same-day after job completion, follows up at 7 and 21 days.', count: '14 invoices sent' },
+    ],
+    replies: [
+      { initials: 'SB', sender: 'S. Burke', preview: '"Want to start bi-weekly cleaning. 3-bed, 2-bath condo in Midtown."', action: 'book', actionLabel: 'Book + assign' },
+      { initials: 'NR', sender: 'N. Russo', preview: '"Need a one-time deep clean before my tenants move in. Available this Saturday?"', action: 'book', actionLabel: 'Check + confirm' },
+      { initials: 'TC', sender: 'T. Chen', preview: '"Pausing my monthly service for June. Resume July 1."', action: 'close', actionLabel: 'Log pause' },
+      { initials: 'HG', sender: 'H. Gomez', preview: '"Invoice 319 — I thought this included windows but I don\'t see that on here."', action: 'close', actionLabel: 'Clarify + resend' },
+      { initials: 'WO', sender: 'W. Office Park', preview: '"Need weekly office cleaning for 4 floors — about 12,000 sqft total."', action: 'quote', actionLabel: 'Commercial quote' },
+    ],
+  },
+
+  auto_repair: {
+    label: 'Auto Repair',
+    painStat: 'Auto shops miss 1 in 4 calls during peak hours and fail to follow up on 60% of estimates within 48 hours (AAIA). Labor utilization averages 65% even in busy shops — idle bays cost $200–$400/hr.',
+    kpis: [
+      { label: 'Open repair orders', val: '16', delta: '4 waiting on parts', dir: 'neutral' },
+      { label: 'Bays in use', val: '5 / 7', delta: '2 available', dir: 'up' },
+      { label: 'Estimates pending', val: '11', delta: '6 not followed up', dir: 'down' },
+      { label: 'Avg ticket value', val: '$347', delta: '↑$28 this month', dir: 'up' },
+    ],
+    agents: [
+      { icon: '🔧', name: 'Appointment Intake Agent', desc: 'Answers calls and web requests, qualifies service type, books open bay slots.', count: '23 appts managed' },
+      { icon: '📋', name: 'Estimate Follow-up Agent', desc: 'Follows up on every sent estimate at 24h and 48h until approved or declined.', count: '9 follow-ups sent' },
+      { icon: '🔔', name: 'Parts + Status Agent', desc: 'Texts customers when car is ready and when parts arrive. No phone tag.', count: '16 updates sent' },
+    ],
+    replies: [
+      { initials: 'DV', sender: 'D. Vasquez', preview: '"Is my car done? I called twice and got voicemail."', action: 'close', actionLabel: 'Send status' },
+      { initials: 'PK', sender: 'P. Kim', preview: '"The estimate for the transmission — I need to know if that\'s the final price."', action: 'close', actionLabel: 'Confirm + reply' },
+      { initials: 'LT', sender: 'L. Turner', preview: '"I need an oil change and brake check this week. What\'s the earliest slot?"', action: 'book', actionLabel: 'Book appointment' },
+      { initials: 'FL', sender: 'Fleet Inc.', preview: '"We have 12 vehicles due for service this month. Can you handle all in one week?"', action: 'quote', actionLabel: 'Fleet quote' },
+      { initials: 'RH', sender: 'R. Haines', preview: '"The noise came back 2 weeks after I picked it up. Is this still under your warranty?"', action: 'book', actionLabel: 'Warranty book' },
+    ],
+  },
+
+  pest_control: {
+    label: 'Pest Control',
+    painStat: 'Pest control operators lose 22% of potential recurring contracts due to slow initial response — callers book with whoever answers first (NPMA). Seasonal spikes mean response speed is a direct revenue multiplier.',
+    kpis: [
+      { label: 'New inquiries this week', val: '31', delta: '↑7 vs last week', dir: 'up' },
+      { label: 'Active contracts', val: '154', delta: '11 up for renewal', dir: 'neutral' },
+      { label: 'Routes today', val: '3', delta: '41 stops total', dir: 'neutral' },
+      { label: 'Callback queue', val: '6', delta: 'Avg wait 3.2 hrs', dir: 'down' },
+    ],
+    agents: [
+      { icon: '🐜', name: 'Inquiry Response Agent', desc: 'Responds to every web and phone inquiry within 5 minutes, qualifies pest type.', count: '31 handled this week' },
+      { icon: '📅', name: 'Route Optimizer', desc: 'Builds daily tech routes by zone and stop density. Updates if a job is added.', count: '3 routes generated' },
+      { icon: '🔁', name: 'Contract Renewal Agent', desc: 'Sends renewal sequences 30 days before contract expiry. Logs open/clicks.', count: '11 renewals active' },
+    ],
+    replies: [
+      { initials: 'AN', sender: 'A. Nelson', preview: '"Seeing a lot of roaches in the kitchen. Need someone out ASAP."', action: 'book', actionLabel: 'Urgent book' },
+      { initials: 'SW', sender: 'S. Walters', preview: '"My annual contract is up next month — what are your renewal rates this year?"', action: 'quote', actionLabel: 'Send renewal' },
+      { initials: 'BP', sender: 'B. Patel', preview: '"Tech came out last week but I\'m still seeing activity. Is a re-treat covered?"', action: 'book', actionLabel: 'Re-treat book' },
+      { initials: 'MO', sender: 'Metro Office Park', preview: '"Need quarterly service for a 20,000 sqft commercial building. Who do I speak with?"', action: 'quote', actionLabel: 'Commercial quote' },
+      { initials: 'YC', sender: 'Y. Chen', preview: '"Can I shift my appointment from Friday to next Tuesday?"', action: 'book', actionLabel: 'Reschedule' },
+    ],
+  },
+
+  accounting: {
+    label: 'Accounting',
+    painStat: 'Accounting firms lose 18-25% of engagement capacity to document chasing and client follow-up — time that could be billing hours (AICPA 2023). Solo and 2-3 partner shops have no admin buffer.',
+    kpis: [
+      { label: 'Open engagements', val: '34', delta: '9 awaiting docs', dir: 'down' },
+      { label: 'Client emails today', val: '47', delta: '18 not yet actioned', dir: 'down' },
+      { label: 'Billable hrs this week', val: '62', delta: '↑4 vs prior week', dir: 'up' },
+      { label: 'Invoices outstanding', val: '$14,900', delta: '7 aged 30+ days', dir: 'down' },
+    ],
+    agents: [
+      { icon: '📂', name: 'Document Chase Agent', desc: 'Emails clients a structured checklist and sends daily reminders until complete.', count: '9 clients nudged' },
+      { icon: '📧', name: 'Email Triage Agent', desc: 'Reads every inbound, labels urgency, drafts suggested reply for partner review.', count: '47 emails triaged' },
+      { icon: '💵', name: 'Invoice Follow-up Agent', desc: 'Sends aging reminders at 15, 30, 45 days. Logs every open and click.', count: '7 reminders sent' },
+    ],
+    replies: [
+      { initials: 'GL', sender: 'Gordan L.', preview: '"I still haven\'t gotten the K-1s from my S-Corp — is that your end or mine?"', action: 'close', actionLabel: 'Check + reply' },
+      { initials: 'MA', sender: 'M. Alvarez', preview: '"Can we push my extension filing? I\'m waiting on one more 1099."', action: 'close', actionLabel: 'Log + confirm' },
+      { initials: 'TR', sender: 'T. Reid', preview: '"Invoice 3892 — can I pay this in two installments?"', action: 'close', actionLabel: 'Set up plan' },
+      { initials: 'NW', sender: 'N. Wong', preview: '"Need help with a QuickBooks cleanup before I hand it off to you for bookkeeping."', action: 'quote', actionLabel: 'Scope cleanup' },
+      { initials: 'HK', sender: 'H. Kim', preview: '"Can we schedule a year-end planning call before August? Quick 30 min."', action: 'book', actionLabel: 'Book call' },
+    ],
+  },
+
+  real_estate: {
+    label: 'Real Estate',
+    painStat: 'Real estate agents lose 35-50% of leads to competitors who respond within 5 minutes — average response time in the US is 47 hours (NAR 2023). Speed-to-response is the entire game.',
+    kpis: [
+      { label: 'New leads this week', val: '27', delta: '↑6 vs last week', dir: 'up' },
+      { label: 'Active listings', val: '14', delta: '3 with offers', dir: 'up' },
+      { label: 'Avg response time', val: '6 min', delta: '↓8 min vs prior', dir: 'up' },
+      { label: 'Pipeline value', val: '$4.2M', delta: '2 under contract', dir: 'up' },
+    ],
+    agents: [
+      { icon: '🏡', name: 'Lead Response Agent', desc: 'Responds to every portal and web lead within 5 minutes with a qualifying message.', count: '27 leads this week' },
+      { icon: '📅', name: 'Showing Coordinator', desc: 'Syncs calendars with buyer and seller, confirms showings and open house reminders.', count: '11 showings booked' },
+      { icon: '📝', name: 'Offer + Follow-up Agent', desc: 'Tracks every active offer, fires follow-up to listing agents at 24h intervals.', count: '3 offers tracked' },
+    ],
+    replies: [
+      { initials: 'JS', sender: 'J. Stewart', preview: '"Saw the Maple Ave listing — is it still available? Can we see it Thursday?"', action: 'book', actionLabel: 'Book showing' },
+      { initials: 'EM', sender: 'E. Murphy', preview: '"We submitted an offer 36 hours ago and haven\'t heard anything back."', action: 'follow', actionLabel: 'Follow up' },
+      { initials: 'BO', sender: 'B. Okafor', preview: '"Zillow inquiry — looking for 3/2 under $450k near good schools. Help?"', action: 'close', actionLabel: 'Qualify + reply' },
+      { initials: 'VT', sender: 'V. Torres', preview: '"Our listing has been up for 21 days with no showings. What should we change?"', action: 'close', actionLabel: 'Pricing review' },
+      { initials: 'CR', sender: 'C. Rosen', preview: '"Referred by Sarah H. — we\'re thinking of selling in Q4. Just exploring."', action: 'book', actionLabel: 'Book consult' },
+    ],
+  },
+
+  insurance: {
+    label: 'Insurance',
+    painStat: '56% of SMBs using AI for client follow-up report measurable revenue uplift (SMB Group 2023). Insurance agencies lose 24-48 hrs/wk to renewal admin and document chasing alone.',
+    kpis: [
+      { label: 'Renewals due in 30 days', val: '22', delta: '8 not yet contacted', dir: 'down' },
+      { label: 'Open policy changes', val: '11', delta: '3 pending docs', dir: 'neutral' },
+      { label: 'New quotes this week', val: '16', delta: '7 not followed up', dir: 'down' },
+      { label: 'Client retention rate', val: '87%', delta: '↑2% vs Q1', dir: 'up' },
+    ],
+    agents: [
+      { icon: '📋', name: 'Renewal Outreach Agent', desc: 'Drafts personalized renewal emails 30 days out, logs every open and response.', count: '22 in sequence' },
+      { icon: '📄', name: 'Document Chase Agent', desc: 'Sends structured doc requests and daily reminders until policy change is complete.', count: '3 clients active' },
+      { icon: '📩', name: 'Quote Follow-up Agent', desc: 'Follows up on every sent quote at 24h, 72h, and 7 days.', count: '9 follow-ups sent' },
+    ],
+    replies: [
+      { initials: 'FN', sender: 'F. Nguyen', preview: '"My auto policy renewal came in $340 higher. Can we shop this?"', action: 'quote', actionLabel: 'Re-quote' },
+      { initials: 'CK', sender: 'C. Kim', preview: '"Adding a new driver to our family policy — my son just got his license."', action: 'close', actionLabel: 'Process change' },
+      { initials: 'AL', sender: 'A. Lawson', preview: '"Haven\'t seen the renewal docs yet and my policy expires in 11 days."', action: 'follow', actionLabel: 'Send docs now' },
+      { initials: 'BW', sender: 'B. Wu', preview: '"Filed a claim last week. Who should I be following up with at the carrier?"', action: 'close', actionLabel: 'Claim status' },
+      { initials: 'SD', sender: 'S. Diaz', preview: '"Looking for commercial liability for a new LLC. Never done this before."', action: 'book', actionLabel: 'Book consult' },
+    ],
+  },
+
+  construction: {
+    label: 'Construction',
+    painStat: 'General contractors past the 5-crew mark lose 25-40% of weekly capacity to re-entering data across 4+ tools (McKinsey). Change order management alone costs 6-8 hours/week in mid-size shops.',
+    kpis: [
+      { label: 'Active projects', val: '8', delta: '2 behind schedule', dir: 'down' },
+      { label: 'Open change orders', val: '14', delta: '$41,200 pending approval', dir: 'down' },
+      { label: 'Crews on-site today', val: '6', delta: '2 projects dual-staffed', dir: 'neutral' },
+      { label: 'Material deliveries due', val: '5', delta: '1 delayed', dir: 'neutral' },
+    ],
+    agents: [
+      { icon: '🏗️', name: 'Project Status Agent', desc: 'Compiles daily status from crew leads, flags delays, drafts client update emails.', count: '8 projects tracked' },
+      { icon: '📋', name: 'Change Order Agent', desc: 'Generates change order docs from field notes, routes for approval, tracks status.', count: '14 orders tracked' },
+      { icon: '🚚', name: 'Materials Tracker', desc: 'Monitors delivery windows, alerts PMs to delays before they hit the job site.', count: '5 deliveries today' },
+    ],
+    replies: [
+      { initials: 'PT', sender: 'P. Turner (client)', preview: '"Haven\'t heard an update on Building 2 in 5 days. What\'s the status?"', action: 'close', actionLabel: 'Send update' },
+      { initials: 'SH', sender: 'Supplier Hub', preview: '"Lumber order #4421 delayed 4 days due to freight. New ETA May 12."', action: 'close', actionLabel: 'Notify PM + adjust' },
+      { initials: 'WC', sender: 'W. Clark', preview: '"Change order #14 — the foundation waterproofing add. Did you get the signed copy?"', action: 'close', actionLabel: 'Confirm + file' },
+      { initials: 'MG', sender: 'M. Garcia', preview: '"Need a bid for a 4,200 sqft warehouse build. Ground-up. Can you meet this week?"', action: 'book', actionLabel: 'Book site visit' },
+      { initials: 'LA', sender: 'L. Andrews', preview: '"Final punch list — 3 items still open. Inspector is coming Friday."', action: 'close', actionLabel: 'Assign + confirm' },
+    ],
+  },
+
+  dental: {
+    label: 'Dental',
+    painStat: 'Dental practices lose 15-25% of new patient inquiries to slower response times — and 40% of no-shows never rebook (ADA 2023). Front-desk time is the most expensive bottleneck in a private practice.',
+    kpis: [
+      { label: 'Open appointment slots', val: '18', delta: '6 unfilled this week', dir: 'down' },
+      { label: 'Recall patients due', val: '43', delta: '17 not yet contacted', dir: 'down' },
+      { label: 'New patient inquiries', val: '9', delta: '3 not yet responded', dir: 'neutral' },
+      { label: 'No-show rate (30d)', val: '11%', delta: '↓2% vs prior month', dir: 'up' },
+    ],
+    agents: [
+      { icon: '🦷', name: 'Appointment Intake Agent', desc: 'Responds to every web and call inquiry, confirms insurance, books the slot.', count: '9 new patients this week' },
+      { icon: '🔔', name: 'Recall Campaign Agent', desc: 'Identifies overdue recall patients, sends structured reminder sequences.', count: '17 reminders sent' },
+      { icon: '📅', name: 'No-show Recovery Agent', desc: 'Texts no-shows within 1 hour with a same-day or next-day rebook offer.', count: '4 recovered this month' },
+    ],
+    replies: [
+      { initials: 'LH', sender: 'L. Harrison', preview: '"Do you take Delta Dental? I need a cleaning and haven\'t been in 2 years."', action: 'book', actionLabel: 'Verify + book' },
+      { initials: 'MK', sender: 'M. Kavinsky', preview: '"I missed my 10am. Can I come in at 3pm instead today?"', action: 'book', actionLabel: 'Rebook now' },
+      { initials: 'TF', sender: 'T. Flores', preview: '"My daughter is 8 and has never been to the dentist. How do I get her set up?"', action: 'book', actionLabel: 'New patient intake' },
+      { initials: 'SR', sender: 'S. Roy', preview: '"Cracked a tooth last night — it\'s not an emergency but it hurts. First open slot?"', action: 'book', actionLabel: 'Urgent slot' },
+      { initials: 'BJ', sender: 'B. Johnson', preview: '"EOB from insurance shows I have a $240 balance. Was I supposed to be billed?"', action: 'close', actionLabel: 'Check + reply' },
+    ],
+  },
+
+  law: {
+    label: 'Law',
+    painStat: 'Law firms lose 35% of new client inquiries to non-response within 24 hours (Clio 2023). Partners billing at $300-$500/hr cannot afford to spend 2+ hours/day on intake, scheduling, and document chasing.',
+    kpis: [
+      { label: 'New inquiries this week', val: '17', delta: '6 awaiting response', dir: 'down' },
+      { label: 'Open matters', val: '41', delta: '9 awaiting client docs', dir: 'down' },
+      { label: 'Billable hrs this week', val: '78', delta: '↑6 vs prior week', dir: 'up' },
+      { label: 'Client emails unread', val: '22', delta: '14 over 24 hrs old', dir: 'down' },
+    ],
+    agents: [
+      { icon: '⚖️', name: 'Intake Triage Agent', desc: 'Responds to every inquiry, qualifies practice area, routes to right attorney.', count: '17 inquiries handled' },
+      { icon: '📂', name: 'Document Chase Agent', desc: 'Sends structured requests and daily reminders for pending client documents.', count: '9 matters active' },
+      { icon: '📧', name: 'Email Triage Agent', desc: 'Reads and labels all inbound by urgency, drafts suggested replies for attorney review.', count: '22 triaged today' },
+    ],
+    replies: [
+      { initials: 'RP', sender: 'R. Patel', preview: '"We\'re facing a breach of contract claim — need representation quickly. Who can I speak with?"', action: 'book', actionLabel: 'Book consult' },
+      { initials: 'DM', sender: 'D. Morrison', preview: '"Sent the signed retainer 3 days ago but haven\'t seen a confirmation."', action: 'close', actionLabel: 'Confirm + file' },
+      { initials: 'JW', sender: 'J. Walsh', preview: '"Need the NDA reviewed before our Friday meeting. Is that a rush turn?"', action: 'close', actionLabel: 'Check capacity' },
+      { initials: 'TA', sender: 'T. Alvarez', preview: '"My employer terminated me on Monday. I think it may be wrongful. Can I get a consult today?"', action: 'book', actionLabel: 'Urgent consult' },
+      { initials: 'CH', sender: 'C. Hughes', preview: '"No word on the discovery requests that were due last week. Where do we stand?"', action: 'close', actionLabel: 'Status update' },
+    ],
+  },
+
+  medical: {
+    label: 'Medical',
+    painStat: 'Private medical practices lose 20-30% of prospective patient appointments to phone-tag and slow web response — and staff burnout from admin tasks is the top driver of independent practice closures (AMA 2023).',
+    kpis: [
+      { label: 'Open appointment slots', val: '24', delta: '9 unfilled this week', dir: 'down' },
+      { label: 'Recall patients due', val: '58', delta: '21 not yet contacted', dir: 'down' },
+      { label: 'Referral follow-ups', val: '7', delta: '3 overdue response', dir: 'down' },
+      { label: 'No-show rate (30d)', val: '13%', delta: '↑1% vs prior month', dir: 'neutral' },
+    ],
+    agents: [
+      { icon: '🏥', name: 'Patient Intake Agent', desc: 'Handles all new patient scheduling requests, verifies insurance, books slot.', count: '11 handled this week' },
+      { icon: '🔔', name: 'Recall Campaign Agent', desc: 'Identifies patients overdue for annual visits and preventive care.', count: '21 reminders sent' },
+      { icon: '📋', name: 'Referral Coordinator', desc: 'Tracks all outbound referrals, follows up with specialist offices, logs status.', count: '7 referrals tracked' },
+    ],
+    replies: [
+      { initials: 'LM', sender: 'L. Martinez', preview: '"I called three times — is there a faster way to get an appointment this week?"', action: 'book', actionLabel: 'Book now' },
+      { initials: 'GC', sender: 'G. Chen', preview: '"My bloodwork results were posted but no one called me. Should I be concerned?"', action: 'close', actionLabel: 'Route to provider' },
+      { initials: 'AR', sender: 'A. Ross', preview: '"I was referred to a cardiologist 3 weeks ago and haven\'t gotten an appointment yet."', action: 'follow', actionLabel: 'Chase referral' },
+      { initials: 'PV', sender: 'P. Villanueva', preview: '"Annual physical is due — my insurance covers preventive 100%. First open slot?"', action: 'book', actionLabel: 'Book preventive' },
+      { initials: 'BT', sender: 'B. Thomas', preview: '"I need a prior auth for my medication — this is the third time I\'ve asked."', action: 'close', actionLabel: 'Escalate + reply' },
+    ],
+  },
+};
+
+// ── Build pipeline per tier ───────────────────────────────────────────────
+function getPipeline(industry, tier, tools) {
+  const ind = INDUSTRY_DATA[industry] || INDUSTRY_DATA['hvac'];
+  const label = ind.label;
+
+  const toolNote = tools.length
+    ? ` (integrates with ${tools.slice(0,2).join(' + ')}${tools.length > 2 ? ' +' + (tools.length-2) + ' more' : ''})`
+    : '';
+
+  const base = [
+    { week: 'Week 1', items: [
+        `AI cockpit dashboard — ${label} KPIs, live job board, team view${toolNote}`,
+        'Inbound triage agent — every missed call / web inquiry handled automatically',
+    ], done: true },
+  ];
+
+  const growth = [
+    { week: 'Week 2', items: [
+        `Custom AI agent for your biggest pain (${getPainAgentLabel()})`,
+        'Reply queue panel — AI-suggested actions on every inbound message',
+    ], done: false },
+  ];
+
+  const fullstack = [
+    { week: 'Week 3', items: [
+        'Follow-up automation — 3-touch sequence on every open lead or estimate',
+        '90-day AI roadmap + weekly check-in cadence',
+    ], done: false },
+    { week: 'Week 4+', items: [
+        'Second AI agent on demand (from backlog)',
+        'A/B variant testing on outreach copy',
+    ], done: false },
+  ];
+
+  if (tier === 'pilot') return base;
+  if (tier === 'growth') return [...base, ...growth];
+  return [...base, ...growth, ...fullstack];
+}
+
+function getPainAgentLabel() {
+  const pain = document.getElementById('f-pain').value;
+  const map = {
+    missed_calls: 'missed-call recovery agent',
+    slow_estimates: 'estimate follow-up agent',
+    dispatch_chaos: 'dispatch optimizer',
+    billing_chase: 'invoice chase agent',
+    scheduling: 'appointment booking agent',
+    inventory: 'inventory alert agent',
+    lead_intake: 'lead intake + qualifier',
+    quote_drafting: 'AI quote drafting bot',
+  };
+  return map[pain] || 'custom AI agent';
+}
+
+// ── Tool label map ────────────────────────────────────────────────────────
+const TOOL_LABELS = {
+  google_workspace: 'Google Workspace',
+  microsoft_365: 'Microsoft 365',
+  quickbooks: 'QuickBooks',
+  servicetitan: 'ServiceTitan',
+  jobber: 'Jobber',
+  hubspot: 'HubSpot',
+  salesforce: 'Salesforce',
+  spreadsheets: 'Spreadsheets',
+  paper: 'Paper/Whiteboard',
+};
+
+// ── Main generate function ────────────────────────────────────────────────
+function generateDemo() {
+  const industry = document.getElementById('f-industry').value;
+  const teamSize = document.getElementById('f-size').value;
+  const pain = document.getElementById('f-pain').value;
+  const company = document.getElementById('f-company').value.trim() || '[Your Company]';
+  const tier = document.querySelector('input[name="tier"]:checked')?.value || 'growth';
+
+  const tools = Array.from(document.querySelectorAll('.checkbox-group input[type=checkbox]:checked'))
+    .map(cb => TOOL_LABELS[cb.value] || cb.value);
+
+  // validation
+  if (!industry) { alert('Please select your industry.'); return; }
+  if (!pain) { alert('Please select your biggest pain.'); return; }
+
+  const ind = INDUSTRY_DATA[industry];
+
+  // company name
+  document.getElementById('m-company-name').textContent = company + ' AI Cockpit';
+  document.getElementById('m-cta-company').textContent = company === '[Your Company]' ? 'your company' : company;
+
+  // KPIs
+  const kpiBar = document.getElementById('m-kpi-bar');
+  kpiBar.innerHTML = '';
+  ind.kpis.forEach(k => {
+    const card = document.createElement('div');
+    card.className = 'kpi-card';
+    card.innerHTML = `
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-val">${k.val}</div>
+      <div class="kpi-delta ${k.dir}">${k.delta}</div>
+    `;
+    kpiBar.appendChild(card);
+  });
+
+  // pain banner
+  document.getElementById('m-pain-banner').innerHTML =
+    `<strong>Why ${ind.label} businesses call us:</strong> ${ind.painStat}`;
+
+  // agents
+  const agentList = document.getElementById('m-agent-list');
+  agentList.innerHTML = '';
+  ind.agents.forEach(a => {
+    const el = document.createElement('div');
+    el.className = 'agent-card';
+    el.innerHTML = `
+      <div class="agent-icon">${a.icon}</div>
+      <div class="agent-info">
+        <div class="agent-name">${a.name}</div>
+        <div class="agent-desc">${a.desc}</div>
+      </div>
+      <div class="agent-count">${a.count}</div>
+    `;
+    agentList.appendChild(el);
+  });
+
+  // reply queue
+  const replyList = document.getElementById('m-reply-list');
+  replyList.innerHTML = '';
+  ind.replies.forEach(r => {
+    const el = document.createElement('div');
+    el.className = 'reply-item';
+    el.innerHTML = `
+      <div class="reply-avatar">${r.initials}</div>
+      <div class="reply-body">
+        <div class="reply-sender">${r.sender}</div>
+        <div class="reply-preview">${r.preview}</div>
+      </div>
+      <div class="reply-action ${r.action}">${r.actionLabel}</div>
+    `;
+    replyList.appendChild(el);
+  });
+
+  // pipeline
+  const pipeline = document.getElementById('m-pipeline');
+  pipeline.innerHTML = '';
+  const weeks = getPipeline(industry, tier, tools);
+  weeks.forEach(w => {
+    const row = document.createElement('div');
+    row.className = 'week-row';
+    const badgeClass = w.done ? 'week-badge active' : 'week-badge';
+    const itemsHTML = w.items.map(item =>
+      `<div class="week-item${w.done ? ' done' : ''}">${item}</div>`
+    ).join('');
+    row.innerHTML = `
+      <div class="${badgeClass}">${w.week}</div>
+      <div class="week-items">${itemsHTML}</div>
+    `;
+    pipeline.appendChild(row);
+  });
+
+  // show mockup
+  const mockup = document.getElementById('mockup');
+  mockup.classList.add('visible');
+  mockup.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // conversion tracking
+  const logEntry = {
+    industry,
+    team_size: teamSize || null,
+    pain,
+    tier,
+    tools,
+    company: company !== '[Your Company]' ? company : null,
+    generated_at: new Date().toISOString(),
+  };
+  try {
+    const existing = JSON.parse(localStorage.getItem('efficio_demo_log') || '[]');
+    existing.push(logEntry);
+    localStorage.setItem('efficio_demo_log', JSON.stringify(existing));
+  } catch(e) { /* localStorage unavailable — silent */ }
+
+  // fire analytics (fails silently — endpoint not yet live)
+  fetch('/api/demo-generated', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(logEntry),
+  }).catch(() => {});
+}
+</script>
+</body>
+</html>
+     

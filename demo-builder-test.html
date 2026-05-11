@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demo-builder visual test — hardcoded inputs</title>
+<style>
+  body { font-family: 'Inter', sans-serif; background: #f3f4fa; padding: 24px; color: #1a1f2e; }
+  h2 { font-size: 18px; margin-bottom: 16px; }
+  .test-card {
+    background: #fff; border-radius: 12px; border: 1px solid #e5e7ef;
+    padding: 20px; margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(124,131,255,.08);
+  }
+  .test-status { font-size: 12px; font-weight: 700; color: #0f9b72; margin-bottom: 8px; }
+  .test-meta { font-size: 12px; color: #6b7584; margin-bottom: 12px; }
+  iframe {
+    width: 100%; height: 700px; border: none; border-radius: 8px;
+    border: 1px solid #e5e7ef;
+  }
+</style>
+</head>
+<body>
+<h2>demo-builder-test.html — visual validation (no form fill needed)</h2>
+
+<div class="test-card">
+  <div class="test-status">TEST CASE 1 — HVAC / 8-person team / dispatch chaos / Growth tier / QuickBooks + ServiceTitan</div>
+  <div class="test-meta">Expects: 4 HVAC KPI cards, 3 agent cards, 5 reply items, 2-week pipeline (W1 + W2)</div>
+  <div id="result-hvac"></div>
+</div>
+
+<div class="test-card">
+  <div class="test-status">TEST CASE 2 — Dental / 4-person team / scheduling / Full Stack tier / Google Workspace</div>
+  <div class="test-meta">Expects: 4 dental KPI cards, no-show / recall agents, 4-section pipeline (W1–W4+)</div>
+  <div id="result-dental"></div>
+</div>
+
+<div class="test-card">
+  <div class="test-status">TEST CASE 3 — Law / 2-person team / missed calls / Pilot tier / no tools</div>
+  <div class="test-meta">Expects: 4 law KPI cards, intake triage agent, 1-week pipeline only (Pilot = W1 only)</div>
+  <div id="result-law"></div>
+</div>
+
+<script>
+// ── Minimal inline renderer (duplicates key JS from demo-builder.html) ──
+// This test exercises the data layer directly without iframes.
+
+const INDUSTRY_DATA = {
+  hvac: {
+    label: 'HVAC',
+    painStat: 'HVAC shops miss 37% of inbound calls during peak season — each missed call is an average $380 lost job (ACCA 2023). Most owners are still dispatching off a whiteboard and chasing invoices by hand.',
+    kpis: [
+      { label: 'Missed calls this week', val: '14', delta: '↑3 vs last week', dir: 'down' },
+      { label: 'Open jobs', val: '23', delta: '8 awaiting dispatch', dir: 'neutral' },
+      { label: 'Techs deployed today', val: '5', delta: '2 en route', dir: 'neutral' },
+      { label: 'Outstanding invoices', val: '$12,480', delta: '6 aged 30+ days', dir: 'down' },
+    ],
+    agents: [
+      { icon: '📞', name: 'Inbound Triage Agent', desc: 'Answers, qualifies, and routes every missed call. Books callbacks automatically.', count: '41 calls handled today' },
+      { icon: '📋', name: 'Estimate Follow-up Agent', desc: 'Sends follow-up sequences to open estimates at 24h, 72h, 7-day intervals.', count: '18 emails sent' },
+      { icon: '🗺️', name: 'Dispatch Optimizer', desc: 'Routes same-day jobs by tech location and skill set. Updates crew dashboard live.', count: '7 jobs routed' },
+    ],
+    replies: [
+      { initials: 'MK', sender: 'Mike K.', preview: '"Are you guys available Thursday? We need the A/C serviced before the weekend."', action: 'book', actionLabel: 'Draft booking' },
+      { initials: 'SR', sender: 'Sun Realty', preview: '"Need 4 units serviced — tenant complaints coming in. What\'s your rate for commercial?"', action: 'quote', actionLabel: 'Draft quote' },
+      { initials: 'JD', sender: 'Jim D.', preview: '"Haven\'t heard back on the $1,840 estimate from last Tuesday."', action: 'follow', actionLabel: 'Send follow-up' },
+      { initials: 'LP', sender: 'Lori P.', preview: '"Our system broke down again. Same tech as last time if possible."', action: 'book', actionLabel: 'Book + assign' },
+      { initials: 'DH', sender: 'DH Properties', preview: '"Invoice #1142 — we need a corrected one with the commercial tax rate."', action: 'close', actionLabel: 'Fix + resend' },
+    ],
+  },
+  dental: {
+    label: 'Dental',
+    painStat: 'Dental practices lose 15-25% of new patient inquiries to slower response times — and 40% of no-shows never rebook (ADA 2023).',
+    kpis: [
+      { label: 'Open appointment slots', val: '18', delta: '6 unfilled this week', dir: 'down' },
+      { label: 'Recall patients due', val: '43', delta: '17 not yet contacted', dir: 'down' },
+      { label: 'New patient inquiries', val: '9', delta: '3 not yet responded', dir: 'neutral' },
+      { label: 'No-show rate (30d)', val: '11%', delta: '↓2% vs prior month', dir: 'up' },
+    ],
+    agents: [
+      { icon: '🦷', name: 'Appointment Intake Agent', desc: 'Responds to every web and call inquiry, confirms insurance, books the slot.', count: '9 new patients this week' },
+      { icon: '🔔', name: 'Recall Campaign Agent', desc: 'Identifies overdue recall patients, sends structured reminder sequences.', count: '17 reminders sent' },
+      { icon: '📅', name: 'No-show Recovery Agent', desc: 'Texts no-shows within 1 hour with a same-day or next-day rebook offer.', count: '4 recovered this month' },
+    ],
+    replies: [
+      { initials: 'LH', sender: 'L. Harrison', preview: '"Do you take Delta Dental? I need a cleaning and haven\'t been in 2 years."', action: 'book', actionLabel: 'Verify + book' },
+      { initials: 'MK', sender: 'M. Kavinsky', preview: '"I missed my 10am. Can I come in at 3pm instead today?"', action: 'book', actionLabel: 'Rebook now' },
+      { initials: 'TF', sender: 'T. Flores', preview: '"My daughter is 8 and has never been to the dentist. How do I get her set up?"', action: 'book', actionLabel: 'New patient intake' },
+      { initials: 'SR', sender: 'S. Roy', preview: '"Cracked a tooth last night — it\'s not an emergency but it hurts. First open slot?"', action: 'book', actionLabel: 'Urgent slot' },
+      { initials: 'BJ', sender: 'B. Johnson', preview: '"EOB from insurance shows I have a $240 balance. Was I supposed to be billed?"', action: 'close', actionLabel: 'Check + reply' },
+    ],
+  },
+  law: {
+    label: 'Law',
+    painStat: 'Law firms lose 35% of new client inquiries to non-response within 24 hours (Clio 2023).',
+    kpis: [
+      { label: 'New inquiries this week', val: '17', delta: '6 awaiting response', dir: 'down' },
+      { label: 'Open matters', val: '41', delta: '9 awaiting client docs', dir: 'down' },
+      { label: 'Billable hrs this week', val: '78', delta: '↑6 vs prior week', dir: 'up' },
+      { label: 'Client emails unread', val: '22', delta: '14 over 24 hrs old', dir: 'down' },
+    ],
+    agents: [
+      { icon: '⚖️', name: 'Intake Triage Agent', desc: 'Responds to every inquiry, qualifies practice area, routes to right attorney.', count: '17 inquiries handled' },
+      { icon: '📂', name: 'Document Chase Agent', desc: 'Sends structured requests and daily reminders for pending client documents.', count: '9 matters active' },
+      { icon: '📧', name: 'Email Triage Agent', desc: 'Reads and labels all inbound by urgency, drafts suggested replies for attorney review.', count: '22 triaged today' },
+    ],
+    replies: [
+      { initials: 'RP', sender: 'R. Patel', preview: '"We\'re facing a breach of contract claim — need representation quickly."', action: 'book', actionLabel: 'Book consult' },
+      { initials: 'DM', sender: 'D. Morrison', preview: '"Sent the signed retainer 3 days ago but haven\'t seen a confirmation."', action: 'close', actionLabel: 'Confirm + file' },
+      { initials: 'JW', sender: 'J. Walsh', preview: '"Need the NDA reviewed before our Friday meeting. Is that a rush turn?"', action: 'close', actionLabel: 'Check capacity' },
+      { initials: 'TA', sender: 'T. Alvarez', preview: '"Terminated on Monday. I think it may be wrongful. Can I get a consult today?"', action: 'book', actionLabel: 'Urgent consult' },
+      { initials: 'CH', sender: 'C. Hughes', preview: '"No word on the discovery requests that were due last week. Where do we stand?"', action: 'close', actionLabel: 'Status update' },
+    ],
+  },
+};
+
+const TIER_PIPELINES = {
+  pilot: (label) => [
+    { week: 'Week 1', items: [
+      `AI cockpit dashboard — ${label} KPIs, live job board, team view`,
+      'Inbound triage agent — every missed call / web inquiry handled automatically',
+    ], done: true },
+  ],
+  growth: (label) => [
+    { week: 'Week 1', items: [
+      `AI cockpit dashboard — ${label} KPIs, live job board, team view`,
+      'Inbound triage agent — every missed call / web inquiry handled automatically',
+    ], done: true },
+    { week: 'Week 2', items: [
+      'Custom AI agent for your biggest pain',
+      'Reply queue panel — AI-suggested actions on every inbound message',
+    ], done: false },
+  ],
+  fullstack: (label) => [
+    { week: 'Week 1', items: [
+      `AI cockpit dashboard — ${label} KPIs, live job board, team view`,
+      'Inbound triage agent — every missed call / web inquiry handled automatically',
+    ], done: true },
+    { week: 'Week 2', items: [
+      'Custom AI agent for your biggest pain',
+      'Reply queue panel — AI-suggested actions on every inbound message',
+    ], done: false },
+    { week: 'Week 3', items: [
+      'Follow-up automation — 3-touch sequence on every open lead or estimate',
+      '90-day AI roadmap + weekly check-in cadence',
+    ], done: false },
+    { week: 'Week 4+', items: [
+      'Second AI agent on demand (from backlog)',
+      'A/B variant testing on outreach copy',
+    ], done: false },
+  ],
+};
+
+function renderTestCase(containerId, { industry, teamSize, pain, tier, tools, company }) {
+  const ind = INDUSTRY_DATA[industry];
+  const container = document.getElementById(containerId);
+
+  let html = `<div style="background:#10131f;border-radius:14px;overflow:hidden;border:1px solid #2a2d3e;">`;
+
+  // topbar
+  html += `<div style="background:#181b2a;border-bottom:1px solid #2a2d3e;padding:14px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">`;
+  html += `<div style="background:linear-gradient(135deg,#7c83ff,#b794f6);width:30px;height:30px;border-radius:8px;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">E</div>`;
+  html += `<div><div style="font-size:14px;font-weight:700;color:#e8eaf6;">${company} AI Cockpit</div><div style="font-size:10px;color:#555a7a;">powered by Efficio</div></div>`;
+  html += `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;">`;
+  ind.kpis.forEach(k => {
+    const color = k.dir === 'up' ? '#0f9b72' : k.dir === 'down' ? '#e53e3e' : '#555a7a';
+    html += `<div style="background:#1e2233;border:1px solid #2a2d3e;border-radius:10px;padding:8px 14px;min-width:110px;">
+      <div style="font-size:10px;color:#555a7a;text-transform:uppercase;letter-spacing:.06em;">${k.label}</div>
+      <div style="font-size:18px;font-weight:800;color:#e8eaf6;">${k.val}</div>
+      <div style="font-size:10px;color:${color};">${k.delta}</div>
+    </div>`;
+  });
+  html += `</div></div>`;
+
+  // body
+  html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2a2d3e;">`;
+
+  // agents
+  html += `<div style="background:#181b2a;padding:16px;">`;
+  html += `<div style="font-size:11px;font-weight:700;color:#7c83ff;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">Active AI Agents</div>`;
+  html += `<div style="background:linear-gradient(135deg,#7c83ff18,#b794f612);border:1px solid #7c83ff33;border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:11px;color:#a8afc8;">
+    <strong style="color:#b794f6;">Why ${ind.label} businesses call us:</strong> ${ind.painStat}
+  </div>`;
+  ind.agents.forEach(a => {
+    html += `<div style="background:#1e2233;border:1px solid #2a2d3e;border-radius:10px;padding:10px 12px;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;">
+      <div style="width:30px;height:30px;border-radius:8px;background:#7c83ff22;border:1px solid #7c83ff33;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">${a.icon}</div>
+      <div style="flex:1;">
+        <div style="font-size:13px;font-weight:700;color:#e8eaf6;">${a.name}</div>
+        <div style="font-size:11px;color:#7e85a0;margin-top:2px;">${a.desc}</div>
+      </div>
+      <div style="font-size:11px;font-weight:700;background:#7c83ff22;color:#7c83ff;border:1px solid #7c83ff33;border-radius:6px;padding:2px 8px;white-space:nowrap;">${a.count}</div>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // replies
+  html += `<div style="background:#181b2a;padding:16px;">`;
+  html += `<div style="font-size:11px;font-weight:700;color:#7c83ff;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">Reply Queue</div>`;
+  const actionColors = { book: '#0f9b72', quote: '#5eb8ff', follow: '#d97706', close: '#7c83ff' };
+  ind.replies.forEach(r => {
+    const c = actionColors[r.action] || '#7c83ff';
+    html += `<div style="background:#1e2233;border:1px solid #2a2d3e;border-radius:10px;padding:8px 10px;display:flex;gap:8px;align-items:flex-start;margin-bottom:6px;">
+      <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#7c83ff,#b794f6);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${r.initials}</div>
+      <div style="flex:1;">
+        <div style="font-size:12px;font-weight:700;color:#e8eaf6;">${r.sender}</div>
+        <div style="font-size:11px;color:#7e85a0;margin-top:2px;">${r.preview}</div>
+      </div>
+      <div style="font-size:10px;font-weight:700;padding:3px 7px;border-radius:5px;background:${c}22;color:${c};border:1px solid ${c}33;white-space:nowrap;">${r.actionLabel}</div>
+    </div>`;
+  });
+  html += `</div>`;
+
+  html += `</div>`; // close grid
+
+  // pipeline
+  const weeks = TIER_PIPELINES[tier](ind.label);
+  html += `<div style="background:#181b2a;padding:16px;border-top:1px solid #2a2d3e;">`;
+  html += `<div style="font-size:11px;font-weight:700;color:#7c83ff;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">Build Pipeline</div>`;
+  weeks.forEach(w => {
+    const badgeBg = w.done ? '#7c83ff22' : '#1e2233';
+    const badgeColor = w.done ? '#7c83ff' : '#555a7a';
+    html += `<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+      <div style="font-size:10px;font-weight:700;background:${badgeBg};color:${badgeColor};border:1px solid ${w.done ? '#7c83ff44' : '#2a2d3e'};border-radius:6px;padding:3px 8px;white-space:nowrap;min-width:54px;text-align:center;margin-top:2px;">${w.week}</div>
+      <div>${w.items.map(item => `<div style="font-size:12px;color:${w.done ? '#0f9b72' : '#c4c7da'};padding:2px 0;display:flex;align-items:center;gap:6px;"><span style="width:5px;height:5px;border-radius:50%;background:${w.done ? '#0f9b72' : '#7c83ff'};display:inline-block;flex-shrink:0;"></span>${item}</div>`).join('')}</div>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // cta
+  html += `<div style="background:#10131f;border-top:1px solid #2a2d3e;padding:16px;text-align:center;">
+    <p style="font-size:13px;color:#a8afc8;margin-bottom:10px;">Want this for <strong style="color:#e8eaf6;">${company}</strong>? We build it in 3 weeks.</p>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" style="display:inline-block;background:linear-gradient(135deg,#7c83ff,#b794f6);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px 24px;border-radius:10px;">Book 15 min — free strategy call</a>
+    <p style="font-size:10px;color:#3a3f56;margin-top:10px;">Mockup only. All numbers are synthetic. Real results depend on your data.</p>
+  </div>`;
+
+  html += `</div>`;
+
+  container.innerHTML = html;
+}
+
+// run all 3 test cases
+renderTestCase('result-hvac', {
+  industry: 'hvac', teamSize: 8, pain: 'dispatch_chaos', tier: 'growth',
+  tools: ['QuickBooks', 'ServiceTitan'], company: 'Peak HVAC Services',
+});
+
+renderTestCase('result-dental', {
+  industry: 'dental', teamSize: 4, pain: 'scheduling', tier: 'fullstack',
+  tools: ['Google Workspace'], company: 'Sunrise Dental',
+});
+
+renderTestCase('result-law', {
+  industry: 'law', teamSize: 2, pain: 'missed_calls', tier: 'pilot',
+  tools: [], company: 'Walsh & Reed LLP',
+});
+</script>
+</body>
+</html>

@@ -17,8 +17,8 @@
 
 [[redirects]]
   from   = "/audit"
-  to     = "https://calendly.com/brady-bngcent/efficio-strategy-call"
-  status = 302
+  to     = "/audit-quiz.html"
+  status = 301
 
 # Unsubscribe — serves unsubscribe.html (CAN-SPAM compliant opt-out page)
 # Query params (?email=...) are preserved automatically by Netlify rewrites.

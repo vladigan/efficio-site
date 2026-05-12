@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operator Report: Workforce-in-a-Box — 17 AI Pipelines, 4 Businesses, 1 Operator | Efficio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #7c83ff;
+    --accent: #5eb8ff;
+    --tertiary: #b794f6;
+    --grad: linear-gradient(135deg, #7c83ff, #b794f6);
+    --bg: #f3f4fa;
+    --surface: #ffffff;
+    --border: #e5e7ef;
+    --text: #1a1f2e;
+    --muted: #4a5469;
+    --faint: #6b7584;
+    --green: #0f9b72;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px 16px 64px;
+  }
+
+  .wrapper { max-width: 720px; margin: 0 auto; }
+
+  .brand-bar {
+    background: var(--surface);
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .brand-logo {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: var(--grad); color: #fff;
+    font-weight: 800; font-size: 19px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-name { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+  .brand-tagline { font-size: 12px; color: var(--faint); margin-top: 1px; }
+  .brand-label {
+    margin-left: auto;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--primary); background: #7c83ff14;
+    padding: 4px 10px; border-radius: 20px;
+  }
+
+  .stripe { height: 5px; background: var(--grad); }
+
+  .card {
+    background: var(--surface);
+    border-radius: 0 0 12px 12px;
+    padding: 36px 36px 40px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.06);
+  }
+
+  @media (max-width: 520px) {
+    .card { padding: 24px 18px 32px; }
+    .brand-bar { padding: 14px 18px; }
+  }
+
+  .case-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--primary); background: #7c83ff12;
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .hook {
+    font-size: 16px; color: var(--muted);
+    margin-bottom: 28px;
+    border-left: 3px solid var(--primary);
+    padding-left: 14px;
+  }
+
+  h2 {
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--faint); margin: 28px 0 10px;
+  }
+  p { font-size: 15px; color: var(--muted); margin-bottom: 12px; }
+
+  /* Pipeline table */
+  .pipeline-table {
+    width: 100%; border-collapse: collapse;
+    margin: 16px 0; font-size: 14px;
+  }
+  .pipeline-table th {
+    background: linear-gradient(135deg, #7c83ff14, #b794f610);
+    color: var(--faint);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 14px; text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .pipeline-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+  }
+  .pipeline-table tr:last-child td { border-bottom: none; }
+  .pipeline-table tr:hover td { background: #7c83ff06; }
+  .pipeline-table .biz-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .tag-efficio { background: #7c83ff18; color: var(--primary); }
+  .tag-ccp { background: #22d3ee18; color: #0891b2; }
+  .tag-bng { background: #0f9b7218; color: var(--green); }
+  .tag-apex { background: #f5920018; color: #c2710c; }
+
+  .stats-panel {
+    background: linear-gradient(135deg, #7c83ff12, #b794f610);
+    border: 1px solid #7c83ff28;
+    border-radius: 12px; padding: 22px 24px; margin: 18px 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  @media (max-width: 480px) {
+    .stats-panel { grid-template-columns: 1fr 1fr; }
+    .stats-panel .stat:first-child { grid-column: 1 / -1; }
+  }
+  .stat-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 5px;
+  }
+  .stat-hero {
+    font-size: 32px; font-weight: 800;
+    letter-spacing: -0.03em; line-height: 1; color: var(--primary);
+  }
+  .stat-hero.green { color: var(--green); }
+  .stat-sub { font-size: 11px; color: var(--faint); margin-top: 4px; }
+  .stat-support .stat-hero { font-size: 22px; }
+
+  .arch {
+    background: #0d1117; border-radius: 10px;
+    padding: 20px 22px; margin: 18px 0; overflow-x: auto;
+  }
+  .arch pre {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 12px; color: #c9d1d9; line-height: 1.65; white-space: pre;
+  }
+  .arch-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: #6b7584; margin-bottom: 10px;
+  }
+
+  .takeaway {
+    background: #7c83ff08;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px; margin: 18px 0;
+  }
+  .takeaway p { font-size: 15px; color: var(--text); margin: 0; line-height: 1.6; }
+
+  .cta-block {
+    margin-top: 32px; text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, #7c83ff0a, #b794f608);
+    border: 1px solid #7c83ff22; border-radius: 12px;
+  }
+  .cta-block p { font-size: 15px; color: var(--muted); margin-bottom: 18px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--grad); color: #fff;
+    text-decoration: none; font-weight: 700;
+    font-size: 14px; letter-spacing: 0.02em;
+    padding: 13px 28px; border-radius: 9px;
+    box-shadow: 0 5px 16px #7c83ff40;
+  }
+
+  .source-note {
+    font-size: 11px; color: var(--faint);
+    margin-top: 28px; padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .source-note code {
+    font-size: 11px; background: #f0f1f7;
+    padding: 1px 5px; border-radius: 4px; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="brand-bar">
+    <div class="brand-logo">E</div>
+    <div>
+      <div class="brand-name">Efficio</div>
+      <div class="brand-tagline">We're your AI team</div>
+    </div>
+    <div class="brand-label">Operator Report</div>
+  </div>
+  <div class="stripe"></div>
+
+  <div class="card">
+
+    <div class="case-tag">Case Study 04 · Multi-Business AI Operations</div>
+    <h1>17 Autonomous Pipelines.<br>4 Businesses.<br>1 Operator.</h1>
+    <p class="hook">Most AI agencies sell one service. This is what it looks like when the operator running those services actually eats his own cooking across four separate businesses — simultaneously.</p>
+
+    <h2>The Pain</h2>
+    <p>A solo operator running multiple businesses faces a specific kind of cognitive overhead: context-switching. The mental cost of moving from "what's my federal bid queue today" to "who replied to my cold email" to "did the job-search bot run" compounds throughout the day. The traditional answer is to hire — a VA for this, a scheduler for that, a specialist for the third thing. The AI answer is to build a single operations layer where every business reports up through the same interface, every agent runs in the background, and the operator's job is to review proposals and make calls — not to do the underlying work.</p>
+    <p>That's what the 17-pipeline stack shown here does. It isn't pitched as a concept. It runs every day.</p>
+
+    <h2>The Build — All 17 Pipelines</h2>
+
+    <table class="pipeline-table">
+      <thead>
+        <tr>
+          <th>Business</th>
+          <th>Pipeline</th>
+          <th>What it replaces</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>Lead scraper + ranker (18K leads, multi-vertical)</td>
+          <td>Manual prospect research</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>Suppression guard (1,317-entry hard block)</td>
+          <td>Spreadsheet de-dupe checks</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>Claude email personalizer + Brevo SMTP sender</td>
+          <td>Writing each cold email by hand</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>Reply classifier (11 labels, 24 unit tests)</td>
+          <td>Reading every reply and deciding what it is</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>A/B test harness (18 subject/body/CTA combos)</td>
+          <td>Guessing what copy works</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>Calendly booking sync + invoice drafter</td>
+          <td>Manual booking tracking + invoice writing</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">Efficio</span></td>
+          <td>No-show follow-up drafter (Gmail drafts only)</td>
+          <td>Remembering to follow up on ghost bookings</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-ccp">Career Copilots</span></td>
+          <td>LinkedIn job scraper + fit scorer</td>
+          <td>Browsing job boards manually</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-ccp">Career Copilots</span></td>
+          <td>Playwright application executor (3,186 apps fired)</td>
+          <td>Clicking Easy Apply 50x/day</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-ccp">Career Copilots</span></td>
+          <td>Claude cover-message generator (per-role)</td>
+          <td>Writing tailored cover letters</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-ccp">Career Copilots</span></td>
+          <td>Application reply tracker (interview / rejection / ghost)</td>
+          <td>Spreadsheet tracking + inbox scanning</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-bng">BNGCENT</span></td>
+          <td>DIBBS RFQ scraper (20–60 listings/day)</td>
+          <td>Manual portal browsing</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-bng">BNGCENT</span></td>
+          <td>Claude bid scorer (0–10, five criteria)</td>
+          <td>Gut-feel go/no-go decisions</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-bng">BNGCENT</span></td>
+          <td>OEM watchlist matcher + supplier outreach drafter</td>
+          <td>Cross-referencing part sources manually</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-apex">ApexTrader</span></td>
+          <td>StrategyGuard circuit-breaker (5 unprofitable strategies blocked)</td>
+          <td>Watching charts and manually killing bad trades</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-apex">ApexTrader</span></td>
+          <td>Risk-control state machine (live P&amp;L vs. threshold)</td>
+          <td>Manual position sizing + daily drawdown tracking</td>
+        </tr>
+        <tr>
+          <td><span class="biz-tag tag-efficio">All</span></td>
+          <td>Unified cockpit (port 7777) — all 4 businesses in one view</td>
+          <td>Separate dashboards + tab-switching + mental load</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The Numbers</h2>
+    <div class="stats-panel">
+      <div class="stat">
+        <div class="stat-label">Active pipelines</div>
+        <div class="stat-hero">17</div>
+        <div class="stat-sub">across 4 businesses</div>
+      </div>
+      <div class="stat stat-support">
+        <div class="stat-label">Businesses running</div>
+        <div class="stat-hero green">4</div>
+        <div class="stat-sub">simultaneously, 1 operator</div>
+      </div>
+      <div class="stat stat-support">
+        <div class="stat-label">Operator review time</div>
+        <div class="stat-hero">~30 min</div>
+        <div class="stat-sub">per day, all 4 businesses</div>
+      </div>
+    </div>
+
+    <h2>Architecture Overview</h2>
+    <div class="arch">
+      <div class="arch-label">Control flow — unified 4-business operations layer</div>
+      <pre>
+                    BRADY (operator)
+                         │
+                         ▼
+              Cockpit Dashboard  (port 7777)
+            ┌────────────┬──────────────┐
+            │            │              │
+      [Efficio]    [Career Copilots]  [BNGCENT]
+         7 pipes        4 pipes        3 pipes
+            │            │              │
+     Brevo SMTP     LinkedIn EA     DIBBS scraper
+     18K leads      3,186 apps     $228K queue
+     Suppression    Fit scorer     Bid scorer
+     guard          Cover gen      OEM matcher
+     Reply class.   App tracker    Outreach drafter
+     A/B harness
+     Calendly sync
+            │            │              │
+            └────────────┴──────────────┘
+                         │
+                    Activity log
+                  (shared artifact bus)
+                         │
+            [ApexTrader — paused, guard live]
+                   2 pipes: StrategyGuard
+                   + risk-control state machine</pre>
+    </div>
+
+    <h2>The Takeaway</h2>
+    <div class="takeaway">
+      <p>What makes this stack unusual isn't any individual pipeline — it's the shared control layer. Every agent from every business reports into the same approval inbox. Brady doesn't run four separate tool stacks; he reviews one queue. The cockpit pattern is what Efficio builds for clients: a custom version of this control layer, tuned to one business instead of four. The 17-pipeline count is unusual — most SMBs need 3–5 to see a step-change in output. The architecture scales down. The principle doesn't change.</p>
+    </div>
+
+    <div class="cta-block">
+      <p>Want to see what a custom version of this control layer would look like for your business? 15 minutes is enough to scope it.</p>
+      <a class="cta-btn" href="https://calendly.com/brady-bngcent/efficio-strategy-call">Book 15 min &rarr;</a>
+    </div>
+
+    <div class="source-note">
+      Source: Brady Gay, operator. Pipeline inventory from <code>LLC/</code> workspace. Cockpit source: <code>LLC/cockpit_v3.py</code>. This is the operator's own production stack, not a client engagement. Numbers current as of April 2026.
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

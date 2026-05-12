@@ -161,6 +161,14 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .price-cta:hover{background:var(--navy)}
 .price-card.feat .price-cta{background:var(--orange);color:var(--navy)}
 .price-card.feat .price-cta:hover{background:var(--orange-2)}
+.custom-builds-callout{margin-top:40px;padding:26px 30px;border:1px dashed rgba(255,107,53,.40);border-radius:var(--r-2);background:linear-gradient(135deg,rgba(255,107,53,.05),rgba(14,27,51,.03));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.custom-builds-callout .cb-text{flex:1;min-width:280px}
+.custom-builds-callout .cb-title{font-size:1.02rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.custom-builds-callout .cb-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px rgba(255,107,53,.5);display:inline-block}
+.custom-builds-callout p{font-size:.93rem;color:var(--muted);line-height:1.6;margin:0}
+.custom-builds-callout strong{color:var(--ink);font-weight:700}
+.custom-builds-callout .cb-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9px;background:var(--ink);color:var(--cream);font-weight:700;font-size:14px;white-space:nowrap;flex-shrink:0;transition:background .15s,transform .15s}
+.custom-builds-callout .cb-cta:hover{background:var(--orange);color:var(--navy);transform:translateY(-1px)}
 
 #book{background:#fff}
 .book-head{text-align:center;margin-bottom:32px}
@@ -200,6 +208,8 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
   .case-card{grid-template-columns:1fr}
   .case-visual{min-height:auto;padding:32px 24px}
   .steps,.price-row{grid-template-columns:1fr;gap:18px}
+  .custom-builds-callout{flex-direction:column;text-align:center;align-items:stretch}
+  .custom-builds-callout .cb-title{justify-content:center}
   .f-grid{grid-template-columns:1fr 1fr;gap:32px}
   .price-card.feat{transform:none}
   h1.hero-h1{font-size:2.4rem}
@@ -293,6 +303,34 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
       <article class="agent">
         <h3>Customer-satisfaction survey</h3>
         <p>After every recurring visit, optional 1-tap satisfaction check. Issues escalate before churn. Glowing responses route to a Google review ask.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="whats-included" style="background:#fff" aria-labelledby="wi-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What's included &mdash; one bundled stack</div>
+      <h2 id="wi-h">CRM + AI agents + CEO dashboard. One bill. Ships in 14 days.</h2>
+      <p class="lede">Every Efficio retainer ships the full back-office. For a cleaning operator, your bundled stack lands as: a CRM with recurring-service pipelines, crew scheduling, and 2-way SMS for arrival times; vertical AI agents handling intake, route optimization, quality follow-ups, and renewal automation; and a CEO dashboard surfacing recurring revenue, crew utilization, and account-level retention in one view.</p>
+    </div>
+    <div class="agents-grid">
+      <article class="agent">
+        <h3>&#128260; Full CRM platform</h3>
+        <p>Production-grade, your own custom-branded app. Pipelines, automations, 2-way SMS &amp; email, calendars, payments. Replaces the patchwork of CRM + texting + scheduling seats you pay for today.</p>
+      </article>
+      <article class="agent">
+        <h3>&#129302; Vertical-tuned AI agents</h3>
+        <p>1&ndash;5+ agents (count scales with tier) built on your scripts, your pricing, your booking rules. Not generic ChatGPT. Your playbook in code.</p>
+      </article>
+      <article class="agent">
+        <h3>&#128202; Custom CEO dashboard</h3>
+        <p>One screen. Every agent, every pipeline, every dollar. White-labeled to you. Mobile-friendly. The dashboard you open at 7am instead of seven tabs.</p>
+      </article>
+      <article class="agent">
+        <h3>&#128221; Onboarding + training</h3>
+        <p>Team training, data migration, agent tuning, 30-min new-client setup call. One bill, one throat to choke, no Zapier patchwork to debug at 10pm Sunday.</p>
       </article>
     </div>
   </div>
@@ -427,39 +465,51 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
       <div class="price-card reveal">
         <div class="price-tier">Pilot</div>
         <div class="price-amt">$997<small> / mo</small></div>
-        <p class="price-blurb">One automation live in week one. Best place to start.</p>
+        <p class="price-blurb">Start small, prove the value in 30 days.</p>
         <ul>
-          <li>One workflow automated</li>
-          <li>30-day refund if no savings</li>
-          <li>Weekly 15-min check-in</li>
-          <li>Monthly recovered-hours review</li>
+          <li>2 vertical AI agents</li>
+          <li>Custom CRM dashboard (your branded portal)</li>
+          <li>Up to 2,000 contacts</li>
+          <li>Standard onboarding (3-day setup)</li>
+          <li>Email + chat support</li>
         </ul>
-        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start with audit</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Pilot</a>
       </div>
       <div class="price-card feat reveal">
         <div class="price-tier">Growth</div>
         <div class="price-amt">$2,500<small> / mo</small></div>
-        <p class="price-blurb">Two to three workflows live. Operations dashboard included.</p>
+        <p class="price-blurb">Scale your back-office without hiring.</p>
         <ul>
-          <li>2–3 workflows automated</li>
-          <li>Live operations dashboard</li>
-          <li>Weekly check-ins + Slack/email channel</li>
-          <li>Monthly review with owner</li>
+          <li>4 vertical AI agents</li>
+          <li>CRM + multi-pipeline + SMS/email automation</li>
+          <li>Up to 10,000 contacts</li>
+          <li>White-glove onboarding (7-day + 1-on-1 training)</li>
+          <li>Priority email + chat support</li>
+          <li>Monthly performance review call</li>
         </ul>
-        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start with audit</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Growth</a>
       </div>
       <div class="price-card reveal">
         <div class="price-tier">Operator</div>
         <div class="price-amt">$3,500<small> / mo</small></div>
-        <p class="price-blurb">Full ops automation. For larger operators or multi-location.</p>
+        <p class="price-blurb">Run your entire ops on AI agents.</p>
         <ul>
-          <li>Unlimited workflows during retainer</li>
-          <li>Custom dashboard + alerts</li>
-          <li>2× weekly syncs</li>
-          <li>Quarterly strategy review</li>
+          <li>Unlimited vertical AI agents (we tune as you grow)</li>
+          <li>Full CRM + memberships + reporting + triggers</li>
+          <li>Up to 50,000 contacts</li>
+          <li>Dedicated onboarding manager</li>
+          <li>Slack channel + same-day priority support</li>
+          <li>Monthly strategy + quarterly biz review</li>
         </ul>
-        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start with audit</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Operator</a>
       </div>
+    </div>
+    <div class="custom-builds-callout">
+      <div class="cb-text">
+        <div class="cb-title"><span class="cb-dot"></span>Need something custom built?</div>
+        <p>We also ship <strong>Audit Sprints</strong> (5-day deep-dive, $2,500), <strong>Custom Builds</strong> (14-day, $7,500), and full <strong>System Builds</strong> (30-day, $15,000).</p>
+      </div>
+      <a class="cb-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Talk to us &rarr;</a>
     </div>
   </div>
 </section>

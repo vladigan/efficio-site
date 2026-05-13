@@ -1,18 +1,562 @@
 <!DOCTYPE html>
-<!--
-  STALE SNAPSHOT — DO NOT EDIT.
-  Canonical pricing page lives at: /website/pricing.html  (deployed as https://efficio.tech/pricing.html)
-  This folder is an old design snapshot from 2026-04-23 and is NOT deployed by Netlify.
-  All pricing changes should go in website/pricing.html.
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=../website/pricing.html" />
-  <title>Stale snapshot — see /website/pricing.html</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+  <meta name="description" content="Efficio pricing — AI Specialist $997, AI Team $2,500, AI Department $3,500 per month. Month-to-month, 30-day refund. From custom AI dashboards to continuous build cadence." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://efficio.tech/pricing.html" />
+  <title>Pricing — AI Specialist, Team, Department | Efficio</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://efficio.tech/pricing.html" />
+  <meta property="og:title" content="Pricing | Efficio" />
+  <meta property="og:description" content="AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day measurable-savings refund." />
+  <meta property="og:image" content="https://efficio.tech/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<style>
+:root{
+  --bg:#050a16;--bg2:#07101f;--bg3:#0c1728;
+  --surf:#0f1e33;--surf2:#132540;--surf3:#1a2f4f;
+  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;
+  --violet:#8b5cf6;--indigo:#6366f1;--pink:#ec4899;
+  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;--dim:#1e293b;
+  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
+  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --good:#4ade80;--ok:#22d3ee;--warn:#fbbf24;--no:#f87171;
+  --r:8px;--r2:14px;--r3:24px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
+  opacity:0;}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .3s}
+.nav.scrolled{background:rgba(5,10,22,.92);backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:14px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:34px;height:34px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:#fff;
+  box-shadow:0 0 24px var(--glow),0 0 48px var(--glow2)}
+.logo-text{font-size:17px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;
+  color:var(--text);transition:all .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.nav-links a.active{color:var(--white);background:rgba(124,58,237,.12)}
+.btn-nav{padding:10px 22px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--purple);color:#fff !important;border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 20px var(--glow2);transition:all .2s}
+.btn-nav:hover{background:var(--purple2);transform:translateY(-1px);
+  box-shadow:0 0 36px var(--glow),0 8px 24px rgba(124,58,237,.25)}
+
+/* HERO */
+.hero{padding:140px 0 70px;position:relative;overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(124,58,237,.16),transparent),
+             radial-gradient(ellipse 40% 60% at 80% 70%,rgba(236,72,153,.06),transparent),
+             radial-gradient(ellipse 40% 60% at 20% 80%,rgba(99,102,241,.07),transparent)}
+.hero-dots{position:absolute;inset:0;
+  background-image:radial-gradient(rgba(168,85,247,.14) 1px,transparent 1px);
+  background-size:32px 32px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 25%,transparent 100%);
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 25%,transparent 100%)}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 32px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:24px}
+.pill-dot{width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.06;
+  letter-spacing:-.04em;color:var(--white);margin-bottom:18px}
+.grad-purple{background:linear-gradient(95deg,var(--purple2),var(--purple3),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:var(--text);line-height:1.7;max-width:620px;margin:0 auto 26px}
+.hero-trust{display:inline-flex;flex-wrap:wrap;align-items:center;gap:0;font-size:13px;color:var(--muted)}
+.ti{display:flex;align-items:center;gap:7px;padding:0 16px;}
+.ti svg{color:var(--purple3);flex-shrink:0}
+.ti-sep{width:1px;height:14px;background:var(--dim)}
+
+/* SECTION */
+.section{padding:80px 0;position:relative}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.s-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:14px}
+.s-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-.035em;
+  color:var(--white);line-height:1.14;margin-bottom:14px}
+.s-sub{font-size:.98rem;color:var(--text);line-height:1.72;max-width:580px}
+.text-center{text-align:center}
+.text-center .s-sub{margin-left:auto;margin-right:auto}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* TIER CARDS — 3D tilt */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  perspective:1400px;margin-top:48px}
+@media (max-width:880px){.tiers{grid-template-columns:1fr}}
+.tier{background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r2);padding:34px 28px;
+  position:relative;transition:transform .55s var(--ease),border-color .3s,box-shadow .4s;
+  transform-style:preserve-3d;will-change:transform;overflow:hidden;display:flex;flex-direction:column}
+.tier::before{content:"";position:absolute;inset:0;border-radius:var(--r2);
+  background:linear-gradient(135deg,rgba(124,58,237,.10),transparent 60%);
+  opacity:0;transition:opacity .35s var(--ease);pointer-events:none}
+.tier:hover::before{opacity:1}
+.tier:hover{border-color:var(--bd2);
+  box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 32px rgba(124,58,237,.15)}
+.tier.feat{background:linear-gradient(180deg,rgba(124,58,237,.10),rgba(7,16,31,.95));
+  border:1px solid rgba(168,85,247,.40);
+  box-shadow:0 14px 40px rgba(0,0,0,.4),0 0 0 1px rgba(168,85,247,.20),0 0 60px rgba(124,58,237,.18)}
+.tier.feat::after{content:"MOST POPULAR";position:absolute;top:-1px;left:50%;
+  transform:translateX(-50%);background:linear-gradient(90deg,var(--purple),var(--purple2));
+  color:#fff;font-size:10px;font-weight:800;letter-spacing:.14em;
+  padding:5px 14px;border-radius:0 0 var(--r) var(--r)}
+.tier-name{font-size:.85rem;font-weight:700;letter-spacing:.04em;
+  color:var(--purple3);text-transform:uppercase;margin-bottom:10px}
+.tier-price{font-size:3.2rem;font-weight:800;color:var(--white);
+  line-height:1;letter-spacing:-.03em;margin-bottom:6px;
+  background:linear-gradient(135deg,var(--white) 0%,var(--purple3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tier-price-sub{font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.tier-desc{font-size:14px;color:var(--text);line-height:1.55;
+  margin:14px 0 22px;padding-bottom:22px;border-bottom:1px solid var(--bd3)}
+.tier-features{list-style:none;flex:1;display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
+.tier-features li{font-size:13.5px;color:var(--w2);line-height:1.5;
+  display:flex;align-items:start;gap:10px}
+.tier-features li::before{content:"";width:18px;height:18px;border-radius:50%;
+  background:rgba(124,58,237,.15);flex-shrink:0;margin-top:1px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c084fc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 8 7 11 12 5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center}
+.tier-cta{display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 22px;border-radius:var(--r);font-size:14px;font-weight:700;
+  background:var(--surf2);color:var(--white);border:1px solid var(--bd);
+  transition:all .25s}
+.tier-cta:hover{background:var(--surf3);border-color:var(--bd2);transform:translateY(-1px)}
+.tier.feat .tier-cta{background:linear-gradient(135deg,var(--purple),var(--purple2));
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 24px var(--glow2);color:#fff}
+.tier.feat .tier-cta:hover{box-shadow:0 0 40px var(--glow),0 8px 24px rgba(124,58,237,.3);transform:translateY(-2px)}
+.tier-arrow{display:inline-block;transition:transform .25s var(--ease)}
+.tier-cta:hover .tier-arrow{transform:translateX(4px)}
+.tier-foot{margin-top:14px;font-size:11px;color:var(--muted);text-align:center;letter-spacing:.04em}
+
+/* BUILDS row */
+.builds{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+@media (max-width:880px){.builds{grid-template-columns:1fr}}
+.build{background:rgba(15,30,51,.5);border:1px solid var(--bd);border-radius:var(--r);
+  padding:22px 22px;transition:all .25s}
+.build:hover{border-color:var(--bd2);transform:translateY(-2px);background:var(--surf)}
+.build-name{font-size:13px;font-weight:700;color:var(--purple3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.build-price{font-size:1.5rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:6px}
+.build-price span{font-size:13px;color:var(--muted);font-weight:500;margin-left:5px}
+.build-desc{font-size:13px;color:var(--text);line-height:1.55}
+
+/* CALLOUT */
+.callout{margin-top:30px;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(236,72,153,.04));
+  border:1px dashed var(--bd2);border-radius:var(--r2);padding:22px 28px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.callout-icon{width:42px;height:42px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 0 24px var(--glow2)}
+.callout-text{flex:1;min-width:280px;font-size:14px;color:var(--w2);line-height:1.6}
+.callout-text strong{color:var(--white)}
+
+/* COMPARISON */
+.compare{margin-top:48px;background:var(--surf);border:1px solid var(--bd);
+  border-radius:var(--r2);overflow:hidden}
+.compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  border-bottom:1px solid var(--bd3)}
+.compare-row:last-child{border-bottom:none}
+.compare-row > *{padding:18px 22px;font-size:14px}
+.compare-head{background:rgba(124,58,237,.06)}
+.compare-head > *{font-size:11.5px;font-weight:800;letter-spacing:.08em;
+  color:var(--purple3);text-transform:uppercase}
+.compare-head .best{background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;position:relative}
+.compare-head .best::before{content:"BEST FIT";position:absolute;top:-1px;left:50%;
+  transform:translateX(-50%);background:var(--white);color:var(--purple);
+  font-size:9px;padding:3px 10px;border-radius:0 0 var(--r) var(--r);letter-spacing:.12em}
+.label{font-weight:600;color:var(--white)}
+.cell{color:var(--text)}
+.cell.no{color:var(--no)}.cell.partial{color:var(--warn)}.cell.yes{color:var(--good)}
+.compare-row .best{background:rgba(124,58,237,.04);color:var(--w2);font-weight:500}
+@media (max-width:720px){.compare-row{grid-template-columns:1fr 1fr;font-size:12px}.compare-row > *:nth-child(2),.compare-row > *:nth-child(3){display:none}}
+
+/* FAQ */
+.faq{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media (max-width:820px){.faq{grid-template-columns:1fr}}
+.faq-item{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:0;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:var(--bd2)}
+.faq-q{width:100%;text-align:left;padding:18px 22px;font-size:15px;font-weight:600;
+  color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-q::after{content:"+";font-size:1.4rem;color:var(--purple3);transition:transform .25s var(--ease);flex-shrink:0}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease),padding .25s ease;
+  padding:0 22px;color:var(--text);font-size:14px;line-height:1.65}
+.faq-item.open .faq-a{max-height:280px;padding:0 22px 20px}
+
+/* CTA STRIP */
+.cta-strip{padding:90px 0;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(124,58,237,.12),transparent 70%),
+             var(--bg2);
+  border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.cta-strip h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--white);
+  letter-spacing:-.035em;margin-bottom:14px;line-height:1.14}
+.cta-strip p{color:var(--text);max-width:540px;margin:0 auto 30px;font-size:1.02rem;line-height:1.7}
+.btn-big{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;
+  border-radius:var(--r2);font-size:16px;font-weight:800;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 50px var(--glow),0 12px 36px rgba(124,58,237,.32);transition:all .25s}
+.btn-big:hover{transform:translateY(-3px);box-shadow:0 0 70px var(--glow),0 18px 44px rgba(124,58,237,.42)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;color:var(--muted)}
+.foot-grid{max-width:1200px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
+@media (max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot-brand{color:var(--w2)}
+.foot-brand p{font-size:13px;margin-top:12px;line-height:1.6;max-width:280px;color:var(--muted)}
+.foot-col h5{font-size:11px;color:var(--purple3);text-transform:uppercase;
+  letter-spacing:.14em;margin-bottom:12px;font-weight:800}
+.foot-col a{display:block;font-size:13.5px;padding:5px 0;color:var(--muted);transition:color .2s}
+.foot-col a:hover{color:var(--white)}
+.foot-bottom{max-width:1200px;margin:0 auto;padding:18px 32px 0;
+  border-top:1px solid var(--bd3);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  font-size:12px;color:var(--muted)}
+</style>
 </head>
 <body>
-  <p>This is a stale snapshot. Canonical pricing lives at
-  <a href="../website/pricing.html">website/pricing.html</a>.</p>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">E</span>
+      <span class="logo-text">Efficio</span>
+    </a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/agents.html">Agents</a>
+      <a href="/pricing.html" class="active">Pricing</a>
+      <a href="/why-us.html">Why us</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <span class="hero-pill rv"><span class="pill-dot"></span>Pricing · Month-to-month</span>
+    <h1 class="rv d1">Pricing that scales with <span class="grad-purple">what we ship</span>.</h1>
+    <p class="rv d2">Three subscription tiers, three one-time builds, one promise: <strong style="color:var(--white)">measurable savings by day 30 or your money back</strong>. No contracts. Cancel anytime.</p>
+    <div class="hero-trust rv d3">
+      <span class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30-day refund</span>
+      <span class="ti-sep"></span>
+      <span class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Month-to-month</span>
+      <span class="ti-sep"></span>
+      <span class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Real Stripe checkout</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section" id="tiers">
+  <div class="container">
+    <div class="tiers">
+      <div class="tier rv" data-tilt>
+        <div class="tier-name">AI Specialist</div>
+        <div class="tier-price">$997<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
+        <p class="tier-desc">For owners who want to start with one specific bottleneck. We deploy a single AI specialist and a live operational dashboard in week one.</p>
+        <ul class="tier-features">
+          <li>Custom AI dashboard built for your operations</li>
+          <li>1 AI specialist (recall · intake · quote · triage)</li>
+          <li>Monthly strategy call · 30 min</li>
+          <li>Shared chat channel · standard response</li>
+          <li>30-day measurable-savings refund</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="tier-cta" target="_blank" rel="noopener">Start with Specialist <span class="tier-arrow">→</span></a>
+        <div class="tier-foot">Stripe checkout · live</div>
+      </div>
+
+      <div class="tier feat rv d1" data-tilt>
+        <div class="tier-name">AI Team</div>
+        <div class="tier-price">$2,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
+        <p class="tier-desc">For owners who want a dashboard, a custom AI agent, and room to grow. The right starting point for most operations.</p>
+        <ul class="tier-features">
+          <li>Everything in AI Specialist</li>
+          <li>1 fully-custom AI agent</li>
+          <li>Biweekly strategy call · 30 min</li>
+          <li>Priority response on chat</li>
+          <li>Quarterly roadmap review</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="tier-cta" target="_blank" rel="noopener">Start with Team <span class="tier-arrow">→</span></a>
+        <div class="tier-foot">Stripe checkout · live</div>
+      </div>
+
+      <div class="tier rv d2" data-tilt>
+        <div class="tier-name">AI Department</div>
+        <div class="tier-price">$3,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
+        <p class="tier-desc">For owners who want a continuous build cadence — new agents and dashboards as the business grows.</p>
+        <ul class="tier-features">
+          <li>Everything in AI Team</li>
+          <li>Continuous AI builds · new agents on demand</li>
+          <li>Weekly strategy call · 45 min</li>
+          <li>24-hour response SLA</li>
+          <li>90-day written roadmap</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="tier-cta" target="_blank" rel="noopener">Start with Department <span class="tier-arrow">→</span></a>
+        <div class="tier-foot">Stripe checkout · live</div>
+      </div>
+    </div>
+
+    <div class="callout rv d3">
+      <div class="callout-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div class="callout-text"><strong>One workflow, shipped, week one.</strong> If by day 30 you can't point to a measurable change — recovered hours, faster turnaround, fewer reschedules — your first month is refunded, no debate. We agree on the metric on the strategy call so there's no moving goalpost.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-TIME BUILDS -->
+<section class="section" id="builds">
+  <div class="container text-center">
+    <span class="s-label rv">One-time builds</span>
+    <h2 class="s-title rv d1">Prefer a single scoped deliverable?</h2>
+    <p class="s-sub rv d2">Three fixed-scope builds. Optional $2,000–$5,000/month maintenance retainer post-handover. Pair with any subscription tier or run standalone.</p>
+    <div class="builds">
+      <div class="build rv">
+        <div class="build-name">Starter</div>
+        <div class="build-price">$2,500<span>one-time</span></div>
+        <p class="build-desc">Single AI dashboard or single agent. ~7 days. Drop in your stack and run.</p>
+      </div>
+      <div class="build rv d1">
+        <div class="build-name">Operations</div>
+        <div class="build-price">$7,500<span>one-time</span></div>
+        <p class="build-desc">Multi-agent operations dashboard. ~14 days. Replaces a part-time hire.</p>
+      </div>
+      <div class="build rv d2">
+        <div class="build-name">Full Pipeline</div>
+        <div class="build-price">$15,000<span>one-time</span></div>
+        <p class="build-desc">End-to-end pipeline build — discovery, multi-agent system, dashboard, training. ~30 days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section" style="background:rgba(7,14,26,.55)" id="compare">
+  <div class="container">
+    <div class="text-center">
+      <span class="s-label rv">Why Efficio</span>
+      <h2 class="s-title rv d1">An AI <span class="grad-purple">team</span>, not an AI tool.</h2>
+      <p class="s-sub rv d2">The difference matters. Tools sit on a shelf. Teams learn your business.</p>
+    </div>
+    <div class="compare rv d3">
+      <div class="compare-row compare-head">
+        <div></div>
+        <div>Generic AI tool</div>
+        <div>AI consultancy</div>
+        <div class="best">Efficio AI team</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Starting price</div>
+        <div class="cell">$50–$500/mo per seat</div>
+        <div class="cell">$15K–$50K + months</div>
+        <div class="cell best yes">From $997/mo · month-to-month</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Time to first value</div>
+        <div class="cell no">Months of config</div>
+        <div class="cell partial">3–6 months</div>
+        <div class="cell best yes">Week one</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Learns your business</div>
+        <div class="cell no">Generic prompts</div>
+        <div class="cell partial">Custom but static</div>
+        <div class="cell best yes">Evolves every week</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Who operates it after handoff</div>
+        <div class="cell no">You. Forever.</div>
+        <div class="cell no">No one. They left.</div>
+        <div class="cell best yes">We do. Always.</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Refund</div>
+        <div class="cell no">No</div>
+        <div class="cell no">No</div>
+        <div class="cell best yes">30 days · measurable</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Contract length</div>
+        <div class="cell partial">Annual, usually</div>
+        <div class="cell no">Project-based · long</div>
+        <div class="cell best yes">Month-to-month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <span class="s-label rv">FAQ</span>
+      <h2 class="s-title rv d1">Common questions.</h2>
+      <p class="s-sub rv d2">Don't see yours? <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener" style="color:var(--purple3);font-weight:600;">Book a 15-min call.</a></p>
+    </div>
+    <div class="faq rv d3">
+      <div class="faq-item">
+        <button class="faq-q">What does "measurable savings" mean for the refund?</button>
+        <div class="faq-a"><p>On the strategy call we agree on one metric — recovered hours, faster intake response, fewer reschedules, dollarized savings — and the measurement window (default 30 days). If by day 30 the metric hasn't moved, your first month is refunded in full. We commit to the metric before we start so there's no moving goalpost.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I switch tiers later?</button>
+        <div class="faq-a"><p>Yes — up or down, month-to-month, no penalty. Many operators start at AI Specialist to validate one workflow, then upgrade to AI Team when they want a custom agent built on top.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there a setup fee?</button>
+        <div class="faq-a"><p>No setup fee on subscription tiers. The first month covers discovery + the first deliverable (dashboard or specialist) going live in week one. One-time builds are fixed-scope flat fees — listed above.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What systems do you integrate with?</button>
+        <div class="faq-a"><p>Most modern business software via API: Google Workspace, HubSpot, Salesforce, Stripe, Calendly, QuickBooks, ServiceTitan, Eaglesoft, Dentrix, Open Dental, Clio, MyCase, FollowUp Boss, kvCORE, and more. If it has an API or webhook, we can talk to it. We confirm fit on the strategy call before you commit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I cancel?</button>
+        <div class="faq-a"><p>Yes — cancel anytime in the customer portal. No contract, no cancellation fee, no last-month surprise. Your agents and dashboards stay live until the current billing period ends, then we hand over read-only access to your data.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I own the agents and code?</button>
+        <div class="faq-a"><p>You own your data, configurations, and any custom integrations into your stack. The underlying agent framework and operating layer is Efficio's. If you cancel, we hand over a documented runbook of what was built; we don't hand over the agent runtime itself (that's our IP).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Start with a 60-second AI audit.</h2>
+    <p>We score where your bottleneck is. You decide what we build first. No deck, no homework — just the working thing.</p>
+    <a href="/audit-quiz.html" class="btn-big">Take the audit <span class="tier-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">
+        <span class="logo-mark">E</span>
+        <span class="logo-text">Efficio</span>
+      </div>
+      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <a href="/services.html">Services</a>
+      <a href="/agents.html">Agents</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/pricing.html">Pricing</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="/why-us.html">Why us</a>
+      <a href="/audit-quiz.html">Take the audit</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+    </div>
+    <div class="foot-col">
+      <h5>Legal</h5>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/unsubscribe.html">Unsubscribe</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script>
+  // sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // 3D tilt on tier cards
+  (function () {
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    if (!fine) return;
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      let raf = null;
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const rx = ((y / r.height) - 0.5) * -5;
+        const ry = ((x / r.width) - 0.5) * 5;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        if (raf) cancelAnimationFrame(raf);
+        card.style.transform = '';
+      });
+    });
+  })();
+</script>
 </body>
 </html>

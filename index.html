@@ -383,49 +383,111 @@
   .dash-bar { flex: 1; background: linear-gradient(180deg, var(--gold), rgba(212,165,116,.35)); border-radius: 2px 2px 0 0; opacity: .85; transition: opacity .3s; }
   .dash-bar:hover { opacity: 1; }
 
-  /* ─── agents grid ─────────────────────────────────────────────────────── */
+  /* ─── agents grid (premium 3D tilt) ──────────────────────────────────── */
   section.agents-sec {
     background: linear-gradient(180deg, var(--canvas-2) 0%, var(--canvas) 100%);
-  }
-  .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  @media (max-width: 980px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px) { .agents-grid { grid-template-columns: 1fr; } }
-  .agent-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: var(--r);
-    padding: 22px 20px;
-    transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
     position: relative;
     overflow: hidden;
   }
-  .agent-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 12px 32px rgba(212,165,116,.18);
-  }
-  .agent-card::after {
-    content: ""; position: absolute; inset: auto -40% -40% auto;
-    width: 140px; height: 140px;
-    background: radial-gradient(closest-side, var(--gold-glow), transparent);
-    opacity: 0; transition: opacity .3s var(--ease);
+  section.agents-sec::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(11,23,54,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11,23,54,.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 40%, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 40%, black 30%, transparent 80%);
     pointer-events: none;
   }
-  .agent-card:hover::after { opacity: 1; }
+  .agents-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    perspective: 1400px;
+    position: relative;
+  }
+  @media (max-width: 980px) { .agents-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .agents-grid { grid-template-columns: 1fr; } }
+  .agent-card {
+    background: linear-gradient(135deg, #fff 0%, #fcfaf6 100%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: transform .55s var(--ease), border-color .3s var(--ease), box-shadow .4s var(--ease);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    isolation: isolate;
+  }
+  .agent-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(212,165,116,.16), transparent 55%);
+    opacity: 0; transition: opacity .35s var(--ease);
+    pointer-events: none; border-radius: 14px;
+  }
+  .agent-card:hover::before { opacity: 1; }
+  .agent-card:hover {
+    border-color: rgba(212,165,116,.6);
+    box-shadow: 0 24px 50px rgba(11,23,54,.16), 0 0 30px rgba(212,165,116,.20);
+  }
+  .agent-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .agent-icon {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-3) 100%);
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    box-shadow: 0 6px 18px rgba(11,23,54,.20), inset 0 1px 0 rgba(212,165,116,.30);
+    position: relative;
+    transition: transform .4s var(--ease);
+  }
+  .agent-icon::before {
+    content: ""; position: absolute; inset: -4px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--gold), transparent);
+    opacity: 0; filter: blur(10px);
+    transition: opacity .3s var(--ease);
+    z-index: -1;
+  }
+  .agent-card:hover .agent-icon { transform: scale(1.08) rotate(-2deg); }
+  .agent-card:hover .agent-icon::before { opacity: .55; }
+  .agent-live {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 9px; font-weight: 700; letter-spacing: .14em;
+    color: #10B981; text-transform: uppercase;
+  }
+  .agent-live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 0 3px rgba(16,185,129,.22);
+    animation: livePulse 1.6s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: .55; }
+  }
   .agent-badge {
     display: inline-block;
     font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
     color: var(--gold);
     background: rgba(212,165,116,.10);
     padding: 4px 10px; border-radius: 99px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .agent-name {
     font-family: 'Newsreader', serif; font-weight: 500;
-    font-size: 1.2rem; color: var(--ink); margin-bottom: 8px;
+    font-size: 1.25rem; color: var(--ink); margin-bottom: 8px;
     letter-spacing: -.01em;
   }
   .agent-job { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .agent-meta {
+    display: flex; align-items: center; gap: 8px; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgba(11,23,54,.06);
+    font-size: 11px; color: var(--muted);
+  }
+  .agent-meta strong { color: var(--ink); font-weight: 600; }
 
   /* ─── how we help — 3-step process ────────────────────────────────────── */
   section.how {
@@ -488,37 +550,151 @@
     .compare-head::before, .compare-head .col-best::before { display: none; }
   }
 
-  /* ─── case studies ────────────────────────────────────────────────────── */
+  /* ─── case studies (3D depth + live viz) ─────────────────────────────── */
   section.cases {
     background: var(--canvas-2);
+    position: relative;
+    overflow: hidden;
   }
-  .cases-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  @media (max-width: 980px) { .cases-row { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 540px) { .cases-row { grid-template-columns: 1fr; } }
-  .case-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: var(--r);
-    padding: 26px 22px;
-    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  section.cases::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(40% 50% at 20% 80%, rgba(212,165,116,.16), transparent 60%),
+      radial-gradient(40% 50% at 80% 20%, rgba(11,23,54,.06), transparent 60%);
+    pointer-events: none;
+  }
+  .cases-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    perspective: 1400px;
     position: relative;
   }
-  .case-card.live { background: var(--ink); color: var(--canvas); border-color: var(--gold); }
-  .case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  @media (max-width: 980px) { .cases-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .cases-row { grid-template-columns: 1fr; } }
+
+  .case-card {
+    background: linear-gradient(135deg, #fff 0%, #fcfaf6 100%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 22px;
+    transition: transform .55s var(--ease), box-shadow .4s var(--ease);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .case-card:hover { box-shadow: var(--shadow-lg); }
+
+  .case-card.live {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+    color: var(--canvas);
+    border: 1px solid transparent;
+    box-shadow: 0 18px 48px rgba(11,23,54,.30), 0 0 0 1px rgba(212,165,116,.40);
+  }
+  .case-card.live::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(70% 60% at 80% 0%, rgba(212,165,116,.18), transparent 60%);
+    pointer-events: none; border-radius: 14px;
+  }
+
   .case-status {
     font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 12px;
+    color: var(--muted); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 6px;
+    position: relative; z-index: 1;
   }
   .case-card.live .case-status { color: var(--gold); }
-  .case-status .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); margin-right: 6px; vertical-align: middle; }
-  .case-card.live .case-status .dot { background: #6EE7B7; box-shadow: 0 0 0 4px rgba(110,231,183,.20); animation: pulse 2s ease-in-out infinite; }
-  .case-card h4 { font-family: 'Newsreader', serif; font-weight: 500; font-size: 1.3rem; color: inherit; margin-bottom: 10px; letter-spacing: -.01em; }
-  .case-card p { font-size: 13px; line-height: 1.55; color: var(--muted); }
-  .case-card.live p { color: var(--canvas-muted); }
-  .case-link {
-    display: inline-block; margin-top: 14px;
-    font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: .04em;
+  .case-status .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--muted);
   }
+  .case-card.live .case-status .dot {
+    background: #6EE7B7;
+    box-shadow: 0 0 0 4px rgba(110,231,183,.20);
+    animation: livePulse 1.6s ease-in-out infinite;
+  }
+  .case-card h4 {
+    font-family: 'Newsreader', serif; font-weight: 500;
+    font-size: 1.35rem; color: inherit;
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
+    position: relative; z-index: 1;
+  }
+  .case-card.live h4 { font-size: 1.2rem; line-height: 1.3; }
+  .case-num {
+    display: block;
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    color: var(--gold);
+    font-size: 2.6rem;
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -.025em;
+  }
+  .case-card p { font-size: 13px; line-height: 1.55; color: var(--muted); position: relative; z-index: 1; }
+  .case-card.live p { color: var(--canvas-muted); }
+
+  /* mini chart inside live card */
+  .case-chart {
+    margin-top: 18px; padding-top: 16px;
+    border-top: 1px solid rgba(247,242,234,.10);
+    position: relative; z-index: 1;
+  }
+  .case-chart-bars {
+    display: flex; gap: 3px; align-items: end; height: 38px;
+  }
+  .case-chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--gold), rgba(212,165,116,.3));
+    border-radius: 2px 2px 0 0;
+    transform-origin: bottom;
+    animation: barRise 1.1s var(--ease) backwards;
+  }
+  @keyframes barRise {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  .case-chart-label {
+    font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--canvas-muted); margin-top: 10px;
+  }
+
+  /* progress bar for "shipping now" cards */
+  .case-progress {
+    margin-top: 18px; padding-top: 16px;
+    border-top: 1px solid var(--line);
+    position: relative; z-index: 1;
+  }
+  .case-progress-bar {
+    height: 5px; border-radius: 99px;
+    background: rgba(11,23,54,.07);
+    position: relative; overflow: hidden;
+  }
+  .case-progress-fill {
+    height: 100%; border-radius: 99px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-2));
+    position: relative;
+    transform-origin: left;
+    animation: progressFill 1.6s var(--ease) backwards;
+  }
+  .case-progress-fill::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    animation: shimmer 2.4s infinite;
+  }
+  @keyframes progressFill {
+    from { transform: scaleX(0); }
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .case-progress-meta {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: var(--muted);
+    margin-top: 8px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+  }
+  .case-progress-meta strong { color: var(--ink); font-weight: 700; }
 
   /* ─── pricing ─────────────────────────────────────────────────────────── */
   section.pricing {
@@ -811,14 +987,86 @@
       <p class="section-sub">A library of pre-built workflows we customize to your business. We deploy whichever ones map to your bottlenecks.</p>
     </div>
     <div class="agents-grid">
-      <div class="agent-card reveal"><span class="agent-badge">Front office</span><div class="agent-name">Receptionist</div><div class="agent-job">Answers calls + texts 24/7, books appointments, escalates emergencies.</div></div>
-      <div class="agent-card reveal delay-1"><span class="agent-badge">Dental</span><div class="agent-name">Recall Scheduler</div><div class="agent-job">Reaches 6/9/12-month overdue patients. Books them on auto-pilot.</div></div>
-      <div class="agent-card reveal delay-2"><span class="agent-badge">HVAC</span><div class="agent-name">Quote Bot</div><div class="agent-job">Builds quotes from intake forms in 90 seconds. Sends with photos.</div></div>
-      <div class="agent-card reveal delay-3"><span class="agent-badge">Legal</span><div class="agent-name">Intake Triage</div><div class="agent-job">Sorts inbound leads by matter type. Runs conflict-check first.</div></div>
-      <div class="agent-card reveal"><span class="agent-badge">Email</span><div class="agent-name">Reply Classifier</div><div class="agent-job">Auto-labels every inbound by intent. Hot leads jump the queue.</div></div>
-      <div class="agent-card reveal delay-1"><span class="agent-badge">Sales</span><div class="agent-name">Follow-up Sequencer</div><div class="agent-job">Drafts personalized follow-ups based on prospect activity.</div></div>
-      <div class="agent-card reveal delay-2"><span class="agent-badge">Meetings</span><div class="agent-name">Calendly Prep</div><div class="agent-job">When a booking lands, drafts a 1-pager prep brief in your inbox.</div></div>
-      <div class="agent-card reveal delay-3"><span class="agent-badge">Customer</span><div class="agent-name">Welcome Sender</div><div class="agent-job">Onboarding email sequence fires the moment Stripe checkout completes.</div></div>
+      <div class="agent-card reveal" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Front office</span>
+        <div class="agent-name">Receptionist</div>
+        <div class="agent-job">Answers calls + texts 24/7, books appointments, escalates emergencies.</div>
+        <div class="agent-meta"><strong>247</strong>&nbsp;calls/wk · SMS + voice</div>
+      </div>
+      <div class="agent-card reveal delay-1" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Dental</span>
+        <div class="agent-name">Recall Scheduler</div>
+        <div class="agent-job">Reaches 6/9/12-month overdue patients. Books them on auto-pilot.</div>
+        <div class="agent-meta"><strong>6–12</strong>&nbsp;recovered/wk · HIPAA-safe</div>
+      </div>
+      <div class="agent-card reveal delay-2" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">HVAC</span>
+        <div class="agent-name">Quote Bot</div>
+        <div class="agent-job">Builds quotes from intake forms in 90 seconds. Sends with photos.</div>
+        <div class="agent-meta"><strong>90s</strong>&nbsp;quote · auto-priced</div>
+      </div>
+      <div class="agent-card reveal delay-3" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Legal</span>
+        <div class="agent-name">Intake Triage</div>
+        <div class="agent-job">Sorts inbound leads by matter type. Runs conflict-check first.</div>
+        <div class="agent-meta"><strong>&lt;10s</strong>&nbsp;routing · matter-typed</div>
+      </div>
+      <div class="agent-card reveal" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Email</span>
+        <div class="agent-name">Reply Classifier</div>
+        <div class="agent-job">Auto-labels every inbound by intent. Hot leads jump the queue.</div>
+        <div class="agent-meta"><strong>11</strong>&nbsp;intents · priority-sorted</div>
+      </div>
+      <div class="agent-card reveal delay-1" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Sales</span>
+        <div class="agent-name">Follow-up Sequencer</div>
+        <div class="agent-job">Drafts personalized follow-ups based on prospect activity.</div>
+        <div class="agent-meta"><strong>D3 / D7 / D14</strong>&nbsp;· behavior-triggered</div>
+      </div>
+      <div class="agent-card reveal delay-2" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><polyline points="9 14 11 16 15 12"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Meetings</span>
+        <div class="agent-name">Calendly Prep</div>
+        <div class="agent-job">When a booking lands, drafts a 1-pager prep brief in your inbox.</div>
+        <div class="agent-meta"><strong>auto</strong>&nbsp;· research + agenda</div>
+      </div>
+      <div class="agent-card reveal delay-3" data-tilt>
+        <div class="agent-head">
+          <div class="agent-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+          <div class="agent-live"><span class="agent-live-dot"></span>Live</div>
+        </div>
+        <span class="agent-badge">Customer</span>
+        <div class="agent-name">Welcome Sender</div>
+        <div class="agent-job">Onboarding email sequence fires the moment Stripe checkout completes.</div>
+        <div class="agent-meta"><strong>h0 → h72</strong>&nbsp;· Brevo SMTP</div>
+      </div>
     </div>
   </div>
 </section>
@@ -911,25 +1159,55 @@
       <p class="section-sub">We're pre-customer on Efficio. We're not pre-receipts.</p>
     </div>
     <div class="cases-row">
-      <div class="case-card live reveal">
+      <div class="case-card live reveal" data-tilt>
         <div class="case-status"><span class="dot"></span>Live · founder's stack</div>
-        <h4>3,289 applications sent</h4>
-        <p>My own job bot. Civil-PE career pivot. Real numbers, real applied_log.csv.</p>
+        <span class="case-num" data-counter="3289">0</span>
+        <h4>applications sent · 24/7 autopilot</h4>
+        <p>My own job bot. Civil-PE career pivot. Real numbers, real <code style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--gold);">applied_log.csv</code>.</p>
+        <div class="case-chart">
+          <div class="case-chart-bars">
+            <div class="case-chart-bar" style="height:30%; animation-delay:.10s"></div>
+            <div class="case-chart-bar" style="height:55%; animation-delay:.18s"></div>
+            <div class="case-chart-bar" style="height:42%; animation-delay:.26s"></div>
+            <div class="case-chart-bar" style="height:68%; animation-delay:.34s"></div>
+            <div class="case-chart-bar" style="height:75%; animation-delay:.42s"></div>
+            <div class="case-chart-bar" style="height:62%; animation-delay:.50s"></div>
+            <div class="case-chart-bar" style="height:88%; animation-delay:.58s"></div>
+            <div class="case-chart-bar" style="height:95%; animation-delay:.66s"></div>
+            <div class="case-chart-bar" style="height:80%; animation-delay:.74s"></div>
+            <div class="case-chart-bar" style="height:92%; animation-delay:.82s"></div>
+            <div class="case-chart-bar" style="height:78%; animation-delay:.90s"></div>
+            <div class="case-chart-bar" style="height:96%; animation-delay:.98s"></div>
+          </div>
+          <div class="case-chart-label">applications · last 12 days</div>
+        </div>
       </div>
-      <div class="case-card reveal delay-1">
+      <div class="case-card reveal delay-1" data-tilt>
         <div class="case-status"><span class="dot"></span>Shipping now</div>
         <h4>HVAC · dispatch automation</h4>
         <p>First HVAC operator on the system. Case study lands Day 30.</p>
+        <div class="case-progress">
+          <div class="case-progress-bar"><div class="case-progress-fill" style="width:65%; animation-delay:.2s"></div></div>
+          <div class="case-progress-meta"><span>Build phase</span><strong>Day 19 / 30</strong></div>
+        </div>
       </div>
-      <div class="case-card reveal delay-2">
+      <div class="case-card reveal delay-2" data-tilt>
         <div class="case-status"><span class="dot"></span>Shipping now</div>
         <h4>Dental · recall workflow</h4>
         <p>First dental practice live. Recall numbers measured Day 30.</p>
+        <div class="case-progress">
+          <div class="case-progress-bar"><div class="case-progress-fill" style="width:42%; animation-delay:.35s"></div></div>
+          <div class="case-progress-meta"><span>Build phase</span><strong>Day 12 / 30</strong></div>
+        </div>
       </div>
-      <div class="case-card reveal delay-3">
+      <div class="case-card reveal delay-3" data-tilt>
         <div class="case-status"><span class="dot"></span>Shipping now</div>
         <h4>Legal · after-hours intake</h4>
         <p>First solo law practice live. Conversion numbers Day 30.</p>
+        <div class="case-progress">
+          <div class="case-progress-bar"><div class="case-progress-fill" style="width:28%; animation-delay:.5s"></div></div>
+          <div class="case-progress-meta"><span>Build phase</span><strong>Day 8 / 30</strong></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1123,6 +1401,55 @@
     init();
     loop();
     window.addEventListener('resize', init);
+  })();
+
+  // ─── 3D tilt on cards (data-tilt) ────────────────────────────────
+  (function () {
+    const cards = document.querySelectorAll('[data-tilt]');
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isFinePointer) return;  // disable on touch — tilt is a desktop affordance
+    cards.forEach(card => {
+      let rafId = null;
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y / rect.height) - 0.5) * -7;
+        const rotateY = ((x / rect.width) - 0.5) * 7;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.025)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // ─── animated counter (data-counter) ──────────────────────────────
+  (function () {
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.counter, 10);
+        const dur = 1900;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 4);
+          el.textContent = Math.round(target * eased).toLocaleString();
+          if (t < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString();
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterIO.observe(c));
   })();
 </script>
 </body>

@@ -1,303 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
-  <meta name="description" content="Efficio's four-stage build process: 20-min discovery, fixed-scope proposal, week-1 working cut, iterate to done. Week-by-week, what you actually get." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://efficio.tech/how-it-works.html" />
-  <title>How It Works — Efficio.tech</title>
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://efficio.tech/how-it-works.html" />
-  <meta property="og:title" content="How It Works — Efficio.tech" />
-  <meta property="og:description" content="4 stages: discovery, scope, build, iterate. First working cut in week 1. Typical project 2–4 weeks." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%230B1736'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<title>How it works — Audit to live agent in 7 days | Efficio</title>
+<meta name="description" content="Five steps from 60-second audit to a live AI agent in your stack. Audit, strategy call, build, deploy, operate. Week-one ship promise." />
+<link rel="canonical" href="https://efficio.tech/how-it-works.html"/>
+<meta property="og:title" content="How it works | Efficio"/>
+<meta property="og:description" content="From audit to live agent in 7 days."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
 <style>
-:root{--bg:#0B1736;--bg2:#0C1729;--bg3:#08111E;--surf:#0f1e33;--surf2:#132540;
-  --purple:#D4A574;--purple2:#E6CC95;--purple3:#F2E3C2;--pink:#F2E3C2;
-  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
-  --bd:rgba(212,165,116,.18);--bd2:rgba(230,204,149,.28);--bd3:rgba(230,204,149,.12);
-  --glow:rgba(212,165,116,.38);--glow2:rgba(230,204,149,.2);
-  --r:8px;--r2:14px;--r3:24px;--green:#10b981}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.65}
-a{color:inherit;text-decoration:none}
-.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
-  background:rgba(5,10,22,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--bd)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:30px;height:30px;border-radius:var(--r);
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 0 20px var(--glow2)}
-.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
-.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
-.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
-  background:var(--purple);color:#fff;border:1px solid rgba(230,204,149,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
-.btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
-.wrap{max-width:1100px;margin:0 auto;padding:0 32px;position:relative}
-.hero{padding:140px 0 40px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(212,165,116,.14),transparent)}
-.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);color:var(--white);font-weight:800;
-  letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
-.hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px;position:relative}
+.flow::before{content:"";position:absolute;top:34px;left:7%;right:7%;height:2px;
+  background:linear-gradient(90deg,var(--purple) 0%,var(--purple) 20%,var(--bd3) 20%,var(--bd3) 40%,var(--purple) 40%,var(--purple) 60%,var(--bd3) 60%,var(--bd3) 80%,var(--purple) 80%);
+  opacity:.4;z-index:0}
+@media (max-width:880px){.flow{grid-template-columns:1fr}.flow::before{display:none}}
+.step{position:relative;z-index:1;padding:0 6px}
+.step-num{width:68px;height:68px;border-radius:50%;
+  background:linear-gradient(135deg,var(--surf2),var(--bg2));
+  border:2px solid rgba(168,85,247,.5);color:var(--purple3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:22px;
+  box-shadow:0 0 24px var(--glow2),inset 0 0 20px rgba(124,58,237,.10)}
+.step h3{font-size:1.2rem;color:var(--white);font-weight:700;margin-bottom:10px;letter-spacing:-.015em}
+.step p{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:10px}
+.step-time{display:inline-block;font-size:11px;font-weight:700;color:var(--purple3);letter-spacing:.06em;text-transform:uppercase}
+.promise{margin-top:50px;background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(236,72,153,.04));
+  border:1px solid rgba(168,85,247,.3);border-radius:var(--r2);padding:32px 30px;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:30px;align-items:center}
+@media (max-width:880px){.promise{grid-template-columns:1fr}}
+.promise-num{font-family:'Inter',serif;font-size:5rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff;
+  background:linear-gradient(135deg,var(--purple2),var(--pink));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .lead{font-size:1.15rem;color:var(--w2);max-width:720px;margin-bottom:8px}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
-  background:rgba(212,165,116,.1);border:1px solid var(--bd2);font-size:.82rem;
-  color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
-.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* TIMELINE */
-.timeline{position:relative;max-width:1100px;margin:60px auto;padding:0 32px}
-.timeline::before{content:"";position:absolute;left:72px;top:40px;bottom:40px;width:2px;
-  background:linear-gradient(180deg,var(--purple2),var(--pink),var(--purple));opacity:.4}
-.stage{position:relative;padding:32px 0 40px 120px;border-bottom:1px solid var(--bd3)}
-.stage:last-child{border-bottom:none}
-.stage .dot{position:absolute;left:60px;top:38px;width:28px;height:28px;border-radius:50%;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.82rem;
-  box-shadow:0 0 20px var(--glow),0 0 40px var(--glow2);z-index:1}
-.stage .meta{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
-.stage .tag{padding:3px 10px;border-radius:100px;background:rgba(212,165,116,.14);
-  border:1px solid var(--bd2);color:var(--purple3);font-size:.72rem;font-weight:600;
-  letter-spacing:.05em;text-transform:uppercase}
-.stage .tag.dur{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:var(--green)}
-.stage h2{color:var(--white);font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
-.stage p{margin-bottom:12px;color:var(--w2);font-size:1rem;max-width:760px}
-.stage p strong{color:var(--white)}
-.stage .outputs{margin-top:18px;padding:18px 22px;background:var(--surf);border:1px solid var(--bd);
-  border-left:3px solid var(--purple2);border-radius:var(--r);max-width:760px}
-.stage .outputs-label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);
-  letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
-.stage .outputs ul{list-style:none;padding:0}
-.stage .outputs li{padding:5px 0 5px 22px;position:relative;color:var(--w2);font-size:.92rem}
-.stage .outputs li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
-
-/* FAQ */
-.sec{padding:60px 0;border-top:1px solid var(--bd3)}
-.sec h2{color:var(--white);font-size:1.8rem;font-weight:800;letter-spacing:-.025em;margin-bottom:24px}
-.faq-item{padding:22px 0;border-bottom:1px solid var(--bd3)}
-.faq-item:last-child{border-bottom:none}
-.faq-item h3{color:var(--white);font-size:1.05rem;font-weight:700;margin-bottom:8px}
-.faq-item p{color:var(--w2);font-size:.96rem}
-
-/* CTA */
-.cta{margin:56px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;
-  background:linear-gradient(135deg,rgba(212,165,116,.15),rgba(255,169,128,.08));
-  border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(230,204,149,.18),transparent);pointer-events:none}
-.cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
-.cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
-.cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;
-  border-radius:var(--r);font-weight:700;font-size:1rem;
-  box-shadow:0 0 30px var(--glow),0 10px 30px rgba(212,165,116,.2);transition:all .2s;position:relative}
-.cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
-
-footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
-footer .wrap{display:grid;grid-template-columns:1fr 2fr;gap:60px}
-footer .col-brand p{color:var(--muted);font-size:.88rem;margin-top:10px;max-width:300px}
-footer .col-links{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-footer .col-links h5{color:var(--white);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
-footer .col-links a{display:block;padding:5px 0;font-size:.88rem;color:var(--muted);transition:color .2s}
-footer .col-links a:hover{color:var(--white)}
-footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top:1px solid var(--bd3);
-  color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-@media (max-width:900px){.nav-links{display:none}.timeline::before{left:22px}.stage{padding-left:60px}.stage .dot{left:10px}.hero h1{font-size:2rem}footer .wrap{grid-template-columns:1fr}footer .col-links{grid-template-columns:repeat(2,1fr)}}
+.promise-num span{font-size:1.1rem;color:var(--text);margin-left:8px;font-weight:500}
+.promise-text h3{font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:10px;letter-spacing:-.02em}
+.promise-text p{font-size:14.5px;color:var(--text);line-height:1.65}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-    <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="how-it-works.html" class="active" style="color:var(--white)">How It Works</a></li>
-      <li><a href="agents.html">Agents</a></li>
-      <li><a href="why-us.html">Why Us</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-    </ul>
-    <a href="/audit-quiz" class="btn-nav">Book a Call</a>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html" class="active">How it works</a>
+    <a href="/agents.html">Agents</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/why-us.html">Why us</a>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
   </div>
-</nav>
+</div></nav>
 
-<section class="hero">
+<section class="hero center">
   <div class="hero-bg"></div>
-  <div class="wrap">
-    <span class="hero-pill"><span class="dot"></span>How It Works</span>
-    <h1>From first call to <span class="accent">live system</span> — usually in 3 weeks.</h1>
-    <p class="lead">A transparent, four-stage process. Fixed scope. Fixed price. No surprises, no "phase 2 to be quoted later." You see progress every week, and you see something working by the end of week one.</p>
-  </div>
-</section>
-
-<div class="timeline">
-  <div class="stage">
-    <div class="dot">1</div>
-    <div class="meta">
-      <span class="tag">Stage 01</span>
-      <span class="tag dur">20 minutes · Free</span>
-    </div>
-    <h2>Discovery call</h2>
-    <p>A no-pitch, no-obligation 20-minute call. We ask three questions: <strong>what's slow or painful in your business right now, what have you already tried, and what's in your current stack.</strong> We listen, we ask follow-ups, and we form a quick working hypothesis of where AI fits and where it doesn't.</p>
-    <p>If we can't help — wrong size, wrong problem, wrong stage — we'll tell you on the call and point you somewhere useful. Most calls end one of three ways: proposal incoming, a specific recommendation we can't help with, or a "come back in 6 months when X is true." All three are valid.</p>
-    <div class="outputs">
-      <div class="outputs-label">You leave the call with</div>
-      <ul>
-        <li>A clear read on whether there's a fit</li>
-        <li>1–2 concrete opportunities we've flagged</li>
-        <li>An estimate range for the work if we proceed</li>
-        <li>Zero obligation and no follow-up spam</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="stage">
-    <div class="dot">2</div>
-    <div class="meta">
-      <span class="tag">Stage 02</span>
-      <span class="tag dur">2–4 business days</span>
-    </div>
-    <h2>Written scope & proposal</h2>
-    <p>If there's a fit, we come back within a few days with a written scope. It spells out <strong>exactly what we'll build, exactly what you're paying, and exactly what "done" looks like.</strong> Payment is split — 50% to kick off, 50% on delivery. Month-to-month retainer terms if that's the arrangement.</p>
-    <p>Fixed price means no change-order ambushes mid-build. If the scope legitimately grows after we're underway (you want an extra view, a new integration), we quote that as an add-on so you decide — we don't decide for you.</p>
-    <div class="outputs">
-      <div class="outputs-label">You get</div>
-      <ul>
-        <li>Written project scope with acceptance criteria</li>
-        <li>Itemized deliverables and timeline</li>
-        <li>Fixed price for the build</li>
-        <li>Clear retainer terms (if applicable)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="stage">
-    <div class="dot">3</div>
-    <div class="meta">
-      <span class="tag">Stage 03</span>
-      <span class="tag dur">2–4 weeks</span>
-    </div>
-    <h2>Build & first working cut</h2>
-    <p>Kickoff, access provisioned, work begins. <strong>By the end of week 1, there is a working version in your hands</strong> — rough, incomplete, but real. You click through it, tell us what's wrong, what's missing, what's surprising. We iterate from there.</p>
-    <p>You see progress weekly. Async updates on Slack, email, or whichever channel you prefer. One 30-minute sync per week only if you want one — most clients don't.</p>
-    <div class="outputs">
-      <div class="outputs-label">By the end</div>
-      <ul>
-        <li>Live system running under your domain / infrastructure</li>
-        <li>Full source code in a repo you control</li>
-        <li>Runbook + documentation</li>
-        <li>Monitoring and error-reporting wired up</li>
-        <li>Handoff walkthrough with your team</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="stage">
-    <div class="dot">4</div>
-    <div class="meta">
-      <span class="tag">Stage 04</span>
-      <span class="tag dur">Month-to-month, optional</span>
-    </div>
-    <h2>Retainer & iteration</h2>
-    <p>Most clients want us to keep building after launch — the initial build surfaces the next five things they want. That's when we roll into a monthly retainer. <strong>Month-to-month, cancel anytime</strong>, a set number of hours per month, priorities set by you. No 12-month commitments, no punitive exit clauses.</p>
-    <p>Don't want ongoing support? Fine. Everything's documented, the code is yours, and you can take it in-house or hand it to another vendor. We designed delivery so you <em>could</em> fire us cleanly — which, incidentally, is why very few clients do.</p>
-    <div class="outputs">
-      <div class="outputs-label">Retainer tiers</div>
-      <ul>
-        <li>Growth — $2,500/mo · ~20 hrs, one agent or dashboard ongoing</li>
-        <li>Full Stack — $3,500/mo · ~30 hrs, agents + dashboards evolving in parallel</li>
-        <li>Dedicated — $7,500/mo · ~60 hrs, we act as your AI team</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<section class="sec">
-  <div class="wrap">
-    <h2>Common questions about how we work</h2>
-
-    <div class="faq-item">
-      <h3>Who owns the code we build together?</h3>
-      <p>You do. Full source, your repository, your infrastructure, your data. If Efficio shut down tomorrow, nothing you have would break and nothing would disappear. We design delivery explicitly so you can fire us without penalty.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What if the scope changes mid-project?</h3>
-      <p>Small in-scope changes — wording, styling, tweaks — are included. Structural changes get quoted as add-ons, transparently, before we build them. You decide whether to proceed. No surprise bills.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How does payment work?</h3>
-      <p>Builds: 50% to kick off, 50% on delivery. Retainers: monthly, first month prorated, cancel anytime with 30 days notice. Stripe checkout for convenience; wire or ACH if you prefer.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you work nights/weekends for rush projects?</h3>
-      <p>Not usually. Rushed AI builds produce fragile AI builds. If you truly need same-week turnaround, we'll tell you honestly what we can deliver in that window — which is often less than you need.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Where's the team based?</h3>
-      <p>Miami-based. Work is done async across US time zones. We've done video calls from 7am to 9pm ET, and we'll meet where you're comfortable.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can you work within our security / compliance requirements?</h3>
-      <p>Usually yes — dedicated VPCs, SSO, SOC 2 paperwork, data residency. The exception is heavily regulated spaces (healthcare PHI, financial SOC 1, government clearance) where we'll want to talk about your specific stack before committing.</p>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <span class="hero-pill rv"><span class="pill-dot"></span>Process · 5 steps · 7 days</span>
+    <h1 class="rv d1">From audit to <span class="grad-purple">live agent</span> in 7 days.</h1>
+    <p class="lede rv d2">No 90-day discovery decks. No 6-month implementations. You take a 60-second audit, we get on a 15-minute call, we build the first workflow, and it goes live in your stack inside a week. If we miss day 7, the month is on us.</p>
+    <div class="hero-ctas rv d3">
+      <a href="/audit-quiz.html" class="btn-primary">Start with the audit <span class="btn-arrow">→</span></a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-outline" target="_blank" rel="noopener">Book a strategy call</a>
     </div>
   </div>
 </section>
 
-<div class="cta">
-  <h3>Let's figure out if we're a fit.</h3>
-  <p>20 minutes, free, no pitch. You tell us what's slow or painful. We tell you whether we can help — and if we can't, we tell you that too.</p>
-  <a href="/audit-quiz" class="btn">Book a 20-min call →</a>
-</div>
+<section class="section">
+  <div class="container">
+    <div class="flow">
+      <div class="step rv">
+        <div class="step-num">1</div>
+        <h3>Audit</h3>
+        <p>60-second AI audit on our site. Five questions, one score, one ranked list of where your back-office is leaking time.</p>
+        <span class="step-time">Day 0 · 60 sec</span>
+      </div>
+      <div class="step rv d1">
+        <div class="step-num">2</div>
+        <h3>Strategy call</h3>
+        <p>15-min Zoom with the engineer who'll build for you. We agree on the metric, the workflow, and the deliverable. No deck.</p>
+        <span class="step-time">Day 0 · 15 min</span>
+      </div>
+      <div class="step rv d2">
+        <div class="step-num">3</div>
+        <h3>Build</h3>
+        <p>We design the agent, integrate with your stack, and test it against real inputs. You see progress live in your shared channel.</p>
+        <span class="step-time">Day 1–5 · we ship</span>
+      </div>
+      <div class="step rv d3">
+        <div class="step-num">4</div>
+        <h3>Deploy</h3>
+        <p>The agent goes live in your stack. Dashboard wires up. You see the first real numbers within hours of cutover.</p>
+        <span class="step-time">Day 6–7 · live</span>
+      </div>
+      <div class="step rv d4">
+        <div class="step-num">5</div>
+        <h3>Operate</h3>
+        <p>We run it. Tune it. Add new agents as the business grows. The dashboard refreshes every five minutes. You operate, not babysit.</p>
+        <span class="step-time">Day 8+ · ongoing</span>
+      </div>
+    </div>
+
+    <div class="promise rv d4">
+      <div class="promise-num">7<span>days · or it's free</span></div>
+      <div class="promise-text">
+        <h3>Week-one ship promise.</h3>
+        <p>If the first agent isn't live and measurable inside seven calendar days of the kickoff call, your first month is refunded in full. We're betting our income on the speed of our build. That's the deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center">
+    <span class="s-label rv">What we ship in week one</span>
+    <h2 class="s-title rv d1">Concrete deliverables — <em>not</em> consulting hours.</h2>
+    <p class="s-sub rv d2">Every engagement starts with one specific workflow going live. Here are three week-one builds we've shipped for ourselves and customers.</p>
+    <div class="grid-3">
+      <div class="card rv">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Reply Classifier</h3>
+        <p>Every inbound email auto-labeled by intent — booking, hot, pricing, decline, OOO. Routes to the right human or agent in &lt;10s. Live in week one.</p>
+        <div class="card-meta"><strong>11</strong> intent labels · IMAP-monitored · idempotent</div>
+      </div>
+      <div class="card rv d1">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><polyline points="9 14 11 16 15 12"/></svg></div>
+        <h3>Calendly Meeting Prep</h3>
+        <p>When a booking lands, we research the lead, build a 1-page prep brief, and drop it in your inbox before the call. You walk in informed.</p>
+        <div class="card-meta"><strong>auto</strong> · research + agenda + Stripe context</div>
+      </div>
+      <div class="card rv d2">
+        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
+        <h3>Follow-up Sequencer</h3>
+        <p>D3 / D7 / D14 triggers based on prospect behavior. Drafts the message in your voice. Sends after you approve, or auto-fires if you set it.</p>
+        <div class="card-meta"><strong>behavior-triggered</strong> · approve-first or auto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Start with the <span class="grad-purple">60-second audit.</span></h2>
+    <p>Five questions. One score. One ranked list. We map week-one workflow on the call after.</p>
+    <a href="/audit-quiz.html" class="btn-big">Take the audit <span class="btn-arrow">→</span></a>
+  </div>
+</section>
 
 <footer>
-  <div class="wrap">
-    <div class="col-brand">
-      <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-      <p>We are your AI team. Custom AI dashboards, agents, and automations for small and medium businesses — built to fit, owned by you.</p>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
     </div>
-    <div class="col-links">
-      <div>
-        <h5>Services</h5>
-        <a href="services.html#dashboards">Dashboards</a>
-        <a href="services.html#agents">AI Agents</a>
-        <a href="services.html#automations">Automation</a>
-        <a href="services.html#data">Data Pipelines</a>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="why-us.html">Why Us</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="screenshots.html">Screenshots</a>
-        <a href="demo.html">Demo</a>
-      </div>
-      <div>
-        <h5>Get started</h5>
-        <a href="pricing.html">Pricing</a>
-        <a href="/audit-quiz">Book a Call</a>
-        <a href="onboarding.html">Onboarding</a>
-        <a href="terms.html">Terms</a>
-      </div>
+    <div class="foot-col"><h5>Product</h5>
+      <a href="/services.html">Services</a><a href="/agents.html">Agents</a>
+      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
+    </div>
+    <div class="foot-col"><h5>Company</h5>
+      <a href="/why-us.html">Why us</a><a href="/audit-quiz.html">Take the audit</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+    </div>
+    <div class="foot-col"><h5>Legal</h5>
+      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
     </div>
   </div>
-  <div class="legal">
-    <div>© 2026 Efficio. All rights reserved.</div>
-    <div>Miami, FL · contact@efficio.tech</div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
   </div>
 </footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
-                                            

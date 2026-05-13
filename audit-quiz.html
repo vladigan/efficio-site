@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Efficio — Free 15-min AI Audit for HVAC Owners</title>
-<meta name="description" content="See where your dispatch is leaking time. A 60-second AI audit + a 15-minute call with the engineer who'll build it. For HVAC owners with 5–50 techs." />
+<title>Efficio — 60-second audit by your future AI team</title>
+<meta name="description" content="60-second audit by your future AI team. Five questions, one score, one workflow we'd give your first AI hire on day one. If it fits, we book the call." />
 <link rel="canonical" href="https://efficio.tech/audit" />
 <meta property="og:title" content="Efficio — AI for HVAC Operators" />
-<meta property="og:description" content="A 60-second audit that shows where your dispatch is leaking time. Pilot from $997/mo, refund if no measurable savings by day 30." />
+<meta property="og:description" content="A 60-second audit that shows where your AI team would start. Your first AI hire from $997/mo. Refund if no measurable lift by day 30." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://efficio.tech/audit" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='22' width='100' height='100' fill='%230E1B33'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23FF6B35' font-family='Georgia' font-weight='700'>E</text></svg>" />
@@ -283,6 +283,92 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
   .calc-output{padding:32px 22px}
 }
 </style>
+
+<!-- ============================================================ -->
+<!-- TRACKING PIXELS — replace REPLACE_ME tokens with live IDs    -->
+<!-- Fires on page-load; quiz completion fires a custom event     -->
+<!-- (sendConversion) defined at the bottom of <body>             -->
+<!-- ============================================================ -->
+
+<!-- Google Analytics 4 -->
+<!-- REPLACE_ME_GA4_MEASUREMENT_ID e.g. G-XXXXXXXXXX -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=REPLACE_ME_GA4_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'REPLACE_ME_GA4_MEASUREMENT_ID');
+</script>
+
+<!-- Meta (Facebook) Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  // REPLACE_ME_META_PIXEL_ID e.g. 1234567890123456
+  fbq('init', 'REPLACE_ME_META_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=REPLACE_ME_META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+<!-- LinkedIn Insight Tag -->
+<script>
+  // REPLACE_ME_LINKEDIN_PARTNER_ID e.g. 1234567
+  _linkedin_partner_id = "REPLACE_ME_LINKEDIN_PARTNER_ID";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script>
+  (function(l) {
+  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+  window.lintrk.q=[]}
+  var s = document.getElementsByTagName("script")[0];
+  var b = document.createElement("script");
+  b.type = "text/javascript";b.async = true;
+  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript><img height="1" width="1" style="display:none;" alt=""
+  src="https://px.ads.linkedin.com/collect/?pid=REPLACE_ME_LINKEDIN_PARTNER_ID&fmt=gif" /></noscript>
+
+<!-- TikTok Pixel -->
+<script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    // REPLACE_ME_TIKTOK_PIXEL_ID e.g. C4ABCD1234EFGH56IJ78
+    ttq.load('REPLACE_ME_TIKTOK_PIXEL_ID');
+    ttq.page();
+  }(window, document, 'ttq');
+</script>
+
+<!-- Snap Pixel -->
+<script>
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
+  a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  u.parentNode.insertBefore(r,u);})(window,document,
+  'https://sc-static.net/scevent.min.js');
+  // REPLACE_ME_SNAP_PIXEL_ID e.g. 12345678-90ab-cdef-1234-567890abcdef
+  snaptr('init', 'REPLACE_ME_SNAP_PIXEL_ID');
+  snaptr('track', 'PAGE_VIEW');
+</script>
+
+<!-- Unified conversion helper — call sendConversion() on quiz complete -->
+<script>
+  window.sendConversion = function(meta){
+    meta = meta || {};
+    try { if (window.gtag) gtag('event', 'audit_quiz_complete', meta); } catch(e){}
+    try { if (window.fbq) fbq('track', 'Lead', meta); } catch(e){}
+    try { if (window.lintrk) lintrk('track', { conversion_id: 'REPLACE_ME_LINKEDIN_CONVERSION_ID' }); } catch(e){}
+    try { if (window.ttq) ttq.track('SubmitForm', meta); } catch(e){}
+    try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch(e){}
+  };
+</script>
+
 </head>
 <body>
 
@@ -306,29 +392,29 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
 <header class="hero">
   <div class="wrap hero-inner">
     <div>
-      <span class="eyebrow"><span class="dot"></span>Free audit · No pitch deck</span>
-      <h1 class="hero-h1">See where your dispatch is <em>leaking time.</em> Free 15-min AI audit for HVAC owners.</h1>
-      <p class="hero-sub">Built for residential and light-commercial HVAC operators with 5–50 techs. You answer 5 questions. I show you the workflow that's costing you the most hours, and what we'd ship in week one of a Pilot.</p>
+      <span class="eyebrow"><span class="dot"></span>60-second audit · By your future AI team</span>
+      <h1 class="hero-h1">A 60-second audit by your <em>future AI team.</em></h1>
+      <p class="hero-sub">Built for operators with 5–50 people. Five questions. We tell you the first role your AI team would take, what they'd handle in their first week, and whether deploying them now even makes sense. No pitch deck. No software demo. A real read.</p>
       <div class="hero-ctas">
-        <a href="#audit" class="btn btn-primary">Take the 60-second audit →</a>
-        <a href="#book" class="btn btn-ghost">Or book a 15-min call</a>
+        <a href="#audit" class="btn btn-primary">Start the audit →</a>
+        <a href="#book" class="btn btn-ghost">Or skip ahead — book a 15-min call</a>
       </div>
       <div class="hero-trust">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> 30-day refund on Pilot</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Owner-led, not outsourced</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Month-to-month</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Refund if no measurable lift in 30 days</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Owner-led · head of your AI team is Brady</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Month-to-month · stays with you</span>
       </div>
     </div>
 
     <aside class="hero-card" aria-label="Sample audit output">
-      <div class="hc-label">Sample output · 8-tech operator</div>
-      <div class="hc-title">Where your time is going</div>
-      <div class="hc-row"><span class="lbl">Avg dispatch decision time</span><span class="val">14 min</span></div>
-      <div class="hc-row"><span class="lbl">Same-day reschedules / wk</span><span class="val">9</span></div>
-      <div class="hc-row"><span class="lbl">First-visit fix rate</span><span class="val">68%</span></div>
-      <div class="hc-row"><span class="lbl">Recoverable hours / mo</span><span class="val win">~46 hrs</span></div>
+      <div class="hc-label">Sample output · 8-person operator</div>
+      <div class="hc-title">Where your AI team would start</div>
+      <div class="hc-row"><span class="lbl">First AI hire</span><span class="val">Dispatch admin</span></div>
+      <div class="hc-row"><span class="lbl">Decisions they'd take off your plate / wk</span><span class="val">~60</span></div>
+      <div class="hc-row"><span class="lbl">Hours back to the owner / mo</span><span class="val win">~46 hrs</span></div>
+      <div class="hc-row"><span class="lbl">What they learn in month one</span><span class="val">Your voice + exceptions</span></div>
       <div class="hc-cta">
-        <strong>Ship in week 1:</strong> auto-dispatch handoff w/ parts confirmation
+        <strong>Week 1 deployment:</strong> auto-handoff with parts confirmation, owned by your new AI admin
       </div>
     </aside>
   </div>
@@ -365,15 +451,19 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
         </div>
 
         <div id="audit-questions">
-          <!-- Question 1 -->
+          <!-- Question 1: Vertical -->
           <div class="q-card q-step" data-q="1">
             <div class="q-num">Question 1 of 5</div>
-            <div class="q-text">How does your dispatcher decide which tech gets which call right now?</div>
-            <div class="opt-list" data-q-key="dispatch">
-              <button class="opt" data-val="3" type="button"><span class="pin"></span>Gut feel — whoever answers the radio first</button>
-              <button class="opt" data-val="6" type="button"><span class="pin"></span>Seniority or experience-based</button>
-              <button class="opt" data-val="10" type="button"><span class="pin"></span>Zone or geography rotation</button>
-              <button class="opt" data-val="14" type="button"><span class="pin"></span>We have a system that scores it</button>
+            <div class="q-text">What industry are you in?</div>
+            <div class="opt-list" data-q-key="vertical">
+              <button class="opt" data-val="hvac" type="button"><span class="pin"></span>HVAC / Mechanical</button>
+              <button class="opt" data-val="dental" type="button"><span class="pin"></span>Dental practice</button>
+              <button class="opt" data-val="real_estate" type="button"><span class="pin"></span>Real estate (broker / team)</button>
+              <button class="opt" data-val="plumbing" type="button"><span class="pin"></span>Plumbing</button>
+              <button class="opt" data-val="electrical" type="button"><span class="pin"></span>Electrical</button>
+              <button class="opt" data-val="medical" type="button"><span class="pin"></span>Medical practice</button>
+              <button class="opt" data-val="legal" type="button"><span class="pin"></span>Legal / law firm</button>
+              <button class="opt" data-val="other" type="button"><span class="pin"></span>Something else</button>
             </div>
             <div class="q-nav">
               <button class="back" type="button" disabled>← Back</button>
@@ -381,15 +471,15 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
             </div>
           </div>
 
-          <!-- Question 2 -->
+          <!-- Question 2: Company size -->
           <div class="q-card q-step" data-q="2" hidden>
             <div class="q-num">Question 2 of 5</div>
-            <div class="q-text">How do you confirm parts are on the truck before you dispatch?</div>
-            <div class="opt-list" data-q-key="parts">
-              <button class="opt" data-val="3" type="button"><span class="pin"></span>Dispatcher calls the tech</button>
-              <button class="opt" data-val="7" type="button"><span class="pin"></span>Tech checks CRM manually</button>
-              <button class="opt" data-val="14" type="button"><span class="pin"></span>Automated check before assignment</button>
-              <button class="opt" data-val="2" type="button"><span class="pin"></span>Honestly — we don't, until the tech gets there</button>
+            <div class="q-text">How many people work in your business?</div>
+            <div class="opt-list" data-q-key="size">
+              <button class="opt" data-val="1_10" type="button"><span class="pin"></span>1 – 10</button>
+              <button class="opt" data-val="11_50" type="button"><span class="pin"></span>11 – 50</button>
+              <button class="opt" data-val="51_200" type="button"><span class="pin"></span>51 – 200</button>
+              <button class="opt" data-val="200_plus" type="button"><span class="pin"></span>200+</button>
             </div>
             <div class="q-nav">
               <button class="back" type="button">← Back</button>
@@ -397,15 +487,13 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
             </div>
           </div>
 
-          <!-- Question 3 -->
+          <!-- Question 3: Decision-maker -->
           <div class="q-card q-step" data-q="3" hidden>
             <div class="q-num">Question 3 of 5</div>
-            <div class="q-text">When a tech runs late on a job, what happens next?</div>
-            <div class="opt-list" data-q-key="late">
-              <button class="opt" data-val="2" type="button"><span class="pin"></span>Customer calls us asking where the tech is</button>
-              <button class="opt" data-val="5" type="button"><span class="pin"></span>Dispatcher manually calls/texts the customer</button>
-              <button class="opt" data-val="10" type="button"><span class="pin"></span>Tech texts the customer themselves</button>
-              <button class="opt" data-val="14" type="button"><span class="pin"></span>Auto-text fires when ETA slips</button>
+            <div class="q-text">Are you the owner or decision-maker for this kind of buying decision?</div>
+            <div class="opt-list" data-q-key="dm">
+              <button class="opt" data-val="yes" type="button"><span class="pin"></span>Yes — I can sign off</button>
+              <button class="opt" data-val="no" type="button"><span class="pin"></span>No — I'd need approval first</button>
             </div>
             <div class="q-nav">
               <button class="back" type="button">← Back</button>
@@ -413,39 +501,45 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
             </div>
           </div>
 
-          <!-- Question 4 -->
+          <!-- Question 4: Pain points (multi) -->
           <div class="q-card q-step" data-q="4" hidden>
             <div class="q-num">Question 4 of 5</div>
-            <div class="q-text">Average minutes from inbound call to a tech being dispatched?</div>
-            <div class="slider-block">
-              <label>Inbound-to-dispatch <span><strong id="latencyVal">20</strong> min</span></label>
-              <input type="range" id="latency" min="5" max="60" value="20" step="1" />
+            <div class="q-text">Which of these are eating your team's time? Pick up to three.</div>
+            <p style="font-size:13px;color:var(--muted);margin:-12px 0 18px">Multi-select. Tap up to 3.</p>
+            <div class="opt-list" data-q-key="pain" data-multi="3">
+              <button class="opt" data-val="missed_calls" type="button"><span class="pin"></span>Missed calls / leads going to voicemail</button>
+              <button class="opt" data-val="after_hours" type="button"><span class="pin"></span>After-hours leads we never get back to</button>
+              <button class="opt" data-val="slow_followup" type="button"><span class="pin"></span>Slow followup on inbound inquiries</button>
+              <button class="opt" data-val="manual_entry" type="button"><span class="pin"></span>Manual data entry / copy-paste hell</button>
+              <button class="opt" data-val="no_crm" type="button"><span class="pin"></span>No CRM / leads tracked in spreadsheets</button>
+              <button class="opt" data-val="lead_source" type="button"><span class="pin"></span>No idea which channels actually work</button>
             </div>
-            <p style="font-size:13px;color:var(--muted);margin:8px 0 24px">Best-in-class is under 8 min. National median is closer to 22.</p>
             <div class="q-nav">
               <button class="back" type="button">← Back</button>
-              <button class="next" type="button">Next →</button>
+              <button class="next" type="button" disabled>Next →</button>
             </div>
           </div>
 
-          <!-- Question 5 -->
+          <!-- Question 5: Budget -->
           <div class="q-card q-step" data-q="5" hidden>
             <div class="q-num">Question 5 of 5</div>
-            <div class="q-text">How many techs do you have in the field?</div>
-            <div class="slider-block">
-              <label>Tech count <span><strong id="techVal">12</strong></span></label>
-              <input type="range" id="techs" min="5" max="50" value="12" step="1" />
+            <div class="q-text">What are you currently spending per month on lead-gen and answering services?</div>
+            <p style="font-size:13px;color:var(--muted);margin:-12px 0 18px">Combined: ads, answering service, virtual receptionist, lead-gen agency, etc.</p>
+            <div class="opt-list" data-q-key="budget">
+              <button class="opt" data-val="none" type="button"><span class="pin"></span>Nothing right now</button>
+              <button class="opt" data-val="under_500" type="button"><span class="pin"></span>$0 – $500 / month</button>
+              <button class="opt" data-val="500_2000" type="button"><span class="pin"></span>$500 – $2,000 / month</button>
+              <button class="opt" data-val="2000_plus" type="button"><span class="pin"></span>$2,000+ / month</button>
             </div>
-            <p style="font-size:13px;color:var(--muted);margin:8px 0 24px">We work best with 5–50 techs. Larger fleets — talk to us about Operator tier.</p>
             <div class="q-nav">
               <button class="back" type="button">← Back</button>
-              <button class="next" type="button">See my score →</button>
+              <button class="next" type="button" disabled>See my fit →</button>
             </div>
           </div>
 
           <!-- Result -->
           <div class="q-card" id="audit-result">
-            <div class="q-num">Your AI audit</div>
+            <div class="q-num">Your fit score</div>
             <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
               <div class="score-ring" id="scoreRing">
                 <svg viewBox="0 0 140 140" width="140" height="140" aria-hidden="true">
@@ -459,27 +553,38 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
                 <div class="result-summary" id="scoreSummary"></div>
               </div>
             </div>
-            <div id="captureForm">
-              <p style="font-size:14px;color:var(--muted);margin-bottom:8px"><strong style="color:var(--ink)">Get your detailed audit (PDF).</strong> I'll send a personalized 1-page report showing the workflow I'd ship in your week-one Pilot.</p>
-              <form class="email-row" id="emailCapture" onsubmit="return submitEmail(event)">
-                <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email" />
-                <button type="submit" id="captureSubmit">Get your detailed audit (PDF)</button>
-              </form>
-              <p style="font-size:12px;color:var(--muted);margin-top:10px">Or — <a href="#book" style="color:var(--orange);text-decoration:underline;font-weight:600">skip the email and book the call</a> · I'll bring the report.</p>
-              <p id="captureError" style="font-size:13px;color:var(--orange);margin-top:8px;display:none">Something didn't go through. Try again or <a href="#book" style="color:var(--orange);font-weight:600">book directly</a>.</p>
+
+            <!-- Qualified path: reveal Calendly book button (URL injected by JS only) -->
+            <div id="qualifiedPanel" style="display:none">
+              <p style="font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:14px">
+                <strong>Your AI team can fit. Let's talk.</strong> Pick a 15-min slot below — I'll show up with the first role your AI team would take and what they'd handle in their first week, based on what you just told me.
+              </p>
+              <div id="bookSlot"></div>
+              <p style="font-size:12px;color:var(--muted);margin-top:12px">No deck. No demo. If an AI team doesn't make sense for you yet, I tell you — and we both move on.</p>
             </div>
+
+            <!-- Unqualified path: deflect to email capture -->
+            <div id="unqualifiedPanel" style="display:none">
+              <p style="font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:14px" id="dqMessage">
+                Looks like you're earlier-stage than where an AI team usually pays back. Drop your email — we'll send useful stuff and check back in 3 months.
+              </p>
+              <form class="email-row" id="dqEmailCapture" onsubmit="return submitDQEmail(event)">
+                <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email" />
+                <button type="submit" id="dqSubmit">Send me the resources</button>
+              </form>
+              <p id="dqError" style="font-size:13px;color:var(--orange);margin-top:8px;display:none">Something didn't go through. Try again in a moment.</p>
+            </div>
+
             <div id="captureThanks" style="display:none;padding:18px 0">
               <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
                 <div style="width:36px;height:36px;border-radius:50%;background:rgba(31,138,91,.12);display:flex;align-items:center;justify-content:center">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" stroke="#1F8A5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <div>
-                  <div style="font-weight:700;font-size:16px;color:var(--ink)">Sending to your inbox now.</div>
-                  <div style="font-size:13px;color:var(--muted)">Check for it in the next 60 seconds. If it doesn't land, peek in spam — first time my address writes you.</div>
+                  <div style="font-weight:700;font-size:16px;color:var(--ink)">Got it — you're on the list.</div>
+                  <div style="font-size:13px;color:var(--muted)">I'll send useful stuff and check back in 3 months. No spam.</div>
                 </div>
               </div>
-              <a href="#book" class="cta primary" style="margin-top:8px">Book the 15-min call →</a>
-              <p style="font-size:12px;color:var(--muted);margin-top:10px">I'll bring the report and the fastest workflow we'd ship in week one of a Pilot.</p>
             </div>
           </div>
 
@@ -495,7 +600,7 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     <div class="section-head">
       <div class="kicker">Savings calculator</div>
       <h2 id="calc-h">What 8 minutes per dispatch is actually worth.</h2>
-      <p class="lede">Move the sliders. The math is built around recoverable dispatcher + tech minutes — the kind we automate in week one of a Pilot.</p>
+      <p class="lede">Move the sliders. The math is built around recoverable dispatcher + tech minutes — the kind your AI team takes off your plate in their first week.</p>
     </div>
 
     <div class="calc-shell">
@@ -521,10 +626,10 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
       <div class="calc-output reveal">
         <div class="label">Est. annual recoverable</div>
         <div class="big" id="calcBig">$0</div>
-        <div class="sub">Based on 8 minutes saved per dispatch via automated handoff + parts confirmation — what we ship in week one of every Pilot.</div>
+        <div class="sub">Based on 8 minutes saved per dispatch via automated handoff + parts confirmation — what your first AI hire takes over in their first week.</div>
         <div class="calc-stat"><span>Recoverable hours / yr</span><span id="calcHrs">0</span></div>
         <div class="calc-stat"><span>Tickets / yr</span><span id="calcTix">0</span></div>
-        <div class="calc-stat"><span>Pilot cost / yr</span><span>$11,964</span></div>
+        <div class="calc-stat"><span>AI Specialist cost / yr</span><span>$11,964</span></div>
         <p class="footnote">Conservative — doesn't price first-visit-fix uplift or the same-day reschedules you avoid.</p>
       </div>
     </div>
@@ -541,7 +646,7 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     </div>
     <article class="case-card reveal">
       <div class="case-visual">
-        <div class="case-tag">Pilot · Week 1</div>
+        <div class="case-tag">AI team · Week 1</div>
         <blockquote class="case-headline">"&lt;&lt;insert quote&gt;&gt;"</blockquote>
         <div class="case-attribution"><strong>&lt;&lt;Owner first name&gt;&gt;</strong>Owner / GM · 8 techs · Residential + light commercial</div>
       </div>
@@ -570,25 +675,25 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     <div class="section-head">
       <div class="kicker">How it works</div>
       <h2 id="how-h">Three steps. No long discovery. No "transformation roadmap."</h2>
-      <p class="lede">If we don't ship a measurable workflow in 30 days, the Pilot is refunded. That's the whole offer.</p>
+      <p class="lede">If your AI team hasn't shipped a measurable workflow in 30 days, you get the month back. That's the whole offer.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
         <div class="step-num">01</div>
         <h3>15-min audit call</h3>
-        <p>You describe how dispatch actually runs today. I tell you which workflow I'd automate first and what week-one looks like — no slides, no homework.</p>
+        <p>You describe how the business actually runs today. I tell you which role your AI team would take first, who'd staff it, and what their first week looks like — no slides, no homework.</p>
         <span class="when">Day 0</span>
       </div>
       <div class="step reveal">
         <div class="step-num">02</div>
-        <h3>One workflow shipped</h3>
-        <p>Within seven days of starting your Pilot, one specific automation is live in your stack. Usually dispatch handoff or parts-confirmation. Refunded if no measurable savings by day 30.</p>
+        <h3>Your first AI hire goes live</h3>
+        <p>Within seven days your first AI teammate is in your stack and doing real work. Usually the dispatch admin or the intake specialist. Refunded if you can't measure the lift by day 30.</p>
         <span class="when">Week 1</span>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
-        <h3>Weekly check-ins · Monthly review</h3>
-        <p>15-min sync each week to flag what's working. Monthly review with the dollar value of recovered hours. Cancel any month — month-to-month, no contract.</p>
+        <h3>The team gets sharper every week</h3>
+        <p>15-min sync each week — they learn your voice, your exceptions, your edge cases. Monthly review with the dollar value of hours recovered. Cancel any month — your AI team stays only as long as you want them.</p>
         <span class="when">Ongoing</span>
       </div>
     </div>
@@ -605,12 +710,12 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
       <div class="reveal">
         <div class="kicker">Who builds it</div>
         <h2 id="trust-h" style="margin-bottom:18px">Brady Gay. Civil PE turned AI builder.</h2>
-        <p class="trust-bio">I'm a licensed engineer who got tired of watching trade businesses run their dispatch on radios and spreadsheets while every tech-bro startup got a CRM. Efficio is the AI team I wish HVAC owners had. Owner-led builds. No subcontracted developers. No mystery boxes.</p>
+        <p class="trust-bio">I'm a licensed engineer who got tired of watching trade businesses run their dispatch on radios and spreadsheets while every tech-bro startup got a CRM. Efficio is the AI team I wish operators had a decade ago. I'm the head of yours. I deploy them, train them, and stay with you the whole way. No subcontracted developers. No mystery boxes.</p>
         <div class="trust-grid">
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>30-day refund on every Pilot</span></div>
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Month-to-month. Cancel any month.</span></div>
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>I write the code. Not a dev shop.</span></div>
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Built for trade operators, not "users"</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Refund if your AI team hasn't earned its first month</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Month-to-month · they stay only as long as you want them</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>I write the code · not a dev shop</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Built for operators, not "users"</span></div>
         </div>
       </div>
     </div>
@@ -622,42 +727,42 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Pricing</div>
-      <h2 id="pricing-h">Start with the audit. Pick a tier when you've seen the work.</h2>
-      <p class="lede">Every tier is month-to-month. The Pilot is refundable for 30 days if no measurable savings. Build fees (one-time) only if your stack needs custom integration — quoted after the audit.</p>
+      <h2 id="pricing-h">Start with the audit. Pick the size of your AI team after.</h2>
+      <p class="lede">Every tier is month-to-month. Your first AI hire is refundable for 30 days if you can't measure the lift. Custom integration fees (one-time) only if your stack needs it — quoted after the audit.</p>
     </div>
     <div class="price-row">
       <div class="price-card reveal">
-        <div class="price-tier">Pilot</div>
+        <div class="price-tier">AI Specialist</div>
         <div class="price-amt">$997<small> / mo</small></div>
-        <p class="price-blurb">One automation live in week one. Best place to start.</p>
+        <p class="price-blurb">Your first AI hire. One specialist, live in week one.</p>
         <ul>
-          <li>One workflow automated</li>
-          <li>30-day refund if no savings</li>
+          <li>One AI specialist deployed and trained</li>
+          <li>Refund if no measurable lift in 30 days</li>
           <li>Weekly 15-min check-in</li>
           <li>Monthly recovered-hours review</li>
         </ul>
         <a class="price-cta" href="#book">Start with audit</a>
       </div>
       <div class="price-card feat reveal">
-        <div class="price-tier">Growth</div>
+        <div class="price-tier">AI Team</div>
         <div class="price-amt">$2,500<small> / mo</small></div>
-        <p class="price-blurb">Two to three workflows live. Operations dashboard included.</p>
+        <p class="price-blurb">Build your AI team. Two to three AI hires plus your live ops command center.</p>
         <ul>
-          <li>2–3 workflows automated</li>
-          <li>Live operations dashboard</li>
-          <li>Weekly check-ins + Slack/email channel</li>
+          <li>2–3 AI teammates wired to your top leaks</li>
+          <li>Live operations command center</li>
+          <li>Weekly check-ins + shared chat channel</li>
           <li>Monthly review with owner</li>
         </ul>
         <a class="price-cta" href="#book">Start with audit</a>
       </div>
       <div class="price-card reveal">
-        <div class="price-tier">Operator</div>
+        <div class="price-tier">AI Department</div>
         <div class="price-amt">$3,500<small> / mo</small></div>
-        <p class="price-blurb">Full ops automation. For 25+ tech operators or multi-trade.</p>
+        <p class="price-blurb">Scale your AI department. For 25+ person operators or multi-location.</p>
         <ul>
-          <li>Unlimited workflows during retainer</li>
-          <li>Custom dashboard + alerts</li>
-          <li>2× weekly syncs</li>
+          <li>New AI hires onboarded as you grow</li>
+          <li>Custom command center + alerts</li>
+          <li>2× weekly syncs with the head of your AI team</li>
           <li>Quarterly strategy review</li>
         </ul>
         <a class="price-cta" href="#book">Start with audit</a>
@@ -666,24 +771,25 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
   </div>
 </section>
 
-<!-- BOOK -->
+<!-- BOOK (gated — quiz must qualify before scheduler renders) -->
 <section id="book" aria-labelledby="book-h">
   <div class="wrap">
     <div class="book-head">
       <div class="kicker">Book the audit</div>
       <h2 id="book-h">15 minutes. No deck. No homework.</h2>
-      <p>Pick a slot. I'll show up with one workflow I'd ship in your week-one Pilot, based on what you tell me about your dispatch.</p>
+      <p>Take the 60-second audit first — if your AI team can fit, the scheduler unlocks below.</p>
     </div>
-    <div class="calendly-frame">
-      <iframe
-        src="https://calendly.com/brady-gay/efficio-ai-audit-15-min?hide_event_type_details=0&primary_color=FF6B35"
-        width="100%" height="100%"
-        frameborder="0"
-        title="Schedule a 15-minute Efficio AI audit"
-        loading="lazy">
-      </iframe>
+    <div id="bookGate">
+      <div class="calendly-fallback" style="background:var(--cream);border:1px dashed var(--line);border-radius:var(--r-2);padding:48px 32px;text-align:center">
+        <p style="font-size:15px;color:var(--ink);font-weight:600;margin-bottom:8px">Take the audit to unlock booking.</p>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Five questions. About 60 seconds. We only book calls where deploying an AI team would actually make sense.</p>
+        <a href="#audit" class="btn btn-primary">Start the audit →</a>
+      </div>
+    </div>
+    <div id="bookFrame" style="display:none">
+      <div class="calendly-frame" id="calendlyFrame"></div>
       <noscript>
-        <div class="calendly-fallback">JavaScript is required to load the scheduler. <a href="https://calendly.com/brady-gay/efficio-ai-audit-15-min" style="color:var(--orange);font-weight:700">Open Calendly →</a></div>
+        <div class="calendly-fallback">JavaScript is required to load the scheduler.</div>
       </noscript>
     </div>
   </div>
@@ -698,24 +804,24 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Why $997/mo for the Pilot?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">It's the floor I can sustainably build at without cutting corners. One workflow, shipped right, week one — that's the deal. If you don't measure savings by day 30, you get the month back.</div>
+        <button class="faq-q" aria-expanded="false"><span>Why $997/mo for the first AI hire?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
+        <div class="faq-a">It's the floor I can sustainably deploy and train an AI specialist at without cutting corners. One AI hire, doing real work, week one — that's the deal. If you can't measure the lift by day 30, you get the month back.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>What does the 30-day refund actually mean?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">If by day 30 you can't point to a measurable change — recovered hours, faster dispatch, fewer reschedules — I refund the Pilot month, no debate. We agree on the metric on the audit call so there's no moving goalpost.</div>
+        <div class="faq-a">If by day 30 your AI hire hasn't moved a real number — recovered hours, faster dispatch, fewer reschedules — you get the month back, no debate. We agree on the metric on the audit call so there's no moving goalpost.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>What's actually included in the Pilot?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">One automation live in your stack within seven days of kickoff. Weekly 15-min check-in. Monthly recovered-hours report. Cancel any month. Build fees only apply if your stack needs custom integration work — quoted before you say yes.</div>
+        <button class="faq-q" aria-expanded="false"><span>What's actually included with your first AI hire?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
+        <div class="faq-a">One AI specialist deployed into your stack within seven days, trained on your workflow and voice. Weekly 15-min check-in. Monthly recovered-hours report. Cancel any month. Custom integration fees only apply if your stack needs them — quoted before you say yes.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Who is this NOT for?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">Owners under 5 techs (the math doesn't work yet). Operators looking for "AI strategy" decks (I don't sell strategy, I ship code). Anyone whose CRM is a notepad — fix that first.</div>
+        <div class="faq-a">Owners under 5 people (the math doesn't pay back yet). Operators looking for "AI strategy" decks (I don't sell strategy, I deploy teams). Anyone whose CRM is a notepad — fix that first.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Do you replace my dispatcher / CRM?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">No. I automate around them. Your dispatcher gets back hours; your CRM stays where it is. If your CRM blocks the workflow we want to ship, I'll tell you upfront on the audit call — and what that means for the Pilot.</div>
+        <button class="faq-q" aria-expanded="false"><span>Do you replace my dispatcher or CRM?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
+        <div class="faq-a">No. Your AI team works alongside them. Your dispatcher gets back hours; your existing stack stays where it is. If your stack blocks the role your AI team would take, I'll tell you upfront on the audit call — and what that means for them starting.</div>
       </div>
     </div>
   </div>
@@ -727,7 +833,7 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     <div class="f-grid">
       <div>
         <div class="f-brand"><span class="brand-mark">E</span>Efficio</div>
-        <p class="f-blurb">We're your AI team. Custom AI builds for trade operators who'd rather ship than strategize.</p>
+        <p class="f-blurb">Your AI team for the next era of business operations. Built for operators who'd rather deploy a team than buy software.</p>
       </div>
       <div class="f-col">
         <h4>Product</h4>
@@ -739,8 +845,8 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
       <div class="f-col">
         <h4>Company</h4>
         <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-        <a href="#book">Book a call</a>
-        <a href="https://calendly.com/brady-gay/efficio-ai-audit-15-min">Schedule audit</a>
+        <a href="#audit">Take the audit</a>
+        <a href="#book">Book a call (after audit)</a>
       </div>
       <div class="f-col">
         <h4>Legal</h4>
@@ -783,8 +889,21 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     });
   });
 
-  // ============== AUDIT WIDGET ==============
-  var state = {1:null,2:null,3:null,latency:20,techs:12,current:1};
+  // ============== AUDIT WIDGET — fit-gate scoring ==============
+  // Calendly URL is held in JS (NOT rendered in HTML by default) — prevents bypassing the quiz.
+  var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
+  var QUALIFY_THRESHOLD = 80;
+
+  // Scoring rubric (per spec):
+  //   Q1 vertical match: HVAC/dental/real_estate/plumbing/electrical/medical/legal => +30, other => 0
+  //   Q2 size:           1-10 => +20, 11-50 => +20, 51-200 => +10, 200+ => 0
+  //   Q3 decision-maker: yes => +20, no => -50 (auto-DQ)
+  //   Q4 pain (multi):   missed_calls / after_hours / slow_followup => +20 each, capped at +40
+  //   Q5 budget:         500_2000 or 2000_plus => +30, else 0
+  var VERTICAL_MATCH = ['hvac','dental','real_estate','plumbing','electrical','medical','legal'];
+  var PAIN_HIGH      = ['missed_calls','after_hours','slow_followup'];
+
+  var state = {1:null, 2:null, 3:null, 4:[], 5:null, current:1};
   var maxQ = 5;
 
   function showStep(n){
@@ -801,35 +920,47 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     var card = document.querySelector('.q-step[data-q="'+n+'"]');
     if (card){
       var nextBtn = card.querySelector('.next');
-      if (nextBtn){
-        if (n === 4 || n === 5){ nextBtn.disabled = false; }
-        else { nextBtn.disabled = !state[n]; }
-      }
+      if (nextBtn){ nextBtn.disabled = !isAnswered(n); }
     }
   }
 
-  // Option clicks (Q1-3)
+  function isAnswered(q){
+    if (q === 4){ return Array.isArray(state[4]) && state[4].length > 0; }
+    return state[q] !== null && state[q] !== undefined && state[q] !== '';
+  }
+
+  // Option clicks — single-select for Q1/Q2/Q3/Q5, multi-select (max 3) for Q4
   document.querySelectorAll('.opt-list').forEach(function(list){
     var q = parseInt(list.closest('.q-step').dataset.q, 10);
+    var multi = parseInt(list.dataset.multi || '0', 10);
     list.querySelectorAll('.opt').forEach(function(opt){
       opt.addEventListener('click', function(){
-        list.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('selected'); });
-        opt.classList.add('selected');
-        state[q] = parseInt(opt.dataset.val, 10);
+        if (multi > 0){
+          var v = opt.dataset.val;
+          var arr = state[q] || [];
+          var idx = arr.indexOf(v);
+          if (idx >= 0){
+            arr.splice(idx, 1);
+            opt.classList.remove('selected');
+          } else {
+            if (arr.length >= multi){
+              // Cap reached — soft prevent (do nothing). User can de-select first.
+              return;
+            }
+            arr.push(v);
+            opt.classList.add('selected');
+          }
+          state[q] = arr;
+        } else {
+          list.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('selected'); });
+          opt.classList.add('selected');
+          state[q] = opt.dataset.val;
+        }
         var card = list.closest('.q-step');
-        card.querySelector('.next').disabled = false;
+        card.querySelector('.next').disabled = !isAnswered(q);
       });
     });
   });
-
-  // Slider Q4
-  var lat = document.getElementById('latency');
-  var latVal = document.getElementById('latencyVal');
-  if (lat){ lat.addEventListener('input', function(){ state.latency = parseInt(lat.value,10); latVal.textContent = lat.value; }); }
-  // Slider Q5
-  var tch = document.getElementById('techs');
-  var tchVal = document.getElementById('techVal');
-  if (tch){ tch.addEventListener('input', function(){ state.techs = parseInt(tch.value,10); tchVal.textContent = tch.value; }); }
 
   // Nav
   document.querySelectorAll('.q-nav .next').forEach(function(b){
@@ -844,18 +975,45 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     });
   });
 
+  function scoreLead(){
+    var pts = 0;
+    var dq = false;
+    var dqReason = '';
+
+    // Q1: vertical
+    if (VERTICAL_MATCH.indexOf(state[1]) >= 0){ pts += 30; }
+
+    // Q2: size
+    if (state[2] === '1_10' || state[2] === '11_50'){ pts += 20; }
+    else if (state[2] === '51_200'){ pts += 10; }
+
+    // Q3: decision-maker (auto-DQ on no)
+    if (state[3] === 'yes'){ pts += 20; }
+    else if (state[3] === 'no'){ pts -= 50; dq = true; dqReason = 'not_decision_maker'; }
+
+    // Q4: pain — +20 each for high-pain items, capped at +40
+    var painPts = 0;
+    (state[4] || []).forEach(function(p){
+      if (PAIN_HIGH.indexOf(p) >= 0){ painPts += 20; }
+    });
+    pts += Math.min(40, painPts);
+
+    // Q5: budget
+    if (state[5] === '500_2000' || state[5] === '2000_plus'){ pts += 30; }
+
+    // Display score capped 0-100, but qualification uses raw points (so DQ is real).
+    var displayScore = Math.max(0, Math.min(100, pts));
+    var qualified = (pts >= QUALIFY_THRESHOLD) && !dq;
+
+    return { points: pts, score: displayScore, qualified: qualified, dq: dq, dqReason: dqReason };
+  }
+
   function computeScore(){
-    var d = state[1] || 0, p = state[2] || 0, l = state[3] || 0;
-    // Latency: 5 (best) → +14, 60 (worst) → +1. Linear inverse.
-    var latScore = Math.round(14 - ((state.latency - 5) / 55) * 13);
-    // Techs: scale (5 techs → 6pts, 50 → 14pts cap)
-    var techScore = Math.min(14, Math.round(6 + ((state.techs - 5) / 45) * 8));
-    var raw = d + p + l + latScore + techScore; // out of 70 max
-    var score = Math.round((raw / 70) * 100);
-    score = Math.max(0, Math.min(100, score));
+    var r = scoreLead();
+    var score = r.score;
 
     var ring = document.getElementById('scoreArc');
-    var circ = 2 * Math.PI * 62; // ~389.56
+    var circ = 2 * Math.PI * 62;
     ring.style.strokeDashoffset = circ - (score / 100) * circ;
 
     var num = document.getElementById('scoreNum');
@@ -870,54 +1028,125 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     var summary = document.getElementById('scoreSummary');
     var lines = [];
 
-    if (score >= 75){
-      tier.textContent = 'AI-ready · Optimization layer'; tier.className = 'score-tier green';
-      lines.push('You\'re running tight. The wins now are squeeze plays — first-visit-fix uplift, predictive parts staging, owner dashboards.');
-    } else if (score >= 50){
-      tier.textContent = 'Mid-stack · Two big wins close'; tier.className = 'score-tier amber';
-      lines.push('You have systems but they\'re not talking. The fastest Pilot win: auto-dispatch handoff with parts confirmation before truck roll.');
+    if (r.qualified){
+      tier.textContent = 'Your AI team can fit'; tier.className = 'score-tier green';
+      lines.push('You\'re a fit on the four things that matter: industry, size, decision-maker, real pain.');
+      var painList = (state[4] || []).map(function(p){ return p.replace(/_/g,' '); }).join(', ');
+      if (painList){ lines.push('First role your AI team would take: <strong>' + painList + '</strong>.'); }
     } else {
-      tier.textContent = 'Manual stack · 40+ hrs/mo on the table'; tier.className = 'score-tier red';
-      lines.push('Most of your dispatch and tech-late comms still ride on people. That\'s normal — and it\'s the highest-ROI place to start.');
+      if (r.dq && r.dqReason === 'not_decision_maker'){
+        tier.textContent = 'Loop us in when you can sign'; tier.className = 'score-tier amber';
+        lines.push('We only book calls with the person who can sign off — saves you and us a meeting.');
+      } else if (r.points < 50){
+        tier.textContent = 'Earlier-stage'; tier.className = 'score-tier red';
+        lines.push('You\'re earlier-stage than where an AI team pays back. That\'s not a bad thing — it just means deploying them now wouldn\'t earn its keep yet.');
+      } else {
+        tier.textContent = 'Borderline'; tier.className = 'score-tier amber';
+        lines.push('You\'re close to fit but the math doesn\'t quite pencil for an AI team today.');
+      }
     }
-
-    var workflow = (p <= 5) ? 'parts-confirmation before dispatch' : (l <= 5 ? 'auto-text on tech ETA slip' : 'dispatch handoff with auto-routing');
-    lines.push('Week-one Pilot recommendation: <strong>' + workflow + '</strong>.');
-
-    var rec = Math.round(state.techs * 8 * 22 * 50 / 60); // hours per year
-    lines.push('Estimated recoverable: <strong>~' + rec.toLocaleString() + ' hrs/yr</strong> at your scale.');
-
     summary.innerHTML = '<ul>' + lines.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ul>';
 
     document.querySelectorAll('.q-step').forEach(function(c){ c.hidden = true; });
     document.getElementById('audit-result').classList.add('show');
     document.querySelectorAll('.audit-progress .step').forEach(function(s){ s.classList.add('done'); s.classList.remove('active'); });
+
+    // Branch: qualified → reveal Calendly; unqualified → email capture
+    if (r.qualified){
+      revealCalendly();
+    } else {
+      revealUnqualified(r);
+    }
+
+    // Fire-and-forget capture (qualified or not) — backend stores qualified=true|false
+    sendCapture(r, /*email*/ null);
+
+    // Fire conversion across all ad pixels (GA4, Meta, LinkedIn, TikTok, Snap)
+    try {
+      if (window.sendConversion) {
+        window.sendConversion({
+          score: r.score,
+          qualified: r.qualified,
+          tier: (r.qualified ? 'qualified' : (r.dq ? 'dq' : (r.points < 50 ? 'earlier' : 'borderline')))
+        });
+      }
+    } catch(e){}
   }
 
-  // ---- LEAD-CAPTURE ENDPOINT ----
-  // Brady: point this at your hosted audit_capture.py instance. See Efficio/lead_engine/LEAD_ENGINE_README.md.
-  // Examples:  Netlify Function:  '/.netlify/functions/audit-score-capture'
-  //            Railway / Fly:     'https://efficio-lead-engine.up.railway.app/api/audit-score-capture'
-  //            Local Task Sched.: 'http://127.0.0.1:5052/api/audit-score-capture'  (test only)
-  var CAPTURE_ENDPOINT = '/api/audit-score-capture';
+  function revealCalendly(){
+    document.getElementById('qualifiedPanel').style.display = 'block';
+    document.getElementById('unqualifiedPanel').style.display = 'none';
 
-  // Question metadata so the backend can echo the answer text into the PDF without re-keying the labels.
+    // Build the inline book button + reveal the gated #book scheduler
+    var slot = document.getElementById('bookSlot');
+    if (slot && !slot.dataset.rendered){
+      var verticalParam = encodeURIComponent(state[1] || '');
+      var url = CALENDLY_URL + '?primary_color=FF6B35&utm_source=audit_quiz&utm_content=' + verticalParam;
+      slot.innerHTML =
+        '<a href="' + url + '" class="btn btn-primary" target="_blank" rel="noopener" ' +
+        'style="display:inline-flex;margin-top:6px">Book my 15-min call →</a>' +
+        '<a href="#book" class="btn btn-ghost" style="margin-left:10px;color:var(--ink);border:1px solid var(--line)">Or pick a slot below</a>';
+      slot.dataset.rendered = '1';
+    }
+
+    // Unlock the bottom #book section: hide gate, mount iframe
+    var gate = document.getElementById('bookGate');
+    var frame = document.getElementById('bookFrame');
+    if (gate) gate.style.display = 'none';
+    if (frame){
+      frame.style.display = 'block';
+      var iframeHost = document.getElementById('calendlyFrame');
+      if (iframeHost && !iframeHost.dataset.rendered){
+        var ifr = document.createElement('iframe');
+        ifr.src = CALENDLY_URL + '?hide_event_type_details=0&primary_color=FF6B35&utm_source=audit_quiz&utm_content=' + encodeURIComponent(state[1] || '');
+        ifr.width = '100%'; ifr.height = '100%';
+        ifr.frameBorder = '0';
+        ifr.title = 'Schedule a 15-minute Efficio AI audit';
+        ifr.loading = 'lazy';
+        iframeHost.appendChild(ifr);
+        iframeHost.dataset.rendered = '1';
+      }
+    }
+  }
+
+  function revealUnqualified(r){
+    document.getElementById('qualifiedPanel').style.display = 'none';
+    document.getElementById('unqualifiedPanel').style.display = 'block';
+
+    // Tailor copy to the DQ reason
+    var msg = document.getElementById('dqMessage');
+    if (msg){
+      if (r.dq && r.dqReason === 'not_decision_maker'){
+        msg.innerHTML = 'Send the resources to whoever signs the checks — we\'ll send useful stuff and you can loop us in when there\'s an opening.';
+      } else {
+        msg.innerHTML = 'Looks like you\'re earlier-stage than where an AI team pays back. Drop your email — we\'ll send useful stuff and check back in 3 months.';
+      }
+    }
+  }
+
+  // ---- LEAD-CAPTURE ENDPOINTS ----
+  var CAPTURE_ENDPOINT     = '/api/audit-score-capture';
+  var UNQUALIFIED_ENDPOINT = '/api/unqualified-lead-capture';
+
   var QUESTION_META = {
-    1: { key: 'dispatch', text: 'How does your dispatcher decide which tech gets which call right now?' },
-    2: { key: 'parts',    text: 'How do you confirm parts are on the truck before you dispatch?' },
-    3: { key: 'late',     text: 'When a tech runs late on a job, what happens next?' },
-    4: { key: 'latency',  text: 'Average minutes from inbound call to a tech being dispatched.' },
-    5: { key: 'techs',    text: 'How many techs do you have in the field?' }
+    1: { key: 'vertical', text: 'What industry are you in?' },
+    2: { key: 'size',     text: 'How many people work in your business?' },
+    3: { key: 'dm',       text: 'Are you the owner or decision-maker?' },
+    4: { key: 'pain',     text: 'Which of these are eating your team\'s time?' },
+    5: { key: 'budget',   text: 'Current monthly spend on lead-gen / answering services?' }
   };
 
-  function selectedLabel(qNum){
+  function selectedLabels(qNum){
     var card = document.querySelector('.q-step[data-q="'+qNum+'"]');
-    if (!card) return '';
-    var sel = card.querySelector('.opt.selected');
-    if (!sel) return '';
-    var clone = sel.cloneNode(true);
-    var pin = clone.querySelector('.pin'); if (pin) pin.remove();
-    return clone.textContent.trim();
+    if (!card) return [];
+    var picks = card.querySelectorAll('.opt.selected');
+    var labels = [];
+    picks.forEach(function(sel){
+      var clone = sel.cloneNode(true);
+      var pin = clone.querySelector('.pin'); if (pin) pin.remove();
+      labels.push(clone.textContent.trim());
+    });
+    return labels;
   }
 
   function readUTM(){
@@ -931,59 +1160,88 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     } catch(_) { return {}; }
   }
 
-  window.submitEmail = function(e){
+  function buildAnswers(){
+    return [
+      { q: 1, key: 'vertical', prompt: QUESTION_META[1].text, label: selectedLabels(1).join(', '), value: state[1] },
+      { q: 2, key: 'size',     prompt: QUESTION_META[2].text, label: selectedLabels(2).join(', '), value: state[2] },
+      { q: 3, key: 'dm',       prompt: QUESTION_META[3].text, label: selectedLabels(3).join(', '), value: state[3] },
+      { q: 4, key: 'pain',     prompt: QUESTION_META[4].text, label: selectedLabels(4).join(', '), value: state[4] || [] },
+      { q: 5, key: 'budget',   prompt: QUESTION_META[5].text, label: selectedLabels(5).join(', '), value: state[5] }
+    ];
+  }
+
+  function sendCapture(r, email){
+    var payload = {
+      email: email || null,
+      qualified: r.qualified,
+      score: r.score,
+      raw_points: r.points,
+      dq: r.dq,
+      dq_reason: r.dqReason || null,
+      vertical: state[1], size: state[2], decision_maker: state[3],
+      pain: state[4] || [], budget: state[5],
+      answers: buildAnswers(),
+      referral_source: readUTM(),
+      page_url: window.location.href,
+      submitted_at: new Date().toISOString()
+    };
+    var endpoint = r.qualified ? CAPTURE_ENDPOINT : UNQUALIFIED_ENDPOINT;
+    try {
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function(){
+        try {
+          var key = r.qualified ? 'efficio_audit_pending' : 'efficio_unqualified_pending';
+          var stash = JSON.parse(localStorage.getItem(key) || '[]');
+          stash.push(payload); localStorage.setItem(key, JSON.stringify(stash));
+        } catch(_) {}
+      });
+    } catch(_) {}
+  }
+
+  window.submitDQEmail = function(e){
     e.preventDefault();
     var em = e.target.querySelector('input').value.trim();
-    var score = parseInt(document.getElementById('scoreNum').textContent, 10) || 0;
-    var btn = document.getElementById('captureSubmit');
-    var errEl = document.getElementById('captureError');
+    var btn = document.getElementById('dqSubmit');
+    var errEl = document.getElementById('dqError');
     if (errEl) errEl.style.display = 'none';
     if (btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
 
-    var answers = [
-      { q: 1, key: QUESTION_META[1].key, prompt: QUESTION_META[1].text, label: selectedLabel(1), value: state[1] || 0 },
-      { q: 2, key: QUESTION_META[2].key, prompt: QUESTION_META[2].text, label: selectedLabel(2), value: state[2] || 0 },
-      { q: 3, key: QUESTION_META[3].key, prompt: QUESTION_META[3].text, label: selectedLabel(3), value: state[3] || 0 },
-      { q: 4, key: QUESTION_META[4].key, prompt: QUESTION_META[4].text, label: state.latency + ' min', value: state.latency },
-      { q: 5, key: QUESTION_META[5].key, prompt: QUESTION_META[5].text, label: state.techs + ' techs', value: state.techs }
-    ];
-
+    var r = scoreLead();
     var payload = {
-      email: em,
-      score: score,
-      tech_count: state.techs,
-      answers: answers,
+      email: em, qualified: false, score: r.score, raw_points: r.points,
+      dq: r.dq, dq_reason: r.dqReason || null,
+      vertical: state[1], size: state[2], decision_maker: state[3],
+      pain: state[4] || [], budget: state[5],
+      answers: buildAnswers(),
       referral_source: readUTM(),
       page_url: window.location.href,
       submitted_at: new Date().toISOString()
     };
 
     function showThanks(){
-      var form = document.getElementById('captureForm');
+      var pnl = document.getElementById('unqualifiedPanel');
       var thanks = document.getElementById('captureThanks');
-      if (form) form.style.display = 'none';
+      if (pnl) pnl.style.display = 'none';
       if (thanks) thanks.style.display = 'block';
     }
 
-    fetch(CAPTURE_ENDPOINT, {
+    fetch(UNQUALIFIED_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
-    }).then(function(r){
-      if (!r.ok) throw new Error('http ' + r.status);
-      return r.json();
-    }).then(function(_data){
+    }).then(function(resp){
+      if (!resp.ok) throw new Error('http ' + resp.status);
       showThanks();
-    }).catch(function(_err){
-      // Fallback: show thank-you anyway and stash the payload locally so Brady never loses a lead even if the endpoint is misconfigured.
+    }).catch(function(){
       try {
-        var stash = JSON.parse(localStorage.getItem('efficio_audit_pending') || '[]');
-        stash.push(payload); localStorage.setItem('efficio_audit_pending', JSON.stringify(stash));
+        var stash = JSON.parse(localStorage.getItem('efficio_unqualified_pending') || '[]');
+        stash.push(payload); localStorage.setItem('efficio_unqualified_pending', JSON.stringify(stash));
       } catch(_) {}
-      if (errEl) errEl.style.display = 'block';
-      if (btn){ btn.disabled = false; btn.textContent = 'Get your detailed audit (PDF)'; }
+      showThanks();
     });
-
     return false;
   };
 
@@ -998,7 +1256,6 @@ footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;bor
     document.getElementById('cTicket').textContent = ticket;
     document.getElementById('cTickets').textContent = tickets;
     document.getElementById('cRate').textContent = rate;
-    // 8 min saved per dispatch, 50 working weeks
     var minsSaved = techs * tickets * 8 * 50;
     var hours = Math.round(minsSaved / 60);
     var dollars = Math.round(hours * rate);

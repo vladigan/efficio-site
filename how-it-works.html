@@ -16,13 +16,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%230B1736'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
 <style>
-:root{--bg:#050a16;--bg2:#07101f;--bg3:#0c1728;--surf:#0f1e33;--surf2:#132540;
-  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--pink:#ec4899;
+:root{--bg:#0B1736;--bg2:#0C1729;--bg3:#08111E;--surf:#0f1e33;--surf2:#132540;
+  --purple:#D4A574;--purple2:#E6CC95;--purple3:#F2E3C2;--pink:#F2E3C2;
   --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
-  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
-  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
+  --bd:rgba(212,165,116,.18);--bd2:rgba(230,204,149,.28);--bd3:rgba(230,204,149,.12);
+  --glow:rgba(212,165,116,.38);--glow2:rgba(230,204,149,.2);
   --r:8px;--r2:14px;--r3:24px;--green:#10b981}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -43,19 +43,19 @@ a{color:inherit;text-decoration:none}
 .nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
 .btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
-  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
+  background:var(--purple);color:#fff;border:1px solid rgba(230,204,149,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
 .btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
 .wrap{max-width:1100px;margin:0 auto;padding:0 32px;position:relative}
 .hero{padding:140px 0 40px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(124,58,237,.14),transparent)}
+  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(212,165,116,.14),transparent)}
 .hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);color:var(--white);font-weight:800;
   letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
 .hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero .lead{font-size:1.15rem;color:var(--w2);max-width:720px;margin-bottom:8px}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
-  background:rgba(124,58,237,.1);border:1px solid var(--bd2);font-size:.82rem;
+  background:rgba(212,165,116,.1);border:1px solid var(--bd2);font-size:.82rem;
   color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
 .hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -71,7 +71,7 @@ a{color:inherit;text-decoration:none}
   display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.82rem;
   box-shadow:0 0 20px var(--glow),0 0 40px var(--glow2);z-index:1}
 .stage .meta{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
-.stage .tag{padding:3px 10px;border-radius:100px;background:rgba(124,58,237,.14);
+.stage .tag{padding:3px 10px;border-radius:100px;background:rgba(212,165,116,.14);
   border:1px solid var(--bd2);color:var(--purple3);font-size:.72rem;font-weight:600;
   letter-spacing:.05em;text-transform:uppercase}
 .stage .tag.dur{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:var(--green)}
@@ -96,15 +96,15 @@ a{color:inherit;text-decoration:none}
 
 /* CTA */
 .cta{margin:56px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;
-  background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(236,72,153,.08));
+  background:linear-gradient(135deg,rgba(212,165,116,.15),rgba(255,169,128,.08));
   border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(168,85,247,.18),transparent);pointer-events:none}
+  background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(230,204,149,.18),transparent);pointer-events:none}
 .cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
 .cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
 .cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;
   border-radius:var(--r);font-weight:700;font-size:1rem;
-  box-shadow:0 0 30px var(--glow),0 10px 30px rgba(124,58,237,.2);transition:all .2s;position:relative}
+  box-shadow:0 0 30px var(--glow),0 10px 30px rgba(212,165,116,.2);transition:all .2s;position:relative}
 .cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
 
 footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
@@ -131,7 +131,7 @@ footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top
       <li><a href="why-us.html">Why Us</a></li>
       <li><a href="pricing.html">Pricing</a></li>
     </ul>
-    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
+    <a href="/audit-quiz" class="btn-nav">Book a Call</a>
   </div>
 </nav>
 
@@ -218,9 +218,9 @@ footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top
     <div class="outputs">
       <div class="outputs-label">Retainer tiers</div>
       <ul>
-        <li>Pilot — $997/mo · monthly call, custom AI dashboard built and maintained</li>
-        <li>Growth — $2,500/mo · biweekly call, dashboard + custom AI agent (proposal/quote/intake/triage)</li>
-        <li>Operator — $3,500/mo · weekly call, continuous AI builds, 24h SLA</li>
+        <li>Growth — $2,500/mo · ~20 hrs, one agent or dashboard ongoing</li>
+        <li>Full Stack — $3,500/mo · ~30 hrs, agents + dashboards evolving in parallel</li>
+        <li>Dedicated — $7,500/mo · ~60 hrs, we act as your AI team</li>
       </ul>
     </div>
   </div>
@@ -260,7 +260,7 @@ footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top
 <div class="cta">
   <h3>Let's figure out if we're a fit.</h3>
   <p>20 minutes, free, no pitch. You tell us what's slow or painful. We tell you whether we can help — and if we can't, we tell you that too.</p>
-  <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn" target="_blank" rel="noopener">Book a 20-min call →</a>
+  <a href="/audit-quiz" class="btn">Book a 20-min call →</a>
 </div>
 
 <footer>
@@ -287,7 +287,7 @@ footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top
       <div>
         <h5>Get started</h5>
         <a href="pricing.html">Pricing</a>
-        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a Call</a>
+        <a href="/audit-quiz">Book a Call</a>
         <a href="onboarding.html">Onboarding</a>
         <a href="terms.html">Terms</a>
       </div>
@@ -300,3 +300,4 @@ footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top
 </footer>
 </body>
 </html>
+                                            

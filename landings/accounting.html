@@ -1,89 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- EFFICIO-PAID-ADS-PIXELS-V2 -->
-<!-- ============================================================ -->
-<!-- Meta Pixel — replace META_PIXEL_ID with your 15-16 digit Pixel ID
-     from business.facebook.com/events_manager -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'META_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-
-<!-- Google Ads gtag — replace AW-XXXX with your Conversion ID and
-     CONVERSION_LABEL with the per-action label from Google Ads → Tools → Conversions -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'AW-XXXX');
-</script>
-
-<!-- Unified conversion helper — call window.efficioTrackLead() on lead capture
-     and window.efficioTrackBooking() on Calendly bookingComplete -->
-<script>
-window.efficioTrackLead = function(meta){
-  meta = meta || {};
-  try { if (window.fbq) fbq('track', 'Lead', meta); } catch(e){}
-  try { if (window.gtag) gtag('event', 'conversion', {'send_to': 'AW-XXXX/CONVERSION_LABEL', ...meta}); } catch(e){}
-};
-window.efficioTrackBooking = function(meta){
-  meta = meta || {};
-  try { if (window.fbq) fbq('track', 'CompleteRegistration', meta); } catch(e){}
-  try { if (window.gtag) gtag('event', 'conversion', {'send_to': 'AW-XXXX/CONVERSION_LABEL', ...meta}); } catch(e){}
-};
-// Calendly bookingComplete callback — fires window.efficioTrackBooking() when
-// any Calendly inline/popup widget on this page reports a booked event.
-window.addEventListener('message', function(e){
-  try {
-    if (!e || !e.data) return;
-    var d = e.data;
-    if (typeof d === 'string') { try { d = JSON.parse(d); } catch(_){} }
-    if (d && d.event === 'calendly.event_scheduled') {
-      window.efficioTrackBooking({ source: 'calendly_inline' });
-    }
-  } catch(err){}
-});
-// Auto-wire any <form> on this page so submit fires Lead.
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('form').forEach(function(f){
-    f.addEventListener('submit', function(){
-      window.efficioTrackLead({ source: 'form_submit', form_id: f.id || '' });
-    }, { once: false });
-  });
-});
-</script>
-<!-- /EFFICIO-PAID-ADS-PIXELS-V2 -->
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Your AI team for accounting firms | Efficio</title>
-<meta name="description" content="Not a tool. A team. AI hires that learn how your business runs and stay with you the whole way. Built for accounting firms." />
+<title>Efficio — Free 15-min AI Audit for Accounting Firms</title>
+<meta name="description" content="Tax season eats every hour you didn't price for. See where your client + doc-collection workflow is leaking. 15-min audit, no pitch deck." />
 <link rel="canonical" href="https://efficio.tech/landings/accounting" />
-<meta property="og:title" content="Your AI team for accounting firms | Efficio" />
-<meta property="og:description" content="Not a tool. A team. AI hires that learn how your business runs and stay with you the whole way. Built for accounting firms." />
+<meta property="og:title" content="Efficio — AI for accounting + bookkeeping firms" />
+<meta property="og:description" content="Tax season eats every hour you didn't price for. See where your client + doc-collection workflow is leaking. 15-min audit, no pitch deck." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://efficio.tech/landings/accounting" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='22' width='100' height='100' fill='%230B1736'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23D4A574' font-family='Georgia' font-weight='700'>E</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='22' width='100' height='100' fill='%230E1B33'/><text x='50' y='70' font-size='58' text-anchor='middle' fill='%23FF6B35' font-family='Georgia' font-weight='700'>E</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --navy:#0B1736; --navy-2:#162247; --navy-3:#1A2A52;
-  --orange:#D4A574; --orange-2:#E6CC95;
-  --cream:#F7F2EA; --cream-2:#EFE7D8;
-  --graphite:#2A2A2A; --ink:#0B1736;
-  --muted:#7A8AB6; --line:#E4D8C2; --line-2:rgba(255,255,255,.10);
-  --good:#4F7C57; --warn:#C97A1B;
+  --navy:#050a16; --navy-2:#07101f; --navy-3:#0c1728;
+  --orange:#a855f7; --orange-2:#c084fc;
+  --cream:#f8fafc; --cream-2:#e2e8f0;
+  --graphite:#2A2A2A; --ink:#1A2238;
+  --muted:#5B6478; --line:#E2DCD0; --line-2:rgba(255,255,255,.10);
+  --good:#1F8A5B; --warn:#C97A1B;
   --r:10px; --r-2:16px;
   --shadow:0 1px 2px rgba(11,23,54,.04), 0 8px 24px rgba(11,23,54,.08);
   --shadow-strong:0 6px 18px rgba(11,23,54,.10), 0 24px 60px rgba(11,23,54,.18);
@@ -101,26 +39,26 @@ img{max-width:100%;display:block}
 .brand{display:flex;align-items:center;gap:10px;color:var(--cream);font-weight:700;letter-spacing:-.01em;font-size:17px}
 .brand-mark{width:30px;height:30px;border-radius:8px;background:var(--orange);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:18px}
 .nav-links{display:flex;gap:6px;align-items:center}
-.nav-links a{color:rgba(247,242,234,.78);font-size:14px;font-weight:500;padding:8px 12px;border-radius:8px;transition:color .15s,background .15s}
+.nav-links a{color:rgba(245,241,234,.78);font-size:14px;font-weight:500;padding:8px 12px;border-radius:8px;transition:color .15s,background .15s}
 .nav-links a:hover{color:var(--cream);background:rgba(255,255,255,.05)}
 .nav-cta{padding:9px 18px;border-radius:9px;background:var(--orange);color:var(--navy);font-weight:700;font-size:14px;transition:transform .15s,background .15s}
 .nav-cta:hover{background:var(--orange-2);transform:translateY(-1px)}
 
 .hero{background:var(--navy);color:var(--cream);padding:96px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 20%, rgba(212,165,116,.10), transparent 60%),radial-gradient(50% 40% at 10% 90%, rgba(212,165,116,.06), transparent 60%);pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 20%, rgba(124,58,237,.10), transparent 60%),radial-gradient(50% 40% at 10% 90%, rgba(124,58,237,.06), transparent 60%);pointer-events:none}
 .hero-inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(212,165,116,.12);border:1px solid rgba(212,165,116,.30);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(212,165,116,.18)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.30);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(124,58,237,.18)}
 h1.hero-h1{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(2.4rem,5.2vw,3.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--cream);margin-bottom:18px}
 h1.hero-h1 em{font-style:italic;color:var(--orange)}
-.hero-sub{font-size:1.05rem;line-height:1.65;color:rgba(247,242,234,.82);max-width:540px;margin-bottom:32px}
+.hero-sub{font-size:1.05rem;line-height:1.65;color:rgba(245,241,234,.82);max-width:540px;margin-bottom:32px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:-.01em;transition:transform .15s,background .15s,box-shadow .15s,border-color .15s}
-.btn-primary{background:var(--orange);color:var(--navy);box-shadow:0 6px 22px rgba(212,165,116,.30)}
-.btn-primary:hover{background:var(--orange-2);transform:translateY(-1px);box-shadow:0 10px 32px rgba(212,165,116,.40)}
-.btn-ghost{color:var(--cream);border:1px solid rgba(247,242,234,.22);padding:13px 20px}
+.btn-primary{background:var(--orange);color:var(--navy);box-shadow:0 6px 22px rgba(124,58,237,.30)}
+.btn-primary:hover{background:var(--orange-2);transform:translateY(-1px);box-shadow:0 10px 32px rgba(124,58,237,.40)}
+.btn-ghost{color:var(--cream);border:1px solid rgba(245,241,234,.22);padding:13px 20px}
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
-.hero-trust{margin-top:36px;display:flex;gap:18px;flex-wrap:wrap;color:rgba(247,242,234,.70);font-size:13px}
+.hero-trust{margin-top:36px;display:flex;gap:18px;flex-wrap:wrap;color:rgba(245,241,234,.70);font-size:13px}
 .hero-trust span{display:inline-flex;align-items:center;gap:8px}
 .hero-trust svg{width:14px;height:14px;color:var(--orange)}
 .hero-card{background:var(--cream);color:var(--ink);border-radius:18px;padding:28px;box-shadow:var(--shadow-strong);position:relative}
@@ -158,12 +96,12 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .calc-shell{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .calc-inputs{background:#fff;border:1px solid var(--line);border-radius:var(--r-2);padding:32px}
 .calc-output{background:var(--navy);color:var(--cream);border-radius:var(--r-2);padding:40px;text-align:center;position:relative;overflow:hidden}
-.calc-output::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:140%;background:radial-gradient(closest-side,rgba(212,165,116,.20),transparent);opacity:.7}
+.calc-output::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:140%;background:radial-gradient(closest-side,rgba(124,58,237,.20),transparent);opacity:.7}
 .calc-output > *{position:relative}
-.calc-output .label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,242,234,.72);margin-bottom:14px}
+.calc-output .label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,234,.72);margin-bottom:14px}
 .calc-output .big{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(2.6rem,5vw,3.6rem);line-height:1;letter-spacing:-.02em;color:var(--orange);margin-bottom:8px}
-.calc-output .sub{font-size:.95rem;color:rgba(247,242,234,.82);line-height:1.55;max-width:340px;margin:0 auto 22px}
-.calc-output .footnote{font-size:12px;color:rgba(247,242,234,.55);font-style:italic}
+.calc-output .sub{font-size:.95rem;color:rgba(245,241,234,.82);line-height:1.55;max-width:340px;margin:0 auto 22px}
+.calc-output .footnote{font-size:12px;color:rgba(245,241,234,.55);font-style:italic}
 .calc-stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.10);font-size:14px}
 .calc-stat:last-child{border-bottom:none}
 .calc-stat span:last-child{font-weight:700;color:var(--cream);font-variant-numeric:tabular-nums}
@@ -171,16 +109,16 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .slider-block label{display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:10px}
 .slider-block label span{color:var(--orange);font-variant-numeric:tabular-nums}
 .slider-block input[type="range"]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:var(--line);outline:none}
-.slider-block input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 8px rgba(212,165,116,.4);cursor:pointer}
-.slider-block input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 8px rgba(212,165,116,.4);cursor:pointer}
+.slider-block input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 8px rgba(124,58,237,.4);cursor:pointer}
+.slider-block input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 2px 8px rgba(124,58,237,.4);cursor:pointer}
 
 .case-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-2);padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;box-shadow:var(--shadow)}
 .case-visual{background:var(--navy);color:var(--cream);padding:40px 32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:340px}
-.case-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,165,116,.12),transparent 60%);pointer-events:none}
+.case-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.12),transparent 60%);pointer-events:none}
 .case-visual > *{position:relative}
 .case-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
 .case-headline{font-family:'Newsreader',Georgia,serif;font-weight:500;font-style:italic;font-size:1.25rem;line-height:1.45;color:var(--cream);margin-bottom:auto}
-.case-attribution{font-size:13px;color:rgba(247,242,234,.72);margin-top:24px}
+.case-attribution{font-size:13px;color:rgba(245,241,234,.72);margin-top:24px}
 .case-attribution strong{color:var(--cream);font-weight:600;display:block}
 .case-data{padding:40px 32px;display:flex;flex-direction:column;justify-content:center;gap:20px}
 .case-stat{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -198,8 +136,8 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .step .when{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--cream-2);padding:4px 10px;border-radius:999px}
 
 .trust-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
-.trust-photo{aspect-ratio:1/1;background:var(--navy);border-radius:var(--r-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(247,242,234,.5);font-size:13px}
-.trust-photo::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 60% 40%,rgba(212,165,116,.30),transparent)}
+.trust-photo{aspect-ratio:1/1;background:var(--navy);border-radius:var(--r-2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(245,241,234,.5);font-size:13px}
+.trust-photo::before{content:"";position:absolute;inset:0;background:radial-gradient(closest-side at 60% 40%,rgba(124,58,237,.30),transparent)}
 .trust-photo span{position:relative}
 .trust-bio{font-size:1.1rem;color:var(--ink);line-height:1.7;margin-bottom:24px;max-width:520px}
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
@@ -209,7 +147,7 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 
 .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
 .price-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-2);padding:32px 28px;position:relative;transition:transform .2s,box-shadow .2s}
-.price-card.feat{border-color:var(--orange);border-width:2px;box-shadow:0 8px 28px rgba(212,165,116,.18)}
+.price-card.feat{border-color:var(--orange);border-width:2px;box-shadow:0 8px 28px rgba(124,58,237,.18)}
 .price-card.feat::before{content:"Recommended";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
 .price-tier{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .price-card.feat .price-tier{color:var(--orange)}
@@ -223,10 +161,10 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .price-cta:hover{background:var(--navy)}
 .price-card.feat .price-cta{background:var(--orange);color:var(--navy)}
 .price-card.feat .price-cta:hover{background:var(--orange-2)}
-.custom-builds-callout{margin-top:40px;padding:26px 30px;border:1px dashed rgba(212,165,116,.40);border-radius:var(--r-2);background:linear-gradient(135deg,rgba(212,165,116,.05),rgba(11,23,54,.03));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.custom-builds-callout{margin-top:40px;padding:26px 30px;border:1px dashed rgba(124,58,237,.40);border-radius:var(--r-2);background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(11,23,54,.03));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .custom-builds-callout .cb-text{flex:1;min-width:280px}
 .custom-builds-callout .cb-title{font-size:1.02rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.custom-builds-callout .cb-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px rgba(212,165,116,.5);display:inline-block}
+.custom-builds-callout .cb-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px rgba(124,58,237,.5);display:inline-block}
 .custom-builds-callout p{font-size:.93rem;color:var(--muted);line-height:1.6;margin:0}
 .custom-builds-callout strong{color:var(--ink);font-weight:700}
 .custom-builds-callout .cb-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9px;background:var(--ink);color:var(--cream);font-weight:700;font-size:14px;white-space:nowrap;flex-shrink:0;transition:background .15s,transform .15s}
@@ -247,15 +185,15 @@ h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease, padding .25s ease;padding:0 24px;color:var(--muted);font-size:.95rem;line-height:1.7}
 .faq-item.open .faq-a{max-height:400px;padding:0 24px 22px}
 
-footer{background:var(--navy);color:rgba(247,242,234,.7);padding:64px 0 36px;border-top:0}
+footer{background:var(--navy);color:rgba(245,241,234,.7);padding:64px 0 36px;border-top:0}
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
 .f-brand{display:flex;align-items:center;gap:10px;color:var(--cream);font-weight:700;letter-spacing:-.01em;font-size:18px;margin-bottom:14px}
 .f-blurb{font-size:14px;line-height:1.6;max-width:280px}
 .f-col h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:14px}
-.f-col a{display:block;color:rgba(247,242,234,.7);font-size:14px;padding:5px 0;transition:color .15s}
+.f-col a{display:block;color:rgba(245,241,234,.7);font-size:14px;padding:5px 0;transition:color .15s}
 .f-col a:hover{color:var(--orange)}
 .f-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:12px}
-.f-bottom .addr{font-style:italic;color:rgba(247,242,234,.5)}
+.f-bottom .addr{font-style:italic;color:rgba(245,241,234,.5)}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -281,41 +219,6 @@ footer{background:var(--navy);color:rgba(247,242,234,.7);padding:64px 0 36px;bor
   .hero-card{padding:22px}
   .calc-output{padding:32px 22px}
 }
-
-/* === Efficio v3 polish overrides — applied 2026-05-12 === */
-:root {
-  --gold-50:#FAF4E8; --gold-100:#F2E3C2; --gold-200:#E6CC95; --gold-300:#D9B66F;
-  --gold-400:#D4A574; --gold-500:#B8894E; --gold-600:#94693A; --gold-700:#6E4D2A;
-  --navy-700:#0B1736; --navy-800:#070F26; --navy-900:#040818;
-  --cream-100:#F7F2EA; --cream-200:#EFE7D8; --cream-300:#E4D8C2; --cream-400:#C9B89A;
-  --ease-soft:cubic-bezier(0.22,0.61,0.36,1);
-}
-body { letter-spacing: -0.005em; }
-h1, h2, h3, .hero-h1 { font-family: 'Newsreader', 'Tiempos Headline', Georgia, serif; font-weight: 500 !important; letter-spacing: -0.035em !important; }
-h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: italic; font-weight: 400; }
-.hero-h1 em { text-decoration: underline; text-decoration-color: var(--gold-400); text-decoration-thickness: 2px; text-underline-offset: 6px; }
-.btn-primary { background: var(--navy-700) !important; color: var(--cream-100) !important; box-shadow: 0 4px 18px rgba(11,23,54,0.18) !important; border: 1.5px solid var(--navy-700) !important; }
-.btn-primary:hover { background: var(--navy-800) !important; }
-.eyebrow { background: rgba(212,165,116,0.10) !important; border-color: rgba(212,165,116,0.32) !important; color: var(--gold-600) !important; letter-spacing: 0.16em !important; }
-.eyebrow .dot { background: var(--gold-400) !important; box-shadow: 0 0 0 4px rgba(212,165,116,0.18) !important; }
-.hero { background: var(--navy-700) !important; }
-.hero .eyebrow { background: rgba(212,165,116,0.16) !important; color: var(--gold-300) !important; border-color: rgba(212,165,116,0.32) !important; }
-.hero .eyebrow .dot { background: var(--gold-400) !important; }
-.hero-h1 em { color: var(--gold-300) !important; text-decoration-color: var(--gold-400); }
-.nav { background: rgba(11,23,54,0.96) !important; }
-.brand-mark { background: var(--gold-400) !important; color: var(--navy-700) !important; }
-/* Pricing — apply conic gradient border to the highlighted (popular) card */
-.price-card.pop, .pricing-card.featured, .plan.popular {
-  position: relative; background: var(--navy-700) !important; color: var(--cream-100); border: none !important;
-}
-.price-card.pop::before, .pricing-card.featured::before, .plan.popular::before {
-  content:''; position: absolute; inset: -2px; border-radius: 18px;
-  background: conic-gradient(from 90deg at 50% 50%, var(--gold-400), var(--navy-600), var(--gold-500), var(--navy-700), var(--gold-400));
-  z-index: -1;
-}
-/* Soft footer separator + warm canvas band alternation */
-.section-alt, .band, .alt { background: var(--cream-200) !important; }
-
 </style>
 </head>
 <body>
@@ -327,7 +230,7 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
       <a href="#agents">Agents</a>
       <a href="#case">Case study</a>
       <a href="#pricing">Pricing</a>
-      <a href="/audit-quiz" class="nav-cta">Book a 15-min call</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="nav-cta" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
   </div>
 </nav>
@@ -335,29 +238,29 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
 <header class="hero">
   <div class="wrap hero-inner">
     <div>
-      <span class="eyebrow"><span class="dot"></span>An AI team for accounting firms · Not a tool</span>
-      <h1 class="hero-h1">Your AI team for accounting firms. <em>Your first AI hire</em> ships in week one.</h1>
-      <p class="hero-sub">Not software. A team. AI hires that embed into your firm, learn how your work actually runs, and stay with you season after season. Built for accounting and bookkeeping firms with 3–20 staff who'd rather deploy a team than buy another tool.</p>
+      <span class="eyebrow"><span class="dot"></span>AI for accounting · Built around the tax-season cliff</span>
+      <h1 class="hero-h1">Tax season eats every hour <em>you didn't price for.</em> Free 15-min AI audit for accounting firms.</h1>
+      <p class="hero-sub">Independent CPA + bookkeeping firms running 3–20 staff. Your busy season is your year. We rebuild the doc-collection + client-followup + close-prep workflows so the cliff doesn't break your team — and the off-season actually exists.</p>
       <div class="hero-ctas">
-        <a href="/audit-quiz" class="btn btn-primary">See how your AI team would work →</a>
-        <a href="#agents" class="btn btn-ghost">Or book a 15-min call</a>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn btn-primary" target="_blank" rel="noopener">Book the 15-min call →</a>
+        <a href="#agents" class="btn btn-ghost">See what we'd build first</a>
       </div>
       <div class="hero-trust">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Refund if no measurable lift in 30 days</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Head of your AI team is Brady</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Stays with you · cancel anytime</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> 30-day refund on Pilot</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Owner-led, not outsourced</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Month-to-month</span>
       </div>
     </div>
 
     <aside class="hero-card" aria-label="Sample output">
       <div class="hc-label">Sample · 6-staff CPA firm</div>
-      <div class="hc-title">Where your AI team would start</div>
+      <div class="hc-title">Where the hours go</div>
       <div class="hc-row"><span class="lbl">Hours / wk chasing client docs (Mar–Apr)</span><span class="val">22+</span></div>
       <div class="hc-row"><span class="lbl">Avg doc-request turnaround</span><span class="val">5 days</span></div>
       <div class="hc-row"><span class="lbl">Recurring bookkeeping reviews on autopilot</span><span class="val">Few</span></div>
       <div class="hc-row"><span class="lbl">Recoverable hours / mo</span><span class="val win">~58 hrs</span></div>
       <div class="hc-cta">
-        <strong>Your first AI hire:</strong>&nbsp;doc-collection chase agent + tax-season status board
+        <strong>Ship in week 1:</strong>&nbsp;doc-collection chase agent + tax-season status board
       </div>
     </aside>
   </div>
@@ -376,9 +279,9 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
 <section id="agents" aria-labelledby="agents-h">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">Your AI team · what your first AI hires would do</div>
+      <div class="kicker">5 AI agents we'd ship for accounting firms</div>
       <h2 id="agents-h">What an AI team looks like for a 6-staff CPA firm.</h2>
-      <p class="lede">Each AI hire owns a role your team used to handle by hand. They learn your scripts, your pricing, your edge cases — and they get sharper every week. You watch them work in a dashboard, not a chat window.</p>
+      <p class="lede">Each agent runs a workflow your senior used to handle between billable hours. They talk to your portal (Karbon, Canopy, ShareFile), your tax software, your billing system.</p>
     </div>
     <div class="agents-grid">
       <article class="agent">
@@ -405,40 +308,12 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
   </div>
 </section>
 
-<section id="whats-included" style="background:#fff" aria-labelledby="wi-h">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">What your AI team comes with</div>
-      <h2 id="wi-h">AI hires + your live ops command center. One bill. Live in 14 days.</h2>
-      <p class="lede">Your AI team doesn&#x27;t live in a chat window. They run in a stack you actually control: a workspace where they handle the workflows that eat your office today, and a command-center dashboard where you watch every hire work in real time. Brady is the head of your AI team, and he stays with you as they get sharper.</p>
-    </div>
-    <div class="agents-grid">
-      <article class="agent">
-        <h3>&#128260; Your AI workspace</h3>
-        <p>Production-grade, your own custom-branded ops center. Pipelines, automations, 2-way SMS &amp; email, calendars, payments. Replaces the patchwork of seats you pay for today.</p>
-      </article>
-      <article class="agent">
-        <h3>&#129302; AI hires tuned to your business</h3>
-        <p>1&ndash;5+ AI hires (count scales with tier) trained on your scripts, your pricing, your booking rules. Not generic ChatGPT. Your playbook in code, sharpening every week.</p>
-      </article>
-      <article class="agent">
-        <h3>&#128202; Your live ops command center</h3>
-        <p>One screen. Every AI hire, every pipeline, every dollar. White-labeled to you. Mobile-friendly. The dashboard you open at 7am instead of seven tabs.</p>
-      </article>
-      <article class="agent">
-        <h3>&#128221; Brady is head of your AI team</h3>
-        <p>I deploy the hires, train them on your business, and stay with you the whole way. One bill, one engineer, no dev shop, no Zapier patchwork to debug at 10pm Sunday.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section id="calc" style="background:var(--cream)" aria-labelledby="calc-h">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Savings calculator</div>
       <h2 id="calc-h">What 18 minutes per client touch is actually worth.</h2>
-      <p class="lede">Move the sliders. The math is built around recoverable hours your AI team takes over in week one.</p>
+      <p class="lede">Move the sliders. The math is built around recoverable senior + admin hours — the kind we automate in week one.</p>
     </div>
 
     <div class="calc-shell">
@@ -460,10 +335,10 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
       <div class="calc-output reveal">
         <div class="label">Est. annual recoverable</div>
         <div class="big" id="calcBig">$0</div>
-        <div class="sub">Based on recoverable hours your AI team takes over in week one — what your first AI hire owns from day one.</div>
+        <div class="sub">Based on 18 minutes saved per client touch via auto-doc-chase + status updates + bookkeeping rec-flag — what we ship in week one of every Pilot.</div>
         <div class="calc-stat"><span>Recoverable hours / yr</span><span id="calcHrs">0</span></div>
         <div class="calc-stat"><span>Client touchs / yr</span><span id="calcTix">0</span></div>
-        <div class="calc-stat"><span>AI Specialist cost / yr</span><span>$11,964</span></div>
+        <div class="calc-stat"><span>Pilot cost / yr</span><span>$11,964</span></div>
         <p class="footnote">Conservative — doesn't price the second-order wins (faster turnaround, retention, conversion lift).</p>
       </div>
     </div>
@@ -479,7 +354,7 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
     </div>
     <article class="case-card reveal">
       <div class="case-visual">
-        <div class="case-tag">AI team · Week 1</div>
+        <div class="case-tag">Pilot · Week 1</div>
         <blockquote class="case-headline">"Last March I was answering 60 'where's my return' emails a week. This March I answered four. The doc-chase bot collected 90% of what we needed without my staff lifting a finger. We didn't pull a single all-nighter."</blockquote>
         <div class="case-attribution"><strong>Beta partner — anonymized</strong>Managing partner · 6 staff · Personal + small-business returns</div>
       </div>
@@ -507,25 +382,25 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
     <div class="section-head">
       <div class="kicker">How it works</div>
       <h2 id="how-h">Three steps. No long discovery. No "transformation roadmap."</h2>
-      <p class="lede">If your AI team hasn&#x27;t earned its first month by day 30, you get it back. That&#x27;s the whole offer.</p>
+      <p class="lede">If we don't ship a measurable workflow in 30 days, the Pilot is refunded. That's the whole offer.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
         <div class="step-num">01</div>
         <h3>15-min audit call</h3>
-        <p>You describe how the work actually runs today. I tell you which role your first AI hire would own and what week-one looks like — no slides, no homework.</p>
+        <p>You describe how the work actually runs today. I tell you which workflow I'd automate first and what week-one looks like — no slides, no homework.</p>
         <span class="when">Day 0</span>
       </div>
       <div class="step reveal">
         <div class="step-num">02</div>
-        <h3>Your first AI hire goes live</h3>
-        <p>Within seven days your first AI teammate is in your stack and doing real work. Refunded if no measurable lift by day 30.</p>
+        <h3>One workflow shipped</h3>
+        <p>Within seven days of starting your Pilot, one specific automation is live in your stack. Refunded if no measurable savings by day 30.</p>
         <span class="when">Week 1</span>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
-        <h3>The team gets sharper every week</h3>
-        <p>Your AI hires learn your voice, your exceptions, your edge cases. They evolve with the business. Your AI team stays only as long as you want them — cancel any month.</p>
+        <h3>Weekly check-ins · Monthly review</h3>
+        <p>15-min sync each week to flag what's working. Monthly review with the dollar value of recovered hours. Cancel any month — month-to-month, no contract.</p>
         <span class="when">Ongoing</span>
       </div>
     </div>
@@ -539,10 +414,10 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
       <div class="reveal">
         <div class="kicker">Who builds it</div>
         <h2 id="trust-h" style="margin-bottom:18px">Brady Gay. Civil PE turned AI builder.</h2>
-        <p class="trust-bio">I&#x27;m a licensed engineer who got tired of watching real businesses run on spreadsheets and group texts while every tech-bro startup got a slick app. Efficio is the AI team I wish accounting firm owners had — and I&#x27;m the head of yours. I deploy them, train them, and stay with you the whole way.</p>
+        <p class="trust-bio">I'm a licensed engineer who got tired of watching CPA firms run client communication on email + spreadsheets while every tech-bro startup got real software. Efficio is the AI team I wish small accounting firms had. Owner-led builds. No subcontracted developers.</p>
         <div class="trust-grid">
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Refund if your AI team hasn&#x27;t earned its first month</span></div>
-          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Stays with you. Cancel any month.</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>30-day refund on every Pilot</span></div>
+          <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Month-to-month. Cancel any month.</span></div>
           <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>I write the code. Not a dev shop.</span></div>
           <div class="trust-pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Built for operators, not "users"</span></div>
         </div>
@@ -555,50 +430,50 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Pricing</div>
-      <h2 id="pricing-h">Start with the audit. Pick the size of your AI team once you&#x27;ve seen the work.</h2>
-      <p class="lede">Every tier is month-to-month. AI Specialist is refundable for 30 days if no measurable lift. Build fees (one-time) only if your stack needs custom integration — quoted after the audit.</p>
+      <h2 id="pricing-h">Start with the audit. Pick a tier when you've seen the work.</h2>
+      <p class="lede">Every tier is month-to-month. The Pilot is refundable for 30 days if no measurable savings. Build fees (one-time) only if your stack needs custom integration — quoted after the audit.</p>
     </div>
     <div class="price-row">
       <div class="price-card reveal">
         <div class="price-tier">AI Specialist</div>
         <div class="price-amt">$997<small> / mo</small></div>
-        <p class="price-blurb">Your first AI hire. One specialist, live in week one.</p>
+        <p class="price-blurb">Start small, prove the value in 30 days.</p>
         <ul>
-          <li>1 AI hire, tuned to your business</li>
-          <li>Your branded ops command center</li>
+          <li>2 vertical AI agents</li>
+          <li>Custom CRM dashboard (your branded portal)</li>
           <li>Up to 2,000 contacts</li>
           <li>Standard onboarding (3-day setup)</li>
-          <li>Refundable for 30 days if no measurable lift</li>
+          <li>Email + chat support</li>
         </ul>
-        <a class="price-cta" href="/audit-quiz">Hire your AI Specialist</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Pilot</a>
       </div>
       <div class="price-card feat reveal">
         <div class="price-tier">AI Team</div>
         <div class="price-amt">$2,500<small> / mo</small></div>
-        <p class="price-blurb">Build your AI team. Two to three AI hires plus your live ops command center.</p>
+        <p class="price-blurb">Scale your back-office without hiring.</p>
         <ul>
-          <li>2&ndash;3 AI hires working together</li>
-          <li>Full ops center + multi-pipeline + SMS/email</li>
+          <li>4 vertical AI agents</li>
+          <li>CRM + multi-pipeline + SMS/email automation</li>
           <li>Up to 10,000 contacts</li>
           <li>White-glove onboarding (7-day + 1-on-1 training)</li>
-          <li>Priority support · Brady on your team</li>
-          <li>Monthly review of what your AI team learned</li>
+          <li>Priority email + chat support</li>
+          <li>Monthly performance review call</li>
         </ul>
-        <a class="price-cta" href="/audit-quiz">Build your AI Team</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Growth</a>
       </div>
       <div class="price-card reveal">
         <div class="price-tier">AI Department</div>
         <div class="price-amt">$3,500<small> / mo</small></div>
-        <p class="price-blurb">Scale your AI department. For 25+ person operators or multi-location.</p>
+        <p class="price-blurb">Run your entire ops on AI agents.</p>
         <ul>
-          <li>Unlimited AI hires (we tune as you grow)</li>
-          <li>Full ops center + memberships + reporting + triggers</li>
+          <li>Unlimited vertical AI agents (we tune as you grow)</li>
+          <li>Full CRM + memberships + reporting + triggers</li>
           <li>Up to 50,000 contacts</li>
           <li>Dedicated onboarding manager</li>
           <li>Slack channel + same-day priority support</li>
-          <li>Monthly strategy + quarterly business review</li>
+          <li>Monthly strategy + quarterly biz review</li>
         </ul>
-        <a class="price-cta" href="/audit-quiz">Scale your AI Department</a>
+        <a class="price-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Start Operator</a>
       </div>
     </div>
     <div class="custom-builds-callout">
@@ -606,7 +481,7 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
         <div class="cb-title"><span class="cb-dot"></span>Need something custom built?</div>
         <p>We also ship <strong>Audit Sprints</strong> (5-day deep-dive, $2,500), <strong>Custom Builds</strong> (14-day, $7,500), and full <strong>System Builds</strong> (30-day, $15,000).</p>
       </div>
-      <a class="cb-cta" href="/audit-quiz">Talk to us &rarr;</a>
+      <a class="cb-cta" href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Talk to us &rarr;</a>
     </div>
   </div>
 </section>
@@ -616,10 +491,10 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
     <div class="book-head">
       <div class="kicker">Book the audit</div>
       <h2 id="book-h">15 minutes. No deck. No homework.</h2>
-      <p>Pick a slot. I&#x27;ll show up with the role your first AI hire would own — based on what you tell me about how the work runs today.</p>
+      <p>Pick a slot. I'll show up with one workflow I'd ship in your week-one Pilot, based on what you tell me about how the work runs today.</p>
     </div>
     <div class="book-cta-wrap">
-      <a href="/audit-quiz" class="btn btn-primary" style="font-size:16px;padding:18px 36px">Book your 15-min Efficio call →</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:16px;padding:18px 36px">Book your 15-min Efficio call →</a>
     </div>
   </div>
 </section>
@@ -632,8 +507,8 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>Why $997/mo for the first AI hire?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">Floor I can sustainably deploy and train an AI hire at without cutting corners. One specialist, in your stack, doing real work in week one. Cheaper than a part-time hire and they get sharper every week. If they haven&#x27;t earned their first month by day 30, you get it back.</div>
+        <button class="faq-q" aria-expanded="false"><span>Why $997/mo for the Pilot?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
+        <div class="faq-a">Floor I can sustainably build at without cutting corners. One workflow, shipped right, week one.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>Does this work with my tax software (Lacerte, ProConnect, Drake, UltraTax)?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
@@ -648,8 +523,8 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
         <div class="faq-a">Solo CPAs under 30 active clients. Pure-tax-prep operators with no advisory work. Anyone whose &#x27;portal&#x27; is Dropbox — fix that first.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><span>How fast does the first AI hire go live?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
-        <div class="faq-a">Within seven calendar days of the kickoff call, your first AI hire is in your stack and doing real work. If we miss day 7, the month is on me.</div>
+        <button class="faq-q" aria-expanded="false"><span>How fast does the first workflow go live?</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"/></svg></button>
+        <div class="faq-a">Within seven calendar days. Usually the doc-collection chaser or status updater. Even better if it&#x27;s pre-busy-season.</div>
       </div>
     </div>
   </div>
@@ -660,7 +535,7 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
     <div class="f-grid">
       <div>
         <div class="f-brand"><span class="brand-mark">E</span>Efficio</div>
-        <p class="f-blurb">Your AI team for the next era of accounting firm operations. Built for operators who&#x27;d rather deploy a team than buy software.</p>
+        <p class="f-blurb">We're your AI team. Custom AI builds for owner-operators who'd rather ship than strategize.</p>
       </div>
       <div class="f-col">
         <h4>Product</h4>
@@ -672,13 +547,13 @@ h1 em, h2 em, .hero-h1 em { color: var(--navy-700) !important; font-style: itali
       <div class="f-col">
         <h4>Company</h4>
         <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-        <a href="/audit-quiz">Book a call</a>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a call</a>
       </div>
       <div class="f-col">
         <h4>Legal</h4>
         <a href="/terms">Terms of service</a>
         <a href="/privacy">Privacy policy</a>
-        <a href="/terms#refunds">Refund policy</a>
+        <a href="/refund">Refund policy</a>
         <a href="/unsubscribe">Unsubscribe</a>
       </div>
     </div>

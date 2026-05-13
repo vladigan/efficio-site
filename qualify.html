@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<title>See if you qualify to work with us | Efficio</title>
+<meta name="description" content="5 questions. We screen out fit before either of us spends 15 minutes on a call. If you qualify, the calendar opens." />
+<link rel="canonical" href="https://efficio.tech/qualify.html"/>
+<meta property="og:title" content="Qualify to work with Efficio"/>
+<meta property="og:description" content="5-question fit screen. We don't take everyone."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
+<style>
+.q-shell{max-width:780px;margin:0 auto;padding:120px 28px 60px}
+.q-head{text-align:center;margin-bottom:36px}
+.q-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:18px}
+.q-pill .pill-dot{width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
+.q-h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.08;
+  letter-spacing:-.035em;color:var(--white);margin-bottom:14px}
+.q-h1 em{color:var(--purple3);font-style:italic}
+.q-lede{font-size:1rem;color:var(--text);line-height:1.65;max-width:560px;margin:0 auto}
+
+.q-progress{display:flex;gap:6px;margin:32px 0 24px;max-width:580px;margin-left:auto;margin-right:auto}
+.q-progress .step{flex:1;height:4px;border-radius:2px;background:var(--bd);transition:background .3s var(--ease)}
+.q-progress .step.done{background:var(--purple)}
+.q-progress .step.active{background:var(--purple2);box-shadow:0 0 12px var(--glow2)}
+
+.q-card{background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r2);padding:40px 36px;
+  box-shadow:0 18px 50px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(50% 60% at 80% 20%,rgba(124,58,237,.08),transparent 70%);
+  pointer-events:none}
+.q-card > *{position:relative}
+.q-num{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
+.q-text{font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:8px;letter-spacing:-.02em}
+.q-help{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:24px}
+
+.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.opt{display:flex;align-items:center;gap:14px;padding:16px 18px;
+  border:1.5px solid var(--bd);background:rgba(15,30,51,.5);border-radius:10px;
+  cursor:pointer;font-size:14.5px;font-weight:500;color:var(--w2);
+  transition:border-color .15s,background .15s;text-align:left;width:100%}
+.opt:hover{border-color:var(--bd2);background:rgba(124,58,237,.08)}
+.opt.sel{border-color:var(--purple2);background:rgba(124,58,237,.14);color:var(--white);
+  box-shadow:inset 0 0 0 1px var(--purple2),0 0 24px rgba(124,58,237,.18)}
+.opt .pin{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd);flex-shrink:0;position:relative;transition:border-color .15s}
+.opt.sel .pin{border-color:var(--purple2)}
+.opt.sel .pin::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--glow2)}
+
+.q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}
+.q-back{padding:11px 18px;font-size:14px;color:var(--muted);font-weight:600;background:transparent;border-radius:8px;transition:color .15s}
+.q-back:hover{color:var(--w2)}
+.q-back:disabled{opacity:.3;cursor:not-allowed}
+.q-next{padding:13px 28px;font-size:14px;font-weight:700;border-radius:10px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  box-shadow:0 0 24px var(--glow2);transition:transform .15s,box-shadow .15s}
+.q-next:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 40px var(--glow),0 8px 24px rgba(124,58,237,.32)}
+.q-next:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+
+.q-result{display:none;text-align:center}
+.q-result.show{display:block}
+.q-result-icon{width:88px;height:88px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;margin:0 auto 24px;
+  box-shadow:0 0 48px var(--glow),0 12px 36px rgba(124,58,237,.32)}
+.q-result-icon.no{background:linear-gradient(135deg,var(--surf2),var(--surf));border:2px solid var(--bd2)}
+.q-result h2{font-size:1.7rem;color:var(--white);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+.q-result h2 em{color:var(--purple3);font-style:italic}
+.q-result p{font-size:1rem;color:var(--text);line-height:1.65;max-width:520px;margin:0 auto 24px}
+.q-result .btn-big{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;
+  border-radius:var(--r2);font-size:16px;font-weight:800;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
+  border:1px solid rgba(168,85,247,.4);
+  box-shadow:0 0 50px var(--glow),0 12px 36px rgba(124,58,237,.32);transition:all .25s}
+.q-result .btn-big:hover{transform:translateY(-3px);box-shadow:0 0 70px var(--glow),0 18px 44px rgba(124,58,237,.42)}
+.q-result .btn-out{display:inline-block;margin-top:14px;font-size:13px;color:var(--purple3);text-decoration:underline;text-underline-offset:3px}
+.q-result-meta{margin-top:30px;padding:18px 22px;background:rgba(15,30,51,.5);
+  border:1px solid var(--bd);border-radius:var(--r);font-size:13px;color:var(--text);line-height:1.55}
+.q-result-meta strong{color:var(--purple3);font-weight:700}
+
+.email-cap{margin-top:18px;display:flex;gap:8px}
+.email-cap input{flex:1;padding:13px 16px;border-radius:10px;
+  background:rgba(15,30,51,.6);border:1.5px solid var(--bd);color:var(--white);font-size:14px;font-family:inherit}
+.email-cap input:focus{outline:none;border-color:var(--purple2)}
+.email-cap button{padding:13px 22px;border-radius:10px;background:var(--purple);color:#fff;font-weight:700;font-size:14px;white-space:nowrap;transition:background .15s}
+.email-cap button:hover{background:var(--purple2)}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/agents.html">Agents</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/why-us.html">Why us</a>
+    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</div></nav>
+
+<div class="q-shell">
+  <div class="q-head rv">
+    <span class="q-pill"><span class="pill-dot"></span>5 questions · 60 seconds</span>
+    <h1 class="q-h1">See if you <em>qualify</em> to work with us.</h1>
+    <p class="q-lede">We don't take everyone. The fit window is narrow on purpose — you ship faster when we say no to the wrong-fit operators. Five questions, no email required, instant result.</p>
+  </div>
+
+  <div class="q-progress rv d1" id="prog">
+    <div class="step active"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+  </div>
+
+  <div class="q-card rv d2" id="qcard">
+    <div id="qbody"></div>
+    <div class="q-nav">
+      <button class="q-back" id="back" disabled>← Back</button>
+      <button class="q-next" id="next" disabled>Next →</button>
+    </div>
+  </div>
+
+  <div class="q-card q-result rv" id="result">
+    <div id="resultBody"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
+    </div>
+    <div class="foot-col"><h5>Product</h5>
+      <a href="/services.html">Services</a><a href="/agents.html">Agents</a>
+      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
+    </div>
+    <div class="foot-col"><h5>Company</h5>
+      <a href="/why-us.html">Why us</a><a href="/audit-quiz.html">Take the audit</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+    </div>
+    <div class="foot-col"><h5>Legal</h5>
+      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // ───── qualification quiz ─────
+  const questions = [
+    {
+      id: 'industry',
+      label: 'Q1 of 5',
+      title: "What kind of business do you run?",
+      help: "We work best with SMB service businesses where one workflow leak costs hours per week.",
+      opts: [
+        {text: "HVAC, plumbing, electrical, or other contracting", val: 'service', pass: true},
+        {text: "Dental, medical, or healthcare practice", val: 'health', pass: true},
+        {text: "Law firm or solo legal practice", val: 'legal', pass: true},
+        {text: "Real estate brokerage or team", val: 'realestate', pass: true},
+        {text: "Accounting / bookkeeping / financial services", val: 'finance', pass: true},
+        {text: "Other service business (consulting, agency, ops)", val: 'other', pass: true},
+        {text: "Pure e-commerce / DTC product", val: 'ecom', pass: false},
+        {text: "Pre-revenue startup / no customers yet", val: 'preseed', pass: false},
+      ]
+    },
+    {
+      id: 'team',
+      label: 'Q2 of 5',
+      title: "How big is your team?",
+      help: "The math doesn't work for solo operators yet — too thin to dollarize the lift. At 5+ humans, recovered hours pay back the subscription in the first month.",
+      opts: [
+        {text: "Just me — solo operator", val: 1, pass: false},
+        {text: "2–4 people", val: 2, pass: false},
+        {text: "5–10 people", val: 3, pass: true},
+        {text: "11–25 people", val: 4, pass: true},
+        {text: "26–50 people", val: 5, pass: true},
+        {text: "50+ people", val: 6, pass: true},
+      ]
+    },
+    {
+      id: 'budget',
+      label: 'Q3 of 5',
+      title: "Where does $997/mo for an AI specialist sit on your budget?",
+      help: "Pricing transparency check. If $997/mo is a stretch we'll send resources instead — better fit when ops actually pay back.",
+      opts: [
+        {text: "That's table-stakes — I spend more on coffee for the office", val: 4, pass: true},
+        {text: "Reasonable — I'm budgeting AI as an ops line item", val: 3, pass: true},
+        {text: "I'd need to see ROI on the call before committing", val: 2, pass: true},
+        {text: "Honestly tight right now — would prefer free resources", val: 1, pass: false},
+      ]
+    },
+    {
+      id: 'timeline',
+      label: 'Q4 of 5',
+      title: "When are you actually ready to deploy?",
+      help: "We ship the first workflow inside 7 days. If you can't make space for a 15-min strategy call and a kickoff this month, neither of us wins.",
+      opts: [
+        {text: "Yesterday — I'm done waiting", val: 4, pass: true},
+        {text: "This week — I want it live by month-end", val: 4, pass: true},
+        {text: "This month — I can carve out the time", val: 3, pass: true},
+        {text: "Next quarter — researching for later", val: 2, pass: false},
+        {text: "Just exploring, no timeline yet", val: 1, pass: false},
+      ]
+    },
+    {
+      id: 'role',
+      label: 'Q5 of 5',
+      title: "What's your role?",
+      help: "If you're not the person who signs the checks, we'll happily send the deck to your CEO instead. Saves a round trip.",
+      opts: [
+        {text: "Owner / founder / partner", val: 4, pass: true},
+        {text: "CEO / president / managing partner", val: 4, pass: true},
+        {text: "COO / VP / director of ops", val: 3, pass: true},
+        {text: "Manager / individual contributor (researching)", val: 2, pass: false},
+        {text: "Consultant / vendor (asking for a client)", val: 1, pass: false},
+      ]
+    }
+  ];
+
+  let qIdx = 0;
+  const answers = {};
+
+  function render(){
+    const q = questions[qIdx];
+    document.getElementById('qbody').innerHTML = `
+      <div class="q-num">${q.label}</div>
+      <div class="q-text">${q.title}</div>
+      <p class="q-help">${q.help}</p>
+      <div class="opts" id="opts">
+        ${q.opts.map((o,i)=>`
+          <button type="button" class="opt ${answers[q.id]===i?'sel':''}" data-i="${i}">
+            <span class="pin"></span><span>${o.text}</span>
+          </button>
+        `).join('')}
+      </div>`;
+    document.querySelectorAll('#opts .opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const i = parseInt(b.dataset.i,10);
+        answers[q.id] = i;
+        document.querySelectorAll('#opts .opt').forEach(x=>x.classList.remove('sel'));
+        b.classList.add('sel');
+        document.getElementById('next').disabled = false;
+      });
+    });
+    // Progress
+    document.querySelectorAll('#prog .step').forEach((s,i)=>{
+      s.classList.remove('done','active');
+      if (i < qIdx) s.classList.add('done');
+      else if (i === qIdx) s.classList.add('active');
+    });
+    // Nav
+    document.getElementById('back').disabled = qIdx === 0;
+    document.getElementById('next').disabled = answers[q.id] === undefined;
+    document.getElementById('next').textContent = qIdx === questions.length - 1 ? 'See result →' : 'Next →';
+  }
+
+  function score(){
+    // Pass = all questions answered with a "pass" option
+    let passes = 0;
+    questions.forEach(q => {
+      const i = answers[q.id];
+      if (i !== undefined && q.opts[i].pass) passes++;
+    });
+    return passes;
+  }
+
+  function reasons(){
+    const fail = [];
+    questions.forEach(q => {
+      const i = answers[q.id];
+      if (i !== undefined && !q.opts[i].pass) fail.push(q.id);
+    });
+    return fail;
+  }
+
+  function showResult(){
+    document.getElementById('qcard').style.display = 'none';
+    document.getElementById('prog').style.display = 'none';
+    const passes = score();
+    const fail = reasons();
+    const r = document.getElementById('result');
+    const body = document.getElementById('resultBody');
+    r.classList.add('show');
+    if (passes === 5) {
+      body.innerHTML = `
+        <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h2>You're a <em>fit</em>. Calendar's open.</h2>
+        <p>You hit every screen — right industry, right team size, right budget posture, right timeline, right role. Book the 15-min strategy call. We'll agree on the metric, scope the week-one workflow, and you decide if we ship.</p>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-big" target="_blank" rel="noopener">Book the 15-min call →</a>
+        <div class="q-result-meta">No pitch deck. No homework. Just a working conversation with the founder who'd build for you. <strong>15 minutes.</strong></div>`;
+    } else if (passes === 4) {
+      body.innerHTML = `
+        <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h2>You're <em>mostly</em> a fit.</h2>
+        <p>You hit 4 of 5 screens. The one you didn't isn't a hard no — let's talk about it on the call. Worst case, we save each other 20 minutes by clarifying upfront.</p>
+        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-big" target="_blank" rel="noopener">Book the call anyway →</a>
+        <div class="q-result-meta">If the gap matters, we'll tell you on the call. <strong>15 minutes, no awkward dance.</strong></div>`;
+    } else {
+      body.innerHTML = `
+        <div class="q-result-icon no"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="#94a3b8"/></svg></div>
+        <h2>Not the right fit <em>right now</em>.</h2>
+        <p>Honest read — based on your answers, an AI team probably doesn't pay back yet. Either the team's too small, the budget's tight, the timeline's distant, or you're not the signing authority. None of that's a knock — just bad ROI for both sides today.</p>
+        <p style="margin-top:18px"><strong style="color:var(--white)">Drop your email and we'll send free resources:</strong></p>
+        <form class="email-cap" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent ✓';this.querySelector('input').value='Thanks — check your inbox.';this.querySelector('input').disabled=true;">
+          <input type="email" placeholder="you@company.com" required>
+          <button type="submit">Send resources</button>
+        </form>
+        <div class="q-result-meta" style="margin-top:24px">When the timing shifts, retake the quiz — we'll know. <strong>No spam. Real resources.</strong></div>`;
+    }
+  }
+
+  document.getElementById('next').addEventListener('click',()=>{
+    if (qIdx === questions.length - 1){
+      showResult();
+    } else {
+      qIdx++;
+      render();
+    }
+  });
+  document.getElementById('back').addEventListener('click',()=>{
+    if (qIdx > 0){ qIdx--; render(); }
+  });
+
+  render();
+</script>
+</body>
+</html>

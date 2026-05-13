@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /onboarding.html
+Disallow: /onboarding-start.html
+Disallow: /kickoff-form.html
+Disallow: /thank-you.html
+Disallow: /success.html
+Disallow: /cancel.html
+Disallow: /demo-builder-test.html
+Disallow: /v2.html
+Disallow: /v3-legacy.html
+Disallow: /index-editorial-backup.html
+Disallow: /one-pager.html
+Disallow: /screenshots.html
+Disallow: /assets/
+
+Sitemap: https://efficio.tech/sitemap.xml

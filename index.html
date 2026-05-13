@@ -163,6 +163,9 @@ body.cursor-text .cursor-dot{width:2px;height:22px;border-radius:1px}
 .btn-ghost:hover{background:rgba(11,23,54,.04)}
 .btn-premium{background:linear-gradient(120deg,var(--gold-400),var(--gold-500));color:var(--navy-800);box-shadow:0 14px 28px -14px rgba(184,137,78,.55),inset 0 0 0 1px rgba(255,255,255,.18)}
 .btn-premium:hover{background:linear-gradient(120deg,var(--gold-300),var(--gold-400));box-shadow:0 22px 40px -18px rgba(184,137,78,.65),inset 0 0 0 1px rgba(255,255,255,.28)}
+.btn-gold-outline{background:rgba(212,165,116,.08);color:var(--navy-700);border:1px solid var(--gold-400);box-shadow:0 12px 22px -16px rgba(184,137,78,.45)}
+.btn-gold-outline:hover{background:rgba(212,165,116,.18);border-color:var(--gold-500);box-shadow:0 18px 32px -18px rgba(184,137,78,.55)}
+.btn-gold-outline .btn-icon{color:var(--gold-600)}
 [data-magnetic]{transition:transform .4s var(--ease-soft)}
 .ef-ham{display:none;padding:8px;flex-direction:column;gap:4px;border-radius:8px}
 .ef-ham span{display:block;width:18px;height:1.5px;background:var(--navy-700);transition:transform .3s}
@@ -649,6 +652,7 @@ body.cursor-text .cursor-dot{width:2px;height:22px;border-radius:1px}
     <ul class="ef-nav-links">
       <li><a href="#process" data-interactive data-nav>How it works</a></li>
       <li><a href="#team" data-interactive data-nav>Your AI team</a></li>
+      <li><a href="/demo.html" data-interactive data-nav>Watch the demo</a></li>
       <li><a href="#visuals" data-interactive data-nav>What you get</a></li>
       <li><a href="#pricing" data-interactive data-nav>Pricing</a></li>
       <li><a href="#cases" data-interactive data-nav>Cases</a></li>
@@ -705,9 +709,13 @@ body.cursor-text .cursor-dot{width:2px;height:22px;border-radius:1px}
         Book a strategy call
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="#workflows" class="btn btn-secondary btn-lg" data-interactive data-magnetic data-nav>
+      <a href="/vsl" class="btn btn-gold-outline btn-lg" data-interactive data-magnetic data-vsl-launch>
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/></svg>
-        Watch the team work
+        Watch the 90-sec walkthrough
+      </a>
+      <a href="#workflows" class="btn btn-secondary btn-lg" data-interactive data-magnetic data-nav>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        See the team work
       </a>
     </div>
     <div class="hero-trust">
@@ -2866,12 +2874,4 @@ setTimeout(()=>{
     initScrollTrigger();
     drawTeamLines();
     initStatCountUp();
-    initVoicesParticles();
-    initMagneticTiltExtras();
-  }
-}, 2200);
-
-})();
-</script>
-</body>
-</html>
+    initVoicesParticles

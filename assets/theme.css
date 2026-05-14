@@ -175,3 +175,24 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;
 .txt-white{color:var(--white)}
 .txt-muted{color:var(--muted)}
 .txt-purple{color:var(--purple3)}
+
+/* STICKY MOBILE CTA — injected on every page by transitions.js
+   Mobile-only (display:none above 720px). Always visible at bottom of viewport
+   so a thumb is one tap away from booking. */
+#efficio-sticky-cta{
+  position:fixed;left:14px;right:14px;bottom:14px;z-index:90;
+  display:none;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 18px;border-radius:var(--r2);
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;font-weight:700;font-size:14px;letter-spacing:-.005em;
+  box-shadow:0 0 32px var(--glow),0 16px 36px rgba(11,23,54,.55);
+  border:1px solid rgba(168,85,247,.4);
+  transform:translateY(120%);opacity:0;
+  transition:transform .45s var(--ease),opacity .45s var(--ease)}
+#efficio-sticky-cta.in{transform:translateY(0);opacity:1}
+#efficio-sticky-cta .label{display:flex;align-items:center;gap:8px}
+#efficio-sticky-cta .label-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 0 4px rgba(74,222,128,.20);animation:pdot 1.6s ease-in-out infinite}
+#efficio-sticky-cta .arrow{font-size:16px;transition:transform .25s var(--ease)}
+#efficio-sticky-cta:active .arrow{transform:translateX(4px)}
+@media (max-width:720px){#efficio-sticky-cta{display:flex}}

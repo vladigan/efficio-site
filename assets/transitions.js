@@ -33,6 +33,33 @@
     } catch (e) {}
   }, 800);
 
+  // STICKY MOBILE CTA — auto-inject on every page that loads transitions.js.
+  // Mobile-only via CSS (display:none above 720px). One tap away from booking.
+  try {
+    if (!document.getElementById('efficio-sticky-cta')) {
+      var stickyHref = (window.location.pathname.indexOf('/qualify') !== -1 ||
+                        window.location.pathname.indexOf('/audit-quiz') !== -1 ||
+                        window.location.pathname.indexOf('/vsl') !== -1 ||
+                        window.location.pathname.indexOf('/thank-you') !== -1)
+        ? 'https://calendly.com/brady-bngcent/efficio-strategy-call'
+        : '/qualify.html';
+      var stickyLabel = stickyHref.indexOf('calendly') !== -1
+        ? 'Book a 15-min call'
+        : 'See if you qualify';
+      var sticky = document.createElement('a');
+      sticky.id = 'efficio-sticky-cta';
+      sticky.href = stickyHref;
+      if (stickyHref.indexOf('calendly') !== -1) {
+        sticky.target = '_blank';
+        sticky.rel = 'noopener';
+      }
+      sticky.innerHTML = '<span class="label"><span class="label-dot"></span>' + stickyLabel + '</span><span class="arrow">→</span>';
+      body.appendChild(sticky);
+      // Slide in after 600ms so it doesn't compete with hero
+      window.setTimeout(function(){ sticky.classList.add('in'); }, 600);
+    }
+  } catch (e) {}
+
   // back/forward cache safety
   window.addEventListener('pageshow', function (e) {
     if (e.persisted) {

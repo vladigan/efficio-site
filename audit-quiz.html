@@ -435,6 +435,17 @@ h1 em, h2 em, .hero-h1 em { font-style: italic; font-weight: 400; color: var(--g
 </head>
 <body>
 
+<!-- Static Netlify form declaration for build-time detection -->
+<form name="audit-quiz" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field" />
+  <input type="text" name="score" />
+  <input type="text" name="qualified" />
+  <input type="text" name="vertical" />
+  <input type="text" name="answers_json" />
+  <input type="email" name="email" />
+  <input type="text" name="ts" />
+</form>
+
 <!-- NAV -->
 <nav class="nav" aria-label="Main">
   <div class="nav-inner">
@@ -1074,8 +1085,18 @@ h1 em, h2 em, .hero-h1 em { font-style: italic; font-weight: 400; color: var(--g
       revealUnqualified(r);
     }
 
-    // Fire-and-forget capture (qualified or not) — backend stores qualified=true|false
-    sendCapture(r, /*email*/ null);
+    // Fire-and-forget capture (qualified or not) — POST to Netlify Forms.
+    try {
+      var data = new URLSearchParams();
+      data.append('form-name', 'audit-quiz');
+      data.append('score', String(r.score || 0));
+      data.append('qualified', r.qualified ? 'true' : 'false');
+      data.append('vertical', state[1] || '');
+      data.append('answers_json', JSON.stringify(state || {}));
+      data.append('email', '');
+      data.append('ts', new Date().toISOString());
+      fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: data.toString()}).catch(function(){});
+    } catch(e){}
 
     // Fire conversion across all ad pixels (GA4, Meta, LinkedIn, TikTok, Snap)
     try {

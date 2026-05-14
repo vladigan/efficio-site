@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1736" />
+<title>Kickoff intake · Efficio</title>
+<meta name="description" content="Ten questions so your AI team can start work before we even meet." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://efficio.tech/kickoff-form.html" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');gtag('event','kickoff_form_view');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300..800&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect width='80' height='80' rx='18' fill='%230B1736'/><text x='40' y='56' font-family='Georgia,serif' font-style='italic' font-weight='500' font-size='44' text-anchor='middle' fill='%23F7F2EA'>e</text></svg>">
+
+<style>
+:root{
+  --navy-100:#D3DAEA;--navy-200:#A8B5D2;--navy-300:#7A8AB6;--navy-400:#4E5F92;--navy-500:#2E416F;
+  --navy-600:#1A2A52;--navy-700:#0B1736;--navy-800:#070F26;
+  --cream-50:#FBF8F2;--cream-100:#F7F2EA;--cream-200:#EFE7D8;--cream-300:#E4D8C2;
+  --cream-400:#C9B89A;--cream-500:#9E8B6C;--cream-600:#75664B;--cream-700:#544830;
+  --gold-300:#D9B66F;--gold-400:#D4A574;--gold-500:#B8894E;--gold-600:#94693A;--gold-700:#6E4D2A;
+  --success:#4F7C57;--danger:#B14A3F;
+  --serif:'Newsreader','Tiempos Headline','Times New Roman',Georgia,serif;
+  --sans:'Inter','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --ease-soft:cubic-bezier(.22,.61,.36,1);
+  --ease-firm:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-weight:400;color:var(--navy-700);background:var(--cream-100);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:rgba(212,165,116,.32);color:var(--navy-800)}
+
+.brandbar{padding:28px 36px;display:flex;align-items:center;gap:14px;max-width:1240px;margin:0 auto}
+.wordmark{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-0.04em;color:var(--navy-700)}
+.dots{display:inline-flex;gap:6px;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold-400)}
+.dot:nth-child(2){background:var(--gold-500);opacity:.85}
+.dot:nth-child(3){background:var(--navy-700);opacity:.65}
+.brand-rule{flex:1;height:1px;background:rgba(11,23,54,.08);margin:0 16px}
+.brand-meta{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-600)}
+
+.shell{max-width:760px;margin:0 auto;padding:40px 36px 100px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-600);margin-bottom:18px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(212,165,116,.15)}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-0.04em;color:var(--navy-700);margin-bottom:16px;font-variation-settings:"opsz" 60,"wght" 500}
+h1 em{font-style:italic;position:relative;display:inline-block}
+h1 em::after{content:"";position:absolute;left:.02em;right:.02em;bottom:.04em;height:.10em;background:var(--gold-400);opacity:.55;z-index:-1;border-radius:2px}
+.lede{font-size:17px;line-height:1.65;color:var(--navy-500);max-width:55ch;margin-bottom:36px}
+.progress{height:3px;background:var(--cream-300);border-radius:3px;overflow:hidden;margin-bottom:40px}
+.progress .bar{height:100%;background:var(--gold-400);width:0%;transition:width .4s var(--ease-soft)}
+
+form{display:flex;flex-direction:column;gap:28px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:13.5px;font-weight:600;color:var(--navy-700);letter-spacing:-0.005em;display:flex;align-items:baseline;gap:8px}
+.field label .num{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold-600);font-size:13px;letter-spacing:-0.01em}
+.field .hint{font-size:12.5px;color:var(--cream-700);line-height:1.5}
+.field .req{color:var(--danger);font-weight:700;font-size:12px}
+.input,.select,.textarea{
+  width:100%;padding:14px 16px;border:1px solid var(--cream-300);border-radius:10px;background:var(--cream-50);
+  font-family:var(--sans);font-size:15px;color:var(--navy-700);transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.textarea{min-height:110px;resize:vertical;line-height:1.55}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--gold-400);background:#fff;box-shadow:0 0 0 4px rgba(212,165,116,.16)}
+.select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A8AB6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 14px;border-radius:999px;border:1px solid var(--cream-300);background:var(--cream-50);font-size:13px;font-weight:500;color:var(--navy-600);cursor:pointer;user-select:none;transition:all .2s ease}
+.chip:hover{border-color:var(--gold-400);color:var(--navy-700)}
+.chip.on{background:var(--navy-700);border-color:var(--navy-700);color:var(--cream-100)}
+.chip.on:hover{background:var(--navy-800)}
+.radios{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.radios label{cursor:pointer;padding:12px 14px;border:1px solid var(--cream-300);border-radius:10px;background:var(--cream-50);font-size:13.5px;font-weight:500;color:var(--navy-600);text-align:center;transition:all .2s ease;display:block}
+.radios label:hover{border-color:var(--gold-400);color:var(--navy-700)}
+.radios input{position:absolute;opacity:0;pointer-events:none}
+.radios input:checked+span,.radios label.on{background:var(--navy-700);border-color:var(--navy-700);color:var(--cream-100)}
+
+.submit-row{margin-top:20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 28px;border-radius:999px;background:linear-gradient(120deg,var(--gold-400),var(--gold-500));color:var(--navy-800);font-size:15px;font-weight:700;letter-spacing:-0.005em;cursor:pointer;transition:transform .25s var(--ease-soft),box-shadow .25s var(--ease-soft);box-shadow:0 14px 28px -14px rgba(184,137,78,.55),inset 0 0 0 1px rgba(255,255,255,.18)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 22px 40px -18px rgba(184,137,78,.65),inset 0 0 0 1px rgba(255,255,255,.28)}
+.btn-primary:disabled{opacity:.6;cursor:wait;transform:none}
+.privacy{font-size:12px;color:var(--cream-700);max-width:36ch}
+
+.status{padding:14px 16px;border-radius:10px;font-size:14px;line-height:1.5}
+.status.ok{background:rgba(79,124,87,.1);color:var(--success);border:1px solid rgba(79,124,87,.3)}
+.status.err{background:rgba(177,74,63,.08);color:var(--danger);border:1px solid rgba(177,74,63,.3)}
+
+/* Success state */
+.success-card{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:18px;padding:48px 36px;text-align:center;display:none}
+.success-card.on{display:block}
+.success-card h2{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:-0.03em;color:var(--navy-700);margin-bottom:14px}
+.success-card p{font-size:15.5px;line-height:1.65;color:var(--navy-500);max-width:46ch;margin:0 auto 24px}
+.success-card a{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;background:var(--navy-700);color:var(--cream-100);font-size:14.5px;font-weight:600}
+
+.foot{padding:32px 36px 50px;max-width:1240px;margin:0 auto;text-align:center;font-size:12px;color:var(--cream-600);letter-spacing:.02em;border-top:1px solid rgba(11,23,54,.06)}
+.foot a{color:var(--gold-700);text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:640px){
+  .brandbar{padding:22px 22px}
+  .shell{padding:32px 22px 80px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="brandbar">
+  <span class="wordmark">efficio</span>
+  <span class="dots" aria-hidden="true">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </span>
+  <span class="brand-rule"></span>
+  <span class="brand-meta">Kickoff intake</span>
+</header>
+
+<main class="shell">
+  <div class="eyebrow">Step 3 of 3 · ~7 minutes</div>
+  <h1>Tell us how <em>you</em> work.</h1>
+  <p class="lede">Ten questions. Your answers go straight to Brady so your AI team can start the real work before we even meet for kickoff.</p>
+
+  <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+
+  <form id="kickoffForm" novalidate>
+
+    <div class="field">
+      <label><span class="num">01.</span> Business name <span class="req">*</span></label>
+      <input class="input" type="text" name="business_name" required autocomplete="organization" placeholder="e.g. Bright Now Dental Tampa">
+    </div>
+
+    <div class="field">
+      <label><span class="num">02.</span> Your industry / vertical <span class="req">*</span></label>
+      <select class="select" name="vertical" required>
+        <option value="">Select one…</option>
+        <option>Accounting</option>
+        <option>Auto / Automotive</option>
+        <option>Cleaning</option>
+        <option>Construction</option>
+        <option>Dental</option>
+        <option>Electrical</option>
+        <option>HVAC</option>
+        <option>Insurance</option>
+        <option>Landscaping</option>
+        <option>Legal</option>
+        <option>Medical</option>
+        <option>Pest control</option>
+        <option>Plumbing</option>
+        <option>Real estate</option>
+        <option>Roofing</option>
+        <option>Other / generic</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label><span class="num">03.</span> Years in business <span class="req">*</span></label>
+      <div class="radios" data-name="years_in_business">
+        <label><input type="radio" name="years_in_business" value="<1" required><span>Less than 1</span></label>
+        <label><input type="radio" name="years_in_business" value="1-3"><span>1–3</span></label>
+        <label><input type="radio" name="years_in_business" value="4-7"><span>4–7</span></label>
+        <label><input type="radio" name="years_in_business" value="8-15"><span>8–15</span></label>
+        <label><input type="radio" name="years_in_business" value="16+"><span>16+</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label><span class="num">04.</span> Tools you use today (select all that apply) <span class="req">*</span></label>
+      <p class="hint">We use this to wire the AI team into where the work already happens. No tool? Pick the closest.</p>
+      <div class="chips" id="toolsChips" data-name="current_tools" aria-label="Current tools">
+        <button type="button" class="chip" data-val="GoHighLevel">GoHighLevel</button>
+        <button type="button" class="chip" data-val="HubSpot">HubSpot</button>
+        <button type="button" class="chip" data-val="Salesforce">Salesforce</button>
+        <button type="button" class="chip" data-val="Zoho">Zoho</button>
+        <button type="button" class="chip" data-val="Pipedrive">Pipedrive</button>
+        <button type="button" class="chip" data-val="Google Sheets">Google Sheets</button>
+        <button type="button" class="chip" data-val="Notion">Notion</button>
+        <button type="button" class="chip" data-val="ClickUp">ClickUp</button>
+        <button type="button" class="chip" data-val="Other">Other</button>
+      </div>
+      <input type="hidden" name="current_tools" id="currentToolsInput">
+    </div>
+
+    <div class="field">
+      <label><span class="num">05.</span> Your top 3 pain points right now <span class="req">*</span></label>
+      <p class="hint">Where is time leaking? What keeps you up at night? Be specific — the more concrete, the faster we move.</p>
+      <textarea class="textarea" name="top_pain_points" rows="4" required placeholder="e.g. 1) Missing 30% of inbound leads after hours.  2) Front desk drowning in scheduling.  3) Can't keep up with reviews on GBP."></textarea>
+    </div>
+
+    <div class="field">
+      <label><span class="num">06.</span> Team size <span class="req">*</span></label>
+      <div class="radios" data-name="team_size">
+        <label><input type="radio" name="team_size" value="1" required><span>Just me</span></label>
+        <label><input type="radio" name="team_size" value="2-5"><span>2–5</span></label>
+        <label><input type="radio" name="team_size" value="6-15"><span>6–15</span></label>
+        <label><input type="radio" name="team_size" value="16-50"><span>16–50</span></label>
+        <label><input type="radio" name="team_size" value="50+"><span>50+</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label><span class="num">07.</span> Monthly revenue band <span class="req">*</span></label>
+      <p class="hint">Confidential. We use this to right-size the build — never shared or stored beyond your customer record.</p>
+      <select class="select" name="monthly_revenue" required>
+        <option value="">Select a range…</option>
+        <option value="<25k">Less than $25k / mo</option>
+        <option value="25-50k">$25k – $50k / mo</option>
+        <option value="50-100k">$50k – $100k / mo</option>
+        <option value="100-250k">$100k – $250k / mo</option>
+        <option value="250-500k">$250k – $500k / mo</option>
+        <option value="500k-1M">$500k – $1M / mo</option>
+        <option value="1M+">$1M+ / mo</option>
+        <option value="skip">Prefer not to say</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label><span class="num">08.</span> Your three goals for the first 90 days <span class="req">*</span></label>
+      <p class="hint">Outcomes, not features. "Cut response time to 5 min" beats "have AI replies."</p>
+      <textarea class="textarea" name="ninety_day_goals" rows="4" required placeholder="e.g. 1) Book 30+ qualified discovery calls/mo from inbound.  2) Free up 12 hours/week from admin.  3) Get review count from 47 → 120 on GBP."></textarea>
+    </div>
+
+    <div class="field">
+      <label><span class="num">09.</span> Schedule preference for kickoff <span class="req">*</span></label>
+      <select class="select" name="schedule_preference" required>
+        <option value="">Pick the slot pattern that fits…</option>
+        <option>Early mornings (7–10am ET)</option>
+        <option>Mid-morning (10am–12pm ET)</option>
+        <option>Lunch hour (12–1pm ET)</option>
+        <option>Afternoon (1–4pm ET)</option>
+        <option>Late afternoon (4–6pm ET)</option>
+        <option>Evenings (6–8pm ET)</option>
+        <option>Weekends OK</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label><span class="num">10.</span> Anything else we should know?</label>
+      <p class="hint">Optional. Quirks, history with other agencies, deadlines, anything we should not break.</p>
+      <textarea class="textarea" name="anything_else" rows="3" placeholder="Optional"></textarea>
+    </div>
+
+    <input type="hidden" name="stripe_customer_id" id="stripeCustomerId" value="">
+    <input type="hidden" name="email" id="customerEmail" value="">
+    <input type="hidden" name="referrer_path" value="">
+
+    <div id="formStatus" aria-live="polite"></div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary" id="submitBtn">
+        <span id="submitLabel">Send to Brady</span>
+        <span aria-hidden="true">→</span>
+      </button>
+      <span class="privacy">Encrypted in transit. Only Brady sees this — never sold, never shared.</span>
+    </div>
+  </form>
+
+  <div class="success-card" id="successCard" role="status" aria-live="polite">
+    <h2>Got it. Brady's been pinged.</h2>
+    <p>Your AI team starts work today. Expect your kickoff prep email within 24 hours — it'll have your agenda, expected deliverables, and what to bring.</p>
+    <a href="/onboarding-start.html">← Back to your welcome page</a>
+  </div>
+</main>
+
+<footer class="foot">
+  Efficio · Stop chasing AI. Hire your AI team.<br>
+  <a href="mailto:brady@efficio.tech">brady@efficio.tech</a> · <a href="https://efficio.tech">efficio.tech</a>
+</footer>
+
+<script>
+(function(){
+  // Read ?cust=...&email=... from query string (Stripe success can forward these)
+  const qs = new URLSearchParams(window.location.search);
+  if(qs.get('cust')) document.getElementById('stripeCustomerId').value = qs.get('cust');
+  if(qs.get('email')) document.getElementById('customerEmail').value = qs.get('email');
+  document.querySelector('[name="referrer_path"]').value = document.referrer || '';
+
+  // Multi-select chips
+  const toolsBox = document.getElementById('toolsChips');
+  const toolsInput = document.getElementById('currentToolsInput');
+  toolsBox.addEventListener('click', function(ev){
+    const el = ev.target.closest('.chip');
+    if(!el) return;
+    el.classList.toggle('on');
+    const vals = [...toolsBox.querySelectorAll('.chip.on')].map(c=>c.dataset.val);
+    toolsInput.value = vals.join(',');
+    updateProgress();
+  });
+
+  // Radio "card" highlighting
+  document.querySelectorAll('.radios').forEach(group=>{
+    group.addEventListener('change', e=>{
+      group.querySelectorAll('label').forEach(l=>l.classList.toggle('on', l.querySelector('input').checked));
+      updateProgress();
+    });
+  });
+
+  // Progress bar
+  const requiredFields = ['business_name','vertical','years_in_business','current_tools','top_pain_points','team_size','monthly_revenue','ninety_day_goals','schedule_preference'];
+  const bar = document.getElementById('progressBar');
+  const form = document.getElementById('kickoffForm');
+  function fieldValue(name){
+    const el = form.querySelector('[name="'+name+'"]');
+    if(!el) return '';
+    if(el.type === 'radio'){
+      const checked = form.querySelector('[name="'+name+'"]:checked');
+      return checked ? checked.value : '';
+    }
+    return (el.value || '').trim();
+  }
+  function updateProgress(){
+    const filled = requiredFields.filter(n=>fieldValue(n)).length;
+    const pct = Math.round((filled/requiredFields.length)*100);
+    bar.style.width = pct + '%';
+  }
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+  updateProgress();
+
+  // Submit
+  form.addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    const status = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
+    const label = document.getElementById('submitLabel');
+    status.textContent = '';
+    status.className = '';
+
+    // Validate
+    const missing = requiredFields.filter(n=>!fieldValue(n));
+    if(missing.length){
+      status.className = 'status err';
+      status.textContent = 'Missing required fields: ' + missing.join(', ').replace(/_/g,' ');
+      try{ gtag && gtag('event','kickoff_form_validation_fail'); }catch(e){}
+      return;
+    }
+    btn.disabled = true;
+    label.textContent = 'Sending…';
+
+    // Build payload
+    const data = {};
+    const fd = new FormData(form);
+    fd.forEach((v,k)=>{ data[k] = v; });
+    data.submitted_at = new Date().toISOString();
+    data.user_agent = navigator.userAgent;
+
+    try{
+      const resp = await fetch('/api/kickoff-submit', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      if(resp.ok){
+        try{ gtag && gtag('event','kickoff_form_submit_ok'); }catch(e){}
+        form.style.display = 'none';
+        document.querySelector('.progress').style.display = 'none';
+        document.getElementById('successCard').classList.add('on');
+        window.scrollTo({top:0, behavior:'smooth'});
+        return;
+      }
+      throw new Error('http ' + resp.status);
+    }catch(err){
+      // Fallback: mailto submission
+      try{ gtag && gtag('event','kickoff_form_submit_fallback'); }catch(e){}
+      const body = Object.entries(data).map(([k,v])=>k.replace(/_/g,' ').toUpperCase() + ':\n' + v + '\n').join('\n');
+      const subject = encodeURIComponent('Kickoff intake — ' + (data.business_name || 'new customer'));
+      const mailto = 'mailto:brady@efficio.tech?subject=' + subject + '&body=' + encodeURIComponent(body);
+      status.className = 'status err';
+      status.innerHTML = 'Our server didn\'t respond. <a href="'+mailto+'" style="text-decoration:underline">Click here to send it to Brady directly</a> — same result, takes 2 seconds.';
+      btn.disabled = false;
+      label.textContent = 'Send to Brady';
+    }
+  });
+})();
+</script>
+</body>
+</html>

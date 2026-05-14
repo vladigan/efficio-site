@@ -1,18 +1,248 @@
 <!DOCTYPE html>
-<!--
-  STALE SNAPSHOT — DO NOT EDIT.
-  Canonical pricing page lives at: /website/pricing.html  (deployed as https://efficio.tech/pricing.html)
-  This folder is an old design snapshot from 2026-04-23 and is NOT deployed by Netlify.
-  All pricing changes should go in website/pricing.html.
--->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=../website/pricing.html" />
-  <title>Stale snapshot — see /website/pricing.html</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1736" />
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z',{'linker':{'domains':['efficio.tech','calendly.com','buy.stripe.com']}});</script>
+
+<meta name="description" content="Pricing for Efficio &mdash; personal admin team for creators. Solo $997/mo, Creator+Team $2,500/mo, Production House $3,500/mo. Month-to-month. No cut of your brand deals." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://efficio.tech/pricing.html" />
+<title>Pricing &mdash; Efficio | Personal admin team for creators</title>
+<meta property="og:title" content="Pricing &mdash; Efficio" />
+<meta property="og:description" content="Solo $997 &middot; Creator+Team $2,500 &middot; Production House $3,500. Month-to-month, no cut of your deals." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect width='80' height='80' rx='6' fill='%230B1736'/><text x='40' y='58' font-family='Newsreader,Georgia,serif' font-style='italic' font-weight='500' font-size='52' text-anchor='middle' fill='%23F7F2EA'>e</text></svg>">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Efficio Personal Admin Team for Creators","description":"AI-powered personal admin team for creators","offers":[{"@type":"Offer","name":"Solo Creator","price":"997","priceCurrency":"USD","url":"https://efficio.tech/pricing.html#solo"},{"@type":"Offer","name":"Creator + Team","price":"2500","priceCurrency":"USD","url":"https://efficio.tech/pricing.html#team"},{"@type":"Offer","name":"Production House","price":"3500","priceCurrency":"USD","url":"https://efficio.tech/pricing.html#prod"}]}
+</script>
+
+<style>
+:root{
+  --paper:#F7F2EA;--paper-2:#EFE7D8;--ink:#0B1736;--ink-2:#070F26;--ink-soft:#3a4567;
+  --ink-light:#7A8AB6;--ink-mute:#a0a8c0;--rule:#1a2342;--rule-soft:rgba(11,23,54,.14);
+  --accent:#C9302C;--accent-warm:#D4A574;
+  --serif:'Newsreader',Georgia,serif;--sans:'Inter',Arial,sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-feature-settings:"ss01","kern";-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;padding:18px 40px;display:flex;align-items:center;gap:32px;background:var(--paper);border-bottom:1px solid var(--rule-soft);}
+.nav-logo{display:flex;align-items:baseline;gap:8px;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:24px;font-weight:500;letter-spacing:-.025em;}
+.nav-logo svg{width:24px;height:24px;align-self:center;}
+.nav-links{display:flex;gap:24px;margin-left:24px;font-size:13px;font-weight:500;color:var(--ink-soft);}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{margin-left:auto;padding:9px 16px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+.nav-cta:hover{background:var(--accent);}
+
+.hero{padding:140px 40px 60px;max-width:1320px;margin:0 auto;}
+.hero .label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.hero .label::before{content:"";width:32px;height:1px;background:var(--ink);}
+.hero h1{font-family:var(--serif);font-weight:500;font-variation-settings:"opsz" 72,"wght" 500;font-size:clamp(56px,8vw,108px);line-height:.92;letter-spacing:-0.04em;color:var(--ink);max-width:14ch;}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accent);}
+.hero p{margin-top:30px;font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.5;color:var(--ink-soft);max-width:54ch;}
+
+.tiers{padding:60px 40px 100px;max-width:1320px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);}
+.tier{padding:48px 36px 40px;border-right:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:20px;background:var(--paper);position:relative;}
+.tier:last-child{border-right:0;}
+.tier.featured{background:var(--ink);color:var(--paper);}
+.tier.featured *{color:var(--paper);}
+.tier.featured .tier-eyebrow{color:var(--accent-warm);}
+.tier.featured .tier-sub{color:rgba(247,242,234,.78);}
+.tier.featured .tier-divider{background:rgba(247,242,234,.18);}
+.tier.featured .tier-includes li::before{background:var(--accent-warm);}
+.tier-flag{position:absolute;top:0;left:0;right:0;background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:7px 14px;text-align:center;}
+.tier.featured{padding-top:68px;}
+.tier-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;}
+.tier-name{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.15;color:var(--ink);letter-spacing:-.02em;}
+.tier-name em{font-style:italic;font-weight:400;}
+.tier-sub{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-soft);}
+.tier-price-row{display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--rule-soft);padding-top:22px;}
+.tier-price{font-family:var(--serif);font-size:54px;font-weight:500;line-height:1;letter-spacing:-.04em;color:var(--ink);}
+.tier-per{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+.tier-setup{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:-8px;}
+.tier-divider{height:1px;background:var(--rule-soft);margin:8px 0 4px;}
+.tier-includes{display:flex;flex-direction:column;gap:11px;font-size:13.5px;line-height:1.5;color:var(--ink-soft);flex:1;}
+.tier-includes li{padding-left:18px;position:relative;}
+.tier-includes li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:1.5px;background:var(--accent);}
+.tier-includes li strong{color:var(--ink);font-weight:500;}
+.tier.featured .tier-includes li strong{color:var(--paper);}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:16px 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:background .25s ease,color .25s ease,border-color .25s ease;}
+.btn .arrow{transition:transform .3s ease;}
+.btn:hover{background:var(--accent);border-color:var(--accent);}
+.btn:hover .arrow{transform:translateX(6px);}
+.btn-ghost{background:transparent;color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+.btn-on-dark{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.btn-on-dark:hover{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+
+.foot-band{margin-top:36px;padding:24px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.foot-band a{color:var(--accent);border-bottom:1px solid var(--accent);}
+
+.faq-band{padding:80px 40px 120px;max-width:920px;margin:0 auto;}
+.faq-band h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,4.5vw,56px);line-height:.95;letter-spacing:-0.03em;color:var(--ink);margin-bottom:48px;}
+.faq-band h2 em{font-style:italic;font-weight:400;}
+.faq-list{border-top:1px solid var(--ink);}
+details{border-bottom:1px solid var(--rule-soft);padding:24px 0;}
+summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:60px 1fr 32px;gap:20px;align-items:baseline;}
+summary::-webkit-details-marker{display:none;}
+summary .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);}
+summary .q{font-family:var(--serif);font-size:clamp(18px,1.7vw,22px);line-height:1.3;color:var(--ink);}
+summary .ic{font-family:var(--mono);font-size:18px;color:var(--ink-soft);justify-self:end;line-height:1;transition:transform .3s ease,color .2s ease;}
+details[open] summary .ic{transform:rotate(45deg);color:var(--accent);}
+.a{padding:16px 0 4px 80px;font-family:var(--serif);font-size:16px;line-height:1.55;color:var(--ink-soft);max-width:60ch;}
+
+footer{padding:60px 40px 28px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);border-top:1px solid var(--rule-soft);}
+
+@media(max-width:980px){
+  .nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .hero{padding:110px 20px 30px;}
+  .tiers{padding:30px 20px 60px;}
+  .grid{grid-template-columns:1fr;}
+  .tier{border-right:0;border-bottom:1px solid var(--rule-soft);}
+  .tier:last-child{border-bottom:0;}
+  .faq-band{padding:60px 20px 80px;}
+  .a{padding-left:0;}
+}
+</style>
 </head>
 <body>
-  <p>This is a stale snapshot. Canonical pricing lives at
-  <a href="../website/pricing.html">website/pricing.html</a>.</p>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/><text x="12" y="18" font-family="Newsreader,Georgia,serif" font-style="italic" font-weight="500" font-size="16" text-anchor="middle" fill="#F7F2EA">e</text></svg>
+    efficio
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/creators.html">For creators</a></li>
+    <li><a href="/creator-demo.html">Live dashboard</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <a href="/audit-quiz" class="nav-cta">Book audit &rarr;</a>
+</nav>
+
+<section class="hero">
+  <p class="label">&sect; pricing</p>
+  <h1>Solo &rarr; team &rarr; <em>production house.</em></h1>
+  <p>One flat fee. We don&rsquo;t take a cut of your brand deals. Month-to-month, cancel anytime. Pick the tier that matches the size of your operation today &mdash; you can move up or down whenever.</p>
+</section>
+
+<section class="tiers" id="tiers">
+  <div class="grid">
+
+    <article class="tier" id="solo">
+      <div>
+        <p class="tier-eyebrow">Solo Creator</p>
+        <h3 class="tier-name">For $20k&ndash;$50k/mo creators</h3>
+        <p class="tier-sub" style="margin-top:10px;">You&rsquo;re solo, maybe one editor. We run your back office while you create.</p>
+      </div>
+      <div class="tier-price-row">
+        <span class="tier-price">$997</span>
+        <span class="tier-per">/ month</span>
+      </div>
+      <p class="tier-setup">+ $2,500 one-time setup &middot; cancel anytime</p>
+      <div class="tier-divider"></div>
+      <ul class="tier-includes">
+        <li><strong>Multi-platform revenue aggregation</strong> &mdash; YouTube, OF, Patreon, Stripe, brand deals</li>
+        <li>Live dashboard + Monday weekly digest</li>
+        <li>Monthly tax provision &mdash; no April surprises</li>
+        <li>Brand-deal pricing recs on demand</li>
+        <li>Monthly 30-min strategy call</li>
+        <li>Slack / Discord channel &middot; 4-business-hour response</li>
+      </ul>
+      <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn btn-ghost">Start Solo <span class="arrow">&rarr;</span></a>
+    </article>
+
+    <article class="tier featured" id="team">
+      <span class="tier-flag">Most creators land here</span>
+      <div>
+        <p class="tier-eyebrow">Creator + Team</p>
+        <h3 class="tier-name">For $50k&ndash;$200k/mo creators</h3>
+        <p class="tier-sub" style="margin-top:10px;">Editors, manager, contractors. We coordinate the team, run payroll/1099s, keep the books clean across every entity.</p>
+      </div>
+      <div class="tier-price-row">
+        <span class="tier-price">$2,500</span>
+        <span class="tier-per">/ month</span>
+      </div>
+      <p class="tier-setup">+ $7,500 one-time setup &middot; cancel anytime</p>
+      <div class="tier-divider"></div>
+      <ul class="tier-includes">
+        <li><strong>Everything in Solo</strong></li>
+        <li>Contractor / editor / VA payroll + 1099 management</li>
+        <li>Brand-deal contract review (we flag the bad clauses)</li>
+        <li>Multi-entity bookkeeping (LLC + personal + S-corp)</li>
+        <li>Bi-weekly 30-min strategy call</li>
+        <li>Priority response &middot; under 4 business hours</li>
+      </ul>
+      <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn btn-on-dark">Start Creator + Team <span class="arrow">&rarr;</span></a>
+    </article>
+
+    <article class="tier" id="prod">
+      <div>
+        <p class="tier-eyebrow">Production House</p>
+        <h3 class="tier-name">For $200k+/mo creators</h3>
+        <p class="tier-sub" style="margin-top:10px;">Multi-channel ops, multiple revenue lines, team of 5+. Full fractional CFO + ops. Forecasting, hiring math, board-ready reporting.</p>
+      </div>
+      <div class="tier-price-row">
+        <span class="tier-price">$3,500</span>
+        <span class="tier-per">/ month</span>
+      </div>
+      <p class="tier-setup">+ $15,000 one-time setup &middot; cancel anytime</p>
+      <div class="tier-divider"></div>
+      <ul class="tier-includes">
+        <li><strong>Everything in Creator + Team</strong></li>
+        <li>Fractional CFO support (cap table, fundraising, exits)</li>
+        <li>90-day cash flow forecasts &mdash; updated weekly</li>
+        <li>Custom dashboards for partners / investors / accountants</li>
+        <li>Weekly 45-min cadence with Brady</li>
+        <li>24h SLA &middot; Slack/Discord war-room access</li>
+      </ul>
+      <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="btn btn-ghost">Start Production House <span class="arrow">&rarr;</span></a>
+    </article>
+
+  </div>
+  <p class="foot-band">Not sure which tier? <a href="/audit-quiz">Book the 15-min audit</a> &mdash; Brady will tell you straight.</p>
+</section>
+
+<section class="faq-band">
+  <h2>Pricing <em>questions</em>.</h2>
+  <div class="faq-list">
+    <details>
+      <summary><span class="n">01</span><span class="q">Is the setup fee really one-time?</span><span class="ic">+</span></summary>
+      <p class="a">Yes. One-time. Covers integrations, dashboard build, historical data import, NDA, contract setup, account-team kickoff. After that you&rsquo;re on the monthly fee &mdash; no hidden lines.</p>
+    </details>
+    <details>
+      <summary><span class="n">02</span><span class="q">Can I switch tiers later?</span><span class="ic">+</span></summary>
+      <p class="a">Yes. Up or down, anytime. The setup fee at a higher tier is pro-rated against what you already paid. Most creators move from Solo to Team between months 4 and 8 as their operation grows.</p>
+    </details>
+    <details>
+      <summary><span class="n">03</span><span class="q">Do you take any percentage of my revenue?</span><span class="ic">+</span></summary>
+      <p class="a">Never. One flat monthly fee. We&rsquo;re not a manager. We don&rsquo;t take a cut of brand deals, ad revenue, subscriptions, sponsorships &mdash; nothing. The flat-fee model is the whole point.</p>
+    </details>
+    <details>
+      <summary><span class="n">04</span><span class="q">Annual discount?</span><span class="ic">+</span></summary>
+      <p class="a">Yes &mdash; 15% off for annual prepay, on any tier. Talk to Brady on the audit call if you want it.</p>
+    </details>
+  </div>
+</section>
+
+<footer>&copy; 2026 Efficio &middot; Personal admin team for creators &middot; <a href="mailto:brady@efficio.tech" style="color:inherit;">brady@efficio.tech</a></footer>
+
 </body>
 </html>

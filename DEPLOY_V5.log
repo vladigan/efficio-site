@@ -1,0 +1,23 @@
+ 
+[efficio v5 fix] Working in: C:\Code\LLC\Efficio\website 
+Removing stale lock: C:\Code\LLC\Efficio\website\.git\objects\maintenance.lock
+[efficio v5 fix] Fetching latest... 
+From https://github.com/vladigan/efficio-site
+ * branch            main       -> FETCH_HEAD
+[efficio v5 fix] Repairing git index from HEAD... 
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_V5.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_V5_FIX.bat', LF will be replaced by CRLF the next time Git touches it
+rm 'why-us.html'
+[efficio v5 fix] Committing using UTF-8 message file... 
+[main 3e790e3] homepage v5: augment hero w/ 6 new sections — stats, process, screenshots, compare table, case scenarios, testimonials
+ 4 files changed, 923 insertions(+), 428 deletions(-)
+ create mode 100644 DEPLOY_V5.bat
+ create mode 100644 DEPLOY_V5_FIX.bat
+ delete mode 100644 why-us.html
+[efficio v5 fix] HEAD now: 
+3e790e3ba1efb490e111a4c9020b7adb20bf0194
+[efficio v5 fix] Pushing origin main... 
+To https://github.com/vladigan/efficio-site.git
+   5193d0f..3e790e3  main -> main
+[efficio v5 fix] SUCCESS. GitHub Pages will redeploy in 30-90s. 

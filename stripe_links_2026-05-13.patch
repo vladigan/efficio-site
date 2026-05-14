@@ -1,0 +1,49 @@
+From 9d8c0d3de25672a259b99207b01b13ef02190724 Mon Sep 17 00:00:00 2001
+From: Brady <brady@efficio.tech>
+Date: Wed, 13 May 2026 13:58:32 +0000
+Subject: [PATCH] stripe: wire live Payment Link URLs into audit-quiz +
+ thank-you
+
+Replaces buy.stripe.com/placeholder-ai-{specialist,team,department} with the real Payment Links generated 2026-05-13 by scripts/stripe_setup_v2_paymentlinks.py. Quiz tier-mapping and post-booking continue-now CTAs now route to live Stripe checkout. Webhook endpoint we_1TWcy9 -> https://webhook.efficio.tech/stripe/webhook registered with the 5 onboarding events; signing secret written to .env. Idempotent: re-running the helper is a no-op.
+---
+ audit-quiz.html | 6 +++---
+ thank-you.html  | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/audit-quiz.html b/audit-quiz.html
+index 1a388a6..620e0d3 100644
+--- a/audit-quiz.html
++++ b/audit-quiz.html
+@@ -546,9 +546,9 @@ ul{list-style:none}
+   var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
+   // Stripe placeholder — Brady to wire actual price IDs:
+   var STRIPE_LINKS = {
+-    AI_SPECIALIST: 'https://buy.stripe.com/placeholder-ai-specialist', // $997/mo
+-    AI_TEAM:       'https://buy.stripe.com/placeholder-ai-team',       // $2,997/mo
+-    AI_DEPARTMENT: 'https://buy.stripe.com/placeholder-ai-department'  // $7,997/mo
++    AI_SPECIALIST: 'https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b', // $997/mo
++    AI_TEAM:       'https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c',       // $2,997/mo
++    AI_DEPARTMENT: 'https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d'  // $7,997/mo
+   };
+   var QUIZ_ENDPOINT     = '/api/quiz-submit';        // serverless route; falls back to localStorage if 404
+   var DQ_EMAIL_ENDPOINT = '/api/unqualified-lead';   // serverless route for DQ email capture
+diff --git a/thank-you.html b/thank-you.html
+index 496e649..a9c8562 100644
+--- a/thank-you.html
++++ b/thank-you.html
+@@ -305,9 +305,9 @@ section.s.first{border-top:0}
+   // ============== CONFIG ==============
+   var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
+   var STRIPE_LINKS = {
+-    AI_SPECIALIST: 'https://buy.stripe.com/placeholder-ai-specialist',
+-    AI_TEAM:       'https://buy.stripe.com/placeholder-ai-team',
+-    AI_DEPARTMENT: 'https://buy.stripe.com/placeholder-ai-department'
++    AI_SPECIALIST: 'https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b',
++    AI_TEAM:       'https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c',
++    AI_DEPARTMENT: 'https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d'
+   };
+   var LOOM_DEMO_URL = window.LOOM_DEMO_URL || '';
+   var QUIZ_EMAIL_ENDPOINT = '/api/quiz-email';
+-- 
+2.34.1
+

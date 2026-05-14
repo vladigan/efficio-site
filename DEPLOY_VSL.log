@@ -1,0 +1,28 @@
+ 
+[efficio vsl] Working in: C:\Code\LLC\Efficio\website 
+Removing stale lock: C:\Code\LLC\Efficio\website\.git\objects\maintenance.lock
+[efficio vsl] Fetching latest... 
+From https://github.com/vladigan/efficio-site
+ * branch            main       -> FETCH_HEAD
+ + 27f447e...aac609c main       -> origin/main  (forced update)
+[efficio vsl] Staging vsl.html / thank-you.html / index.html ... 
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'thank-you.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_VSL.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vsl.html', LF will be replaced by CRLF the next time Git touches it
+[efficio vsl] Committing... 
+[main 60018c6] feat(vsl): 90-sec animated VSL at /vsl + thank-you embed + homepage hero CTA
+ 4 files changed, 996 insertions(+), 11 deletions(-)
+ create mode 100644 DEPLOY_VSL.bat
+ create mode 100644 vsl.html
+[efficio vsl] HEAD now: 
+60018c6bbceb365248abedb47cab1291dacb91ec
+[efficio vsl] Pushing origin main... 
+To https://github.com/vladigan/efficio-site.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/vladigan/efficio-site.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[efficio vsl] FAILED — see DEPLOY_VSL.log 

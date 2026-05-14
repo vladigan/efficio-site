@@ -1,526 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
-  <meta name="description" content="Interactive Efficio demo — score a lead, see a knowledge agent respond, visualize a dashboard. Hands-on walkthroughs of what we actually build." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://efficio.tech/demo.html" />
-  <title>Interactive Demo — Efficio.tech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1736" />
+<title>Watch your AI Team work · Efficio demo</title>
+<meta name="description" content="A 3-minute scrollable demo of how an Efficio AI Team handles an inbound lead — from the first ping to the deliverable. See it before you book the call." />
+<link rel="canonical" href="https://efficio.tech/demo.html" />
+
+<meta property="og:title" content="Watch your AI Team work · Efficio demo" />
+<meta property="og:description" content="3-minute scroll. 5 chapters. See exactly what an Efficio AI Team does between an inbound lead and a closed deliverable." />
+<meta property="og:image" content="https://efficio.tech/og-image.png" />
+<meta property="og:type" content="website" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');gtag('event','demo_view');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300..800&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect width='80' height='80' rx='18' fill='%230B1736'/><text x='40' y='56' font-family='Georgia,serif' font-style='italic' font-weight='500' font-size='44' text-anchor='middle' fill='%23F7F2EA'>e</text></svg>">
+
 <style>
-:root{--bg:#0E1B33;--bg2:#0C1729;--bg3:#08111E;--surf:#0f1e33;--surf2:#132540;
-  --purple:#FF6B35;--purple2:#FF8456;--purple3:#FFA980;--pink:#FFA980;
-  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;
-  --bd:rgba(255,107,53,.18);--bd2:rgba(255,132,86,.28);--bd3:rgba(255,132,86,.12);
-  --glow:rgba(255,107,53,.38);--glow2:rgba(255,132,86,.2);
-  --r:8px;--r2:14px;--r3:24px;--green:#10b981;--red:#ef4444;--amber:#f59e0b}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+:root{
+  --navy-100:#D3DAEA;--navy-200:#A8B5D2;--navy-300:#7A8AB6;--navy-400:#4E5F92;
+  --navy-500:#2E416F;--navy-600:#1A2A52;--navy-700:#0B1736;--navy-800:#070F26;--navy-900:#040818;
+  --cream-50:#FBF8F2;--cream-100:#F7F2EA;--cream-200:#EFE7D8;--cream-300:#E4D8C2;
+  --cream-500:#9E8B6C;--cream-600:#75664B;--cream-700:#544830;
+  --gold-300:#D9B66F;--gold-400:#D4A574;--gold-500:#B8894E;--gold-600:#94693A;--gold-700:#6E4D2A;
+  --success:#4F7C57;
+  --serif:'Newsreader','Tiempos Headline','Times New Roman',Georgia,serif;
+  --sans:'Inter','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --ease-soft:cubic-bezier(.22,.61,.36,1);
+  --ease-firm:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --ease-expo:cubic-bezier(.19,1,.22,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);font-weight:400;color:var(--navy-700);background:var(--cream-100);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;overflow-x:hidden;
+}
 a{color:inherit;text-decoration:none}
-input,button,select{font-family:inherit;font-size:inherit;color:inherit}
-.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
-  background:rgba(5,10,22,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:30px;height:30px;border-radius:var(--r);background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 0 20px var(--glow2)}
-.logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
-.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--text);transition:all .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.05)}
-.btn-nav{padding:9px 20px;border-radius:var(--r);font-size:14px;font-weight:700;
-  background:var(--purple);color:#fff;border:1px solid rgba(255,132,86,.4);box-shadow:0 0 20px var(--glow2);transition:all .2s}
-.btn-nav:hover{background:var(--purple2);transform:translateY(-1px)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative}
+button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+img,svg{display:block;max-width:100%}
+::selection{background:rgba(212,165,116,.32);color:var(--navy-800)}
 
-.hero{padding:140px 0 30px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(255,107,53,.14),transparent)}
-.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:var(--white);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin-bottom:22px;max-width:900px}
-.hero h1 .accent{background:linear-gradient(135deg,var(--purple2),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .lead{font-size:1.15rem;color:var(--w2);max-width:760px}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
-  background:rgba(255,107,53,.1);border:1px solid var(--bd2);font-size:.82rem;
-  color:var(--purple3);font-weight:600;margin-bottom:22px;letter-spacing:.02em;text-transform:uppercase}
-.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);box-shadow:0 0 10px var(--glow);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.scroller{height:100vh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory}
+.chapter{height:100vh;width:100vw;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:80px 36px 100px;position:relative;overflow:hidden}
 
-/* TABS */
-.tabs{max-width:1200px;margin:20px auto 0;padding:0 32px;display:flex;gap:6px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
-.tab-btn{padding:14px 22px;background:transparent;border:none;color:var(--text);font-size:.94rem;font-weight:600;
-  cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;margin-bottom:-1px}
-.tab-btn:hover{color:var(--white)}
-.tab-btn.active{color:var(--white);border-bottom-color:var(--purple2)}
+.brandbar{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 32px;display:flex;align-items:center;gap:14px;background:rgba(247,242,234,.78);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid rgba(11,23,54,.06)}
+.brandbar a.home{display:flex;align-items:center;gap:12px;color:var(--navy-700)}
+.wordmark{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-0.04em;color:var(--navy-700)}
+.dots{display:inline-flex;gap:5px;align-items:center}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--gold-400)}
+.dot:nth-child(2){background:var(--gold-500);opacity:.85}
+.dot:nth-child(3){background:var(--navy-700);opacity:.65}
+.brandbar .meta{margin-left:auto;display:flex;gap:14px;align-items:center}
+.brandbar .meta a{font-size:13px;font-weight:500;color:var(--navy-500)}
+.brandbar .meta a:hover{color:var(--navy-700)}
+.brandbar .pill{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600);padding:5px 10px;border:1px solid var(--cream-300);border-radius:999px;background:var(--cream-50)}
 
-/* PANELS */
-.panels{max-width:1200px;margin:40px auto 60px;padding:0 32px;min-height:520px}
-.panel{display:none}
-.panel.active{display:block}
-.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.panel-intro{color:var(--w2);font-size:1rem;margin-bottom:22px;line-height:1.6}
-.panel-intro strong{color:var(--white)}
+.progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold-400);z-index:60;transition:width .25s var(--ease-soft)}
 
-/* INPUT CARD */
-.card{background:linear-gradient(180deg,var(--surf),var(--bg3));border:1px solid var(--bd);
-  border-radius:var(--r2);padding:28px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
-.card h3{color:var(--white);font-size:1.1rem;font-weight:700;margin-bottom:16px;letter-spacing:-.01em}
-.card label{display:block;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);
-  letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px;margin-top:14px}
-.card label:first-of-type{margin-top:0}
-.card input,.card select,.card textarea{width:100%;padding:10px 14px;background:var(--bg3);
-  border:1px solid var(--bd3);border-radius:var(--r);color:var(--white);font-size:.94rem;transition:border .2s}
-.card input:focus,.card select:focus,.card textarea:focus{outline:none;border-color:var(--purple2);
-  box-shadow:0 0 0 3px rgba(255,132,86,.15)}
-.card textarea{resize:vertical;min-height:80px;font-family:inherit}
-.card .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card button.run{margin-top:22px;width:100%;padding:12px;background:var(--purple);color:#fff;border:none;
-  border-radius:var(--r);font-weight:700;cursor:pointer;transition:all .2s;font-size:.96rem;
-  box-shadow:0 0 20px var(--glow2)}
-.card button.run:hover{background:var(--purple2);transform:translateY(-1px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-600);margin-bottom:14px}
+.eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(212,165,116,.15)}
+.eyebrow .ord{color:var(--navy-300);margin-right:6px}
+.chapter h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.5vw,52px);line-height:1.06;letter-spacing:-0.035em;color:var(--navy-700);max-width:14ch;margin-bottom:14px;font-variation-settings:"opsz" 60,"wght" 500}
+.chapter h2 em{font-style:italic;position:relative;display:inline-block}
+.chapter h2 em::after{content:"";position:absolute;left:.02em;right:.02em;bottom:.04em;height:.10em;background:var(--gold-400);opacity:.55;z-index:-1;border-radius:2px}
+.chapter .caption{font-size:15.5px;line-height:1.6;color:var(--navy-500);max-width:46ch}
 
-/* RESULT CARD */
-.result{background:linear-gradient(180deg,var(--surf),var(--bg3));border:1px solid var(--bd);
-  border-radius:var(--r2);padding:28px;min-height:300px;display:flex;flex-direction:column}
-.result-label{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple3);
-  letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
-.result-label .status{padding:2px 10px;border-radius:100px;background:rgba(16,185,129,.15);
-  border:1px solid rgba(16,185,129,.3);color:var(--green);font-size:.66rem;letter-spacing:.04em}
-.score-display{text-align:center;padding:22px 0}
-.score-display .big{font-family:'JetBrains Mono',monospace;font-size:3.2rem;font-weight:800;
-  background:linear-gradient(135deg,var(--purple2),var(--pink));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.score-display .sub{color:var(--muted);font-size:.82rem;margin-top:4px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
-.breakdown{border-top:1px solid var(--bd3);padding-top:16px;margin-top:14px}
-.breakdown .bk-row{display:flex;justify-content:space-between;padding:7px 0;font-size:.88rem;border-bottom:1px solid var(--bd3)}
-.breakdown .bk-row:last-child{border-bottom:none;font-weight:700;padding-top:10px;margin-top:4px;border-top:1px solid var(--bd3)}
-.breakdown .bk-row .k{color:var(--text)}
-.breakdown .bk-row .v{color:var(--white);font-family:'JetBrains Mono',monospace;font-weight:600}
-.breakdown .bk-row.hot .v{color:var(--green)}
-.verdict{margin-top:18px;padding:14px 18px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r);
-  border-left:3px solid var(--purple2);font-size:.88rem;color:var(--w2);line-height:1.55}
-.verdict strong{color:var(--white)}
-.empty{flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.94rem;text-align:center;padding:40px 20px}
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1180px;width:100%;align-items:center}
+.ch-text{padding-right:8px}
+.ch-stage{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center}
+.is-visible .ch-text > *{opacity:0;transform:translateY(14px);animation:fadeUp .8s var(--ease-soft) forwards}
+.is-visible .ch-text > *:nth-child(1){animation-delay:.05s}
+.is-visible .ch-text > *:nth-child(2){animation-delay:.2s}
+.is-visible .ch-text > *:nth-child(3){animation-delay:.35s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
-/* CHAT PANEL */
-.chat-shell{display:flex;flex-direction:column;gap:10px;margin-top:8px;height:360px;overflow-y:auto;padding:10px 4px}
-.chat-shell .msg{padding:10px 14px;border-radius:12px;max-width:88%;font-size:.92rem;line-height:1.5}
-.chat-shell .msg.user{align-self:flex-end;background:var(--purple);color:#fff;border-bottom-right-radius:3px}
-.chat-shell .msg.bot{align-self:flex-start;background:var(--surf2);color:var(--w2);border:1px solid var(--bd3);border-bottom-left-radius:3px}
-.chat-shell .msg.bot .cite{display:block;color:var(--muted);font-size:.7rem;margin-top:6px;font-family:'JetBrains Mono',monospace}
-.chat-input{display:flex;gap:8px;margin-top:14px}
-.chat-input input{flex:1;padding:12px 14px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r);color:var(--white);font-size:.94rem}
-.chat-input input:focus{outline:none;border-color:var(--purple2)}
-.chat-input button{padding:12px 22px;background:var(--purple);color:#fff;border:none;border-radius:var(--r);font-weight:700;cursor:pointer;transition:all .2s}
-.chat-input button:hover{background:var(--purple2)}
-.quick-qs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.quick-q{padding:4px 12px;background:transparent;border:1px solid var(--bd3);border-radius:100px;
-  color:var(--purple3);font-size:.76rem;font-weight:500;cursor:pointer;transition:all .2s}
-.quick-q:hover{background:rgba(255,107,53,.1);border-color:var(--bd2)}
+.scene-card{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:18px;padding:24px;width:100%;max-width:480px;box-shadow:0 30px 60px -30px rgba(11,23,54,.18)}
+.scene-tag{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-600);margin-bottom:12px}
+.scene-tag .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold-400);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,165,116,.6)}50%{box-shadow:0 0 0 6px rgba(212,165,116,0)}}
 
-/* DISCLAIMER */
-.disclaimer{max-width:1200px;margin:0 auto 30px;padding:14px 24px;background:rgba(255,107,53,.06);
-  border:1px solid var(--bd3);border-left:3px solid var(--purple2);border-radius:var(--r);
-  color:var(--w2);font-size:.86rem;line-height:1.55}
-.disclaimer strong{color:var(--white)}
+/* Chapter 1 — phone */
+.phone{width:300px;height:540px;background:var(--navy-800);border-radius:42px;padding:14px;position:relative;box-shadow:0 40px 80px -30px rgba(11,23,54,.45)}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:80px;height:6px;background:var(--navy-900);border-radius:3px}
+.phone-screen{width:100%;height:100%;background:linear-gradient(160deg,var(--navy-700) 0%,var(--navy-800) 100%);border-radius:32px;padding:50px 14px 14px;position:relative;overflow:hidden}
+.notification{background:rgba(247,242,234,.95);backdrop-filter:blur(12px);border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;transform:translateY(-90px);opacity:0}
+.is-visible .notification{animation:notifyIn .8s var(--ease-expo) .35s forwards}
+@keyframes notifyIn{to{transform:translateY(0);opacity:1}}
+.notif-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));display:grid;place-items:center;color:var(--navy-800);font-weight:700;font-size:14px;flex-shrink:0}
+.notif-body{flex:1;min-width:0}
+.notif-meta{display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-500);margin-bottom:3px}
+.notif-text{font-size:13px;color:var(--navy-800);line-height:1.4}
+.phone-time{position:absolute;top:18px;left:24px;font-size:12px;font-weight:600;color:var(--cream-200)}
+.phone-status{position:absolute;top:18px;right:24px;font-size:12px;color:var(--cream-200)}
 
-/* CTA */
-.cta{margin:30px auto 80px;padding:48px 40px;max-width:1100px;text-align:center;
-  background:linear-gradient(135deg,rgba(255,107,53,.15),rgba(255,169,128,.08));
-  border:1px solid var(--bd2);border-radius:var(--r3);position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(255,132,86,.18),transparent);pointer-events:none}
-.cta h3{color:var(--white);font-size:1.7rem;font-weight:800;margin-bottom:12px;position:relative}
-.cta p{color:var(--w2);max-width:580px;margin:0 auto 24px;position:relative}
-.cta .btn{display:inline-block;padding:14px 34px;background:var(--purple);color:#fff;
-  border-radius:var(--r);font-weight:700;font-size:1rem;box-shadow:0 0 30px var(--glow),0 10px 30px rgba(255,107,53,.2);transition:all .2s;position:relative}
-.cta .btn:hover{background:var(--purple2);transform:translateY(-2px)}
+/* Chapter 2 — split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:580px}
+.split .pane{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:14px;padding:18px;min-height:360px;position:relative;overflow:hidden}
+.split .pane h4{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600);margin-bottom:10px}
+.typing-stream{font-size:12.5px;line-height:1.55;color:var(--navy-700);font-family:var(--sans)}
+.typing-stream .typed{display:inline-block;overflow:hidden;white-space:pre-wrap;max-width:100%}
+.is-visible .typing-stream .typed{animation:type 2.4s steps(40) .4s both}
+@keyframes type{from{max-width:0}to{max-width:100%}}
+.draft{display:flex;flex-direction:column;gap:8px;height:100%}
+.draft .from{font-size:11px;color:var(--cream-700)}
+.draft .subj{font-family:var(--serif);font-size:14px;font-weight:500;color:var(--navy-700);letter-spacing:-0.01em}
+.draft .body{font-size:12px;line-height:1.55;color:var(--navy-500);opacity:0}
+.is-visible .draft .body{animation:fadeUp .6s var(--ease-soft) 1.6s forwards}
+.timer{position:absolute;bottom:14px;right:14px;background:var(--navy-700);color:var(--gold-400);font-family:'SF Mono',ui-monospace,monospace;font-size:11px;padding:5px 9px;border-radius:6px;font-weight:600;letter-spacing:.04em}
 
-footer{padding:60px 0 40px;border-top:1px solid var(--bd)}
-footer .wrap{display:grid;grid-template-columns:1fr 2fr;gap:60px}
-footer .col-brand p{color:var(--muted);font-size:.88rem;margin-top:10px;max-width:300px}
-footer .col-links{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-footer .col-links h5{color:var(--white);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
-footer .col-links a{display:block;padding:5px 0;font-size:.88rem;color:var(--muted);transition:color .2s}
-footer .col-links a:hover{color:var(--white)}
-footer .legal{max-width:1100px;margin:40px auto 0;padding:30px 32px 0;border-top:1px solid var(--bd3);color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* Chapter 3 — Calendly + PDF */
+.cal-card{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:14px;padding:20px;max-width:340px;width:100%}
+.cal-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cal-head .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-300),var(--gold-500));display:grid;place-items:center;color:var(--navy-800);font-weight:700;font-size:14px}
+.cal-head .name{font-size:13px;font-weight:600;color:var(--navy-700)}
+.cal-head .who{font-size:11px;color:var(--cream-700)}
+.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:8px}
+.slot{padding:9px;border:1px solid var(--cream-300);border-radius:8px;font-size:12px;font-weight:500;color:var(--navy-600);text-align:center;background:var(--cream-50);transition:all .3s ease}
+.slot.pulse-on{background:var(--gold-400);color:var(--navy-800);border-color:var(--gold-500);transform:scale(1.04);box-shadow:0 8px 20px -10px rgba(184,137,78,.5)}
+.cal-confirm{margin-top:14px;padding:10px 12px;background:rgba(79,124,87,.1);border:1px solid rgba(79,124,87,.3);border-radius:8px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--success);opacity:0;transform:translateY(6px)}
+.is-visible .cal-confirm{animation:fadeUp .5s var(--ease-soft) 1.8s forwards}
+.cal-confirm .check{width:16px;height:16px;border-radius:50%;background:var(--success);display:grid;place-items:center;color:#fff;font-size:10px}
+.pdf-mini{position:absolute;right:-12px;bottom:24px;width:160px;height:200px;background:var(--cream-50);border-radius:6px;padding:14px 12px;box-shadow:0 30px 50px -20px rgba(11,23,54,.3);transform:rotate(6deg) translateY(20px);opacity:0;border:1px solid var(--cream-300)}
+.is-visible .pdf-mini{animation:pdfIn .8s var(--ease-spring) 1.4s forwards}
+@keyframes pdfIn{to{transform:rotate(6deg) translateY(0);opacity:1}}
+.pdf-mini .pdf-tag{font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-600);margin-bottom:8px}
+.pdf-mini h5{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.2;letter-spacing:-0.02em;color:var(--navy-700);margin-bottom:8px}
+.pdf-mini .pdf-lines{display:flex;flex-direction:column;gap:4px}
+.pdf-mini .pdf-line{height:3px;background:var(--cream-300);border-radius:2px}
+.pdf-mini .pdf-line.gold{background:var(--gold-400);width:60%}
 
-@media (max-width:900px){
-  .nav-links{display:none}
-  .panel-grid{grid-template-columns:1fr}
-  .hero h1{font-size:2rem}
-  .card .row{grid-template-columns:1fr}
-  footer .wrap{grid-template-columns:1fr}
-  footer .col-links{grid-template-columns:repeat(2,1fr)}
+/* Chapter 4 — PDF flip */
+.pdf-stage{position:relative;width:260px;height:340px;perspective:1200px}
+.pdf-page{position:absolute;inset:0;background:var(--cream-50);border:1px solid var(--cream-300);border-radius:10px;padding:24px 20px;box-shadow:0 30px 60px -30px rgba(11,23,54,.3);transform-style:preserve-3d}
+.pdf-page.p1{transform:rotate(-3deg) translateX(-6px)}
+.pdf-page.p2{transform:rotate(0deg)}
+.pdf-page.p3{transform:rotate(3deg) translateX(6px)}
+.is-visible .pdf-page.p1{animation:flipLeft 2.4s var(--ease-soft) .4s infinite}
+.is-visible .pdf-page.p2{animation:flipMid 2.4s var(--ease-soft) .6s infinite}
+@keyframes flipLeft{0%,40%,100%{transform:rotate(-3deg) translateX(-6px)}50%{transform:rotate(-30deg) translateX(-30px);opacity:.6}60%{transform:rotate(-3deg) translateX(-6px)}}
+@keyframes flipMid{0%,40%,100%{transform:rotate(0deg)}48%{transform:rotate(-3deg) translateX(-6px);z-index:0}52%{transform:rotate(0deg);z-index:2}}
+.pdf-page h6{font-family:var(--serif);font-size:14px;font-weight:500;color:var(--navy-700);margin-bottom:12px;letter-spacing:-0.015em}
+.pdf-page .score{font-family:var(--serif);font-size:46px;font-weight:500;color:var(--gold-600);letter-spacing:-0.04em;line-height:1}
+.pdf-page .score-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-700);margin-bottom:18px}
+.pdf-page .pdf-bars{display:flex;align-items:flex-end;gap:5px;height:50px;margin-bottom:10px}
+.pdf-page .pdf-bar{flex:1;background:var(--navy-300);border-radius:2px 2px 0 0}
+.pdf-page .pdf-bar.gold{background:var(--gold-400)}
+.pdf-page .pdf-list{display:flex;flex-direction:column;gap:6px;margin-top:10px;list-style:none;padding:0}
+.pdf-page .pdf-list li{font-size:10px;color:var(--navy-500);display:flex;gap:6px;align-items:center}
+.pdf-page .pdf-list li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold-400);flex-shrink:0}
+.pdf-page .fnum{font-size:9px;letter-spacing:.14em;color:var(--cream-700);position:absolute;bottom:14px;left:20px}
+
+/* Chapter 5 — Command Center */
+.cc{background:var(--navy-700);border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;width:100%;box-shadow:0 50px 100px -40px rgba(11,23,54,.5);color:var(--cream-100)}
+.cc-tile{background:rgba(247,242,234,.06);border:1px solid rgba(212,165,116,.18);border-radius:12px;padding:14px}
+.cc-tile.full{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+.cc-tile .label{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-400);margin-bottom:8px}
+.cc-tile .num{font-family:var(--serif);font-size:28px;font-weight:500;color:var(--cream-100);letter-spacing:-0.025em;line-height:1}
+.cc-tile .sub{font-size:11px;color:var(--navy-200);margin-top:4px}
+.cc-counter{font-variant-numeric:tabular-nums}
+.cc-line{height:50px;display:flex;align-items:flex-end;gap:3px;margin-top:6px}
+.cc-line .bar{width:5px;background:var(--gold-400);border-radius:2px 2px 0 0;opacity:.85}
+.cc-agents{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.cc-agent{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--cream-200)}
+.cc-agent .av{width:6px;height:6px;border-radius:50%;background:var(--gold-400);animation:pulse 1.6s ease-in-out infinite}
+.cc-mrr{font-family:var(--serif);font-size:24px;color:var(--gold-400);letter-spacing:-0.025em}
+
+/* Final */
+.final{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:24px}
+.final h2{max-width:18ch;margin:0 auto}
+.final .lede{font-size:17px;color:var(--navy-500);max-width:42ch;margin:0 auto}
+.cta-row{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:16px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:18px 32px;border-radius:999px;background:linear-gradient(120deg,var(--gold-400),var(--gold-500));color:var(--navy-800);font-size:16px;font-weight:700;letter-spacing:-0.005em;box-shadow:0 18px 36px -14px rgba(184,137,78,.55),inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft);will-change:transform}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 28px 50px -18px rgba(184,137,78,.7),inset 0 0 0 1px rgba(255,255,255,.32)}
+.btn-ghost{color:var(--navy-500);font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--cream-400);transition:color .2s ease}
+.btn-ghost:hover{color:var(--navy-700)}
+
+.chrome{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:55;display:flex;gap:8px;align-items:center;background:rgba(247,242,234,.92);backdrop-filter:blur(12px);border:1px solid var(--cream-300);border-radius:999px;padding:7px 8px;box-shadow:0 20px 40px -20px rgba(11,23,54,.25)}
+.chrome button{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--navy-600);transition:background .2s ease}
+.chrome button:hover{background:rgba(11,23,54,.06);color:var(--navy-700)}
+.chrome .count{font-family:var(--serif);font-size:13px;color:var(--navy-500);padding:0 8px}
+.chrome svg{width:14px;height:14px}
+.chrome .dotnav{display:flex;gap:5px;align-items:center;padding:0 6px}
+.chrome .dotnav button{width:8px;height:8px;border-radius:50%;background:rgba(11,23,54,.18);padding:0;border:none}
+.chrome .dotnav button.on{background:var(--gold-400)}
+
+.veil{position:fixed;inset:0;background:var(--navy-700);z-index:99;transform:translateY(100%);transition:transform .9s var(--ease-expo);pointer-events:none}
+.veil.out{transform:translateY(0)}
+
+@media (max-width:880px){
+  .ch-grid{grid-template-columns:1fr;gap:30px;text-align:center}
+  .ch-text{padding-right:0}
+  .ch-stage{min-height:340px}
+  .phone{width:240px;height:430px}
+  .split{max-width:100%}
+  .cc{grid-template-columns:1fr}
+  .pdf-mini{position:relative;right:0;bottom:0;margin:18px auto 0;transform:rotate(0)}
+  .is-visible .pdf-mini{animation:fadeUp .6s var(--ease-soft) 1.4s forwards;transform:none}
+  .chapter h2{margin-left:auto;margin-right:auto}
+  .chapter .caption{margin-left:auto;margin-right:auto}
+}
+@media (max-width:480px){
+  .brandbar .meta a:not(.pill){display:none}
+  .pdf-stage{width:220px;height:300px}
+  .chapter{padding:80px 22px 100px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .scroller{scroll-snap-type:none}
 }
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner">
-  <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="how-it-works.html">How It Works</a></li>
-    <li><a href="agents.html">Agents</a></li>
-    <li><a href="why-us.html">Why Us</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-  </ul>
-  <a href="/audit-quiz" class="btn-nav">Book a Call</a>
-</div></nav>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="wrap">
-    <span class="hero-pill"><span class="dot"></span>Interactive Demo</span>
-    <h1>Try the <span class="accent">AI team</span>, not a pitch deck.</h1>
-    <p class="lead">Three hands-on demos of the things we actually build: a grounded knowledge agent, an Agent Ops cockpit (deploy/track), and a scoring agent (one example of a specialist agent). Type real inputs, get real outputs, inspect the logic.</p>
-  </div>
-</section>
+<div class="veil" id="veil" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<div class="tabs">
-  <button class="tab-btn active" data-tab="chat">① Knowledge Agent</button>
-  <button class="tab-btn" data-tab="dash">② Agent Ops Dashboard</button>
-  <button class="tab-btn" data-tab="score">③ Specialist Agent (scoring)</button>
+<header class="brandbar">
+  <a href="/" class="home">
+    <span class="wordmark">efficio</span>
+    <span class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+  </a>
+  <span class="meta">
+    <span class="pill">3-min demo</span>
+    <a href="/">Home</a>
+    <a href="/audit-quiz">Book a call</a>
+  </span>
+</header>
+
+<main class="scroller" id="scroller">
+
+  <section class="chapter" data-ch="1" aria-label="Chapter 1: The inbound">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">01</span>The inbound</div>
+        <h2>Your AI team <em>gets the lead first.</em></h2>
+        <p class="caption">A prospect texts. Most teams take hours to respond. Yours sees it instantly, scores it, and starts working before anyone is at their desk.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <span class="phone-time">9:14</span>
+            <span class="phone-status">●●●●●</span>
+            <div class="notification">
+              <div class="notif-icon">M</div>
+              <div class="notif-body">
+                <div class="notif-meta"><span>Messages</span><span>now</span></div>
+                <div class="notif-text">Hey — looking for AI back-office for my dental practice in Tampa. Got a few minutes this week?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="2" aria-label="Chapter 2: The instant draft" style="background:var(--cream-200)">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">02</span>The instant draft</div>
+        <h2>Drafts the reply in <em>under five minutes.</em></h2>
+        <p class="caption">Your AI specialist reads the message, pulls public signals on the practice, and writes a real reply — in your voice — before your front desk has refilled the coffee.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="split" aria-hidden="true">
+          <div class="pane">
+            <h4>Specialist · drafting</h4>
+            <div class="typing-stream">
+              <span class="typed">Hi Mark — saw your message. Loved the dental practice page; nine locations across Florida is real momentum. Yes, we can talk. I block off Wednesday and Thursday for new conversations. Would 2pm or 3:30 work better Wednesday?</span>
+            </div>
+          </div>
+          <div class="pane">
+            <h4>Gmail draft</h4>
+            <div class="draft">
+              <div class="from">From: Brady · brady@efficio.tech</div>
+              <div class="subj">Re: AI back-office for Bright Now Dental</div>
+              <div class="body">Hi Mark — saw your message. Loved the dental practice page; nine locations across Florida is real momentum. Yes, we can talk…</div>
+            </div>
+            <span class="timer" id="timer-ch2">⏱ 04.7s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="3" aria-label="Chapter 3: The booking">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">03</span>The booking</div>
+        <h2>Books the call. <em>Ships the prep brief.</em></h2>
+        <p class="caption">Prospect picks a slot. Your AI team auto-generates a one-page prep brief with their company name on the cover — and it's in your inbox before you sit down.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="cal-card" aria-hidden="true">
+          <div class="cal-head">
+            <div class="avatar">B</div>
+            <div>
+              <div class="name">Brady · Efficio kickoff (30 min)</div>
+              <div class="who">Wednesday, May 14</div>
+            </div>
+          </div>
+          <div class="slots">
+            <button type="button" class="slot">9:00 am</button>
+            <button type="button" class="slot">10:30 am</button>
+            <button type="button" class="slot" id="ch3-slot">2:00 pm</button>
+            <button type="button" class="slot">3:30 pm</button>
+          </div>
+          <div class="cal-confirm"><span class="check">✓</span> Booked · invite sent to Mark · prep brief generating</div>
+        </div>
+        <div class="pdf-mini" aria-hidden="true">
+          <div class="pdf-tag">Prep brief</div>
+          <h5>Bright Now Dental — Tampa</h5>
+          <div class="pdf-lines">
+            <div class="pdf-line"></div>
+            <div class="pdf-line gold"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line gold"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="4" aria-label="Chapter 4: The deliverable" style="background:var(--cream-200)">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">04</span>The deliverable</div>
+        <h2>Ships a Local SEO audit <em>before the call.</em></h2>
+        <p class="caption">Bright Now Dental Tampa — 24 pages. GBP score, competitor map, seven ranked quick wins, three strategic plays. The prospect reads it before they ever talk to you.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="pdf-stage" aria-hidden="true">
+          <div class="pdf-page p1">
+            <h6>Competitor map</h6>
+            <div class="pdf-bars">
+              <div class="pdf-bar" style="height:34%"></div>
+              <div class="pdf-bar" style="height:52%"></div>
+              <div class="pdf-bar gold" style="height:72%"></div>
+              <div class="pdf-bar" style="height:48%"></div>
+              <div class="pdf-bar" style="height:38%"></div>
+            </div>
+            <span class="fnum">P. 11 / 24</span>
+          </div>
+          <div class="pdf-page p2">
+            <h6>Bright Now Dental — Tampa</h6>
+            <div class="score-meta">GBP Score</div>
+            <div class="score">64<span style="font-size:18px;color:var(--cream-500)">/100</span></div>
+            <ul class="pdf-list">
+              <li>Photos: 3 of 12 categories</li>
+              <li>Reviews: 47 · need 120 to rank</li>
+              <li>Hours mismatch on 2 locations</li>
+              <li>Missing "implant" service tag</li>
+            </ul>
+            <span class="fnum">P. 03 / 24 · Executive summary</span>
+          </div>
+          <div class="pdf-page p3">
+            <h6>7 quick wins, ranked</h6>
+            <ul class="pdf-list">
+              <li>Add 9 photo categories (#1)</li>
+              <li>Auto-request reviews (#2)</li>
+              <li>Fix Westshore hours (#3)</li>
+              <li>Service tag: implants</li>
+              <li>Reply to 14 stale reviews</li>
+              <li>"Insurance accepted" CTA</li>
+              <li>Embed map in service pages</li>
+            </ul>
+            <span class="fnum">P. 14 / 24 · Quick wins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="5" aria-label="Chapter 5: Command Center">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">05</span>The handoff</div>
+        <h2>Lives in your Command Center <em>24/7.</em></h2>
+        <p class="caption">Pipeline. Agents at work. Deliverables shipped. MRR projection. Your AI team works while you sleep — one dashboard tells you exactly what they did.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="cc" aria-hidden="true">
+          <div class="cc-tile">
+            <div class="label">Pipeline</div>
+            <div class="num cc-counter" data-target="47">0</div>
+            <div class="sub">leads · last 24h</div>
+          </div>
+          <div class="cc-tile">
+            <div class="label">Drafts sent</div>
+            <div class="num cc-counter" data-target="38">0</div>
+            <div class="sub">avg 4.7s response</div>
+          </div>
+          <div class="cc-tile" style="grid-column:1/-1">
+            <div class="label">Agents at work</div>
+            <div class="cc-agents">
+              <div class="cc-agent"><span class="av"></span>Reception · drafting reply #39</div>
+              <div class="cc-agent"><span class="av"></span>Audit specialist · running GBP scan</div>
+              <div class="cc-agent"><span class="av"></span>Scheduler · confirming 3 kickoffs</div>
+            </div>
+          </div>
+          <div class="cc-tile full">
+            <div>
+              <div class="label">MRR projection</div>
+              <div class="cc-mrr cc-counter" data-target="42500" data-prefix="$">$0</div>
+            </div>
+            <div class="cc-line">
+              <div class="bar" style="height:30%"></div>
+              <div class="bar" style="height:45%"></div>
+              <div class="bar" style="height:52%"></div>
+              <div class="bar" style="height:48%"></div>
+              <div class="bar" style="height:62%"></div>
+              <div class="bar" style="height:70%"></div>
+              <div class="bar" style="height:78%"></div>
+              <div class="bar" style="height:92%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter final" data-ch="6" aria-label="Final CTA" style="background:linear-gradient(180deg,var(--cream-100) 0%,var(--cream-200) 100%)">
+    <div class="eyebrow"><span class="ord">06</span>That's the demo</div>
+    <h2>Want this <em>for your business?</em></h2>
+    <p class="lede">A 20-minute strategy call. We map your AI team's first three hires to your exact stack. No pitch deck — just where the work lives next.</p>
+    <div class="cta-row">
+      <a href="/audit-quiz" class="btn-gold" id="finalCta" data-magnetic>Book a strategy call <span aria-hidden="true">→</span></a>
+      <button class="btn-ghost" id="replay" type="button">Replay the demo</button>
+    </div>
+  </section>
+
+</main>
+
+<div class="chrome" role="navigation" aria-label="Demo navigation">
+  <button id="prev" aria-label="Previous chapter" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <span class="dotnav" id="dotnav" aria-hidden="true"></span>
+  <span class="count" id="counter">1 / 6</span>
+  <button id="next" aria-label="Next chapter" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
 </div>
-
-<div class="disclaimer"><strong>Runs in your browser.</strong> These demos don't call a server or leak data anywhere — they implement the same logic we ship to clients, simplified for a single page. Inspect the source if you want to verify.</div>
-
-<div class="panels">
-
-  <!-- DEMO 1: LEAD SCORING -->
-  <div class="panel" id="panel-score">
-    <p class="panel-intro">A <strong>specialist agent</strong> is one that does a single narrow job very well. This one scores a business based on multiple signals — the exact composite logic powering one of our outbound pipelines. The real version runs on live data; this one runs on inputs you type. Same logic, fully inspectable.</p>
-    <div class="panel-grid">
-      <div class="card">
-        <h3>Score a business</h3>
-        <label>Business name</label>
-        <input id="s-name" type="text" value="Aurora Dental Group" />
-        <div class="row">
-          <div>
-            <label>Industry</label>
-            <select id="s-industry">
-              <option value="dental">Dental (1.4×)</option>
-              <option value="hvac">HVAC (1.3×)</option>
-              <option value="plumbing">Plumbing (1.3×)</option>
-              <option value="medical">Medical (1.3×)</option>
-              <option value="law">Legal (1.3×)</option>
-              <option value="roofing">Roofing (1.2×)</option>
-              <option value="accounting">Accounting (1.2×)</option>
-              <option value="electrical">Electrical (1.2×)</option>
-              <option value="real_estate">Real Estate (1.1×)</option>
-              <option value="landscaping">Landscaping (1.0×)</option>
-            </select>
-          </div>
-          <div>
-            <label>Pain score (0–100)</label>
-            <input id="s-pain" type="number" min="0" max="100" value="75" />
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label>Google rating</label>
-            <input id="s-rating" type="number" min="0" max="5" step="0.1" value="4.3" />
-          </div>
-          <div>
-            <label>Review count</label>
-            <input id="s-reviews" type="number" min="0" value="87" />
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label>Has phone?</label>
-            <select id="s-phone"><option value="1">Yes</option><option value="0">No</option></select>
-          </div>
-          <div>
-            <label>Has email?</label>
-            <select id="s-email"><option value="1">Yes</option><option value="0">No</option></select>
-          </div>
-        </div>
-        <label>Website</label>
-        <input id="s-web" type="text" value="https://auroradental.com" />
-        <button class="run" onclick="scoreLead()">Score this lead →</button>
-      </div>
-
-      <div class="result" id="s-result">
-        <div class="result-label"><span>Composite Score</span><span class="status">READY</span></div>
-        <div class="empty">Fill in the form and click Score to see the breakdown.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DEMO 2: KNOWLEDGE AGENT (now default) -->
-  <div class="panel active" id="panel-chat">
-    <p class="panel-intro">A grounded agent, trained on <strong>Efficio's public services, pricing, and how we work</strong>. Ask it anything about what we do, how we engage, or what a build costs. Every answer cites its source. When it doesn't know, it says so.</p>
-    <div class="card" style="max-width:780px;margin:0 auto">
-      <h3>Ask the Efficio knowledge agent</h3>
-      <div class="chat-shell" id="chat-shell">
-        <div class="msg bot">Hi. I know Efficio's services, how we engage, and what our typical builds cost. Ask me anything — or try a sample question below.</div>
-      </div>
-      <div class="chat-input">
-        <input id="chat-input" type="text" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()" />
-        <button onclick="sendChat()">Send</button>
-      </div>
-      <div class="quick-qs">
-        <button class="quick-q" onclick="quickQ('What services do you offer?')">What do you build?</button>
-        <button class="quick-q" onclick="quickQ('What is an AI admin?')">AI admins?</button>
-        <button class="quick-q" onclick="quickQ('How do I track and deploy my agents?')">Deploy & track?</button>
-        <button class="quick-q" onclick="quickQ('How long does an agent take to ship?')">Timeline?</button>
-        <button class="quick-q" onclick="quickQ('Who owns the code?')">Code ownership?</button>
-        <button class="quick-q" onclick="quickQ('Can you cancel the retainer anytime?')">Retainer terms?</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- DEMO 3: AGENT OPS DASHBOARD -->
-  <div class="panel" id="panel-dash">
-    <p class="panel-intro">The <strong>Agent Ops Cockpit</strong> — how you deploy and track your AI workforce. This is the layer every Efficio build ships with. Filter by category, see live run counts, success rates, costs, and the status of every agent. In a client build, this pulls from your real deployed agents.</p>
-    <div class="card" style="padding:0;overflow:hidden">
-      <div style="padding:20px 28px;border-bottom:1px solid var(--bd3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div>
-          <div class="mono" style="color:var(--purple3);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600">Agent Operations · This Week</div>
-          <h3 style="color:var(--white);margin-top:4px">Your AI Workforce</h3>
-        </div>
-        <div>
-          <select id="d-filter" style="padding:8px 12px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r);color:var(--white);font-size:.88rem" onchange="renderDash()">
-            <option value="all">All agents</option>
-            <option value="customer">Customer-facing</option>
-            <option value="admin">AI Admins</option>
-            <option value="sales">Sales & growth</option>
-          </select>
-        </div>
-      </div>
-      <div style="padding:24px 28px" id="dash-body">
-        <!-- rendered by JS -->
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="cta">
-  <h3>Like what you just played with?</h3>
-  <p>These demos represent 1% of what we build. Your version is custom, pulls from your real data, and ships in weeks.</p>
-  <a href="/audit-quiz" class="btn">Book a 20-min call →</a>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="col-brand">
-      <a href="index.html" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-      <p>We are your AI team. Custom AI dashboards, agents, and automations for small and medium businesses — built to fit, owned by you.</p>
-    </div>
-    <div class="col-links">
-      <div><h5>Services</h5><a href="services.html#dashboards">Dashboards</a><a href="services.html#agents">AI Agents</a><a href="services.html#automations">Automation</a><a href="services.html#data">Data Pipelines</a></div>
-      <div><h5>Company</h5><a href="why-us.html">Why Us</a><a href="how-it-works.html">How It Works</a><a href="screenshots.html">Screenshots</a><a href="demo.html">Demo</a></div>
-      <div><h5>Get started</h5><a href="pricing.html">Pricing</a><a href="/audit-quiz">Book a Call</a><a href="onboarding.html">Onboarding</a><a href="terms.html">Terms</a></div>
-    </div>
-  </div>
-  <div class="legal">
-    <div>© 2026 Efficio. All rights reserved.</div>
-    <div>Miami, FL · contact@efficio.tech</div>
-  </div>
-</footer>
 
 <script>
-// Tab switching
-document.querySelectorAll('.tab-btn').forEach(b => {
-  b.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    document.getElementById('panel-' + b.dataset.tab).classList.add('active');
-    if (b.dataset.tab === 'dash') renderDash();
+(function(){
+  const scroller = document.getElementById('scroller');
+  const chapters = [...document.querySelectorAll('.chapter')];
+  const total = chapters.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const dotnav = document.getElementById('dotnav');
+
+  chapters.forEach((_,i)=>{
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to chapter ' + (i+1));
+    b.addEventListener('click', ()=>scrollTo(i));
+    dotnav.appendChild(b);
   });
-});
 
-// DEMO 1 — Lead scoring (mirrors smart_ranker.py composite_score)
-const INDUSTRY_MULT = {
-  hvac:1.3,plumbing:1.3,roofing:1.2,electrical:1.2,dental:1.4,
-  medical:1.3,law:1.3,auto_repair:1.1,construction:1.1,landscaping:1.0,
-  cleaning:1.0,accounting:1.2,real_estate:1.1,insurance:1.1
-};
-function scoreLead(){
-  const name = document.getElementById('s-name').value.trim() || 'Business';
-  const industry = document.getElementById('s-industry').value;
-  const pain_raw = +document.getElementById('s-pain').value || 0;
-  const rating = +document.getElementById('s-rating').value || 0;
-  const reviews = +document.getElementById('s-reviews').value || 0;
-  const hasPhone = +document.getElementById('s-phone').value;
-  const hasEmail = +document.getElementById('s-email').value;
-  const web = document.getElementById('s-web').value.trim().toLowerCase();
-
-  // Mirror composite_score() in smart_ranker.py
-  const pain = Math.min(pain_raw * 0.85, 90);
-  const reviewBonus = (reviews >= 10 && reviews <= 200) ? 10 : (reviews > 200 ? 5 : 0);
-  const ratingBonus = (rating >= 4.0 && rating <= 4.6) ? 10 : (rating > 4.6 ? 5 : 0);
-  const phoneB = hasPhone ? 5 : 0;
-  const emailB = hasEmail ? 8 : 0;
-  let webBonus = 0;
-  if (web && web.includes('http')) {
-    const bad = ['facebook.com','instagram.com','yelp.com','google.com'];
-    const good = ['.com','.co','.io','.net','.biz','.us'];
-    if (bad.some(b => web.includes(b))) webBonus = 0;
-    else if (good.some(g => web.includes(g))) webBonus = 6;
+  function activate(idx){
+    chapters.forEach((c,i)=>c.classList.toggle('is-visible', i===idx));
+    counter.textContent = (idx+1) + ' / ' + total;
+    progress.style.width = (((idx+1)/total)*100) + '%';
+    [...dotnav.children].forEach((d,i)=>d.classList.toggle('on', i===idx));
+    if(idx===2){ pulseChapter3(); }
+    if(idx===4){ animateCounters(); }
+    try{ gtag && gtag('event','demo_chapter_view',{chapter:idx+1}); }catch(e){}
   }
-  // Simple local detection — chain keywords
-  const chainKws = ['service experts','morgan & morgan','aspen dental','mr. rooter','roto-rooter','keller williams','remax','re/max','coldwell banker','home depot','one hour'];
-  const nameLower = name.toLowerCase();
-  const isChain = chainKws.some(k => nameLower.includes(k));
-  const localBonus = isChain ? 0 : 12;
-  const mult = INDUSTRY_MULT[industry] || 1.0;
-  const raw = pain + reviewBonus + ratingBonus + phoneB + emailB + webBonus + localBonus;
-  const final = Math.min(Math.round(raw * mult * 10) / 10, 150);
 
-  // Render
-  const r = document.getElementById('s-result');
-  let verdict = '';
-  if (final >= 110) verdict = `<strong>${name}</strong> is a top-tier lead — hot pain signal, clean local business, high-value industry. Ships in Day-1 batch.`;
-  else if (final >= 85) verdict = `<strong>${name}</strong> is a solid A-list lead. Would go out in the first week's queue. Expect 3–6% reply rate at this score.`;
-  else if (final >= 65) verdict = `<strong>${name}</strong> is a B-tier lead — worth sending, lower priority. Would sit in the second-week queue after A's are exhausted.`;
-  else verdict = `<strong>${name}</strong> scores below our outbound threshold. Either too low on pain, flagged as chain, or missing key signals. Would not be targeted.`;
+  function scrollTo(idx){
+    chapters[Math.max(0,Math.min(total-1,idx))].scrollIntoView({behavior:'smooth'});
+  }
 
-  r.innerHTML = `
-    <div class="result-label"><span>Composite Score</span><span class="status">${final >= 110 ? 'HOT' : final >= 85 ? 'A-TIER' : final >= 65 ? 'B-TIER' : 'SKIP'}</span></div>
-    <div class="score-display">
-      <div class="big">${final.toFixed(1)}</div>
-      <div class="sub">out of 150 max</div>
-    </div>
-    <div class="breakdown">
-      <div class="bk-row"><span class="k">Pain (damped ×0.85, cap 90)</span><span class="v">${pain.toFixed(1)}</span></div>
-      <div class="bk-row"><span class="k">Review activity bonus</span><span class="v">+${reviewBonus}</span></div>
-      <div class="bk-row"><span class="k">Rating sweet-spot bonus</span><span class="v">+${ratingBonus}</span></div>
-      <div class="bk-row"><span class="k">Has phone</span><span class="v">+${phoneB}</span></div>
-      <div class="bk-row"><span class="k">Has email</span><span class="v">+${emailB}</span></div>
-      <div class="bk-row"><span class="k">Website quality</span><span class="v">+${webBonus}</span></div>
-      <div class="bk-row"><span class="k">Local business (vs chain)</span><span class="v">+${localBonus}</span></div>
-      <div class="bk-row"><span class="k">Industry multiplier (${industry})</span><span class="v">×${mult}</span></div>
-      <div class="bk-row hot"><span class="k">FINAL SCORE</span><span class="v">${final.toFixed(1)}</span></div>
-    </div>
-    <div class="verdict">${verdict}</div>
-  `;
-}
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && e.intersectionRatio > 0.55){
+        const idx = chapters.indexOf(e.target);
+        activate(idx);
+      }
+    });
+  },{root:scroller,threshold:[0.55,0.75]});
+  chapters.forEach(c=>io.observe(c));
+  activate(0);
 
-// DEMO 2 — Knowledge agent (rule-based, grounded)
-const KB = [
-  {q:['what','services','do','offer','build'],a:'Three pillars: <strong>AI Agents</strong> (agents that do work — support, sales, research, data), <strong>AI Admins</strong> (back-office agents — billing, HR, inventory, ops triage), and <strong>Deploy & Track Dashboards</strong> (the cockpit that lets you see and control your AI workforce).',c:'source: Services · Overview'},
-  {q:['admin','admins','back office','back-office','internal','billing','hr','inventory'],a:'<strong>AI Admins</strong> are agents that handle internal, back-office work. Examples: billing reconciliation, AR chase, onboarding admin, expense sorter, inventory monitor, ops triage, policy watcher, Monday rollup. They\'re often our highest-ROI builds because they replace hours of repetitive internal work.',c:'source: Services · AI Admins'},
-  {q:['dashboard','cost','price','how much','pricing'],a:'Dashboard builds start at <strong>$2,500</strong> one-time. Complexity tiers up from there. Agent Ops dashboard is included free with any 3+ agent build.',c:'source: Services · Dashboards'},
-  {q:['agent','cost','price','how much'],a:'Agent or Admin builds start at <strong>$2,500 per agent</strong> one-time. Retainers available at $3,500–$7,500/mo for ongoing agent development.',c:'source: Services · AI Agents'},
-  {q:['timeline','how long','when','ship','shipping','week','fast'],a:'You get a working first cut <strong>by the end of week 1</strong>. Typical builds finish in 2–4 weeks total. We iterate with you on the working cut rather than building in isolation.',c:'source: How It Works · Stage 03'},
-  {q:['own','ownership','code','source'],a:'<strong>You own the code. Always.</strong> Full source, your repo, your infrastructure. If Efficio disappeared tomorrow, your systems would keep running.',c:'source: Why Us · Principle 02'},
-  {q:['retainer','cancel','commitment','month'],a:'Retainers are <strong>month-to-month, cancel anytime</strong> with 30 days notice. Three tiers: $2,500, $3,500, $7,500 per month.',c:'source: Pricing · Retainer Terms'},
-  {q:['model','claude','gpt','gemini','openai','anthropic','llama'],a:'We build on <strong>Claude (Anthropic), GPT (OpenAI), Gemini (Google), and local open-weight models (Llama, etc.)</strong>. Model is picked per agent based on cost, latency, privacy, and task fit. No vendor lock-in.',c:'source: Agents · Model-agnostic'},
-  {q:['deploy','track','monitor','dashboard','cockpit','observe'],a:'Every agent we ship comes with a <strong>deploy-and-track dashboard</strong> — the cockpit. Deploy new agents with one click, track every run and its cost, adjust prompts without redeploying, kill any agent in one click. An AI workforce you can\'t see is one you can\'t trust.',c:'source: Services · Deploy & Track Dashboards'},
-  {q:['integrate','stack','connect','hubspot','salesforce','stripe','shopify','airtable'],a:'We integrate with <strong>any REST API</strong>. Common integrations: HubSpot, Salesforce, Stripe, Shopify, QuickBooks, Airtable, Zendesk, Intercom, Postgres, Snowflake, Notion.',c:'source: Services · Dashboard Integrations'},
-  {q:['discovery','call','free','first','first step'],a:'First step is a <strong>free 20-minute discovery call</strong>. No pitch, no obligation. We ask what\'s slow or painful, what you\'ve tried, and what\'s in your stack. If we can\'t help, we tell you on the call.',c:'source: How It Works · Stage 01'},
-  {q:['who','brady','founder','operator','team'],a:'Efficio is run by <strong>Brady</strong>, an operator currently running four businesses on custom AI (Efficio, Career Copilots, BNGCENT, ApexTrader). Everything we build for clients is built on foundations we use on ourselves.',c:'source: Why Us · The Difference'},
-  {q:['location','where','miami','based','florida'],a:'Based in <strong>Miami, FL</strong>. Work is done async across US time zones — calls available 7am–9pm ET.',c:'source: How It Works · FAQ'},
-  {q:['hallucinat','wrong','ground','cite','source'],a:'Every agent has <strong>tool-grounded responses</strong> (cites the record it read from), human-in-the-loop for anything that writes, and a full audit log. If the grounding data doesn\'t have the answer, the agent says "I don\'t know" rather than guessing.',c:'source: Agents · Grounded, not hallucinated'},
-  {q:['kill','switch','stop','pause','emergency','rollback','revert'],a:'<strong>Kill switch on every agent.</strong> Pause one, pause all, roll back to the previous version — one click, no engineer required. Spend caps, rate limits, and an emergency stop come built in.',c:'source: Services · Dashboards · Kill'}
-];
-function sendChat(){
-  const input = document.getElementById('chat-input');
-  const q = input.value.trim();
-  if (!q) return;
-  const shell = document.getElementById('chat-shell');
-  shell.innerHTML += `<div class="msg user">${escapeHtml(q)}</div>`;
-  input.value='';
-  shell.scrollTop = shell.scrollHeight;
-  setTimeout(() => {
-    const ql = q.toLowerCase();
-    let best = null, bestScore = 0;
-    for (const entry of KB) {
-      const hits = entry.q.filter(k => ql.includes(k)).length;
-      if (hits > bestScore) { bestScore = hits; best = entry; }
-    }
-    let reply;
-    if (best && bestScore >= 1) {
-      reply = `<div class="msg bot">${best.a}<span class="cite">${best.c}</span></div>`;
-    } else {
-      reply = `<div class="msg bot">I don\'t have that in my grounding data. I\'d rather not guess — best to ask on a call, or check the <a href="services.html" style="color:var(--purple3);text-decoration:underline">Services</a> page.<span class="cite">source: none — declined to hallucinate</span></div>`;
-    }
-    shell.innerHTML += reply;
-    shell.scrollTop = shell.scrollHeight;
-  }, 400);
-}
-function quickQ(t){ document.getElementById('chat-input').value = t; sendChat(); }
-function escapeHtml(s){ return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  document.getElementById('prev').addEventListener('click', ()=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    scrollTo(Math.max(0, cur-1));
+  });
+  document.getElementById('next').addEventListener('click', ()=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    scrollTo(Math.min(total-1, cur+1));
+  });
 
-// DEMO 3 — Agent Ops dashboard with filter
-const ALL_AGENTS = [
-  { name:'Support Triage',       cat:'customer', runs:1247, success:94, cost:18.42, status:'running' },
-  { name:'Knowledge Chat',       cat:'customer', runs:892,  success:97, cost:12.05, status:'running' },
-  { name:'Billing Reconcile',    cat:'admin',    runs:342,  success:99, cost:4.10,  status:'running' },
-  { name:'AR Chase Admin',       cat:'admin',    runs:128,  success:96, cost:1.88,  status:'running' },
-  { name:'Onboarding Admin',     cat:'admin',    runs:14,   success:100,cost:0.42,  status:'idle' },
-  { name:'Monday Rollup',        cat:'admin',    runs:4,    success:100,cost:0.65,  status:'idle' },
-  { name:'Lead Qualifier',       cat:'sales',    runs:88,   success:88, cost:2.83,  status:'running' },
-  { name:'Follow-up Sequencer',  cat:'sales',    runs:42,   success:92, cost:1.04,  status:'running' },
-  { name:'Prospect Researcher',  cat:'sales',    runs:26,   success:69, cost:1.91,  status:'needs review' }
-];
-function renderDash(){
-  const filter = document.getElementById('d-filter').value;
-  const agents = filter === 'all' ? ALL_AGENTS : ALL_AGENTS.filter(a => a.cat === filter);
-  const body = document.getElementById('dash-body');
-  const totalRuns = agents.reduce((s,a)=>s+a.runs,0);
-  const avgSuccess = agents.length ? Math.round(agents.reduce((s,a)=>s+a.success*a.runs,0) / (totalRuns||1)) : 0;
-  const totalCost = agents.reduce((s,a)=>s+a.cost,0).toFixed(2);
-  const liveCount = agents.filter(a=>a.status==='running').length;
-  const rows = agents.map(a => `
-    <tr>
-      <td style="color:var(--white);font-weight:600">${a.name}</td>
-      <td class="mono" style="color:var(--w2)">${a.cat}</td>
-      <td class="mono" style="text-align:right">${a.runs.toLocaleString()}</td>
-      <td class="mono" style="text-align:right;color:${a.success>=95?'var(--green)':a.success>=85?'var(--amber)':'#ef4444'}">${a.success}%</td>
-      <td class="mono" style="text-align:right">$${a.cost.toFixed(2)}</td>
-      <td style="text-align:right"><span style="padding:2px 10px;border-radius:100px;background:${a.status==='running'?'rgba(16,185,129,.15)':a.status==='idle'?'rgba(100,116,139,.15)':'rgba(239,68,68,.15)'};color:${a.status==='running'?'var(--green)':a.status==='idle'?'var(--muted)':'#ef4444'};font-size:.68rem;font-weight:600;font-family:JetBrains Mono,monospace">${a.status}</span></td>
-    </tr>
-  `).join('');
-  body.innerHTML = `
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px">
-      <div style="padding:12px 14px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r)">
-        <div class="mono" style="color:var(--white);font-size:1.4rem;font-weight:800;line-height:1.1">${agents.length}</div>
-        <div style="color:var(--muted);font-size:.7rem;margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">Agents (${liveCount} running)</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r)">
-        <div class="mono" style="color:var(--white);font-size:1.4rem;font-weight:800;line-height:1.1">${totalRuns.toLocaleString()}</div>
-        <div style="color:var(--muted);font-size:.7rem;margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">Runs this week</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r)">
-        <div class="mono" style="color:var(--white);font-size:1.4rem;font-weight:800;line-height:1.1">${avgSuccess}%</div>
-        <div style="color:var(--muted);font-size:.7rem;margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">Weighted success</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--bg3);border:1px solid var(--bd3);border-radius:var(--r)">
-        <div class="mono" style="color:var(--white);font-size:1.4rem;font-weight:800;line-height:1.1">$${totalCost}</div>
-        <div style="color:var(--muted);font-size:.7rem;margin-top:2px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">Spend (this week)</div>
-      </div>
-    </div>
-    <div style="padding-top:12px;border-top:1px solid var(--bd3)">
-      <div class="mono" style="font-size:.72rem;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px">Agent activity · ${filter==='all'?'all categories':filter}</div>
-      <table style="width:100%;border-collapse:collapse;font-size:.78rem">
-        <thead>
-          <tr style="border-bottom:1px solid var(--bd3)">
-            <th style="text-align:left;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Agent</th>
-            <th style="text-align:left;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Category</th>
-            <th style="text-align:right;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Runs</th>
-            <th style="text-align:right;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Success</th>
-            <th style="text-align:right;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Cost</th>
-            <th style="text-align:right;color:var(--muted);padding:8px;font-family:JetBrains Mono,monospace;font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600">Status</th>
-          </tr>
-        </thead>
-        <tbody>${rows || '<tr><td colspan="6" style="padding:24px;text-align:center;color:var(--muted)">No agents in this category</td></tr>'}</tbody>
-      </table>
-    </div>
-  `;
-}
+  window.addEventListener('keydown', e=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    if(e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); scrollTo(cur+1); }
+    if(e.key === 'ArrowUp' || e.key === 'PageUp'){ e.preventDefault(); scrollTo(cur-1); }
+    if(e.key === 'Home'){ e.preventDefault(); scrollTo(0); }
+    if(e.key === 'End'){ e.preventDefault(); scrollTo(total-1); }
+  });
+
+  document.getElementById('replay').addEventListener('click', ()=>{
+    try{ gtag && gtag('event','demo_replay'); }catch(e){}
+    scrollTo(0);
+  });
+
+  let pulsed = false;
+  function pulseChapter3(){
+    if(pulsed) return; pulsed = true;
+    const slot = document.getElementById('ch3-slot');
+    if(!slot) return;
+    setTimeout(()=>slot.classList.add('pulse-on'), 700);
+  }
+
+  const timer = document.getElementById('timer-ch2');
+  if(timer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let v = 0;
+    let raf;
+    const tick = () => {
+      const visible = chapters[1].classList.contains('is-visible');
+      if(visible){
+        v = Math.min(4.7, v + 0.07);
+        timer.textContent = '⏱ ' + (v < 10 ? '0' : '') + v.toFixed(1) + 's';
+        if(v < 4.7) raf = requestAnimationFrame(tick);
+      } else {
+        v = 0;
+        timer.textContent = '⏱ 00.0s';
+        setTimeout(tick, 600);
+        return;
+      }
+    };
+    tick();
+  }
+
+  function animateCounters(){
+    document.querySelectorAll('.cc-counter').forEach(el=>{
+      if(el.dataset.played) return;
+      el.dataset.played = '1';
+      const target = parseInt(el.dataset.target, 10);
+      const prefix = el.dataset.prefix || '';
+      const start = performance.now();
+      const dur = 1200;
+      const step = (now)=>{
+        const t = Math.min(1, (now-start)/dur);
+        const eased = 1 - Math.pow(1-t, 3);
+        const val = Math.round(target * eased);
+        el.textContent = prefix + val.toLocaleString();
+        if(t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  const cta = document.getElementById('finalCta');
+  if(cta && !window.matchMedia('(pointer:coarse)').matches){
+    cta.addEventListener('mousemove', e=>{
+      const r = cta.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width/2)) * 0.15;
+      const y = (e.clientY - (r.top + r.height/2)) * 0.15;
+      cta.style.transform = `translate(${x}px,${y}px)`;
+    });
+    cta.addEventListener('mouseleave', ()=> cta.style.transform = '');
+  }
+  cta.addEventListener('click', e=>{
+    e.preventDefault();
+    try{ gtag && gtag('event','demo_final_cta_click'); }catch(e){}
+    document.getElementById('veil').classList.add('out');
+    setTimeout(()=>{ window.location.href = '/audit-quiz'; }, 750);
+  });
+})();
 </script>
 </body>
 </html>
-                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

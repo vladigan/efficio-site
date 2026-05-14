@@ -1,0 +1,9 @@
+{
+  "name": "efficio-functions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Netlify Functions for efficio.tech — Stripe webhook + quiz lead capture",
+  "dependencies": {
+    "@netlify/blobs": "^7.0.0"
+  }
+}

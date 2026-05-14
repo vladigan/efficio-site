@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<title>The process — contract to live in 7 days | Efficio</title>
+<meta name="description" content="What happens after you contract Efficio. Day 0 to Day 30. Discovery → strategy call → build → deploy → operate. Week-one ship promise."/>
+<link rel="canonical" href="https://efficio.tech/process.html"/>
+<meta property="og:title" content="The process | Efficio"/>
+<meta property="og:description" content="Contract to live AI agent in 7 days. Here's exactly how."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
+<style>
+.proc-shell{max-width:1100px;margin:0 auto;padding:0 28px}
+.timeline{position:relative;padding:28px 0;margin-top:24px}
+.timeline::before{content:"";position:absolute;left:30px;top:60px;bottom:60px;width:2px;
+  background:linear-gradient(180deg,var(--purple),var(--purple2),var(--bd2));border-radius:2px}
+.tline-item{display:grid;grid-template-columns:72px 1fr;gap:28px;align-items:start;
+  padding:18px 0 38px;position:relative}
+.tline-num{position:relative;z-index:2;width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--surf2),var(--bg2));
+  border:2px solid rgba(168,85,247,.45);color:var(--purple3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;
+  box-shadow:0 0 24px rgba(124,58,237,.18),inset 0 0 20px rgba(124,58,237,.10)}
+.tline-card{background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r2);padding:28px 30px;
+  transition:transform .35s var(--ease),border-color .3s,box-shadow .35s;position:relative}
+.tline-card:hover{border-color:var(--bd2);transform:translateY(-3px);
+  box-shadow:0 14px 36px rgba(0,0,0,.4),0 0 24px rgba(124,58,237,.14)}
+.tline-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.tline-when{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;
+  background:rgba(124,58,237,.10);border:1px solid var(--bd2);
+  font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--purple3)}
+.tline-side{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tline-card h3{font-size:1.35rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:10px}
+.tline-card h3 em{color:var(--purple3);font-style:italic}
+.tline-card p{font-size:14px;color:var(--text);line-height:1.65;margin-bottom:12px}
+.tline-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:14px}
+@media (max-width:680px){.tline-list{grid-template-columns:1fr}}
+.tline-list li{font-size:13px;color:var(--w2);padding-left:22px;position:relative;line-height:1.5}
+.tline-list li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:1.5px;background:var(--purple2);border-radius:1px}
+.promise-band{margin-top:48px;background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(7,16,31,.95));
+  border:1px solid rgba(168,85,247,.30);border-radius:var(--r3);padding:36px 38px;
+  display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+@media (max-width:760px){.promise-band{grid-template-columns:1fr;text-align:center}}
+.promise-band::before{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:180%;
+  background:radial-gradient(closest-side,rgba(124,58,237,.20),transparent);pointer-events:none}
+.promise-num{font-size:clamp(3.6rem,7vw,5.5rem);font-weight:800;line-height:.92;
+  background:linear-gradient(135deg,var(--purple2),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-.04em;position:relative}
+.promise-num span{font-size:1rem;color:var(--text);font-weight:500;letter-spacing:0;display:block;margin-top:6px}
+.promise-text{position:relative}
+.promise-text h3{font-size:1.5rem;color:var(--white);font-weight:800;margin-bottom:10px;letter-spacing:-.02em}
+.promise-text p{font-size:14.5px;color:var(--text);line-height:1.65}
+.promise-text b{color:var(--white)}
+@media (max-width:880px){.timeline::before{left:24px}.tline-item{grid-template-columns:60px 1fr;gap:18px}.tline-num{width:50px;height:50px;font-size:1.2rem}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a><a href="/agents.html">Agents</a><a href="/vsl.html">Watch</a>
+    <a href="/pricing.html">Pricing</a><a href="/qualify.html">Qualify</a><a href="/why-us.html">Why us</a>
+  </div>
+</div></nav>
+
+<section class="hero center">
+  <div class="hero-bg"></div><div class="hero-dots"></div>
+  <div class="hero-inner">
+    <span class="hero-pill rv"><span class="pill-dot"></span>The process · contract to live in 7 days</span>
+    <h1 class="rv d1">From <span class="grad-purple">handshake</span> to live AI agent in <span class="grad-purple">7 days</span>.</h1>
+    <p class="lede rv d2">No 90-day discovery decks. No 6-month implementations. You contract us, we agree on the metric in 15 minutes, we build the first workflow, and it goes live in your stack inside a week. If we miss day 7, the month is on us.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="proc-shell">
+    <div class="timeline">
+
+      <div class="tline-item rv">
+        <div class="tline-num">0</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 0 · 60 sec</span><span class="tline-side">You</span></div>
+          <h3>Take the <em>60-second audit</em>.</h3>
+          <p>Five questions. We score where your back-office is leaking time and surface the single workflow we'd ship first. No email required to see your score.</p>
+          <ul class="tline-list">
+            <li>5 questions about your operation</li>
+            <li>Instant score + tier match</li>
+            <li>Ranked list of workflows to automate first</li>
+            <li>Zero commitment to continue</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline-item rv d1">
+        <div class="tline-num">1</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 0 · 15 min</span><span class="tline-side">You + founder</span></div>
+          <h3>Strategy call with the engineer who'll build for you.</h3>
+          <p>Not a sales rep. Not a project manager. The engineer. We agree on the metric, scope the week-one deliverable, and confirm fit. No pitch deck. No homework before the call.</p>
+          <ul class="tline-list">
+            <li>15-min Zoom on Calendly</li>
+            <li>Agree on the metric we'll measure</li>
+            <li>Scope the week-one workflow</li>
+            <li>You decide if we move forward</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline-item rv d2">
+        <div class="tline-num">2</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 1 · same day</span><span class="tline-side">Us</span></div>
+          <h3>Contract signed, kickoff fires automatically.</h3>
+          <p>You sign the month-to-month service agreement. Stripe processes the first month. Welcome email + onboarding sequence fires within seconds. Your shared chat channel goes live. You meet your contracted AI team.</p>
+          <ul class="tline-list">
+            <li>Stripe checkout · month-to-month</li>
+            <li>Welcome email + h24/h48/h72 sequence queued</li>
+            <li>Shared Slack/Teams channel created</li>
+            <li>Customer brief drafted in our system</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline-item rv d3">
+        <div class="tline-num">3</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 1–5 · we ship</span><span class="tline-side">Us</span></div>
+          <h3>We engineer and integrate. <em>You operate.</em></h3>
+          <p>We design the agent, wire it into your stack, test against real inputs, and tune the behavior. You see progress in real time in the shared channel. You don't manage anything — you keep running your business.</p>
+          <ul class="tline-list">
+            <li>Agent architecture + prompt design</li>
+            <li>Integration with your CRM / scheduling / billing</li>
+            <li>Real-data test suite</li>
+            <li>Live progress in the shared channel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline-item rv d4">
+        <div class="tline-num">4</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 6–7 · live</span><span class="tline-side">Us · you watch</span></div>
+          <h3>The agent goes live in your stack.</h3>
+          <p>Cutover. The agent starts handling its workflow inside your operation. The live dashboard wires up. You see the first real numbers within hours. We monitor 24/7 from our end so you don't have to.</p>
+          <ul class="tline-list">
+            <li>Production cutover with monitoring</li>
+            <li>Dashboard live · refreshes every 5 min</li>
+            <li>First-hour metrics report</li>
+            <li>Telegram alert if anything fails</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tline-item rv d5">
+        <div class="tline-num">5</div>
+        <div class="tline-card">
+          <div class="tline-meta"><span class="tline-when">Day 8 onward · ongoing</span><span class="tline-side">Us · forever</span></div>
+          <h3>We operate. You compound.</h3>
+          <p>The agent runs. We tune it weekly based on real performance. Day 30 we measure the metric we agreed on Day 0 — if it didn't move, your month is refunded. If it did, we keep going. As your business grows, we add new agents on demand.</p>
+          <ul class="tline-list">
+            <li>Weekly performance tune</li>
+            <li>Monthly strategy call (or biweekly / weekly per tier)</li>
+            <li>Day-30 measurable-savings check (refund if missed)</li>
+            <li>New agents added as your ops evolve</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="promise-band rv">
+      <div class="promise-num">7<span>days · or it's free</span></div>
+      <div class="promise-text">
+        <h3>The week-one ship promise.</h3>
+        <p>If the first agent isn't live and measurable inside seven calendar days of the kickoff call, <b>your first month is refunded in full</b>. We're betting our income on the speed of our build. That's the deal — and the entire reason we contract instead of project-bill.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Ready to <span class="grad-purple">start the clock?</span></h2>
+    <p>Take the 60-second qualification quiz. If you fit, the calendar opens inline. From there it's 15 minutes to the strategy call and 7 days to a live agent.</p>
+    <a href="/qualify.html" class="btn-big">Start with the qualifier <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your contracted AI team — at your disposal. We learn the bleeding edge of AI every day, so you don't have to.</p>
+    </div>
+    <div class="foot-col"><h5>Product</h5><a href="/services.html">Services</a><a href="/agents.html">Agents</a><a href="/process.html">Process</a><a href="/pricing.html">Pricing</a></div>
+    <div class="foot-col"><h5>Company</h5><a href="/why-us.html">Why us</a><a href="/case-studies/">Case studies</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+<script src="/assets/transitions.js" defer></script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

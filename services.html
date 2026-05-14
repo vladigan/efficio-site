@@ -31,6 +31,40 @@
 .vert-badge{font-size:10px;font-weight:800;color:var(--purple3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
 .vert-card h4{font-size:1.15rem;color:var(--white);font-weight:700;margin-bottom:10px}
 .vert-card p{font-size:13.5px;color:var(--text);line-height:1.6}
+
+/* ── animated system-flow band — work moving through the AI system ── */
+.flow-band{padding:0 0 92px}
+.flow{display:flex;align-items:flex-start;justify-content:center;max-width:780px;margin:0 auto}
+.flow-node{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0;width:148px}
+.fn-dot{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--purple2);
+  background:var(--surf);margin-bottom:15px;display:flex;align-items:center;justify-content:center}
+.fn-dot::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--purple2);
+  box-shadow:0 0 0 0 rgba(155,108,246,.55);animation:fndot 2.6s ease-in-out infinite}
+.flow-node:nth-of-type(3) .fn-dot::before{animation-delay:.5s}
+.flow-node:nth-of-type(5) .fn-dot::before{animation-delay:1s}
+@keyframes fndot{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}70%{box-shadow:0 0 0 13px rgba(155,108,246,0)}100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
+.fn-label{font-size:14px;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.fn-sub{font-size:11.5px;color:var(--muted);margin-top:3px}
+.flow-link{flex:1;min-width:54px;height:56px;display:flex;align-items:center;position:relative}
+.flow-link::before{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:var(--bd2)}
+.flow-link .fp{position:absolute;top:50%;left:0;width:8px;height:8px;border-radius:50%;
+  background:var(--purple3);margin-top:-4px;box-shadow:0 0 10px var(--purple3);
+  animation:flowpulse 2.2s linear infinite}
+.flow > div:nth-child(4) .fp{animation-delay:1.1s}
+@keyframes flowpulse{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+.flow-cap{text-align:center;margin-top:30px;font-size:13.5px;color:var(--muted)}
+@media(max-width:680px){
+  .flow{flex-direction:column}
+  .flow-node{width:auto}
+  .flow-link{width:1.5px;min-width:0;height:38px;flex:none;align-self:center}
+  .flow-link::before{left:50%;right:auto;top:0;bottom:0;width:1.5px;height:auto}
+  .flow-link .fp{left:50%;top:0;margin-left:-4px;animation:flowpulseV 2.2s linear infinite}
+  @keyframes flowpulseV{0%{top:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:100%;opacity:0}}
+}
+@media(prefers-reduced-motion:reduce){
+  .fn-dot::before{animation:none}
+  .flow-link .fp{animation:none;left:46%;opacity:1}
+}
 </style>
 </head>
 <body>
@@ -58,6 +92,32 @@
       <a href="/audit-quiz.html" class="btn-primary">Take 60-sec audit <span class="btn-arrow">→</span></a>
       <a href="/book.html" class="btn-outline" target="_blank" rel="noopener">Book a strategy call</a>
     </div>
+  </div>
+</section>
+
+<!-- ANIMATED SYSTEM-FLOW BAND -->
+<section class="flow-band">
+  <div class="container">
+    <div class="flow rv">
+      <div class="flow-node">
+        <div class="fn-dot"></div>
+        <div class="fn-label">AI Agents</div>
+        <div class="fn-sub">run the work</div>
+      </div>
+      <div class="flow-link"><span class="fp"></span></div>
+      <div class="flow-node">
+        <div class="fn-dot"></div>
+        <div class="fn-label">AI Admins</div>
+        <div class="fn-sub">run the back-office</div>
+      </div>
+      <div class="flow-link"><span class="fp"></span></div>
+      <div class="flow-node">
+        <div class="fn-dot"></div>
+        <div class="fn-label">Dashboards</div>
+        <div class="fn-sub">show you all of it</div>
+      </div>
+    </div>
+    <p class="flow-cap rv d1">Work flows through your AI system — built, deployed, and running 24/7.</p>
   </div>
 </section>
 

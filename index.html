@@ -1341,10 +1341,12 @@ window.addEventListener('load', function() {
     list.insertBefore(row, list.firstChild);
     requestAnimationFrame(function() { row.classList.add('show'); });
 
+    // Trim excess rows SYNCHRONOUSLY — removing here (not in a deferred setTimeout)
+    // so the loop condition actually changes each iteration. The previous version
+    // deferred removal, so list.children.length never dropped and the while loop
+    // spun forever scheduling timers → out-of-memory crash.
     while (list.children.length > MAX_ROWS) {
-      const old = list.children[list.children.length - 1];
-      old.classList.remove('show');
-      setTimeout(function() { if (old.parentNode) old.parentNode.removeChild(old); }, 350);
+      list.removeChild(list.lastElementChild);
     }
 
     setTimeout(function() { row.classList.remove('fresh'); }, 4000);

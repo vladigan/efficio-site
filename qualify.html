@@ -97,6 +97,14 @@
 </head>
 <body>
 
+<!-- Static Netlify form declaration so the form is detected at build time
+     (the live form is rendered dynamically by JS in the "not fit" branch) -->
+<form name="qualify-unqualified" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field" />
+  <input type="text" name="reason" />
+  <input type="email" name="email" />
+</form>
+
 <nav class="nav" id="nav"><div class="nav-inner">
   <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
   <div class="nav-links">

@@ -1,188 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Real results from Efficio pilots — HVAC, real estate, and legal — plus the AI systems we built and operate ourselves." />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://efficio.tech/case-studies/" />
-<title>Results — HVAC, Real Estate, Legal | Efficio Case Studies</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<title>Real numbers, transparent receipts | Efficio Case Studies</title>
+<meta name="description" content="The actual numbers from Efficio's own dogfood stack plus the first customer case studies as they ship. Pre-customer on Efficio, not pre-receipts."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://efficio.tech/case-studies/"/>
+<meta property="og:title" content="Case Studies | Efficio"/>
+<meta property="og:description" content="Real numbers from the founder's own stack."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
 <style>
-:root{--navy:#050a16;--orange:#a855f7;--orange2:#c084fc;--cream:#0c1728;--ink:#2A2A2A;--muted:#7a7468;--rule:#e5dfd2}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.dogfood{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(7,16,31,.95));
+  border:1px solid rgba(168,85,247,.40);border-radius:var(--r3);padding:48px 44px;
+  box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 60px rgba(124,58,237,.20);
+  position:relative;overflow:hidden;margin-top:36px}
+.dogfood::before{content:"";position:absolute;inset:-1px;
+  background:linear-gradient(135deg,var(--purple),rgba(168,85,247,.3),var(--purple));
+  background-size:200% 200%;border-radius:var(--r3);z-index:-1;
+  animation:gradShift 5s ease infinite}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.dogfood-head{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.dogfood-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.30);
+  font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--good)}
+.dogfood-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
+.dogfood h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--white);
+  letter-spacing:-.025em;line-height:1.15;margin-bottom:12px}
+.dogfood h2 em{color:var(--purple3);font-style:italic}
+.dogfood-sub{font-size:1.02rem;color:var(--text);line-height:1.7;margin-bottom:32px;max-width:680px}
+.dogfood-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:32px}
+@media (max-width:760px){.dogfood-stats{grid-template-columns:repeat(2,1fr)}}
+.dogfood-stat{background:rgba(7,16,31,.6);border:1px solid var(--bd);border-radius:var(--r2);padding:20px 18px}
+.dogfood-stat-num{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--purple2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-.03em;margin-bottom:8px}
+.dogfood-stat-lbl{font-size:11.5px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em;line-height:1.4}
+.dogfood-quote{padding-left:18px;border-left:3px solid var(--purple);
+  font-size:.98rem;color:var(--w2);line-height:1.7;font-style:italic;margin-bottom:6px}
+.dogfood-quote::before{content:"\"";color:var(--purple3);font-size:1.4rem;line-height:1;margin-right:4px}
+.dogfood-cite{font-size:13px;color:var(--muted);margin-top:8px}
+.dogfood-cite strong{color:var(--purple3);font-weight:700}
 
-.nav{padding:24px 0;background:var(--navy);position:sticky;top:0;z-index:50}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}
-.logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem}
-.nav-links{display:flex;gap:6px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:all .2s}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
-.nav-cta{padding:10px 20px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;font-size:.85rem;font-weight:700;box-shadow:0 4px 12px rgba(212,165,116,.3)}
-.nav-cta:hover{transform:translateY(-1px)}
-@media(max-width:720px){.nav-links{display:none}}
+.coming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;perspective:1400px}
+@media (max-width:880px){.coming-grid{grid-template-columns:1fr}}
+.coming-card{background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r2);padding:28px 26px;
+  position:relative;overflow:hidden;transition:transform .55s var(--ease),border-color .3s,box-shadow .4s}
+.coming-card:hover{border-color:var(--bd2);transform:translateY(-4px);
+  box-shadow:0 18px 44px rgba(0,0,0,.4),0 0 28px rgba(124,58,237,.13)}
+.coming-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
+.coming-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--purple2);
+  box-shadow:0 0 0 4px rgba(168,85,247,.20);animation:pdot 1.6s ease-in-out infinite}
+.coming-card h3{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.015em}
+.coming-card p{font-size:13.5px;color:var(--text);line-height:1.6;margin-bottom:18px}
+.coming-progress{margin-top:auto;padding-top:14px;border-top:1px solid var(--bd3)}
+.coming-progress-bar{height:5px;border-radius:99px;background:rgba(11,23,54,.6);
+  position:relative;overflow:hidden}
+.coming-progress-fill{height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--purple),var(--purple2));
+  animation:progressFill 1.4s var(--ease) backwards}
+.coming-progress-fill::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  animation:shimmer 2.4s infinite}
+@keyframes progressFill{from{width:0!important}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.coming-progress-meta{display:flex;justify-content:space-between;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+  color:var(--muted);margin-top:10px}
+.coming-progress-meta strong{color:var(--purple3)}
 
-.hero{padding:80px 0 50px;background:var(--navy);color:#fff;text-align:center}
-.kicker{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
-.h1{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(2.4rem,5vw,4rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:18px}
-.h1 em{font-style:italic;color:var(--orange)}
-.lede{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto;line-height:1.65}
-
-section.s{padding:72px 0}
-.s-head{margin-bottom:36px;text-align:center}
-.s-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-.s-title{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--navy);letter-spacing:-.02em;margin-bottom:10px}
-.s-sub{font-size:.98rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.6}
-
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.tile{background:#fff;border:1px solid var(--rule);border-radius:18px;padding:32px 28px;position:relative;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
-.tile:hover{transform:translateY(-3px);border-color:rgba(212,165,116,.35);box-shadow:0 20px 50px rgba(0,0,0,.08)}
-.tile::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));opacity:.85}
-.tile-vert{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
-.tile-h{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.35rem;color:var(--navy);letter-spacing:-.015em;line-height:1.25;margin-bottom:10px}
-.tile-h em{font-style:italic;color:var(--orange)}
-.tile-p{font-size:.92rem;color:var(--ink);line-height:1.6;margin-bottom:20px;flex-grow:1}
-.tile-status{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule)}
-.tile-status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px rgba(212,165,116,.18);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(212,165,116,.08)}}
-
-.self{background:#fff;padding:72px 0}
-.self-intro{max-width:680px;margin:0 auto 40px;text-align:center}
-.self-intro p{color:var(--ink);font-size:1rem;line-height:1.7;margin-top:10px}
-.self-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:920px;margin:0 auto}
-.self-item{background:var(--cream);border:1px solid var(--rule);border-radius:14px;padding:24px 26px;transition:all .2s}
-.self-item:hover{transform:translateY(-2px);border-color:rgba(212,165,116,.35)}
-.self-item h3{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--navy);margin-bottom:8px;letter-spacing:-.01em}
-.self-item p{font-size:.9rem;color:var(--muted);line-height:1.55;margin-bottom:14px}
-.self-link{font-size:.85rem;font-weight:700;color:var(--orange)}
-.self-link:hover{color:var(--navy)}
-.self-link::after{content:" →"}
-@media(max-width:880px){.self-list{grid-template-columns:1fr}}
-
-.cta-strip{background:var(--navy);padding:72px 28px;text-align:center}
-.cta-h{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:clamp(1.7rem,3.2vw,2.4rem);color:#fff;letter-spacing:-.02em;margin-bottom:14px}
-.cta-h em{font-style:italic;color:var(--orange)}
-.cta-sub{color:rgba(255,255,255,.72);font-size:1rem;margin-bottom:28px}
-.cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:10px;font-weight:700;font-size:.95rem;transition:all .2s}
-.btn-orange{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;box-shadow:0 8px 24px rgba(212,165,116,.3)}
-.btn-orange:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,165,116,.4)}
-.btn-out{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
-.btn-out:hover{background:rgba(255,255,255,.08)}
-
-footer{padding:36px 0;text-align:center;font-size:.82rem;color:var(--muted);background:#fff;border-top:1px solid var(--rule)}
-
-@media(max-width:880px){.tiles{grid-template-columns:1fr;gap:18px}.hero{padding:56px 0 32px}.s{padding:48px 0}.cta-strip{padding:48px 24px}}
+.promise{margin-top:60px;background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r3);padding:44px 40px}
+.promise h3{font-size:1.6rem;font-weight:800;color:var(--white);margin-bottom:16px;letter-spacing:-.02em}
+.promise h3 em{color:var(--purple3);font-style:italic}
+.promise p{font-size:1rem;color:var(--text);line-height:1.7;margin-bottom:24px;max-width:680px}
+.promise-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+@media (max-width:680px){.promise-list{grid-template-columns:1fr}}
+.promise-li{display:flex;align-items:start;gap:12px;padding:14px 16px;
+  background:rgba(124,58,237,.06);border:1px solid var(--bd3);border-radius:var(--r)}
+.promise-li-icon{width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;
+  box-shadow:0 0 12px var(--glow2)}
+.promise-li-text{font-size:13.5px;color:var(--w2);line-height:1.5}
+.promise-li-text b{color:var(--white);font-weight:700}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo"><span class="logo-mark">E</span><span>Efficio</span></a>
-    <ul class="nav-links">
-      <li><a href="/services.html">Services</a></li>
-      <li><a href="/how-it-works.html">How It Works</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/case-studies/">Results</a></li>
-      <li><a href="/demo.html">Demo</a></li>
-    </ul>
-    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="nav-cta" target="_blank" rel="noopener">Book a Call</a>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/agents.html">Agents</a>
+    <a href="/vsl.html">Watch</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/qualify.html">Qualify</a>
+    <a href="/why-us.html">Why us</a>
   </div>
-</nav>
+</div></nav>
 
-<section class="hero">
-  <div class="container">
-    <span class="kicker">Results</span>
-    <h1 class="h1">Real systems, <em>real operators.</em></h1>
-    <p class="lede">First-pilot case studies for HVAC, real estate, and legal — coming as soon as Day 30 closes and the savings are measured. Below that: the AI systems we built and run for ourselves first.</p>
+<section class="hero center">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <span class="hero-pill rv"><span class="pill-dot"></span>Real numbers · Transparent receipts</span>
+    <h1 class="rv d1">Pre-customer on Efficio. <span class="grad-purple">Not pre-receipts.</span></h1>
+    <p class="lede rv d2">The first three customer case studies land Day 30. Until then, the only receipts we have are the ones from running our own stack on the same agents we sell. Here they are — actual numbers, actual files.</p>
   </div>
 </section>
 
-<section class="s" id="pilots">
+<section class="section">
   <div class="container">
-    <div class="s-head">
-      <div class="s-label">In flight</div>
-      <h2 class="s-title">First pilots — landing this quarter.</h2>
-      <p class="s-sub">We publish results when they're real. No mockups, no roleplay screenshots, no fabricated numbers.</p>
-    </div>
-    <div class="tiles">
-      <a class="tile" href="/case-studies/pilot_hvac_coming.html">
-        <div class="tile-vert">HVAC</div>
-        <h3 class="tile-h">First HVAC pilot —<br><em>coming this month.</em></h3>
-        <p class="tile-p">Dispatch handoff, quote turnaround, and after-hours response — measured before and after the AI stack ships. Verbatim quote + screenshot at Day 30.</p>
-        <span class="tile-status">In flight</span>
-      </a>
-      <a class="tile" href="/case-studies/pilot_realestate_coming.html">
-        <div class="tile-vert">Real Estate</div>
-        <h3 class="tile-h">First real estate pilot —<br><em>coming next.</em></h3>
-        <p class="tile-p">Lead-response time, listing-marketing turnaround, after-hours showings. The brokerage running the pilot will be named in the report.</p>
-        <span class="tile-status">In flight</span>
-      </a>
-      <a class="tile" href="/case-studies/pilot_legal_coming.html">
-        <div class="tile-vert">Legal</div>
-        <h3 class="tile-h">First legal pilot —<br><em>coming next.</em></h3>
-        <p class="tile-p">Intake response time, matter-open turnaround, conflict-check speed. Real practice, real metrics, full math shown.</p>
-        <span class="tile-status">In flight</span>
-      </a>
+    <div class="dogfood rv">
+      <div class="dogfood-head">
+        <span class="dogfood-badge">Live · founder's stack</span>
+      </div>
+      <h2>The dogfood case study: <em>3,289 applications sent</em> by my own bot.</h2>
+      <p class="dogfood-sub">I built Efficio for myself first. A job-application agent that sends LinkedIn applications on my behalf, 24/7, fully personalized by role and company. It runs while I sleep. The receipts are in <code style="font-family:ui-monospace,Menlo,monospace;font-size:.85em;color:var(--purple3)">applied_log.csv</code> — every send, every timestamp, every response.</p>
+
+      <div class="dogfood-stats">
+        <div class="dogfood-stat"><div class="dogfood-stat-num">3,289</div><div class="dogfood-stat-lbl">Applications sent by my own bot</div></div>
+        <div class="dogfood-stat"><div class="dogfood-stat-num">18,034</div><div class="dogfood-stat-lbl">Enriched leads in my outbound pipeline</div></div>
+        <div class="dogfood-stat"><div class="dogfood-stat-num">4</div><div class="dogfood-stat-lbl">Businesses I operate on this stack</div></div>
+        <div class="dogfood-stat"><div class="dogfood-stat-num">12</div><div class="dogfood-stat-lbl">Daemons running my back-office right now</div></div>
+      </div>
+
+      <blockquote class="dogfood-quote">If it doesn't work for me first, I don't sell it. The four businesses I run are stress-tested by one operator. If a workflow breaks at 2am, I know about it because I built the monitoring for it.</blockquote>
+      <div class="dogfood-cite">— Brady Gay · <strong>Founder, Efficio</strong> · Licensed civil PE · Solo operator</div>
     </div>
   </div>
 </section>
 
-<section class="self">
+<section class="section section-alt">
   <div class="container">
-    <div class="self-intro">
-      <div class="s-label">Self-operated</div>
-      <h2 class="s-title">What we built for ourselves first.</h2>
-      <p>Before we sell you an AI system, we run our own. These are the agents, pipelines, and dashboards operating inside Brady's portfolio today — the dogfood that informs every pilot.</p>
+    <div class="text-center">
+      <span class="s-label rv">Shipping now</span>
+      <h2 class="s-title rv d1">First three customer case studies — <em>landing Day 30</em>.</h2>
+      <p class="s-sub rv d2">We're building for three operators right now. The case studies publish the moment Day 30 closes and the metric we agreed on is measured — not before.</p>
     </div>
-    <div class="self-list">
-      <div class="self-item">
-        <h3>Career Copilots — LinkedIn application bot</h3>
-        <p>3,186 applications, 34% response rate. AI-personalized cover messages, fit-scoring scraper, idempotent ledger. Built and running daily.</p>
-        <a class="self-link" href="/case-studies/self-operated/01_career_copilots_linkedin_bot.html">Read the report</a>
+
+    <div class="coming-grid">
+      <div class="coming-card rv">
+        <div class="coming-tag">HVAC · contractor</div>
+        <h3>Dispatch handoff automation</h3>
+        <p>Operator was losing 8 minutes per dispatch to manual parts confirmation and customer notification. We deployed an AI Admin that handles both, end-to-end.</p>
+        <div class="coming-progress">
+          <div class="coming-progress-bar"><div class="coming-progress-fill" style="width:65%;animation-delay:.2s"></div></div>
+          <div class="coming-progress-meta"><span>Build phase</span><strong>Day 19 / 30</strong></div>
+        </div>
       </div>
-      <div class="self-item">
-        <h3>BNGCENT — DIBBS dropshipping pipeline</h3>
-        <p>U.S. government bid scraper + OEM enrichment + auto-quote engine. Real money pipeline against the DLA's solicitation feed.</p>
-        <a class="self-link" href="/case-studies/self-operated/02_bngcent_dibbs_pipeline.html">Read the report</a>
+
+      <div class="coming-card rv d1">
+        <div class="coming-tag">Dental · practice</div>
+        <h3>Recall workflow + no-show triage</h3>
+        <p>Practice leaking 6–12 patients/mo on overdue recalls. Recall Scheduler now works the 6/9/12-month list automatically. HIPAA-safe channels only.</p>
+        <div class="coming-progress">
+          <div class="coming-progress-bar"><div class="coming-progress-fill" style="width:42%;animation-delay:.35s"></div></div>
+          <div class="coming-progress-meta"><span>Build phase</span><strong>Day 12 / 30</strong></div>
+        </div>
       </div>
-      <div class="self-item">
-        <h3>Efficio — outbound engine</h3>
-        <p>Lead scraper, ranker, send queue, suppression guard, deliverability watchdog. The system that runs Efficio's own outbound today.</p>
-        <a class="self-link" href="/case-studies/self-operated/03_efficio_outbound_engine.html">Read the report</a>
+
+      <div class="coming-card rv d2">
+        <div class="coming-tag">Legal · solo</div>
+        <h3>After-hours intake + conflict check</h3>
+        <p>Solo law practice losing matters to after-hours calls. AI Receptionist now takes intake 24/7 with real-time conflict-check before booking.</p>
+        <div class="coming-progress">
+          <div class="coming-progress-bar"><div class="coming-progress-fill" style="width:28%;animation-delay:.5s"></div></div>
+          <div class="coming-progress-meta"><span>Build phase</span><strong>Day 8 / 30</strong></div>
+        </div>
       </div>
-      <div class="self-item">
-        <h3>Workforce-in-a-box</h3>
-        <p>The agent + admin + dashboard pattern that powers every Efficio pilot. The reusable architecture, end-to-end.</p>
-        <a class="self-link" href="/case-studies/self-operated/04_workforce_in_a_box.html">Read the report</a>
-      </div>
-      <div class="self-item">
-        <h3>ApexTrader — strategy guard</h3>
-        <p>Live-trading risk guard built from hand-curated strategy stats. Real money, real risk controls, real telemetry.</p>
-        <a class="self-link" href="/case-studies/self-operated/05_apextrader_strategy_guard.html">Read the report</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="promise rv">
+      <h3>Our case-study <em>promise</em>.</h3>
+      <p>Most agencies publish "case studies" that are recycled vendor logos and vague percentage improvements. Ours have one rule — every number is one a customer would sign their name under, measured against the metric we agreed on Day 0.</p>
+      <div class="promise-list">
+        <div class="promise-li">
+          <div class="promise-li-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="promise-li-text"><b>One metric, agreed Day 0.</b>Recovered hours, faster turnaround, fewer reschedules, dollarized savings.</div>
+        </div>
+        <div class="promise-li">
+          <div class="promise-li-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="promise-li-text"><b>Measured Day 30, not before.</b>If the metric hasn't moved, your first month is refunded in full.</div>
+        </div>
+        <div class="promise-li">
+          <div class="promise-li-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="promise-li-text"><b>Customer name, photo, verbatim quote.</b>No anonymous testimonials, no recycled stock logos.</div>
+        </div>
+        <div class="promise-li">
+          <div class="promise-li-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="promise-li-text"><b>Live screenshot of the operating dashboard.</b>What they actually see every morning.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="cta-strip">
-  <h2 class="cta-h">Want to be the <em>first published case study</em> in your vertical?</h2>
-  <p class="cta-sub">A Pilot ships in 72 hours. $997/mo, refund if no measurable savings by day 30.</p>
-  <div class="cta-row">
-    <a href="/audit-quiz.html" class="btn btn-orange">Take the 60-sec AI Audit</a>
-    <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn btn-out" target="_blank" rel="noopener">Book a strategy call</a>
+  <div class="container">
+    <h2>Want to be the <span class="grad-purple">next case study?</span></h2>
+    <p>15 minutes with the founder. We agree on the metric, scope the week-one workflow, and you decide if we ship. If your numbers land, you're the verified quote on this page in 30 days.</p>
+    <a href="/qualify.html" class="btn-big">See if you qualify <span class="btn-arrow">→</span></a>
   </div>
 </section>
 
-<footer>© Efficio — Done-for-you AI back office for HVAC, real estate, and legal.</footer>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
+    </div>
+    <div class="foot-col"><h5>Product</h5>
+      <a href="/services.html">Services</a><a href="/agents.html">Agents</a>
+      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
+    </div>
+    <div class="foot-col"><h5>Company</h5>
+      <a href="/why-us.html">Why us</a><a href="/case-studies/">Case studies</a>
+      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+    </div>
+    <div class="foot-col"><h5>Legal</h5>
+      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Analytics 4 — Replace G-62FVTS6S1Z with your Measurement ID from analytics.google.com -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
-  <meta name="description" content="Efficio is your contracted AI team — at your disposal. We learn the bleeding edge of AI every day, then engineer, deploy, and operate AI agents, AI admins, and live dashboards inside your business. From $997/mo. Month-to-month, 30-day refund." />
+  <meta name="description" content="Efficio is your contracted AI team. We build and run AI agents, automations, and a live dashboard inside your business — so you operate while we handle the AI. From $997/mo. Month-to-month, 30-day refund." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://efficio.tech/" />
-  <title>Your contracted AI team — at your disposal | Efficio</title>
+  <title>We're your AI team | Efficio</title>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://efficio.tech/" />
-  <meta property="og:title" content="We're Your AI Team | Efficio" />
-  <meta property="og:description" content="Your contracted AI team. At your disposal. We learn the bleeding edge of AI every day, so you don't have to. Free 15-min call — no pitch, no obligation." />
+  <meta property="og:title" content="We're your AI team | Efficio" />
+  <meta property="og:description" content="Your contracted AI team. We build and run the AI inside your business — and you watch it work on one live dashboard. From $997/mo." />
   <meta property="og:image" content="https://efficio.tech/og-image.png" />
   <meta property="og:site_name" content="Efficio" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="We're Your AI Team | Efficio" />
-  <meta name="twitter:description" content="Your contracted AI team — at your disposal. We learn the bleeding edge daily so you don't have to. From $997/mo. Month-to-month." />
+  <meta name="twitter:title" content="We're your AI team | Efficio" />
+  <meta name="twitter:description" content="Your contracted AI team. We build it, run it, and put it on one dashboard you can watch. From $997/mo." />
   <meta name="twitter:image" content="https://efficio.tech/og-image.png" />
   <script type="application/ld+json">
   {
@@ -28,10 +27,10 @@
     "alternateName":"Efficio AI",
     "url":"https://efficio.tech",
     "logo":"https://efficio.tech/og-image.png",
-    "description":"Managed AI service for small and medium service businesses. We build and operate AI agents, AI admins, and live operational dashboards. Embedded, not software-to-buy.",
-    "email":"contact@efficio.tech",
+    "description":"Managed AI service for small and medium businesses. We build and operate AI agents, automations, and live operational dashboards. Embedded, not software-to-buy.",
+    "email":"brady@efficio.tech",
     "areaServed":{"@type":"Country","name":"United States"},
-    "serviceType":["AI Specialist Deployment","Custom AI Agent Build","AI Admin / Back-Office Automation","Live Operational Dashboard","Reply Classification","Recall Scheduling","Intake Triage","Follow-up Sequencing"],
+    "serviceType":["AI Agent Build","Workflow Automation","AI Back-Office Automation","Live Operational Dashboard","Custom AI Products"],
     "priceRange":"$997-$3500/mo",
     "founder":{"@type":"Person","name":"Brady Gay","jobTitle":"Founder","alumniOf":"Civil Engineering (PE)"},
     "foundingDate":"2026",
@@ -51,1462 +50,416 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/theme.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
-
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%237c3aed'/><text x='50' y='73' font-size='58' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>">
 <style>
-:root{
-  --bg:#050a16;--bg2:#07101f;--bg3:#0c1728;
-  --surf:#0f1e33;--surf2:#132540;--surf3:#1a2f4f;
-  --purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;
-  --violet:#8b5cf6;--indigo:#6366f1;--pink:#ec4899;
-  --white:#f8fafc;--w2:#e2e8f0;--text:#94a3b8;--muted:#64748b;--dim:#1e293b;
-  --bd:rgba(124,58,237,.18);--bd2:rgba(168,85,247,.28);--bd3:rgba(168,85,247,.12);
-  --glow:rgba(124,58,237,.38);--glow2:rgba(168,85,247,.2);
-  --r:8px;--r2:14px;--r3:24px;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none}
+/* ── page-specific · bold & confident ── */
+.hero-home{padding:190px 0 90px}
+.hero-eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--purple2)}
+.hero-home h1{font-size:clamp(3rem,8vw,6.6rem);font-weight:900;line-height:.94;
+  letter-spacing:-.05em;color:var(--white);margin-bottom:28px;max-width:14ch}
+.hero-home h1 .ac{color:var(--purple2)}
+.hero-home .lede{font-size:1.18rem;line-height:1.55;color:var(--text);max-width:540px;margin-bottom:34px}
+.hero-home .lede b{color:var(--w2);font-weight:600}
+.hero-ctas-l{display:flex;gap:12px;flex-wrap:wrap}
+.proof-strip{margin-top:54px;padding-top:26px;border-top:1px solid var(--bd);
+  display:flex;gap:44px;flex-wrap:wrap}
+.proof-strip div{font-size:.86rem;color:var(--muted);line-height:1.5}
+.proof-strip div b{display:block;color:var(--white);font-size:1.05rem;font-weight:800;
+  letter-spacing:-.02em;margin-bottom:2px}
 
-/* PROGRESS */
-#prog{position:fixed;top:0;left:0;height:3px;z-index:200;width:0%;
-  background:linear-gradient(90deg,var(--purple),var(--purple2),var(--pink));
-  box-shadow:0 0 12px var(--glow2);transition:width .1s linear}
+/* big editorial statement */
+.statement{padding:120px 0;border-bottom:1px solid var(--bd3)}
+.statement p{font-size:clamp(1.6rem,3.4vw,2.8rem);font-weight:800;line-height:1.18;
+  letter-spacing:-.035em;color:var(--w2);max-width:18ch}
+.statement p .mut{color:var(--muted)}
+.statement .sig{margin-top:30px;font-size:.92rem;color:var(--muted)}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:all .3s}
-.nav.scrolled{background:rgba(5,10,22,.92);backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:14px 0}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;
-  display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:34px;height:34px;border-radius:var(--r);
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;font-weight:800;color:#fff;
-  box-shadow:0 0 24px var(--glow),0 0 48px var(--glow2)}
-.logo-text{font-size:17px;font-weight:800;color:var(--white);letter-spacing:-.02em}
-.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
-.nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;
-  color:var(--text);transition:all .2s}
-.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
-.btn-nav{padding:10px 22px;border-radius:var(--r);font-size:14px;font-weight:700;
-  background:var(--purple);color:#fff;border:1px solid rgba(168,85,247,.4);
-  box-shadow:0 0 20px var(--glow2);transition:all .2s}
-.btn-nav:hover{background:var(--purple2);transform:translateY(-1px);
-  box-shadow:0 0 36px var(--glow),0 8px 24px rgba(124,58,237,.25)}
-.ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
-.ham span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
-#mn{position:fixed;top:0;right:0;bottom:0;width:260px;background:var(--bg2);
-  border-left:1px solid var(--bd);z-index:300;padding:72px 20px 32px;
-  transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;gap:4px}
-#mn.open{transform:translateX(0)}
-#mn a{padding:12px 16px;border-radius:var(--r);font-size:15px;font-weight:500;
-  color:var(--text);transition:all .2s;display:block}
-#mn a:hover{color:var(--white);background:rgba(255,255,255,.05)}
-#mn .btn-nav{margin-top:16px;text-align:center;display:block}
-#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;backdrop-filter:blur(4px)}
-#ov.open{display:block}
+/* dashboard showcase */
+.dash-frame{margin-top:50px;border:1px solid var(--bd2);border-radius:var(--r2);
+  background:var(--surf);overflow:hidden}
+.dash-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;
+  background:var(--bg2);border-bottom:1px solid var(--bd)}
+.dash-bar .d{width:9px;height:9px;border-radius:50%}
+.dash-bar .t{margin-left:10px;font-size:12px;font-weight:600;color:var(--text)}
+.dash-bar .l{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--purple3)}
+.dash-body{padding:22px}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+@media(max-width:680px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
+.dk{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
+.dk .lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.dk .num{font-size:1.8rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1}
+.dk .sub{font-size:11px;color:var(--purple3);margin-top:6px}
+.dash-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:680px){.dash-cols{grid-template-columns:1fr}}
+.dash-p{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
+.dash-p h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.dash-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--bd3);font-size:12.5px}
+.dash-row:last-child{border-bottom:0;padding-bottom:0}
+.dash-row:first-child{padding-top:0}
+.dash-row .st{width:7px;height:7px;border-radius:50%;background:var(--good);flex-shrink:0}
+.dash-row .st.b{background:var(--purple2)}
+.dash-row .nm{color:var(--w2);font-weight:600}
+.dash-row .mt{margin-left:auto;color:var(--muted);font-size:11.5px}
+.dash-feed div{display:flex;gap:9px;font-size:11.5px;color:var(--text);line-height:1.5;
+  padding:6px 0;border-bottom:1px solid var(--bd3)}
+.dash-feed div:last-child{border-bottom:0;padding-bottom:0}
+.dash-feed div:first-child{padding-top:0}
+.dash-feed time{color:var(--purple3);font-weight:700;flex-shrink:0}
 
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 100px}
-.hero-bg{position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 75% 50%,rgba(124,58,237,.13),transparent),
-             radial-gradient(ellipse 50% 80% at 15% 40%,rgba(99,102,241,.09),transparent)}
-.hero-dots{position:absolute;inset:0;
-  background-image:radial-gradient(rgba(168,85,247,.14) 1px,transparent 1px);
-  background-size:32px 32px;
-  mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,#000 25%,transparent 100%)}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
-  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
-  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:28px}
-.pill-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
-@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.hero-h1{font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;line-height:1.06;
-  letter-spacing:-.04em;color:var(--white);margin-bottom:24px}
-.grad-purple{background:linear-gradient(95deg,var(--purple2),var(--purple3),var(--pink));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:1.08rem;color:var(--text);line-height:1.78;margin-bottom:40px;max-width:460px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;
-  border-radius:var(--r2);font-size:15px;font-weight:700;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
-  border:1px solid rgba(168,85,247,.4);
-  box-shadow:0 0 40px var(--glow),0 8px 32px rgba(124,58,237,.25);transition:all .25s}
-.btn-primary:hover{transform:translateY(-2px);
-  box-shadow:0 0 60px var(--glow),0 12px 40px rgba(124,58,237,.35)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;
-  border-radius:var(--r2);font-size:15px;font-weight:600;
-  border:1px solid var(--bd);color:var(--text);transition:all .25s}
-.btn-outline:hover{background:rgba(124,58,237,.08);color:var(--white);border-color:var(--bd2)}
-.hero-trust{display:flex;align-items:center;flex-wrap:wrap}
-.ti{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);padding:0 18px}
-.ti:first-child{padding-left:0}
-.ti-sep{width:1px;height:14px;background:var(--dim)}
-.ti svg{color:var(--purple3);flex-shrink:0}
+/* numbered steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden}
+@media(max-width:780px){.steps{grid-template-columns:1fr}}
+.step{padding:34px 30px;border-right:1px solid var(--bd)}
+.step:last-child{border-right:0}
+@media(max-width:780px){.step{border-right:0;border-bottom:1px solid var(--bd)}.step:last-child{border-bottom:0}}
+.step .n{font-size:.78rem;font-weight:900;color:var(--purple2);letter-spacing:.05em;margin-bottom:18px}
+.step h3{font-size:1.3rem;font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:9px}
+.step p{font-size:13.5px;color:var(--text);line-height:1.6}
+.step .when{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-/* ORBITAL */
-.hero-right{display:flex;justify-content:center;align-items:center}
-.orbital{position:relative;width:480px;height:480px;display:flex;justify-content:center;align-items:center}
-.orbital::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(124,58,237,.22),transparent 70%);
-  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-/* 3D canvas overlay — sits above CSS orbital, transparent if Three.js fails */
-.hero-3d-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;opacity:0;transition:opacity .6s ease}
-.hero-3d-canvas.ready{opacity:1}
+/* what-we-do columns */
+.do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.do-grid{grid-template-columns:1fr}}
+.do{border:1px solid var(--bd);border-radius:var(--r2);padding:28px 26px;background:var(--surf);transition:border-color .15s}
+.do:hover{border-color:var(--bd2)}
+.do h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
+.do p{font-size:13.5px;color:var(--text);line-height:1.6;margin-bottom:14px}
+.do ul{list-style:none}
+.do li{font-size:12.5px;color:var(--muted);line-height:1.5;padding-left:15px;position:relative;margin-bottom:5px}
+.do li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--purple2)}
 
-/* LIVE ACTIVITY FEED — bottom-left widget on hero, shows agents firing in real time */
-.live-feed{position:fixed;left:24px;bottom:24px;z-index:80;
-  width:340px;max-width:calc(100vw - 48px);
-  background:linear-gradient(180deg,rgba(15,30,51,.92),rgba(7,16,31,.92));
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border:1px solid rgba(168,85,247,.22);border-radius:14px;
-  box-shadow:0 18px 48px rgba(0,0,0,.55),0 0 24px rgba(124,58,237,.18);
-  opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;
-  pointer-events:auto}
-.live-feed.in{opacity:1;transform:translateY(0)}
-.live-feed-head{display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-bottom:1px solid rgba(168,85,247,.14)}
-.live-feed-title{display:flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#c084fc}
-.live-feed-title::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 0 4px rgba(74,222,128,.22);animation:pdot 1.6s ease-in-out infinite}
-.live-feed-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:18px;
-  cursor:pointer;line-height:1;padding:0;width:22px;height:22px;
-  display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all .2s}
-.live-feed-close:hover{color:#fff;background:rgba(255,255,255,.08)}
-.live-feed-list{padding:8px 0;max-height:240px;overflow:hidden}
-.live-feed-row{display:flex;align-items:start;gap:10px;padding:9px 16px;
-  font-size:12px;line-height:1.45;color:#cbd5e1;
-  opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease;
-  border-left:2px solid transparent}
-.live-feed-row.show{opacity:1;transform:translateY(0)}
-.live-feed-row.fresh{border-left-color:#c084fc;background:rgba(124,58,237,.08)}
-.live-feed-icon{flex-shrink:0;width:22px;height:22px;border-radius:6px;
-  background:linear-gradient(135deg,#7c3aed,#a855f7);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:10px;font-weight:800}
-.live-feed-text{flex:1;min-width:0}
-.live-feed-text strong{color:#fff;font-weight:600}
-.live-feed-time{font-size:10px;color:#64748b;margin-top:2px;letter-spacing:.04em}
-@media (max-width:760px){.live-feed{left:8px;right:8px;bottom:84px;width:auto}}
-@media (max-width:540px){.live-feed{display:none}} /* hide on tiny screens — sticky CTA is the priority */
-/* When 3D is active, fade the CSS orbital rings to act as a subtle backdrop */
-.has-3d .orbit-ring{opacity:.35;transition:opacity .8s ease}
-.has-3d .ring-spin{opacity:.6;transition:opacity .8s ease}
-.has-3d .orbit-core{opacity:0;transition:opacity .6s ease}
-.orbit-core{position:absolute;z-index:10;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:78px;height:78px;border-radius:50%;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  box-shadow:0 0 0 10px rgba(124,58,237,.14),0 0 0 20px rgba(124,58,237,.07),
-             0 0 0 34px rgba(124,58,237,.03),0 0 60px var(--glow);
-  animation:cpulse 3s ease-in-out infinite}
-@keyframes cpulse{
-  0%,100%{box-shadow:0 0 0 10px rgba(124,58,237,.14),0 0 0 20px rgba(124,58,237,.07),0 0 0 34px rgba(124,58,237,.03),0 0 60px rgba(124,58,237,.38)}
-  50%{box-shadow:0 0 0 12px rgba(124,58,237,.2),0 0 0 26px rgba(124,58,237,.1),0 0 0 44px rgba(124,58,237,.05),0 0 80px rgba(124,58,237,.5)}}
-.core-ai{font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:.04em;line-height:1}
-.core-sub{font-size:.48rem;font-weight:600;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase}
-.orbit-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
-.orbit-ring.r1{width:162px;height:162px;border:1px solid rgba(124,58,237,.32)}
-.orbit-ring.r2{width:246px;height:246px;border:1px solid rgba(124,58,237,.22)}
-.orbit-ring.r3{width:334px;height:334px;border:1px solid rgba(124,58,237,.15)}
-.orbit-ring.r4{width:422px;height:422px;border:1px solid rgba(124,58,237,.09)}
-.ring-spin{position:absolute;top:50%;left:50%;border-radius:50%}
-.ring-spin.s1{width:162px;height:162px;animation:ocw 9s linear infinite;animation-delay:-2s}
-.ring-spin.s2{width:246px;height:246px;animation:occw 14s linear infinite;animation-delay:-5s}
-.ring-spin.s3{width:334px;height:334px;animation:ocw 20s linear infinite;animation-delay:-9s}
-.ring-spin.s4{width:422px;height:422px;animation:occw 28s linear infinite;animation-delay:-14s}
-@keyframes ocw{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes occw{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
-.orbit-node{position:absolute;top:-16px;left:50%;transform:translateX(-50%)}
-.node-chip{display:flex;align-items:center;gap:7px;padding:6px 13px;border-radius:100px;
-  background:var(--surf2);border:1px solid var(--bd2);white-space:nowrap;
-  box-shadow:0 0 20px rgba(124,58,237,.22),0 4px 14px rgba(0,0,0,.45)}
-.s1 .node-chip{animation:ccw9 9s linear infinite}
-.s2 .node-chip{animation:cw14 14s linear infinite}
-.s3 .node-chip{animation:ccw20 20s linear infinite}
-.s4 .node-chip{animation:cw28 28s linear infinite}
-@keyframes ccw9{to{transform:rotate(-360deg)}}
-@keyframes cw14{to{transform:rotate(360deg)}}
-@keyframes ccw20{to{transform:rotate(-360deg)}}
-@keyframes cw28{to{transform:rotate(360deg)}}
-.node-icon{font-size:13px}
-.node-lbl{font-size:.72rem;font-weight:700;color:var(--white);letter-spacing:.02em}
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+@media(max-width:880px){.price-grid{grid-template-columns:1fr}}
+.tier{border:1px solid var(--bd);border-radius:var(--r2);padding:32px 28px;background:var(--surf)}
+.tier.feat{border-color:var(--purple);background:var(--surf2)}
+.tier .tag{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
+.tier .name{font-size:1.35rem;font-weight:900;color:var(--white);letter-spacing:-.03em;margin-bottom:6px}
+.tier .price{font-size:2.6rem;font-weight:900;color:var(--white);letter-spacing:-.05em;line-height:1;margin-bottom:4px}
+.tier .price span{font-size:.95rem;font-weight:600;color:var(--muted);letter-spacing:0}
+.tier .blurb{font-size:13px;color:var(--text);line-height:1.55;margin:14px 0 18px;min-height:42px}
+.tier ul{list-style:none;margin-bottom:24px}
+.tier li{font-size:13px;color:var(--w2);line-height:1.5;padding:7px 0 7px 20px;position:relative;border-bottom:1px solid var(--bd3)}
+.tier li:last-child{border-bottom:0}
+.tier li::before{content:"+";position:absolute;left:0;top:7px;color:var(--purple2);font-weight:800}
+.tier .btn-price{display:block;text-align:center;padding:14px;border-radius:var(--r);
+  font-size:14px;font-weight:700;transition:background .15s,color .15s,border-color .15s}
+.tier .btn-price.sol{background:var(--purple);color:#fff;border:1px solid var(--purple)}
+.tier .btn-price.sol:hover{background:var(--purple2);border-color:var(--purple2)}
+.tier .btn-price.out{border:1px solid var(--bd2);color:var(--w2)}
+.tier .btn-price.out:hover{border-color:var(--white);color:var(--white)}
+.price-note{text-align:center;margin-top:24px;font-size:13px;color:var(--muted)}
+.price-note a{color:var(--purple3);font-weight:600}
 
-/* STATS BAR */
-.stats-bar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  background:rgba(7,16,31,.75);padding:48px 0}
-.stats-inner{max-width:1200px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:repeat(4,1fr)}
-.stat-block{text-align:center;padding:12px 20px;border-right:1px solid var(--bd)}
-.stat-block:last-child{border-right:none}
-.stat-num{font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;line-height:1;
-  background:linear-gradient(135deg,var(--purple2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:8px;letter-spacing:-.035em}
-.stat-lbl{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.stat-note{font-size:.69rem;color:var(--dim);margin-top:4px}
+/* faq */
+.faq{max-width:760px;margin:0 auto;border-top:1px solid var(--bd)}
+.faq-item{border-bottom:1px solid var(--bd)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:24px 0;text-align:left;font-size:1.05rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.faq-q .pm{color:var(--purple2);font-size:1.4rem;font-weight:400;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s var(--ease)}
+.faq-a p{font-size:14px;color:var(--text);line-height:1.65;padding-bottom:24px;max-width:62ch}
+.faq-item.open .faq-a{max-height:240px}
 
-/* TICKER */
-.ticker{overflow:hidden;padding:15px 0;background:rgba(5,8,18,.7);
-  border-bottom:1px solid var(--bd);position:relative}
-.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;
-  z-index:2;pointer-events:none}
-.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
-.ticker::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
-.tick-track{display:flex;width:max-content;animation:ticker 44s linear infinite}
-@keyframes ticker{to{transform:translateX(-50%)}}
-.tick-item{display:flex;align-items:center;gap:8px;padding:0 28px;
-  font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--muted);white-space:nowrap}
-.tick-item svg{color:var(--purple3);opacity:.8;flex-shrink:0}
-.tick-dot{width:4px;height:4px;border-radius:50%;background:var(--dim);flex-shrink:0}
-
-/* SECTIONS */
-.section{padding:110px 0}
-.section-alt{background:rgba(7,14,26,.55)}
-.container{max-width:1200px;margin:0 auto;padding:0 32px}
-.s-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;
-  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
-  font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:18px}
-.s-title{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800;letter-spacing:-.04em;
-  color:var(--white);line-height:1.14;margin-bottom:16px}
-.s-sub{font-size:1rem;color:var(--text);line-height:1.75;max-width:580px;margin-bottom:56px}
-.text-center{text-align:center}
-.text-center .s-sub{margin-left:auto;margin-right:auto}
-html.js .rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-html.js .rv.vis{opacity:1;transform:translateY(0)}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
-.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}.rv.d6{transition-delay:.6s}
-
-/* PAIN POINTS */
-.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
-  background:var(--bd);border-radius:var(--r2);overflow:hidden}
-.pain-card{background:var(--surf);padding:36px 30px;position:relative;transition:background .25s;overflow:hidden}
-.pain-card:hover{background:var(--surf2)}
-.pain-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--purple2),transparent);
-  opacity:0;transition:opacity .3s}
-.pain-card:hover::after{opacity:1}
-.pain-emoji{font-size:2rem;margin-bottom:16px;display:block}
-.pain-h{font-size:1.02rem;font-weight:700;color:var(--white);margin-bottom:8px;
-  letter-spacing:-.025em;line-height:1.3}
-.pain-p{font-size:.88rem;color:var(--text);line-height:1.62}
-
-/* PROCESS */
-.process-track{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-.process-track::before{content:'';position:absolute;top:52px;
-  left:calc(16.67% + 24px);right:calc(16.67% + 24px);height:1px;
-  background:linear-gradient(90deg,var(--purple),var(--purple2),var(--purple));opacity:.35}
-.process-step{padding:0 36px;text-align:center}
-.step-num{width:64px;height:64px;border-radius:50%;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.25rem;font-weight:800;color:#fff;margin:0 auto 30px;
-  box-shadow:0 0 0 10px rgba(124,58,237,.1),0 0 40px var(--glow2);
-  position:relative;z-index:1}
-.step-ring{position:absolute;inset:-13px;border-radius:50%;
-  border:1px dashed rgba(168,85,247,.38);animation:sring 14s linear infinite}
-@keyframes sring{to{transform:rotate(360deg)}}
-.step-h{font-size:1.18rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.025em}
-.step-p{font-size:.9rem;color:var(--text);line-height:1.65}
-
-/* FEATURE CARDS */
-.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.feat-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:36px 30px;position:relative;overflow:hidden;transition:all .25s}
-.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--purple2),transparent);
-  opacity:0;transition:opacity .3s}
-.feat-card:hover{background:var(--surf2);border-color:var(--bd2);
-  transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.35),0 0 40px rgba(124,58,237,.1)}
-.feat-card:hover::before{opacity:1}
-.feat-icon{width:48px;height:48px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;margin-bottom:20px;
-  background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.22)}
-.feat-h{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.025em}
-.feat-p{font-size:.88rem;color:var(--text);line-height:1.65}
-
-/* PRICING */
-.pricing-toggle-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:48px}
-.tog-lbl{font-size:.9rem;font-weight:600;color:var(--text);transition:color .2s}
-.tog-lbl.active{color:var(--white)}
-.tog-sw{width:52px;height:28px;border-radius:100px;background:var(--surf2);
-  border:1px solid var(--bd);position:relative;cursor:pointer;transition:all .3s}
-.tog-sw.on{background:var(--purple);border-color:var(--purple2)}
-.tog-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;
-  background:#fff;transition:transform .3s;box-shadow:0 2px 6px rgba(0,0,0,.3)}
-.tog-sw.on .tog-knob{transform:translateX(24px)}
-.save-badge{padding:3px 10px;border-radius:100px;background:rgba(74,222,128,.1);
-  border:1px solid rgba(74,222,128,.25);font-size:.68rem;font-weight:700;
-  color:#4ade80;letter-spacing:.06em;text-transform:uppercase}
-.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:860px;margin:0 auto}
-.price-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r3);
-  padding:40px 36px;position:relative;transition:all .25s}
-.price-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.3)}
-.price-card.pop{background:linear-gradient(180deg,rgba(124,58,237,.13),rgba(7,16,31,.7));
-  border-color:var(--bd2);box-shadow:0 0 0 1px var(--bd2),0 0 60px rgba(124,58,237,.12)}
-.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  padding:4px 16px;border-radius:100px;
-  background:linear-gradient(90deg,var(--purple),var(--purple2));
-  font-size:.68rem;font-weight:700;color:#fff;letter-spacing:.08em;text-transform:uppercase;
-  box-shadow:0 0 20px var(--glow);white-space:nowrap}
-.price-tier{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:10px}
-.price-name{font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.03em}
-.price-desc{font-size:.85rem;color:var(--text);line-height:1.55;margin-bottom:28px;min-height:50px}
-.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
-.price-curr{font-size:1.2rem;font-weight:700;color:var(--text);margin-top:6px}
-.price-num{font-size:3rem;font-weight:800;line-height:1;color:var(--white);letter-spacing:-.04em}
-.price-per{font-size:.85rem;color:var(--muted)}
-.price-setup{font-size:.75rem;color:var(--muted);margin-bottom:28px;min-height:18px}
-.price-div{height:1px;background:var(--bd);margin-bottom:24px}
-.price-feats{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
-.pfi{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--text)}
-.pfi-check{color:var(--purple3);flex-shrink:0;margin-top:1px;font-size:14px;font-weight:700}
-.pfi.off{opacity:.38}
-.btn-price{display:block;width:100%;padding:14px;border-radius:var(--r);
-  font-size:15px;font-weight:700;text-align:center;transition:all .25s}
-.btn-price.out{border:1px solid var(--bd2);color:var(--text)}
-.btn-price.out:hover{background:rgba(124,58,237,.09);color:var(--white)}
-.btn-price.sol{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
-  border:1px solid rgba(168,85,247,.4);box-shadow:0 0 28px var(--glow2)}
-.btn-price.sol:hover{box-shadow:0 0 50px var(--glow),0 8px 24px rgba(124,58,237,.25);transform:translateY(-1px)}
-
-/* FAQ */
-.faq-list{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
-.faq-item{border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;transition:border-color .2s}
-.faq-item.open{border-color:var(--bd2)}
-.faq-q{width:100%;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;
-  gap:16px;text-align:left;font-size:.97rem;font-weight:600;color:var(--white);
-  background:var(--surf);cursor:pointer;transition:background .2s}
-.faq-q:hover{background:var(--surf2)}
-.faq-item.open .faq-q{background:rgba(124,58,237,.07)}
-.faq-chevron{width:20px;height:20px;flex-shrink:0;color:var(--purple3);transition:transform .3s}
-.faq-item.open .faq-chevron{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;background:var(--surf)}
-.faq-item.open .faq-a{max-height:300px}
-.faq-a-inner{padding:0 28px 22px;font-size:.9rem;color:var(--text);line-height:1.7}
-
-/* CTA SECTION */
-#cta{position:relative;overflow:hidden;padding:130px 0;
-  background:linear-gradient(135deg,rgba(124,58,237,.13),rgba(99,102,241,.08),rgba(236,72,153,.06))}
-#cta::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 65% 85% at 50% 50%,rgba(124,58,237,.2),transparent);pointer-events:none}
-.cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 32px;text-align:center}
-.cta-h{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);
-  letter-spacing:-.04em;line-height:1.14;margin-bottom:20px}
-.cta-sub{font-size:1.05rem;color:var(--text);line-height:1.72;margin-bottom:40px}
-.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-.btn-cta{display:inline-flex;align-items:center;gap:10px;padding:17px 36px;
-  border-radius:var(--r2);font-size:16px;font-weight:700;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;
-  border:1px solid rgba(168,85,247,.4);
-  box-shadow:0 0 60px var(--glow),0 12px 40px rgba(124,58,237,.3);transition:all .25s}
-.btn-cta:hover{transform:translateY(-3px);
-  box-shadow:0 0 80px var(--glow),0 16px 50px rgba(124,58,237,.4)}
-.cta-note{font-size:.8rem;color:var(--muted);margin-top:20px}
-
-/* FOOTER */
-footer{border-top:1px solid var(--bd);background:var(--bg2);padding:64px 0 40px}
-.footer-inner{max-width:1200px;margin:0 auto;padding:0 32px}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.footer-desc{font-size:.88rem;color:var(--text);line-height:1.7;margin-top:14px;
-  margin-bottom:20px;max-width:300px}
-.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:16px}
-.footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:.88rem;color:var(--text);transition:color .2s}
-.footer-links a:hover{color:var(--white)}
-.footer-div{height:1px;background:var(--bd);margin-bottom:28px}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:.82rem;color:var(--muted)}
-.footer-legal{display:flex;gap:24px}
-.footer-legal a{font-size:.82rem;color:var(--muted);transition:color .2s}
-.footer-legal a:hover{color:var(--text)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:60px}
-  .orbital{width:380px;height:380px}
-  .orbit-ring.r4,.ring-spin.s4{width:340px;height:340px}
-  .orbit-ring.r3,.ring-spin.s3{width:260px;height:260px}
-  .orbit-ring.r2,.ring-spin.s2{width:195px;height:195px}
-  .orbit-ring.r1,.ring-spin.s1{width:138px;height:138px}
-  .feat-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  .nav-links,.btn-nav{display:none}
-  .ham{display:flex}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .stat-block:nth-child(2){border-right:none}
-  .stat-block:nth-child(3){border-top:1px solid var(--bd)}
-  .stat-block:nth-child(4){border-top:1px solid var(--bd)}
-  .pain-grid{grid-template-columns:1fr}
-  .process-track{grid-template-columns:1fr;gap:48px}
-  .process-track::before{display:none}
-  .feat-grid{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .orbital{width:320px;height:320px}
-  .orbit-ring.r4,.ring-spin.s4{display:none}
-  .orbit-ring.r3,.ring-spin.s3{width:280px;height:280px}
-  .orbit-ring.r2,.ring-spin.s2{width:205px;height:205px}
-  .orbit-ring.r1,.ring-spin.s1{width:138px;height:138px}
-  .hero-right{display:none}
-  .hero-inner{grid-template-columns:1fr}
-}
-
-
-/* ======= ENHANCED ORBITAL ======= */
-.orbit-core{animation:cpulse2 2.5s ease-in-out infinite!important}
-@keyframes cpulse2{
-  0%,100%{box-shadow:0 0 0 8px rgba(124,58,237,.2),0 0 0 20px rgba(124,58,237,.1),0 0 0 36px rgba(124,58,237,.05),0 0 80px rgba(124,58,237,.5),0 0 140px rgba(124,58,237,.2)}
-  50%{box-shadow:0 0 0 14px rgba(124,58,237,.28),0 0 0 30px rgba(124,58,237,.15),0 0 0 52px rgba(124,58,237,.08),0 0 110px rgba(124,58,237,.65),0 0 200px rgba(124,58,237,.3)}}
-.ring-spin.s1{animation:ocw 12s linear infinite;animation-delay:-2s}
-.ring-spin.s2{animation:occw 18s linear infinite;animation-delay:-5s}
-.ring-spin.s3{animation:ocw 26s linear infinite;animation-delay:-9s}
-.ring-spin.s4{animation:occw 36s linear infinite;animation-delay:-14s}
-
-/* ======= PARALLAX ======= */
-.hero-bg,.hero-dots{will-change:transform}
-
-/* ─── PLATFORM PREVIEW ─── */
-.eff-frame{max-width:880px;margin:0 auto;background:rgba(5,10,22,.95);border:1px solid var(--bd2);border-radius:var(--r3);overflow:hidden;box-shadow:0 0 80px var(--glow),0 0 140px var(--glow2),0 32px 80px rgba(0,0,0,.5)}
-.eff-titlebar{display:flex;align-items:center;gap:10px;padding:13px 18px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--bd)}
-.eff-dots{display:flex;gap:6px}
-.eff-dot-r{width:10px;height:10px;border-radius:50%;background:#FF5F57}
-.eff-dot-y{width:10px;height:10px;border-radius:50%;background:#FEBC2E}
-.eff-dot-g{width:10px;height:10px;border-radius:50%;background:#28C840}
-.eff-url{flex:1;margin:0 14px;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:5px;padding:5px 12px;font-size:.65rem;color:var(--muted);font-family:monospace}
-.eff-live{display:flex;align-items:center;gap:6px;font-size:.65rem;font-weight:700;color:#4ade80;letter-spacing:.08em;text-transform:uppercase}
-.eff-live-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:effPulse 1.5s ease infinite}
-@keyframes effPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.eff-body{padding:24px}
-.eff-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
-.eff-stat{background:rgba(255,255,255,.03);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 16px;text-align:center}
-.eff-stat-val{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,var(--purple2),var(--purple3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
-.eff-stat-lbl{font-size:.67rem;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-.eff-pipeline{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:24px;flex-wrap:wrap;row-gap:8px}
-.eff-pipe-step{padding:8px 16px;border-radius:var(--r);font-size:.72rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--bd);text-align:center}
-.eff-pipe-step.eff-pipe-active{color:var(--purple3);border-color:var(--bd2);background:rgba(124,58,237,.08)}
-.eff-pipe-step.eff-pipe-won{color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.08)}
-.eff-pipe-count{display:block;font-size:.6rem;font-weight:400;color:var(--muted);margin-top:2px;font-family:monospace}
-.eff-pipe-arrow{width:20px;height:1px;background:var(--bd);flex-shrink:0}
-.eff-feed-label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.eff-feed-label::after{content:'';flex:1;height:1px;background:var(--bd)}
-.eff-feed{display:flex;flex-direction:column;gap:6px}
-.eff-feed-row{display:flex;align-items:center;gap:12px;padding:11px 14px;background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:var(--r);transition:all .3s}
-.eff-feed-row:hover{background:rgba(124,58,237,.06);border-color:var(--bd2)}
-.eff-feed-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.eff-fdot-sent{background:var(--purple2);box-shadow:0 0 6px var(--glow2)}
-.eff-fdot-reply{background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.5)}
-.eff-feed-action{font-size:.72rem;font-weight:700;color:var(--w2);min-width:50px}
-.eff-feed-detail{font-size:.75rem;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.eff-feed-time{font-size:.65rem;color:var(--muted);flex-shrink:0}
-.eff-caption{text-align:center;font-size:.92rem;color:var(--muted);margin-top:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
-@media(max-width:768px){
-  .eff-stats-row{grid-template-columns:1fr}
-  .eff-pipeline{flex-direction:column;align-items:stretch}
-  .eff-pipe-arrow{width:1px;height:12px;margin:0 auto}
-  .eff-feed-row{flex-wrap:wrap;gap:6px}
-  .eff-feed-detail{min-width:100%;order:3}
-  .eff-feed-time{order:2;margin-left:auto}
-}
-
+/* section header — left aligned, bold */
+.sh{margin-bottom:48px;max-width:640px}
+.sh.center{margin-left:auto;margin-right:auto;text-align:center}
 </style>
 </head>
 <body>
 
-<div id="prog"></div>
-
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <div class="logo-mark">E</div>
-      <span class="logo-text">Efficio</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="services.html">Services</a></li>
-      <li><a href="agents.html">Dashboard</a></li>
-      <li><a href="vsl.html">Watch</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="qualify.html">Qualify</a></li>
-      <li><a href="why-us.html">Why Us</a></li>
-    </ul>
-    <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
-    <button class="ham" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/agents.html">Dashboard</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/why-us.html">Why us</a>
+    <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
   </div>
-</nav>
-
-<div id="ov" onclick="closeMobile()"></div>
-<div id="mn">
-  <a href="/services.html" onclick="closeMobile()">Services</a>
-  <a href="/agents.html" onclick="closeMobile()">Dashboard</a>
-  <a href="/pricing.html" onclick="closeMobile()">Pricing</a>
-  <a href="/why-us.html" onclick="closeMobile()">Why Us</a>
-  <a href="/qualify.html" onclick="closeMobile()">Qualify</a>
-  <a href="/vsl.html" onclick="closeMobile()">Watch</a>
-  <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a Call</a>
-</div>
+</div></nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-dots"></div>
-  <div class="hero-inner container">
-
-    <!-- Left copy -->
-    <div>
-      <div class="hero-pill rv vis">
-        <span class="pill-dot"></span>
-        Your contracted AI team · at your disposal
-      </div>
-      <h1 class="hero-h1 rv vis">
-        We learn the<br>
-        <span class="grad-purple">bleeding edge of AI</span><br>
-        every day — so you don't have to.
-      </h1>
-      <p class="hero-sub rv vis">
-        Efficio is your contracted AI team. We engineer, deploy, and operate AI agents, AI admins, and live dashboards inside your business — built on whatever's working in AI this month. You don't read papers. You don't pick tools. You don't manage anything. You operate. We handle the AI.
-      </p>
-      <div class="hero-ctas rv vis">
-        <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book Your Free 15-Min Call →
-        </a>
-      </div>
-      <!-- Price anchor under CTA -->
-      <div class="hero-anchor rv vis" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-24px 0 28px;font-size:.85rem;color:var(--w2);font-weight:500">
-        <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;background:rgba(124,58,237,.14);border:1px solid var(--bd2);color:var(--purple3);font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase">From $997/mo</span>
-        <span style="color:var(--muted)">Month-to-month · cancel anytime · 30-day refund</span>
-      </div>
-      <p class="rv vis" style="font-size:.85rem;color:var(--muted);margin:-20px 0 22px;max-width:460px;line-height:1.55">
-        No pitch. No obligation. Just a specific look at what an AI agent, admin, or dashboard could do for your operation.
-      </p>
-      <div class="hero-trust rv vis">
-        <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          No pitch. No obligation.
-        </div>
-        <div class="ti-sep"></div>
-        <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Live in 72 hours
-        </div>
-        <div class="ti-sep"></div>
-        <div class="ti">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          U.S.-based team
-        </div>
-      </div>
+<header class="hero hero-home">
+  <div class="hero-inner">
+    <div class="hero-eyebrow rv">Your contracted AI team</div>
+    <h1 class="rv d1">We're your <span class="ac">AI team.</span></h1>
+    <p class="lede rv d2">You don't have time to learn AI tools, hire a developer, or figure out what's worth building. <b>So we do all of it.</b> We engineer, deploy, and run the AI inside your business — agents, automations, custom tools — and put it all on one dashboard you can actually watch.</p>
+    <div class="hero-ctas-l rv d3">
+      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a 15-min call <span class="btn-arrow">&rarr;</span></a>
+      <a href="/audit-quiz.html" class="btn-outline">Take the 60-second audit</a>
     </div>
-
-    <!-- ORBITAL DIAGRAM (CSS fallback) + 3D OVERLAY (Three.js, progressive) -->
-    <div class="hero-right">
-      <div class="orbital">
-        <canvas id="hero3d" class="hero-3d-canvas" aria-hidden="true"></canvas>
-        <!-- Rings (visual) -->
-        <div class="orbit-ring r1"></div>
-        <div class="orbit-ring r2"></div>
-        <div class="orbit-ring r3"></div>
-        <div class="orbit-ring r4"></div>
-
-        <!-- Rotating spinners + nodes -->
-        <div class="ring-spin s1">
-          <div class="orbit-node">
-            <div class="node-chip">
-              <span class="node-icon">🗄️</span>
-              <span class="node-lbl">CRM</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="ring-spin s2">
-          <div class="orbit-node">
-            <div class="node-chip">
-              <span class="node-icon">📤</span>
-              <span class="node-lbl">Outreach</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="ring-spin s3">
-          <div class="orbit-node">
-            <div class="node-chip">
-              <span class="node-icon">📄</span>
-              <span class="node-lbl">Proposals</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="ring-spin s4">
-          <div class="orbit-node">
-            <div class="node-chip">
-              <span class="node-icon">📊</span>
-              <span class="node-lbl">Analytics</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI Core -->
-        <div class="orbit-core">
-          <span class="core-ai">AI</span>
-          <span class="core-sub">Core</span>
-        </div>
-      </div>
+    <div class="proof-strip rv d4">
+      <div><b>From $997/mo</b>Month-to-month. Cancel anytime.</div>
+      <div><b>Live in 7 days</b>First build in your stack, week one.</div>
+      <div><b>30-day refund</b>If we don't ship measurable lift.</div>
+      <div><b>Founder-led</b>You work with the person who builds it.</div>
     </div>
+  </div>
+</header>
 
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="container">
+    <p class="rv">Small businesses can't afford a CTO and can't keep up with AI. <span class="mut">You tell us what's eating your time and money. We build and run the AI that fixes it. You don't lift a finger.</span></p>
+    <div class="sig rv d1">— Brady Gay, founder &amp; head of your AI team</div>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-block rv vis">
-      <div class="stat-num" data-target="18386" data-suffix="+" data-sep><!--STAT:total_leads-->18,386<!--/STAT--></div>
-      <div class="stat-lbl">Leads Analyzed</div>
-      <div class="stat-note">Nationwide, verified</div>
-    </div>
-    <div class="stat-block rv vis">
-      <div class="stat-num" data-target="188" data-suffix="" data-sep><!--STAT:emails_sent-->188<!--/STAT--></div>
-      <div class="stat-lbl">Emails Sent</div>
-      <div class="stat-note">Personalized outreach</div>
-    </div>
-    <div class="stat-block rv vis">
-      <div class="stat-num"><!--STAT:reply_rate-->0%<!--/STAT--></div>
-      <div class="stat-lbl">Reply Rate</div>
-      <div class="stat-note">Across all campaigns</div>
-    </div>
-    <div class="stat-block rv vis">
-      <div class="stat-num">24/7</div>
-      <div class="stat-lbl">Always On</div>
-      <div class="stat-note">No sick days. No vacations.</div>
-    </div>
-  </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="tick-track" id="tickTrack">
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Support Triage Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>Knowledge Chat Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>Billing Reconciliation Admin</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>AR Chase Admin</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Inventory Monitor</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Quote & Estimate Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Data Question Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Onboarding Admin</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Concierge Reply Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Lead Qualifier Agent</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>Policy Watcher Admin</div>
-    <div class="tick-dot"></div>
-    <div class="tick-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Monday Rollup Admin</div>
-    <div class="tick-dot"></div>
-  </div>
-</div>
-
-<!-- PAIN POINTS -->
-<section class="section section-alt" id="pain">
+<!-- DASHBOARD SHOWCASE -->
+<section class="section section-alt" id="see-platform">
   <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">Pain Points</div>
-      <h2 class="s-title rv vis">Sound Familiar?</h2>
-      <p class="s-sub rv vis">You didn't start a business to do data entry. But here you are.</p>
+    <div class="sh rv">
+      <div class="s-label">The difference</div>
+      <h2 class="s-title">Not a black box. <em>A window into the work.</em></h2>
+      <p class="s-sub">Most agencies hand you an invoice and a shrug. We hand you a live dashboard — every agent we've built, every hour it's saved, every lead it caught, what's shipping next. The work is the service. The visibility is what makes it ours.</p>
     </div>
-    <div class="pain-grid">
-      <div class="pain-card rv vis d1">
-        <span class="pain-emoji">📞</span>
-        <div class="pain-h">Still answering your own phones?</div>
-        <p class="pain-p">Every incoming call is an interruption. Scheduling, rescheduling, voicemails — time you'll never get back.</p>
+    <div class="dash-frame rv d1">
+      <div class="dash-bar">
+        <span class="d" style="background:#ff5f57"></span>
+        <span class="d" style="background:#febc2e"></span>
+        <span class="d" style="background:#28c840"></span>
+        <span class="t">Your Efficio command center</span>
+        <span class="l">Live</span>
       </div>
-      <div class="pain-card rv vis d2">
-        <span class="pain-emoji">📋</span>
-        <div class="pain-h">Writing quotes manually — again?</div>
-        <p class="pain-p">Copy-pasting line items. Redoing last week's work. Hoping you didn't miss something. Then waiting days for a response.</p>
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <div class="dk"><div class="lbl">Hours saved · this month</div><div class="num">142</div><div class="sub">+18% vs last month</div></div>
+          <div class="dk"><div class="lbl">Leads caught</div><div class="num">386</div><div class="sub">0 missed inbounds</div></div>
+          <div class="dk"><div class="lbl">Replies triaged</div><div class="num">1,204</div><div class="sub">hot leads first</div></div>
+          <div class="dk"><div class="lbl">Active builds</div><div class="num">2</div><div class="sub">1 ships this week</div></div>
+        </div>
+        <div class="dash-cols">
+          <div class="dash-p">
+            <h4>Your AI team — working now</h4>
+            <div class="dash-row"><span class="st"></span><span class="nm">Front desk</span><span class="mt">24 handled today</span></div>
+            <div class="dash-row"><span class="st"></span><span class="nm">Sales engine</span><span class="mt">11 leads · 3 quoted</span></div>
+            <div class="dash-row"><span class="st"></span><span class="nm">Scheduling</span><span class="mt">9 booked today</span></div>
+            <div class="dash-row"><span class="st"></span><span class="nm">Inbox &amp; comms</span><span class="mt">63 triaged today</span></div>
+            <div class="dash-row"><span class="st b"></span><span class="nm">Custom quote tool</span><span class="mt">in progress</span></div>
+          </div>
+          <div class="dash-p">
+            <h4>Activity feed</h4>
+            <div class="dash-feed">
+              <div><time>2:47</time><span>Front desk booked a Thursday 10am from a missed call</span></div>
+              <div><time>2:31</time><span>Sales engine sent an itemized quote — opened twice</span></div>
+              <div><time>1:58</time><span>Inbox flagged a hot lead, pushed to top of queue</span></div>
+              <div><time>1:12</time><span>Scheduling confirmed 3 jobs — no back-and-forth</span></div>
+              <div><time>11:40</time><span>Recall re-booked 2 customers overdue since spring</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="pain-card rv vis d3">
-        <span class="pain-emoji">🧊</span>
-        <div class="pain-h">Leads going cold while you're busy?</div>
-        <p class="pain-p">You had a great call. Then life happened. Two weeks passed. They went with someone who followed up first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="sh rv">
+      <div class="s-label">What we build</div>
+      <h2 class="s-title">Whatever your business needs — <em>we build it.</em></h2>
+      <p class="s-sub">We're not a catalog of pre-made bots. We're a one-stop shop — agents, automations, dev, ops, engineering — custom-built into your stack. Three areas we build most:</p>
+    </div>
+    <div class="do-grid">
+      <div class="do rv">
+        <h3>Agents that run the work</h3>
+        <p>Front desk, sales, scheduling, inbox — each one owns a workflow end-to-end, 24/7.</p>
+        <ul>
+          <li>Never miss an inbound call, text, or form</li>
+          <li>Every lead worked, quoted, followed up</li>
+          <li>Books and confirms without the back-and-forth</li>
+        </ul>
       </div>
-      <div class="pain-card rv vis d4">
-        <span class="pain-emoji">📬</span>
-        <div class="pain-h">Drowning in follow-up emails?</div>
-        <p class="pain-p">Clients need reminders. Prospects need nurturing. You need a clone. Instead you have a growing inbox and creeping guilt.</p>
+      <div class="do rv d1">
+        <h3>Custom AI products</h3>
+        <p>If it can be built, we build it — internal tools, customer apps, document AI, integrations.</p>
+        <ul>
+          <li>Built to your spec, in your stack</li>
+          <li>Data pipelines, scrapers, lookups</li>
+          <li>Connects to whatever you already run</li>
+        </ul>
+      </div>
+      <div class="do rv d2">
+        <h3>The command dashboard</h3>
+        <p>One live screen over everything we've built — deploy, watch, and measure it all.</p>
+        <ul>
+          <li>Real-time metrics and agent activity</li>
+          <li>Hours and dollars saved, counted</li>
+          <li>Your branding, your command center</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how">
+<section class="section section-alt">
   <div class="container">
-    <div class="text-center" style="margin-bottom:64px">
-      <div class="s-label rv vis">The Process</div>
-      <h2 class="s-title rv vis">Simple. Fast. Permanent.</h2>
-      <p class="s-sub rv vis">Three phases. Seventy-two hours to your first live automation. No drawn-out onboarding, no six-month roadmaps.</p>
+    <div class="sh rv">
+      <div class="s-label">How it works</div>
+      <h2 class="s-title">Three steps. <em>No discovery theater.</em></h2>
     </div>
-    <div class="process-track">
-      <div class="process-step rv vis d1">
-        <div class="step-num">
-          <span class="step-ring"></span>
-          01
-        </div>
-        <h3 class="step-h">Audit Your Workflow</h3>
-        <p class="step-p">We spend 60 minutes mapping every bottleneck in your business — from first contact to closed deal. You'll see exactly where time is bleeding out.</p>
+    <div class="steps rv d1">
+      <div class="step">
+        <div class="n">STEP 01</div>
+        <h3>A 15-minute call</h3>
+        <p>You tell us what's eating your time and money. We tell you the first thing we'd build and what it would do — no slides, no homework.</p>
+        <span class="when">Day 0</span>
       </div>
-      <div class="process-step rv vis d2">
-        <div class="step-num">
-          <span class="step-ring" style="animation-delay:-4s"></span>
-          02
-        </div>
-        <h3 class="step-h">Deploy Your AI Stack</h3>
-        <p class="step-p">Our engineers configure and launch your custom AI modules within 72 hours. CRM synced. Outreach live. Proposals generating automatically. No IT required on your end.</p>
+      <div class="step">
+        <div class="n">STEP 02</div>
+        <h3>First build goes live</h3>
+        <p>Within seven days the first agent or tool is in your stack and doing real work. Refunded if you can't measure the lift by day 30.</p>
+        <span class="when">Week 1</span>
       </div>
-      <div class="process-step rv vis d3">
-        <div class="step-num">
-          <span class="step-ring" style="animation-delay:-8s"></span>
-          03
-        </div>
-        <h3 class="step-h">Optimize and Scale</h3>
-        <p class="step-p">Weekly performance reports. Continuous tuning based on real data. As your business grows, your AI stack grows with it — no rebuilding from scratch.</p>
+      <div class="step">
+        <div class="n">STEP 03</div>
+        <h3>It compounds</h3>
+        <p>We keep building — new agents, new tools — and it all lands on your dashboard. Cancel any month. Your AI team stays as long as you want.</p>
+        <span class="when">Ongoing</span>
       </div>
     </div>
-
-    <!-- KEY CAPABILITIES -->
-    <div class="text-center" style="margin-top:80px;margin-bottom:48px">
-      <h3 class="s-title rv vis" style="font-size:clamp(1.5rem,2.5vw,2rem)">What We Automate</h3>
-    </div>
-    <div class="feat-grid">
-      <div class="feat-card rv vis d1">
-        <div class="feat-icon">🔍</div>
-        <h3 class="feat-h">AI Lead Scraping</h3>
-        <p class="feat-p">18,000+ verified leads scraped nationwide. Filter by industry, location, and revenue signals. Your pipeline never runs dry.</p>
-      </div>
-      <div class="feat-card rv vis d2">
-        <div class="feat-icon">✉️</div>
-        <h3 class="feat-h">Smart Outreach</h3>
-        <p class="feat-p">5 proven email strategies auto-selected per lead. A 3-step drip sequence running 24/7 with built-in compliance.</p>
-      </div>
-      <div class="feat-card rv vis d3">
-        <div class="feat-icon">📄</div>
-        <h3 class="feat-h">Instant Proposals</h3>
-        <p class="feat-p">Client fills out a form. A professional, branded proposal lands in their inbox in under 60 seconds.</p>
-      </div>
-      <div class="feat-card rv vis d4">
-        <div class="feat-icon">🗄️</div>
-        <h3 class="feat-h">CRM Intelligence</h3>
-        <p class="feat-p">Every lead, touchpoint, and reply automatically logged. Know who's hot, who needs a nudge, and who to drop.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SEE THE DASHBOARD -->
-<section class="section section-alt" id="see-platform">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">See The Dashboard</div>
-      <h2 class="s-title rv vis">Everything we build for you, <span class="grad-purple">on one screen</span></h2>
-      <p class="s-sub rv vis">Your live command center — every agent, every hour saved, every lead caught, running 24/7 in the open.</p>
-    </div>
-    <div class="eff-frame rv vis">
-      <div class="eff-titlebar">
-        <div class="eff-dots"><span class="eff-dot-r"></span><span class="eff-dot-y"></span><span class="eff-dot-g"></span></div>
-        <div class="eff-url">efficio.tech/dashboard — Agent Ops Cockpit</div>
-        <div class="eff-live"><span class="eff-live-dot"></span>LIVE</div>
-      </div>
-      <div class="eff-body">
-        <div class="eff-stats-row">
-          <div class="eff-stat">
-            <div class="eff-stat-val">7</div>
-            <div class="eff-stat-lbl">Agents Live</div>
-          </div>
-          <div class="eff-stat">
-            <div class="eff-stat-val">1,721</div>
-            <div class="eff-stat-lbl">Runs / Week</div>
-          </div>
-          <div class="eff-stat">
-            <div class="eff-stat-val">93%</div>
-            <div class="eff-stat-lbl">Success</div>
-          </div>
-        </div>
-        <div class="eff-pipeline">
-          <div class="eff-pipe-step eff-pipe-active">Customer-facing<span class="eff-pipe-count">3</span></div>
-          <div class="eff-pipe-arrow"></div>
-          <div class="eff-pipe-step eff-pipe-active">Admins<span class="eff-pipe-count">3</span></div>
-          <div class="eff-pipe-arrow"></div>
-          <div class="eff-pipe-step eff-pipe-active">Research<span class="eff-pipe-count">1</span></div>
-          <div class="eff-pipe-arrow"></div>
-          <div class="eff-pipe-step eff-pipe-won">Deployed<span class="eff-pipe-count">7</span></div>
-        </div>
-        <div class="eff-feed-label">Recent Activity</div>
-        <div class="eff-feed">
-          <div class="eff-feed-row">
-            <span class="eff-feed-dot eff-fdot-sent"></span>
-            <span class="eff-feed-action">Triaged</span>
-            <span class="eff-feed-detail">Support agent · 24 tickets · 22 auto-drafted, 2 escalated</span>
-            <span class="eff-feed-time">2m ago</span>
-          </div>
-          <div class="eff-feed-row">
-            <span class="eff-feed-dot eff-fdot-sent"></span>
-            <span class="eff-feed-action">Matched</span>
-            <span class="eff-feed-detail">Billing admin · 47 Stripe charges reconciled · 1 variance flagged</span>
-            <span class="eff-feed-time">9m ago</span>
-          </div>
-          <div class="eff-feed-row">
-            <span class="eff-feed-dot eff-fdot-reply"></span>
-            <span class="eff-feed-action">Qualified</span>
-            <span class="eff-feed-detail">Lead qualifier · inbound demo request · call booked for Friday</span>
-            <span class="eff-feed-time">22m ago</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="eff-caption rv vis">Your AI workforce — customer-facing, admin, and research agents — deployed and tracked from one cockpit.</p>
-  </div>
-</section>
-
-<!-- DASHBOARD BUILDS (added 2026-04-22 — new service line alongside AI automation) -->
-<section class="section" id="dashboards">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:48px">
-      <div class="s-label rv vis">Dashboard &amp; Database Builds</div>
-      <h2 class="s-title rv vis">Your ops shouldn't live in <span class="grad-purple">Excel.</span></h2>
-      <p class="s-sub rv vis">
-        Every AI tier ships with a custom operational dashboard. Below are the four live
-        dashboards running my own businesses right now — yours will look like one of these,
-        built around your operation.
-      </p>
-    </div>
-
-    <!-- PROOF STRIP: 4 self-operating dashboards -->
-    <div class="feat-grid rv vis" style="margin-bottom:56px">
-      <div class="feat-card">
-        <div class="feat-icon">🏭</div>
-        <h3 class="feat-h">BNGCENT Supplier Kanban</h3>
-        <p class="feat-p"><strong style="color:var(--white)">$228K+ live addressable</strong> tracked real-time. Kanban + OEM gap analysis. Replaced a 2-hour Monday reconciliation.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">📈</div>
-        <h3 class="feat-h">Apex Cockpit</h3>
-        <p class="feat-p">StrategyGuard + mirror-phase panel + MOMENTUM 48h gate. Zero rule-violation entries since go-live. Decision latency 3min → under 20s.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">🎯</div>
-        <h3 class="feat-h">JobBot Command Center</h3>
-        <p class="feat-p">Variant testing + cross-business revenue roll-up. Winner board with statistical significance gating. One tile for four businesses.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">📊</div>
-        <h3 class="feat-h">Efficio Reply Insights</h3>
-        <p class="feat-p">Priority-ordered inbox + per-vertical reply rates + lead CRM. Reply triage 30min/day → under 5min. Classifier with 24 unit tests.</p>
-      </div>
-    </div>
-
-    <p class="s-sub rv vis text-center" style="margin:0 auto 40px;text-align:center">
-      Every dashboard above is in daily production. On the discovery call, Brady screen-shares
-      the real ones and scopes yours on the same call.
-      <a href="/pricing.html" style="color:var(--purple3);font-weight:600">See pricing →</a>
-    </p>
-
-    <!-- See full pricing → /pricing.html -->
-    <div class="rv vis" style="max-width:760px;margin:8px auto 0;text-align:center">
-      <a href="/pricing.html" class="btn-primary" style="font-size:15px">See full pricing →</a>
-    </div>
-
-    <!-- PROCESS -->
-    <div class="text-center" style="margin-top:80px;margin-bottom:40px">
-      <h3 class="s-title rv vis" style="font-size:clamp(1.5rem,2.5vw,2rem)">The Build Process</h3>
-    </div>
-    <div class="process-track">
-      <div class="process-step rv vis d1">
-        <div class="step-num">
-          <span class="step-ring"></span>
-          01
-        </div>
-        <h3 class="step-h">Discovery Call</h3>
-        <p class="step-p">15 minutes. Brady screen-shares his four live dashboards. We scope yours on the call — tiers, timeline, data sources.</p>
-      </div>
-      <div class="process-step rv vis d2">
-        <div class="step-num">
-          <span class="step-ring" style="animation-delay:-4s"></span>
-          02
-        </div>
-        <h3 class="step-h">2-Week Build Sprint</h3>
-        <p class="step-p">First mockup in 72 hours or your deposit back. Then we iterate. For Starter builds, the dashboard is live in your environment at day 14.</p>
-      </div>
-      <div class="process-step rv vis d3">
-        <div class="step-num">
-          <span class="step-ring" style="animation-delay:-8s"></span>
-          03
-        </div>
-        <h3 class="step-h">Handover &amp; Retainer</h3>
-        <p class="step-p">Full documentation, deploy instructions, and 30-day warranty. Most clients retain us for ongoing feature additions — optional, cancel anytime.</p>
-      </div>
-    </div>
-
-    <p class="text-center rv vis" style="margin-top:48px;font-size:.88rem;color:var(--muted)">
-      Read the full self-operating case study:
-      <a href="/case-studies/" style="color:var(--purple3);font-weight:600">The 4 dashboards running Brady's businesses →</a>
-    </p>
-
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section section-alt" id="pricing">
+<section class="section" id="pricing">
   <div class="container">
-    <div class="text-center" style="margin-bottom:48px">
-      <div class="s-label rv vis">Pricing</div>
-      <h2 class="s-title rv vis">AI Specialist → AI Team → AI Department.</h2>
-      <p class="s-sub rv vis" style="margin-bottom:0">Each tier is one flagship AI deliverable plus a live chat channel with the team. The bigger the tier, the faster we ship and the more often we talk. Month-to-month, cancel anytime.</p>
+    <div class="sh center rv">
+      <div class="s-label">Pricing</div>
+      <h2 class="s-title">Pick where to start.</h2>
+      <p class="s-sub" style="margin-left:auto;margin-right:auto">Month-to-month. No contract. 30-day refund if we don't ship measurable lift. Move up or down any time.</p>
     </div>
-    <div class="pricing-grid rv vis" style="grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px">
-
-      <!-- AI Specialist -->
-      <div class="price-card">
-        <div class="price-tier">AI Specialist</div>
-        <div class="price-name">AI Specialist</div>
-        <div class="price-desc">A custom AI command center built around your business — one interactive dashboard where you see what's happening and what AI tools are running for you.</div>
-        <div class="price-amount">
-          <span class="price-curr">$</span>
-          <span class="price-num">997</span>
-          <span class="price-per">/mo</span>
-        </div>
-        <div class="price-setup">Month-to-month · Cancel anytime</div>
-        <div class="price-div"></div>
-        <div class="price-feats">
-          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Custom AI interactive dashboard</strong></div>
-          <div class="pfi"><span class="pfi-check">✓</span>Built specifically for your workflow</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Monthly 30-min strategy call</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Shared Slack / Teams / Chat channel</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Uptime monitoring + error alerts</div>
-        </div>
-        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn-price out" target="_blank" rel="noopener">Start with AI Specialist →</a>
+    <div class="price-grid">
+      <div class="tier rv">
+        <div class="tag">Entry</div>
+        <div class="name">AI Specialist</div>
+        <div class="price">$997<span> /mo</span></div>
+        <div class="blurb">Your custom AI dashboard plus the first agent running inside it.</div>
+        <ul>
+          <li>Custom command-center dashboard</li>
+          <li>One AI agent, built and run</li>
+          <li>Monthly strategy call</li>
+          <li>Shared chat channel</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn-price out" target="_blank" rel="noopener">Start with AI Specialist</a>
       </div>
-
-      <!-- AI Team -->
-      <div class="price-card pop">
-        <div class="pop-badge">Most Common</div>
-        <div class="price-tier">AI Team</div>
-        <div class="price-name">AI Team</div>
-        <div class="price-desc">Everything in AI Specialist, plus a custom AI agent — proposal generator, quote bot, intake bot, email triage, whichever solves your #1 ops leak.</div>
-        <div class="price-amount">
-          <span class="price-curr">$</span>
-          <span class="price-num">2,500</span>
-          <span class="price-per">/mo</span>
-        </div>
-        <div class="price-setup">Month-to-month · Cancel anytime</div>
-        <div class="price-div"></div>
-        <div class="price-feats">
-          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Everything in AI Specialist</strong></div>
-          <div class="pfi"><span class="pfi-check">✓</span>Custom AI agent for your biggest time sink</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Biweekly 30-min strategy call</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Priority response in shared channel</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Agent monitoring + monthly tuning</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Swap the agent if a bigger problem emerges</div>
-        </div>
-        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn-price sol" target="_blank" rel="noopener">Start with AI Team →</a>
+      <div class="tier feat rv d1">
+        <div class="tag">Most popular</div>
+        <div class="name">AI Team</div>
+        <div class="price">$2,500<span> /mo</span></div>
+        <div class="blurb">Everything in Specialist, plus a custom AI agent built for your hardest workflow.</div>
+        <ul>
+          <li>Everything in AI Specialist</li>
+          <li>Custom AI agent (quote bot, intake, triage…)</li>
+          <li>Biweekly strategy call</li>
+          <li>Priority response</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn-price sol" target="_blank" rel="noopener">Start with AI Team</a>
       </div>
-
-      <!-- AI Department -->
-      <div class="price-card">
-        <div class="price-tier">AI Department</div>
-        <div class="price-name">AI Department</div>
-        <div class="price-desc">Everything in AI Team, plus continuous AI builds — we keep shipping new agents and improvements every month. Weekly cadence, written roadmap.</div>
-        <div class="price-amount">
-          <span class="price-curr">$</span>
-          <span class="price-num">3,500</span>
-          <span class="price-per">/mo</span>
-        </div>
-        <div class="price-setup">Month-to-month · Cancel anytime</div>
-        <div class="price-div"></div>
-        <div class="price-feats">
-          <div class="pfi"><span class="pfi-check">✓</span><strong style="color:var(--white)">Everything in AI Team</strong></div>
-          <div class="pfi"><span class="pfi-check">✓</span>Continuous AI builds — new agents on demand</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Weekly 45-min strategy call</div>
-          <div class="pfi"><span class="pfi-check">✓</span>First-priority response + 24h SLA</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Custom integrations with your existing tools</div>
-          <div class="pfi"><span class="pfi-check">✓</span>Written 90-day roadmap, refreshed quarterly</div>
-        </div>
-        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="btn-price out" target="_blank" rel="noopener">Start with AI Department →</a>
+      <div class="tier rv d2">
+        <div class="tag">Full stack</div>
+        <div class="name">AI Department</div>
+        <div class="price">$3,500<span> /mo</span></div>
+        <div class="blurb">A standing AI team building continuously — new agents and tools on demand.</div>
+        <ul>
+          <li>Everything in AI Team</li>
+          <li>Continuous builds — new agents on demand</li>
+          <li>Weekly strategy call</li>
+          <li>24-hour response SLA</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="btn-price out" target="_blank" rel="noopener">Start with AI Department</a>
       </div>
-
     </div>
-    <p style="text-align:center;margin-top:32px;font-size:.82rem;color:var(--muted)">
-      Not sure which tier fits? <a href="/qualify.html" style="color:var(--purple3);font-weight:600">Take the 5-question fit quiz</a> or <a href="/book.html" style="color:var(--purple3);font-weight:600" target="_blank" rel="noopener">book a free 15-min audit</a>.
-    </p>
+    <p class="price-note rv">Not sure which fits? <a href="/audit-quiz.html">Take the 60-second audit</a> or <a href="/book.html" target="_blank" rel="noopener">book a 15-min call</a>.</p>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq">
+<section class="section section-alt" id="faq">
   <div class="container">
-    <div class="text-center" style="margin-bottom:56px">
-      <div class="s-label rv vis">FAQ</div>
-      <h2 class="s-title rv vis">Straight Answers.</h2>
+    <div class="sh center rv">
+      <div class="s-label">FAQ</div>
+      <h2 class="s-title">The straight answers.</h2>
     </div>
-    <div class="faq-list rv vis">
-
+    <div class="faq rv d1">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How quickly can we get started?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Fast. After our strategy call, we begin configuration immediately. Most clients have their first live automations running within 72 hours. The full stack — outreach, CRM, proposals, analytics — is typically complete within one week.</div></div>
+        <button class="faq-q" type="button">Do I need to know anything about AI?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. That's the entire point. You tell us what's slow, manual, or falling through the cracks — we handle every technical decision, every tool, every build. You operate your business; we operate the AI.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need any technical knowledge?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">None. That's the point. You tell us what your business does and what's eating your time. We handle everything else — configuration, integrations, testing, and ongoing maintenance. You just log into a dashboard and see results.</div></div>
+        <button class="faq-q" type="button">What does the 30-day refund actually mean?<span class="pm">+</span></button>
+        <div class="faq-a"><p>If by day 30 we haven't moved a real number you can see — recovered hours, faster response, fewer dropped leads — you get the month back, no debate. We agree on the metric on the first call so there's no moving goalpost.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Will this work with my existing tools?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Efficio integrates with Gmail, Outlook, Google Workspace, common CRMs, and most business software via API. During onboarding, we map your current stack and configure integrations before anything goes live.</div></div>
+        <button class="faq-q" type="button">What kind of businesses do you work with?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Small and medium businesses — really, anyone whose team is losing hours to manual work. Home services, trades, professional services, healthcare, real estate, retail, agencies. The agents and dashboard are universal; we customize them to how you actually work.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is there a contract or minimum commitment?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">No long-term contracts. You subscribe monthly and can cancel anytime. Annual billing is available with a 20% discount for clients who want to commit. We'd rather earn your loyalty than lock you in.</div></div>
+        <button class="faq-q" type="button">Does this replace my staff or my software?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. The AI works alongside your people and plugs into the tools you already use. Your team gets hours back; your stack stays where it is. If something blocks the build, we tell you on the first call.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How is Efficio different from hiring a VA or developer?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">A VA works 8 hours a day, makes mistakes, and needs management. A developer builds something once and leaves. Efficio runs 24/7, improves over time, and never calls in sick. For the cost of one mid-level hire, you get an entire AI team plus the engineers who maintain it.</div></div>
+        <button class="faq-q" type="button">How fast does something actually go live?<span class="pm">+</span></button>
+        <div class="faq-a"><p>The first build is in your stack and doing real work within seven days of the kickoff call. After that we keep shipping — and everything lands on your dashboard so you watch it happen.</p></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <div class="rv vis">
-      <div class="s-label" style="margin:0 auto 20px;width:fit-content">Free Strategy Call</div>
-      <h2 class="cta-h">Ready to Stop Doing<br><span class="grad-purple">Everything Manually?</span></h2>
-      <p class="cta-sub">Book a 15-minute call. We'll audit your workflow, show you a live demo, and tell you exactly what Efficio would automate in your business — no pitch, no pressure.</p>
-      <div class="cta-actions">
-        <a href="/book.html" class="btn-cta" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Book My Free Strategy Call
-        </a>
-      </div>
-      <p class="cta-note">No credit card. No commitment. Just 15 minutes.</p>
-    </div>
+<section class="cta-strip">
+  <div class="container">
+    <h2>Tell us what's slow. <span class="grad-purple">We'll build the fix.</span></h2>
+    <p>Book a 15-minute call. No deck, no pitch — we'll tell you exactly what we'd build you and what your dashboard would track.</p>
+    <a href="/book.html" class="btn-big" target="_blank" rel="noopener">Book a 15-min call <span class="btn-arrow">&rarr;</span></a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <a href="/" class="logo">
-          <div class="logo-mark">E</div>
-          <span class="logo-text">Efficio</span>
-        </a>
-        <p class="footer-desc">Efficio is your contracted AI team. We engineer, deploy, and run AI agents, AI admins, and live dashboards inside your business — so you operate while we handle the AI.</p>
-        <a href="mailto:brady@efficio.tech" style="font-size:.85rem;color:var(--purple3);font-weight:500">brady@efficio.tech</a>
-      </div>
-      <div>
-        <div class="footer-col-title">Product</div>
-        <div class="footer-links">
-          <a href="#how">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#how">How It Works</a>
-          <a href="onboarding.html">Client Onboarding</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <div class="footer-links">
-          <a href="#faq">FAQ</a>
-          <a href="mailto:brady@efficio.tech">Contact</a>
-          <a href="/book.html" target="_blank" rel="noopener">Book a Call</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Legal</div>
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="unsubscribe.html">Unsubscribe</a>
-        </div>
-      </div>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your contracted AI team. We engineer, deploy, and run AI agents, automations, and live dashboards inside your business — so you operate while we handle the AI.</p>
     </div>
-    <div class="footer-div"></div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Efficio, a division of BNG Contracting Enterprise LLC. All rights reserved. efficio.tech</p>
-      <p class="footer-copy">Miami, FL · contact@efficio.tech</p>
-      <div class="footer-legal">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </div>
+    <div class="foot-col"><h5>Product</h5>
+      <a href="/services.html">Services</a><a href="/agents.html">Dashboard</a>
+      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
     </div>
+    <div class="foot-col"><h5>Company</h5>
+      <a href="/why-us.html">Why us</a><a href="/audit-quiz.html">Take the audit</a>
+      <a href="/book.html" target="_blank" rel="noopener">Book a call</a>
+      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+    </div>
+    <div class="foot-col"><h5>Legal</h5>
+      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
   </div>
 </footer>
 
-<script>
-// SCROLL PROGRESS
-const prog = document.getElementById('prog');
-window.addEventListener('scroll', () => {
-  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  prog.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
-
-// NAV SCROLL
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-// MOBILE MENU
-document.getElementById('ham').addEventListener('click', () => {
-  document.getElementById('mn').classList.add('open');
-  document.getElementById('ov').classList.add('open');
-});
-function closeMobile() {
-  document.getElementById('mn').classList.remove('open');
-  document.getElementById('ov').classList.remove('open');
-}
-
-// SCROLL REVEAL
-const rvEls = document.querySelectorAll('.rv');
-const rvObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); } });
-}, { threshold: 0.12 });
-rvEls.forEach(el => { if (!el.classList.contains('vis')) rvObs.observe(el); });
-
-// COUNTER ANIMATION
-function animateCounter(el, target, prefix, suffix, decimals, duration) {
-  const start = performance.now();
-  function step(now) {
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    const val = target * eased;
-    const formatted = decimals
-      ? val.toFixed(1)
-      : Math.floor(val).toLocaleString();
-    el.textContent = (prefix || '') + formatted + (suffix || '');
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-const statsObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = parseFloat(el.dataset.target);
-    if (isNaN(target)) return;
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const decimals = !!el.dataset.dec;
-    animateCounter(el, target, prefix, suffix, decimals, 1800);
-    statsObs.unobserve(el);
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => statsObs.observe(el));
-
-// PRICING TOGGLE — no-op after 3-tier Discovery/Growth/Full Stack structure (kept for safety in case any handler is still bound)
-function togglePricing() { /* noop */ }
-
-// FAQ ACCORDION
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-</script>
 <script src="/assets/transitions.js" defer></script>
-
-<!-- ============================================================
-     LIVE ACTIVITY FEED — synthetic real-looking events showing
-     agents firing across Brady's stack. Builds "live now" credibility.
-     Closeable + dismiss-state remembered for the session.
-     ============================================================ -->
-<script defer>
-window.addEventListener('load', function() {
-  if (window.sessionStorage.getItem('efficio_live_dismissed') === '1') return;
-
-  const events = [
-    { agent:'Reply Classifier', verb:'classified', target:'inbound from a new lead', tier:'AI Admin' },
-    { agent:'Recall Scheduler', verb:'booked', target:'a customer on the overdue follow-up list', tier:'AI Specialist' },
-    { agent:'Quote Bot', verb:'drafted', target:'$4,200 quote from an intake form', tier:'AI Specialist' },
-    { agent:'Calendly Prep', verb:'researched', target:'an incoming booking · prep brief sent', tier:'AI Admin' },
-    { agent:'Welcome Sender', verb:'fired', target:'h0 onboarding email · Stripe checkout', tier:'AI Admin' },
-    { agent:'Intake Triage', verb:'routed', target:'a new inquiry to the right team member', tier:'AI Specialist' },
-    { agent:'Follow-up Sequencer', verb:'queued', target:'D7 follow-up · 2 leads', tier:'AI Admin' },
-    { agent:'Improver Agent', verb:'A/B tested', target:'reply classifier prompt v17', tier:'Meta' },
-    { agent:'Lead Responder', verb:'replied', target:'a web-form lead in 42s', tier:'AI Specialist' },
-    { agent:'Inbox Monitor', verb:'polled', target:'IMAP · 4 new replies', tier:'AI Admin' },
-    { agent:'Reply Classifier', verb:'labeled', target:'inbound as HOT · priority queue', tier:'AI Admin' },
-    { agent:'Recall Scheduler', verb:'sent', target:'recall SMS · 6 customers · compliance-safe', tier:'AI Specialist' },
-    { agent:'Calendly Prep', verb:'drafted', target:'1-pager brief for tomorrow\'s call', tier:'AI Admin' },
-    { agent:'Quote Bot', verb:'logged', target:'a completed job to the CRM · accounting synced', tier:'AI Specialist' },
-    { agent:'Welcome Sender', verb:'enqueued', target:'h24 + h48 + h72 onboarding sequence', tier:'AI Admin' },
-    { agent:'Intake Triage', verb:'flagged', target:'an after-hours inquiry · auto-assigned', tier:'AI Specialist' },
-    { agent:'Follow-up Sequencer', verb:'sent', target:'personalized D14 to 3 prospects', tier:'AI Admin' },
-    { agent:'Improver Agent', verb:'promoted', target:'winning quote-bot template (+11% reply)', tier:'Meta' },
-  ];
-
-  const feed = document.createElement('div');
-  feed.className = 'live-feed';
-  feed.innerHTML = `
-    <div class="live-feed-head">
-      <div class="live-feed-title">Live now · your agents working</div>
-      <button class="live-feed-close" aria-label="Close" type="button">×</button>
-    </div>
-    <div class="live-feed-list" id="live-feed-list"></div>
-  `;
-  document.body.appendChild(feed);
-
-  feed.querySelector('.live-feed-close').addEventListener('click', function() {
-    feed.classList.remove('in');
-    setTimeout(function() { if (feed.parentNode) feed.parentNode.removeChild(feed); }, 500);
-    try { window.sessionStorage.setItem('efficio_live_dismissed', '1'); } catch (e) {}
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  document.querySelectorAll('.faq-q').forEach(b=>{
+    b.addEventListener('click',()=>b.parentElement.classList.toggle('open'));
   });
-
-  const list = feed.querySelector('#live-feed-list');
-  const MAX_ROWS = 4;
-  let eventIdx = Math.floor(Math.random() * events.length);
-
-  function fmtAgo(secondsAgo) {
-    if (secondsAgo < 60) return secondsAgo + 's ago';
-    const min = Math.floor(secondsAgo / 60);
-    if (min < 60) return min + ' min ago';
-    return Math.floor(min / 60) + ' hr ago';
-  }
-
-  function addRow() {
-    const e = events[eventIdx % events.length];
-    eventIdx++;
-    const row = document.createElement('div');
-    row.className = 'live-feed-row fresh';
-    const initials = e.agent.split(' ').map(function(w){ return w[0]; }).join('').slice(0, 2);
-    row.innerHTML = `
-      <div class="live-feed-icon">${initials}</div>
-      <div class="live-feed-text">
-        <strong>${e.agent}</strong> ${e.verb} ${e.target}
-        <div class="live-feed-time">${e.tier} · just now</div>
-      </div>
-    `;
-    row.dataset.born = String(Date.now());
-    list.insertBefore(row, list.firstChild);
-    requestAnimationFrame(function() { row.classList.add('show'); });
-
-    // Trim excess rows SYNCHRONOUSLY — removing here (not in a deferred setTimeout)
-    // so the loop condition actually changes each iteration. The previous version
-    // deferred removal, so list.children.length never dropped and the while loop
-    // spun forever scheduling timers → out-of-memory crash.
-    while (list.children.length > MAX_ROWS) {
-      list.removeChild(list.lastElementChild);
-    }
-
-    setTimeout(function() { row.classList.remove('fresh'); }, 4000);
-  }
-
-  // Update "just now" → "Xs ago" on existing rows every second
-  setInterval(function() {
-    Array.from(list.children).forEach(function(row) {
-      const born = parseInt(row.dataset.born, 10);
-      if (isNaN(born)) return;
-      const sec = Math.floor((Date.now() - born) / 1000);
-      const timeEl = row.querySelector('.live-feed-time');
-      if (timeEl && sec > 0) {
-        const tier = (timeEl.textContent.split('·')[0] || '').trim();
-        timeEl.textContent = tier + ' · ' + fmtAgo(sec);
-      }
-    });
-  }, 1000);
-
-  // Reveal widget after hero settles
-  setTimeout(function() {
-    feed.classList.add('in');
-    addRow();
-  }, 1400);
-
-  // New event every 4–7s
-  setInterval(function() {
-    addRow();
-  }, 5000 + Math.random() * 2000);
-});
 </script>
-
-<!-- ============================================================
-     3D HERO — Three.js wireframe icosahedron + orbiting particle ring
-     Progressive: if WebGL fails or three.js doesn't load, CSS orbital
-     stays visible as the fallback. Mouse parallax on desktop only.
-     ============================================================ -->
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
-<script defer>
-window.addEventListener('load', function() {
-  if (typeof THREE === 'undefined') return;  // graceful degrade if CDN blocked
-
-  const canvas = document.getElementById('hero3d');
-  if (!canvas) return;
-
-  let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-  } catch (e) {
-    return;  // WebGL not supported — CSS fallback remains
-  }
-
-  const parent = canvas.parentElement;
-  let W = parent.clientWidth, H = parent.clientHeight;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(W, H, false);
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 100);
-  camera.position.set(0, 0, 6);
-
-  // Central wireframe icosahedron — "AI Core"
-  const coreGeo = new THREE.IcosahedronGeometry(1.4, 1);
-  const wireGeo = new THREE.WireframeGeometry(coreGeo);
-  const wireMat = new THREE.LineBasicMaterial({ color: 0xa855f7, transparent: true, opacity: 0.85 });
-  const core = new THREE.LineSegments(wireGeo, wireMat);
-  scene.add(core);
-
-  // Inner solid faces (subtle glow)
-  const glowMat = new THREE.MeshBasicMaterial({ color: 0x7c3aed, transparent: true, opacity: 0.10, side: THREE.DoubleSide });
-  const glow = new THREE.Mesh(coreGeo, glowMat);
-  scene.add(glow);
-
-  // Orbiting particle ring
-  const particleCount = 220;
-  const positions = new Float32Array(particleCount * 3);
-  const colorBuf = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount; i++) {
-    const t = Math.random() * Math.PI * 2;
-    const r = 2.4 + Math.random() * 1.4;
-    const tilt = (Math.random() - 0.5) * 0.8;
-    positions[i * 3]     = Math.cos(t) * r;
-    positions[i * 3 + 1] = tilt;
-    positions[i * 3 + 2] = Math.sin(t) * r;
-    // gradient purple → pink across particles
-    const mix = Math.random();
-    colorBuf[i * 3]     = 0.65 + mix * 0.30;  // R
-    colorBuf[i * 3 + 1] = 0.30 + mix * 0.10;  // G
-    colorBuf[i * 3 + 2] = 0.95;               // B
-  }
-  const pGeo = new THREE.BufferGeometry();
-  pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  pGeo.setAttribute('color', new THREE.BufferAttribute(colorBuf, 3));
-  const pMat = new THREE.PointsMaterial({ size: 0.07, vertexColors: true, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending });
-  const particles = new THREE.Points(pGeo, pMat);
-  scene.add(particles);
-
-  // Outer wireframe ring (large torus, thin)
-  const torusGeo = new THREE.TorusGeometry(3.2, 0.02, 8, 96);
-  const torusMat = new THREE.MeshBasicMaterial({ color: 0xa855f7, transparent: true, opacity: 0.30 });
-  const torus = new THREE.Mesh(torusGeo, torusMat);
-  torus.rotation.x = Math.PI / 2.4;
-  scene.add(torus);
-
-  // Mouse parallax (desktop only)
-  let mouseX = 0, mouseY = 0;
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
-  if (finePointer) {
-    parent.addEventListener('mousemove', function(e) {
-      const r = parent.getBoundingClientRect();
-      mouseX = ((e.clientX - r.left) / r.width - 0.5) * 0.6;
-      mouseY = ((e.clientY - r.top) / r.height - 0.5) * 0.6;
-    });
-  }
-
-  // Resize handling
-  window.addEventListener('resize', function() {
-    W = parent.clientWidth;
-    H = parent.clientHeight;
-    renderer.setSize(W, H, false);
-    camera.aspect = W / H;
-    camera.updateProjectionMatrix();
-  });
-
-  // Mark "has 3D" so CSS can fade the fallback rings
-  document.body.classList.add('has-3d');
-  canvas.classList.add('ready');
-
-  let t0 = performance.now();
-  let rafId = null;
-  function animate(now) {
-    const dt = (now - t0) / 1000;
-    core.rotation.y = dt * 0.25;
-    core.rotation.x = dt * 0.12;
-    glow.rotation.y = dt * 0.25;
-    glow.rotation.x = dt * 0.12;
-    particles.rotation.y = dt * 0.06;
-    particles.rotation.x = Math.sin(dt * 0.2) * 0.15;
-    torus.rotation.z = dt * 0.05;
-
-    // Camera parallax
-    camera.position.x += (mouseX - camera.position.x) * 0.04;
-    camera.position.y += (-mouseY - camera.position.y) * 0.04;
-    camera.lookAt(0, 0, 0);
-
-    renderer.render(scene, camera);
-    rafId = requestAnimationFrame(animate);
-  }
-  // Pause the 3D loop when the tab is hidden — no GPU/CPU spend on a backgrounded tab
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
-      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-    } else if (!rafId) {
-      t0 = performance.now();
-      rafId = requestAnimationFrame(animate);
-    }
-  });
-  rafId = requestAnimationFrame(animate);
-});
-</script>
-
 </body>
 </html>

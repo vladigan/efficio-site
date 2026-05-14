@@ -123,5 +123,15 @@
     window.setTimeout(function () {
       window.location.href = href;
     }, FADE_OUT_MS);
+    // SAFETY NET: if navigation stalls (slow network, stale DNS cache, dead host),
+    // restore the page after 2.5s instead of leaving the visitor on a blank screen.
+    window.setTimeout(function () {
+      body.style.opacity = '1';
+    }, 2500);
+  });
+
+  // If a navigation is aborted (back button, ESC, failed load), pageshow restores opacity.
+  window.addEventListener('pageshow', function () {
+    body.style.opacity = '1';
   });
 })();

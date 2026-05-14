@@ -55,21 +55,60 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
 <style>
 /* ── page-specific · bold & confident ── */
-.hero-home{padding:190px 0 90px}
+.hero-home{padding:172px 0 80px;position:relative;overflow:hidden}
+/* animated perspective grid — engineering-floor depth */
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-grid::before{content:"";position:absolute;left:-60%;right:-60%;bottom:-30%;height:130%;
+  background-image:linear-gradient(rgba(155,108,246,.17) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(155,108,246,.17) 1px,transparent 1px);
+  background-size:46px 46px;
+  transform:perspective(440px) rotateX(60deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top,#000,transparent 72%);
+  mask-image:linear-gradient(to top,#000,transparent 72%);
+  animation:gridscroll 3.4s linear infinite}
+@keyframes gridscroll{from{background-position:0 0}to{background-position:0 46px}}
+.hero-home .hero-inner{position:relative;z-index:1;display:grid;
+  grid-template-columns:1.04fr .96fr;gap:48px 56px;align-items:center}
+@media(max-width:920px){.hero-home .hero-inner{grid-template-columns:1fr;gap:44px}}
 .hero-eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:26px;display:flex;align-items:center;gap:12px}
+  color:var(--purple3);margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--purple2)}
-.hero-home h1{font-size:clamp(3rem,8vw,6.6rem);font-weight:900;line-height:.94;
-  letter-spacing:-.05em;color:var(--white);margin-bottom:28px;max-width:14ch}
+.hero-home h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:900;line-height:.96;
+  letter-spacing:-.05em;color:var(--white);margin-bottom:24px;max-width:13ch}
 .hero-home h1 .ac{color:var(--purple2)}
-.hero-home .lede{font-size:1.18rem;line-height:1.55;color:var(--text);max-width:540px;margin-bottom:34px}
+.hero-home .lede{font-size:1.1rem;line-height:1.55;color:var(--text);max-width:500px;margin-bottom:30px}
 .hero-home .lede b{color:var(--w2);font-weight:600}
 .hero-ctas-l{display:flex;gap:12px;flex-wrap:wrap}
-.proof-strip{margin-top:54px;padding-top:26px;border-top:1px solid var(--bd);
+.proof-strip{grid-column:1/-1;margin-top:30px;padding-top:26px;border-top:1px solid var(--bd);
   display:flex;gap:44px;flex-wrap:wrap}
 .proof-strip div{font-size:.86rem;color:var(--muted);line-height:1.5}
 .proof-strip div b{display:block;color:var(--white);font-size:1.05rem;font-weight:800;
   letter-spacing:-.02em;margin-bottom:2px}
+
+/* ── LIVE BUILD CONSOLE — the dynamic centerpiece ── */
+.console{border:1px solid var(--bd2);border-radius:var(--r2);background:#0a0a0d;overflow:hidden;
+  box-shadow:0 36px 90px rgba(0,0,0,.65);
+  font-family:'SF Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;
+  transform-style:preserve-3d;transition:transform .25s var(--ease),border-color .25s;will-change:transform}
+.console:hover{border-color:var(--purple)}
+.console-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;
+  background:#121215;border-bottom:1px solid var(--bd)}
+.console-bar .cd{width:9px;height:9px;border-radius:50%}
+.console-bar .ct{margin-left:8px;font-size:11px;color:var(--muted);font-weight:500}
+.console-bar .cstat{margin-left:auto;font-size:8.5px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--good);display:flex;align-items:center;gap:6px}
+.console-body{padding:18px 17px 20px;min-height:312px;font-size:12.4px;line-height:1.92}
+.console-body .ln{white-space:pre-wrap;word-break:break-word;color:var(--text)}
+.console-body .ln .pr{color:var(--purple3)}
+.console-body .ln .ok{color:var(--good)}
+.console-body .ln .dim{color:var(--muted)}
+.console-body .ln .hl{color:var(--white)}
+.console-cur{display:inline-block;width:7px;height:14px;background:var(--purple2);
+  vertical-align:-2px;margin-left:1px;animation:cblink 1.05s steps(1) infinite}
+@keyframes cblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .hero-grid::before{animation:none}.console-cur{animation:none}
+}
 
 /* big editorial statement */
 .statement{padding:120px 0;border-bottom:1px solid var(--bd3)}
@@ -206,13 +245,28 @@
 
 <!-- HERO -->
 <header class="hero hero-home">
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow rv">Your contracted AI team</div>
-    <h1 class="rv d1">We're your <span class="ac">AI team.</span></h1>
-    <p class="lede rv d2">You don't have time to learn AI tools, hire a developer, or figure out what's worth building. <b>So we do all of it.</b> We engineer, deploy, and run the AI inside your business — agents, automations, custom tools — and put it all on one dashboard you can actually watch.</p>
-    <div class="hero-ctas-l rv d3">
-      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a 15-min call <span class="btn-arrow">&rarr;</span></a>
-      <a href="/audit-quiz.html" class="btn-outline">Take the 60-second audit</a>
+    <div class="hero-copy">
+      <div class="hero-eyebrow rv">Your contracted AI team</div>
+      <h1 class="rv d1">We're your <span class="ac">AI team.</span></h1>
+      <p class="lede rv d2">You don't have time to learn AI tools, hire a developer, or figure out what's worth building. <b>So we do all of it.</b> We engineer, deploy, and run the AI inside your business — and put it all on one dashboard you can actually watch.</p>
+      <div class="hero-ctas-l rv d3">
+        <a href="/book.html" class="btn-primary" data-magnetic target="_blank" rel="noopener">Book a 15-min call <span class="btn-arrow">&rarr;</span></a>
+        <a href="/audit-quiz.html" class="btn-outline" data-magnetic>Take the 60-second audit</a>
+      </div>
+    </div>
+    <div class="hero-visual rv d2">
+      <div class="console" id="console">
+        <div class="console-bar">
+          <span class="cd" style="background:#ff5f57"></span>
+          <span class="cd" style="background:#febc2e"></span>
+          <span class="cd" style="background:#28c840"></span>
+          <span class="ct">efficio — deploy</span>
+          <span class="cstat"><span class="live-dot"></span>Running</span>
+        </div>
+        <div class="console-body" id="consoleBody" aria-hidden="true"></div>
+      </div>
     </div>
     <div class="proof-strip rv d4">
       <div><b>From $997/mo</b>Month-to-month. Cancel anytime.</div>
@@ -546,6 +600,78 @@
       while(feed.children.length>5) feed.removeChild(feed.lastElementChild);
       i++;
     },4200);
+  }
+
+  // ── Live build console — typewriter deploy log ──
+  (function(){
+    const body=document.getElementById('consoleBody');
+    if(!body) return;
+    const LINES=[
+      {pre:'<span class="pr">$</span> ', t:'efficio deploy --for "your business"'},
+      {pre:'<span class="dim">→</span> ', t:'reading your workflow…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'bottleneck found — manual lead handoff', cls:'hl', d:420},
+      {pre:'<span class="dim">→</span> ', t:'building front-desk agent…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'front-desk agent — live', d:320},
+      {pre:'<span class="dim">→</span> ', t:'building custom quote tool…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'quote tool — live', d:320},
+      {pre:'<span class="dim">→</span> ', t:'wiring command dashboard…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'dashboard — live', d:320},
+      {pre:'<span class="ok">✓</span> ', t:'shipped in 6 days · 142 hrs/mo saved', cls:'hl', d:780},
+      {pre:'<span class="pr">→</span> ', t:'watching for the next bottleneck', cls:'dim', d:2800}
+    ];
+    const CUR='<span class="console-cur"></span>';
+    let li=0,ci=0,lineEl=null,txtEl=null;
+    if(reduceMotion){
+      body.innerHTML=LINES.map(L=>'<div class="ln">'+L.pre+'<span class="'+(L.cls||'')+'">'+L.t+'</span></div>').join('');
+      return;
+    }
+    function step(){
+      if(li>=LINES.length){ setTimeout(()=>{body.innerHTML='';li=0;ci=0;step();},1200); return; }
+      const L=LINES[li];
+      if(ci===0){
+        lineEl=document.createElement('div');lineEl.className='ln';
+        lineEl.innerHTML=L.pre+'<span class="'+(L.cls||'')+'"></span>'+CUR;
+        txtEl=lineEl.querySelector('.console-cur').previousElementSibling;
+        body.appendChild(lineEl);
+      }
+      if(ci<L.t.length){
+        txtEl.textContent+=L.t[ci];ci++;
+        setTimeout(step,15+Math.random()*28);
+      } else {
+        const c=lineEl.querySelector('.console-cur'); if(c) c.remove();
+        li++;ci=0;
+        setTimeout(step,L.d||300);
+      }
+    }
+    step();
+  })();
+
+  // ── Subtle 3D tilt on the build console ──
+  (function(){
+    const con=document.getElementById('console');
+    if(!con||reduceMotion||!window.matchMedia('(pointer:fine)').matches) return;
+    let raf=null;
+    con.addEventListener('mousemove',e=>{
+      const r=con.getBoundingClientRect();
+      const rx=((e.clientY-r.top)/r.height-0.5)*-5;
+      const ry=((e.clientX-r.left)/r.width-0.5)*5;
+      if(raf)cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{con.style.transform=`perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
+    });
+    con.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);con.style.transform='';});
+  })();
+
+  // ── Magnetic CTAs ──
+  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('[data-magnetic]').forEach(el=>{
+      el.addEventListener('mousemove',e=>{
+        const r=el.getBoundingClientRect();
+        const mx=(e.clientX-r.left-r.width/2)*0.22;
+        const my=(e.clientY-r.top-r.height/2)*0.38;
+        el.style.transform=`translate(${mx}px,${my}px)`;
+      });
+      el.addEventListener('mouseleave',()=>{el.style.transform='';});
+    });
   }
 </script>
 </body>

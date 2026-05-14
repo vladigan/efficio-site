@@ -22,13 +22,14 @@
 
 <style>
 :root{
-  --navy-50:#EEF1F8;--navy-100:#D3DAEA;--navy-200:#A8B5D2;--navy-300:#7A8AB6;
-  --navy-400:#4E5F92;--navy-500:#2E416F;--navy-600:#1A2A52;--navy-700:#f8fafc;
-  --navy-800:#070F26;--navy-900:#040818;
-  --cream-50:#0c1728;--cream-100:#050a16;--cream-200:#EFE7D8;--cream-300:rgba(124,58,237,.22);
-  --cream-400:#C9B89A;--cream-500:#9E8B6C;--cream-600:#75664B;--cream-700:#544830;
-  --gold-300:#D9B66F;--gold-400:#a855f7;--gold-500:#B8894E;--gold-600:#94693A;--gold-700:#6E4D2A;
-  --serif:'Newsreader','Tiempos Headline','Times New Roman',Georgia,serif;
+  /* bold & confident — legacy v3 token names kept, values remapped */
+  --navy-50:#16161b;--navy-100:#1d1d23;--navy-200:#a1a1aa;--navy-300:#a1a1aa;
+  --navy-400:#a1a1aa;--navy-500:#a1a1aa;--navy-600:#6b6b75;--navy-700:#ffffff;
+  --navy-800:#08080a;--navy-900:#050506;
+  --cream-50:#101014;--cream-100:#08080a;--cream-200:#ededee;--cream-300:rgba(255,255,255,.16);
+  --cream-400:#6b6b75;--cream-500:#6b6b75;--cream-600:#6b6b75;--cream-700:#a1a1aa;
+  --gold-300:#b794f6;--gold-400:#9b6cf6;--gold-500:#7c3aed;--gold-600:#b794f6;--gold-700:#6b6b75;
+  --serif:'Inter','SF Pro Display','Helvetica Neue',Arial,sans-serif;
   --sans:'Inter','SF Pro Text','Helvetica Neue',Arial,sans-serif;
   --ease-soft:cubic-bezier(.22,.61,.36,1);
   --ease-firm:cubic-bezier(.4,0,.2,1);
@@ -149,6 +150,15 @@ img,svg{display:block;max-width:100%}
   .hero h1 .reveal-word{opacity:1;transform:none}
   .reveal{opacity:1;transform:none}
 }
+/* bold & confident — heading weight + flat edges */
+.hero h1,.section-head h2,.card h3,.tstep .tlabel,.wordmark{
+  font-weight:800 !important;letter-spacing:-.04em !important;
+  font-variation-settings:"wght" 800 !important}
+.hero h1 em{font-style:normal !important;color:var(--gold-300) !important}
+.hero h1 em::after{display:none !important}
+.card,.timeline{border-radius:8px !important}
+.card:hover{box-shadow:none !important}
+.eyebrow::before{box-shadow:none !important}
 </style>
 </head>
 <body>

@@ -331,9 +331,9 @@ section.s.first{border-top:0}
   // ============== CONFIG ==============
   var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
   var STRIPE_LINKS = {
-    AI_SPECIALIST: 'https://buy.stripe.com/placeholder-ai-specialist',
-    AI_TEAM:       'https://buy.stripe.com/placeholder-ai-team',
-    AI_DEPARTMENT: 'https://buy.stripe.com/placeholder-ai-department'
+    AI_SPECIALIST: 'https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b', // Solo Creator $997/mo
+    AI_TEAM:       'https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c', // Creator+Team $2,500/mo
+    AI_DEPARTMENT: 'https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d'  // Production House $3,500/mo
   };
   var LOOM_DEMO_URL = window.LOOM_DEMO_URL || '';
   var QUIZ_EMAIL_ENDPOINT = '/api/quiz-email';
@@ -620,11 +620,4 @@ section.s.first{border-top:0}
     if (window.gtag) gtag('event', 'quiz_result_view', {
       score: data.score, tier: data.tier, vertical: data.vertical
     });
-    if (window.fbq)  fbq('track', 'ViewContent', { content_type: 'quiz_result', value: data.score });
-  } catch(_){}
-
-})();
-</script>
-
-</body>
-</html>
+    if (window.fbq)  fbq('track', 'ViewContent', { content_type: 'quiz

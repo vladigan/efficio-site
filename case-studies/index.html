@@ -16,12 +16,12 @@
 <link rel="stylesheet" href="/assets/theme.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>"/>
 <style>
-.dogfood{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(7,16,31,.95));
+.dogfood{background:var(--surf2);
   border:1px solid rgba(168,85,247,.40);border-radius:var(--r3);padding:48px 44px;
   box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 60px rgba(124,58,237,.20);
   position:relative;overflow:hidden;margin-top:36px}
 .dogfood::before{content:"";position:absolute;inset:-1px;
-  background:linear-gradient(135deg,var(--purple),rgba(168,85,247,.3),var(--purple));
+  background:var(--purple);
   background-size:200% 200%;border-radius:var(--r3);z-index:-1;
   animation:gradShift 5s ease infinite}
 @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -39,7 +39,7 @@
 @media (max-width:760px){.dogfood-stats{grid-template-columns:repeat(2,1fr)}}
 .dogfood-stat{background:rgba(7,16,31,.6);border:1px solid var(--bd);border-radius:var(--r2);padding:20px 18px}
 .dogfood-stat-num{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;line-height:1;
-  background:linear-gradient(135deg,var(--purple2),var(--purple3));
+  background:var(--purple2);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   letter-spacing:-.03em;margin-bottom:8px}
 .dogfood-stat-lbl{font-size:11.5px;font-weight:600;color:var(--muted);
@@ -52,7 +52,7 @@
 
 .coming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;perspective:1400px}
 @media (max-width:880px){.coming-grid{grid-template-columns:1fr}}
-.coming-card{background:linear-gradient(180deg,var(--surf),var(--bg2));
+.coming-card{background:var(--surf);
   border:1px solid var(--bd);border-radius:var(--r2);padding:28px 26px;
   position:relative;overflow:hidden;transition:transform .55s var(--ease),border-color .3s,box-shadow .4s}
 .coming-card:hover{border-color:var(--bd2);transform:translateY(-4px);
@@ -67,10 +67,10 @@
 .coming-progress-bar{height:5px;border-radius:99px;background:rgba(11,23,54,.6);
   position:relative;overflow:hidden}
 .coming-progress-fill{height:100%;border-radius:99px;
-  background:linear-gradient(90deg,var(--purple),var(--purple2));
+  background:var(--purple);
   animation:progressFill 1.4s var(--ease) backwards}
 .coming-progress-fill::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  background:rgba(255,255,255,.2);
   animation:shimmer 2.4s infinite}
 @keyframes progressFill{from{width:0!important}}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
@@ -79,7 +79,7 @@
   color:var(--muted);margin-top:10px}
 .coming-progress-meta strong{color:var(--purple3)}
 
-.promise{margin-top:60px;background:linear-gradient(180deg,var(--surf),var(--bg2));
+.promise{margin-top:60px;background:var(--surf);
   border:1px solid var(--bd);border-radius:var(--r3);padding:44px 40px}
 .promise h3{font-size:1.6rem;font-weight:800;color:var(--white);margin-bottom:16px;letter-spacing:-.02em}
 .promise h3 em{color:var(--purple3);font-style:italic}
@@ -89,7 +89,7 @@
 .promise-li{display:flex;align-items:start;gap:12px;padding:14px 16px;
   background:rgba(124,58,237,.06);border:1px solid var(--bd3);border-radius:var(--r)}
 .promise-li-icon{width:24px;height:24px;border-radius:50%;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  background:var(--purple);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;
   box-shadow:0 0 12px var(--glow2)}
 .promise-li-text{font-size:13.5px;color:var(--w2);line-height:1.5}

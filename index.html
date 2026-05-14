@@ -1476,6 +1476,7 @@ window.addEventListener('load', function() {
   canvas.classList.add('ready');
 
   let t0 = performance.now();
+  let rafId = null;
   function animate(now) {
     const dt = (now - t0) / 1000;
     core.rotation.y = dt * 0.25;
@@ -1492,9 +1493,18 @@ window.addEventListener('load', function() {
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
   }
-  requestAnimationFrame(animate);
+  // Pause the 3D loop when the tab is hidden — no GPU/CPU spend on a backgrounded tab
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    } else if (!rafId) {
+      t0 = performance.now();
+      rafId = requestAnimationFrame(animate);
+    }
+  });
+  rafId = requestAnimationFrame(animate);
 });
 </script>
 

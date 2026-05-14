@@ -196,3 +196,26 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;
 #efficio-sticky-cta .arrow{font-size:16px;transition:transform .25s var(--ease)}
 #efficio-sticky-cta:active .arrow{transform:translateX(4px)}
 @media (max-width:720px){#efficio-sticky-cta{display:flex}}
+
+/* COOKIE CONSENT — first-visit only, minimal GDPR/CCPA disclosure */
+#efficio-cookie{
+  position:fixed;left:14px;right:14px;bottom:14px;z-index:95;
+  max-width:520px;margin-left:auto;
+  display:flex;flex-direction:column;gap:10px;
+  padding:18px 22px;border-radius:var(--r2);
+  background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd2);
+  box-shadow:0 18px 44px rgba(0,0,0,.55),0 0 28px rgba(124,58,237,.18);
+  transform:translateY(120%);opacity:0;
+  transition:transform .45s var(--ease),opacity .45s var(--ease)}
+#efficio-cookie.in{transform:translateY(0);opacity:1}
+#efficio-cookie .ck-msg{font-size:13px;color:var(--w2);line-height:1.55}
+#efficio-cookie .ck-msg a{color:var(--purple3);text-decoration:underline;text-underline-offset:2px}
+#efficio-cookie .ck-row{display:flex;justify-content:flex-end;gap:8px}
+#efficio-cookie button{padding:9px 18px;border-radius:8px;font-size:13px;font-weight:700;
+  cursor:pointer;border:1px solid var(--bd);background:transparent;color:var(--text);transition:all .2s}
+#efficio-cookie button:hover{color:var(--white);border-color:var(--bd2)}
+#efficio-cookie button.primary{background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;border-color:rgba(168,85,247,.4);box-shadow:0 0 18px var(--glow2)}
+#efficio-cookie button.primary:hover{transform:translateY(-1px);box-shadow:0 0 28px var(--glow)}
+@media (max-width:520px){#efficio-cookie{left:8px;right:8px;bottom:84px;padding:14px 16px}}

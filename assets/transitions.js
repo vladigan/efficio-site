@@ -2,15 +2,15 @@
  * Efficio — seamless page transitions
  * Drop-in: <script src="/assets/transitions.js" defer></script>
  *
- * Behavior:
- *   - On load: body fades in (250ms)
- *   - On same-origin link click (excluding #anchors, target=_blank, download): fade out then navigate
- *   - On pageshow (back/forward cache): always show body
- *
- * Pure stdlib JS. No deps. <1KB.
+ * Safe-fail design: if anything in this script errors out, pages are still
+ * visible by default. .rv reveals only hide when html.js class is present
+ * (set below). Body fade-in only applies after script confirms it ran.
  */
 (function () {
   'use strict';
+  // Mark JS-capable immediately — gates the .rv reveal pattern in CSS
+  try { document.documentElement.classList.add('js'); } catch(e){}
+
   var FADE_OUT_MS = 220;
   var FADE_IN_MS = 320;
 
@@ -23,6 +23,15 @@
   requestAnimationFrame(function () {
     body.style.opacity = '1';
   });
+
+  // SAFETY NET: if IntersectionObserver fails for any reason, force all .rv
+  // elements to .vis after 800ms so the page is never stuck invisible.
+  window.setTimeout(function () {
+    try {
+      var rvs = document.querySelectorAll('.rv:not(.vis)');
+      for (var i = 0; i < rvs.length; i++) rvs[i].classList.add('vis');
+    } catch (e) {}
+  }, 800);
 
   // back/forward cache safety
   window.addEventListener('pageshow', function (e) {

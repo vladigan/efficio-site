@@ -3,7 +3,8 @@
 # =============================================================================
 
 # Funnel shortcuts
-/book                          /audit-quiz.html   301
+/book                          /book.html         200
+/book.html                     /book.html         200
 /audit                         /audit-quiz.html   301
 /audit-quiz                    /audit-quiz.html   200
 /quiz                          /qualify.html      301

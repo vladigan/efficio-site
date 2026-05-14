@@ -1,322 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Operator Reports — Efficio AI Builds</title>
-<meta name="description" content="Real AI builds by Brady Gay at Efficio. Self-operated systems across federal contracting, job search, cold outreach, and trading risk control.">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<title>Self-Operated: 4 businesses on Brady's stack | Efficio Case Studies</title>
+<meta name="description" content="Four AI-operated businesses running on Efficio's own stack — JobBot, BNGCENT, ApexTrader, and Efficio itself. Real numbers, real dashboards."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://efficio.tech/case-studies/self-operated/"/>
+<meta property="og:title" content="Self-Operated · Efficio Case Studies"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --primary: #7c83ff;
-    --accent: #5eb8ff;
-    --tertiary: #b794f6;
-    --grad: linear-gradient(135deg, #7c83ff, #b794f6);
-    --bg: #f3f4fa;
-    --surface: #ffffff;
-    --border: #e5e7ef;
-    --text: #1a1f2e;
-    --muted: #4a5469;
-    --faint: #6b7584;
-    --green: #0f9b72;
-  }
-
-  body {
-    background: var(--bg);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    color: var(--text);
-    line-height: 1.6;
-    padding: 24px 16px 72px;
-  }
-
-  .wrapper { max-width: 780px; margin: 0 auto; }
-
-  /* Brand bar */
-  .brand-bar {
-    background: var(--surface);
-    border-radius: 12px 12px 0 0;
-    border-bottom: 1px solid var(--border);
-    padding: 18px 28px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .brand-logo {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--grad); color: #fff;
-    font-weight: 800; font-size: 20px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .brand-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-  .brand-tagline { font-size: 12px; color: var(--faint); margin-top: 1px; }
-
-  .stripe { height: 5px; background: var(--grad); }
-
-  /* Hero */
-  .hero {
-    background: var(--surface);
-    padding: 40px 36px 32px;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase;
-    color: var(--primary); background: #7c83ff12;
-    padding: 4px 12px; border-radius: 20px;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-size: clamp(24px, 4.5vw, 36px);
-    font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
-    margin-bottom: 14px;
-  }
-  .hero-sub {
-    font-size: 16px; color: var(--muted);
-    max-width: 560px; line-height: 1.6;
-    margin-bottom: 22px;
-  }
-  .honesty-note {
-    display: inline-block;
-    background: #7c83ff0a;
-    border: 1px solid #7c83ff22;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px; color: var(--muted);
-    max-width: 600px;
-  }
-  .honesty-note strong { color: var(--text); }
-
-  /* Cards grid */
-  .grid-section {
-    background: var(--surface);
-    padding: 32px 36px 40px;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 6px 28px rgba(0,0,0,0.06);
-  }
-
-  @media (max-width: 520px) {
-    .hero { padding: 28px 18px 24px; }
-    .grid-section { padding: 24px 18px 32px; }
-    .brand-bar { padding: 14px 18px; }
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 8px;
-  }
-
-  /* Individual card */
-  .cs-card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 20px 20px;
-    text-decoration: none;
-    color: inherit;
-    display: flex; flex-direction: column;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-  }
-  .cs-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--grad);
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
-  .cs-card:hover {
-    border-color: #7c83ff60;
-    box-shadow: 0 6px 22px #7c83ff18;
-    transform: translateY(-2px);
-  }
-  .cs-card:hover::before { opacity: 1; }
-
-  .card-num {
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 1.2px; text-transform: uppercase;
-    color: var(--faint); margin-bottom: 6px;
-  }
-  .card-title {
-    font-size: 16px; font-weight: 800;
-    letter-spacing: -0.02em; line-height: 1.25;
-    color: var(--text); margin-bottom: 10px;
-  }
-  .card-hook {
-    font-size: 13px; color: var(--muted);
-    line-height: 1.55; flex: 1;
-    margin-bottom: 14px;
-  }
-  .card-hero {
-    display: flex; align-items: baseline; gap: 6px;
-    margin-bottom: 14px;
-  }
-  .card-metric {
-    font-size: 26px; font-weight: 800;
-    letter-spacing: -0.03em; line-height: 1;
-    color: var(--primary);
-  }
-  .card-metric-label {
-    font-size: 12px; color: var(--faint);
-    font-weight: 500;
-  }
-  .card-tag {
-    display: inline-block;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.8px; text-transform: uppercase;
-    padding: 3px 9px; border-radius: 10px;
-    background: #7c83ff10; color: var(--primary);
-  }
-  .card-arrow {
-    position: absolute; bottom: 18px; right: 18px;
-    font-size: 18px; color: #7c83ff60;
-    transition: color 0.15s, transform 0.15s;
-  }
-  .cs-card:hover .card-arrow {
-    color: var(--primary);
-    transform: translate(2px, -1px);
-  }
-
-  /* CTA bottom */
-  .index-cta {
-    margin-top: 32px;
-    text-align: center;
-    padding: 28px 20px;
-    background: linear-gradient(135deg, #7c83ff0a, #b794f608);
-    border: 1px solid #7c83ff22;
-    border-radius: 12px;
-  }
-  .index-cta p {
-    font-size: 15px; color: var(--muted);
-    margin-bottom: 18px;
-  }
-  .index-cta a {
-    display: inline-block;
-    background: var(--grad); color: #fff;
-    text-decoration: none; font-weight: 700;
-    font-size: 14px; letter-spacing: 0.02em;
-    padding: 13px 28px; border-radius: 9px;
-    box-shadow: 0 5px 16px #7c83ff40;
-  }
-
-  /* Footer */
-  .index-footer {
-    margin-top: 20px;
-    font-size: 11px; color: var(--faint);
-    text-align: center;
-    padding: 0 12px;
-  }
+.cs-shell{max-width:1100px;margin:0 auto;padding:0 28px}
+.cs-card{background:linear-gradient(180deg,var(--surf),var(--bg2));
+  border:1px solid var(--bd);border-radius:var(--r3);padding:42px 40px;
+  margin:18px 0;position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),border-color .3s,box-shadow .35s}
+.cs-card:hover{border-color:var(--bd2);box-shadow:0 18px 48px rgba(0,0,0,.45),0 0 32px rgba(124,58,237,.16)}
+.cs-card::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(45% 60% at 90% 0%,rgba(124,58,237,.12),transparent 70%);
+  pointer-events:none}
+.cs-head{display:flex;justify-content:space-between;align-items:start;
+  flex-wrap:wrap;gap:14px;margin-bottom:22px;position:relative;z-index:1}
+.cs-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:100px;
+  background:rgba(124,58,237,.10);border:1px solid var(--bd2);
+  font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3)}
+.cs-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;
+  font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--good)}
+.cs-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 4px rgba(74,222,128,.20);animation:pdot 1.8s ease-in-out infinite}
+.cs-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:8px;position:relative;z-index:1}
+.cs-title em{color:var(--purple3);font-style:italic}
+.cs-sub{font-size:1rem;color:var(--text);line-height:1.7;margin-bottom:24px;max-width:720px;position:relative;z-index:1}
+.cs-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;position:relative;z-index:1}
+@media (max-width:720px){.cs-stats{grid-template-columns:repeat(2,1fr)}}
+.cs-stat{background:rgba(7,16,31,.6);border:1px solid var(--bd3);border-radius:var(--r);padding:16px 14px}
+.cs-stat-num{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:-.025em;line-height:1;margin-bottom:6px;background:linear-gradient(135deg,#fff,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cs-stat-lbl{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
+.cs-features{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-bottom:20px;position:relative;z-index:1}
+@media (max-width:680px){.cs-features{grid-template-columns:1fr}}
+.cs-feat{display:flex;align-items:start;gap:10px;font-size:13.5px;color:var(--w2);line-height:1.55}
+.cs-feat-check{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(124,58,237,.18);color:var(--purple3);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.cs-quote{padding:18px 22px;background:rgba(7,16,31,.5);border-left:3px solid var(--purple);border-radius:0 var(--r) var(--r) 0;font-size:14px;color:var(--w2);line-height:1.65;font-style:italic;position:relative;z-index:1}
+.cs-quote-cite{font-size:12px;color:var(--muted);margin-top:8px;font-style:normal;letter-spacing:.04em}
 </style>
 </head>
 <body>
-<div class="wrapper">
-
-  <!-- Brand bar -->
-  <div class="brand-bar">
-    <div class="brand-logo">E</div>
-    <div>
-      <div class="brand-name">Efficio</div>
-      <div class="brand-tagline">We're your AI team</div>
-    </div>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a><a href="/agents.html">Agents</a><a href="/vsl.html">Watch</a>
+    <a href="/pricing.html">Pricing</a><a href="/qualify.html">Qualify</a><a href="/why-us.html">Why us</a>
   </div>
-  <div class="stripe"></div>
+</div></nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-eyebrow">Operator Reports</div>
-    <h1>The AI we build for clients<br>is the AI we run ourselves.</h1>
-    <p class="hero-sub">Five real systems, built and operated by Brady Gay. Numbers are exact. Claims are verifiable in the codebase. Zero simulated clients.</p>
-    <div class="honesty-note">
-      <strong>Straight disclosure:</strong> These reports document Brady's own builds — not client engagements. Efficio has zero paying clients today. These systems are the reason to believe the builds work before you're client #1.
-    </div>
+<section class="hero center">
+  <div class="hero-bg"></div><div class="hero-dots"></div>
+  <div class="hero-inner">
+    <span class="hero-pill rv"><span class="pill-dot"></span>4 businesses · 1 stack · 1 operator</span>
+    <h1 class="rv d1">Self-operated. <span class="grad-purple">Receipts on file.</span></h1>
+    <p class="lede rv d2">Before Efficio sold anything, it ran four businesses on the same agents and dashboards we now contract out. These aren't testimonials — they're operational receipts from the operator's own stack, running today, on this machine.</p>
   </div>
+</section>
 
-  <!-- Grid -->
-  <div class="grid-section">
-    <div class="grid">
+<section class="section">
+  <div class="cs-shell">
 
-      <!-- Card 01 -->
-      <a class="cs-card" href="01_career_copilots_linkedin_bot.html">
-        <div class="card-num">Report 01 &middot; Job Search</div>
-        <div class="card-title">Career Copilots: LinkedIn Application Bot</div>
-        <div class="card-hero">
-          <div class="card-metric">34%</div>
-          <div class="card-metric-label">response rate<br>3,186 apps fired</div>
-        </div>
-        <p class="card-hook">Replaced 200+ hours of manual clicking with a scraper, fit scorer, AI cover messages, and Playwright executor. 3x the industry response baseline.</p>
-        <div class="card-tag">Automation</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-      <!-- Card 02 -->
-      <a class="cs-card" href="02_bngcent_dibbs_pipeline.html">
-        <div class="card-num">Report 02 &middot; Federal Contracts</div>
-        <div class="card-title">BNGCENT: $228K DIBBS Pipeline on Autopilot</div>
-        <div class="card-hero">
-          <div class="card-metric">$228K</div>
-          <div class="card-metric-label">BID NOW queue<br>zero manual browse</div>
-        </div>
-        <p class="card-hook">Daily scraper + Claude bid scorer replaces 2–3 hours of DIBBS portal grind. Surfaces only the bids worth chasing, ranked by margin and supply-chain fit.</p>
-        <div class="card-tag">Intelligence</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-      <!-- Card 03 -->
-      <a class="cs-card" href="03_efficio_outbound_engine.html">
-        <div class="card-num">Report 03 &middot; Outbound</div>
-        <div class="card-title">Efficio: 18,034 Leads, Suppression-Guarded</div>
-        <div class="card-hero">
-          <div class="card-metric">18,034</div>
-          <div class="card-metric-label">enriched leads<br>1,317-entry guard</div>
-        </div>
-        <p class="card-hook">The engineering story: fixing a guessed-email bug, reconciling three fractured send logs, and building a hard-block guard that aborts on any suppression-list overlap.</p>
-        <div class="card-tag">Deliverability</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-      <!-- Card 04 -->
-      <a class="cs-card" href="04_workforce_in_a_box.html">
-        <div class="card-num">Report 04 &middot; Multi-Business Ops</div>
-        <div class="card-title">Workforce-in-a-Box: 17 Pipelines, 4 Businesses</div>
-        <div class="card-hero">
-          <div class="card-metric">17</div>
-          <div class="card-metric-label">autonomous pipelines<br>1 operator, ~30 min/day</div>
-        </div>
-        <p class="card-hook">Every agent from every business reports into one cockpit. Brady reviews proposals and approves — the pipelines do the underlying work. Full inventory of all 17 listed.</p>
-        <div class="card-tag">Architecture</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
-      <!-- Card 05 -->
-      <a class="cs-card" href="05_apextrader_strategy_guard.html">
-        <div class="card-num">Report 05 &middot; Risk Control</div>
-        <div class="card-title">ApexTrader: StrategyGuard Catches 5 Bad Strategies</div>
-        <div class="card-hero">
-          <div class="card-metric">5</div>
-          <div class="card-metric-label">strategies blocked<br>0 false negatives</div>
-        </div>
-        <p class="card-hook">The engine is paused. The guard isn't. A circuit-breaker pattern that separates "can this run" from "should this still be running" — applicable to any automated system with real stakes.</p>
-        <div class="card-tag">Risk Control</div>
-        <div class="card-arrow">&rarr;</div>
-      </a>
-
+    <div class="cs-card rv">
+      <div class="cs-head"><span class="cs-badge">Career · Personal</span><span class="cs-status">Live · 24/7 autopilot</span></div>
+      <h2 class="cs-title">JobBot — <em>3,289 applications sent</em> by my own agent.</h2>
+      <p class="cs-sub">The first thing Efficio ever shipped. A job-application agent that sends LinkedIn applications on the operator's behalf, fully personalized by role and company. It runs while I sleep. Built so a licensed civil PE could pivot careers without losing weekends to LinkedIn's Easy Apply.</p>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cs-stat-num">3,289</div><div class="cs-stat-lbl">Applications sent</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">24/7</div><div class="cs-stat-lbl">Autopilot uptime</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">12hr</div><div class="cs-stat-lbl">Saved per week</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">100%</div><div class="cs-stat-lbl">In applied_log.csv</div></div>
+      </div>
+      <div class="cs-features">
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Personalized scoring + cover letter generation per role</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Outcome detector classifies replies (offer / screen / reject / ghost)</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Follow-up scheduler sends Day-7 + Day-14 LinkedIn DMs</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Idempotent dedupe — never double-applies to the same posting</span></div>
+      </div>
+      <div class="cs-quote">If a 10,000-app job hunt has to happen, I'd rather not be the one doing it. JobBot is doing it.<div class="cs-quote-cite">— Brady · founder · civil PE</div></div>
     </div>
 
-    <div class="index-cta">
-      <p>Want a custom version of any of these builds for your business? A 15-minute call is enough to scope it.</p>
-      <a href="https://calendly.com/brady-bngcent/efficio-strategy-call">Book 15 min with Brady &rarr;</a>
+    <div class="cs-card rv d1">
+      <div class="cs-head"><span class="cs-badge">B2B · DIBBS</span><span class="cs-status">Live · daily run</span></div>
+      <h2 class="cs-title">BNGCENT — <em>18,034 leads</em> enriched + scored.</h2>
+      <p class="cs-sub">A federal-contract dropshipping pipeline scoring DIBBS RFQs against an OEM authorization rubric. Pulls public bid data, scores margin × authorization × lead time, surfaces the top 10 daily. Replaced a 2-hour Monday reconciliation with a kanban that's already done by Monday morning.</p>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cs-stat-num">18K</div><div class="cs-stat-lbl">Enriched leads</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">$228K+</div><div class="cs-stat-lbl">Live addressable</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">2hr</div><div class="cs-stat-lbl">Recovered Mondays</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">Daily</div><div class="cs-stat-lbl">Nightly run + rank</div></div>
+      </div>
+      <div class="cs-features">
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>NSN bid scorer with margin × authorization × lead-time weighting</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>OEM gap analysis surfacing missing distributor relationships</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Supplier scout enriching contact rosters (named federal-sales reps)</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Kanban view replacing manual spreadsheet reconciliation</span></div>
+      </div>
+      <div class="cs-quote">Monday used to start with "where are we on bids?" — now it starts with "which of these 3 are we firing today?"<div class="cs-quote-cite">— Brady · operator · BNGCENT</div></div>
+    </div>
+
+    <div class="cs-card rv d2">
+      <div class="cs-head"><span class="cs-badge">Markets · CIO</span><span class="cs-status">Live · multi-source scanner</span></div>
+      <h2 class="cs-title">ApexTrader — <em>24/7 opportunity</em> scanner across 4 surfaces.</h2>
+      <p class="cs-sub">A Claude-tool-use CIO running across Coinbase Spot + INTX perps + CDP onchain Base + Polymarket prediction markets. Scrapes news, SEC filings, Reddit, GitHub releases. Surfaces ranked opportunities with explicit risk gates. Three-tier approval before any trade fires.</p>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cs-stat-num">4</div><div class="cs-stat-lbl">Trading surfaces</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">3-tier</div><div class="cs-stat-lbl">Risk gate before fire</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">0</div><div class="cs-stat-lbl">Rule violations</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">&lt;20s</div><div class="cs-stat-lbl">Decision latency</div></div>
+      </div>
+      <div class="cs-features">
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>StrategyGuard runtime layer enforcing per-strategy daily-loss caps</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Multi-source opportunity scraper (news + SEC + Reddit + GitHub)</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Telegram approval workflow — no auto-fire without explicit OK</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Mirror phase-gate kill switch + circuit breaker on live errors</span></div>
+      </div>
+      <div class="cs-quote">If a trade can't pass three gates and a human approval, it doesn't fire. Boring agents are the ones that compound.<div class="cs-quote-cite">— Brady · operator · ApexTrader CIO</div></div>
+    </div>
+
+    <div class="cs-card rv d3">
+      <div class="cs-head"><span class="cs-badge">Meta · Internal</span><span class="cs-status">Live · 12 daemons running</span></div>
+      <h2 class="cs-title">Efficio itself — <em>12 daemons</em> running my back-office.</h2>
+      <p class="cs-sub">The site you're on right now is operated by the same stack we contract to customers. Reply Classifier triages every inbound. Calendly Prep researches incoming bookings. Welcome Sender fires onboarding the moment Stripe checkout completes. The dashboard refreshes every 5 minutes. None of it requires a human.</p>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cs-stat-num">12</div><div class="cs-stat-lbl">Daemons in scheduler</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">11</div><div class="cs-stat-lbl">Reply intent labels</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">5min</div><div class="cs-stat-lbl">Dashboard refresh</div></div>
+        <div class="cs-stat"><div class="cs-stat-num">h0–h72</div><div class="cs-stat-lbl">Onboarding sequence</div></div>
+      </div>
+      <div class="cs-features">
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Reply classifier (11 labels) + Inbox monitor polling IMAP every 60s</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Speed-to-lead: new inbound → drafted reply in &lt;90 seconds</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Calendly meeting prep: booking → research → 1-pager brief in inbox</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Stripe webhook → Brevo onboarding sequence (h0/h24/h48/h72)</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Improver agent: A/B tests prompt variants on a 30-min cycle</span></div>
+        <div class="cs-feat"><span class="cs-feat-check">✓</span><span>Master dashboard refresh every 5 min · cross-business KPIs</span></div>
+      </div>
+      <div class="cs-quote">If our own daemons go down at 2am, I find out before sunrise — because we built the monitoring for it. The same monitoring layer ships with every contract.<div class="cs-quote-cite">— Brady · founder · operator of his own four-business stack</div></div>
     </div>
 
   </div>
+</section>
 
-  <div class="index-footer">
-    Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL &middot; brady@efficio.tech &middot; efficio.tech
+<section class="cta-strip">
+  <div class="container">
+    <h2>Want your own <span class="grad-purple">self-operating</span> stack?</h2>
+    <p>This is what you're contracting when you hire Efficio — the same daemons, dashboards, and agents that keep me alive. Brought to your business, customized to your ops.</p>
+    <a href="/qualify.html" class="btn-big">See if you qualify <span class="btn-arrow">→</span></a>
   </div>
+</section>
 
-</div>
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your contracted AI team — at your disposal. We learn the bleeding edge of AI every day, so you don't have to.</p>
+    </div>
+    <div class="foot-col"><h5>Product</h5><a href="/services.html">Services</a><a href="/agents.html">Agents</a><a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a></div>
+    <div class="foot-col"><h5>Company</h5><a href="/why-us.html">Why us</a><a href="/case-studies/">Case studies</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+<script src="/assets/transitions.js" defer></script>
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

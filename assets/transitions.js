@@ -14,9 +14,11 @@
   var FADE_OUT_MS = 220;
   var FADE_IN_MS = 320;
 
-  // initial fade-in (body starts at opacity 0 via inline style or CSS)
+  // initial fade-in (set opacity 0 dynamically, then fade up — safe-fail: if this
+  // script doesn't run for any reason, page is visible by default)
   var body = document.body;
   if (!body) return;
+  body.style.opacity = '0';
   body.style.transition = 'opacity ' + FADE_IN_MS + 'ms ease';
   requestAnimationFrame(function () {
     body.style.opacity = '1';

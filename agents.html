@@ -15,6 +15,41 @@
 <link rel="stylesheet" href="/assets/theme.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
 <style>
+.dash-wrap{margin:0 auto 52px;max-width:1020px;border-radius:18px;overflow:hidden;
+  border:1px solid var(--bd2);background:var(--surf);
+  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 50px var(--glow2)}
+.dash-bar{display:flex;align-items:center;gap:7px;padding:12px 18px;
+  background:rgba(124,58,237,.08);border-bottom:1px solid var(--bd)}
+.dash-dot{width:10px;height:10px;border-radius:50%}
+.dash-title{margin-left:10px;font-size:12px;font-weight:700;color:var(--w2);letter-spacing:.02em}
+.dash-live{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.14em;
+  color:var(--good);text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.dash-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 3px rgba(74,222,128,.22);animation:pdot 1.6s ease-in-out infinite}
+.dash-body{padding:20px}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+@media(max-width:680px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:14px}
+.kpi-label{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px}
+.kpi-num{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:-.02em}
+.kpi-num em{color:var(--purple3);font-style:normal;font-size:.9rem;font-weight:700}
+.kpi-sub{font-size:11px;color:var(--good);margin-top:3px}
+.dash-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.dash-cols{grid-template-columns:1fr}}
+.dash-panel{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:15px 16px}
+.dash-panel h4{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:11px}
+.dash-agent{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd3)}
+.dash-agent:last-child{border-bottom:0;padding-bottom:0}
+.da-stat{width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 8px var(--good);flex-shrink:0}
+.da-name{font-size:12.5px;color:var(--w2);font-weight:600}
+.da-meta{margin-left:auto;font-size:11px;color:var(--muted)}
+.dash-feed div{font-size:11.5px;color:var(--text);line-height:1.5;padding:6px 0;
+  border-bottom:1px solid var(--bd3);display:flex;gap:9px}
+.dash-feed div:last-child{border-bottom:0;padding-bottom:0}
+.dash-feed time{color:var(--purple3);font-weight:700;flex-shrink:0;font-variant-numeric:tabular-nums}
 .agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;perspective:1400px}
 @media (max-width:980px){.agent-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.agent-grid{grid-template-columns:1fr}}
@@ -57,7 +92,7 @@
   <div class="nav-links">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html" class="active">Agents</a>
+    <a href="/agents.html" class="active">Dashboard</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/why-us.html">Why us</a>
     <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
@@ -68,9 +103,9 @@
   <div class="hero-bg"></div>
   <div class="hero-dots"></div>
   <div class="hero-inner">
-    <span class="hero-pill rv"><span class="pill-dot"></span>Your AI team · one-stop shop</span>
-    <h1 class="rv d1">Whatever your business needs — <span class="grad-purple">we build it</span>.</h1>
-    <p class="lede rv d2">We're not a catalog of pre-made bots. We're your contracted AI team — products, tools, automations, dev, ops, engineering. Below is the shape of what we build most. Every one is custom-built into your stack, personalized to how you actually work. Tell us the problem; we'll build the thing that fixes it.</p>
+    <span class="hero-pill rv"><span class="pill-dot"></span>The difference · total visibility</span>
+    <h1 class="rv d1">See <span class="grad-purple">everything</span> we build for you — on one screen.</h1>
+    <p class="lede rv d2">Most agencies hand you a black box and an invoice. We hand you a live dashboard. Every build we ship, every hour it saves, every lead it catches — it's all there, in real time, with your branding. The work is the service. The visibility is what makes it ours.</p>
     <div class="hero-ctas rv d3">
       <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a call — see what we'd build you <span class="btn-arrow">→</span></a>
       <a href="/audit-quiz.html" class="btn-outline">Take the 60-second audit</a>
@@ -80,95 +115,79 @@
 
 <section class="section">
   <div class="container">
-    <div class="section-head rv" style="text-align:center;margin-bottom:36px">
-      <p class="lede" style="margin:0 auto;max-width:620px">Six broad capability areas — each one custom-built to your business. Not sure which you need? That's what the call is for.</p>
+    <!-- DASHBOARD MOCK -->
+    <div class="dash-wrap rv">
+      <div class="dash-bar">
+        <span class="dash-dot" style="background:#ff5f57"></span>
+        <span class="dash-dot" style="background:#febc2e"></span>
+        <span class="dash-dot" style="background:#28c840"></span>
+        <span class="dash-title">Your Efficio command center</span>
+        <span class="dash-live">Live</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <div class="kpi"><div class="kpi-label">Hours saved · this month</div><div class="kpi-num">142 <em>hrs</em></div><div class="kpi-sub">▲ 18% vs last month</div></div>
+          <div class="kpi"><div class="kpi-label">Leads caught</div><div class="kpi-num">386</div><div class="kpi-sub">0 missed inbounds</div></div>
+          <div class="kpi"><div class="kpi-label">Replies triaged</div><div class="kpi-num">1,204</div><div class="kpi-sub">hot leads surfaced first</div></div>
+          <div class="kpi"><div class="kpi-label">Active builds</div><div class="kpi-num">6</div><div class="kpi-sub">2 shipping this week</div></div>
+        </div>
+        <div class="dash-cols">
+          <div class="dash-panel">
+            <h4>Your AI team — working now</h4>
+            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Front desk</span><span class="da-meta">24 calls handled today</span></div>
+            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Sales engine</span><span class="da-meta">11 leads worked · 3 quoted</span></div>
+            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Scheduling</span><span class="da-meta">9 appointments booked</span></div>
+            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Inbox &amp; comms</span><span class="da-meta">63 replies triaged</span></div>
+            <div class="dash-agent"><span class="da-stat" style="background:var(--purple2);box-shadow:0 0 8px var(--purple2)"></span><span class="da-name">Custom build · quote tool</span><span class="da-meta">in progress</span></div>
+          </div>
+          <div class="dash-panel">
+            <h4>Activity feed</h4>
+            <div class="dash-feed">
+              <div><time>2:47</time><span>Front desk booked a Thursday 10am appointment from a missed call</span></div>
+              <div><time>2:31</time><span>Sales engine sent an itemized quote — customer opened it twice</span></div>
+              <div><time>1:58</time><span>Inbox flagged a hot lead and pushed it to the top of your queue</span></div>
+              <div><time>1:12</time><span>Scheduling confirmed 3 site visits, no back-and-forth</span></div>
+              <div><time>11:40</time><span>Recall campaign re-booked 2 customers overdue since spring</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head rv" style="text-align:center;margin-bottom:34px">
+      <span class="ag-badge" style="margin:0 auto 14px">What you actually get</span>
+      <h2>Not a black box. A <span class="grad-purple">window into the work</span>.</h2>
+      <p class="lede" style="margin:14px auto 0;max-width:640px">We build the AI — agents, tools, automations, whatever your business needs — and then we put it all behind one screen so you can see it earning its keep. No status meetings. No "what am I paying for?" Just the work, in the open.</p>
     </div>
 
     <div class="agent-grid">
       <div class="card ag-card rv" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="ag-live">Live</div></div>
-        <span class="ag-badge">Front desk</span>
-        <h3>Never miss an inbound</h3>
-        <p>Calls, texts, web forms, DMs — answered in seconds, around the clock. The customer always gets a response, the right person always gets the handoff.</p>
-        <ul>
-          <li>24/7 voice + SMS reception</li>
-          <li>Lead intake, triage &amp; instant routing</li>
-          <li>Emergency escalation to on-call humans</li>
-        </ul>
-        <div class="ag-meta"><strong>24/7</strong> · voice + SMS + web</div>
+        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div></div>
+        <span class="ag-badge">See the work</span>
+        <h3>Every agent, live</h3>
+        <p>Front desk, sales, scheduling, inbox, custom builds — see each one running in real time, with the count of what it handled today. Nothing happens out of sight.</p>
       </div>
 
       <div class="card ag-card rv d1" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><div class="ag-live">Live</div></div>
-        <span class="ag-badge">Sales engine</span>
-        <h3>Work every lead to close</h3>
-        <p>Sub-minute response on every lead, instant quotes, follow-up that never forgets, and re-engagement for the customers who went quiet.</p>
-        <ul>
-          <li>&lt;60s response on any channel</li>
-          <li>Itemized quotes built in seconds</li>
-          <li>Behavior-triggered follow-up &amp; recall</li>
-        </ul>
-        <div class="ag-meta"><strong>&lt;60s</strong> response · quote-to-close</div>
+        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div></div>
+        <span class="ag-badge">See the results</span>
+        <h3>Hours and dollars, counted</h3>
+        <p>Hours saved, leads caught, replies triaged, customers re-booked — measured and trended every month. The number that matters is always on the screen.</p>
       </div>
 
       <div class="card ag-card rv d2" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="ag-live">Live</div></div>
-        <span class="ag-badge">Scheduling</span>
-        <h3>Kill the calendar tetris</h3>
-        <p>Books, confirms, reminds, and preps — across appointments, site visits, and calls. No more three-round "what about Tuesday?" threads.</p>
-        <ul>
-          <li>Auto-booking &amp; confirmation with all parties</li>
-          <li>Recall campaigns for overdue customers</li>
-          <li>Prep briefs in your inbox before every call</li>
-        </ul>
-        <div class="ag-meta"><strong>0</strong> back-and-forth · auto-confirm</div>
-      </div>
-
-      <div class="card ag-card rv" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="ag-live">Live</div></div>
-        <span class="ag-badge">Inbox &amp; comms</span>
-        <h3>An inbox that runs itself</h3>
-        <p>Every inbound triaged by intent, drafted for one-click send, and surfaced in priority order. Onboarding and status comms go out on their own.</p>
-        <ul>
-          <li>Intent classification — hot leads first</li>
-          <li>Draft-ready replies for one-click send</li>
-          <li>Automated onboarding &amp; status sequences</li>
-        </ul>
-        <div class="ag-meta"><strong>intent-sorted</strong> · draft-to-send</div>
-      </div>
-
-      <div class="card ag-card rv d1" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="ag-live">Custom</div></div>
-        <span class="ag-badge">Custom AI products</span>
-        <h3>If it can be built, we build it</h3>
-        <p>The one-stop shop. Internal tools, customer-facing apps, document AI, data pipelines, scrapers, integrations — engineered to your spec, in your stack.</p>
-        <ul>
-          <li>Internal tools &amp; customer-facing apps</li>
-          <li>Document AI, data extraction &amp; pipelines</li>
-          <li>Integrations across whatever you already run</li>
-        </ul>
-        <div class="ag-meta"><strong>built to spec</strong> · any stack</div>
-      </div>
-
-      <div class="card ag-card rv d2" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div><div class="ag-live">Live</div></div>
-        <span class="ag-badge">Command dashboard</span>
-        <h3>One screen over everything</h3>
-        <p>The cockpit for your AI team — deploy, watch, and tune every build above from a single live dashboard. It even improves itself.</p>
-        <ul>
-          <li>Live metrics &amp; agent performance</li>
-          <li>Self-improving prompts, A/B tested</li>
-          <li>Your custom command center, your branding</li>
-        </ul>
-        <div class="ag-meta"><strong>real-time</strong> · self-improving</div>
+        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div></div>
+        <span class="ag-badge">See what's next</span>
+        <h3>The build pipeline</h3>
+        <p>What we're building for you right now, what ships this week, what's queued. You always know where your AI team's attention is going next.</p>
       </div>
     </div>
 
     <div class="custom-call rv">
       <div class="custom-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <div class="custom-text">
-        <h3>Your thing isn't on this list?</h3>
-        <p>Good — most of what we build isn't. These six are just the shape of it. Tell us what's eating your time on a 15-min call and we'll scope exactly what we'd build you.</p>
+        <h3>The dashboard is built around what you need.</h3>
+        <p>We're a one-stop shop — products, tools, automations, dev, ops, engineering. Tell us what's eating your time on a 15-min call and we'll scope exactly what we'd build you, and what your dashboard would track.</p>
       </div>
       <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a call <span class="btn-arrow">→</span></a>
     </div>
@@ -177,9 +196,9 @@
 
 <section class="cta-strip">
   <div class="container">
-    <h2>Start with the <span class="grad-purple">60-second audit.</span></h2>
-    <p>It scores your operation and tells you which agent we'd ship first. No deck, no homework, no pitch.</p>
-    <a href="/audit-quiz.html" class="btn-big">Take the audit <span class="btn-arrow">→</span></a>
+    <h2>See what your <span class="grad-purple">dashboard</span> would show.</h2>
+    <p>Book a 15-minute call. We'll scope what we'd build you and what your command center would track. No deck, no homework, no pitch.</p>
+    <a href="/book.html" class="btn-big" target="_blank" rel="noopener">Book a call <span class="btn-arrow">→</span></a>
   </div>
 </section>
 
@@ -190,7 +209,7 @@
       <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
     </div>
     <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/agents.html">Agents</a>
+      <a href="/services.html">Services</a><a href="/agents.html">Dashboard</a>
       <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
     </div>
     <div class="foot-col"><h5>Company</h5>

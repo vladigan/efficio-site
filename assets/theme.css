@@ -55,9 +55,26 @@ img,svg{max-width:100%;display:block}
 /* HERO */
 .hero{padding:170px 0 80px;position:relative;overflow:hidden}
 .hero.center{text-align:center}
-.hero-bg{display:none}
-.hero-dots{display:none}
+/* animated perspective grid — every hero gets engineering-floor depth */
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-bg::before{content:"";position:absolute;left:-60%;right:-60%;bottom:-30%;height:135%;
+  background-image:linear-gradient(rgba(155,108,246,.16) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(155,108,246,.16) 1px,transparent 1px);
+  background-size:46px 46px;
+  transform:perspective(440px) rotateX(61deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top,#000,transparent 74%);
+  mask-image:linear-gradient(to top,#000,transparent 74%);
+  animation:herogrid 3.4s linear infinite}
+@keyframes herogrid{from{background-position:0 0}to{background-position:0 46px}}
+/* drifting aurora glow above the grid */
+.hero-dots{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-dots::before{content:"";position:absolute;width:62vw;height:62vw;max-width:880px;max-height:880px;
+  top:-26vw;left:50%;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.20),transparent 62%);
+  animation:heroaurora 15s ease-in-out infinite alternate}
+@keyframes heroaurora{0%{transform:translate(-72%,-4%)}100%{transform:translate(-32%,10%)}}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px}
+@media (prefers-reduced-motion:reduce){.hero-bg::before,.hero-dots::before{animation:none}}
 .hero.center .hero-inner{max-width:960px;text-align:center}
 .hero-pill{display:inline-flex;align-items:center;gap:9px;padding:0 0 0 0;
   border:none;background:none;border-radius:0;

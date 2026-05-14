@@ -274,9 +274,25 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;
 
 /* === BOLD & CONFIDENT — final override === */
 body{letter-spacing:-.011em}
-/* kill decorative gradient/dot layers */
-.hero-bg,.hero-dots{display:none !important}
+/* animated perspective grid — match the rest of the site */
 .hero{padding:170px 0 70px !important}
+.hero-bg{position:absolute !important;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:none !important}
+.hero-bg::before{content:"" !important;position:absolute;left:-60%;right:-60%;bottom:-30%;height:135%;
+  background-image:linear-gradient(rgba(155,108,246,.16) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(155,108,246,.16) 1px,transparent 1px) !important;
+  background-size:46px 46px !important;
+  transform:perspective(440px) rotateX(61deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top,#000,transparent 74%);
+  mask-image:linear-gradient(to top,#000,transparent 74%);
+  animation:herogrid 3.4s linear infinite}
+@keyframes herogrid{from{background-position:0 0}to{background-position:0 46px}}
+.hero-dots{position:absolute !important;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:none !important;-webkit-mask-image:none !important;mask-image:none !important}
+.hero-dots::before{content:"" !important;position:absolute;width:62vw;height:62vw;max-width:880px;max-height:880px;
+  top:-26vw;left:50%;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.20),transparent 62%) !important;
+  animation:heroaurora 15s ease-in-out infinite alternate}
+@keyframes heroaurora{0%{transform:translate(-72%,-4%)}100%{transform:translate(-32%,10%)}}
+@media (prefers-reduced-motion:reduce){.hero-bg::before,.hero-dots::before{animation:none}}
 .cta-strip{background:var(--bg2) !important}
 .tier::before{display:none !important}
 .callout{background:var(--surf) !important}

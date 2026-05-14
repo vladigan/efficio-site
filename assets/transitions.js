@@ -134,4 +134,42 @@
   window.addEventListener('pageshow', function () {
     body.style.opacity = '1';
   });
+
+  // SITE-WIDE MOTION — magnetic CTAs + subtle 3D card tilt.
+  // Fully guarded: fine-pointer only, respects reduced-motion, try/catch wrapped.
+  try {
+    var fine = window.matchMedia('(pointer: fine)').matches;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (fine && !reduce) {
+      // Magnetic CTAs
+      var ctas = document.querySelectorAll('.btn-primary,.btn-outline,.btn-big,.btn-nav,.btn-cta');
+      ctas.forEach(function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var r = el.getBoundingClientRect();
+          var mx = (e.clientX - r.left - r.width / 2) * 0.2;
+          var my = (e.clientY - r.top - r.height / 2) * 0.34;
+          el.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+        });
+        el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+      });
+      // Subtle 3D tilt on cards
+      var cards = document.querySelectorAll('.card');
+      cards.forEach(function (card) {
+        var raf = null;
+        card.addEventListener('mousemove', function (e) {
+          var r = card.getBoundingClientRect();
+          var rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
+          var ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
+          if (raf) cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(function () {
+            card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
+          });
+        });
+        card.addEventListener('mouseleave', function () {
+          if (raf) cancelAnimationFrame(raf);
+          card.style.transform = '';
+        });
+      });
+    }
+  } catch (e) {}
 })();

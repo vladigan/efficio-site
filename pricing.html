@@ -271,6 +271,56 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;
   border-top:1px solid var(--bd3);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
   font-size:12px;color:var(--muted)}
+
+/* === BOLD & CONFIDENT — final override === */
+body{letter-spacing:-.011em}
+/* kill decorative gradient/dot layers */
+.hero-bg,.hero-dots{display:none !important}
+.hero{padding:170px 0 70px !important}
+.cta-strip{background:var(--bg2) !important}
+.tier::before{display:none !important}
+.callout{background:var(--surf) !important}
+/* nav — flat, near-black */
+.nav.scrolled{background:rgba(8,8,10,.85) !important}
+.btn-nav{background:var(--white) !important;color:#000 !important;border:1px solid var(--white) !important;box-shadow:none !important;border-radius:var(--r) !important}
+.btn-nav:hover{background:var(--purple) !important;color:#fff !important;box-shadow:none !important}
+/* headings — heavy, tight, white (no gradient text) */
+.hero h1,.s-title,.cta-strip h2{font-weight:900 !important;letter-spacing:-.04em !important}
+.grad-purple{background:none !important;-webkit-text-fill-color:currentColor !important;color:var(--purple2) !important}
+/* labels — flat, no pill, no glow */
+.hero-pill,.s-label{background:none !important;border:none !important;padding:0 !important;
+  border-radius:0 !important;color:var(--purple3) !important;letter-spacing:.16em !important}
+.pill-dot{box-shadow:0 0 0 0 rgba(155,108,246,.5) !important;background:var(--purple2) !important;
+  animation:pdotB 2.4s ease-in-out infinite}
+@keyframes pdotB{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}70%{box-shadow:0 0 0 6px rgba(155,108,246,0)}100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
+/* tier cards — flat, hairline, tasteful lift */
+.tier{background:var(--surf) !important;box-shadow:none !important}
+.tier:hover{box-shadow:none !important;transform:translateY(-4px) !important;border-color:var(--bd2) !important}
+.tier.feat{background:var(--surf2) !important;border:1px solid var(--purple) !important;box-shadow:none !important}
+.tier.feat::after{background:var(--purple) !important}
+.tier-price{background:none !important;-webkit-text-fill-color:var(--white) !important;color:var(--white) !important;font-weight:900 !important}
+.tier-cta{background:var(--surf2) !important;border:1px solid var(--bd2) !important;box-shadow:none !important;border-radius:var(--r) !important}
+.tier-cta:hover{background:var(--surf3) !important;border-color:var(--white) !important}
+.tier.feat .tier-cta{background:var(--purple) !important;border:1px solid var(--purple) !important;box-shadow:none !important}
+.tier.feat .tier-cta:hover{background:var(--purple2) !important;box-shadow:none !important;transform:translateY(-1px) !important}
+/* tier feature ticks — flat purple square */
+.tier-features li::before{background:none !important;border-radius:0 !important;width:7px !important;height:7px !important;
+  margin-top:6px !important;background-color:var(--purple2) !important}
+/* one-time build cards + callout — flat */
+.build{background:var(--surf) !important}
+.build:hover{background:var(--surf2) !important;box-shadow:none !important}
+.callout-icon{background:var(--purple) !important;box-shadow:none !important}
+/* comparison + faq — flat */
+.compare-head .best,.compare-head .best::before{background:var(--purple) !important}
+.compare-head .best::before{color:#fff !important}
+/* big CTA button — solid, flat */
+.btn-big{background:var(--purple) !important;border:1px solid var(--purple) !important;
+  box-shadow:none !important;border-radius:var(--r) !important}
+.btn-big:hover{background:var(--purple2) !important;box-shadow:none !important;transform:translateY(-1px) !important}
+/* reveals — safe-fail gate */
+html.js .rv{opacity:0;transform:translateY(26px)}
+html:not(.js) .rv{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion:reduce){.pill-dot{animation:none}}
 </style>
 </head>
 <body>

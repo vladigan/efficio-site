@@ -110,6 +110,23 @@
 .dash-feed div:last-child{border-bottom:0;padding-bottom:0}
 .dash-feed div:first-child{padding-top:0}
 .dash-feed time{color:var(--purple3);font-weight:700;flex-shrink:0}
+.dash-feed div.new{animation:feedin .55s var(--ease)}
+@keyframes feedin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+/* live status dots inside the mock — purposeful pulse */
+.dash-row .st{box-shadow:0 0 0 0 rgba(74,222,128,.5);animation:dotpulse 2.4s ease-in-out infinite}
+.dash-row .st.b{box-shadow:0 0 0 0 rgba(155,108,246,.5);animation:dotpulseB 2.4s ease-in-out infinite}
+@keyframes dotpulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}70%{box-shadow:0 0 0 5px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+@keyframes dotpulseB{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}70%{box-shadow:0 0 0 5px rgba(155,108,246,0)}100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
+.dash-bar .l::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--good);margin-right:6px;vertical-align:1px;
+  box-shadow:0 0 0 0 rgba(74,222,128,.5);animation:dotpulse 2s ease-in-out infinite}
+/* dashboard frame — subtle 3D tilt + lift on entrance */
+.dash-frame{transform-style:preserve-3d;transition:transform .25s var(--ease),border-color .25s;will-change:transform}
+.dash-frame:hover{border-color:var(--purple)}
+@media (prefers-reduced-motion:reduce){
+  .dash-row .st,.dash-row .st.b,.dash-bar .l::before{animation:none}
+  .dash-feed div.new{animation:none}
+}
 
 /* numbered steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden}
@@ -222,7 +239,7 @@
       <h2 class="s-title">Not a black box. <em>A window into the work.</em></h2>
       <p class="s-sub">Most agencies hand you an invoice and a shrug. We hand you a live dashboard — every agent we've built, every hour it's saved, every lead it caught, what's shipping next. The work is the service. The visibility is what makes it ours.</p>
     </div>
-    <div class="dash-frame rv d1">
+    <div class="dash-frame rv d1" id="dashFrame">
       <div class="dash-bar">
         <span class="d" style="background:#ff5f57"></span>
         <span class="d" style="background:#febc2e"></span>
@@ -232,10 +249,10 @@
       </div>
       <div class="dash-body">
         <div class="dash-kpis">
-          <div class="dk"><div class="lbl">Hours saved · this month</div><div class="num">142</div><div class="sub">+18% vs last month</div></div>
-          <div class="dk"><div class="lbl">Leads caught</div><div class="num">386</div><div class="sub">0 missed inbounds</div></div>
-          <div class="dk"><div class="lbl">Replies triaged</div><div class="num">1,204</div><div class="sub">hot leads first</div></div>
-          <div class="dk"><div class="lbl">Active builds</div><div class="num">2</div><div class="sub">1 ships this week</div></div>
+          <div class="dk"><div class="lbl">Hours saved · this month</div><div class="num" data-count="142">0</div><div class="sub">+18% vs last month</div></div>
+          <div class="dk"><div class="lbl">Leads caught</div><div class="num" data-count="386">0</div><div class="sub">0 missed inbounds</div></div>
+          <div class="dk"><div class="lbl">Replies triaged</div><div class="num" data-count="1204">0</div><div class="sub">hot leads first</div></div>
+          <div class="dk"><div class="lbl">Active builds</div><div class="num" data-count="2">0</div><div class="sub">1 ships this week</div></div>
         </div>
         <div class="dash-cols">
           <div class="dash-p">
@@ -248,7 +265,7 @@
           </div>
           <div class="dash-p">
             <h4>Activity feed</h4>
-            <div class="dash-feed">
+            <div class="dash-feed" id="dashFeed">
               <div><time>2:47</time><span>Front desk booked a Thursday 10am from a missed call</span></div>
               <div><time>2:31</time><span>Sales engine sent an itemized quote — opened twice</span></div>
               <div><time>1:58</time><span>Inbox flagged a hot lead, pushed to top of queue</span></div>
@@ -453,13 +470,83 @@
 
 <script src="/assets/transitions.js" defer></script>
 <script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
+
+  // Scroll reveals
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(b=>{
     b.addEventListener('click',()=>b.parentElement.classList.toggle('open'));
   });
+
+  // Animated KPI counters — fire when the dashboard scrolls into view
+  function runCounters(){
+    document.querySelectorAll('#dashFrame [data-count]').forEach(el=>{
+      const target=parseInt(el.dataset.count,10)||0;
+      if(reduceMotion){el.textContent=target.toLocaleString('en-US');return;}
+      const dur=1400, t0=performance.now();
+      (function step(now){
+        const p=Math.min(1,(now-t0)/dur);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*eased).toLocaleString('en-US');
+        if(p<1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }
+  const dashFrame=document.getElementById('dashFrame');
+  if(dashFrame){
+    const cio=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){runCounters();startFeed();cio.unobserve(e.target);}
+    }),{threshold:.35});
+    cio.observe(dashFrame);
+
+    // Subtle 3D tilt on pointer (fine pointers only)
+    if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+      let raf=null;
+      dashFrame.addEventListener('mousemove',e=>{
+        const r=dashFrame.getBoundingClientRect();
+        const rx=((e.clientY-r.top)/r.height-0.5)*-4;
+        const ry=((e.clientX-r.left)/r.width-0.5)*4;
+        if(raf)cancelAnimationFrame(raf);
+        raf=requestAnimationFrame(()=>{dashFrame.style.transform=`perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
+      });
+      dashFrame.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);dashFrame.style.transform='';});
+    }
+  }
+
+  // Live activity feed — new lines slide in over time
+  const FEED_POOL=[
+    'Front desk answered an after-hours call and booked it',
+    'Sales engine followed up with a lead that went quiet',
+    'Inbox drafted 4 replies — ready for one-click send',
+    'Scheduling reminded tomorrow’s appointments automatically',
+    'Quote tool built a $3,180 itemized quote in 90 seconds',
+    'Recall re-engaged a customer overdue since last quarter',
+    'Front desk routed an urgent request to the on-call human',
+    'Sales engine logged a closed job back to the CRM',
+    'Inbox flagged a pricing question as HOT — top of queue',
+    'Scheduling filled a same-day cancellation slot'
+  ];
+  function startFeed(){
+    const feed=document.getElementById('dashFeed');
+    if(!feed||reduceMotion) return;
+    let i=0;
+    setInterval(()=>{
+      const now=new Date();
+      const hh=((now.getHours()%12)||12);
+      const mm=String(now.getMinutes()).padStart(2,'0');
+      const row=document.createElement('div');
+      row.className='new';
+      row.innerHTML='<time>'+hh+':'+mm+'</time><span>'+FEED_POOL[i%FEED_POOL.length]+'</span>';
+      feed.insertBefore(row,feed.firstChild);
+      while(feed.children.length>5) feed.removeChild(feed.lastElementChild);
+      i++;
+    },4200);
+  }
 </script>
 </body>
 </html>

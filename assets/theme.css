@@ -65,9 +65,21 @@ img,svg{max-width:100%;display:block}
   border:none;background:none;border-radius:0;
   font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--purple3);margin-bottom:26px}
-.pill-dot{width:6px;height:6px;border-radius:0;background:var(--purple2);
-  box-shadow:none;animation:none}
-@keyframes pdot{0%,100%{opacity:1}50%{opacity:.45}}
+.pill-dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);
+  box-shadow:0 0 0 0 rgba(155,108,246,.6);animation:pdot 2.4s ease-in-out infinite}
+@keyframes pdot{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}
+  70%{box-shadow:0 0 0 7px rgba(155,108,246,0)}
+  100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
+/* live-status dot — tasteful, purposeful pulse */
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--good);flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(74,222,128,.55);animation:livepulse 2s ease-in-out infinite}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}
+  70%{box-shadow:0 0 0 6px rgba(74,222,128,0)}
+  100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+@media (prefers-reduced-motion:reduce){
+  .pill-dot,.live-dot{animation:none}
+  html.js .rv{transition-duration:.01s}
+}
 .hero h1{font-size:clamp(2.8rem,6.4vw,5.4rem);font-weight:900;line-height:.98;
   letter-spacing:-.045em;color:var(--white);margin-bottom:24px}
 .grad-purple{color:var(--purple2);background:none;-webkit-text-fill-color:currentColor}
@@ -101,17 +113,17 @@ img,svg{max-width:100%;display:block}
 .text-center{text-align:center}
 .text-center .s-sub{margin-left:auto;margin-right:auto}
 
-/* REVEALS — subtle; safe-fail (visible unless JS confirms it can animate) */
-html.js .rv{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+/* REVEALS — safe-fail (visible unless JS confirms it can animate) */
+html.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 html.js .rv.vis{opacity:1;transform:translateY(0)}
-.rv.d1{transition-delay:.06s}.rv.d2{transition-delay:.12s}.rv.d3{transition-delay:.18s}
-.rv.d4{transition-delay:.24s}.rv.d5{transition-delay:.30s}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.40s}
 
-/* CARDS — flat, bordered, no lift, no glow */
+/* CARDS — flat, bordered; tasteful lift on hover (no glow) */
 .card{background:var(--surf);
   border:1px solid var(--bd);border-radius:var(--r2);padding:30px 28px;
-  transition:border-color .15s;position:relative}
-.card:hover{border-color:var(--bd2)}
+  transition:border-color .2s var(--ease),transform .2s var(--ease);position:relative}
+.card:hover{border-color:var(--bd2);transform:translateY(-4px)}
 .card.feat{background:var(--surf2);border:1px solid var(--purple)}
 .card-icon{width:42px;height:42px;border-radius:var(--r);
   background:transparent;border:1px solid var(--bd2);

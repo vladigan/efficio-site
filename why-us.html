@@ -145,10 +145,10 @@
     </div>
 
     <div class="receipts">
-      <div class="receipt rv"><div class="receipt-num">3,289</div><div class="receipt-lbl">Apps sent by my own bot</div></div>
-      <div class="receipt rv d1"><div class="receipt-num">18,034</div><div class="receipt-lbl">Leads in my enriched pipeline</div></div>
-      <div class="receipt rv d2"><div class="receipt-num">4</div><div class="receipt-lbl">Businesses I run on this stack</div></div>
-      <div class="receipt rv d3"><div class="receipt-num">12</div><div class="receipt-lbl">Daemons running autonomously now</div></div>
+      <div class="receipt rv"><div class="receipt-num" data-count="3289">0</div><div class="receipt-lbl">Apps sent by my own bot</div></div>
+      <div class="receipt rv d1"><div class="receipt-num" data-count="18034">0</div><div class="receipt-lbl">Leads in my enriched pipeline</div></div>
+      <div class="receipt rv d2"><div class="receipt-num" data-count="4">0</div><div class="receipt-lbl">Businesses I run on this stack</div></div>
+      <div class="receipt rv d3"><div class="receipt-num" data-count="12">0</div><div class="receipt-lbl">Daemons running autonomously now</div></div>
     </div>
   </div>
 </section>
@@ -217,19 +217,22 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-  if(window.matchMedia('(pointer: fine)').matches){
-    document.querySelectorAll('[data-tilt]').forEach(card=>{
-      let raf=null;
-      card.addEventListener('mousemove',e=>{
-        const r=card.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-0.5)*-5;
-        const ry=((e.clientX-r.left)/r.width-0.5)*5;
-        if(raf)cancelAnimationFrame(raf);
-        raf=requestAnimationFrame(()=>{card.style.transform=`perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;});
-      });
-      card.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);card.style.transform='';});
-    });
-  }
+  // Animated receipt counters — fire when scrolled into view
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el=e.target, target=parseInt(el.dataset.count,10)||0;
+    cio.unobserve(el);
+    if(reduceMotion){el.textContent=target.toLocaleString('en-US');return;}
+    const dur=1500, t0=performance.now();
+    (function step(now){
+      const p=Math.min(1,(now-t0)/dur), eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString('en-US');
+      if(p<1) requestAnimationFrame(step);
+    })(t0);
+  }),{threshold:.5});
+  document.querySelectorAll('.receipt-num[data-count]').forEach(el=>cio.observe(el));
+  // 3D card tilt + magnetic CTAs now come from /assets/transitions.js (site-wide)
 </script>
 </body>
 </html>

@@ -19,14 +19,26 @@
 .flow::before{content:"";position:absolute;top:34px;left:7%;right:7%;height:2px;
   background:linear-gradient(90deg,var(--purple) 0%,var(--purple) 20%,var(--bd3) 20%,var(--bd3) 40%,var(--purple) 40%,var(--purple) 60%,var(--bd3) 60%,var(--bd3) 80%,var(--purple) 80%);
   opacity:.4;z-index:0}
-@media (max-width:880px){.flow{grid-template-columns:1fr}.flow::before{display:none}}
+/* traveling pulse along the flow connector */
+.flow::after{content:"";position:absolute;top:30px;left:7%;width:10px;height:10px;border-radius:50%;
+  background:var(--purple2);box-shadow:0 0 14px var(--purple2);z-index:1;margin-left:-5px;
+  animation:flowtravel 3.8s linear infinite}
+@keyframes flowtravel{0%{left:7%;opacity:0}7%{opacity:1}93%{opacity:1}100%{left:93%;opacity:0}}
+@media (max-width:880px){.flow{grid-template-columns:1fr}.flow::before,.flow::after{display:none}}
+@media (prefers-reduced-motion:reduce){.flow::after{animation:none;opacity:0}.step-num::before{animation:none}}
 .step{position:relative;z-index:1;padding:0 6px}
-.step-num{width:68px;height:68px;border-radius:50%;
+.step-num{width:68px;height:68px;border-radius:50%;position:relative;
   background:var(--surf2);
   border:2px solid rgba(168,85,247,.5);color:var(--purple3);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:22px;
-  box-shadow:0 0 24px var(--glow2),inset 0 0 20px rgba(124,58,237,.10)}
+  font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:22px}
+.step-num::before{content:"";position:absolute;inset:-2px;border-radius:50%;
+  border:2px solid var(--purple2);opacity:0;animation:stepring 3.6s ease-in-out infinite}
+.step:nth-of-type(2) .step-num::before{animation-delay:.4s}
+.step:nth-of-type(3) .step-num::before{animation-delay:.8s}
+.step:nth-of-type(4) .step-num::before{animation-delay:1.2s}
+.step:nth-of-type(5) .step-num::before{animation-delay:1.6s}
+@keyframes stepring{0%,60%,100%{opacity:0;transform:scale(1)}20%{opacity:.7;transform:scale(1)}40%{opacity:0;transform:scale(1.35)}}
 .step h3{font-size:1.2rem;color:var(--white);font-weight:700;margin-bottom:10px;letter-spacing:-.015em}
 .step p{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:10px}
 .step-time{display:inline-block;font-size:11px;font-weight:700;color:var(--purple3);letter-spacing:.06em;text-transform:uppercase}

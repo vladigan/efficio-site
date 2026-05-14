@@ -213,6 +213,40 @@
 .price-note{text-align:center;margin-top:24px;font-size:13px;color:var(--muted)}
 .price-note a{color:var(--purple3);font-weight:600}
 
+/* ── under-the-hood: interactive code viewer ── */
+.code-wrap{margin-top:44px;border:1px solid var(--bd2);border-radius:var(--r2);
+  background:#0a0a0d;overflow:hidden;
+  font-family:'SF Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;
+  box-shadow:0 36px 90px rgba(0,0,0,.6);transform-style:preserve-3d;
+  transition:transform .25s var(--ease),border-color .25s;will-change:transform}
+.code-wrap:hover{border-color:var(--purple)}
+.code-tabs{display:flex;align-items:center;background:#121215;border-bottom:1px solid var(--bd)}
+.code-tabs .cdots{display:flex;gap:7px;padding:0 15px;flex-shrink:0}
+.code-tabs .cdots i{width:9px;height:9px;border-radius:50%;display:block}
+.code-tab{padding:13px 18px;font-size:11.5px;color:var(--muted);font-weight:500;
+  border-left:1px solid var(--bd);cursor:pointer;transition:color .15s,background .15s;
+  white-space:nowrap;background:none}
+.code-tab:hover{color:var(--w2)}
+.code-tab.on{color:var(--white);background:#0a0a0d;box-shadow:inset 0 -2px 0 var(--purple2)}
+.code-pane-wrap{padding:18px 6px 20px}
+.pane{display:none;counter-reset:ln;font-size:12.6px;line-height:1.92}
+.pane.on{display:block}
+.pane .cl{display:block;white-space:pre;counter-increment:ln;
+  opacity:0;transform:translateY(7px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.pane.lit .cl{opacity:1;transform:none}
+.pane .cl::before{content:counter(ln);display:inline-block;width:34px;margin-right:16px;
+  color:#34343d;text-align:right;-webkit-user-select:none;user-select:none}
+.pane .k{color:#c084fc}
+.pane .s{color:#86efac}
+.pane .c{color:#52525b;font-style:italic}
+.pane .f{color:#93c5fd}
+.pane .n{color:#fbbf24}
+.pane .t{color:#7dd3fc}
+.code-cur{display:inline-block;width:7px;height:13px;background:var(--purple2);
+  vertical-align:-2px;margin-left:2px;animation:cblink 1.05s steps(1) infinite}
+@media(max-width:560px){.pane{font-size:11.4px}.pane .cl::before{width:24px;margin-right:10px}}
+@media(prefers-reduced-motion:reduce){.pane .cl{opacity:1;transform:none}.code-cur{animation:none}}
+
 /* faq */
 .faq{max-width:760px;margin:0 auto;border-top:1px solid var(--bd)}
 .faq-item{border-bottom:1px solid var(--bd)}
@@ -373,8 +407,32 @@
   </div>
 </section>
 
+<!-- UNDER THE HOOD — interactive code viewer -->
+<section class="section section-alt" id="under-the-hood">
+  <div class="container">
+    <div class="sh rv">
+      <div class="s-label">Under the hood</div>
+      <h2 class="s-title">Real code, <em>shipped into your stack.</em></h2>
+      <p class="s-sub">You never read a line of it — that's the entire point. But this is what we're actually writing, deploying, and running for you. Click through.</p>
+    </div>
+    <div class="code-wrap rv d1" id="codeWrap">
+      <div class="code-tabs">
+        <span class="cdots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>
+        <button class="code-tab on" type="button" data-pane="p0">front_desk.py</button>
+        <button class="code-tab" type="button" data-pane="p1">quote_tool.py</button>
+        <button class="code-tab" type="button" data-pane="p2">pipeline.yaml</button>
+      </div>
+      <div class="code-pane-wrap">
+        <div class="pane on" id="p0"><span class="cl"><span class="c"># front_desk — answers every inbound, books it, escalates if urgent</span></span><span class="cl"><span class="k">class</span> <span class="f">FrontDesk</span>(<span class="t">Agent</span>):</span><span class="cl">    <span class="k">async def</span> <span class="f">on_inbound</span>(<span class="k">self</span>, msg):</span><span class="cl">        intent = <span class="k">await</span> <span class="k">self</span>.classify(msg)      <span class="c"># call · text · web form</span></span><span class="cl">        <span class="k">if</span> intent.is_emergency:</span><span class="cl">            <span class="k">return</span> <span class="k">self</span>.escalate(msg, to=<span class="s">"on-call"</span>)</span><span class="cl">        slot = <span class="k">self</span>.calendar.next_open(intent.service)</span><span class="cl">        booking = <span class="k">self</span>.calendar.book(slot, msg.contact)</span><span class="cl">        <span class="k">self</span>.crm.log(booking)</span><span class="cl">        <span class="k">self</span>.events.append(<span class="s">"appointment_booked"</span>, booking.summary)</span><span class="cl">        <span class="k">return</span> <span class="k">self</span>.reply(msg, confirm=booking)<span class="code-cur"></span></span></div>
+        <div class="pane" id="p1"><span class="cl"><span class="c"># quote_tool — itemized quotes from an intake form, in seconds</span></span><span class="cl"><span class="k">def</span> <span class="f">build_quote</span>(intake: <span class="t">Intake</span>) -&gt; <span class="t">Quote</span>:</span><span class="cl">    items = price_book.match(intake.scope)     <span class="c"># your pricing, your rules</span></span><span class="cl">    quote = <span class="f">Quote</span>(items, tax=intake.region.tax)</span><span class="cl">    quote.attach(branding=client.brand)</span><span class="cl">    quote.send(intake.contact, channel=<span class="s">"email"</span>)</span><span class="cl">    events.append(<span class="s">"quote_sent"</span>, <span class="s">f"${quote.total} — {intake.company}"</span>)</span><span class="cl">    <span class="k">return</span> quote<span class="code-cur"></span></span></div>
+        <div class="pane" id="p2"><span class="cl"><span class="c"># pipeline.yaml — what we're building for you, in order</span></span><span class="cl"><span class="t">client</span>: acme-plumbing</span><span class="cl"><span class="t">agents</span>:</span><span class="cl">  - front_desk      <span class="c"># live</span></span><span class="cl">  - sales_engine    <span class="c"># live</span></span><span class="cl">  - scheduling      <span class="c"># live</span></span><span class="cl"><span class="t">build_queue</span>:</span><span class="cl">  - custom_quote_tool:  <span class="s">ships this week</span></span><span class="cl">  - review_automation:  <span class="s">next up</span></span><span class="cl"><span class="t">dashboard</span>:</span><span class="cl">  <span class="t">refresh</span>: <span class="n">5m</span></span><span class="cl">  <span class="t">url</span>: acme.efficio.tech<span class="code-cur"></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="sh rv">
       <div class="s-label">How it works</div>
@@ -673,6 +731,70 @@
       el.addEventListener('mouseleave',()=>{el.style.transform='';});
     });
   }
+
+  // ── Interactive code viewer — tab switch + staggered line reveal + tilt ──
+  (function(){
+    const wrap=document.getElementById('codeWrap');
+    if(!wrap) return;
+    const panes=wrap.querySelectorAll('.pane');
+    const tabs=wrap.querySelectorAll('.code-tab');
+    function lightPane(pane){
+      if(!pane) return;
+      if(reduceMotion){pane.classList.add('lit');return;}
+      pane.classList.remove('lit');
+      [...pane.querySelectorAll('.cl')].forEach((cl,i)=>{cl.style.transitionDelay=(i*0.055)+'s';});
+      void pane.offsetWidth;            // reflow so the stagger replays
+      pane.classList.add('lit');
+    }
+    const cvio=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){ lightPane(wrap.querySelector('.pane.on')); cvio.unobserve(e.target); }
+    }),{threshold:.3});
+    cvio.observe(wrap);
+    tabs.forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        tabs.forEach(t=>t.classList.remove('on'));
+        panes.forEach(p=>p.classList.remove('on'));
+        tab.classList.add('on');
+        const pane=document.getElementById(tab.dataset.pane);
+        if(pane){ pane.classList.add('on'); lightPane(pane); }
+      });
+    });
+    if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+      let raf=null;
+      wrap.addEventListener('mousemove',e=>{
+        const r=wrap.getBoundingClientRect();
+        const rx=((e.clientY-r.top)/r.height-0.5)*-3;
+        const ry=((e.clientX-r.left)/r.width-0.5)*3;
+        if(raf)cancelAnimationFrame(raf);
+        raf=requestAnimationFrame(()=>{wrap.style.transform=`perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
+      });
+      wrap.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);wrap.style.transform='';});
+    }
+  })();
+
+  // ── Hero parallax — layered depth on pointer move ──
+  (function(){
+    const hero=document.querySelector('.hero-home');
+    const grid=document.querySelector('.hero-grid');
+    const copy=document.querySelector('.hero-copy');
+    if(!hero||reduceMotion||!window.matchMedia('(pointer:fine)').matches) return;
+    let raf=null;
+    hero.addEventListener('mousemove',e=>{
+      const r=hero.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5;
+      const y=(e.clientY-r.top)/r.height-0.5;
+      if(raf)cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{
+        if(grid) grid.style.transform=`translate(${x*-24}px,${y*-15}px)`;
+        if(copy) copy.style.transform=`translate(${x*9}px,${y*6}px)`;
+      });
+    });
+    hero.addEventListener('mouseleave',()=>{
+      if(raf)cancelAnimationFrame(raf);
+      if(grid) grid.style.transform='';
+      if(copy) copy.style.transform='';
+    });
+  })();
 </script>
 </body>
 </html>

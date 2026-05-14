@@ -97,8 +97,21 @@
 </head>
 <body>
 
-<!-- Static Netlify form declaration so the form is detected at build time
-     (the live form is rendered dynamically by JS in the "not fit" branch) -->
+<!-- Static Netlify form declarations so all forms are detected at build time.
+     Both qualified + unqualified responses are captured. -->
+<form name="qualify-all" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field" />
+  <input type="text" name="outcome" />
+  <input type="text" name="score" />
+  <input type="text" name="industry" />
+  <input type="text" name="team" />
+  <input type="text" name="budget" />
+  <input type="text" name="timeline" />
+  <input type="text" name="role" />
+  <input type="text" name="reason_codes" />
+  <input type="email" name="email" />
+  <input type="text" name="ts" />
+</form>
 <form name="qualify-unqualified" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="bot-field" />
   <input type="text" name="reason" />
@@ -305,6 +318,26 @@
     return fail;
   }
 
+  function postQualifyAll(passes, fail, outcome){
+    // Fire-and-forget Netlify Forms POST so every quiz response is captured
+    // (qualified + mostly-qualified + unqualified), not just email-capture fallback.
+    try {
+      const data = new URLSearchParams();
+      data.append('form-name', 'qualify-all');
+      data.append('outcome', outcome);
+      data.append('score', String(passes));
+      data.append('industry', questions[0].opts[answers.industry]?.text || '');
+      data.append('team', questions[1].opts[answers.team]?.text || '');
+      data.append('budget', questions[2].opts[answers.budget]?.text || '');
+      data.append('timeline', questions[3].opts[answers.timeline]?.text || '');
+      data.append('role', questions[4].opts[answers.role]?.text || '');
+      data.append('reason_codes', fail.join(','));
+      data.append('email', window.localStorage.getItem('efficio_qualify_email') || '');
+      data.append('ts', new Date().toISOString());
+      fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: data.toString()}).catch(()=>{});
+    } catch(e){}
+  }
+
   function showResult(){
     document.getElementById('qcard').style.display = 'none';
     document.getElementById('prog').style.display = 'none';
@@ -313,20 +346,37 @@
     const r = document.getElementById('result');
     const body = document.getElementById('resultBody');
     r.classList.add('show');
+    const outcome = passes === 5 ? 'qualified' : (passes === 4 ? 'mostly_qualified' : 'not_fit');
+    postQualifyAll(passes, fail, outcome);
     if (passes === 5) {
       body.innerHTML = `
         <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h2>You're a <em>fit</em>. Calendar's open.</h2>
-        <p>You hit every screen — right industry, right team size, right budget posture, right timeline, right role. Book the 15-min strategy call. We'll agree on the metric, scope the week-one workflow, and you decide if we ship.</p>
-        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-big" target="_blank" rel="noopener">Book the 15-min call →</a>
-        <div class="q-result-meta">No pitch deck. No homework. Just a working conversation with the founder who'd build for you. <strong>15 minutes.</strong></div>`;
+        <h2>You're a <em>fit</em>. Pick a time below.</h2>
+        <p>You hit every screen — right industry, right team size, right budget posture, right timeline, right role. The calendar is live below. Pick the slot that works — that's the whole next step.</p>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/brady-bngcent/efficio-strategy-call?hide_event_type_details=0&background_color=050a16&text_color=f8fafc&primary_color=a855f7" style="min-width:320px;height:680px;margin:24px -8px 12px;border-radius:14px;overflow:hidden;border:1px solid rgba(168,85,247,.28);"></div>
+        <div class="q-result-meta">Calendar not loading? <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" target="_blank" rel="noopener" style="color:var(--purple3)">Open in a new tab →</a></div>`;
+      // Lazy-load Calendly widget script
+      if (!window.__calendlyLoaded) {
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        document.head.appendChild(s);
+        window.__calendlyLoaded = true;
+      }
     } else if (passes === 4) {
       body.innerHTML = `
         <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h2>You're <em>mostly</em> a fit.</h2>
         <p>You hit 4 of 5 screens. The one you didn't isn't a hard no — let's talk about it on the call. Worst case, we save each other 20 minutes by clarifying upfront.</p>
-        <a href="https://calendly.com/brady-bngcent/efficio-strategy-call" class="btn-big" target="_blank" rel="noopener">Book the call anyway →</a>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/brady-bngcent/efficio-strategy-call?hide_event_type_details=0&background_color=050a16&text_color=f8fafc&primary_color=a855f7" style="min-width:320px;height:680px;margin:24px -8px 12px;border-radius:14px;overflow:hidden;border:1px solid rgba(168,85,247,.28);"></div>
         <div class="q-result-meta">If the gap matters, we'll tell you on the call. <strong>15 minutes, no awkward dance.</strong></div>`;
+      if (!window.__calendlyLoaded) {
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        document.head.appendChild(s);
+        window.__calendlyLoaded = true;
+      }
     } else {
       // record which screens the user failed for the Netlify form
       const failTags = fail.length ? fail.join(',') : 'low_score';

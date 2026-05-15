@@ -337,7 +337,8 @@ body{letter-spacing:-.011em}
   box-shadow:none !important;border-radius:var(--r) !important}
 .btn-big:hover{background:var(--purple2) !important;box-shadow:none !important;transform:translateY(-1px) !important}
 /* reveals — safe-fail gate */
-html.js .rv{opacity:0;transform:translateY(26px)}
+html.js .rv:not(.vis){opacity:0;transform:translateY(26px)}
+html.js .rv.vis{opacity:1 !important;transform:none !important}
 html:not(.js) .rv{opacity:1 !important;transform:none !important}
 @media (prefers-reduced-motion:reduce){.pill-dot{animation:none}}
 </style>

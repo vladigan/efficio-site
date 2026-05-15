@@ -3,141 +3,125 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>What we build — your AI team's capabilities | Efficio</title>
-<meta name="description" content="Your contracted AI team builds whatever your business needs — front-desk agents, sales automation, custom AI products, internal tools, dashboards. If it can be built, we build it." />
+<title>Agent library — ready to deploy, or built for you | Efficio</title>
+<meta name="description" content="The Efficio agent library: 12 ready-to-deploy AI agents we drop into any business, real workflow examples we've shipped, and a make-your-own option for the workflow nobody else has."/>
 <link rel="canonical" href="https://efficio.tech/agents.html"/>
-<!-- seo:schema -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://efficio.tech/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "What we build",
-     "item": "https://efficio.tech/agents.html"
-    }
-   ]
-  },
-  {
-   "@type": "Service",
-   "name": "Custom AI Agents and Automations",
-   "provider": {
-    "@type": "Organization",
-    "@id": "https://efficio.tech/#org",
-    "name": "Efficio",
-    "url": "https://efficio.tech",
-    "logo": "https://efficio.tech/og-image.svg"
-   },
-   "description": "Front-desk agents, sales and quoting automation, scheduling, inbox triage, reputation agents and custom AI products — built for your business and run by your contracted AI team.",
-   "serviceType": [
-    "AI Front Desk Agent",
-    "Sales Automation",
-    "Scheduling Automation",
-    "Inbox Triage",
-    "Custom AI Product"
-   ],
-   "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-   }
-  }
- ]
-}
-</script>
-<meta property="og:title" content="What we build | Efficio"/>
-<meta property="og:description" content="Whatever your business needs built — we build it. Your contracted AI team, one-stop shop."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/agents.html"/>
+<meta property="og:title" content="Efficio Agent Library"/>
+<meta property="og:description" content="12 ready-to-deploy AI agents, real workflow examples, and a make-your-own option."/>
 <meta property="og:image" content="https://efficio.tech/og-image.svg"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="What we build | Efficio"/>
-<meta name="twitter:description" content="Whatever your business needs built — we build it. Your contracted AI team, one-stop shop."/>
+<meta name="twitter:title" content="Efficio Agent Library"/>
+<meta name="twitter:description" content="12 ready-to-deploy AI agents, workflow examples, and a make-your-own option."/>
 <meta name="twitter:image" content="https://efficio.tech/og-image.svg"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},
+  {"@type":"ListItem","position":2,"name":"Agents","item":"https://efficio.tech/agents.html"}]},
+ {"@type":"Service","name":"AI Agent Library — Efficio",
+  "provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},
+  "description":"Twelve productized AI agents plus per-client custom workflow builds.",
+  "areaServed":{"@type":"Country","name":"United States"},
+  "serviceType":["AI Agent Build","Workflow Automation","Operational Dashboard"]}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/theme.css"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>"/>
 <style>
-.dash-wrap{margin:0 auto 52px;max-width:1020px;border-radius:18px;overflow:hidden;
-  border:1px solid var(--bd2);background:var(--surf);
-  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 50px var(--glow2)}
-.dash-bar{display:flex;align-items:center;gap:7px;padding:12px 18px;
-  background:rgba(124,58,237,.08);border-bottom:1px solid var(--bd)}
-.dash-dot{width:10px;height:10px;border-radius:50%}
-.dash-title{margin-left:10px;font-size:12px;font-weight:700;color:var(--w2);letter-spacing:.02em}
-.dash-live{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.14em;
-  color:var(--good);text-transform:uppercase;display:flex;align-items:center;gap:6px}
-.dash-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--good);
-  box-shadow:0 0 0 3px rgba(74,222,128,.22);animation:pdot 1.6s ease-in-out infinite}
-.dash-body{padding:20px}
-.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
-@media(max-width:680px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
-.kpi{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:14px}
-.kpi-label{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:6px}
-.kpi-num{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:-.02em}
-.kpi-num em{color:var(--purple3);font-style:normal;font-size:.9rem;font-weight:700}
-.kpi-sub{font-size:11px;color:var(--good);margin-top:3px}
-.dash-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:680px){.dash-cols{grid-template-columns:1fr}}
-.dash-panel{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:15px 16px}
-.dash-panel h4{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:11px}
-.dash-agent{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd3)}
-.dash-agent:last-child{border-bottom:0;padding-bottom:0}
-.da-stat{width:7px;height:7px;border-radius:50%;background:var(--good);
-  box-shadow:0 0 8px var(--good);flex-shrink:0}
-.da-name{font-size:12.5px;color:var(--w2);font-weight:600}
-.da-meta{margin-left:auto;font-size:11px;color:var(--muted)}
-.dash-feed div{font-size:11.5px;color:var(--text);line-height:1.5;padding:6px 0;
-  border-bottom:1px solid var(--bd3);display:flex;gap:9px}
-.dash-feed div:last-child{border-bottom:0;padding-bottom:0}
-.dash-feed time{color:var(--purple3);font-weight:700;flex-shrink:0;font-variant-numeric:tabular-nums}
-.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;perspective:1400px}
-@media (max-width:980px){.agent-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.agent-grid{grid-template-columns:1fr}}
-.ag-card ul{list-style:none;margin:0 0 14px;padding:0;flex:1}
-.ag-card ul li{font-size:12.5px;color:var(--text);line-height:1.5;padding-left:16px;position:relative;margin-bottom:5px}
-.ag-card ul li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--purple2)}
-.ag-card{padding:22px 20px;display:flex;flex-direction:column;transition:transform .55s var(--ease),border-color .3s,box-shadow .4s}
-.ag-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.ag-icon{width:42px;height:42px;border-radius:var(--r);
-  background:var(--purple);
-  display:flex;align-items:center;justify-content:center;color:#fff;
-  box-shadow:0 0 24px var(--glow2),inset 0 1px 0 rgba(255,255,255,.20)}
-.ag-live{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:800;
-  letter-spacing:.14em;color:var(--good);text-transform:uppercase}
-.ag-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--good);
-  box-shadow:0 0 0 3px rgba(74,222,128,.22);animation:pdot 1.6s ease-in-out infinite}
-.ag-badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--purple3);background:rgba(124,58,237,.10);
-  padding:4px 10px;border-radius:99px;margin-bottom:10px;align-self:flex-start}
-.ag-card h3{font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.01em}
-.ag-card p{font-size:13px;color:var(--text);line-height:1.55;margin-bottom:14px;flex:1}
-.ag-meta{padding-top:12px;border-top:1px solid var(--bd3);font-size:11px;color:var(--muted)}
-.ag-meta strong{color:var(--purple3);font-weight:700}
-.custom-call{margin-top:48px;background:var(--surf2);
-  border:1px solid var(--bd2);border-radius:var(--r2);padding:32px 30px;
-  display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.custom-icon{width:64px;height:64px;border-radius:var(--r2);
-  background:var(--purple);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  box-shadow:0 0 32px var(--glow)}
-.custom-text{flex:1;min-width:280px}
-.custom-text h3{font-size:1.3rem;color:var(--white);font-weight:700;margin-bottom:6px}
-.custom-text p{font-size:14px;color:var(--text);line-height:1.6}
+.ag-shell{max-width:1280px;margin:0 auto;padding:128px 26px 80px}
+.ag-head{max-width:780px;margin-bottom:48px}
+.ag-head .eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--purple3);margin-bottom:16px}
+.ag-head h1{font-size:clamp(2.3rem,4.8vw,3.6rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.05;margin-bottom:16px}
+.ag-head h1 em{font-style:normal;color:var(--purple2)}
+.ag-head p{font-size:1.08rem;color:var(--text);line-height:1.65;max-width:720px}
+.ag-head .ctas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+
+.ag-toc{position:sticky;top:64px;z-index:10;background:rgba(8,8,10,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:12px 0;margin-bottom:60px}
+.ag-toc-in{display:flex;gap:4px;flex-wrap:wrap;max-width:1280px;margin:0 auto;padding:0 26px;overflow-x:auto}
+.ag-toc a{font-size:12.5px;font-weight:700;color:var(--muted);padding:7px 13px;border-radius:5px;white-space:nowrap;transition:.13s}
+.ag-toc a:hover{color:var(--white);background:var(--surf2)}
+
+.sec{margin-bottom:80px;scroll-margin-top:120px}
+.sec-h{margin-bottom:34px;max-width:760px}
+.sec-h .ix{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:12px}
+.sec-h h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:900;color:var(--white);letter-spacing:-.035em;line-height:1.12;margin-bottom:12px}
+.sec-h h2 em{font-style:normal;color:var(--purple2)}
+.sec-h p{font-size:1.02rem;color:var(--text);line-height:1.65;max-width:680px}
+
+.lib{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:960px){.lib{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.lib{grid-template-columns:1fr}}
+.acard{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px;
+  transition:.18s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:10px}
+.acard:hover{border-color:var(--purple);transform:translateY(-3px)}
+.acard::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(124,58,237,.12),transparent 60%);opacity:0;transition:.25s;pointer-events:none}
+.acard:hover::after{opacity:1}
+.acard .ic{width:36px;height:36px;border-radius:9px;background:var(--surf2);border:1px solid var(--bd2);
+  display:flex;align-items:center;justify-content:center;color:var(--purple3);position:relative;z-index:1}
+.acard .nm{font-size:15px;font-weight:800;color:var(--white);letter-spacing:-.015em;position:relative;z-index:1}
+.acard .ds{font-size:13px;color:var(--text);line-height:1.55;position:relative;z-index:1;flex:1}
+.acard .lift{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--good);font-weight:700;
+  margin-top:6px;padding-top:11px;border-top:1px dashed var(--bd);position:relative;z-index:1}
+.acard .lift .ar{font-size:14px;line-height:1}
+.acard .lift.dn{color:var(--purple2)}
+.acard .lift small{color:var(--muted);font-weight:600}
+
+.custom-card{background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(124,58,237,.04));
+  border:1px solid var(--purple);border-radius:var(--r2);padding:30px 32px;
+  display:grid;grid-template-columns:1.4fr .9fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+@media(max-width:780px){.custom-card{grid-template-columns:1fr}}
+.custom-card::after{content:"";position:absolute;top:-30%;right:-10%;width:55%;height:160%;
+  background:radial-gradient(closest-side,rgba(124,58,237,.32),transparent);pointer-events:none;z-index:0}
+.custom-card > *{position:relative;z-index:1}
+.custom-card .lbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--purple3);margin-bottom:10px}
+.custom-card h3{font-size:1.55rem;font-weight:900;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:12px}
+.custom-card h3 em{font-style:normal;color:var(--purple2)}
+.custom-card p{font-size:14.5px;color:var(--w2);line-height:1.65;margin-bottom:18px}
+.custom-card ul{list-style:none;font-size:13px;color:var(--text)}
+.custom-card ul li{padding:7px 0 7px 20px;position:relative;line-height:1.5}
+.custom-card ul li::before{content:"+";position:absolute;left:0;top:7px;color:var(--purple2);font-weight:900;font-size:14px}
+.custom-card .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.custom-card .btn{display:inline-flex;align-items:center;gap:6px;background:var(--purple);color:#fff;
+  font-weight:800;font-size:13.5px;padding:13px 22px;border-radius:var(--r);text-decoration:none;transition:.15s}
+.custom-card .btn:hover{background:var(--purple2);transform:translateY(-1px)}
+.custom-card .btn.ghost{background:transparent;border:1px solid var(--bd2);color:var(--w2)}
+.custom-card .btn.ghost:hover{border-color:var(--white);color:var(--white)}
+
+.wf{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:880px){.wf{grid-template-columns:1fr}}
+.wfcard{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:26px 28px;
+  transition:.18s;display:flex;flex-direction:column}
+.wfcard:hover{border-color:var(--bd2);transform:translateY(-3px)}
+.wfcard .num{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--purple3);margin-bottom:10px}
+.wfcard h3{font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.25;margin-bottom:10px}
+.wfcard p.lede{font-size:13.5px;color:var(--text);line-height:1.6;margin-bottom:16px}
+.wfcard .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 14px;
+  padding:14px;background:var(--surf2);border-radius:var(--r);border:1px solid var(--bd)}
+.wfcard .chain .step{font-size:11.5px;font-weight:700;color:var(--w2);padding:6px 10px;background:var(--bg);
+  border:1px solid var(--bd2);border-radius:99px}
+.wfcard .chain .arr{color:var(--purple3);font-weight:800;font-size:13px}
+.wfcard .outcome{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px dashed var(--bd)}
+.wfcard .outcome .o{display:flex;flex-direction:column}
+.wfcard .outcome .o b{font-size:1.3rem;color:var(--white);font-weight:900;letter-spacing:-.03em;line-height:1}
+.wfcard .outcome .o b em{font-style:normal;color:var(--purple2)}
+.wfcard .outcome .o span{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
+
+.cta-strip{padding:54px 36px;background:var(--surf);border:1px solid var(--bd2);border-radius:var(--r2);
+  text-align:center;margin-top:40px;position:relative;overflow:hidden}
+.cta-strip::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:60%;height:160%;
+  background:radial-gradient(closest-side,rgba(124,58,237,.18),transparent);pointer-events:none}
+.cta-strip > *{position:relative;z-index:1}
+.cta-strip h2{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:900;color:var(--white);letter-spacing:-.03em;margin-bottom:12px}
+.cta-strip h2 em{font-style:normal;color:var(--purple2)}
+.cta-strip p{font-size:1rem;color:var(--text);max-width:520px;margin:0 auto 22px;line-height:1.6}
+.cta-strip .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -146,163 +130,281 @@
   <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
   <div class="nav-links">
     <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html" class="active">Dashboard</a>
+    <a href="/agents.html" style="color:var(--white)">Agents</a>
+    <a href="/demo/" target="_blank" rel="noopener">Live demo</a>
+    <a href="/catalog.html">Catalog</a>
+    <a href="/blog/">Blog</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/why-us.html">Why us</a>
     <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
   </div>
 </div></nav>
 
-<section class="hero center">
-  <div class="hero-bg"></div>
-  <div class="hero-dots"></div>
-  <div class="hero-inner">
-    <span class="hero-pill rv"><span class="pill-dot"></span>The difference · total visibility</span>
-    <h1 class="rv d1">See <span class="grad-purple">everything</span> we build for you — on one screen.</h1>
-    <p class="lede rv d2">Most agencies hand you a black box and an invoice. We hand you a live dashboard. Every build we ship, every hour it saves, every lead it catches — it's all there, in real time, with your branding. The work is the service. The visibility is what makes it ours.</p>
-    <div class="hero-ctas rv d3">
-      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a call — see what we'd build you <span class="btn-arrow">→</span></a>
-      <a href="/audit-quiz.html" class="btn-outline">Take the 60-second audit</a>
+<div class="ag-shell">
+  <header class="ag-head">
+    <div class="eyebrow">Agent library · v1</div>
+    <h1>Twelve agents on hand. <em>Or one we build just for you.</em></h1>
+    <p>Every Efficio engagement pulls from this library. Mix and match the ready-to-deploy agents below, or have us scope a custom workflow agent for whatever specific bottleneck nobody else has solved yet. Either way, first build live in your stack inside 7 days.</p>
+    <div class="ctas">
+      <a class="btn-primary" href="/book.html" target="_blank" rel="noopener">Book a 15-min call &rarr;</a>
+      <a class="btn-outline" href="/demo/" target="_blank" rel="noopener">See the live demo</a>
+    </div>
+  </header>
+</div>
+
+<div class="ag-toc"><div class="ag-toc-in">
+  <a href="#library">Agent library</a>
+  <a href="#workflows">Workflow examples</a>
+  <a href="#custom">Make your own</a>
+  <a href="#how">How it works</a>
+</div></div>
+
+<div class="ag-shell" style="padding-top:0">
+
+<section class="sec" id="library">
+  <div class="sec-h">
+    <div class="ix">01 · Ready to deploy</div>
+    <h2>The agents we drop in. <em>Production-ready, day one.</em></h2>
+    <p>Twelve agents we've already shipped across our portfolio. Pick the one that hurts most — we customize it to your stack and your voice, then it goes live. Numbers are 30-day averages from active deployments.</p>
+  </div>
+
+  <div class="lib">
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Front-desk agent</div>
+      <div class="ds">Answers every call, text, and web form in seconds — 24/7. Books appointments, captures details, flags emergencies, never sends a lead to voicemail.</div>
+      <div class="lift"><span class="ar">↑</span>100% calls captured <small>vs. ~72% baseline</small></div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Quote &amp; sales agent</div>
+      <div class="ds">Responds to new leads instantly, builds itemized quotes against your pricing book, follows up until they decide. Closes the quote-to-job loop most shops drop.</div>
+      <div class="lift dn"><span class="ar">↓</span>96% time-to-quote <small>4 hrs &rarr; ~11 min</small></div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="nm">Scheduling &amp; dispatch agent</div>
+      <div class="ds">Books, confirms, reminds, reschedules. Fills cancellations from a waitlist. Sends "running late" texts so the field crew doesn't type while driving.</div>
+      <div class="lift dn"><span class="ar">↓</span>71% calendar gap time</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div class="nm">Inbox &amp; comms triage</div>
+      <div class="ds">Classifies every inbound message by intent, drafts the reply in your voice, surfaces what actually needs you. Morning firehose → six-line briefing.</div>
+      <div class="lift dn"><span class="ar">↓</span>94% owner inbox time</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Reputation agent</div>
+      <div class="ds">Asks every happy customer for a review at the right moment. Flags unhappy ones first — privately to you, not Google. Replies to new reviews in your voice.</div>
+      <div class="lift"><span class="ar">↑</span>22% review rate</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Workflow optimizer</div>
+      <div class="ds">Watches your operation for stalled handoffs, idle steps, and recurring leaks. Catches what your team can't see because they're inside it. Reports weekly.</div>
+      <div class="lift"><span class="ar">↑</span>38% output / staff hr</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg></div>
+      <div class="nm">Bottleneck detector</div>
+      <div class="ds">Crunches your operational data to find the one workflow that's actually slowing the team down. Surfaces it before it becomes a quarter you can't recover.</div>
+      <div class="lift dn"><span class="ar">↓</span>19% workflow leakage</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
+      <div class="nm">Daily-brief agent</div>
+      <div class="ds">Compiles your morning brief: what shipped overnight, what needs you today, what's at risk. Six lines, every morning, before the team logs on.</div>
+      <div class="lift dn"><span class="ar">↓</span>88% morning prep time</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0zM12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Recall / reactivation</div>
+      <div class="ds">Finds customers overdue for follow-up, service, or renewal — and re-engages them on a polite, persistent cadence. Revenue you already paid to acquire.</div>
+      <div class="lift"><span class="ar">↑</span>340 reactivations / mo</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Doc-collection agent</div>
+      <div class="ds">Requests, chases, organizes and auto-files client documents. No more "still waiting on that W-2" delays. Cadence is polite — they always send.</div>
+      <div class="lift"><span class="ar">↑</span>70% docs-returned rate</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Comms agent</div>
+      <div class="ds">Drafts every customer-facing message in your voice — running-late texts, follow-ups, post-service notes. You hit send. They land in seconds, not hours.</div>
+      <div class="lift dn"><span class="ar">↓</span>99% comms latency</div>
+    </div>
+
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nm">Status agent</div>
+      <div class="ds">Auto-sends weekly progress notes to every active customer — what shipped, what's next, photos if relevant. Kills "is anyone working on my job?" calls.</div>
+      <div class="lift"><span class="ar">↑</span>47% customer NPS</div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <!-- DASHBOARD MOCK -->
-    <div class="dash-wrap rv">
-      <div class="dash-bar">
-        <span class="dash-dot" style="background:#ff5f57"></span>
-        <span class="dash-dot" style="background:#febc2e"></span>
-        <span class="dash-dot" style="background:#28c840"></span>
-        <span class="dash-title">Your Efficio command center</span>
-        <span class="dash-live">Live</span>
-      </div>
-      <div class="dash-body">
-        <div class="dash-kpis">
-          <div class="kpi"><div class="kpi-label">Hours saved · this month</div><div class="kpi-num">142 <em>hrs</em></div><div class="kpi-sub">▲ 18% vs last month</div></div>
-          <div class="kpi"><div class="kpi-label">Leads caught</div><div class="kpi-num">386</div><div class="kpi-sub">0 missed inbounds</div></div>
-          <div class="kpi"><div class="kpi-label">Replies triaged</div><div class="kpi-num">1,204</div><div class="kpi-sub">hot leads surfaced first</div></div>
-          <div class="kpi"><div class="kpi-label">Active builds</div><div class="kpi-num">6</div><div class="kpi-sub">2 shipping this week</div></div>
-        </div>
-        <div class="dash-cols">
-          <div class="dash-panel">
-            <h4>Your AI team — working now</h4>
-            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Front desk</span><span class="da-meta">24 calls handled today</span></div>
-            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Sales engine</span><span class="da-meta">11 leads worked · 3 quoted</span></div>
-            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Scheduling</span><span class="da-meta">9 appointments booked</span></div>
-            <div class="dash-agent"><span class="da-stat"></span><span class="da-name">Inbox &amp; comms</span><span class="da-meta">63 replies triaged</span></div>
-            <div class="dash-agent"><span class="da-stat" style="background:var(--purple2);box-shadow:0 0 8px var(--purple2)"></span><span class="da-name">Custom build · quote tool</span><span class="da-meta">in progress</span></div>
-          </div>
-          <div class="dash-panel">
-            <h4>Activity feed</h4>
-            <div class="dash-feed">
-              <div><time>2:47</time><span>Front desk booked a Thursday 10am appointment from a missed call</span></div>
-              <div><time>2:31</time><span>Sales engine sent an itemized quote — customer opened it twice</span></div>
-              <div><time>1:58</time><span>Inbox flagged a hot lead and pushed it to the top of your queue</span></div>
-              <div><time>1:12</time><span>Scheduling confirmed 3 site visits, no back-and-forth</span></div>
-              <div><time>11:40</time><span>Recall campaign re-booked 2 customers overdue since spring</span></div>
-            </div>
-          </div>
-        </div>
+<section class="sec" id="workflows">
+  <div class="sec-h">
+    <div class="ix">02 · Workflow examples</div>
+    <h2>What it looks like <em>when agents work together.</em></h2>
+    <p>The real lift isn't one agent — it's three agents handing work off automatically. Here are six real workflow patterns we've shipped. Yours will be one of these, or a custom variant.</p>
+  </div>
+
+  <div class="wf">
+    <div class="wfcard">
+      <div class="num">Workflow · 01</div>
+      <h3>From missed call → booked job → confirmed crew</h3>
+      <p class="lede">A homeowner calls after hours. Without us, they go to voicemail and call the next contractor. With us, they're booked, the crew is notified, and they have a text reminder by 8am.</p>
+      <div class="chain"><span class="step">Front-desk</span><span class="arr">→</span><span class="step">Scheduling</span><span class="arr">→</span><span class="step">Comms</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>+12</em></b><span>Jobs / mo recovered</span></div>
+        <div class="o"><b><em>$5,400</em></b><span>Avg recovered revenue</span></div>
       </div>
     </div>
 
-    <div class="section-head rv" style="text-align:center;margin-bottom:34px">
-      <span class="ag-badge" style="margin:0 auto 14px">What you actually get</span>
-      <h2>Not a black box. A <span class="grad-purple">window into the work</span>.</h2>
-      <p class="lede" style="margin:14px auto 0;max-width:640px">We build the AI — agents, tools, automations, whatever your business needs — and then we put it all behind one screen so you can see it earning its keep. No status meetings. No "what am I paying for?" Just the work, in the open.</p>
-    </div>
-
-    <div class="agent-grid">
-      <div class="card ag-card rv" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div></div>
-        <span class="ag-badge">See the work</span>
-        <h3>Every agent, live</h3>
-        <p>Front desk, sales, scheduling, inbox, custom builds — see each one running in real time, with the count of what it handled today. Nothing happens out of sight.</p>
-      </div>
-
-      <div class="card ag-card rv d1" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div></div>
-        <span class="ag-badge">See the results</span>
-        <h3>Hours and dollars, counted</h3>
-        <p>Hours saved, leads caught, replies triaged, customers re-booked — measured and trended every month. The number that matters is always on the screen.</p>
-      </div>
-
-      <div class="card ag-card rv d2" data-tilt>
-        <div class="ag-head"><div class="ag-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div></div>
-        <span class="ag-badge">See what's next</span>
-        <h3>The build pipeline</h3>
-        <p>What we're building for you right now, what ships this week, what's queued. You always know where your AI team's attention is going next.</p>
+    <div class="wfcard">
+      <div class="num">Workflow · 02</div>
+      <h3>From web-form lead → instant quote → won deal</h3>
+      <p class="lede">A web-form inquiry arrives at 11pm. The quote agent reads the brief, builds an itemized estimate against your pricing book, sends it, and follows up at day 2, day 5, day 10 until they decide.</p>
+      <div class="chain"><span class="step">Quote</span><span class="arr">→</span><span class="step">Comms</span><span class="arr">→</span><span class="step">Reputation</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>↑34%</em></b><span>Quote → job rate</span></div>
+        <div class="o"><b><em>↓96%</em></b><span>Response latency</span></div>
       </div>
     </div>
 
-    <div class="custom-call rv">
-      <div class="custom-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div class="custom-text">
-        <h3>The dashboard is built around what you need.</h3>
-        <p>We're a one-stop shop — products, tools, automations, dev, ops, engineering. Tell us what's eating your time on a 15-min call and we'll scope exactly what we'd build you, and what your dashboard would track.</p>
+    <div class="wfcard">
+      <div class="num">Workflow · 03</div>
+      <h3>From overdue customer → reactivation → renewal</h3>
+      <p class="lede">Recall agent finds 240 customers overdue 6+ months. Each gets a personalized message tied to their last visit reason. Polite, persistent, never feels automated. They book.</p>
+      <div class="chain"><span class="step">Recall</span><span class="arr">→</span><span class="step">Scheduling</span><span class="arr">→</span><span class="step">Status</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>+340</em></b><span>Reactivations / mo</span></div>
+        <div class="o"><b><em>~$48K</em></b><span>Avg added MRR</span></div>
       </div>
-      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a call <span class="btn-arrow">→</span></a>
+    </div>
+
+    <div class="wfcard">
+      <div class="num">Workflow · 04</div>
+      <h3>From morning chaos → six-line briefing → calm</h3>
+      <p class="lede">The daily-brief agent reads the inbox, the calendar, the activity log, and the open work. By 7am you have a six-line briefing on your phone — what happened overnight, what needs you, what's at risk.</p>
+      <div class="chain"><span class="step">Inbox triage</span><span class="arr">→</span><span class="step">Bottleneck detector</span><span class="arr">→</span><span class="step">Daily-brief</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>↓88%</em></b><span>Morning prep time</span></div>
+        <div class="o"><b><em>~45 min</em></b><span>Recovered / owner / day</span></div>
+      </div>
+    </div>
+
+    <div class="wfcard">
+      <div class="num">Workflow · 05</div>
+      <h3>From stalled handoff → caught → fixed before it bleeds</h3>
+      <p class="lede">The workflow optimizer notices a customer file has sat idle for 8 hours past your normal SLA. It pings the right human, drafts the apology text, and logs the leak so it doesn't repeat Friday at 5pm again.</p>
+      <div class="chain"><span class="step">Workflow optimizer</span><span class="arr">→</span><span class="step">Comms</span><span class="arr">→</span><span class="step">Bottleneck detector</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>↓19%</em></b><span>Workflow leakage</span></div>
+        <div class="o"><b><em>↑38%</em></b><span>Output / staff hr</span></div>
+      </div>
+    </div>
+
+    <div class="wfcard">
+      <div class="num">Workflow · 06</div>
+      <h3>From doc backlog → cleared → on-time delivery</h3>
+      <p class="lede">Doc-collection agent identifies the missing forms holding up active work. Sends personalized checklists, runs a polite reminder cadence, files everything as it comes back. The stalled-return queue drops to zero.</p>
+      <div class="chain"><span class="step">Doc collection</span><span class="arr">→</span><span class="step">Inbox triage</span><span class="arr">→</span><span class="step">Status</span></div>
+      <div class="outcome">
+        <div class="o"><b><em>↑70%</em></b><span>Docs returned in 48h</span></div>
+        <div class="o"><b><em>~9 days</em></b><span>Backlog cleared</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-strip">
-  <div class="container">
-    <h2>See what your <span class="grad-purple">dashboard</span> would show.</h2>
-    <p>Book a 15-minute call. We'll scope what we'd build you and what your command center would track. No deck, no homework, no pitch.</p>
-    <a href="/book.html" class="btn-big" target="_blank" rel="noopener">Book a call <span class="btn-arrow">→</span></a>
+<section class="sec" id="custom">
+  <div class="sec-h">
+    <div class="ix">03 · Make your own</div>
+    <h2>The one workflow nobody else has solved? <em>That's the slot we build.</em></h2>
+    <p>If your operation has a quirk we haven't seen — and most do — the seventh slot in every engagement is a custom workflow agent scoped just for you. Built from the same modules, but stitched together for the workflow nobody else needed.</p>
+  </div>
+
+  <div class="custom-card">
+    <div>
+      <div class="lbl">Custom workflow agent · per-client build</div>
+      <h3>Tell us the bottleneck. <em>We scope it. Build it. Run it.</em></h3>
+      <p>We've built load-calc quote tools, emergency-triage agents, estimate-from-photo tools, recall &amp; reactivation, intake-screening, document agents, route-density planners, and project-status agents. The pattern is the same: <strong style="color:var(--white)">name the workflow eating your team's time, we'll build the agent that owns it end-to-end.</strong></p>
+      <ul>
+        <li>15-minute kickoff to scope it</li>
+        <li>Scope doc within 24 hours — you sign or redirect</li>
+        <li>Live in your stack by day 7</li>
+        <li>Tuned for the rest of the month based on real workflow data</li>
+        <li>If it doesn't move your metric by day 30, the month is on us</li>
+      </ul>
+    </div>
+    <div>
+      <div class="cta-row">
+        <a class="btn" href="/book.html" target="_blank" rel="noopener">Scope mine &rarr;</a>
+        <a class="btn ghost" href="/demo/" target="_blank" rel="noopener">See the dashboard</a>
+      </div>
+      <p style="font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.6">Custom workflow agent included with <strong style="color:var(--w2)">AI Team</strong> ($2,500/mo) and continuously available in <strong style="color:var(--w2)">AI Department</strong> ($3,500/mo).</p>
+    </div>
   </div>
 </section>
+
+<section class="sec" id="how">
+  <div class="sec-h">
+    <div class="ix">04 · How it works</div>
+    <h2>From kickoff to live <em>in seven days.</em></h2>
+    <p>Same playbook regardless of which agents you pick or what we build custom. Four steps, contractually backed by the day-7 SLA.</p>
+  </div>
+  <div class="lib">
+    <div class="acard"><div class="ic" style="color:var(--purple3);font-weight:900">D0</div><div class="nm">Kickoff call</div><div class="ds">15 minutes. We scope the first build and agree on the one number we'll move by day 30.</div></div>
+    <div class="acard"><div class="ic" style="color:var(--purple3);font-weight:900">1-5</div><div class="nm">Build</div><div class="ds">We build the agent customized to your real workflow. You watch progress in your shared chat.</div></div>
+    <div class="acard"><div class="ic" style="color:var(--purple3);font-weight:900">D7</div><div class="nm">Live</div><div class="ds">The agent ships into your stack. Dashboard goes live with your branding. You watch the work happen.</div></div>
+    <div class="acard"><div class="ic" style="color:var(--purple3);font-weight:900">D30</div><div class="nm">Operate</div><div class="ds">We tune it, run it, ship the next thing. Day-30 number is the test. If it didn't move, month's on us.</div></div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Pick an agent, or describe your bottleneck. <em>Either gets shipped.</em></h2>
+  <p>15-minute call. We come back the next day with what we'd build first, what it ships in week one, and the metric we'll hit by day 30.</p>
+  <div class="row">
+    <a class="btn-primary" href="/book.html" target="_blank" rel="noopener">Book a 15-min call &rarr;</a>
+    <a class="btn-outline" href="/demo/" target="_blank" rel="noopener">Open the live demo</a>
+  </div>
+</div>
+
+</div>
 
 <footer>
   <div class="foot-grid">
     <div class="foot-brand">
       <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
+      <p>Your contracted AI team &mdash; at your disposal. We learn the bleeding edge of AI every day, so you don't have to.</p>
     </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/agents.html">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
-    </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="/audit-quiz.html">Take the audit</a>
-      <a href="/book.html" target="_blank" rel="noopener">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
-    </div>
+    <div class="foot-col"><h5>Product</h5><a href="/services.html">Services</a><a href="/agents.html">Agents</a><a href="/demo/">Live demo</a><a href="/catalog.html">Catalog</a><a href="/pricing.html">Pricing</a></div>
+    <div class="foot-col"><h5>Company</h5><a href="/why-us.html">Why us</a><a href="/blog/">Blog</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a></div>
   </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built by a founder who runs four businesses on it.</div>
-  </div>
+  <div class="foot-bottom"><div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div></div>
 </footer>
 
 <script src="/assets/transitions.js" defer></script>
 <script>
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-  // 3D tilt
-  if(window.matchMedia('(pointer: fine)').matches){
-    document.querySelectorAll('[data-tilt]').forEach(card=>{
-      let raf=null;
-      card.addEventListener('mousemove',e=>{
-        const r=card.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-0.5)*-5;
-        const ry=((e.clientX-r.left)/r.width-0.5)*5;
-        if(raf)cancelAnimationFrame(raf);
-        raf=requestAnimationFrame(()=>{card.style.transform=`perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;});
-      });
-      card.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);card.style.transform='';});
-    });
-  }
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
 </script>
 </body>
 </html>

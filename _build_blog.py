@@ -6,7 +6,12 @@ SRC  = os.path.normpath(os.path.join(ROOT, "..", "marketing", "posts", "blog"))
 OUT  = os.path.join(ROOT, "blog")
 os.makedirs(OUT, exist_ok=True)
 
-VLABEL = {"hvac":"HVAC contractors","law":"Law firms","dental":"Dental practices","real_estate":"Real estate teams"}
+VLABEL = {"hvac":"HVAC contractors","law":"Law firms","dental":"Dental practices",
+          "real_estate":"Real estate teams","accounting":"Accounting firms",
+          "auto_repair":"Auto repair shops","plumbing":"Plumbing contractors",
+          "electrical":"Electrical contractors","roofing":"Roofing companies",
+          "landscaping":"Landscaping & lawn care","insurance":"Insurance agencies",
+          "service":"Service businesses"}
 MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
 def esc_inline(s):

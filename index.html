@@ -1144,5 +1144,72 @@
     });
   })();
 </script>
+
+<!-- ── LIVE OPS WIDGET — "agents working now" popup on left edge ─── -->
+<div id="liveops" aria-label="Live agent activity">
+  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="vlabel">Agents · live</span>
+  </button>
+  <div class="lo-panel" id="loPanel">
+    <div class="lo-inner">
+      <div class="lo-h">
+        <span class="pdot" aria-hidden="true"></span>
+        <b>Agents working now</b>
+        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="lo-feed" id="loFeed"></div>
+      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
+      feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
+      wrap=document.getElementById('liveops');
+  if(!tab||!feed||!wrap) return;
+  function setOpen(o){
+    wrap.classList.toggle('open',o);
+    tab.setAttribute('aria-expanded',o?'true':'false');
+    try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){}
+  }
+  tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
+  close.addEventListener('click',function(){setOpen(false);});
+
+  var POOL=[
+   {ag:'Front-desk agent',   txt:'answered 3 inbound calls before staff arrived',     pct:'↑ 100%',cls:'up',meta:'calls captured'},
+   {ag:'Quote agent',        txt:'sent an itemized estimate in 11 sec',               pct:'↓ 96%', cls:'dn',meta:'time-to-quote'},
+   {ag:'Inbox triage',       txt:'sorted 41 messages, drafted 14, flagged 2 urgent',  pct:'↓ 94%', cls:'dn',meta:'owner inbox time'},
+   {ag:'Workflow optimizer', txt:'caught a stalled handoff after 8 min idle',         pct:'↑ 38%', cls:'up',meta:'output / staff hr'},
+   {ag:'Scheduling agent',   txt:'filled a cancellation in 14 min',                   pct:'↓ 71%', cls:'dn',meta:'calendar gap time'},
+   {ag:'Reputation agent',   txt:'sent a review request after a 5-star job',          pct:'↑ 22%', cls:'up',meta:'review rate'},
+   {ag:'Recall agent',       txt:'rebooked an overdue customer worth $480',           pct:'↑ 340', cls:'up',meta:'reactivations / mo'},
+   {ag:'Bottleneck detector',txt:'flagged Tuesdays as the worst follow-up day',       pct:'↓ 19%', cls:'dn',meta:'leakage rate'},
+   {ag:'Daily-brief agent',  txt:'compiled tomorrow\'s briefing in 6 lines',          pct:'↓ 88%', cls:'dn',meta:'morning prep time'},
+   {ag:'Doc-collection agent',txt:'chased 4 outstanding documents — 3 came back',     pct:'↑ 70%', cls:'up',meta:'docs-returned rate'},
+   {ag:'Comms agent',        txt:'drafted a "running late" text — sent in 0.4s',      pct:'↓ 99%', cls:'dn',meta:'comms latency'},
+   {ag:'Status agent',       txt:'auto-sent a weekly progress note to a customer',    pct:'↑ 47%', cls:'up',meta:'customer NPS'}
+  ];
+  var pi=0;
+  function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
+  function push(){
+    var x=POOL[pi%POOL.length];pi++;
+    var n=document.createElement('div');n.className='lo-item';
+    n.innerHTML='<time>'+nowTime()+' &middot; <span class="pct '+x.cls+'">'+x.pct+'</span> &middot; '+x.meta+'</time>'
+              +'<span class="ag">'+x.ag+'</span> '+x.txt;
+    feed.insertBefore(n,feed.firstChild);
+    while(feed.children.length>14) feed.removeChild(feed.lastChild);
+  }
+  for(var i=0;i<4;i++) push();
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){ setInterval(push,9000); }
+  try{
+    var s=localStorage.getItem('efficio_liveops_open');
+    if(s===null){ setTimeout(function(){setOpen(true);},1200); }
+    else { setOpen(s==='1'); }
+  }catch(e){ setTimeout(function(){setOpen(true);},1200); }
+})();
+</script>
 </body>
 </html>

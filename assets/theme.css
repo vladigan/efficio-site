@@ -25,7 +25,37 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);
   -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6;
-  font-feature-settings:"ss01","cv05";letter-spacing:-.011em}
+  font-feature-settings:"ss01","cv05";letter-spacing:-.011em;position:relative;isolation:isolate}
+
+/* ── sitewide dynamic background ── three slow-drifting purple orbs + a
+   shifting mesh-gradient layer.  Sits behind everything (z:-1) and doesn't
+   intercept clicks.  Respects prefers-reduced-motion. */
+body::before{
+  content:"";position:fixed;inset:-15%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(38% 32% at 18% 22%,rgba(124,58,237,.20),transparent 60%),
+    radial-gradient(34% 28% at 82% 36%,rgba(155,108,246,.16),transparent 60%),
+    radial-gradient(46% 34% at 50% 88%,rgba(124,58,237,.14),transparent 65%),
+    radial-gradient(28% 22% at 92% 88%,rgba(183,148,246,.12),transparent 60%);
+  animation:siteOrbs 42s ease-in-out infinite alternate;
+  filter:blur(40px);will-change:transform}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px) 0 0/100% 90px,
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px) 0 0/90px 100%;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+  opacity:.55;animation:siteGrid 70s linear infinite}
+@keyframes siteOrbs{
+  0%   {transform:translate3d(0,0,0)         scale(1.00)}
+  50%  {transform:translate3d(-3%,2%,0)      scale(1.08)}
+  100% {transform:translate3d(4%,-3%,0)      scale(1.02)}
+}
+@keyframes siteGrid{from{background-position:0 0,0 0}to{background-position:0 90px,90px 0}}
+@media(prefers-reduced-motion:reduce){
+  body::before,body::after{animation:none}
+}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 img,svg{max-width:100%;display:block}

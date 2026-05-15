@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="630" fill="#08080a"/>
+  <!-- subtle engineering grid -->
+  <g stroke="#9b6cf6" stroke-opacity="0.08">
+    <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200"/>
+    <path d="M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630"/>
+  </g>
+  <!-- accent rule -->
+  <rect x="90" y="150" width="64" height="4" fill="#9b6cf6"/>
+  <text x="170" y="166" fill="#b794f6" font-size="22" font-weight="700" letter-spacing="3" text-transform="uppercase">YOUR CONTRACTED AI TEAM</text>
+  <!-- headline -->
+  <text x="88" y="320" fill="#ffffff" font-size="118" font-weight="900" letter-spacing="-5">We're your <tspan fill="#9b6cf6">AI team.</tspan></text>
+  <!-- sub -->
+  <text x="90" y="400" fill="#a1a1aa" font-size="32" font-weight="500">We build and run the AI inside your business —</text>
+  <text x="90" y="444" fill="#a1a1aa" font-size="32" font-weight="500">agents, automations, a live dashboard. From $997/mo.</text>
+  <!-- brand mark + wordmark -->
+  <g transform="translate(90,520)">
+    <rect width="48" height="48" rx="11" fill="#7c3aed"/>
+    <rect x="13.4" y="12" width="21.1" height="6.2" rx="2" fill="#fff"/>
+    <rect x="13.4" y="20.9" width="14.4" height="6.2" rx="2" fill="#fff"/>
+    <rect x="13.4" y="29.8" width="21.1" height="6.2" rx="2" fill="#fff"/>
+    <text x="64" y="33" fill="#ffffff" font-size="30" font-weight="900" letter-spacing="-1.2">Efficio</text>
+  </g>
+  <text x="1110" y="553" fill="#6b6b75" font-size="26" font-weight="600" text-anchor="end">efficio.tech</text>
+</svg>

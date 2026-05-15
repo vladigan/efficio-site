@@ -97,44 +97,88 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* ════ DASHBOARD ════ */
 #dash{display:none}
 #dash.show{display:block}
-.topbar{border-bottom:1px solid var(--bd);background:rgba(8,8,10,.85);backdrop-filter:blur(10px);
+@keyframes pdot{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── sidebar ── */
+.sidebar{position:fixed;top:33px;left:0;bottom:0;width:248px;background:var(--surf);
+  border-right:1px solid var(--bd);display:flex;flex-direction:column;z-index:60;
+  transition:transform .26s cubic-bezier(.3,.8,.3,1)}
+.side-brand{display:flex;align-items:center;gap:10px;padding:17px 18px 15px;border-bottom:1px solid var(--bd);flex-shrink:0}
+.side-brand .mk{width:30px;height:30px;border-radius:7px;background:var(--purple);display:flex;
+  align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;flex-shrink:0}
+.side-brand b{font-size:13.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;display:block}
+.side-brand small{font-size:9.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+/* client block — the personalization */
+.side-client{padding:17px 18px;border-bottom:1px solid var(--bd);flex-shrink:0}
+.side-client .ava{width:46px;height:46px;border-radius:11px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;
+  justify-content:center;font-weight:900;font-size:17px;color:#fff;letter-spacing:-.03em;margin-bottom:12px}
+.side-client .cname{font-size:14.5px;font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.25}
+.side-client .cmeta{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.55}
+.side-client .plan{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:9.5px;
+  font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple3);
+  background:rgba(124,58,237,.13);border:1px solid var(--bd2);padding:4px 9px;border-radius:99px}
+.side-client .plan::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--purple3)}
+
+/* nav */
+.side-nav{flex:1;padding:12px 10px 16px;overflow-y:auto}
+.side-nav .sec{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);padding:8px 10px 7px}
+.nav-item{display:flex;align-items:center;gap:11px;width:100%;padding:9px 10px;border-radius:7px;
+  font-size:13px;font-weight:600;color:var(--muted);border-left:2px solid transparent;transition:.13s;
+  text-align:left;margin-bottom:1px}
+.nav-item:hover{color:var(--w2);background:var(--surf2)}
+.nav-item.act{color:var(--white);background:var(--surf3);border-left-color:var(--purple)}
+.nav-item .ico{width:17px;text-align:center;font-size:13.5px;flex-shrink:0;opacity:.85}
+.nav-item.act .ico{opacity:1}
+.nav-item .ct{margin-left:auto;font-size:10px;font-weight:700;color:var(--muted)}
+.nav-item.act .ct{color:var(--purple3)}
+.side-foot{padding:14px 18px;border-top:1px solid var(--bd);font-size:10.5px;color:var(--muted);
+  line-height:1.55;flex-shrink:0}
+.side-foot b{color:var(--purple3);font-weight:700}
+
+/* ── main column ── */
+.main{margin-left:248px}
+.topbar{border-bottom:1px solid var(--bd);background:rgba(8,8,10,.88);backdrop-filter:blur(10px);
   position:sticky;top:33px;z-index:50}
-.tb-in{display:flex;align-items:center;gap:16px;padding:13px 24px;max-width:1280px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:11px}
-.brand-mk{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:14px;color:#fff;letter-spacing:-.02em;background:var(--purple)}
-.brand-nm{font-size:14.5px;font-weight:800;color:var(--white);letter-spacing:-.01em}
-.brand-sub{font-size:11px;color:var(--muted);margin-top:1px}
-.tb-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.tb-in{display:flex;align-items:center;gap:14px;padding:11px 26px}
+.tb-title{font-size:14px;font-weight:800;color:var(--white);letter-spacing:-.01em}
+.tb-title small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:1px;letter-spacing:0}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:12px}
 .live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.13em;
   text-transform:uppercase;color:var(--good)}
 .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
   box-shadow:0 0 0 3px rgba(74,222,128,.18);animation:pdot 1.8s ease-in-out infinite}
-@keyframes pdot{0%,100%{opacity:1}50%{opacity:.4}}
-.tb-btn{font-size:12.5px;font-weight:700;color:var(--w2);border:1px solid var(--bd2);
-  border-radius:6px;padding:8px 13px;transition:.15s}
+.tb-btn{font-size:12px;font-weight:700;color:var(--w2);border:1px solid var(--bd2);
+  border-radius:6px;padding:7px 12px;transition:.15s}
 .tb-btn:hover{border-color:var(--purple);color:var(--white)}
-
-/* tab nav */
-.tabs{display:flex;gap:2px;padding:0 24px;max-width:1280px;margin:0 auto;
-  border-bottom:1px solid var(--bd);overflow-x:auto}
-.tab{padding:14px 16px;font-size:13.5px;font-weight:700;color:var(--muted);
-  border-bottom:2px solid transparent;white-space:nowrap;transition:.15s}
-.tab:hover{color:var(--w2)}
-.tab.act{color:var(--white);border-bottom-color:var(--purple)}
-
-.shell{max-width:1280px;margin:0 auto;padding:26px 24px 70px}
-.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
-  flex-wrap:wrap;margin-bottom:22px}
-.page-head h1{font-size:1.55rem;font-weight:800;color:var(--white);letter-spacing:-.03em}
-.page-head p{font-size:13px;color:var(--muted);margin-top:4px}
+.side-toggle{display:none;width:34px;height:34px;border-radius:7px;border:1px solid var(--bd2);
+  color:var(--w2);font-size:15px;align-items:center;justify-content:center;flex-shrink:0}
 .range{display:flex;gap:2px;background:var(--surf);border:1px solid var(--bd);border-radius:7px;padding:3px}
-.range button{font-size:12px;font-weight:700;color:var(--muted);padding:6px 13px;border-radius:5px;transition:.12s}
+.range button{font-size:11.5px;font-weight:700;color:var(--muted);padding:6px 12px;border-radius:5px;transition:.12s}
 .range button.act{background:var(--surf3);color:var(--white)}
+
+.shell{max-width:1180px;margin:0 auto;padding:26px 26px 70px}
+.page-head{margin-bottom:20px}
+.page-head h1{font-size:1.5rem;font-weight:800;color:var(--white);letter-spacing:-.03em}
+.page-head p{font-size:13px;color:var(--muted);margin-top:4px}
 
 .tabpanel{display:none}
 .tabpanel.act{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── sidebar scrim + mobile ── */
+#sideScrim{position:fixed;inset:33px 0 0 0;background:rgba(0,0,0,.55);z-index:55;
+  opacity:0;pointer-events:none;transition:opacity .2s}
+#sideScrim.show{opacity:1;pointer-events:auto}
+@media(max-width:920px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:none}
+  .main{margin-left:0}
+  .side-toggle{display:flex}
+  .shell{padding:22px 18px 60px}
+}
 
 /* kpis */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:14px}
@@ -349,42 +393,54 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 <!-- ════════ DASHBOARD ════════ -->
 <div id="dash">
-  <div class="topbar">
-    <div class="tb-in">
-      <div class="brand">
-        <div class="brand-mk" id="brandMk">SC</div>
-        <div>
-          <div class="brand-nm" id="brandNm">Command Center</div>
-          <div class="brand-sub" id="brandSub">Your AI team — live</div>
+  <aside class="sidebar" id="sidebar">
+    <div class="side-brand">
+      <span class="mk">E</span>
+      <span><b>Efficio</b><small>Command center</small></span>
+    </div>
+    <div class="side-client">
+      <div class="ava" id="clientAva">SC</div>
+      <div class="cname" id="clientName">Client</div>
+      <div class="cmeta" id="clientMeta">Industry · team size</div>
+      <div class="plan" id="clientPlan">AI Specialist</div>
+    </div>
+    <nav class="side-nav" id="sideNav">
+      <div class="sec">Command center</div>
+      <button class="nav-item act" data-tab="overview"><span class="ico">▦</span>Overview</button>
+      <button class="nav-item" data-tab="team"><span class="ico">◈</span>AI team<span class="ct" id="navTeamCt"></span></button>
+      <button class="nav-item" data-tab="activity"><span class="ico">≋</span>Activity<span class="ct" id="navActCt"></span></button>
+      <div class="sec">Delivery</div>
+      <button class="nav-item" data-tab="pipeline"><span class="ico">▸</span>Build pipeline<span class="ct" id="navPipeCt"></span></button>
+      <button class="nav-item" data-tab="impact"><span class="ico">$</span>Impact &amp; ROI</button>
+    </nav>
+    <div class="side-foot">
+      Built &amp; run by <b>Efficio</b><br/>Your contracted AI team.
+    </div>
+  </aside>
+  <div id="sideScrim"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-in">
+        <button class="side-toggle" id="sideToggle">&#9776;</button>
+        <div class="tb-title" id="tbTitle">Overview<small id="tbSub">Your command center</small></div>
+        <div class="tb-right">
+          <div class="range" id="range">
+            <button data-r="today">Today</button>
+            <button data-r="week">This week</button>
+            <button data-r="month" class="act">This month</button>
+          </div>
+          <span class="live">Live</span>
+          <button class="tb-btn" id="newBtn">+ New</button>
         </div>
       </div>
-      <div class="tb-right">
-        <span class="live">Live</span>
-        <button class="tb-btn" id="newBtn">+ New demo</button>
-      </div>
     </div>
-  </div>
 
-  <div class="tabs" id="tabs">
-    <button class="tab act" data-tab="overview">Overview</button>
-    <button class="tab" data-tab="team">AI Team</button>
-    <button class="tab" data-tab="activity">Activity</button>
-    <button class="tab" data-tab="pipeline">Build Pipeline</button>
-    <button class="tab" data-tab="impact">Impact</button>
-  </div>
-
-  <div class="shell">
-    <div class="page-head">
-      <div>
+    <div class="shell">
+      <div class="page-head">
         <h1 id="pageTitle">Your AI team, working now.</h1>
         <p id="pageSub">Everything we've built — and everything it's doing — on one screen.</p>
       </div>
-      <div class="range" id="range">
-        <button data-r="today">Today</button>
-        <button data-r="week">This week</button>
-        <button data-r="month" class="act">This month</button>
-      </div>
-    </div>
 
     <!-- OVERVIEW -->
     <div class="tabpanel act" data-panel="overview">
@@ -455,6 +511,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     </div>
 
     <div class="foot">Command center built &amp; run by <b>Efficio</b> — your contracted AI team. This is a demo with sample data.</div>
+    </div>
   </div>
 </div>
 
@@ -1051,6 +1108,20 @@ function scaleNum(base){
   return Math.max(1, Math.round(base*m));
 }
 
+const TAB_META = {
+  overview: ["Overview","Your command center"],
+  team:     ["AI team","Every agent we've built for you"],
+  activity: ["Activity","Everything your AI team is doing"],
+  pipeline: ["Build pipeline","What we're shipping next"],
+  impact:   ["Impact & ROI","What your AI team is worth"]
+};
+function planForSize(size){
+  const i = SIZES.indexOf(size);
+  if(i <= 1) return "AI Specialist";
+  if(i <= 3) return "AI Team";
+  return "AI Department";
+}
+
 function renderDashboard(){
   const ind = INDUSTRIES[state.industry];
   document.getElementById("builder").style.display = "none";
@@ -1058,12 +1129,23 @@ function renderDashboard(){
   dash.classList.add("show");
   window.scrollTo(0,0);
 
-  // branding
-  document.getElementById("brandMk").textContent = initials(state.biz);
-  document.getElementById("brandNm").textContent = state.biz + " · Command Center";
-  document.getElementById("brandSub").textContent = ind.label + " · your AI team, live";
+  // ── personalized sidebar client block ──
+  document.getElementById("clientAva").textContent = initials(state.biz);
+  document.getElementById("clientName").textContent = state.biz;
+  document.getElementById("clientMeta").innerHTML =
+    ind.label + "<br/>" + state.size + (SIZES.indexOf(state.size) ? " on the team" : "");
+  document.getElementById("clientPlan").textContent = planForSize(state.size);
   document.getElementById("pageTitle").textContent = ind.headline;
   document.title = state.biz + " — Command Center";
+
+  // nav counts
+  const live = ind.agents.filter(a=>a.status==="live").length;
+  document.getElementById("navTeamCt").textContent = ind.agents.length;
+  document.getElementById("navActCt").textContent = ind.activity.length;
+  document.getElementById("navPipeCt").textContent = ind.pipeline.length;
+
+  // reset to Overview tab
+  setTab("overview");
 
   renderKpis();
   renderAgentRows();
@@ -1253,15 +1335,29 @@ document.getElementById("drClose").onclick = closeDrawer;
 document.getElementById("scrim").onclick = closeDrawer;
 document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeDrawer(); });
 
-/* ═══════════════ TABS / RANGE / NEW ═══════════════ */
-document.querySelectorAll("#tabs .tab").forEach(t=>{
-  t.onclick = ()=>{
-    document.querySelectorAll("#tabs .tab").forEach(x=>x.classList.toggle("act",x===t));
-    document.querySelectorAll(".tabpanel").forEach(p=>
-      p.classList.toggle("act", p.dataset.panel===t.dataset.tab));
-    window.scrollTo({top:0,behavior:"smooth"});
-  };
+/* ═══════════════ NAV / RANGE / NEW ═══════════════ */
+function setTab(tab){
+  document.querySelectorAll("#sideNav .nav-item").forEach(x=>x.classList.toggle("act",x.dataset.tab===tab));
+  document.querySelectorAll(".tabpanel").forEach(p=>p.classList.toggle("act",p.dataset.panel===tab));
+  const meta = TAB_META[tab] || ["",""];
+  document.getElementById("tbTitle").firstChild.textContent = meta[0];
+  document.getElementById("tbSub").textContent = meta[1];
+}
+document.querySelectorAll("#sideNav .nav-item").forEach(t=>{
+  t.onclick = ()=>{ setTab(t.dataset.tab); closeSidebar(); window.scrollTo({top:0,behavior:"smooth"}); };
 });
+
+/* mobile sidebar */
+function openSidebar(){
+  document.getElementById("sidebar").classList.add("open");
+  document.getElementById("sideScrim").classList.add("show");
+}
+function closeSidebar(){
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sideScrim").classList.remove("show");
+}
+document.getElementById("sideToggle").onclick = openSidebar;
+document.getElementById("sideScrim").onclick = closeSidebar;
 document.querySelectorAll("#range button").forEach(b=>{
   b.onclick = ()=>{
     state.range = b.dataset.r;
@@ -1280,6 +1376,7 @@ document.getElementById("newBtn").onclick = ()=>{
   document.getElementById("dash").classList.remove("show");
   document.getElementById("builder").style.display = "";
   closeDrawer();
+  closeSidebar();
   window.scrollTo(0,0);
 };
 </script>

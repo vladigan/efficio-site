@@ -430,7 +430,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
     <div class="nav-links">
       <a href="#how">How it works</a>
       <a href="#case">Case study</a>
-      <a href="#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
       <a href="/book.html" class="nav-cta">Book a 15-min call</a>
     </div>
   </div>
@@ -586,7 +586,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
           </div>
 
           <!-- Result -->
-          <div class="q-card" id="audit-result">
+          <div class="q-card" id="audit-result" hidden>
             <div class="q-num">Your fit score</div>
             <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:18px">
               <div class="score-ring" id="scoreRing">
@@ -843,7 +843,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
         <h4>Product</h4>
         <a href="#how">How it works</a>
         <a href="#case">Case study</a>
-        <a href="#pricing">Pricing</a>
+        <a href="/pricing.html">Pricing</a>
         <a href="#audit">AI audit</a>
       </div>
       <div class="f-col">
@@ -1052,7 +1052,9 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
     summary.innerHTML = '<ul>' + lines.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ul>';
 
     document.querySelectorAll('.q-step').forEach(function(c){ c.hidden = true; });
-    document.getElementById('audit-result').classList.add('show');
+    var res = document.getElementById('audit-result');
+    res.hidden = false;
+    res.classList.add('show');
     document.querySelectorAll('.audit-progress .step').forEach(function(s){ s.classList.add('done'); s.classList.remove('active'); });
 
     // Branch: qualified → reveal Calendly; unqualified → email capture
@@ -1139,6 +1141,38 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   }
 
   // ---- LEAD-CAPTURE ENDPOINTS ----
+
+  // ============== SAVINGS CALCULATOR ==============
+  // Math: hours/yr = teamSize × jobsPerWeek × 52 × (8 min ÷ 60)
+  //       jobs/yr  = teamSize × jobsPerWeek × 52
+  //       $/yr     = hours/yr × $/hr  (the recoverable value)
+  function updateCalc(){
+    var team   = parseInt(document.getElementById('cTechsR').value, 10)   || 0;
+    var ticket = parseInt(document.getElementById('cTicketR').value, 10)  || 0;
+    var jobsPw = parseInt(document.getElementById('cTicketsR').value, 10) || 0;
+    var rate   = parseInt(document.getElementById('cRateR').value, 10)    || 0;
+
+    document.getElementById('cTechs').textContent   = team;
+    document.getElementById('cTicket').textContent  = ticket;
+    document.getElementById('cTickets').textContent = jobsPw;
+    document.getElementById('cRate').textContent    = rate;
+
+    var jobsYr = team * jobsPw * 52;
+    var hoursYr = Math.round(jobsYr * (8 / 60));
+    var dollars = hoursYr * rate;
+
+    document.getElementById('calcBig').textContent = '$' + dollars.toLocaleString('en-US');
+    document.getElementById('calcHrs').textContent = hoursYr.toLocaleString('en-US');
+    document.getElementById('calcTix').textContent = jobsYr.toLocaleString('en-US');
+  }
+  ['cTechsR','cTicketR','cTicketsR','cRateR'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateCalc);
+  });
+  updateCalc();
+
+  // ============== INIT — show question 1 ==============
+  showStep(1);
 })();
 </script>
 <script src="/assets/transitions.js" defer></script>

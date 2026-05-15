@@ -274,26 +274,38 @@
 .sh{margin-bottom:48px;max-width:640px}
 .sh.center{margin-left:auto;margin-right:auto;text-align:center}
 
-/* why-now stats band */
+/* why-now stats band — 2-column, full-width */
 .why-now{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  background:linear-gradient(180deg,rgba(124,58,237,.05),transparent 60%)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--bd);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}
-@media(max-width:880px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
-.stat{background:var(--bg);padding:38px 26px;position:relative;transition:background .25s}
-.stat:hover{background:#0d0d11}
-.stat .sn{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;letter-spacing:-.04em;
-  line-height:1;color:var(--white)}
+  background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(124,58,237,.08),transparent 70%)}
+.why-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:64px;align-items:start}
+@media(max-width:980px){.why-grid{grid-template-columns:1fr;gap:40px}}
+.why-left{position:sticky;top:108px}
+@media(max-width:980px){.why-left{position:static}}
+.why-left .s-sub{margin-bottom:24px}
+.why-foot{font-size:13px;color:var(--muted);line-height:1.6;max-width:420px;
+  padding-top:22px;border-top:1px solid var(--bd)}
+.why-foot a{color:var(--purple3);font-weight:600;text-decoration:none;
+  border-bottom:1px solid rgba(183,148,246,.3)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.stat-grid{grid-template-columns:1fr}}
+.stat{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
+  padding:30px 28px 26px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.stat:hover{border-color:var(--bd2);transform:translateY(-3px)}
+.stat::after{content:"";position:absolute;inset:0;border-radius:var(--r);
+  background:radial-gradient(circle at 90% 0%,rgba(124,58,237,.1),transparent 55%);
+  opacity:0;transition:opacity .3s;pointer-events:none}
+.stat:hover::after{opacity:1}
+.stat .sn{font-size:clamp(3rem,4.5vw,4.2rem);font-weight:900;letter-spacing:-.05em;
+  line-height:.92;color:var(--white)}
 .stat .sn em{color:var(--purple2);font-style:normal}
-.stat .sl{margin-top:12px;font-size:13px;line-height:1.5;color:var(--text);font-weight:500}
-.stat .ss{margin-top:8px;font-size:11px;color:var(--muted);font-weight:600;
-  text-transform:uppercase;letter-spacing:.08em}
-.stat::before{content:"";position:absolute;left:0;top:0;width:2px;height:0;
-  background:var(--purple2);transition:height .4s var(--ease)}
-.stat:hover::before{height:100%}
-.why-foot{margin-top:26px;font-size:12.5px;color:var(--muted);max-width:680px}
-.why-foot a{color:var(--purple3);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(183,148,246,.3)}
+.stat .sbar{height:3px;border-radius:3px;background:var(--bd2);margin:18px 0 16px;overflow:hidden}
+.stat .sbar i{display:block;height:100%;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--purple),var(--purple3));
+  transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.stat-grid.vis .sbar i{width:var(--bw,100%)}
+.stat .sl{font-size:13.5px;line-height:1.55;color:var(--text);font-weight:500}
+.stat .ss{margin-top:14px;font-size:10.5px;color:var(--muted);font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em}
 </style>
 </head>
 <body>
@@ -355,34 +367,40 @@
 <!-- WHY NOW — STATS -->
 <section class="section why-now" id="why-now">
   <div class="container">
-    <div class="sh rv">
-      <div class="s-label">Why now</div>
-      <h2 class="s-title">The businesses around you <em>already moved.</em></h2>
-      <p class="s-sub">AI stopped being a someday line item. The companies winning your customers aren't smarter — they just answer faster, drop fewer leads, and waste less of their team's day. This is the gap, in numbers.</p>
+    <div class="why-grid">
+      <div class="why-left rv">
+        <div class="s-label">Why now</div>
+        <h2 class="s-title">The businesses around you <em>already moved.</em></h2>
+        <p class="s-sub">AI stopped being a someday line item. The companies winning your customers aren't smarter — they just answer faster, drop fewer leads, and waste less of their team's day. This is the gap, in numbers.</p>
+        <p class="why-foot">You don't need to learn any of this. You tell us what's slow, we build and run the AI, and it all lands on a dashboard you can watch. <a href="#see-platform">See the dashboard ↓</a></p>
+      </div>
+      <div class="stat-grid rv d1">
+        <div class="stat" style="--bw:78%">
+          <div class="sn"><em><span class="cu" data-count="78">0</span>%</em></div>
+          <div class="sbar"><i></i></div>
+          <div class="sl">of businesses now use AI in at least one core function — up from roughly half just two years ago.</div>
+          <div class="ss">McKinsey · State of AI</div>
+        </div>
+        <div class="stat" style="--bw:95%">
+          <div class="sn"><em><span class="cu" data-count="21">0</span>×</em></div>
+          <div class="sbar"><i></i></div>
+          <div class="sl">more likely to qualify a lead when you answer in 5 minutes vs 30. Most SMBs take hours.</div>
+          <div class="ss">Lead Response Mgmt Study</div>
+        </div>
+        <div class="stat" style="--bw:40%">
+          <div class="sn"><em><span class="cu" data-count="40">0</span>%</em></div>
+          <div class="sbar"><i></i></div>
+          <div class="sl">of a small team's week goes to repetitive manual work — intake, follow-up, scheduling, data entry.</div>
+          <div class="ss">Industry Labor Research</div>
+        </div>
+        <div class="stat" style="--bw:100%">
+          <div class="sn"><em><span class="cu" data-count="4">0</span></em></div>
+          <div class="sbar"><i></i></div>
+          <div class="sl">businesses run on this exact stack today — ours. We don't pitch what we haven't shipped.</div>
+          <div class="ss">First-Party · Brady LLC</div>
+        </div>
+      </div>
     </div>
-    <div class="stat-grid rv d1">
-      <div class="stat">
-        <div class="sn"><em><span class="cu" data-count="78">0</span>%</em></div>
-        <div class="sl">of businesses now use AI in at least one core function — up from roughly half just two years ago.</div>
-        <div class="ss">McKinsey, State of AI</div>
-      </div>
-      <div class="stat">
-        <div class="sn"><em><span class="cu" data-count="21">0</span>×</em></div>
-        <div class="sl">more likely to qualify a lead when you respond in 5 minutes instead of 30. Most SMBs take hours.</div>
-        <div class="ss">Lead Response Mgmt study</div>
-      </div>
-      <div class="stat">
-        <div class="sn"><em><span class="cu" data-count="40">0</span>%</em></div>
-        <div class="sl">of a small team's week goes to repetitive manual work — intake, follow-up, scheduling, data entry.</div>
-        <div class="ss">Industry labor research</div>
-      </div>
-      <div class="stat">
-        <div class="sn"><em><span class="cu" data-count="4">0</span></em></div>
-        <div class="sl">businesses run on this exact stack today — ours. We don't pitch what we haven't shipped.</div>
-        <div class="ss">First-party · Brady LLC</div>
-      </div>
-    </div>
-    <p class="why-foot rv d2">You don't need to learn any of this. That's the whole point — you tell us what's slow, we build and run the AI, and it all lands on a dashboard you can watch. <a href="#see-platform">See the dashboard ↓</a></p>
   </div>
 </section>
 

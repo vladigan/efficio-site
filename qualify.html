@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-62FVTS6S1Z"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-62FVTS6S1Z');</script>
+<script src="/assets/pixels.js"></script>
 <title>See if you qualify to work with us | Efficio</title>
 <meta name="description" content="5 questions. We screen out fit before either of us spends 15 minutes on a call. If you qualify, the calendar opens." />
 <link rel="canonical" href="https://efficio.tech/qualify.html"/>
@@ -348,6 +347,8 @@
     r.classList.add('show');
     const outcome = passes === 5 ? 'qualified' : (passes === 4 ? 'mostly_qualified' : 'not_fit');
     postQualifyAll(passes, fail, outcome);
+    // fire a lead conversion for qualified + mostly-qualified completions
+    if (passes >= 4) { try { window.efficioTrackLead && efficioTrackLead({ source: 'qualify', outcome: outcome }); } catch(e){} }
     if (passes === 5) {
       body.innerHTML = `
         <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>

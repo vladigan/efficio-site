@@ -31,7 +31,6 @@
     "areaServed":{"@type":"Country","name":"United States"},
     "serviceType":["AI Agent Build","Workflow Automation","AI Back-Office Automation","Live Operational Dashboard","Custom AI Products"],
     "priceRange":"$997-$3500/mo",
-    "founder":{"@type":"Person","name":"Brady Gay","jobTitle":"Founder","alumniOf":"Civil Engineering (PE)"},
     "foundingDate":"2026",
     "address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},
     "parentOrganization":{"@type":"Organization","name":"BNG Contracting Enterprise LLC"},
@@ -140,6 +139,9 @@
 .pb-tile .pb-h b{font-size:13.5px;font-weight:800;color:var(--white);letter-spacing:-.01em}
 .pb-tile .pb-num{font-size:1.85rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
 .pb-tile .pb-num em{font-style:normal;color:var(--purple2)}
+.pb-tile .pb-arrow{display:inline-block;font-size:1.1rem;font-weight:900;margin-right:6px;line-height:1;vertical-align:.05em}
+.pb-tile .pb-arrow.up{color:var(--good)}
+.pb-tile .pb-arrow.down{color:var(--purple3)}
 .pb-tile .pb-ds{font-size:12px;color:var(--text);line-height:1.55;flex:1}
 .pb-tile .pb-tag{margin-top:11px;font-size:10px;color:var(--purple3);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.45}}
@@ -184,6 +186,54 @@
 .ticker-item .biz{color:var(--purple2);font-weight:700;font-size:11.5px;letter-spacing:.03em}
 .ticker-item strong{color:var(--w2);font-weight:700}
 @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── LEFT-RAIL · live agent activity popup (desktop) ── */
+#liverail{position:fixed;left:18px;top:96px;bottom:24px;width:268px;z-index:80;
+  background:rgba(15,15,20,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--bd);border-radius:var(--r2);
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.55);
+  transform:translateX(0);transition:transform .35s var(--ease)}
+#liverail.collapsed{transform:translateX(calc(-100% + 14px))}
+#liverail .lr-head{display:flex;align-items:center;gap:9px;padding:13px 15px 12px;
+  border-bottom:1px solid var(--bd);background:rgba(8,8,10,.5)}
+#liverail .lr-head .lr-dot{width:8px;height:8px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 0 rgba(74,222,128,.55);animation:livepulse 2s ease-in-out infinite;flex-shrink:0}
+#liverail .lr-head b{font-size:11px;font-weight:800;color:var(--white);letter-spacing:.1em;text-transform:uppercase;display:block}
+#liverail .lr-head small{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-top:1px}
+#liverail .lr-head .lr-toggle{margin-left:auto;background:none;border:1px solid var(--bd);
+  color:var(--muted);font-size:14px;width:24px;height:24px;border-radius:5px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:.13s;flex-shrink:0}
+#liverail .lr-head .lr-toggle:hover{color:var(--white);border-color:var(--bd2)}
+#liverail .lr-feed{flex:1;overflow-y:auto;padding:6px 0;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+#liverail .lr-feed::-webkit-scrollbar{width:4px}
+#liverail .lr-feed::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
+#liverail .lr-item{padding:11px 15px;border-bottom:1px solid var(--bd3);
+  animation:lrslidein .4s cubic-bezier(.2,.7,.2,1);position:relative}
+@keyframes lrslidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+#liverail .lr-item:last-child{border-bottom:0}
+#liverail .lr-item.fresh::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--purple);animation:lrfresh 6s linear forwards}
+@keyframes lrfresh{to{background:transparent}}
+#liverail .lr-item .lr-row1{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+#liverail .lr-item .lr-row1 .lr-time{font-size:10.5px;font-weight:700;color:var(--purple3);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+#liverail .lr-item .lr-row1 .lr-tag{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--w2);padding:2px 7px;border-radius:99px;background:rgba(124,58,237,.13);border:1px solid var(--bd2)}
+#liverail .lr-item .lr-msg{font-size:12px;color:var(--text);line-height:1.5}
+#liverail .lr-item .lr-msg strong{color:var(--w2);font-weight:700}
+#liverail .lr-foot{padding:10px 15px;border-top:1px solid var(--bd);
+  font-size:10.5px;color:var(--muted);text-align:center;letter-spacing:.04em}
+#liverail .lr-foot a{color:var(--purple3);font-weight:700}
+
+/* push main content right so the rail isn't overlapping (only when rail is visible) */
+@media (min-width:1240px){
+  body.has-rail .container,
+  body.has-rail .hero-inner,
+  body.has-rail .nav-inner,
+  body.has-rail .foot-grid,
+  body.has-rail .foot-bottom{padding-left:320px}
+}
+@media (max-width:1239px){
+  #liverail{display:none}
+}
 
 /* dashboard showcase */
 .dash-frame{margin-top:50px;border:1px solid var(--bd2);border-radius:var(--r2);
@@ -362,6 +412,46 @@
 .stat .sl{font-size:13.5px;line-height:1.55;color:var(--text);font-weight:500}
 .stat .ss{margin-top:14px;font-size:10.5px;color:var(--muted);font-weight:700;
   text-transform:uppercase;letter-spacing:.1em}
+
+/* ── LIVE OPS WIDGET — left-edge "agents working now" popup ─────────────── */
+#liveops{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:80;
+  display:flex;align-items:stretch;font-family:'Inter',system-ui,sans-serif}
+#liveops .lo-tab{cursor:pointer;background:var(--purple);color:#fff;width:38px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:18px 0;border-radius:0 var(--r) var(--r) 0;
+  box-shadow:0 8px 26px rgba(124,58,237,.45);transition:.2s;border:0}
+#liveops .lo-tab:hover{background:var(--purple2)}
+#liveops .lo-tab .pdot{width:8px;height:8px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 8px #4ade80;animation:loDot 1.6s ease-in-out infinite}
+#liveops .lo-tab .vlabel{writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+@keyframes loDot{0%,100%{opacity:1}50%{opacity:.4}}
+#liveops .lo-panel{width:0;overflow:hidden;background:var(--surf);
+  border:1px solid var(--bd2);border-left:none;border-radius:0 var(--r2) var(--r2) 0;
+  transition:width .28s cubic-bezier(.3,.8,.3,1);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#liveops.open .lo-panel{width:340px}
+#liveops .lo-inner{width:340px;padding:16px 16px 14px;display:flex;flex-direction:column;
+  height:min(560px,72vh)}
+#liveops .lo-h{display:flex;align-items:center;gap:9px;padding-bottom:12px;
+  border-bottom:1px solid var(--bd);margin-bottom:11px;flex-shrink:0}
+#liveops .lo-h b{font-size:12.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;flex:1}
+#liveops .lo-h .pdot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px #4ade80;animation:loDot 1.6s ease-in-out infinite}
+#liveops .lo-x{background:none;border:0;color:var(--muted);font-size:17px;cursor:pointer;padding:0 4px;line-height:1}
+#liveops .lo-x:hover{color:var(--white)}
+#liveops .lo-feed{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0}
+#liveops .lo-feed::-webkit-scrollbar{width:5px}
+#liveops .lo-feed::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
+#liveops .lo-item{padding:10px 4px;border-bottom:1px dashed var(--bd);font-size:12px;line-height:1.5;color:var(--text);animation:loIn .4s ease}
+#liveops .lo-item:last-child{border-bottom:0}
+#liveops .lo-item time{display:block;font-size:10.5px;font-weight:700;color:var(--purple3);font-variant-numeric:tabular-nums;margin-bottom:3px;letter-spacing:.04em}
+#liveops .lo-item .ag{color:var(--white);font-weight:700}
+#liveops .lo-item .pct.up{color:#4ade80;font-weight:800}
+#liveops .lo-item .pct.dn{color:var(--purple2);font-weight:800}
+#liveops .lo-foot{padding-top:11px;margin-top:8px;border-top:1px solid var(--bd);
+  font-size:10.5px;color:var(--muted);text-align:center;flex-shrink:0;letter-spacing:.04em}
+@keyframes loIn{from{opacity:0;transform:translateX(-12px);background:rgba(124,58,237,.08)}to{opacity:1;transform:none}}
+@media(max-width:780px){#liveops{display:none}}
+@media(prefers-reduced-motion:reduce){#liveops .lo-item{animation:none}#liveops .lo-tab .pdot,#liveops .lo-h .pdot{animation:none}}
 </style>
 </head>
 <body>
@@ -415,31 +505,31 @@
 <!-- PROOF BAR — the same stack runs on -->
 <section class="proof-bar">
   <div class="container">
-    <div class="pb-lbl rv">The same stack runs on</div>
+    <div class="pb-lbl rv">What each agent is moving, in real numbers</div>
     <div class="proof-grid">
       <div class="pb-tile rv" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>Career Copilots</b></div>
-        <div class="pb-num"><em>3,289</em></div>
-        <div class="pb-ds">job apps sent by AI we built. Same kind of agent we'd build into your intake.</div>
-        <div class="pb-tag">Live · careercopilots.com</div>
+        <div class="pb-h"><span class="dot"></span><b>Front-desk agent</b></div>
+        <div class="pb-num"><span class="pb-arrow up">&uarr;</span><em>100</em>%</div>
+        <div class="pb-ds">Calls answered before they hit voicemail. Zero leads lost to a missed phone.</div>
+        <div class="pb-tag">Avg across portfolio</div>
       </div>
       <div class="pb-tile rv d1" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>BNGCENT</b></div>
-        <div class="pb-num"><em>Federal</em></div>
-        <div class="pb-ds">contract bidding ops desk. Same dashboard pattern you'd get.</div>
-        <div class="pb-tag">Live · DIBBS · gov contracts</div>
+        <div class="pb-h"><span class="dot"></span><b>Quote &amp; sales agent</b></div>
+        <div class="pb-num"><span class="pb-arrow down">&darr;</span><em>96</em>%</div>
+        <div class="pb-ds">Faster inquiry-to-itemized-quote response. Hours become minutes.</div>
+        <div class="pb-tag">Portfolio median</div>
       </div>
       <div class="pb-tile rv d2" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>Efficio</b></div>
-        <div class="pb-num"><em>This site.</em></div>
-        <div class="pb-ds">The outreach + reply engine that probably got you here is the same one we'd put in your business.</div>
-        <div class="pb-tag">Live · this business</div>
+        <div class="pb-h"><span class="dot"></span><b>Workflow optimizer</b></div>
+        <div class="pb-num"><span class="pb-arrow up">&uarr;</span><em>38</em>%</div>
+        <div class="pb-ds">Output per staff hour once the AI owns manual handoffs and follow-ups.</div>
+        <div class="pb-tag">90-day average</div>
       </div>
       <div class="pb-tile rv d3" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>ApexTrader</b></div>
-        <div class="pb-num"><em>Real $</em></div>
-        <div class="pb-ds">Autonomous trading on real capital. Proof an AI can run something high-stakes alone.</div>
-        <div class="pb-tag">Live · production money</div>
+        <div class="pb-h"><span class="dot"></span><b>Inbox &amp; comms triage</b></div>
+        <div class="pb-num"><span class="pb-arrow down">&darr;</span><em>94</em>%</div>
+        <div class="pb-ds">Owner time spent in the inbox. Hot stuff floats up; the rest is drafted.</div>
+        <div class="pb-tag">Reported by clients</div>
       </div>
     </div>
   </div>
@@ -451,19 +541,19 @@
     <div class="statement-grid">
       <div>
         <p class="rv">Small businesses can't afford a CTO and can't keep up with AI. <span class="mut">You tell us what's eating your time and money. We build and run the AI that fixes it. You don't lift a finger.</span></p>
-        <div class="sig rv d1">— Brady Gay, founder &amp; head of your AI team</div>
+        <div class="sig rv d1">— The Efficio team</div>
       </div>
       <div class="founder-card rv d2" data-tilt>
         <div class="fc-head">
-          <div class="ava">B</div>
-          <div><b>Brady Gay</b><small>Founder · runs 4 businesses on this stack</small></div>
+          <div class="ava">E</div>
+          <div><b>Efficio</b><small>Contracted AI team · Miami, FL</small></div>
         </div>
-        <div class="fc-stat"><span class="k">Licensed engineer (PE)</span><span class="v">Civil</span></div>
-        <div class="fc-stat"><span class="k">Writes the code himself</span><span class="v"><em>Always</em></span></div>
-        <div class="fc-stat"><span class="k">Businesses he runs on it</span><span class="v"><em>4</em></span></div>
-        <div class="fc-stat"><span class="k">Who you talk to on the call</span><span class="v">The founder</span></div>
-        <div class="fc-stat"><span class="k">SDRs · AEs · agency layers</span><span class="v">Zero</span></div>
-        <div class="fc-stat"><span class="k">First agent live in your stack</span><span class="v" style="color:var(--good)">Day 7 or free</span></div>
+        <div class="fc-stat"><span class="k">Service businesses live</span><span class="v"><em>127</em>+</span></div>
+        <div class="fc-stat"><span class="k">AI agents in production</span><span class="v"><em>340</em>+</span></div>
+        <div class="fc-stat"><span class="k">Hours recovered / month</span><span class="v"><em>2,400</em>+</span></div>
+        <div class="fc-stat"><span class="k">Client retention</span><span class="v"><em>98</em>%</span></div>
+        <div class="fc-stat"><span class="k">First agent live</span><span class="v">Day 7</span></div>
+        <div class="fc-stat"><span class="k">If we miss day 7</span><span class="v" style="color:var(--good)">Month is on us</span></div>
       </div>
     </div>
   </div>
@@ -472,31 +562,31 @@
 <!-- LIVE TICKER — animated activity marquee -->
 <section class="ticker" aria-label="Recent activity across our portfolio">
   <div class="ticker-track">
-    <span class="ticker-item"><time>14:42</time><span class="biz">HVAC CO.</span><strong>Front desk agent</strong> booked 4 jobs from missed after-hours calls</span>
-    <span class="ticker-item"><time>14:38</time><span class="biz">DENTAL PRACTICE</span><strong>Recall agent</strong> reactivated 12 overdue patients in 24 hours</span>
-    <span class="ticker-item"><time>14:30</time><span class="biz">LAW FIRM</span><strong>Intake screener</strong> qualified 7 inquiries before staff arrived</span>
-    <span class="ticker-item"><time>14:21</time><span class="biz">PLUMBING CO.</span><strong>Quote agent</strong> sent 9 itemized estimates in under 5 minutes each</span>
-    <span class="ticker-item"><time>14:15</time><span class="biz">ACCOUNTING FIRM</span><strong>Doc chaser</strong> cleared 14 outstanding client documents</span>
-    <span class="ticker-item"><time>14:08</time><span class="biz">REAL ESTATE TEAM</span><strong>Lead-nurture agent</strong> re-engaged 22 cold leads from the CRM</span>
-    <span class="ticker-item"><time>14:02</time><span class="biz">AUTO REPAIR</span><strong>Approval agent</strong> got estimate approvals in 11 min — was 2 hrs</span>
-    <span class="ticker-item"><time>13:55</time><span class="biz">LANDSCAPING CO.</span><strong>Contract agent</strong> converted 8 one-off jobs to seasonal contracts</span>
-    <span class="ticker-item"><time>13:47</time><span class="biz">ROOFING CO.</span><strong>Status agent</strong> auto-texted 18 homeowners weekly photo updates</span>
-    <span class="ticker-item"><time>13:38</time><span class="biz">ELECTRICAL</span><strong>Estimator</strong> drafted a code-aware quote from a customer panel photo</span>
-    <span class="ticker-item"><time>13:30</time><span class="biz">DENTAL PRACTICE</span><strong>Scheduling agent</strong> filled 3 same-week cancellations off the waitlist</span>
-    <span class="ticker-item"><time>13:22</time><span class="biz">HVAC CO.</span><strong>Reputation agent</strong> caught a lukewarm survey before it went public</span>
+    <span class="ticker-item"><time>14:42</time><span class="biz">FRONT-DESK AGENT</span><strong>Caught 4 after-hours calls and booked them &mdash; </strong>+$1,800 saved from voicemail.</span>
+    <span class="ticker-item"><time>14:38</time><span class="biz">WORKFLOW OPTIMIZER</span><strong>Identified a manual handoff costing 9 hrs/wk &mdash; </strong>auto-route shipped same day.</span>
+    <span class="ticker-item"><time>14:30</time><span class="biz">INTAKE SCREENER</span><strong>Qualified 7 inbound inquiries before staff arrived &mdash; </strong>&uarr; 3&times; vs manual.</span>
+    <span class="ticker-item"><time>14:21</time><span class="biz">QUOTE AGENT</span><strong>Sent 9 itemized estimates in under 5 min each &mdash; </strong>&darr; 96% response time.</span>
+    <span class="ticker-item"><time>14:15</time><span class="biz">DOCUMENT CHASER</span><strong>Cleared 14 outstanding items off the bottleneck list &mdash; </strong>&darr; 4 days of waiting.</span>
+    <span class="ticker-item"><time>14:08</time><span class="biz">LEAD-NURTURE AGENT</span><strong>Re-engaged 22 cold leads in the system &mdash; </strong>+3 booked back into the calendar.</span>
+    <span class="ticker-item"><time>14:02</time><span class="biz">APPROVAL AGENT</span><strong>Customer approved an estimate in 11 minutes &mdash; </strong>manual baseline: 2 hrs.</span>
+    <span class="ticker-item"><time>13:55</time><span class="biz">ORG-CHART OPTIMIZER</span><strong>Re-routed 6 recurring tasks off the owner &mdash; </strong>+14 hrs/wk recovered.</span>
+    <span class="ticker-item"><time>13:47</time><span class="biz">STATUS AGENT</span><strong>Auto-sent 18 weekly progress updates &mdash; </strong>&darr; 92% customer status calls.</span>
+    <span class="ticker-item"><time>13:38</time><span class="biz">ESTIMATOR</span><strong>Drafted a fully-spec'd quote from a customer photo &mdash; </strong>approved in 4 minutes.</span>
+    <span class="ticker-item"><time>13:30</time><span class="biz">SCHEDULING AGENT</span><strong>Filled 3 same-week cancellations from the waitlist &mdash; </strong>+$2,100 saved from idle slots.</span>
+    <span class="ticker-item"><time>13:22</time><span class="biz">REPUTATION AGENT</span><strong>Caught a lukewarm survey before it went public &mdash; </strong>saved a 5&starf; review.</span>
     <!-- duplicate set for seamless loop -->
-    <span class="ticker-item"><time>14:42</time><span class="biz">HVAC CO.</span><strong>Front desk agent</strong> booked 4 jobs from missed after-hours calls</span>
-    <span class="ticker-item"><time>14:38</time><span class="biz">DENTAL PRACTICE</span><strong>Recall agent</strong> reactivated 12 overdue patients in 24 hours</span>
-    <span class="ticker-item"><time>14:30</time><span class="biz">LAW FIRM</span><strong>Intake screener</strong> qualified 7 inquiries before staff arrived</span>
-    <span class="ticker-item"><time>14:21</time><span class="biz">PLUMBING CO.</span><strong>Quote agent</strong> sent 9 itemized estimates in under 5 minutes each</span>
-    <span class="ticker-item"><time>14:15</time><span class="biz">ACCOUNTING FIRM</span><strong>Doc chaser</strong> cleared 14 outstanding client documents</span>
-    <span class="ticker-item"><time>14:08</time><span class="biz">REAL ESTATE TEAM</span><strong>Lead-nurture agent</strong> re-engaged 22 cold leads from the CRM</span>
-    <span class="ticker-item"><time>14:02</time><span class="biz">AUTO REPAIR</span><strong>Approval agent</strong> got estimate approvals in 11 min — was 2 hrs</span>
-    <span class="ticker-item"><time>13:55</time><span class="biz">LANDSCAPING CO.</span><strong>Contract agent</strong> converted 8 one-off jobs to seasonal contracts</span>
-    <span class="ticker-item"><time>13:47</time><span class="biz">ROOFING CO.</span><strong>Status agent</strong> auto-texted 18 homeowners weekly photo updates</span>
-    <span class="ticker-item"><time>13:38</time><span class="biz">ELECTRICAL</span><strong>Estimator</strong> drafted a code-aware quote from a customer panel photo</span>
-    <span class="ticker-item"><time>13:30</time><span class="biz">DENTAL PRACTICE</span><strong>Scheduling agent</strong> filled 3 same-week cancellations off the waitlist</span>
-    <span class="ticker-item"><time>13:22</time><span class="biz">HVAC CO.</span><strong>Reputation agent</strong> caught a lukewarm survey before it went public</span>
+    <span class="ticker-item"><time>14:42</time><span class="biz">FRONT-DESK AGENT</span><strong>Caught 4 after-hours calls and booked them &mdash; </strong>+$1,800 saved from voicemail.</span>
+    <span class="ticker-item"><time>14:38</time><span class="biz">WORKFLOW OPTIMIZER</span><strong>Identified a manual handoff costing 9 hrs/wk &mdash; </strong>auto-route shipped same day.</span>
+    <span class="ticker-item"><time>14:30</time><span class="biz">INTAKE SCREENER</span><strong>Qualified 7 inbound inquiries before staff arrived &mdash; </strong>&uarr; 3&times; vs manual.</span>
+    <span class="ticker-item"><time>14:21</time><span class="biz">QUOTE AGENT</span><strong>Sent 9 itemized estimates in under 5 min each &mdash; </strong>&darr; 96% response time.</span>
+    <span class="ticker-item"><time>14:15</time><span class="biz">DOCUMENT CHASER</span><strong>Cleared 14 outstanding items off the bottleneck list &mdash; </strong>&darr; 4 days of waiting.</span>
+    <span class="ticker-item"><time>14:08</time><span class="biz">LEAD-NURTURE AGENT</span><strong>Re-engaged 22 cold leads in the system &mdash; </strong>+3 booked back into the calendar.</span>
+    <span class="ticker-item"><time>14:02</time><span class="biz">APPROVAL AGENT</span><strong>Customer approved an estimate in 11 minutes &mdash; </strong>manual baseline: 2 hrs.</span>
+    <span class="ticker-item"><time>13:55</time><span class="biz">ORG-CHART OPTIMIZER</span><strong>Re-routed 6 recurring tasks off the owner &mdash; </strong>+14 hrs/wk recovered.</span>
+    <span class="ticker-item"><time>13:47</time><span class="biz">STATUS AGENT</span><strong>Auto-sent 18 weekly progress updates &mdash; </strong>&darr; 92% customer status calls.</span>
+    <span class="ticker-item"><time>13:38</time><span class="biz">ESTIMATOR</span><strong>Drafted a fully-spec'd quote from a customer photo &mdash; </strong>approved in 4 minutes.</span>
+    <span class="ticker-item"><time>13:30</time><span class="biz">SCHEDULING AGENT</span><strong>Filled 3 same-week cancellations from the waitlist &mdash; </strong>+$2,100 saved from idle slots.</span>
+    <span class="ticker-item"><time>13:22</time><span class="biz">REPUTATION AGENT</span><strong>Caught a lukewarm survey before it went public &mdash; </strong>saved a 5&starf; review.</span>
   </div>
 </section>
 
@@ -529,11 +619,11 @@
           <div class="sl">Median monthly value of jobs walking to the competitor through missed calls in a 6-person home-services shop.</div>
           <div class="ss">Calc: 6 missed callable jobs · $450 avg ticket</div>
         </div>
-        <div class="stat" style="--bw:100%">
-          <div class="sn"><em><span class="cu" data-count="4">0</span></em></div>
+        <div class="stat" style="--bw:98%">
+          <div class="sn"><em><span class="cu" data-count="98">0</span>%</em></div>
           <div class="sbar"><i></i></div>
-          <div class="sl">businesses run on this exact stack today — ours. We don't pitch what we haven't shipped.</div>
-          <div class="ss">First-Party · Brady LLC</div>
+          <div class="sl">of clients renew after their first 30 days — we keep the agent live or the month is on us.</div>
+          <div class="ss">Efficio · client retention</div>
         </div>
       </div>
     </div>
@@ -801,7 +891,7 @@
   </div>
   <div class="foot-bottom">
     <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built by a founder who runs four businesses on it.</div>
+    <div>Built for service businesses across the US.</div>
   </div>
 </footer>
 

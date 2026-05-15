@@ -126,7 +126,7 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 <main class="shell">
   <div class="eyebrow">Step 3 of 3 · ~7 minutes</div>
   <h1>Tell us how <em>you</em> work.</h1>
-  <p class="lede">Ten questions. Your answers go straight to Brady so your AI team can start the real work before we even meet for kickoff.</p>
+  <p class="lede">Ten questions. Your answers go straight to our team so your AI agents can start the real work before we even meet for kickoff.</p>
 
   <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
 
@@ -255,15 +255,15 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 
     <div class="submit-row">
       <button type="submit" class="btn-primary" id="submitBtn">
-        <span id="submitLabel">Send to Brady</span>
+        <span id="submitLabel">Send to our team</span>
         <span aria-hidden="true">→</span>
       </button>
-      <span class="privacy">Encrypted in transit. Only Brady sees this — never sold, never shared.</span>
+      <span class="privacy">Encrypted in transit. Only your account lead sees this — never sold, never shared.</span>
     </div>
   </form>
 
   <div class="success-card" id="successCard" role="status" aria-live="polite">
-    <h2>Got it. Brady's been pinged.</h2>
+    <h2>Got it. Your team's been pinged.</h2>
     <p>Your AI team starts work today. Expect your kickoff prep email within 24 hours — it'll have your agenda, expected deliverables, and what to bring.</p>
     <a href="/onboarding-start.html">← Back to your welcome page</a>
   </div>
@@ -373,9 +373,9 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
       const subject = encodeURIComponent('Kickoff intake — ' + (data.business_name || 'new customer'));
       const mailto = 'mailto:brady@efficio.tech?subject=' + subject + '&body=' + encodeURIComponent(body);
       status.className = 'status err';
-      status.innerHTML = 'Our server didn\'t respond. <a href="'+mailto+'" style="text-decoration:underline">Click here to send it to Brady directly</a> — same result, takes 2 seconds.';
+      status.innerHTML = 'Our server didn\'t respond. <a href="'+mailto+'" style="text-decoration:underline">Click here to email it to us directly</a> — same result, takes 2 seconds.';
       btn.disabled = false;
-      label.textContent = 'Send to Brady';
+      label.textContent = 'Send to our team';
     }
   });
 })();

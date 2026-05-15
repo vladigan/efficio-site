@@ -244,6 +244,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .a-desc{font-size:11px;color:var(--muted);line-height:1.4;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .a-metric{font-size:10.5px;color:var(--purple3);font-weight:800;white-space:nowrap;text-align:right;
   padding:2px 7px;background:rgba(124,58,237,.10);border:1px solid var(--bd2);border-radius:99px;font-variant-numeric:tabular-nums}
+.a-spark{display:flex;align-items:flex-end;gap:2px;height:20px;width:56px;flex-shrink:0}
+.a-spark i{flex:1;background:linear-gradient(180deg,var(--purple3),var(--purple));border-radius:2px 2px 0 0;
+  opacity:.45;min-height:2px;transition:opacity .2s,transform .2s}
+.a-spark i:last-child{opacity:1}
+.agent:hover .a-spark i{opacity:.8}
+.agent:hover .a-spark i:last-child{opacity:1;transform:scaleY(1.08)}
 .a-arrow{color:var(--muted);font-size:13px;flex-shrink:0;transition:transform .12s}
 .agent:hover .a-arrow{transform:translateX(3px);color:var(--purple3)}
 
@@ -1243,6 +1249,17 @@ function renderAgentRows(){
   const ind = INDUSTRIES[state.industry];
   const live = ind.agents.filter(a=>a.status==="live").length;
   document.getElementById("teamMeta").textContent = live + " live · " + (ind.agents.length-live) + " building";
+  // tiny sparkline shape per agent — deterministic from agent.id so it looks "real"
+  function spark(id){
+    let h = 0; for(let i=0;i<id.length;i++){ h = (h*31 + id.charCodeAt(i)) >>> 0; }
+    const bars = [];
+    for(let i=0;i<10;i++){
+      h = (h * 1103515245 + 12345) >>> 0;
+      const pct = 30 + (h % 70);  // 30-100%
+      bars.push('<i style="height:'+pct+'%"></i>');
+    }
+    return bars.join("");
+  }
   document.getElementById("agentRows").innerHTML = ind.agents.map(a=>`
     <button class="agent" data-agent="${a.id}">
       <span class="a-dot ${a.status}"></span>
@@ -1250,6 +1267,7 @@ function renderAgentRows(){
         <div class="a-nm">${a.name}</div>
         <div class="a-desc">${a.desc}</div>
       </div>
+      <span class="a-spark" aria-hidden="true">${spark(a.id)}</span>
       <span class="a-metric">${a.metric}</span>
       <span class="a-arrow">›</span>
     </button>`).join("");

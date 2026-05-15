@@ -23,6 +23,15 @@
   requestAnimationFrame(function () {
     body.style.opacity = '1';
   });
+  // BELT + SUSPENDERS: if anything stalls, force body visible at multiple
+  // checkpoints. Eliminates the "click pricing → blank screen" failure mode
+  // where a destination page kept body at opacity 0.
+  function forceVisible() { try { body.style.opacity = '1'; } catch(e){} }
+  window.setTimeout(forceVisible, 60);
+  window.setTimeout(forceVisible, 400);
+  window.setTimeout(forceVisible, 1200);
+  document.addEventListener('DOMContentLoaded', forceVisible);
+  window.addEventListener('load', forceVisible);
 
   // SAFETY NET: if IntersectionObserver fails for any reason, force all .rv
   // elements to .vis after 800ms so the page is never stuck invisible.
@@ -104,31 +113,9 @@
     }
   }
 
-  document.addEventListener('click', function (e) {
-    // bubble up through ancestors looking for anchor
-    var t = e.target;
-    while (t && t !== document) {
-      if (t.tagName === 'A') break;
-      t = t.parentNode;
-    }
-    if (!t || t.tagName !== 'A') return;
-    if (!isInternal(t)) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;  // modifier = let browser handle
-    if (e.button !== 0) return;  // non-left-click
-
-    e.preventDefault();
-    var href = t.href;
-    body.style.transition = 'opacity ' + FADE_OUT_MS + 'ms ease';
-    body.style.opacity = '0';
-    window.setTimeout(function () {
-      window.location.href = href;
-    }, FADE_OUT_MS);
-    // SAFETY NET: if navigation stalls (slow network, stale DNS cache, dead host),
-    // restore the page after 2.5s instead of leaving the visitor on a blank screen.
-    window.setTimeout(function () {
-      body.style.opacity = '1';
-    }, 2500);
-  });
+  // Fade-out-on-click navigation removed 2026-05-15 — it caused intermittent
+  // "click pricing → blank screen" failures when a destination page kept the
+  // body at opacity 0. Internal links now navigate the browser-native way.
 
   // If a navigation is aborted (back button, ESC, failed load), pageshow restores opacity.
   window.addEventListener('pageshow', function () {

@@ -11,6 +11,7 @@
   <url><loc>https://efficio.tech/qualify.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/process.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://efficio.tech/vsl.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://efficio.tech/demo/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/case-studies/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://efficio.tech/landings/hvac.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://efficio.tech/landings/dental.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

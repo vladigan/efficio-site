@@ -273,6 +273,27 @@
 /* section header — left aligned, bold */
 .sh{margin-bottom:48px;max-width:640px}
 .sh.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* why-now stats band */
+.why-now{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
+  background:linear-gradient(180deg,rgba(124,58,237,.05),transparent 60%)}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--bd);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}
+@media(max-width:880px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
+.stat{background:var(--bg);padding:38px 26px;position:relative;transition:background .25s}
+.stat:hover{background:#0d0d11}
+.stat .sn{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;letter-spacing:-.04em;
+  line-height:1;color:var(--white)}
+.stat .sn em{color:var(--purple2);font-style:normal}
+.stat .sl{margin-top:12px;font-size:13px;line-height:1.5;color:var(--text);font-weight:500}
+.stat .ss{margin-top:8px;font-size:11px;color:var(--muted);font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em}
+.stat::before{content:"";position:absolute;left:0;top:0;width:2px;height:0;
+  background:var(--purple2);transition:height .4s var(--ease)}
+.stat:hover::before{height:100%}
+.why-foot{margin-top:26px;font-size:12.5px;color:var(--muted);max-width:680px}
+.why-foot a{color:var(--purple3);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(183,148,246,.3)}
 </style>
 </head>
 <body>
@@ -281,7 +302,7 @@
   <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
   <div class="nav-links">
     <a href="/services.html">Services</a>
-    <a href="/agents.html">Dashboard</a>
+    <a href="/demo/" target="_blank" rel="noopener">Live demo</a>
     <a href="/how-it-works.html">How it works</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/why-us.html">Why us</a>
@@ -331,6 +352,40 @@
   </div>
 </section>
 
+<!-- WHY NOW — STATS -->
+<section class="section why-now" id="why-now">
+  <div class="container">
+    <div class="sh rv">
+      <div class="s-label">Why now</div>
+      <h2 class="s-title">The businesses around you <em>already moved.</em></h2>
+      <p class="s-sub">AI stopped being a someday line item. The companies winning your customers aren't smarter — they just answer faster, drop fewer leads, and waste less of their team's day. This is the gap, in numbers.</p>
+    </div>
+    <div class="stat-grid rv d1">
+      <div class="stat">
+        <div class="sn"><em><span class="cu" data-count="78">0</span>%</em></div>
+        <div class="sl">of businesses now use AI in at least one core function — up from roughly half just two years ago.</div>
+        <div class="ss">McKinsey, State of AI</div>
+      </div>
+      <div class="stat">
+        <div class="sn"><em><span class="cu" data-count="21">0</span>×</em></div>
+        <div class="sl">more likely to qualify a lead when you respond in 5 minutes instead of 30. Most SMBs take hours.</div>
+        <div class="ss">Lead Response Mgmt study</div>
+      </div>
+      <div class="stat">
+        <div class="sn"><em><span class="cu" data-count="40">0</span>%</em></div>
+        <div class="sl">of a small team's week goes to repetitive manual work — intake, follow-up, scheduling, data entry.</div>
+        <div class="ss">Industry labor research</div>
+      </div>
+      <div class="stat">
+        <div class="sn"><em><span class="cu" data-count="4">0</span></em></div>
+        <div class="sl">businesses run on this exact stack today — ours. We don't pitch what we haven't shipped.</div>
+        <div class="ss">First-party · Brady LLC</div>
+      </div>
+    </div>
+    <p class="why-foot rv d2">You don't need to learn any of this. That's the whole point — you tell us what's slow, we build and run the AI, and it all lands on a dashboard you can watch. <a href="#see-platform">See the dashboard ↓</a></p>
+  </div>
+</section>
+
 <!-- DASHBOARD SHOWCASE -->
 <section class="section section-alt" id="see-platform">
   <div class="container">
@@ -375,6 +430,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="rv d2" style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a href="/demo/" class="btn-primary" data-magnetic target="_blank" rel="noopener">Open the live demo dashboard <span class="btn-arrow">&rarr;</span></a>
+      <span style="font-size:13px;color:var(--muted)">Real working dashboard, sample data — click around it.</span>
     </div>
   </div>
 </section>
@@ -621,6 +680,22 @@
       })(t0);
     });
   }
+  // Generic count-up for stat bands (.cu)
+  function countUp(el){
+    const target=parseInt(el.dataset.count,10)||0;
+    if(reduceMotion){el.textContent=target.toLocaleString('en-US');return;}
+    const dur=1300,t0=performance.now();
+    (function step(now){
+      const p=Math.min(1,(now-t0)/dur),eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString('en-US');
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  }
+  const cuio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){countUp(e.target);cuio.unobserve(e.target);}
+  }),{threshold:.6});
+  document.querySelectorAll('.cu').forEach(el=>cuio.observe(el));
+
   const dashFrame=document.getElementById('dashFrame');
   if(dashFrame){
     const cio=new IntersectionObserver(es=>es.forEach(e=>{

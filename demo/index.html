@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Command Center</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%237c3aed'/><text x='50' y='72' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>E</text></svg>"/>
+<style>
+:root{
+  --bg:#050a16; --surf:#0f1e33; --surf2:#0c1728;
+  --bd:rgba(124,58,237,.18); --bd2:rgba(168,85,247,.28); --bd3:rgba(255,255,255,.06);
+  --white:#f8fafc; --w2:#e2e8f0; --text:#cbd5e1; --muted:#64748b;
+  --good:#4ade80; --warn:#fbbf24;
+  --accent:#a855f7; --accent2:#7c3aed;
+  --r:10px; --r2:16px;
+  --glow:rgba(168,85,247,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;background-image:radial-gradient(60% 50% at 80% -5%,rgba(124,58,237,.10),transparent 70%)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ── top bar ── */
+.topbar{border-bottom:1px solid var(--bd);background:rgba(7,16,31,.7);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+.topbar-in{display:flex;align-items:center;gap:14px;padding:14px 24px;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-mark{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:16px;color:#fff;letter-spacing:-.02em;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 0 22px var(--glow)}
+.brand-name{font-size:15px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.brand-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+.live{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--good)}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 3px rgba(74,222,128,.2);animation:pdot 1.8s ease-in-out infinite}
+@keyframes pdot{0%,100%{opacity:1}50%{opacity:.45}}
+.updated{font-size:11.5px;color:var(--muted)}
+.poweredby{font-size:11px;color:var(--muted)}
+.poweredby b{color:var(--accent);font-weight:700}
+
+/* ── page head ── */
+.page-head{padding:34px 0 22px}
+.page-head h1{font-size:1.7rem;font-weight:800;color:var(--white);letter-spacing:-.03em}
+.page-head p{font-size:13.5px;color:var(--muted);margin-top:5px}
+
+/* ── kpi row ── */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 18px}
+.kpi-label{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.kpi-num{font-size:2rem;font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1}
+.kpi-num em{font-style:normal;font-size:.85rem;font-weight:700;color:var(--accent);margin-left:3px}
+.kpi-delta{font-size:11.5px;margin-top:7px;color:var(--good)}
+.kpi-delta.flat{color:var(--muted)}
+
+/* ── grid ── */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.panel{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:20px 20px}
+.panel h2{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:15px}
+
+/* agent list */
+.agent{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd3)}
+.agent:last-child{border-bottom:0;padding-bottom:0}
+.agent:first-of-type{padding-top:0}
+.a-stat{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.a-stat.live{background:var(--good);box-shadow:0 0 9px var(--good)}
+.a-stat.building{background:var(--accent);box-shadow:0 0 9px var(--accent)}
+.a-stat.idle{background:var(--muted)}
+.a-body{flex:1;min-width:0}
+.a-name{font-size:13.5px;font-weight:600;color:var(--w2)}
+.a-desc{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+.a-metric{font-size:11.5px;color:var(--text);white-space:nowrap;margin-left:auto;font-weight:500}
+
+/* activity feed */
+.feed div{display:flex;gap:10px;font-size:12px;color:var(--text);line-height:1.5;
+  padding:8px 0;border-bottom:1px solid var(--bd3)}
+.feed div:last-child{border-bottom:0;padding-bottom:0}
+.feed div:first-child{padding-top:0}
+.feed time{color:var(--accent);font-weight:700;flex-shrink:0;font-variant-numeric:tabular-nums;min-width:62px}
+
+/* pipeline */
+.pipe{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--bd3)}
+.pipe:last-child{border-bottom:0;padding-bottom:0}
+.pipe:first-of-type{padding-top:0}
+.pipe-name{font-size:13px;font-weight:600;color:var(--w2)}
+.pipe-tag{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:4px 9px;border-radius:99px}
+.pipe-tag.in_progress{color:var(--accent);background:rgba(168,85,247,.12)}
+.pipe-tag.shipping{color:var(--good);background:rgba(74,222,128,.12)}
+.pipe-tag.queued{color:var(--muted);background:rgba(255,255,255,.05)}
+
+/* trend bar chart */
+.trend{display:flex;align-items:flex-end;gap:10px;height:130px;margin-top:6px}
+.trend .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%}
+.trend .bar .fill{width:100%;border-radius:6px 6px 0 0;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));min-height:3px;
+  transition:height .6s cubic-bezier(.2,.7,.2,1)}
+.trend .bar .lbl{font-size:10px;color:var(--muted);font-weight:600}
+.trend .bar .val{font-size:10.5px;color:var(--w2);font-weight:700}
+
+.full{margin-bottom:16px}
+.footer{padding:26px 0 40px;text-align:center;font-size:11.5px;color:var(--muted)}
+.footer b{color:var(--accent);font-weight:700}
+.banner{display:none;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);
+  color:var(--warn);font-size:12px;padding:9px 16px;border-radius:var(--r);margin:14px 0}
+.banner.show{display:block}
+.demo-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:center;
+  gap:14px;flex-wrap:wrap;background:#7c3aed;color:#fff;font-size:12.5px;font-weight:600;
+  padding:9px 16px;text-align:center;letter-spacing:.01em}
+.demo-bar b{font-weight:800}
+.demo-bar a{color:#fff;font-weight:800;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.5);
+  padding-bottom:1px;white-space:nowrap}
+.demo-bar a:hover{border-bottom-color:#fff}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <span><b>Sample command center</b> — this is the live dashboard every Efficio client gets. Numbers below are demo data.</span>
+  <a href="https://efficio.tech/book.html">Book a call to get yours →</a>
+</div>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="brand-mark" id="brandMark">AC</div>
+      <div>
+        <div class="brand-name" id="brandName">Client Command Center</div>
+        <div class="brand-sub">Your AI team — live</div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <span class="updated" id="updated">—</span>
+      <span class="live">Live</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1 id="headline">Your AI team, working now.</h1>
+    <p>Everything we've built for you — and everything it's doing — on one screen.</p>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="cols">
+    <div class="panel">
+      <h2>Your AI team</h2>
+      <div id="agents"></div>
+    </div>
+    <div class="panel">
+      <h2>Activity feed</h2>
+      <div class="feed" id="feed"></div>
+    </div>
+  </div>
+
+  <div class="panel full">
+    <h2>Build pipeline</h2>
+    <div id="pipeline"></div>
+  </div>
+
+  <div class="panel full">
+    <h2>Hours saved — last 6 months</h2>
+    <div class="trend" id="trend"></div>
+  </div>
+
+  <div class="footer">
+    Command center built &amp; run by <b>Efficio</b> — your contracted AI team.
+  </div>
+</div>
+
+<script>
+// ── Embedded sample so the page is never blank (preview mode on file://).
+//    On a real host, config.json + data.json are fetched and override these.
+const SAMPLE_CONFIG = {
+  client: { name: "Acme Plumbing", logo_text: "AP", accent: "#a855f7" },
+  headline: "Your AI team, working now.",
+  kpis: [
+    { key: "hours_saved",   label: "Hours saved · this month", unit: "hrs" },
+    { key: "leads_caught",  label: "Leads caught",             unit: "" },
+    { key: "replies",       label: "Replies triaged",          unit: "" },
+    { key: "active_builds", label: "Active builds",            unit: "" }
+  ],
+  agents: [
+    { id:"front_desk", name:"Front desk",      desc:"Calls, texts, web forms — answered in seconds, 24/7" },
+    { id:"sales",      name:"Sales engine",    desc:"Lead response, instant quotes, follow-up that never forgets" },
+    { id:"scheduling", name:"Scheduling",      desc:"Books, confirms, reminds — zero calendar tetris" },
+    { id:"inbox",      name:"Inbox & comms",   desc:"Every reply triaged by intent, drafted for one-click send" },
+    { id:"quote_tool", name:"Custom quote tool", desc:"Built for your pricing — itemized quotes in 90 seconds" }
+  ]
+};
+const SAMPLE_DATA = {
+  updated_at: new Date().toISOString(),
+  kpis: {
+    hours_saved:   { value: 142,   delta: "+18% vs last month" },
+    leads_caught:  { value: 386,   delta: "0 missed inbounds" },
+    replies:       { value: 1204,  delta: "hot leads surfaced first" },
+    active_builds: { value: 2,     delta: "1 shipping this week" }
+  },
+  agents: {
+    front_desk: { status:"live",     metric:"24 handled today" },
+    sales:      { status:"live",     metric:"11 leads · 3 quoted" },
+    scheduling: { status:"live",     metric:"9 booked today" },
+    inbox:      { status:"live",     metric:"63 triaged today" },
+    quote_tool: { status:"building", metric:"in progress" }
+  },
+  activity: [
+    { time:"2:47 PM", text:"Front desk booked a Thursday 10am appointment from a missed call" },
+    { time:"2:31 PM", text:"Sales engine sent an itemized quote — customer opened it twice" },
+    { time:"1:58 PM", text:"Inbox flagged a hot lead and pushed it to the top of the queue" },
+    { time:"1:12 PM", text:"Scheduling confirmed 3 jobs — no back-and-forth" },
+    { time:"11:40 AM", text:"Recall campaign re-booked 2 customers overdue since spring" }
+  ],
+  pipeline: [
+    { name:"Custom quote tool",        status:"in_progress", note:"ships this week" },
+    { name:"Review-request automation", status:"queued",     note:"next up" },
+    { name:"Owner daily-brief email",   status:"queued",     note:"queued" }
+  ],
+  hours_trend: [
+    { label:"Dec", value:88 }, { label:"Jan", value:94 },  { label:"Feb", value:103 },
+    { label:"Mar", value:112 }, { label:"Apr", value:121 }, { label:"May", value:142 }
+  ]
+};
+
+const STATUS_LABEL = { in_progress:"In progress", shipping:"Shipping", queued:"Queued" };
+
+function fmtNum(n){ return (typeof n === "number") ? n.toLocaleString("en-US") : (n ?? "—"); }
+
+function render(config, data, preview){
+  // branding
+  const accent = (config.client && config.client.accent) || "#a855f7";
+  document.documentElement.style.setProperty("--accent", accent);
+  document.title = ((config.client && config.client.name) || "Command Center") + " — Command Center";
+  document.getElementById("brandMark").textContent = (config.client && config.client.logo_text) || "E";
+  document.getElementById("brandName").textContent = ((config.client && config.client.name) || "Client") + " · Command Center";
+  document.getElementById("headline").textContent = config.headline || "Your AI team, working now.";
+  if (preview){ var _b=document.getElementById("banner"); if(_b) _b.classList.add("show"); }
+
+  // updated stamp
+  if (data.updated_at){
+    const d = new Date(data.updated_at);
+    document.getElementById("updated").textContent = "Updated " +
+      d.toLocaleDateString("en-US",{month:"short",day:"numeric"}) + " · " +
+      d.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"});
+  }
+
+  // kpis
+  const kEl = document.getElementById("kpis");
+  kEl.innerHTML = (config.kpis || []).map(k => {
+    const v = (data.kpis && data.kpis[k.key]) || {};
+    const unit = k.unit ? `<em>${k.unit}</em>` : "";
+    const deltaFlat = !v.delta || /^0\b/.test(String(v.delta)) ? "" : "";
+    return `<div class="kpi">
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-num">${fmtNum(v.value)}${unit}</div>
+      <div class="kpi-delta ${v.delta ? "" : "flat"}">${v.delta || "—"}</div>
+    </div>`;
+  }).join("");
+
+  // agents
+  const aEl = document.getElementById("agents");
+  aEl.innerHTML = (config.agents || []).map(a => {
+    const d = (data.agents && data.agents[a.id]) || {};
+    const status = d.status || "idle";
+    return `<div class="agent">
+      <span class="a-stat ${status}"></span>
+      <div class="a-body">
+        <div class="a-name">${a.name}</div>
+        <div class="a-desc">${a.desc || ""}</div>
+      </div>
+      <span class="a-metric">${d.metric || ""}</span>
+    </div>`;
+  }).join("");
+
+  // feed
+  document.getElementById("feed").innerHTML = (data.activity || []).map(f =>
+    `<div><time>${f.time || ""}</time><span>${f.text || ""}</span></div>`
+  ).join("") || `<div><span style="color:var(--muted)">No activity logged yet today.</span></div>`;
+
+  // pipeline
+  document.getElementById("pipeline").innerHTML = (data.pipeline || []).map(p => {
+    const s = p.status || "queued";
+    return `<div class="pipe">
+      <span class="pipe-name">${p.name}</span>
+      <span class="pipe-tag ${s}">${p.note || STATUS_LABEL[s] || s}</span>
+    </div>`;
+  }).join("") || `<div class="pipe"><span class="pipe-name" style="color:var(--muted)">Nothing in the build queue right now.</span></div>`;
+
+  // trend
+  const trend = data.hours_trend || [];
+  const max = Math.max(1, ...trend.map(t => t.value || 0));
+  document.getElementById("trend").innerHTML = trend.map(t => {
+    const pct = Math.round(((t.value || 0) / max) * 100);
+    return `<div class="bar">
+      <span class="val">${fmtNum(t.value)}</span>
+      <div class="fill" style="height:${pct}%"></div>
+      <span class="lbl">${t.label || ""}</span>
+    </div>`;
+  }).join("");
+}
+
+// Try to load real config.json + data.json; fall back to embedded sample.
+async function boot(){
+  let config = SAMPLE_CONFIG, data = SAMPLE_DATA, preview = true;
+  try {
+    const [cRes, dRes] = await Promise.all([
+      fetch("config.json", { cache: "no-store" }),
+      fetch("data.json",   { cache: "no-store" })
+    ]);
+    if (cRes.ok && dRes.ok){
+      config = await cRes.json();
+      data = await dRes.json();
+      preview = false;
+    }
+  } catch (e) { /* file:// or missing files — stay in preview mode */ }
+  render(config, data, preview);
+}
+boot();
+
+// Auto-refresh data every 5 minutes when live (not in preview).
+setInterval(async () => {
+  try {
+    const [cRes, dRes] = await Promise.all([
+      fetch("config.json", { cache: "no-store" }),
+      fetch("data.json",   { cache: "no-store" })
+    ]);
+    if (cRes.ok && dRes.ok) render(await cRes.json(), await dRes.json(), false);
+  } catch (e) {}
+}, 300000);
+</script>
+</body>
+</html>

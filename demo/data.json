@@ -1,0 +1,36 @@
+{
+  "updated_at": "2026-05-14T17:00:00Z",
+  "kpis": {
+    "hours_saved":   { "value": 142,  "delta": "+18% vs last month" },
+    "leads_caught":  { "value": 386,  "delta": "0 missed inbounds" },
+    "replies":       { "value": 1204, "delta": "hot leads surfaced first" },
+    "active_builds": { "value": 2,    "delta": "1 shipping this week" }
+  },
+  "agents": {
+    "front_desk": { "status": "live",     "metric": "24 handled today" },
+    "sales":      { "status": "live",     "metric": "11 leads · 3 quoted" },
+    "scheduling": { "status": "live",     "metric": "9 booked today" },
+    "inbox":      { "status": "live",     "metric": "63 triaged today" },
+    "quote_tool": { "status": "building", "metric": "in progress" }
+  },
+  "activity": [
+    { "time": "2:47 PM",  "text": "Front desk booked a Thursday 10am appointment from a missed call" },
+    { "time": "2:31 PM",  "text": "Sales engine sent an itemized quote — customer opened it twice" },
+    { "time": "1:58 PM",  "text": "Inbox flagged a hot lead and pushed it to the top of the queue" },
+    { "time": "1:12 PM",  "text": "Scheduling confirmed 3 jobs — no back-and-forth" },
+    { "time": "11:40 AM", "text": "Recall campaign re-booked 2 customers overdue since spring" }
+  ],
+  "pipeline": [
+    { "name": "Custom quote tool",         "status": "in_progress", "note": "ships this week" },
+    { "name": "Review-request automation", "status": "queued",      "note": "next up" },
+    { "name": "Owner daily-brief email",   "status": "queued",      "note": "queued" }
+  ],
+  "hours_trend": [
+    { "label": "Dec", "value": 88 },
+    { "label": "Jan", "value": 94 },
+    { "label": "Feb", "value": 103 },
+    { "label": "Mar", "value": 112 },
+    { "label": "Apr", "value": 121 },
+    { "label": "May", "value": 142 }
+  ]
+}

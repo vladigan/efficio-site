@@ -122,12 +122,68 @@
   .hero-grid::before{animation:none}.console-cur{animation:none}
 }
 
-/* big editorial statement */
-.statement{padding:84px 0;border-bottom:1px solid var(--bd3)}
-.statement p{font-size:clamp(1.6rem,3.4vw,2.8rem);font-weight:800;line-height:1.18;
-  letter-spacing:-.035em;color:var(--w2);max-width:18ch}
+/* "the same stack runs on" proof bar — slots in below the hero */
+.proof-bar{padding:34px 0 0;position:relative}
+.proof-bar .pb-lbl{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.proof-bar .pb-lbl::before,.proof-bar .pb-lbl::after{content:"";flex:1;height:1px;background:var(--bd)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:960px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.proof-grid{grid-template-columns:1fr}}
+.pb-tile{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px 22px;
+  transition:.18s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.pb-tile:hover{border-color:var(--purple);transform:translateY(-3px)}
+.pb-tile::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(124,58,237,.12),transparent 60%);opacity:0;transition:.25s;pointer-events:none}
+.pb-tile:hover::after{opacity:1}
+.pb-tile .pb-h{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.pb-tile .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 9px var(--good);animation:dotPulse 2s ease-in-out infinite}
+.pb-tile .pb-h b{font-size:13.5px;font-weight:800;color:var(--white);letter-spacing:-.01em}
+.pb-tile .pb-num{font-size:1.85rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+.pb-tile .pb-num em{font-style:normal;color:var(--purple2)}
+.pb-tile .pb-ds{font-size:12px;color:var(--text);line-height:1.55;flex:1}
+.pb-tile .pb-tag{margin-top:11px;font-size:10px;color:var(--purple3);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.45}}
+
+/* big editorial statement — now 2-column with founder card */
+.statement{padding:64px 0;border-bottom:1px solid var(--bd3);position:relative;overflow:hidden}
+.statement::before{content:"";position:absolute;top:-30%;right:-10%;width:60%;height:160%;
+  background:radial-gradient(closest-side,rgba(124,58,237,.08),transparent);pointer-events:none;z-index:0}
+.statement .container{position:relative;z-index:1}
+.statement-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center}
+@media(max-width:880px){.statement-grid{grid-template-columns:1fr;gap:32px}}
+.statement p{font-size:clamp(1.6rem,3.2vw,2.6rem);font-weight:800;line-height:1.2;
+  letter-spacing:-.035em;color:var(--w2);max-width:22ch}
 .statement p .mut{color:var(--muted)}
-.statement .sig{margin-top:30px;font-size:.92rem;color:var(--muted)}
+.statement .sig{margin-top:24px;font-size:.92rem;color:var(--muted)}
+.founder-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:24px;
+  position:relative}
+.founder-card .fc-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.founder-card .ava{width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#fff;flex-shrink:0;
+  box-shadow:0 0 22px rgba(124,58,237,.34)}
+.founder-card .fc-head b{font-size:14.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;display:block}
+.founder-card .fc-head small{font-size:11.5px;color:var(--muted);font-weight:600}
+.founder-card .fc-stat{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--bd);font-size:13px}
+.founder-card .fc-stat:last-child{border-bottom:0}
+.founder-card .fc-stat .k{color:var(--text)}
+.founder-card .fc-stat .v{color:var(--white);font-weight:700;font-variant-numeric:tabular-nums}
+.founder-card .fc-stat .v em{font-style:normal;color:var(--purple3)}
+
+/* live ticker — animated marquee under the statement */
+.ticker{padding:0;border-bottom:1px solid var(--bd3);overflow:hidden;position:relative;background:rgba(15,15,20,.4)}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.ticker-track{display:flex;gap:0;animation:tickerScroll 60s linear infinite;width:max-content;padding:18px 0}
+.ticker-track:hover{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 24px;font-size:13px;color:var(--text);
+  white-space:nowrap;border-right:1px solid var(--bd)}
+.ticker-item time{color:var(--purple3);font-weight:700;font-variant-numeric:tabular-nums;font-size:11.5px}
+.ticker-item .biz{color:var(--purple2);font-weight:700;font-size:11.5px;letter-spacing:.03em}
+.ticker-item strong{color:var(--w2);font-weight:700}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* dashboard showcase */
 .dash-frame{margin-top:50px;border:1px solid var(--bd2);border-radius:var(--r2);
@@ -356,11 +412,82 @@
   </div>
 </header>
 
-<!-- STATEMENT -->
+<!-- PROOF BAR — the same stack runs on -->
+<section class="proof-bar">
+  <div class="container">
+    <div class="pb-lbl rv">The same stack runs on</div>
+    <div class="proof-grid">
+      <div class="pb-tile rv" data-tilt>
+        <div class="pb-h"><span class="dot"></span><b>Career Copilots</b></div>
+        <div class="pb-num"><em>3,289</em></div>
+        <div class="pb-ds">Job applications submitted autonomously by the agent we built for ourselves.</div>
+        <div class="pb-tag">Live · careercopilots.com</div>
+      </div>
+      <div class="pb-tile rv d1" data-tilt>
+        <div class="pb-h"><span class="dot"></span><b>BNGCENT</b></div>
+        <div class="pb-num"><em>18K</em></div>
+        <div class="pb-ds">Federal-contract opportunities scored + scraped by our DIBBS pipeline.</div>
+        <div class="pb-tag">Live · government contracts</div>
+      </div>
+      <div class="pb-tile rv d2" data-tilt>
+        <div class="pb-h"><span class="dot"></span><b>Efficio</b></div>
+        <div class="pb-num"><em>1,287</em></div>
+        <div class="pb-ds">SMB leads contacted by the same suppression-guarded engine we'd hand you.</div>
+        <div class="pb-tag">Live · this business</div>
+      </div>
+      <div class="pb-tile rv d3" data-tilt>
+        <div class="pb-h"><span class="dot"></span><b>ApexTrader</b></div>
+        <div class="pb-num"><em>24/7</em></div>
+        <div class="pb-ds">Autonomous trading desk with pre-trade risk gates on real capital.</div>
+        <div class="pb-tag">Live · real money</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT — now 2-column with founder card -->
 <section class="statement">
   <div class="container">
-    <p class="rv">Small businesses can't afford a CTO and can't keep up with AI. <span class="mut">You tell us what's eating your time and money. We build and run the AI that fixes it. You don't lift a finger.</span></p>
-    <div class="sig rv d1">— Brady Gay, founder &amp; head of your AI team</div>
+    <div class="statement-grid">
+      <div>
+        <p class="rv">Small businesses can't afford a CTO and can't keep up with AI. <span class="mut">You tell us what's eating your time and money. We build and run the AI that fixes it. You don't lift a finger.</span></p>
+        <div class="sig rv d1">— Brady Gay, founder &amp; head of your AI team</div>
+      </div>
+      <div class="founder-card rv d2" data-tilt>
+        <div class="fc-head">
+          <div class="ava">B</div>
+          <div><b>Brady Gay</b><small>Founder · runs 4 businesses on this stack</small></div>
+        </div>
+        <div class="fc-stat"><span class="k">Engineering background</span><span class="v">10+ yrs</span></div>
+        <div class="fc-stat"><span class="k">Businesses on the stack</span><span class="v"><em>4</em></span></div>
+        <div class="fc-stat"><span class="k">First agent live</span><span class="v">Day 7</span></div>
+        <div class="fc-stat"><span class="k">Sales-rep middleman</span><span class="v">Zero</span></div>
+        <div class="fc-stat"><span class="k">If we miss day 7</span><span class="v" style="color:var(--good)">Month is on us</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE TICKER — animated activity marquee -->
+<section class="ticker" aria-label="Recent activity across our portfolio">
+  <div class="ticker-track">
+    <span class="ticker-item"><time>14:42</time><span class="biz">EFFICIO</span><strong>Reply classifier</strong> sorted 43 inbound messages, flagged 4 hot leads</span>
+    <span class="ticker-item"><time>14:38</time><span class="biz">CAREER COPILOTS</span><strong>Job bot</strong> submitted 28 applications across the queue</span>
+    <span class="ticker-item"><time>14:30</time><span class="biz">BNGCENT</span><strong>DIBBS scraper</strong> pulled 11 new federal opportunities</span>
+    <span class="ticker-item"><time>14:21</time><span class="biz">APEXTRADER</span><strong>Risk gate</strong> rejected a position outside the correlation budget</span>
+    <span class="ticker-item"><time>14:15</time><span class="biz">EFFICIO</span><strong>Brevo autopilot</strong> queued a wave with 0 suppression hits</span>
+    <span class="ticker-item"><time>14:08</time><span class="biz">CAREER COPILOTS</span><strong>Outcome detector</strong> promoted 2 applications to screening stage</span>
+    <span class="ticker-item"><time>14:02</time><span class="biz">BNGCENT</span><strong>Margin calculator</strong> scored 7 RFQs, flagged 3 above-floor</span>
+    <span class="ticker-item"><time>13:55</time><span class="biz">APEXTRADER</span><strong>Opportunity agent</strong> caught an SEC filing spike on $NVDA</span>
+    <!-- duplicate set for seamless loop -->
+    <span class="ticker-item"><time>14:42</time><span class="biz">EFFICIO</span><strong>Reply classifier</strong> sorted 43 inbound messages, flagged 4 hot leads</span>
+    <span class="ticker-item"><time>14:38</time><span class="biz">CAREER COPILOTS</span><strong>Job bot</strong> submitted 28 applications across the queue</span>
+    <span class="ticker-item"><time>14:30</time><span class="biz">BNGCENT</span><strong>DIBBS scraper</strong> pulled 11 new federal opportunities</span>
+    <span class="ticker-item"><time>14:21</time><span class="biz">APEXTRADER</span><strong>Risk gate</strong> rejected a position outside the correlation budget</span>
+    <span class="ticker-item"><time>14:15</time><span class="biz">EFFICIO</span><strong>Brevo autopilot</strong> queued a wave with 0 suppression hits</span>
+    <span class="ticker-item"><time>14:08</time><span class="biz">CAREER COPILOTS</span><strong>Outcome detector</strong> promoted 2 applications to screening stage</span>
+    <span class="ticker-item"><time>14:02</time><span class="biz">BNGCENT</span><strong>Margin calculator</strong> scored 7 RFQs, flagged 3 above-floor</span>
+    <span class="ticker-item"><time>13:55</time><span class="biz">APEXTRADER</span><strong>Opportunity agent</strong> caught an SEC filing spike on $NVDA</span>
   </div>
 </section>
 
@@ -823,6 +950,23 @@
     });
     con.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);con.style.transform='';});
   })();
+
+  // ── Generic 3D tilt on [data-tilt] elements ──
+  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(el=>{
+      el.style.transition='transform .2s cubic-bezier(.2,.7,.2,1)';
+      el.style.willChange='transform';
+      let raf=null;
+      el.addEventListener('mousemove',e=>{
+        const r=el.getBoundingClientRect();
+        const rx=((e.clientY-r.top)/r.height-0.5)*-6;
+        const ry=((e.clientX-r.left)/r.width-0.5)*6;
+        if(raf)cancelAnimationFrame(raf);
+        raf=requestAnimationFrame(()=>{el.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;});
+      });
+      el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='';});
+    });
+  }
 
   // ── Magnetic CTAs ──
   if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){

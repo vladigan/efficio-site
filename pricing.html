@@ -133,9 +133,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .s-sub{font-size:.98rem;color:var(--text);line-height:1.72;max-width:580px}
 .text-center{text-align:center}
 .text-center .s-sub{margin-left:auto;margin-right:auto}
-.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.rv.vis{opacity:1;transform:translateY(0)}
-.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+/* reveal animation made non-blocking — .rv is visible by default, .vis is a
+   no-op (kept for compatibility with the IntersectionObserver below). Prior
+   specificity conflict was leaving the whole page blank when JS failed to
+   add .vis fast enough. */
+.rv{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.vis{opacity:1;transform:none}
 
 /* TIER CARDS — 3D tilt */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
@@ -337,9 +340,8 @@ body{letter-spacing:-.011em}
   box-shadow:none !important;border-radius:var(--r) !important}
 .btn-big:hover{background:var(--purple2) !important;box-shadow:none !important;transform:translateY(-1px) !important}
 /* reveals — safe-fail gate */
-html.js .rv:not(.vis){opacity:0;transform:translateY(26px)}
-html.js .rv.vis{opacity:1 !important;transform:none !important}
-html:not(.js) .rv{opacity:1 !important;transform:none !important}
+/* legacy js-gated hide rule retired — content is always visible now. */
+html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !important}
 @media (prefers-reduced-motion:reduce){.pill-dot{animation:none}}
 </style>
 </head>

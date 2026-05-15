@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="/assets/pixels.js"></script>
+<title>The Catalog — what Efficio builds, runs, and stands for | Efficio</title>
+<meta name="description" content="The full Efficio catalog. Who we are, the six agents we build into any business, the live dashboard every client gets, what each tier includes, and how a build goes from kickoff to live in seven days."/>
+<link rel="canonical" href="https://efficio.tech/catalog.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/catalog.html"/>
+<meta property="og:title" content="The Efficio Catalog"/>
+<meta property="og:description" content="Who we are, what we build, what every tier includes, and how a build goes live in seven days."/>
+<meta property="og:image" content="https://efficio.tech/og-image.svg"/>
+<meta property="og:site_name" content="Efficio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="The Efficio Catalog"/>
+<meta name="twitter:description" content="Who we are, what we build, what every tier includes."/>
+<meta name="twitter:image" content="https://efficio.tech/og-image.svg"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},
+  {"@type":"ListItem","position":2,"name":"Catalog","item":"https://efficio.tech/catalog.html"}]},
+ {"@type":"Service","name":"Efficio — Managed AI Service for SMBs","provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},
+  "description":"Embedded AI team for service businesses. We build, deploy, and run AI agents, back-office automations, and a live operational dashboard inside your business.",
+  "areaServed":{"@type":"Country","name":"United States"},
+  "serviceType":["AI Agent Build","Workflow Automation","Operational Dashboard","AI Front Desk","Sales Automation","Inbox Triage"],
+  "audience":{"@type":"BusinessAudience","name":"US small and medium service businesses"}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>"/>
+<style>
+.cat-wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.cat-hero{padding:140px 0 70px;border-bottom:1px solid var(--bd)}
+.cat-hero .eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--purple3);margin-bottom:18px}
+.cat-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.04;margin-bottom:18px}
+.cat-hero h1 em{font-style:normal;color:var(--purple2)}
+.cat-hero p{font-size:1.12rem;color:var(--text);line-height:1.6;max-width:720px}
+.cat-hero .ctas{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* sticky in-page nav */
+.cat-toc{position:sticky;top:64px;z-index:10;background:rgba(8,8,10,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--bd);padding:14px 0}
+.cat-toc-in{display:flex;gap:4px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cat-toc a{font-size:12.5px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:5px;white-space:nowrap;transition:.13s}
+.cat-toc a:hover{color:var(--white);background:var(--surf2)}
+
+/* section frame */
+.cat-sec{padding:80px 0;border-bottom:1px solid var(--bd)}
+.cat-sec:last-of-type{border-bottom:0}
+.cat-sec-h{margin-bottom:36px;max-width:760px}
+.cat-sec-h .ix{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:12px}
+.cat-sec-h h2{font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:900;color:var(--white);letter-spacing:-.035em;line-height:1.1;margin-bottom:14px}
+.cat-sec-h h2 em{font-style:normal;color:var(--purple2)}
+.cat-sec-h p{font-size:1.04rem;color:var(--text);line-height:1.65;max-width:680px}
+
+/* prose-style body for "who we are" / philosophy text */
+.prose p{font-size:1.05rem;color:var(--w2);line-height:1.75;margin-bottom:20px;max-width:720px}
+.prose p:last-of-type{margin-bottom:0}
+.prose strong{color:var(--white);font-weight:700}
+.prose .pull{font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.35;letter-spacing:-.02em;
+  border-left:3px solid var(--purple);padding:6px 0 6px 22px;margin:28px 0;max-width:720px}
+
+/* generic card grids */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.cards-3,.cards-2{grid-template-columns:1fr}}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:26px 26px;transition:.18s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--bd2);transform:translateY(-3px)}
+.card .ix{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--purple3);margin-bottom:10px}
+.card h3{font-size:1.15rem;font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.3;margin-bottom:10px}
+.card p{font-size:13.5px;color:var(--text);line-height:1.6}
+.card .feat{margin-top:14px;font-size:12px;color:var(--muted);line-height:1.55}
+.card .feat li{padding:4px 0 4px 18px;position:relative;list-style:none}
+.card .feat li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1.5px;background:var(--purple2)}
+
+/* the agent catalog — denser, more detail */
+.ag{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:30px 30px;margin-bottom:14px}
+.ag-top{display:flex;align-items:flex-start;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+.ag-top .num{font-size:2.6rem;font-weight:900;color:var(--purple2);letter-spacing:-.04em;line-height:.85;font-variant-numeric:tabular-nums;flex-shrink:0}
+.ag-top h3{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-.025em;line-height:1.2;flex:1;min-width:200px}
+.ag-top .pill{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple3);background:rgba(124,58,237,.13);border:1px solid var(--bd2);padding:5px 11px;border-radius:99px}
+.ag-lede{font-size:14.5px;color:var(--w2);line-height:1.65;margin-bottom:22px;max-width:780px}
+.ag-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:780px){.ag-grid{grid-template-columns:1fr;gap:18px}}
+.ag-col h4{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+.ag-col ul{list-style:none}
+.ag-col li{font-size:13px;color:var(--text);line-height:1.55;padding:4px 0 4px 18px;position:relative}
+.ag-col li::before{content:"\2022";position:absolute;left:4px;top:3px;color:var(--purple3);font-weight:800}
+.ag-col .ex{font-size:13px;color:var(--w2);font-style:italic;line-height:1.6;border-left:2px solid var(--purple);padding:4px 0 4px 14px;background:var(--surf2);border-radius:0 var(--r) var(--r) 0;padding-right:14px}
+
+/* vertical examples table */
+.vtab{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden}
+.vtab th,.vtab td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}
+.vtab tr:last-child td{border-bottom:0}
+.vtab th{background:var(--surf2);color:var(--white);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.vtab td:first-child{color:var(--purple3);font-weight:700;width:200px}
+.vtab td{color:var(--w2)}
+
+/* tier comparison */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:860px){.tier-grid{grid-template-columns:1fr}}
+.tier{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:28px 26px;display:flex;flex-direction:column}
+.tier.feat{border-color:var(--purple);position:relative}
+.tier.feat::before{content:"MOST PICK THIS";position:absolute;top:-1px;left:50%;transform:translateX(-50%) translateY(-50%);font-size:10px;font-weight:800;letter-spacing:.13em;background:var(--purple);color:#fff;padding:5px 13px;border-radius:99px}
+.tier .pn{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--purple3)}
+.tier .px{font-size:2.4rem;font-weight:900;color:var(--white);letter-spacing:-.04em;margin:9px 0 4px;line-height:1}
+.tier .px small{font-size:.42em;color:var(--muted);font-weight:700;letter-spacing:0}
+.tier .desc{font-size:13.5px;color:var(--text);line-height:1.55;margin-bottom:18px;min-height:42px}
+.tier ul{list-style:none;margin-bottom:24px;flex:1}
+.tier ul li{padding:9px 0 9px 24px;position:relative;font-size:13.5px;color:var(--w2);line-height:1.55;border-bottom:1px dashed var(--bd)}
+.tier ul li:last-child{border-bottom:0}
+.tier ul li::before{content:"\2713";position:absolute;left:0;top:9px;color:var(--purple2);font-weight:900}
+.tier ul li.x{color:var(--muted)}
+.tier ul li.x::before{content:"\2014";color:var(--muted)}
+.tier a.cta{display:block;text-align:center;background:var(--purple);color:#fff;font-weight:800;font-size:13.5px;padding:13px;border-radius:var(--r);text-decoration:none;transition:.15s}
+.tier a.cta.ghost{background:transparent;border:1px solid var(--bd2);color:var(--w2)}
+.tier a.cta:hover{background:var(--purple2);transform:translateY(-1px)}
+.tier a.cta.ghost:hover{border-color:var(--white);color:var(--white);background:transparent}
+
+/* proof / receipts */
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+@media(max-width:860px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.proof-grid{grid-template-columns:1fr}}
+.proof{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:24px 22px}
+.proof .num{font-size:2.2rem;font-weight:900;color:var(--purple2);letter-spacing:-.04em;line-height:1}
+.proof .nm{font-size:12.5px;color:var(--white);font-weight:700;margin-top:11px;letter-spacing:-.01em}
+.proof .ds{font-size:12px;color:var(--text);line-height:1.55;margin-top:6px}
+
+/* process steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:24px 22px;position:relative}
+.step .num{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--purple3);margin-bottom:9px}
+.step h4{font-size:1.05rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
+.step p{font-size:13px;color:var(--text);line-height:1.55}
+
+/* faq */
+.faq-item{border-bottom:1px solid var(--bd)}
+.faq-item:first-child{border-top:1px solid var(--bd)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;text-align:left;font-size:1.02rem;font-weight:700;color:var(--white);letter-spacing:-.015em;background:none;border:none;cursor:pointer}
+.faq-q .pm{color:var(--purple2);font-size:1.3rem;font-weight:400;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.faq-a p{font-size:14.5px;color:var(--text);line-height:1.7;padding-bottom:24px;max-width:760px}
+.faq-item.open .faq-a{max-height:340px}
+
+/* big cta */
+.cat-cta{padding:80px 0;text-align:center}
+.cat-cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.1;margin-bottom:18px}
+.cat-cta h2 em{font-style:normal;color:var(--purple2)}
+.cat-cta p{font-size:1.05rem;color:var(--text);max-width:540px;margin:0 auto 30px;line-height:1.6}
+
+/* print = clean PDF handoff */
+@media print{
+  @page{size:letter;margin:.5in}
+  html,body{background:#fff !important;color:#000 !important}
+  body{background-image:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nav,.cat-toc,footer{display:none !important}
+  .cat-hero{padding:0 0 30px;border-bottom:1px solid #ccc}
+  .cat-sec{padding:24px 0;border-bottom:1px solid #ccc;page-break-inside:avoid}
+  .cat-hero h1,.cat-sec-h h2,.cat-cta h2,.card h3,.ag-top h3,.step h4,.tier .px,.faq-q{color:#000 !important}
+  .cat-hero h1 em,.cat-sec-h h2 em,.cat-cta h2 em,.ag-top .num,.proof .num,.tier .pn,.tier ul li::before,.cat-sec-h .ix,.cat-hero .eyebrow,.step .num,.ag-top .pill{color:#7c3aed !important}
+  .card,.ag,.tier,.proof,.step,.vtab{background:#f8f6ff !important;border:1px solid #d4c5ff !important}
+  .tier.feat{border-color:#7c3aed !important;border-width:2px !important}
+  .ag-col .ex,.prose .pull{background:#fff !important;border-color:#7c3aed !important;color:#222 !important}
+  .ag-grid{break-inside:avoid}
+  .ag{page-break-inside:avoid}
+  .faq-a{max-height:none !important}
+  .faq-q .pm{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/demo/" target="_blank" rel="noopener">Live demo</a>
+    <a href="/catalog.html" style="color:var(--white)">Catalog</a>
+    <a href="/blog/">Blog</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<header class="cat-hero">
+  <div class="cat-wrap">
+    <div class="eyebrow">The Catalog · v1 · 2026</div>
+    <h1>What we build. What we run. <em>Who runs it.</em></h1>
+    <p>This is the whole thing in one document. Who Efficio is, what we put inside your business, what every tier includes, and what week one ships. Read it on your phone, hand it to a partner, save it as a PDF. No deck.</p>
+    <div class="ctas">
+      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a 15-min call &rarr;</a>
+      <a href="/demo/" class="btn-outline" target="_blank" rel="noopener">See the live demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<div class="cat-toc"><div class="cat-wrap"><div class="cat-toc-in">
+  <a href="#who">Who we are</a>
+  <a href="#do">What we do</a>
+  <a href="#agents">The agent library</a>
+  <a href="#verticals">By industry</a>
+  <a href="#dashboard">The dashboard</a>
+  <a href="#tiers">Tiers</a>
+  <a href="#builds">One-time builds</a>
+  <a href="#process">The process</a>
+  <a href="#proof">Receipts</a>
+  <a href="#faq">FAQ</a>
+</div></div></div>
+
+<!-- WHO WE ARE -->
+<section class="cat-sec" id="who">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">01 · Who we are</div>
+      <h2>Not a tool. Not a vendor. <em>Your AI team.</em></h2>
+    </div>
+    <div class="prose">
+      <p>Most AI offers hand you a login. We hand you a team. Efficio is a managed AI service that embeds inside small and medium businesses and operates the way an in-house engineer would, if you could afford to hire one. You tell us what's eating the day. We build the AI that handles it. We deploy it inside your business and we run it. You don't lift a finger.</p>
+      <p>The founder is <strong>Brady Gay</strong>, a US-based engineer and operator who runs <strong>four businesses on this exact stack</strong> &mdash; including Efficio itself. The cold email that may have brought you here was sent by the same engine we'd hand a client. The dashboard you'd see on day seven is the same dashboard we use to run our own back office. Nothing in our pitch is theoretical.</p>
+      <div class="pull">"Small businesses can't afford a CTO and don't have time to learn AI tools. You tell us what's killing your time. We build and run the AI that fixes it. You don't touch a line of code. You don't manage a vendor. You just stop doing the thing."</div>
+      <p>We work cross-vertical: home services, trades, professional services, healthcare, real estate, retail, accounting, agencies. Any business where owner time is the bottleneck and a narrow AI module removes hours/week. We are deliberately not industry-specific. The playbook is the same shape regardless &mdash; the customization happens inside it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="cat-sec" id="do">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">02 · What we do</div>
+      <h2>Three pillars. <em>One AI team.</em></h2>
+      <p>Every Efficio engagement assembles from these three. Same three pillars regardless of vertical &mdash; what changes is which workflow inside each pillar gets attacked first.</p>
+    </div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="ix">Pillar 1</div>
+        <h3>AI Agents</h3>
+        <p>Customer-facing AI that talks to humans on your behalf &mdash; phone, text, web forms, email. Books appointments, sends quotes, follows up, triages. Never goes home. Never forgets a lead.</p>
+        <ul class="feat">
+          <li>Front-desk reception (24/7 call answering)</li>
+          <li>Sales / quote agent</li>
+          <li>Scheduling / dispatch</li>
+          <li>Inbox &amp; comms triage</li>
+          <li>Reputation / review agent</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ix">Pillar 2</div>
+        <h3>AI Admins</h3>
+        <p>Back-office AI that does the unglamorous repetitive work your team spends hours on. Document chasing, data entry, status updates, reporting, follow-up sequences. Runs in the background.</p>
+        <ul class="feat">
+          <li>Document collection &amp; chasing</li>
+          <li>Data entry / system-to-system sync</li>
+          <li>Reporting &amp; daily-brief generation</li>
+          <li>Follow-up sequences (lead, customer, vendor)</li>
+          <li>Custom workflows scoped per business</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ix">Pillar 3</div>
+        <h3>Live Dashboard</h3>
+        <p>One screen showing everything your AI team did today, this week, this month. Hours saved, leads caught, jobs booked, what's shipping next. Not a black box &mdash; a window into the work.</p>
+        <ul class="feat">
+          <li>Branded with your business name + accent</li>
+          <li>Per-agent activity feed (live)</li>
+          <li>KPI cards with range toggle (today/7d/30d)</li>
+          <li>Build pipeline &mdash; what we ship next</li>
+          <li>Monthly recap + ROI math</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE AGENT LIBRARY -->
+<section class="cat-sec" id="agents">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">03 · The agent library</div>
+      <h2>Six universal agents. <em>One custom build.</em></h2>
+      <p>These are the modules every Efficio client picks from. Each is real, productized, and assembled per business. The seventh slot is always a custom workflow agent scoped to the workflow eating the most time in your shop &mdash; that's where the "custom" in "custom-feeling" lives.</p>
+    </div>
+
+    <!-- agent 1 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">01</div>
+        <h3>Front-desk agent</h3>
+        <span class="pill">AI Agent</span>
+      </div>
+      <p class="ag-lede">Answers every call, text, and web form in seconds &mdash; 24 hours a day. Books appointments, captures the details, flags emergencies, never sends a lead to voicemail. The single highest-return agent for any service business that gets inbound calls.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>What it does</h4>
+          <ul>
+            <li>Answers inbound calls in under 10 seconds</li>
+            <li>Texts back web-form leads in &lt;1 minute</li>
+            <li>Books appointments directly into your calendar</li>
+            <li>Captures address, equipment, urgency, callback number</li>
+            <li>Routes emergencies to a live human immediately</li>
+            <li>Logs every interaction so nothing falls through</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>Sample interaction</h4>
+          <div class="ex">Caller: "My water heater stopped working &mdash; can someone come out?" &nbsp;&rarr;&nbsp; AI: "I can get a plumber to you. Free Thursday morning or afternoon?" &nbsp;&rarr;&nbsp; <strong>Booked Thursday 9-11am. Text confirmation sent.</strong></div>
+          <h4 style="margin-top:18px">Who needs this most</h4>
+          <ul>
+            <li>HVAC, plumbing, electrical, roofing, landscaping</li>
+            <li>Dental and medical practices</li>
+            <li>Real estate teams</li>
+            <li>Any service business where a missed call is a missed job</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent 2 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">02</div>
+        <h3>Sales / quote agent</h3>
+        <span class="pill">AI Agent</span>
+      </div>
+      <p class="ag-lede">Responds to new leads instantly, builds itemized quotes from a photo + a few specs, follows up until they decide. This is where money quietly dies in most service businesses &mdash; quotes go out and nothing happens. We close that loop.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>What it does</h4>
+          <ul>
+            <li>First-touch response in under 5 minutes</li>
+            <li>Builds itemized quotes against your pricing book</li>
+            <li>Sends, opens, tracks &mdash; you see when they read it</li>
+            <li>Automatic follow-up: Day 2 check-in, Day 5 nudge, Day 10 final</li>
+            <li>Re-engages cold leads from months ago</li>
+            <li>Flags high-value leads for personal follow-up</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>Sample interaction</h4>
+          <div class="ex">Customer texts photo of old AC unit + sq ft &nbsp;&rarr;&nbsp; AI drafts 3-tier itemized install quote against your price book &nbsp;&rarr;&nbsp; you approve tier 2 &nbsp;&rarr;&nbsp; <strong>sent in 90 seconds. Customer opens it twice.</strong></div>
+          <h4 style="margin-top:18px">Who needs this most</h4>
+          <ul>
+            <li>Any business that sends estimates / proposals / quotes</li>
+            <li>HVAC, plumbing, electrical, roofing, construction</li>
+            <li>Law firms, accounting firms (intake + scope)</li>
+            <li>Agencies and consultants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent 3 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">03</div>
+        <h3>Scheduling / dispatch agent</h3>
+        <span class="pill">AI Agent</span>
+      </div>
+      <p class="ag-lede">Books, confirms, reminds, reschedules. Keeps the calendar full with zero phone tag. The morning scramble of "who's going where" goes away &mdash; the day arrives organized.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>What it does</h4>
+          <ul>
+            <li>Confirms tomorrow's appointments by text the night before</li>
+            <li>Reschedules without back-and-forth</li>
+            <li>Fills last-minute cancellations from a waitlist automatically</li>
+            <li>Optimizes routes / job-density when relevant</li>
+            <li>Sends "running 20 minutes late" texts so techs don't type while driving</li>
+            <li>Books recurring maintenance for repeat customers</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>Sample interaction</h4>
+          <div class="ex">Customer: "I need to move my appointment to later in the week." &nbsp;&rarr;&nbsp; AI: "I have Thursday 1-3pm or Friday 8-10am. Which works?" &nbsp;&rarr;&nbsp; <strong>Thursday. Crew notified. Fresh reminder queued.</strong></div>
+          <h4 style="margin-top:18px">Who needs this most</h4>
+          <ul>
+            <li>Any business that runs on appointments</li>
+            <li>Dental, medical, professional services</li>
+            <li>Service contractors with field crews</li>
+            <li>Auto repair, beauty / wellness</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent 4 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">04</div>
+        <h3>Inbox &amp; comms agent</h3>
+        <span class="pill">AI Admin</span>
+      </div>
+      <p class="ag-lede">Triages every email and message by intent. Drafts the reply. Surfaces what actually needs you. Your inbox goes from a thousand-item firehose to a five-item briefing &mdash; with reply drafts already written.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>What it does</h4>
+          <ul>
+            <li>Classifies every inbound message by intent (lead, support, vendor, etc.)</li>
+            <li>Drafts replies in your voice for one-click send</li>
+            <li>Surfaces urgent items first; quiets the noise</li>
+            <li>Routes vendor / billing emails out of the lead inbox</li>
+            <li>Summarizes the morning's inbox into a 6-line brief</li>
+            <li>Catches unhappy-customer signals and escalates immediately</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>Sample interaction</h4>
+          <div class="ex">Customer emails: "Is my service still under warranty? Invoice #4471." &nbsp;&rarr;&nbsp; AI pulls invoice, confirms coverage, drafts reply with the details. <strong>You hit send. Customer replies "thank you!"</strong></div>
+          <h4 style="margin-top:18px">Who needs this most</h4>
+          <ul>
+            <li>Owners who personally read every customer email</li>
+            <li>Law firms, accounting firms, consulting</li>
+            <li>Real estate teams</li>
+            <li>Anyone whose inbox runs their day instead of the other way around</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent 5 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">05</div>
+        <h3>Reputation agent</h3>
+        <span class="pill">AI Agent</span>
+      </div>
+      <p class="ag-lede">Asks every happy customer for a review at exactly the right moment. Flags unhappy ones <em>before</em> they post. Replies to new reviews in your voice. Your star rating compounds.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>What it does</h4>
+          <ul>
+            <li>Sends review request 1-3 days after a 5-star job</li>
+            <li>Routes lukewarm survey responses to you privately first</li>
+            <li>Follows up on un-clicked review requests</li>
+            <li>Drafts replies to new Google / Yelp reviews for approval</li>
+            <li>Surfaces recurring complaint themes worth a 2-minute look</li>
+            <li>Tracks rating delta month over month</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>Sample interaction</h4>
+          <div class="ex">Post-job survey returns 4/5 ("tech was great, ran a little late") &nbsp;&rarr;&nbsp; AI routes to you privately instead of asking for a public review. You comp a discount. <strong>Customer replies "wow, thank you" &mdash; requeued for a review ask in 30 days.</strong></div>
+          <h4 style="margin-top:18px">Who needs this most</h4>
+          <ul>
+            <li>Local-search-driven businesses (where reviews drive bookings)</li>
+            <li>Home services, auto, dental, restaurants</li>
+            <li>Real estate (agent / team reviews)</li>
+            <li>Any business whose Google rating affects close rate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- agent 6 -->
+    <div class="ag">
+      <div class="ag-top">
+        <div class="num">06</div>
+        <h3>Custom workflow agent</h3>
+        <span class="pill">Per-Client Build</span>
+      </div>
+      <p class="ag-lede">The one thing eating <strong>your</strong> team's time that nothing off-the-shelf will touch. Scoped on the kickoff call. Built in the first week. This is the slot that turns a productized service into a custom-feeling one.</p>
+      <div class="ag-grid">
+        <div class="ag-col">
+          <h4>Real examples we've built or scoped</h4>
+          <ul>
+            <li><strong>HVAC:</strong> load-calc quote tool (photo + sq ft &rarr; 3-tier install quote)</li>
+            <li><strong>Plumbing:</strong> emergency-triage agent with closest-tech dispatch</li>
+            <li><strong>Electrical:</strong> estimate-from-photo tool against your pricing book</li>
+            <li><strong>Dental:</strong> recall + treatment-plan reactivation agent</li>
+            <li><strong>Law firm:</strong> intake screener against your matter criteria</li>
+            <li><strong>Real estate:</strong> aged-lead nurture agent</li>
+            <li><strong>Accounting:</strong> client-document chaser with auto-filing</li>
+            <li><strong>Auto repair:</strong> estimate-approval agent (photos + text to customer)</li>
+          </ul>
+        </div>
+        <div class="ag-col">
+          <h4>How we scope it</h4>
+          <ul>
+            <li>15-minute discovery call &mdash; what's the workflow?</li>
+            <li>We pick the highest-leverage handle</li>
+            <li>You see a scope doc the next day &mdash; what it does, what it doesn't</li>
+            <li>You sign or redirect. We build only what's approved.</li>
+            <li>Live in your stack by day 7 of the kickoff call</li>
+            <li>Iterated for the rest of the month based on what actually happens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICAL EXAMPLES -->
+<section class="cat-sec" id="verticals">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">04 · By industry</div>
+      <h2>What a custom build looks like <em>in your vertical.</em></h2>
+      <p>The custom-workflow slot (agent #06 above) gets scoped to your specific operation. Here's what we've built or are actively scoping per industry &mdash; not aspirational, real patterns.</p>
+    </div>
+    <table class="vtab">
+      <thead><tr><th>Industry</th><th>Custom workflow agent · what it owns end-to-end</th></tr></thead>
+      <tbody>
+        <tr><td>HVAC / Heating &amp; Air</td><td>Load-calc quote tool &mdash; photo + sq ft turn into a 3-tier itemized install quote against your equipment pricing book in &lt;90 seconds.</td></tr>
+        <tr><td>Plumbing</td><td>Emergency-triage agent &mdash; sorts real emergencies from routine, dispatches the closest plumber, texts the customer an ETA + shutoff-valve instructions.</td></tr>
+        <tr><td>Electrical</td><td>Estimate-from-photo tool &mdash; customer texts a panel / job-site photo, agent drafts a code-aware itemized estimate for your review.</td></tr>
+        <tr><td>Dental practice</td><td>Recall &amp; reactivation agent &mdash; finds patients overdue for cleaning or with unscheduled treatment and books them on a polite persistent cadence.</td></tr>
+        <tr><td>Law firm</td><td>Intake &amp; qualification agent &mdash; screens new inquiries against your matter criteria, books qualified consults, politely declines the rest.</td></tr>
+        <tr><td>Real estate team</td><td>Aged-lead nurture agent &mdash; works the 1,000+ cold leads in your CRM with new-listing checks until they're ready to show.</td></tr>
+        <tr><td>Accounting / Bookkeeping</td><td>Client-document agent &mdash; requests, chases, organizes and auto-files client docs so nothing stalls on a missing W-2.</td></tr>
+        <tr><td>Auto repair shop</td><td>Estimate-approval agent &mdash; texts the customer inspection findings + photos, gets approval fast, keeps the bay moving.</td></tr>
+        <tr><td>Landscaping / Lawn care</td><td>Seasonal-contract agent &mdash; converts one-off jobs into recurring seasonal contracts and renews them before they lapse.</td></tr>
+        <tr><td>Roofing / Construction</td><td>Project-status agent &mdash; auto-texts homeowners weekly progress + photos, ends "is anyone working on my roof?" calls.</td></tr>
+        <tr><td>Other / service business</td><td>Whatever your bottleneck is. Scoped on the kickoff call. Built in the first week.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="cat-sec" id="dashboard">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">05 · The dashboard</div>
+      <h2>One screen. <em>Every agent. Live.</em></h2>
+      <p>The deliverable every client gets: a branded operational command center showing exactly what your AI team is doing right now, what it did this month, and what's shipping next. Not a report. A live window.</p>
+    </div>
+    <div class="cards-2">
+      <div class="card">
+        <h3>What's on it</h3>
+        <ul class="feat">
+          <li>4 headline KPIs with today / 7d / 30d toggle</li>
+          <li>Per-agent activity row &mdash; live, ticking</li>
+          <li>Activity feed across all agents, filterable</li>
+          <li>Build pipeline &mdash; what's shipping this week / next</li>
+          <li>6-month hours-saved trend</li>
+          <li>Monthly impact + ROI math (your dollar value created)</li>
+          <li>Drill-down into any agent: today's actions, stats, sample interactions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How it works</h3>
+        <ul class="feat">
+          <li>Branded with your business name + logo mark + accent color</li>
+          <li>Private URL we email you &mdash; bookmark it, open anywhere</li>
+          <li>Updates as your agents log activity (every few minutes)</li>
+          <li>No login to manage, no app to install</li>
+          <li>Mobile-friendly &mdash; check it from a truck or a deal table</li>
+          <li>Available 24/7 &mdash; runs on static hosting, no downtime to worry about</li>
+        </ul>
+        <p style="margin-top:18px;font-size:13.5px;color:var(--purple3);font-weight:700"><a href="/demo/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">See a live sample &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="cat-sec" id="tiers">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">06 · Tiers</div>
+      <h2>Three tiers. <em>Month-to-month.</em></h2>
+      <p>Same deliverable shape across all three &mdash; difference is how much we build, how often we ship, and how often we meet. Pick what fits, switch when it doesn't, cancel any month. 30-day measurable-savings refund.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="pn">AI Specialist</div>
+        <div class="px">$997<small> / mo</small></div>
+        <div class="desc">For owners who want the dashboard and a baseline AI agent running, with a monthly check-in.</div>
+        <ul>
+          <li>Custom AI command-center dashboard</li>
+          <li>One front-line agent live in your stack</li>
+          <li>Monthly 30-min strategy call</li>
+          <li>Shared chat channel (Slack/Teams/Google)</li>
+          <li>30-day measurable-savings refund</li>
+          <li class="x">Custom workflow agent</li>
+          <li class="x">Continuous builds</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" target="_blank" rel="noopener">Start with Specialist</a>
+      </div>
+      <div class="tier feat">
+        <div class="pn">AI Team</div>
+        <div class="px">$2,500<small> / mo</small></div>
+        <div class="desc">For operators who want a custom agent built for their workflow plus biweekly cadence to keep shipping.</div>
+        <ul>
+          <li>Everything in AI Specialist, plus &mdash;</li>
+          <li><strong>A custom AI workflow agent</strong> (proposal, quote, intake, triage, etc.)</li>
+          <li>Biweekly 30-min strategy call</li>
+          <li>Priority response in shared chat</li>
+          <li>Monthly recovered-hours report</li>
+          <li>30-day measurable-savings refund</li>
+          <li class="x">Continuous on-demand builds</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" target="_blank" rel="noopener">Start with Team</a>
+      </div>
+      <div class="tier">
+        <div class="pn">AI Department</div>
+        <div class="px">$3,500<small> / mo</small></div>
+        <div class="desc">For businesses where the AI team should keep shipping new modules every month &mdash; like a department, not a vendor.</div>
+        <ul>
+          <li>Everything in AI Team, plus &mdash;</li>
+          <li><strong>Continuous AI builds</strong> (new agents on demand)</li>
+          <li>Weekly 45-min strategy call</li>
+          <li>24-hour SLA on chat</li>
+          <li>90-day written roadmap</li>
+          <li>Quarterly business-review session</li>
+          <li>30-day measurable-savings refund</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" target="_blank" rel="noopener">Start with Department</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE-TIME BUILDS -->
+<section class="cat-sec" id="builds">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">07 · One-time builds</div>
+      <h2>If a retainer isn't right, <em>buy the build.</em></h2>
+      <p>You can have us build something once, hand it off, and walk. We retain a maintenance retainer ($2K-5K/mo) for keeping it tuned, but the build itself is yours.</p>
+    </div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="ix">Build 1</div>
+        <h3>Starter — $2,500</h3>
+        <p>One scoped automation or AI tool, deployed inside your stack. ~2-3 weeks. Good for testing whether this works in your business before committing to a retainer.</p>
+      </div>
+      <div class="card">
+        <div class="ix">Build 2</div>
+        <h3>Operations — $7,500</h3>
+        <p>A meatier custom build: 2-3 agents wired together with the dashboard layer, integrated into your existing tools. ~4-6 weeks. Real operational lift.</p>
+      </div>
+      <div class="card">
+        <div class="ix">Build 3</div>
+        <h3>Full Pipeline — $15,000</h3>
+        <p>End-to-end build: front-desk + sales + scheduling + inbox + custom workflow + dashboard, all wired into your stack. ~8-10 weeks. The whole "AI team" assembly, productized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="cat-sec" id="process">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">08 · The process</div>
+      <h2>Kickoff to live agent <em>in seven days.</em></h2>
+      <p>The contract is simple: if your first agent isn't shipped and doing real work within seven days of the kickoff call, the month is on us.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">Day 0</div><h4>60-second audit</h4><p>Five questions. We tell you where the hours are leaking and the first role your AI team would take. No commitment.</p></div>
+      <div class="step"><div class="num">Day 0</div><h4>Kickoff call</h4><p>15 minutes. We scope the first build and agree on the one number we'll move by day 30.</p></div>
+      <div class="step"><div class="num">Days 1-5</div><h4>Build</h4><p>We build the agent customized to your real workflow. You see progress in your shared chat channel.</p></div>
+      <div class="step"><div class="num">Day 7</div><h4>Live</h4><p>The agent ships into your stack. Dashboard goes live with your branding. You start watching the work happen.</p></div>
+    </div>
+    <p style="margin-top:36px;font-size:14px;color:var(--text);line-height:1.7;max-width:760px">After day 7 we keep shipping. The dashboard updates as new modules go live and old ones get tuned. The day-30 number is the test: if we haven't moved it, the month is on us. We agree on what the number is on day 0 &mdash; recovered hours, faster intake response, fewer dropped leads, dollarized savings &mdash; so there's no moving goalpost.</p>
+  </div>
+</section>
+
+<!-- PROOF / RECEIPTS -->
+<section class="cat-sec" id="proof">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">09 · Receipts</div>
+      <h2>Four businesses on this stack. <em>Including this one.</em></h2>
+      <p>We don't pitch what we haven't shipped. The same modules we'd build for you are already running across our own portfolio. These aren't case studies of clients we wish we had &mdash; they're the proof that the playbook is real.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof">
+        <div class="num">4</div>
+        <div class="nm">Businesses on the stack</div>
+        <div class="ds">Career Copilots, BNGCENT, Efficio, ApexTrader &mdash; all running the same playbook.</div>
+      </div>
+      <div class="proof">
+        <div class="num">3,289</div>
+        <div class="nm">Applications run autonomously</div>
+        <div class="ds">Career Copilots job-application agent has submitted 3,289+ apps without a human in the loop.</div>
+      </div>
+      <div class="proof">
+        <div class="num">18K</div>
+        <div class="nm">Leads enriched by our pipeline</div>
+        <div class="ds">Efficio's own lead engine has scraped, scored, enriched, and de-duplicated 18,034 SMB leads.</div>
+      </div>
+      <div class="proof">
+        <div class="num">7&nbsp;days</div>
+        <div class="nm">From kickoff to live</div>
+        <div class="ds">Or the month is on us. We sign that into every engagement.</div>
+      </div>
+    </div>
+    <div class="cards-2" style="margin-top:14px">
+      <div class="card">
+        <h3>Career Copilots</h3>
+        <p>Job-application bot we built for ourselves. Scraper, scorer, screener, applier, follow-up scheduler, outcome detector. 3,289+ apps sent. Same shape we'd build for a client.</p>
+      </div>
+      <div class="card">
+        <h3>BNGCENT</h3>
+        <p>Federal-contract bidding pipeline. DIBBS scraper, margin calculator, OEM contact enrichment, custom dashboard. Real production system &mdash; the dashboard you'd get is the same shape.</p>
+      </div>
+      <div class="card">
+        <h3>Efficio (this business)</h3>
+        <p>The outreach that brought you here was sent by the same suppression-guarded engine we'd hand you on day one. Brevo SMTP, reply classifier, A/B harness, pipeline tracker. All running.</p>
+      </div>
+      <div class="card">
+        <h3>ApexTrader</h3>
+        <p>Autonomous trading desk with pre-trade risk gates and Telegram approval workflow on real capital. When clients ask "can AI really run something serious by itself?" &mdash; this is the answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="cat-sec" id="faq">
+  <div class="cat-wrap">
+    <div class="cat-sec-h">
+      <div class="ix">10 · FAQ</div>
+      <h2>What we get asked. <em>Every time.</em></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">Do I need to know anything about AI?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. That's the entire point. You tell us what's slow, manual, or falling through the cracks &mdash; we handle every technical decision, every tool, every build. You operate your business; we operate the AI.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will this replace my staff?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. The AI works alongside your people, not in place of them. Your team gets hours back to do the high-value work humans should be doing. Most clients describe it as "finally being able to take a day off without the wheels falling off."</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I have to switch the tools I already use?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. A good AI build sits on top of your existing scheduling, CRM, and accounting setup. It connects to what you have rather than forcing a rip-and-replace. If something blocks that, we tell you on the first call.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the 30-day refund actually work?<span class="pm">+</span></button>
+        <div class="faq-a"><p>On the kickoff call we agree on one metric &mdash; recovered hours, faster intake response, fewer dropped leads, dollarized savings &mdash; and the measurement window (default 30 days). If by day 30 the metric hasn't moved, your first month is refunded in full. We commit to the metric before we start so there's no moving goalpost.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What size businesses do you work with?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Small and medium businesses &mdash; really, any team where owner or staff time is the bottleneck. 1 person to 100 people. We are not enterprise. We are not a single-vertical pilot. Cross-vertical SMB is where the playbook is sharpest.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why an AI team and not a tool?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Because tools require you to learn them, configure them, maintain them, and deal with them when they break. That's the actual cost of "DIY AI" &mdash; not the subscription, the hours. We take that whole layer off your plate. You get the outcome without the operational tax.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How fast can you actually start?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Kickoff call this week, first agent live in your stack within seven days of that call. We slip that contractually &mdash; if we miss day 7, the month is on us. After day 7 we keep shipping for the rest of the month and beyond.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I see something working before I commit?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Yes. Two ways: the <a href="/audit-quiz.html">60-second audit</a> tells you where your hours are going, and the <a href="/demo/" target="_blank" rel="noopener">live demo dashboard</a> shows the exact deliverable every client gets &mdash; you can even build a sample for your own business name and click through it. No call required to look.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG CTA -->
+<section class="cat-cta">
+  <div class="cat-wrap">
+    <h2>The fastest way to know if this fits <em>is fifteen minutes.</em></h2>
+    <p>Tell us the one workflow eating your team's time. We come back the next day with what your AI team would take first, what it ships in week one, and the number we'd hit by day 30.</p>
+    <div class="ctas" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap">
+      <a href="/book.html" class="btn-primary" target="_blank" rel="noopener">Book a 15-min call &rarr;</a>
+      <a href="/demo/" class="btn-outline" target="_blank" rel="noopener">Open the live demo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
+      <p>Your contracted AI team &mdash; at your disposal. We learn the bleeding edge of AI every day, so you don't have to.</p>
+    </div>
+    <div class="foot-col"><h5>Product</h5><a href="/services.html">Services</a><a href="/demo/">Live demo</a><a href="/catalog.html">Catalog</a><a href="/pricing.html">Pricing</a></div>
+    <div class="foot-col"><h5>Company</h5><a href="/why-us.html">Why us</a><a href="/blog/">Blog</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
+    <div class="foot-col"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+    <div>Built by a founder who runs four businesses on it.</div>
+  </div>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(b){
+    b.addEventListener('click', function(){ b.parentElement.classList.toggle('open'); });
+  });
+  // sticky nav
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+</body>
+</html>

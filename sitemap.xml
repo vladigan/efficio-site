@@ -13,6 +13,7 @@
   <url><loc>https://efficio.tech/vsl.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://efficio.tech/demo/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/catalog.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-hvac-contractors.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-law-firms.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-dental-practices.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

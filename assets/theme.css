@@ -244,8 +244,8 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:64px 0 32px;c
 
 /* COOKIE CONSENT — first-visit only */
 #efficio-cookie{
-  position:fixed;left:14px;right:14px;bottom:14px;z-index:95;
-  max-width:520px;margin-left:auto;
+  position:fixed;left:14px;right:auto;bottom:14px;z-index:95;
+  max-width:420px;
   display:flex;flex-direction:column;gap:12px;
   padding:20px 22px;border-radius:var(--r2);
   background:var(--surf2);

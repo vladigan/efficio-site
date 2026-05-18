@@ -32,7 +32,7 @@ TARGETS = [
 
 INJECT = (
     '<link rel="stylesheet" href="/assets/theme.css" />\n'
-    '<style>html,body{background:#08080a !important}'
+    '<style>html,body{background:#0a0612 !important}'
     'body{position:relative;isolation:isolate}</style>\n'
 )
 

@@ -6,8 +6,8 @@
    ============================================================================ */
 
 :root{
-  /* canvas — near-black, not navy */
-  --bg:#08080a;--bg2:#0d0d10;--bg3:#121216;
+  /* canvas — near-black with subtle violet undertone for unified purple feel */
+  --bg:#0a0612;--bg2:#0d0a18;--bg3:#13101e;
   --surf:#101014;--surf2:#16161b;--surf3:#1d1d23;
   /* one accent, used solid + sharp — never washed */
   --purple:#7c3aed;--purple2:#9b6cf6;--purple3:#b794f6;
@@ -31,24 +31,23 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
    conic-mesh layer + a slowly panning grid.  Sits behind content (z:-2/-1),
    pointer-events:none.  Respects prefers-reduced-motion. */
 body::before{
-  content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;
+  content:"";position:fixed;inset:-25%;z-index:-2;pointer-events:none;
   background:
-    radial-gradient(44% 38% at 18% 22%, rgba(124,58,237,.42), transparent 60%),
-    radial-gradient(38% 32% at 82% 32%, rgba(155,108,246,.34), transparent 62%),
-    radial-gradient(52% 40% at 50% 88%, rgba(124,58,237,.34), transparent 65%),
-    radial-gradient(32% 26% at 92% 88%, rgba(183,148,246,.28), transparent 60%),
-    radial-gradient(28% 22% at 8%  72%, rgba(99,41,196,.30),  transparent 62%);
+    radial-gradient(50% 44% at 15% 18%, rgba(124,58,237,.70), transparent 65%),
+    radial-gradient(46% 40% at 85% 24%, rgba(155,108,246,.62), transparent 65%),
+    radial-gradient(58% 46% at 50% 70%, rgba(124,58,237,.58), transparent 68%),
+    radial-gradient(40% 34% at 92% 82%, rgba(183,148,246,.52), transparent 62%),
+    radial-gradient(36% 30% at 6%  78%, rgba(99,41,196,.62),  transparent 64%),
+    radial-gradient(34% 28% at 50% 12%, rgba(155,108,246,.45), transparent 60%),
+    radial-gradient(30% 26% at 30% 50%, rgba(124,58,237,.40), transparent 62%);
   animation:siteOrbs 28s ease-in-out infinite alternate;
-  filter:blur(56px) saturate(125%);will-change:transform,filter}
+  filter:blur(72px) saturate(140%);will-change:transform,filter}
 body::after{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:
-    linear-gradient(rgba(183,148,246,.045) 1px,transparent 1px) 0 0/100% 80px,
-    linear-gradient(90deg,rgba(183,148,246,.045) 1px,transparent 1px) 0 0/80px 100%,
-    radial-gradient(ellipse at center,transparent 35%,rgba(8,8,10,.55) 85%);
-  -webkit-mask-image:radial-gradient(ellipse at center,#000 40%,transparent 82%);
-  mask-image:radial-gradient(ellipse at center,#000 40%,transparent 82%);
-  opacity:.9;animation:siteGrid 60s linear infinite}
+    linear-gradient(rgba(183,148,246,.075) 1px,transparent 1px) 0 0/100% 80px,
+    linear-gradient(90deg,rgba(183,148,246,.075) 1px,transparent 1px) 0 0/80px 100%;
+  opacity:.85;animation:siteGrid 60s linear infinite}
 @keyframes siteOrbs{
   0%   {transform:translate3d(0,0,0)         scale(1.00) rotate(0deg);  filter:blur(56px) saturate(125%) hue-rotate(0deg)}
   25%  {transform:translate3d(-5%,3%,0)      scale(1.12) rotate(2deg);  filter:blur(62px) saturate(135%) hue-rotate(-8deg)}

@@ -1,461 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/pixels.js"></script>
-<title>See if you qualify to work with us | Efficio</title>
-<meta name="description" content="5 questions. We screen out fit before either of us spends 15 minutes on a call. If you qualify, the calendar opens." />
-<link rel="canonical" href="https://efficio.tech/qualify.html"/>
-<!-- seo:schema -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://efficio.tech/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Qualify",
-     "item": "https://efficio.tech/qualify.html"
-    }
-   ]
-  },
-  {
-   "@type": "WebPage",
-   "name": "See if you qualify to work with Efficio",
-   "url": "https://efficio.tech/qualify.html",
-   "publisher": {
-    "@type": "Organization",
-    "@id": "https://efficio.tech/#org",
-    "name": "Efficio",
-    "url": "https://efficio.tech",
-    "logo": "https://efficio.tech/og-image.svg"
-   }
-  }
- ]
-}
-</script>
-<meta property="og:title" content="Qualify to work with Efficio"/>
-<meta property="og:description" content="5-question fit screen. We don't take everyone."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://efficio.tech/qualify.html"/>
-<meta property="og:image" content="https://efficio.tech/og-image.svg"/>
-<meta property="og:site_name" content="Efficio"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Qualify to work with Efficio"/>
-<meta name="twitter:description" content="5-question fit screen. We don't take everyone."/>
-<meta name="twitter:image" content="https://efficio.tech/og-image.svg"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/theme.css"/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>"/>
+<title>See if you qualify — 60-second screen | Efficio</title>
+<meta name="description" content="8 questions, 60 seconds. We route you to the right tier — Starter, AI Specialist, AI Team, or AI Department — and book your free audit call. No pitch.">
+<link rel="canonical" href="https://efficio.tech/qualify.html">
+<meta property="og:title" content="See if you qualify — 60-second screen | Efficio">
+<meta property="og:description" content="8 questions. Find your tier. Book your free audit call.">
+<meta property="og:image" content="https://efficio.tech/og-image.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/theme.css">
 <style>
-.q-shell{max-width:780px;margin:0 auto;padding:120px 28px 60px}
-.q-head{text-align:center;margin-bottom:36px}
-.q-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;
-  border:1px solid var(--bd2);background:rgba(124,58,237,.09);
-  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:18px}
-.q-pill .pill-dot{width:7px;height:7px;border-radius:50%;background:var(--good);
-  box-shadow:0 0 8px rgba(74,222,128,.7);animation:pdot 2s ease-in-out infinite}
-.q-h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.08;
-  letter-spacing:-.035em;color:var(--white);margin-bottom:14px}
-.q-h1 em{color:var(--purple3);font-style:italic}
-.q-lede{font-size:1rem;color:var(--text);line-height:1.65;max-width:560px;margin:0 auto}
+.qz-shell{max-width:720px;margin:0 auto;padding:130px 28px 80px}
+.qz-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:22px}
+.qz-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple);animation:qp 2s infinite}
+@keyframes qp{0%,100%{opacity:1}50%{opacity:.5}}
 
-.q-progress{display:flex;gap:6px;margin:32px 0 24px;max-width:580px;margin-left:auto;margin-right:auto}
-.q-progress .step{flex:1;height:4px;border-radius:2px;background:var(--bd);transition:background .3s var(--ease)}
-.q-progress .step.done{background:var(--purple)}
-.q-progress .step.active{background:var(--purple2);box-shadow:0 0 12px var(--glow2)}
+.qz-progress{display:flex;gap:6px;margin-bottom:32px}
+.qz-progress .cell{flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:2px;transition:background .3s}
+.qz-progress .cell.done{background:var(--purple2)}
+.qz-progress .cell.live{background:var(--purple);box-shadow:0 0 8px var(--purple)}
 
-.q-card{background:var(--surf);
-  border:1px solid var(--bd);border-radius:var(--r2);padding:40px 36px;
-  box-shadow:0 18px 50px rgba(0,0,0,.4);position:relative;overflow:hidden}
-.q-card::before{content:"";position:absolute;inset:0;
-  background:none;
-  pointer-events:none}
-.q-card > *{position:relative}
-.q-num{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
-.q-text{font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:8px;letter-spacing:-.02em}
-.q-help{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:24px}
+.qz-card{background:var(--surf);border:1px solid var(--bd);border-radius:14px;padding:36px 32px;
+  min-height:420px;position:relative;overflow:hidden}
+.qz-step{position:absolute;inset:36px 32px;opacity:0;pointer-events:none;
+  transition:opacity .35s cubic-bezier(.2,.7,.2,1),transform .35s cubic-bezier(.2,.7,.2,1);
+  transform:translateY(8px)}
+.qz-step.active{opacity:1;pointer-events:auto;transform:translateY(0)}
+.qz-eyebrow{font-size:11px;font-weight:700;color:var(--purple3);letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:8px}
+.qz-q{font-size:1.5rem;font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.25;margin-bottom:6px}
+.qz-help{font-size:13.5px;color:var(--muted);margin-bottom:22px;line-height:1.55}
 
-.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
-.opt{display:flex;align-items:center;gap:14px;padding:16px 18px;
-  border:1.5px solid var(--bd);background:rgba(15,30,51,.5);border-radius:10px;
-  cursor:pointer;font-size:14.5px;font-weight:500;color:var(--w2);
-  transition:border-color .15s,background .15s;text-align:left;width:100%}
-.opt:hover{border-color:var(--bd2);background:rgba(124,58,237,.08)}
-.opt.sel{border-color:var(--purple2);background:rgba(124,58,237,.14);color:var(--white);
-  box-shadow:inset 0 0 0 1px var(--purple2),0 0 24px rgba(124,58,237,.18)}
-.opt .pin{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd);flex-shrink:0;position:relative;transition:border-color .15s}
-.opt.sel .pin{border-color:var(--purple2)}
-.opt.sel .pin::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--glow2)}
+.qz-opts{display:flex;flex-direction:column;gap:8px}
+.qz-opt{display:flex;align-items:center;gap:14px;padding:14px 16px;
+  background:var(--surf2);border:1px solid var(--bd);border-radius:10px;
+  font-size:14.5px;color:var(--w2);font-weight:500;cursor:pointer;
+  transition:border-color .15s,background .15s,transform .1s;text-align:left;width:100%}
+.qz-opt:hover{border-color:var(--purple);background:var(--surf3);transform:translateX(2px)}
+.qz-opt.selected{border-color:var(--purple);background:rgba(124,58,237,.10)}
+.qz-opt .dot-box{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd2);flex-shrink:0;
+  transition:border-color .15s,background .15s;position:relative}
+.qz-opt:hover .dot-box,.qz-opt.selected .dot-box{border-color:var(--purple)}
+.qz-opt.selected .dot-box{background:var(--purple)}
+.qz-opt.selected .dot-box::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#fff}
+.qz-opt b{color:var(--white);font-weight:700;margin-right:6px}
 
-.q-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}
-.q-back{padding:11px 18px;font-size:14px;color:var(--muted);font-weight:600;background:transparent;border-radius:8px;transition:color .15s}
-.q-back:hover{color:var(--w2)}
-.q-back:disabled{opacity:.3;cursor:not-allowed}
-.q-next{padding:13px 28px;font-size:14px;font-weight:700;border-radius:10px;
-  background:var(--purple);color:#fff;
-  box-shadow:0 0 24px var(--glow2);transition:transform .15s,box-shadow .15s}
-.q-next:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 40px var(--glow),0 8px 24px rgba(124,58,237,.32)}
-.q-next:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.qz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--bd)}
+.qz-btn{padding:10px 22px;border-radius:8px;font-size:13.5px;font-weight:700;letter-spacing:-.005em;
+  border:1px solid var(--bd2);background:transparent;color:var(--white);
+  cursor:pointer;transition:all .15s}
+.qz-btn:hover:not(:disabled){border-color:var(--purple);background:rgba(124,58,237,.08)}
+.qz-btn:disabled{opacity:.35;cursor:not-allowed}
+.qz-btn.primary{background:var(--purple);border-color:var(--purple);color:#fff;
+  box-shadow:0 8px 20px rgba(124,58,237,.4)}
+.qz-btn.primary:hover:not(:disabled){background:var(--purple2);transform:translateY(-1px)}
+.qz-count{font-size:12.5px;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
 
-.q-result{display:none;text-align:center}
-.q-result.show{display:block}
-.q-result-icon{width:88px;height:88px;border-radius:50%;
-  background:var(--purple);
-  display:flex;align-items:center;justify-content:center;margin:0 auto 24px;
-  box-shadow:0 0 48px var(--glow),0 12px 36px rgba(124,58,237,.32)}
-.q-result-icon.no{background:var(--surf2);border:2px solid var(--bd2)}
-.q-result h2{font-size:1.7rem;color:var(--white);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
-.q-result h2 em{color:var(--purple3);font-style:italic}
-.q-result p{font-size:1rem;color:var(--text);line-height:1.65;max-width:520px;margin:0 auto 24px}
-.q-result .btn-big{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;
-  border-radius:var(--r2);font-size:16px;font-weight:800;
-  background:var(--purple);color:#fff;
-  border:1px solid rgba(168,85,247,.4);
-  box-shadow:0 0 50px var(--glow),0 12px 36px rgba(124,58,237,.32);transition:all .25s}
-.q-result .btn-big:hover{transform:translateY(-3px);box-shadow:0 0 70px var(--glow),0 18px 44px rgba(124,58,237,.42)}
-.q-result .btn-out{display:inline-block;margin-top:14px;font-size:13px;color:var(--purple3);text-decoration:underline;text-underline-offset:3px}
-.q-result-meta{margin-top:30px;padding:18px 22px;background:rgba(15,30,51,.5);
-  border:1px solid var(--bd);border-radius:var(--r);font-size:13px;color:var(--text);line-height:1.55}
-.q-result-meta strong{color:var(--purple3);font-weight:700}
+.qz-result{display:none}
+.qz-result.show{display:block}
+.qz-result-card{background:var(--surf);border:1px solid var(--bd);border-radius:14px;padding:42px 36px;text-align:center;position:relative;overflow:hidden}
+.qz-result-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--purple2),var(--purple3))}
+.qz-result-tier{font-size:11px;font-weight:800;color:var(--purple3);letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.qz-result-name{font-size:2.3rem;font-weight:900;color:var(--white);letter-spacing:-.03em;line-height:1.1;margin-bottom:8px}
+.qz-result-price{font-size:1.5rem;font-weight:800;color:var(--purple3);margin-bottom:18px}
+.qz-result-why{font-size:15px;color:var(--w2);line-height:1.6;max-width:520px;margin:0 auto 26px;text-wrap:balance}
+.qz-result-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.qz-result-foot{font-size:12.5px;color:var(--muted)}
+.qz-result-foot a{color:var(--purple3)}
 
-.email-cap{margin-top:18px;display:flex;gap:8px}
-.email-cap input{flex:1;padding:13px 16px;border-radius:10px;
-  background:rgba(15,30,51,.6);border:1.5px solid var(--bd);color:var(--white);font-size:14px;font-family:inherit}
-.email-cap input:focus{outline:none;border-color:var(--purple2)}
-.email-cap button{padding:13px 22px;border-radius:10px;background:var(--purple);color:#fff;font-weight:700;font-size:14px;white-space:nowrap;transition:background .15s}
-.email-cap button:hover{background:var(--purple2)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em}
+.nav-logo .mk{width:30px;height:30px;border-radius:7px;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r)}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:10px 20px;background:var(--white);color:#000 !important;border-radius:var(--r);
+  font-size:13.5px;font-weight:700;border:1px solid var(--white)}
+.nav-cta:hover{background:var(--purple);color:#fff !important;border-color:var(--purple)}
+@media(max-width:780px){.nav-links a:not(.nav-cta){display:none}}
 </style>
 </head>
 <body>
 
-<!-- Static Netlify form declarations so all forms are detected at build time.
-     Both qualified + unqualified responses are captured. -->
-<form name="qualify-all" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="bot-field" />
-  <input type="text" name="outcome" />
-  <input type="text" name="score" />
-  <input type="text" name="industry" />
-  <input type="text" name="team" />
-  <input type="text" name="budget" />
-  <input type="text" name="timeline" />
-  <input type="text" name="role" />
-  <input type="text" name="reason_codes" />
-  <input type="email" name="email" />
-  <input type="text" name="ts" />
-</form>
-<form name="qualify-unqualified" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="bot-field" />
-  <input type="text" name="reason" />
-  <input type="email" name="email" />
-</form>
-
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html">Dashboard</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/why-us.html">Why us</a>
-    <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mk">E</span><span>Efficio</span></a>
+    <ul class="nav-links">
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/how-it-works.html">How it works</a></li>
+      <li><a href="/audit-intake.html" class="nav-cta">What we collect</a></li>
+    </ul>
   </div>
-</div></nav>
+</nav>
 
-<div class="q-shell">
-  <div class="q-head rv">
-    <span class="q-pill"><span class="pill-dot"></span>5 questions · 60 seconds</span>
-    <h1 class="q-h1">See if you <em>qualify</em> to work with us.</h1>
-    <p class="q-lede">We don't take everyone. The fit window is narrow on purpose — you ship faster when we say no to the wrong-fit operators. Five questions, no email required, instant result.</p>
+<main class="qz-shell">
+  <div id="qzIntro">
+    <span class="qz-pill"><span class="dot"></span>60-second qualifier</span>
+    <h1 style="font-size:clamp(2rem,3.6vw,2.8rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px">Find your tier in <em style="color:var(--purple3);font-style:italic">60 seconds.</em></h1>
+    <p style="font-size:1.05rem;color:var(--text);line-height:1.6;max-width:560px;margin-bottom:32px">8 questions about your revenue, your tools, and where time is leaking. We route you to the right starting tier — Starter, AI Specialist, AI Team, or AI Department — and book your free audit call.</p>
   </div>
 
-  <div class="q-progress rv d1" id="prog">
-    <div class="step active"></div>
-    <div class="step"></div>
-    <div class="step"></div>
-    <div class="step"></div>
-    <div class="step"></div>
-  </div>
+  <div class="qz-progress" id="qzBar"></div>
 
-  <div class="q-card rv d2" id="qcard">
-    <div id="qbody"></div>
-    <div class="q-nav">
-      <button class="q-back" id="back" disabled>← Back</button>
-      <button class="q-next" id="next" disabled>Next →</button>
+  <div class="qz-card" id="qzCard">
+    <div class="qz-step" data-step="1">
+      <div class="qz-eyebrow">Question 1 of 8</div>
+      <div class="qz-q">What's your monthly revenue?</div>
+      <div class="qz-help">Rough estimate. Doesn't have to be exact — we'll pull the real number from your books on the audit call.</div>
+      <div class="qz-opts" data-key="revenue">
+        <button class="qz-opt" data-val="under_50k"><span class="dot-box"></span><span><b>Under $50K/mo</b> — getting started or rebuilding</span></button>
+        <button class="qz-opt" data-val="50_200k"><span class="dot-box"></span><span><b>$50K–$200K/mo</b> — established, one bottleneck obvious</span></button>
+        <button class="qz-opt" data-val="200k_1m"><span class="dot-box"></span><span><b>$200K–$1M/mo</b> — multi-workflow, team of 5-20</span></button>
+        <button class="qz-opt" data-val="1m_5m"><span class="dot-box"></span><span><b>$1M–$5M/mo</b> — operations are the constraint, not sales</span></button>
+        <button class="qz-opt" data-val="5m_plus"><span class="dot-box"></span><span><b>$5M+/mo</b> — looking for continuous build cadence</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="2">
+      <div class="qz-eyebrow">Question 2 of 8</div>
+      <div class="qz-q">How do you take payments?</div>
+      <div class="qz-help">If it's Stripe / Square / PayPal we can plug in fast. Cash-only means we set up your stack first.</div>
+      <div class="qz-opts" data-key="payments">
+        <button class="qz-opt" data-val="stripe"><span class="dot-box"></span><span><b>Stripe</b></span></button>
+        <button class="qz-opt" data-val="square"><span class="dot-box"></span><span><b>Square</b></span></button>
+        <button class="qz-opt" data-val="paypal"><span class="dot-box"></span><span><b>PayPal</b></span></button>
+        <button class="qz-opt" data-val="cash_check"><span class="dot-box"></span><span><b>Cash / check / Zelle / Venmo</b> — no processor yet</span></button>
+        <button class="qz-opt" data-val="other"><span class="dot-box"></span><span><b>Other</b> (Authorize.net, Toast, ServiceTitan billing, etc.)</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="3">
+      <div class="qz-eyebrow">Question 3 of 8</div>
+      <div class="qz-q">What's your CRM / customer software?</div>
+      <div class="qz-help">The thing that holds your customer list and their history. Spreadsheet counts — we'll fix that.</div>
+      <div class="qz-opts" data-key="crm">
+        <button class="qz-opt" data-val="hubspot"><span class="dot-box"></span><span><b>HubSpot</b></span></button>
+        <button class="qz-opt" data-val="pipedrive"><span class="dot-box"></span><span><b>Pipedrive</b></span></button>
+        <button class="qz-opt" data-val="gohighlevel"><span class="dot-box"></span><span><b>GoHighLevel</b></span></button>
+        <button class="qz-opt" data-val="servicetitan"><span class="dot-box"></span><span><b>ServiceTitan</b></span></button>
+        <button class="qz-opt" data-val="housecall_pro"><span class="dot-box"></span><span><b>Housecall Pro / Jobber</b></span></button>
+        <button class="qz-opt" data-val="spreadsheet"><span class="dot-box"></span><span><b>Spreadsheet</b> — Excel, Google Sheets, Airtable</span></button>
+        <button class="qz-opt" data-val="none"><span class="dot-box"></span><span><b>Nothing yet</b> — names live in my head and my phone</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="4">
+      <div class="qz-eyebrow">Question 4 of 8</div>
+      <div class="qz-q">How does the bookkeeping happen?</div>
+      <div class="qz-help">Where the money math lives. Manual is fine — we just need to know.</div>
+      <div class="qz-opts" data-key="accounting">
+        <button class="qz-opt" data-val="quickbooks"><span class="dot-box"></span><span><b>QuickBooks Online</b></span></button>
+        <button class="qz-opt" data-val="xero"><span class="dot-box"></span><span><b>Xero</b></span></button>
+        <button class="qz-opt" data-val="freshbooks"><span class="dot-box"></span><span><b>FreshBooks / Wave</b></span></button>
+        <button class="qz-opt" data-val="accountant"><span class="dot-box"></span><span><b>My accountant handles all of it</b></span></button>
+        <button class="qz-opt" data-val="manual"><span class="dot-box"></span><span><b>Manual</b> — spreadsheet or paper</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="5">
+      <div class="qz-eyebrow">Question 5 of 8</div>
+      <div class="qz-q">What's eating the most time right now?</div>
+      <div class="qz-help">Pick the one workflow that, if fixed, would buy back the most hours.</div>
+      <div class="qz-opts" data-key="pain">
+        <button class="qz-opt" data-val="front_desk"><span class="dot-box"></span><span><b>Phones &amp; inbound</b> — calls going to voicemail, slow callbacks, missed inquiries</span></button>
+        <button class="qz-opt" data-val="quotes"><span class="dot-box"></span><span><b>Quotes &amp; estimates</b> — hours per quote, slow turnaround, deals going cold</span></button>
+        <button class="qz-opt" data-val="follow_up"><span class="dot-box"></span><span><b>Follow-ups &amp; nurture</b> — quotes that never close, customers we never re-engage</span></button>
+        <button class="qz-opt" data-val="dispatch"><span class="dot-box"></span><span><b>Scheduling &amp; dispatch</b> — back-and-forth to book, rebookings, route shuffling</span></button>
+        <button class="qz-opt" data-val="inbox"><span class="dot-box"></span><span><b>Owner inbox</b> — drowning in email I should not be answering</span></button>
+        <button class="qz-opt" data-val="reporting"><span class="dot-box"></span><span><b>Reports &amp; visibility</b> — no idea what's actually moving day-to-day</span></button>
+        <button class="qz-opt" data-val="other"><span class="dot-box"></span><span><b>Something else</b> — I'll explain on the call</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="6">
+      <div class="qz-eyebrow">Question 6 of 8</div>
+      <div class="qz-q">How many hours/week on admin work?</div>
+      <div class="qz-help">Hours the owner (or someone you're paying) spends on stuff that isn't growing the business.</div>
+      <div class="qz-opts" data-key="hours">
+        <button class="qz-opt" data-val="under_5"><span class="dot-box"></span><span><b>Under 5</b> — well-staffed</span></button>
+        <button class="qz-opt" data-val="5_15"><span class="dot-box"></span><span><b>5–15</b> — tolerable but annoying</span></button>
+        <button class="qz-opt" data-val="15_30"><span class="dot-box"></span><span><b>15–30</b> — eating into the workweek</span></button>
+        <button class="qz-opt" data-val="30_plus"><span class="dot-box"></span><span><b>30+</b> — drowning</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="7">
+      <div class="qz-eyebrow">Question 7 of 8</div>
+      <div class="qz-q">Running paid ads currently?</div>
+      <div class="qz-help">Helps us know if we're plugging into existing traffic or rebuilding the funnel.</div>
+      <div class="qz-opts" data-key="ads">
+        <button class="qz-opt" data-val="yes"><span class="dot-box"></span><span><b>Yes</b> — Google / Meta / both, spending monthly</span></button>
+        <button class="qz-opt" data-val="considering"><span class="dot-box"></span><span><b>Considering it</b> — talked to an agency, not pulling the trigger yet</span></button>
+        <button class="qz-opt" data-val="no"><span class="dot-box"></span><span><b>No</b> — organic / referral only</span></button>
+      </div>
+    </div>
+
+    <div class="qz-step" data-step="8">
+      <div class="qz-eyebrow">Question 8 of 8</div>
+      <div class="qz-q">Comfortable with read-only OAuth access?</div>
+      <div class="qz-help">Like Stripe / QuickBooks / Google — read-only, revocable, no password handover. <a href="/audit-intake.html" style="color:var(--purple3);text-decoration:underline">See exactly what we collect →</a></div>
+      <div class="qz-opts" data-key="oauth">
+        <button class="qz-opt" data-val="yes"><span class="dot-box"></span><span><b>Yes</b> — that's standard, no concerns</span></button>
+        <button class="qz-opt" data-val="think"><span class="dot-box"></span><span><b>Need to think about it</b> — happy to discuss on the call</span></button>
+        <button class="qz-opt" data-val="no"><span class="dot-box"></span><span><b>No</b> — won't give system access to anyone</span></button>
+      </div>
     </div>
   </div>
 
-  <div class="q-card q-result rv" id="result">
-    <div id="resultBody"></div>
+  <div class="qz-nav">
+    <button class="qz-btn" id="qzBack" disabled>← Back</button>
+    <span class="qz-count" id="qzCount">1 / 8</span>
+    <button class="qz-btn primary" id="qzNext" disabled>Next →</button>
   </div>
-</div>
 
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
-    </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/agents.html">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
-    </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="/audit-quiz.html">Take the audit</a>
-      <a href="/book.html" target="_blank" rel="noopener">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+  <div class="qz-result" id="qzResult">
+    <div class="qz-result-card">
+      <div class="qz-result-tier">Recommended tier</div>
+      <div class="qz-result-name" id="rsTier">—</div>
+      <div class="qz-result-price" id="rsPrice">—</div>
+      <p class="qz-result-why" id="rsWhy">—</p>
+      <div class="qz-result-cta-row">
+        <a href="/book.html" class="qz-btn primary" id="rsBook" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px">Book your free audit call <span>→</span></a>
+      </div>
+      <div class="qz-result-foot">Want to see exactly what we collect on day 1? <a href="/audit-intake.html">Read the audit-intake page →</a></div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built by a founder who runs four businesses on it.</div>
+</main>
+
+<footer style="border-top:1px solid var(--bd);padding:40px 28px;background:var(--surf);text-align:center;margin-top:40px">
+  <div style="max-width:1280px;margin:0 auto;font-size:13px;color:var(--muted)">
+    © 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL ·
+    <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> ·
+    <a href="/terms.html" style="color:var(--purple3)">Terms</a>
   </div>
 </footer>
 
-<script src="/assets/transitions.js" defer></script>
 <script>
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+(function(){
+  var WORKER_QUIZ = 'https://efficio-chat.bgay3500.workers.dev/quiz';
+  var TOTAL = 8;
+  var step = 1;
+  var answers = {};
 
-  // ───── qualification quiz ─────
-  const questions = [
-    {
-      id: 'industry',
-      label: 'Q1 of 5',
-      title: "What kind of business do you run?",
-      help: "We work best with SMB service businesses where one workflow leak costs hours per week.",
-      opts: [
-        {text: "HVAC, plumbing, electrical, or other contracting", val: 'service', pass: true},
-        {text: "Dental, medical, or healthcare practice", val: 'health', pass: true},
-        {text: "Law firm or solo legal practice", val: 'legal', pass: true},
-        {text: "Real estate brokerage or team", val: 'realestate', pass: true},
-        {text: "Accounting / bookkeeping / financial services", val: 'finance', pass: true},
-        {text: "Other service business (consulting, agency, ops)", val: 'other', pass: true},
-        {text: "Pure e-commerce / DTC product", val: 'ecom', pass: false},
-        {text: "Pre-revenue startup / no customers yet", val: 'preseed', pass: false},
-      ]
-    },
-    {
-      id: 'team',
-      label: 'Q2 of 5',
-      title: "How big is your team?",
-      help: "The math doesn't work for solo operators yet — too thin to dollarize the lift. At 5+ humans, recovered hours pay back the subscription in the first month.",
-      opts: [
-        {text: "Just me — solo operator", val: 1, pass: false},
-        {text: "2–4 people", val: 2, pass: false},
-        {text: "5–10 people", val: 3, pass: true},
-        {text: "11–25 people", val: 4, pass: true},
-        {text: "26–50 people", val: 5, pass: true},
-        {text: "50+ people", val: 6, pass: true},
-      ]
-    },
-    {
-      id: 'budget',
-      label: 'Q3 of 5',
-      title: "Where does $997/mo for an AI specialist sit on your budget?",
-      help: "Pricing transparency check. If $997/mo is a stretch we'll send resources instead — better fit when ops actually pay back.",
-      opts: [
-        {text: "That's table-stakes — I spend more on coffee for the office", val: 4, pass: true},
-        {text: "Reasonable — I'm budgeting AI as an ops line item", val: 3, pass: true},
-        {text: "I'd need to see ROI on the call before committing", val: 2, pass: true},
-        {text: "Honestly tight right now — would prefer free resources", val: 1, pass: false},
-      ]
-    },
-    {
-      id: 'timeline',
-      label: 'Q4 of 5',
-      title: "When are you actually ready to deploy?",
-      help: "We ship the first workflow inside 7 days. If you can't make space for a 15-min strategy call and a kickoff this month, neither of us wins.",
-      opts: [
-        {text: "Yesterday — I'm done waiting", val: 4, pass: true},
-        {text: "This week — I want it live by month-end", val: 4, pass: true},
-        {text: "This month — I can carve out the time", val: 3, pass: true},
-        {text: "Next quarter — researching for later", val: 2, pass: false},
-        {text: "Just exploring, no timeline yet", val: 1, pass: false},
-      ]
-    },
-    {
-      id: 'role',
-      label: 'Q5 of 5',
-      title: "What's your role?",
-      help: "If you're not the person who signs the checks, we'll happily send the deck to your CEO instead. Saves a round trip.",
-      opts: [
-        {text: "Owner / founder / partner", val: 4, pass: true},
-        {text: "CEO / president / managing partner", val: 4, pass: true},
-        {text: "COO / VP / director of ops", val: 3, pass: true},
-        {text: "Manager / individual contributor (researching)", val: 2, pass: false},
-        {text: "Consultant / vendor (asking for a client)", val: 1, pass: false},
-      ]
-    }
-  ];
+  var bar = document.getElementById('qzBar');
+  for (var i = 0; i < TOTAL; i++) {
+    var c = document.createElement('div');
+    c.className = 'cell' + (i === 0 ? ' live' : '');
+    bar.appendChild(c);
+  }
+  var cells = bar.querySelectorAll('.cell');
 
-  let qIdx = 0;
-  const answers = {};
-
-  function render(){
-    const q = questions[qIdx];
-    document.getElementById('qbody').innerHTML = `
-      <div class="q-num">${q.label}</div>
-      <div class="q-text">${q.title}</div>
-      <p class="q-help">${q.help}</p>
-      <div class="opts" id="opts">
-        ${q.opts.map((o,i)=>`
-          <button type="button" class="opt ${answers[q.id]===i?'sel':''}" data-i="${i}">
-            <span class="pin"></span><span>${o.text}</span>
-          </button>
-        `).join('')}
-      </div>`;
-    document.querySelectorAll('#opts .opt').forEach(b=>{
-      b.addEventListener('click',()=>{
-        const i = parseInt(b.dataset.i,10);
-        answers[q.id] = i;
-        document.querySelectorAll('#opts .opt').forEach(x=>x.classList.remove('sel'));
-        b.classList.add('sel');
-        document.getElementById('next').disabled = false;
-      });
+  function show(n) {
+    document.querySelectorAll('.qz-step').forEach(function (s) {
+      s.classList.toggle('active', +s.dataset.step === n);
     });
-    // Progress
-    document.querySelectorAll('#prog .step').forEach((s,i)=>{
-      s.classList.remove('done','active');
-      if (i < qIdx) s.classList.add('done');
-      else if (i === qIdx) s.classList.add('active');
+    cells.forEach(function (c, i) {
+      c.classList.remove('done', 'live');
+      if (i + 1 < n) c.classList.add('done');
+      else if (i + 1 === n) c.classList.add('live');
     });
-    // Nav
-    document.getElementById('back').disabled = qIdx === 0;
-    document.getElementById('next').disabled = answers[q.id] === undefined;
-    document.getElementById('next').textContent = qIdx === questions.length - 1 ? 'See result →' : 'Next →';
+    document.getElementById('qzCount').textContent = n + ' / ' + TOTAL;
+    document.getElementById('qzBack').disabled = n === 1;
+    var key = document.querySelector('.qz-step[data-step="' + n + '"] .qz-opts').dataset.key;
+    document.getElementById('qzNext').disabled = !answers[key];
+    document.getElementById('qzNext').textContent = n === TOTAL ? 'See result →' : 'Next →';
   }
 
-  function score(){
-    // Pass = all questions answered with a "pass" option
-    let passes = 0;
-    questions.forEach(q => {
-      const i = answers[q.id];
-      if (i !== undefined && q.opts[i].pass) passes++;
+  document.querySelectorAll('.qz-opt').forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      var key = opt.closest('.qz-opts').dataset.key;
+      answers[key] = opt.dataset.val;
+      opt.parentElement.querySelectorAll('.qz-opt').forEach(function (o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      document.getElementById('qzNext').disabled = false;
     });
-    return passes;
+  });
+
+  document.getElementById('qzNext').addEventListener('click', function () {
+    if (step < TOTAL) { step++; show(step); return; }
+    finish();
+  });
+  document.getElementById('qzBack').addEventListener('click', function () {
+    if (step > 1) { step--; show(step); }
+  });
+
+  function pickTier() {
+    var rev = answers.revenue;
+    var crm = answers.crm;
+    var pay = answers.payments;
+    var oauth = answers.oauth;
+
+    if (oauth === 'no') return {
+      tier: 'Not a fit (today)',
+      price: 'Read-only access required',
+      why: 'Our model depends on read-only OAuth into your tools. Without that, we can\'t see what\'s actually happening — and we won\'t guess. Drop us a note when that changes.',
+      book: false
+    };
+
+    var notReady = pay === 'cash_check' || crm === 'spreadsheet' || crm === 'none';
+    if (rev === 'under_50k' || notReady) return {
+      tier: 'Starter',
+      price: '$497/mo + $1,500 one-time setup',
+      why: 'You\'re a fit, but the tools to plug into aren\'t fully in place yet. We set you up on Stripe / QuickBooks / a basic CRM in your first two weeks, then deploy your first agent in week 3. The setup fee covers the lift before automation can earn its keep.',
+      book: true
+    };
+
+    if (rev === '50_200k') return {
+      tier: 'AI Specialist',
+      price: '$997/mo · 14 days to live',
+      why: 'Your stack is API-ready and there\'s a clear bottleneck. We deploy one AI specialist on your top pain — usually front-desk or quote &amp; sales — plus a cockpit you watch the work happen on. Most operators at this tier upgrade to AI Team within 60 days.',
+      book: true
+    };
+
+    if (rev === '200k_1m') return {
+      tier: 'AI Team',
+      price: '$2,500/mo · multi-agent',
+      why: 'You\'re past one-bottleneck territory. We ship a custom AI agent and a dashboard wired to your real ops — front-desk + workflow optimizer is a common opening pair. Biweekly strategy calls, priority response, room to grow.',
+      book: true
+    };
+
+    return {
+      tier: 'AI Department',
+      price: '$3,500/mo · continuous build',
+      why: 'At your scale operations are the constraint, not sales. Continuous AI build cadence, weekly strategy calls, a 90-day written roadmap, and a 24-hour response SLA. We become the AI department you would have had to hire 5 people to build.',
+      book: true
+    };
   }
 
-  function reasons(){
-    const fail = [];
-    questions.forEach(q => {
-      const i = answers[q.id];
-      if (i !== undefined && !q.opts[i].pass) fail.push(q.id);
-    });
-    return fail;
-  }
+  function finish() {
+    var r = pickTier();
+    document.getElementById('qzCard').style.display = 'none';
+    document.querySelector('.qz-nav').style.display = 'none';
+    document.getElementById('qzBar').style.display = 'none';
+    document.getElementById('qzIntro').style.display = 'none';
+    document.getElementById('rsTier').textContent = r.tier;
+    document.getElementById('rsPrice').textContent = r.price;
+    document.getElementById('rsWhy').innerHTML = r.why;
+    if (!r.book) document.getElementById('rsBook').style.display = 'none';
+    document.getElementById('qzResult').classList.add('show');
 
-  function postQualifyAll(passes, fail, outcome){
-    // Fire-and-forget Netlify Forms POST so every quiz response is captured
-    // (qualified + mostly-qualified + unqualified), not just email-capture fallback.
     try {
-      const data = new URLSearchParams();
-      data.append('form-name', 'qualify-all');
-      data.append('outcome', outcome);
-      data.append('score', String(passes));
-      data.append('industry', questions[0].opts[answers.industry]?.text || '');
-      data.append('team', questions[1].opts[answers.team]?.text || '');
-      data.append('budget', questions[2].opts[answers.budget]?.text || '');
-      data.append('timeline', questions[3].opts[answers.timeline]?.text || '');
-      data.append('role', questions[4].opts[answers.role]?.text || '');
-      data.append('reason_codes', fail.join(','));
-      data.append('email', window.localStorage.getItem('efficio_qualify_email') || '');
-      data.append('ts', new Date().toISOString());
-      fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: data.toString()}).catch(()=>{});
-    } catch(e){}
+      var payload = {
+        kind: 'qualify_submission',
+        tier: r.tier,
+        qualified: r.book,
+        vertical: '',
+        revenue: answers.revenue,
+        payments: answers.payments,
+        crm: answers.crm,
+        accounting: answers.accounting,
+        pain: [answers.pain],
+        hours: answers.hours,
+        ads: answers.ads,
+        oauth: answers.oauth,
+        answers: answers,
+        ts: new Date().toISOString()
+      };
+      fetch(WORKER_QUIZ, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function(){});
+    } catch (e) {}
+
+    try {
+      if (window.sendConversion) {
+        window.sendConversion({ tier: r.tier, qualified: r.book });
+      }
+    } catch (e) {}
   }
 
-  function showResult(){
-    document.getElementById('qcard').style.display = 'none';
-    document.getElementById('prog').style.display = 'none';
-    const passes = score();
-    const fail = reasons();
-    const r = document.getElementById('result');
-    const body = document.getElementById('resultBody');
-    r.classList.add('show');
-    const outcome = passes === 5 ? 'qualified' : (passes === 4 ? 'mostly_qualified' : 'not_fit');
-    postQualifyAll(passes, fail, outcome);
-    // fire a lead conversion for qualified + mostly-qualified completions
-    if (passes >= 4) { try { window.efficioTrackLead && efficioTrackLead({ source: 'qualify', outcome: outcome }); } catch(e){} }
-    if (passes === 5) {
-      body.innerHTML = `
-        <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h2>You're a <em>fit</em>. Pick a time below.</h2>
-        <p>You hit every screen — right industry, right team size, right budget posture, right timeline, right role. The calendar is live below. Pick the slot that works — that's the whole next step.</p>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/brady-bngcent/efficio-strategy-call?hide_event_type_details=0&background_color=050a16&text_color=f8fafc&primary_color=a855f7" style="min-width:320px;height:680px;margin:24px -8px 12px;border-radius:14px;overflow:hidden;border:1px solid rgba(168,85,247,.28);"></div>
-        <div class="q-result-meta">Calendar not loading? <a href="/book.html" target="_blank" rel="noopener" style="color:var(--purple3)">Open in a new tab →</a></div>`;
-      // Lazy-load Calendly widget script
-      if (!window.__calendlyLoaded) {
-        const s = document.createElement('script');
-        s.src = 'https://assets.calendly.com/assets/external/widget.js';
-        s.async = true;
-        document.head.appendChild(s);
-        window.__calendlyLoaded = true;
-      }
-    } else if (passes === 4) {
-      body.innerHTML = `
-        <div class="q-result-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h2>You're <em>mostly</em> a fit.</h2>
-        <p>You hit 4 of 5 screens. The one you didn't isn't a hard no — let's talk about it on the call. Worst case, we save each other 20 minutes by clarifying upfront.</p>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/brady-bngcent/efficio-strategy-call?hide_event_type_details=0&background_color=050a16&text_color=f8fafc&primary_color=a855f7" style="min-width:320px;height:680px;margin:24px -8px 12px;border-radius:14px;overflow:hidden;border:1px solid rgba(168,85,247,.28);"></div>
-        <div class="q-result-meta">If the gap matters, we'll tell you on the call. <strong>15 minutes, no awkward dance.</strong></div>`;
-      if (!window.__calendlyLoaded) {
-        const s = document.createElement('script');
-        s.src = 'https://assets.calendly.com/assets/external/widget.js';
-        s.async = true;
-        document.head.appendChild(s);
-        window.__calendlyLoaded = true;
-      }
-    } else {
-      // record which screens the user failed for the Netlify form
-      const failTags = fail.length ? fail.join(',') : 'low_score';
-      body.innerHTML = `
-        <div class="q-result-icon no"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="#94a3b8"/></svg></div>
-        <h2>Not the right fit <em>right now</em>.</h2>
-        <p>Honest read — based on your answers, an AI team probably doesn't pay back yet. Either the team's too small, the budget's tight, the timeline's distant, or you're not the signing authority. None of that's a knock — just bad ROI for both sides today.</p>
-        <p style="margin-top:18px"><strong style="color:var(--white)">Drop your email and we'll send free resources:</strong></p>
-        <form class="email-cap" name="qualify-unqualified" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="window.localStorage.setItem('efficio_qualify_email', this.querySelector('input[type=email]').value);">
-          <input type="hidden" name="form-name" value="qualify-unqualified" />
-          <input type="hidden" name="bot-field" />
-          <input type="hidden" name="reason" id="dqReason" value="" />
-          <input type="email" name="email" placeholder="you@company.com" required>
-          <button type="submit">Send resources</button>
-        </form>
-        <div class="q-result-meta" style="margin-top:24px">When the timing shifts, retake the quiz — we'll know. <strong>No spam. Real resources.</strong></div>`;
-    }
-  }
-
-  document.getElementById('next').addEventListener('click',()=>{
-    if (qIdx === questions.length - 1){
-      showResult();
-    } else {
-      qIdx++;
-      render();
-    }
-  });
-  document.getElementById('back').addEventListener('click',()=>{
-    if (qIdx > 0){ qIdx--; render(); }
-  });
-
-  render();
+  show(1);
+})();
 </script>
+<script src="/assets/transitions.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

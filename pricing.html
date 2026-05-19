@@ -141,7 +141,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .rv.vis{opacity:1;transform:none}
 
 /* TIER CARDS — 3D tilt */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
   perspective:1400px;margin-top:48px}
 @media (max-width:880px){.tiers{grid-template-columns:1fr}}
 .tier{background:linear-gradient(180deg,var(--surf),var(--bg2));
@@ -388,6 +388,21 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
   <div class="container">
     <div class="tiers">
       <div class="tier rv" data-tilt>
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">$497<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
+        <p class="tier-desc">For cash-only shops, paper-based ops, or sub-$50k MRR. We set you up on the right tools first (Stripe, QuickBooks, basic CRM), then deploy your first agent in week 3.</p>
+        <ul class="tier-features">
+          <li>Tool setup in week 1-2 (Stripe / QB / CRM)</li>
+          <li>1 AI agent live by week 3</li>
+          <li>Light cockpit (no custom dashboard)</li>
+          <li>Monthly call · 30 min</li>
+          <li>+$1,500 one-time setup fee</li>
+        </ul>
+        <a href="/qualify.html" class="tier-cta">Qualify for Starter <span class="tier-arrow">→</span></a>
+        <div class="tier-foot">Setup required · scoped on call</div>
+      </div>
+
+      <div class="tier rv d1" data-tilt>
         <div class="tier-name">AI Specialist</div>
         <div class="tier-price">$997<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">For owners who want to start with one specific bottleneck. We deploy a single AI specialist and a live operational dashboard in week one.</p>
@@ -402,7 +417,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <div class="tier-foot">Stripe checkout · live</div>
       </div>
 
-      <div class="tier feat rv d1" data-tilt>
+      <div class="tier feat rv d2" data-tilt>
         <div class="tier-name">AI Team</div>
         <div class="tier-price">$2,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">For owners who want a dashboard, a custom AI agent, and room to grow. The right starting point for most operations.</p>
@@ -417,7 +432,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <div class="tier-foot">Stripe checkout · live</div>
       </div>
 
-      <div class="tier rv d2" data-tilt>
+      <div class="tier rv d3" data-tilt>
         <div class="tier-name">AI Department</div>
         <div class="tier-price">$3,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">For owners who want a continuous build cadence — new agents and dashboards as the business grows.</p>

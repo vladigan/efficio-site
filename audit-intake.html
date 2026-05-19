@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/pixels.js"></script>
+<title>What we collect — Audit Intake | Efficio</title>
+<meta name="description" content="Exactly what Efficio collects on day 1 — the tools you connect, the documents you drop, and the questions we ask. Read-only access. Revocable any time. Your data stays in your cockpit.">
+<link rel="canonical" href="https://efficio.tech/audit-intake.html">
+<meta property="og:title" content="What we collect — Audit Intake | Efficio">
+<meta property="og:description" content="Total customer effort: about 25 minutes. Zero ongoing data entry. Here's exactly what we ask for and why.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://efficio.tech/og-image.svg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/theme.css">
+<style>
+.ai-shell{max-width:920px;margin:0 auto;padding:130px 28px 80px}
+.ai-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:22px}
+.ai-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple);animation:aip 2s infinite}
+@keyframes aip{0%,100%{opacity:1}50%{opacity:.5}}
+.ai-h1{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.08;margin-bottom:18px}
+.ai-h1 em{color:var(--purple3);font-style:italic}
+.ai-sub{font-size:1.1rem;color:var(--text);line-height:1.65;max-width:680px;margin-bottom:42px}
+
+.ai-card{background:var(--surf);border:1px solid var(--bd);border-radius:14px;
+  padding:32px 30px;margin-bottom:24px;position:relative}
+.ai-card-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.ai-card-num{width:36px;height:36px;border-radius:9px;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;font-weight:800;flex-shrink:0;
+  box-shadow:0 0 16px rgba(124,58,237,.45)}
+.ai-card h2{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin:0}
+.ai-card .ai-time{margin-left:auto;font-size:11px;font-weight:700;color:var(--purple3);
+  letter-spacing:.08em;text-transform:uppercase;background:rgba(124,58,237,.10);
+  border:1px solid rgba(124,58,237,.30);padding:5px 11px;border-radius:99px}
+
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media(max-width:780px){.ai-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.ai-grid{grid-template-columns:1fr}}
+.ai-tool{background:var(--surf2);border:1px solid var(--bd);border-radius:10px;
+  padding:16px 14px;display:flex;flex-direction:column;gap:6px;
+  transition:border-color .2s,background .2s}
+.ai-tool:hover{border-color:var(--bd2);background:var(--surf3)}
+.ai-tool .nm{font-size:14px;font-weight:700;color:var(--white)}
+.ai-tool .ds{font-size:12px;color:var(--muted);line-height:1.5}
+.ai-tool .opt{font-size:10.5px;font-weight:700;color:var(--purple3);
+  letter-spacing:.06em;text-transform:uppercase}
+
+.ai-list{margin-top:10px;list-style:none}
+.ai-list li{padding:10px 0 10px 30px;position:relative;font-size:14.5px;color:var(--w2);line-height:1.55;
+  border-bottom:1px dashed var(--bd3)}
+.ai-list li:last-child{border-bottom:0}
+.ai-list li::before{content:"";position:absolute;left:0;top:14px;width:18px;height:18px;
+  border-radius:50%;background:rgba(124,58,237,.18);
+  background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b794f6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-size:11px;background-repeat:no-repeat;background-position:center}
+.ai-list li b{color:var(--white);font-weight:700}
+.ai-list li small{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+
+.ai-q{padding:12px 0;border-bottom:1px dashed var(--bd3);display:flex;gap:14px}
+.ai-q:last-child{border-bottom:0}
+.ai-q .qn{font-size:12px;font-weight:800;color:var(--purple3);width:32px;flex-shrink:0;
+  letter-spacing:.05em}
+.ai-q .qt{font-size:14.5px;color:var(--w2);line-height:1.55}
+.ai-q .qt b{color:var(--white);font-weight:700}
+
+.ai-sec{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(155,108,246,.05));
+  border:1px solid rgba(124,58,237,.30)}
+.ai-sec-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+@media(max-width:780px){.ai-sec-row{grid-template-columns:repeat(2,1fr)}}
+.ai-sec-stat{padding:14px 12px;background:rgba(0,0,0,.20);border-radius:8px;
+  border:1px solid var(--bd)}
+.ai-sec-stat .nm{font-size:11px;font-weight:700;color:var(--purple3);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.ai-sec-stat .vl{font-size:14px;color:var(--white);font-weight:700;line-height:1.4}
+
+.ai-cta-bar{margin-top:48px;padding:32px;border:1px solid var(--bd2);
+  background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(155,108,246,.05));
+  border-radius:14px;text-align:center}
+.ai-cta-bar h3{font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin-bottom:8px}
+.ai-cta-bar p{font-size:14.5px;color:var(--text);margin-bottom:20px;max-width:540px;margin-left:auto;margin-right:auto}
+.ai-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ai-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;
+  font-size:14px;font-weight:700;letter-spacing:-.005em;
+  transition:transform .15s,background .15s}
+.ai-btn-primary{background:var(--purple);color:#fff !important;
+  box-shadow:0 8px 24px rgba(124,58,237,.4)}
+.ai-btn-primary:hover{background:var(--purple2);transform:translateY(-1px)}
+.ai-btn-ghost{background:transparent;border:1px solid var(--bd2);color:var(--white) !important}
+.ai-btn-ghost:hover{border-color:var(--purple);background:rgba(124,58,237,.10)}
+
+/* NAV reuse */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em}
+.nav-logo .mk{width:30px;height:30px;border-radius:7px;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r)}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:10px 20px;background:var(--white);color:#000 !important;border-radius:var(--r);
+  font-size:13.5px;font-weight:700;border:1px solid var(--white);transition:all .15s}
+.nav-cta:hover{background:var(--purple);color:#fff !important;border-color:var(--purple)}
+@media(max-width:780px){.nav-links a:not(.nav-cta){display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mk">E</span><span>Efficio</span></a>
+    <ul class="nav-links">
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/how-it-works.html">How it works</a></li>
+      <li><a href="/qualify.html" class="nav-cta">Qualify</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="ai-shell">
+  <span class="ai-pill"><span class="dot"></span>Day 1 onboarding — what we collect</span>
+  <h1 class="ai-h1">Total customer effort: <em>~25 minutes.</em></h1>
+  <p class="ai-sub">Most agencies make you maintain spreadsheets, write reports, and feed them data forever. We don't. You connect a few tools, drop a few documents, answer a short intake form, and we take it from there. Everything below is exactly what we ask for and why.</p>
+
+  <!-- 1. TOOLS -->
+  <div class="ai-card">
+    <div class="ai-card-head">
+      <div class="ai-card-num">1</div>
+      <h2>Tools you'll connect (one-click OAuth)</h2>
+      <span class="ai-time">~10 min</span>
+    </div>
+    <p style="font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:14px">All connections are <b style="color:var(--white)">read-only</b>. We never write to your systems and never get your passwords. You revoke access any time from inside each tool's settings page.</p>
+    <div class="ai-grid">
+      <div class="ai-tool"><span class="opt">Required</span><span class="nm">Stripe</span><span class="ds">Payment processor connection — read revenue, customers, churn.</span></div>
+      <div class="ai-tool"><span class="opt">Required</span><span class="nm">Plaid (bank)</span><span class="ds">Read-only bank feed for cashflow + true revenue picture.</span></div>
+      <div class="ai-tool"><span class="opt">Required</span><span class="nm">QuickBooks Online</span><span class="ds">Or Xero / FreshBooks — accounting source of truth.</span></div>
+      <div class="ai-tool"><span class="opt">Required</span><span class="nm">Your CRM</span><span class="ds">HubSpot / Pipedrive / GoHighLevel / ServiceTitan / Housecall Pro / Jobber — pick one.</span></div>
+      <div class="ai-tool"><span class="opt">Required</span><span class="nm">Google Workspace</span><span class="ds">Read-only calendar + Gmail metadata — never message content.</span></div>
+      <div class="ai-tool"><span class="opt">If applicable</span><span class="nm">Meta + Google Ads</span><span class="ds">Spend, ROAS, conversion attribution — if you're running paid traffic.</span></div>
+    </div>
+  </div>
+
+  <!-- 2. DOCUMENTS -->
+  <div class="ai-card">
+    <div class="ai-card-head">
+      <div class="ai-card-num">2</div>
+      <h2>Documents to drop in your private Dropbox folder</h2>
+      <span class="ai-time">~5 min</span>
+    </div>
+    <p style="font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:6px">We create a private Dropbox folder for you on the audit call. Drop these into it whenever it's convenient before kickoff:</p>
+    <ul class="ai-list">
+      <li><b>Last 3 months of bank statements</b><small>So Hermes can map your real cashflow patterns and seasonality.</small></li>
+      <li><b>Customer roster (CSV export from your CRM)</b><small>Names, emails, last-touch dates, lifetime value — whatever you have.</small></li>
+      <li><b>5–10 recent invoices (PDF or screenshot)</b><small>Anonymize them if you want — we just need to see the layout, line items, terms.</small></li>
+      <li><b>Sales / service reports (last 30 days)</b><small>Whatever you already export weekly — daily appointments, win/loss, route logs. Skip it if you don't have one.</small></li>
+    </ul>
+  </div>
+
+  <!-- 3. INTAKE FORM PREVIEW -->
+  <div class="ai-card">
+    <div class="ai-card-head">
+      <div class="ai-card-num">3</div>
+      <h2>10 quick questions</h2>
+      <span class="ai-time">~10 min</span>
+    </div>
+    <p style="font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:14px">Sent as a form right after the audit call so you can fill it on your time. Here's what we ask, so nothing surprises you:</p>
+    <div>
+      <div class="ai-q"><span class="qn">Q1</span><span class="qt"><b>Owner name + role</b> — who's the decision-maker on this and what's your day-to-day?</span></div>
+      <div class="ai-q"><span class="qn">Q2</span><span class="qt"><b>Team size + roles</b> — how many people, what do they own?</span></div>
+      <div class="ai-q"><span class="qn">Q3</span><span class="qt"><b>Top 3 workflows eating your time right now</b> — owner's words, not industry jargon.</span></div>
+      <div class="ai-q"><span class="qn">Q4</span><span class="qt"><b>How are leads coming in today?</b> — phone, web form, walk-in, referral, paid ads.</span></div>
+      <div class="ai-q"><span class="qn">Q5</span><span class="qt"><b>What happens to a missed call right now?</b> — voicemail, callback queue, lost lead.</span></div>
+      <div class="ai-q"><span class="qn">Q6</span><span class="qt"><b>How are quotes/estimates produced today?</b> — by whom, in what tool, how long.</span></div>
+      <div class="ai-q"><span class="qn">Q7</span><span class="qt"><b>What's the owner doing in the inbox</b> that another role should be doing?</span></div>
+      <div class="ai-q"><span class="qn">Q8</span><span class="qt"><b>What's the one metric you'd most want to see move in 30 days?</b></span></div>
+      <div class="ai-q"><span class="qn">Q9</span><span class="qt"><b>What have you already tried</b> for the same problem? AI tools, VAs, hires, software, etc.</span></div>
+      <div class="ai-q"><span class="qn">Q10</span><span class="qt"><b>Anything off-limits</b> — accounts we shouldn't touch, customers we shouldn't contact, hours we shouldn't ping?</span></div>
+    </div>
+  </div>
+
+  <!-- 4. SECURITY -->
+  <div class="ai-card ai-sec">
+    <div class="ai-card-head">
+      <div class="ai-card-num">4</div>
+      <h2>Security — the part most agencies skip</h2>
+    </div>
+    <p style="font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:4px">We treat your data like the IRS is auditing us tomorrow, because the businesses we serve can't afford to find out otherwise.</p>
+    <div class="ai-sec-row">
+      <div class="ai-sec-stat"><div class="nm">Access level</div><div class="vl">Read-only · always</div></div>
+      <div class="ai-sec-stat"><div class="nm">Passwords</div><div class="vl">Never stored or seen</div></div>
+      <div class="ai-sec-stat"><div class="nm">Revocable</div><div class="vl">By you · any time</div></div>
+      <div class="ai-sec-stat"><div class="nm">Where data lives</div><div class="vl">Your cockpit · not shared</div></div>
+    </div>
+    <ul class="ai-list" style="margin-top:22px">
+      <li><b>OAuth, not credentials.</b><small>Every tool connection uses the platform's own OAuth flow — we never see passwords, never store tokens longer than needed, and you click "Revoke" inside Stripe / QuickBooks / Google whenever you want us out.</small></li>
+      <li><b>Your cockpit, your data.</b><small>Each customer gets their own Hermes instance with their own memory file and storage. Your business data is never blended with another customer's or sold to anyone.</small></li>
+      <li><b>Reversible at any time.</b><small>Cancel the service, revoke OAuth, request a data wipe — and within 7 days everything we have on you is gone. Confirmation email when it's done.</small></li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="ai-cta-bar">
+    <h3>Ready to start? Take the qualification quiz first.</h3>
+    <p>8 questions. 60 seconds. Routes you to the right tier and books your free audit call. No pitch — just a real look at fit.</p>
+    <div class="ai-cta-row">
+      <a href="/qualify.html" class="ai-btn ai-btn-primary">Take the 60-second qualify <span>→</span></a>
+      <a href="/pricing.html" class="ai-btn ai-btn-ghost">See pricing first</a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--bd);padding:40px 28px;background:var(--surf);text-align:center">
+  <div style="max-width:1280px;margin:0 auto;font-size:13px;color:var(--muted)">
+    © 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL ·
+    <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> ·
+    <a href="/terms.html" style="color:var(--purple3)">Terms</a>
+  </div>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script src="/assets/chat.js" defer></script>
+</body>
+</html>

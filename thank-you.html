@@ -71,6 +71,9 @@
   <h1 class="ty-h1">You're <em>on the calendar.</em></h1>
   <p class="ty-sub">Confirmation just hit your inbox. Below is what happens next so you can walk into the call ready, not cold.</p>
 
+  <!-- 90-second walkthrough — auto-advancing slide deck -->
+  <div class="ef-vsl" id="efVsl"></div>
+
   <div class="steps">
     <div class="step-row">
       <div class="step-num">1</div>
@@ -141,6 +144,7 @@
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
 </script>
+<script src="/assets/vsl.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

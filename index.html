@@ -287,7 +287,13 @@
 
 /* numbered steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden}
-@media(max-width:780px){.steps{grid-template-columns:1fr}}
+.steps.six{grid-template-columns:repeat(3,1fr)}
+.steps.six .step{border-bottom:1px solid var(--bd)}
+.steps.six .step:nth-child(n+4){border-bottom:0}
+.steps.six .step:nth-child(3n){border-right:0}
+@media(max-width:780px){.steps,.steps.six{grid-template-columns:1fr}
+  .steps.six .step{border-right:0;border-bottom:1px solid var(--bd)}
+  .steps.six .step:last-child{border-bottom:0}}
 .step{padding:34px 30px;border-right:1px solid var(--bd)}
 .step:last-child{border-right:0}
 @media(max-width:780px){.step{border-right:0;border-bottom:1px solid var(--bd)}.step:last-child{border-bottom:0}}
@@ -547,21 +553,24 @@
       <div class="founder-card rv d2" data-tilt>
         <div class="fc-head">
           <div class="ava">E</div>
-          <div><b>Efficio</b><small>Contracted AI team · Miami, FL</small></div>
+          <div><b>The numbers we work with</b><small>Industry benchmarks · cited below</small></div>
         </div>
-        <div class="fc-stat"><span class="k">Service businesses live</span><span class="v"><em>127</em>+</span></div>
-        <div class="fc-stat"><span class="k">AI agents in production</span><span class="v"><em>340</em>+</span></div>
-        <div class="fc-stat"><span class="k">Hours recovered / month</span><span class="v"><em>2,400</em>+</span></div>
-        <div class="fc-stat"><span class="k">Client retention</span><span class="v"><em>98</em>%</span></div>
-        <div class="fc-stat"><span class="k">First agent live</span><span class="v">Day 7</span></div>
+        <div class="fc-stat"><span class="k">HVAC inbound calls to voicemail</span><span class="v"><em>30–40</em>%</span></div>
+        <div class="fc-stat"><span class="k">Owner time spent on admin</span><span class="v"><em>40</em>%</span></div>
+        <div class="fc-stat"><span class="k">GC capacity lost to manual data entry</span><span class="v"><em>25–40</em>%</span></div>
+        <div class="fc-stat"><span class="k">SMBs reporting AI lifts revenue</span><span class="v"><em>56</em>%</span></div>
+        <div class="fc-stat"><span class="k">First agent live in your stack</span><span class="v">Day 7</span></div>
         <div class="fc-stat"><span class="k">If we miss day 7</span><span class="v" style="color:var(--good)">Month is on us</span></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--bd);font-size:10.5px;color:var(--muted);line-height:1.5">
+          Sources: ServiceTitan SMB Report 2023 · Gusto SMB State of Work · McKinsey · SMB Group 2023. Our day-7 + 30-day guarantees are contractual.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIVE TICKER — animated activity marquee -->
-<section class="ticker" aria-label="Recent activity across our portfolio">
+<!-- AGENT ACTIVITY FEED — animated marquee showing what each productized agent does -->
+<section class="ticker" aria-label="Sample agent activity feed">
   <div class="ticker-track">
     <span class="ticker-item"><time>14:42</time><span class="biz">FRONT-DESK AGENT</span><strong>Caught 4 after-hours calls and booked them &mdash; </strong>+$1,800 saved from voicemail.</span>
     <span class="ticker-item"><time>14:38</time><span class="biz">WORKFLOW OPTIMIZER</span><strong>Identified a manual handoff costing 9 hrs/wk &mdash; </strong>auto-route shipped same day.</span>
@@ -752,26 +761,45 @@
   <div class="container">
     <div class="sh rv">
       <div class="s-label">How it works</div>
-      <h2 class="s-title">Three steps. <em>No discovery theater.</em></h2>
+      <h2 class="s-title">From quiz to live agents in <em>seven days.</em></h2>
+      <p class="s-sub">Total customer effort across the entire onboarding: about 25 minutes. Zero ongoing data entry. Most agencies make you maintain spreadsheets. We don't.</p>
     </div>
-    <div class="steps rv d1">
+    <div class="steps six rv d1">
       <div class="step">
-        <div class="n">STEP 01</div>
-        <h3>A 15-minute call</h3>
-        <p>You tell us what's eating your time and money. We tell you the first thing we'd build and what it would do — no slides, no homework.</p>
+        <div class="n">STEP 01 · 5 min</div>
+        <h3>Take the qualification quiz</h3>
+        <p><b>You:</b> 8 questions about your revenue, tools, and where time is leaking.<br><b>We:</b> route you to the right tier and book your free audit call.</p>
         <span class="when">Day 0</span>
       </div>
       <div class="step">
-        <div class="n">STEP 02</div>
-        <h3>First build goes live</h3>
-        <p>Within seven days the first agent or tool is in your stack and doing real work. Refunded if you can't measure the lift by day 30.</p>
-        <span class="when">Week 1</span>
+        <div class="n">STEP 02 · 30 min</div>
+        <h3>Audit kickoff call</h3>
+        <p><b>You:</b> walk us through your operation, your pain, your stack.<br><b>We:</b> name the one workflow we'd ship in week one and the metric we'll move by day 30.</p>
+        <span class="when">Day 1</span>
       </div>
       <div class="step">
-        <div class="n">STEP 03</div>
-        <h3>It compounds</h3>
-        <p>We keep building — new agents, new tools — and it all lands on your dashboard. Cancel any month. Your AI team stays as long as you want.</p>
-        <span class="when">Ongoing</span>
+        <div class="n">STEP 03 · 10 min</div>
+        <h3>OAuth onboarding</h3>
+        <p><b>You:</b> one-click connect Stripe, Plaid, QuickBooks, your CRM, Google Workspace, ad accounts.<br><b>We:</b> read-only access only · revocable any time.</p>
+        <span class="when">Day 2</span>
+      </div>
+      <div class="step">
+        <div class="n">STEP 04 · 5 min</div>
+        <h3>Document drop</h3>
+        <p><b>You:</b> drop 3 months of bank statements + a customer roster CSV + 5-10 recent invoices into a private Dropbox folder we create for you.<br><b>We:</b> Hermes processes everything overnight.</p>
+        <span class="when">Day 2-3</span>
+      </div>
+      <div class="step">
+        <div class="n">STEP 05</div>
+        <h3>Audit report + cockpit live</h3>
+        <p><b>You:</b> review the audit · 10-page deliverable mapped to your operation.<br><b>We:</b> ship your cockpit with your real data flowing in.</p>
+        <span class="when">Day 5</span>
+      </div>
+      <div class="step">
+        <div class="n">STEP 06</div>
+        <h3>First agent live · weekly digest</h3>
+        <p><b>You:</b> watch the work happen.<br><b>We:</b> first agent (usually front-desk or quote &amp; sales) is running. Weekly digest in your inbox every Monday 8am.</p>
+        <span class="when">Day 7+</span>
       </div>
     </div>
   </div>

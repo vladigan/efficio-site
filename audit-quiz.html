@@ -1064,17 +1064,26 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
       revealUnqualified(r);
     }
 
-    // Fire-and-forget capture (qualified or not) — POST to Netlify Forms.
+    // Stash state for submitDQEmail + fire anonymous quiz-completion ping to Worker
+    window._auditState = {
+      score: r.score || 0,
+      qualified: !!r.qualified,
+      vertical: state[1] || '',
+      answers: state || {}
+    };
     try {
-      var data = new URLSearchParams();
-      data.append('form-name', 'audit-quiz');
-      data.append('score', String(r.score || 0));
-      data.append('qualified', r.qualified ? 'true' : 'false');
-      data.append('vertical', state[1] || '');
-      data.append('answers_json', JSON.stringify(state || {}));
-      data.append('email', '');
-      data.append('ts', new Date().toISOString());
-      fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: data.toString()}).catch(function(){});
+      fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({
+          score: r.score || 0,
+          qualified: !!r.qualified,
+          vertical: state[1] || '',
+          answers: state || {},
+          email: '',
+          ts: new Date().toISOString()
+        })
+      }).catch(function(){});
     } catch(e){}
 
     // Fire conversion across all ad pixels (GA4, Meta, LinkedIn, TikTok, Snap)
@@ -1174,6 +1183,52 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   // ============== INIT — show question 1 ==============
   showStep(1);
 })();
+
+// ============== submitDQEmail — unqualified-path email capture ==============
+window.submitDQEmail = function(ev) {
+  if (ev && ev.preventDefault) ev.preventDefault();
+  var form = document.getElementById('dqEmailCapture');
+  var input = form && form.querySelector('input[name="email"]');
+  var btn = document.getElementById('dqSubmit');
+  var err = document.getElementById('dqError');
+  if (err) err.style.display = 'none';
+  var email = input ? input.value.trim().toLowerCase() : '';
+  if (!email || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
+    if (err) { err.textContent = 'Looks like that email is incomplete. Try again.'; err.style.display = 'block'; }
+    return false;
+  }
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+  var s = window._auditState || {};
+  fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+      score: s.score || 0,
+      qualified: !!s.qualified,
+      vertical: s.vertical || '',
+      answers: s.answers || {},
+      email: email,
+      ts: new Date().toISOString()
+    })
+  }).then(function(r){
+    if (!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }).then(function(){
+    form.style.display = 'none';
+    var ok = document.getElementById('captureThanks');
+    if (ok) ok.style.display = 'block';
+    // fire conversion pixel on email capture
+    try {
+      if (window.sendConversion) {
+        window.sendConversion({ score: s.score, qualified: s.qualified, tier: 'email_captured' });
+      }
+    } catch(e){}
+  }).catch(function(){
+    if (btn) { btn.disabled = false; btn.textContent = 'Send me the resources'; }
+    if (err) { err.textContent = 'Something didn\'t go through. Try again in a moment.'; err.style.display = 'block'; }
+  });
+  return false;
+};
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="/assets/chat.js" defer></script>

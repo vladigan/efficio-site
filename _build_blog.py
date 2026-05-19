@@ -6,12 +6,24 @@ SRC  = os.path.normpath(os.path.join(ROOT, "..", "marketing", "posts", "blog"))
 OUT  = os.path.join(ROOT, "blog")
 os.makedirs(OUT, exist_ok=True)
 
-VLABEL = {"hvac":"HVAC contractors","law":"Law firms","dental":"Dental practices",
-          "real_estate":"Real estate teams","accounting":"Accounting firms",
-          "auto_repair":"Auto repair shops","plumbing":"Plumbing contractors",
-          "electrical":"Electrical contractors","roofing":"Roofing companies",
-          "landscaping":"Landscaping & lawn care","insurance":"Insurance agencies",
-          "service":"Service businesses"}
+VLABEL = {
+    # New category labels (consolidated + expanded coverage)
+    "home_services":"Home & field services",
+    "professional_services":"Professional services",
+    "healthcare":"Healthcare practices",
+    "real_estate":"Real estate teams",
+    "hospitality":"Restaurants & hospitality",
+    "beauty_wellness":"Beauty & wellness",
+    "auto":"Auto & transport",
+    "cleaning":"Cleaning services",
+    "service":"Any service business",
+    # Legacy single-vertical labels (kept for back-compat if any old MDs return)
+    "hvac":"HVAC contractors","law":"Law firms","dental":"Dental practices",
+    "accounting":"Accounting firms","auto_repair":"Auto repair shops",
+    "plumbing":"Plumbing contractors","electrical":"Electrical contractors",
+    "roofing":"Roofing companies","landscaping":"Landscaping & lawn care",
+    "insurance":"Insurance agencies",
+}
 MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
 def esc_inline(s):

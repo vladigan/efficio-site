@@ -1,91 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script src="/assets/pixels.js"></script>
-<title>AI for Auto Repair Shops: Where It Saves Hours and Where It's Hype | Efficio</title>
-<meta name="description" content="A practical look at where AI helps auto repair shops — estimate approvals, bay throughput, parts ETAs — and what's just noise."/>
-<link rel="canonical" href="https://efficio.tech/blog/ai-for-auto-repair-shops.html"/>
-<meta property="og:type" content="article"/>
-<meta property="og:url" content="https://efficio.tech/blog/ai-for-auto-repair-shops.html"/>
-<meta property="og:title" content="AI for Auto Repair Shops: Where It Saves Hours and Where It's Hype"/>
-<meta property="og:description" content="A practical look at where AI helps auto repair shops — estimate approvals, bay throughput, parts ETAs — and what's just noise."/>
-<meta property="og:image" content="https://efficio.tech/og-image.svg"/>
-<meta property="og:site_name" content="Efficio"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="AI for Auto Repair Shops: Where It Saves Hours and Where It's Hype"/>
-<meta name="twitter:description" content="A practical look at where AI helps auto repair shops — estimate approvals, bay throughput, parts ETAs — and what's just noise."/>
-<meta name="twitter:image" content="https://efficio.tech/og-image.svg"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://efficio.tech/blog/"},{"@type":"ListItem","position":3,"name":"AI for Auto Repair Shops","item":"https://efficio.tech/blog/ai-for-auto-repair-shops.html"}]},{"@type":"Article","headline":"AI for Auto Repair Shops: Where It Saves Hours and Where It's Hype","description":"A practical look at where AI helps auto repair shops — estimate approvals, bay throughput, parts ETAs — and what's just noise.","url":"https://efficio.tech/blog/ai-for-auto-repair-shops.html","datePublished":"2026-05-15","dateModified":"2026-05-15","author":{"@type":"Person","name":"Brady Gay"},"publisher":{"@type":"Organization","name":"Efficio","logo":{"@type":"ImageObject","url":"https://efficio.tech/og-image.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://efficio.tech/blog/ai-for-auto-repair-shops.html"}}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/theme.css"/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>"/>
-<style>
-.art-shell{max-width:760px;margin:0 auto;padding:130px 24px 90px}
-.art-crumb{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:24px}
-.art-crumb a{color:var(--purple3)}.art-crumb a:hover{color:var(--white)}
-.art-vert{display:inline-block;font-size:10.5px;color:var(--purple3);background:rgba(124,58,237,.13);
-  border:1px solid var(--bd2);padding:5px 11px;border-radius:99px;font-weight:800;letter-spacing:.08em;
-  text-transform:uppercase;margin-bottom:22px}
-.art h1{font-size:clamp(2rem,4.2vw,3rem);font-weight:900;color:var(--white);letter-spacing:-.04em;
-  line-height:1.07;margin-bottom:18px}
-.art-meta{font-size:12.5px;color:var(--muted);margin-bottom:50px;padding-bottom:24px;border-bottom:1px solid var(--bd)}
-.art-body{font-size:1.06rem;color:var(--text);line-height:1.78}
-.art-body h2{font-size:1.55rem;font-weight:800;color:var(--white);letter-spacing:-.025em;
-  margin:46px 0 16px;line-height:1.25}
-.art-body p{margin-bottom:22px}
-.art-body strong{color:var(--w2);font-weight:700}
-.art-body a{color:var(--purple3);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(183,148,246,.3)}
-.art-body a:hover{color:var(--white);border-bottom-color:var(--white)}
-.art-body .faq-q-line{margin-top:28px;margin-bottom:8px;color:var(--white);font-weight:700}
-.art-cta{margin-top:54px;padding:30px 28px;background:var(--surf);border:1px solid var(--purple);
-  border-radius:var(--r2);text-align:center}
-.art-cta h3{font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:-.02em}
-.art-cta p{font-size:14px;color:var(--text);margin-bottom:18px}
-.art-cta a{display:inline-block;background:var(--purple);color:#fff;font-weight:700;font-size:13.5px;
-  padding:12px 22px;border-radius:var(--r);margin:0 4px;text-decoration:none}
-.art-cta a.ghost{background:transparent;border:1px solid var(--bd2);color:var(--w2)}
-.art-cta a:hover{background:var(--purple2);transform:translateY(-1px)}
-.art-cta a.ghost:hover{border-color:var(--white);color:var(--white);background:transparent}
-</style>
-</head>
-<body>
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
-    <a href="/services.html">Services</a>
-    <a href="/demo/" target="_blank" rel="noopener">Live demo</a>
-    <a href="/blog/">Blog</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/why-us.html">Why us</a>
-    <a href="/book.html" class="btn-nav" target="_blank" rel="noopener">Book a call</a>
-  </div>
-</div></nav>
-<article class="art-shell art">
-  <div class="art-crumb"><a href="/">Home</a> &middot; <a href="/blog/">Blog</a> &middot; Auto repair shops</div>
-  <span class="art-vert">Auto repair shops</span>
-  <h1>AI for Auto Repair Shops: Where It Saves Hours and Where It's Hype</h1>
-  <div class="art-meta">Brady Gay &middot; May 15, 2026 &middot; ~4 min read</div>
-  <div class="art-body"><p>Most shop owners I talk to don't have a customer problem. They have a throughput problem. The bay is full, the estimate is sitting in a customer's inbox for two days waiting for approval, the parts ETA changed and nobody told the service writer, and somehow Friday rolls around and three cars are still sitting on the lot. AI is useful here — but only when it's pointed at the choke points that actually slow the shop down. Here's where it earns its keep, and where it isn't worth the trouble.</p><h2>The estimate approval gap is where the day stalls</h2><p>A car goes up on the lift, the tech finds three things, the writer sends the estimate. Then the bay sits. The customer hasn't looked at their phone. The writer is on another call. Two hours later somebody finally chases the approval and the tech has moved to another job.</p><p>An AI agent that runs the estimate approval workflow — texts the customer the moment the estimate goes out, follows up at 30 minutes if there's no response, calls if it's a high-dollar repair, sends a "your car is ready when you are" once the approval comes in — closes that gap. It doesn't replace your service writer. It catches the approvals that would otherwise sit in a customer's inbox while a bay sits idle. For a shop running six bays, even modest cuts to approval latency translate to meaningful additional ROs per week.</p><h2>Bay throughput is mostly a coordination problem</h2><p>The other tax on the day is coordination. Who's working on what, what's waiting on parts, which RO is stuck on customer approval, which car is ready for pickup but the owner doesn't know yet. AI won't run your whole shop. But it can do the connective tissue: pull the open ROs into a clean morning brief showing what's actually moving versus what's stuck and why, flag the ROs that have been sitting for over a day so they don't get buried, draft the "your car is ready" texts so the writer isn't typing them one at a time.</p><h2>Parts ETAs and the surprise nobody wants</h2><p>Customers don't mind waiting on parts. They mind being lied to about waiting on parts. The supplier said Tuesday, the part shows up Friday, and now you're the one having an awkward call.</p><p>An AI agent can track parts orders across your suppliers, flag the moment an ETA slips, and proactively text the customer with the updated date — in your shop's voice, not a corporate-sounding template. The customer hears about the delay before they call you frustrated. That alone changes the tone of the conversation when they pick up the car.</p><h2>Where AI is hype for auto repair</h2><p>Be honest about the limits. AI is not going to diagnose an intermittent electrical issue. It's not going to negotiate with a customer who wants the estimate cut in half. It's not going to replace a writer who reads the customer's mood and knows when to upsell and when to back off. Anything promising to "transform your shop" is selling you a dream. The wins are specific and unglamorous: approvals chased, bays kept moving, customers kept in the loop. That's the whole game.</p><h2>What it looks like to actually run this</h2><p>The reason most shops never adopt AI isn't skepticism — it's that the owner is also the lead diagnostician and the parts manager and the HR department, and there is genuinely no time to learn another system. You didn't get into the trade to become a technology evaluator.</p><p>The model that works for a busy shop is simple: somebody builds the AI for your specific operation, runs it, monitors it, adjusts it — and you just see the results. You tell them estimates sit and parts surprises kill weekends; they hand back a system that fixes both. You don't lift a finger. That's the entire idea behind Efficio — we're your AI team, not another dashboard for the writer to babysit.</p><p>If you want to see what that actually looks like, there's a live demo at <a href="https://efficio.tech/demo/">efficio.tech/demo</a> — the kind of command center a shop would have running. Or if you'd rather just walk through where your throughput is leaking, <a href="https://calendly.com/brady-bngcent/efficio-strategy-call">book a call</a> and we'll map it out.</p><h2>FAQ</h2><p class="faq-q-line"><strong>Will an AI texting my customers sound corporate?</strong></p><p>The agent is tuned to your shop's voice. The goal isn't to fool anyone — it's to keep the approvals moving when the writer can't get to the phone.</p><p class="faq-q-line"><strong>Can it integrate with my shop management system?</strong></p><p>Yes. The AI sits on top of Mitchell, Tekmetric, Shop-Ware, ALLDATA, or whatever you run today. It pulls from the RO data you already have; no migration involved.</p><p class="faq-q-line"><strong>How long until it's actually running?</strong></p><p>For a focused build — estimate approval workflow or parts-ETA tracking — you're typically looking at days, not months, because the underlying modules already exist and get assembled for your shop.</p><p class="faq-q-line"><strong>What does it cost?</strong></p><p>Efficio runs three monthly tiers — AI Specialist, AI Team, and AI Department — depending on how much you want built and run for you. Most shops start with one workflow and expand once it's earning its keep.</p></div>
-  <div class="art-cta">
-    <h3>Want this running in your business?</h3>
-    <p>See the live demo dashboard a client gets, or book a 15-min call.</p>
-    <a href="/demo/" target="_blank" rel="noopener">Open the live demo &rarr;</a>
-    <a class="ghost" href="/book.html" target="_blank" rel="noopener">Book a 15-min call</a>
-  </div>
-</article>
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand"><div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your contracted AI team &mdash; at your disposal.</p></div>
-    <div class="foot-col"><h5>Product</h5><a href="/services.html">Services</a><a href="/demo/">Live demo</a><a href="/pricing.html">Pricing</a></div>
-    <div class="foot-col"><h5>Company</h5><a href="/why-us.html">Why us</a><a href="/blog/">Blog</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
-    <div class="foot-col"><h5>Legal</h5><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a></div>
-  </div>
-  <div class="foot-bottom"><div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div></div>
-</footer>
-<script src="/assets/transitions.js" defer></script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>Moved to ai-for-auto-and-transport | Efficio</title>
+<meta name="description" content="This article was consolidated into our broader category page on AI for service businesses.">
+<link rel="canonical" href="https://efficio.tech/blog/ai-for-auto-and-transport.html">
+<meta http-equiv="refresh" content="0; url=/blog/ai-for-auto-and-transport.html">
+<meta name="robots" content="noindex,follow">
+<style>body{font-family:-apple-system,sans-serif;background:#08080a;color:#a1a1aa;text-align:center;padding:80px 20px}
+a{color:#b794f6}</style>
+</head><body>
+<h1 style="color:#fff">This page moved.</h1>
+<p>We consolidated this article into a broader category page.</p>
+<p><a href="/blog/ai-for-auto-and-transport.html">Continue to the new page &rarr;</a></p>
+<script>location.replace('/blog/ai-for-auto-and-transport.html');</script>
+</body></html>

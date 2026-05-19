@@ -294,21 +294,11 @@ ul{list-style:none}
     <section class="q-card q-step show" data-q="1" aria-labelledby="q1-h">
       <div class="q-meta"><span class="dot"></span>Question 1 of 8 · About your business</div>
       <h2 class="q-text" id="q1-h">What do you do?</h2>
-      <p class="q-sub">We tailor your back office to your business &mdash; creator, agency, services. Pick the closest match.</p>
+      <p class="q-sub">We tailor your AI team to your industry. Pick the closest match.</p>
       <div class="field-select">
         <select id="qVertical" data-q-key="vertical" required aria-label="What do you do">
           <option value="" disabled selected>Pick the closest match&hellip;</option>
-          <optgroup label="Creators (our wedge)">
-            <option value="creator-youtube">YouTube creator</option>
-            <option value="creator-of">OnlyFans creator</option>
-            <option value="creator-tiktok">TikTok creator</option>
-            <option value="creator-twitch">Twitch streamer</option>
-            <option value="creator-podcast">Podcaster</option>
-            <option value="creator-newsletter">Substack / newsletter operator</option>
-            <option value="creator-patreon">Patreon creator</option>
-            <option value="creator-other">Other creator</option>
-          </optgroup>
-          <optgroup label="Service businesses">
+          <optgroup label="Service &amp; trades">
             <option value="hvac">HVAC / Mechanical</option>
             <option value="plumbing">Plumbing</option>
             <option value="electrical">Electrical</option>
@@ -317,15 +307,26 @@ ul{list-style:none}
             <option value="landscaping">Landscaping / Lawn</option>
             <option value="pest">Pest Control</option>
             <option value="cleaning">Cleaning / Janitorial</option>
+            <option value="auto">Auto Repair / Service</option>
+          </optgroup>
+          <optgroup label="Professional services">
             <option value="dental">Dental Practice</option>
             <option value="medical">Medical Practice</option>
             <option value="legal">Legal / Law Firm</option>
+            <option value="accounting">Accounting / Bookkeeping</option>
             <option value="realestate">Real Estate (Brokerage / Team)</option>
             <option value="insurance">Insurance Agency</option>
-            <option value="accounting">Accounting / Bookkeeping</option>
-            <option value="auto">Auto Repair / Service</option>
           </optgroup>
-          <option value="generic">Something else</option>
+          <optgroup label="Retail &amp; hospitality">
+            <option value="restaurant">Restaurant</option>
+            <option value="salon">Salon / Spa</option>
+            <option value="retail">Retail / E-commerce</option>
+            <option value="fitness">Fitness / Studio</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="agency">Agency / Marketing shop</option>
+            <option value="generic">Something else</option>
+          </optgroup>
         </select>
       </div>
       <div class="q-nav">
@@ -556,14 +557,14 @@ ul{list-style:none}
   // =========================================================================
   var TOTAL_STEPS = 8;
   var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
-  // Stripe live payment links (creator pivot 2026-05-14):
-  // AI_SPECIALIST -> Solo Creator $997/mo
-  // AI_TEAM       -> Creator+Team $2,500/mo
-  // AI_DEPARTMENT -> Production House $3,500/mo
+  // Stripe live payment links (SMB revert 2026-05-18):
+  // AI_SPECIALIST -> $997/mo
+  // AI_TEAM       -> $2,500/mo
+  // AI_DEPARTMENT -> $3,500/mo
   var STRIPE_LINKS = {
-    AI_SPECIALIST: 'https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b', // Solo Creator $997/mo
-    AI_TEAM:       'https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c', // Creator+Team $2,500/mo
-    AI_DEPARTMENT: 'https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d'  // Production House $3,500/mo
+    AI_SPECIALIST: 'https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b', // $997/mo
+    AI_TEAM:       'https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c', // $2,500/mo
+    AI_DEPARTMENT: 'https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d'  // $3,500/mo
   };
   var QUIZ_ENDPOINT     = '/api/quiz-submit';        // serverless route; falls back to localStorage if 404
   var DQ_EMAIL_ENDPOINT = '/api/unqualified-lead';   // serverless route for DQ email capture

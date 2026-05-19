@@ -43,11 +43,22 @@
   to     = "/pricing.html"
   status = 200
 
-# /demo pretty URL → creator dashboard
+# /demo pretty URL → AI team dashboard (SMB)
+[[redirects]]
+  from   = "/dashboard-demo"
+  to     = "/dashboard-demo.html"
+  status = 200
+
+# Legacy creator-demo URLs → new dashboard demo
 [[redirects]]
   from   = "/creator-demo"
-  to     = "/creator-demo.html"
-  status = 200
+  to     = "/dashboard-demo.html"
+  status = 301
+
+[[redirects]]
+  from   = "/creator-demo.html"
+  to     = "/dashboard-demo.html"
+  status = 301
 
 # Backend API endpoints — Netlify Functions
 [[redirects]]

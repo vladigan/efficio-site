@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1736" />
+<meta name="description" content="See what your AI team cockpit would look like. Acme HVAC ($480k/yr, 18 techs) — revenue by service line, ad spend ROI, top commercial accounts, cash flow, tax provision, P&L. Live demo." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://efficio.tech/dashboard-demo.html" />
+<title>Live dashboard — Acme HVAC, $480k/yr | Efficio</title>
+<meta property="og:title" content="See a live AI-team dashboard | Efficio" />
+<meta property="og:description" content="Revenue by source, ad ROI, customer LTV, cash flow, tax provision. What your AI team cockpit would look like." />
+<meta property="og:image" content="https://efficio.tech/og-image.png" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect width='80' height='80' rx='6' fill='%230B1736'/><text x='40' y='58' font-family='Newsreader,Georgia,serif' font-style='italic' font-weight='500' font-size='52' text-anchor='middle' fill='%23F7F2EA'>e</text></svg>">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<style>
+:root{
+  --paper:#F7F2EA;--paper-2:#EFE7D8;--ink:#0B1736;--ink-2:#070F26;--ink-soft:#3a4567;
+  --ink-light:#7A8AB6;--ink-mute:#a0a8c0;--rule:#1a2342;--rule-soft:rgba(11,23,54,.14);
+  --accent:#C9302C;--accent-warm:#D4A574;--green:#5b8b6c;--red:#c9302c;
+  --serif:'Newsreader',Georgia,serif;--sans:'Inter',Arial,sans-serif;--mono:'IBM Plex Mono',monospace;
+  --dash-bg:#0a0f1f;--dash-card:#101936;--dash-border:rgba(212,165,116,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-feature-settings:"ss01","kern";-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;padding:18px 40px;display:flex;align-items:center;gap:32px;background:var(--paper);border-bottom:1px solid var(--rule-soft);}
+.nav-logo{display:flex;align-items:baseline;gap:8px;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:24px;font-weight:500;letter-spacing:-.025em;}
+.nav-logo svg{width:24px;height:24px;align-self:center;}
+.nav-back{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:8px;}
+.nav-back:hover{color:var(--accent);}
+.nav-cta{padding:9px 16px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+.nav-cta:hover{background:var(--accent);}
+
+/* intro */
+.intro{padding:140px 40px 60px;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.4fr .6fr;gap:60px;align-items:end;}
+.intro .label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.intro .label::before{content:"";width:32px;height:1px;background:var(--ink);}
+.intro h1{font-family:var(--serif);font-weight:500;font-variation-settings:"opsz" 72,"wght" 500;font-size:clamp(48px,7vw,88px);line-height:.95;letter-spacing:-0.04em;color:var(--ink);}
+.intro h1 em{font-style:italic;font-weight:400;color:var(--accent);}
+.intro p{font-family:var(--serif);font-size:clamp(16px,1.4vw,20px);line-height:1.5;color:var(--ink-soft);max-width:36ch;}
+.intro p strong{color:var(--ink);font-weight:500;}
+
+.demo-disclaimer{max-width:1320px;margin:30px auto;padding:0 40px;}
+.demo-disclaimer span{display:inline-flex;align-items:center;gap:10px;background:var(--paper-2);padding:10px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.demo-disclaimer span::before{content:"";width:8px;height:8px;background:var(--accent);border-radius:50%;}
+
+/* dashboard frame */
+.dash-wrap{max-width:1320px;margin:20px auto 100px;padding:0 40px;}
+.dash{background:var(--dash-bg);border:1px solid var(--ink);color:#e8ecf6;font-family:var(--sans);overflow:hidden;}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--ink-2);border-bottom:1px solid rgba(212,165,116,.10);}
+.dash-bar .traffic{display:flex;gap:6px;}
+.dash-bar .traffic span{width:11px;height:11px;border-radius:50%;background:#3a4060;}
+.dash-bar .traffic span:nth-child(1){background:#e06c5a;}
+.dash-bar .traffic span:nth-child(2){background:#d4a574;}
+.dash-bar .traffic span:nth-child(3){background:#5b8b6c;}
+.dash-bar .name{margin-left:14px;font-family:var(--mono);font-size:11px;color:var(--ink-light);letter-spacing:.08em;}
+.dash-bar .name b{color:#fff;font-weight:500;}
+.dash-bar .live{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5b8b6c;display:flex;align-items:center;gap:8px;}
+.dash-bar .live::before{content:"";width:6px;height:6px;border-radius:50%;background:#5b8b6c;animation:livepulse 1.8s ease-in-out infinite;}
+@keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.dash-body{display:grid;grid-template-columns:200px 1fr;}
+.dash-side{background:var(--ink-2);padding:24px 0;border-right:1px solid rgba(212,165,116,.08);}
+.dash-side .creator{padding:0 22px 24px;border-bottom:1px solid rgba(212,165,116,.10);}
+.dash-side .creator .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#d4a574,#c9302c);display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:22px;color:#fff;font-weight:500;}
+.dash-side .creator .name{margin-top:12px;font-family:var(--serif);font-size:18px;color:#fff;font-weight:500;}
+.dash-side .creator .meta{margin-top:4px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light);}
+.dash-side ul{padding:18px 0;}
+.dash-side li{padding:9px 22px;font-size:13px;color:var(--ink-light);font-weight:500;border-left:2px solid transparent;cursor:default;display:flex;align-items:center;gap:10px;}
+.dash-side li.on{border-left-color:var(--accent-warm);color:#fff;background:rgba(212,165,116,.06);}
+.dash-side li svg{width:14px;height:14px;opacity:.7;}
+
+.dash-main{padding:28px 32px 36px;}
+.dash-h{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px;}
+.dash-h h2{font-family:var(--serif);font-weight:500;font-size:32px;letter-spacing:-.025em;color:#fff;}
+.dash-h h2 em{font-style:italic;font-weight:400;color:var(--accent-warm);}
+.dash-h .ts{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-light);text-transform:uppercase;}
+
+/* KPI row */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}
+.kpi{background:var(--dash-card);border:1px solid var(--dash-border);padding:18px 18px 20px;}
+.kpi .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:8px;}
+.kpi .val{font-family:var(--serif);font-size:34px;font-weight:500;color:#fff;line-height:1;letter-spacing:-.02em;}
+.kpi .val em{font-style:italic;font-weight:400;color:var(--accent-warm);}
+.kpi .delta{margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:#86c191;}
+.kpi .delta.down{color:#e06c5a;}
+.kpi .ctx{margin-top:4px;font-size:11px;color:var(--ink-light);}
+
+/* card grid */
+.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:14px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+.card{background:var(--dash-card);border:1px solid var(--dash-border);padding:22px;}
+.card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.card-h h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);font-weight:500;}
+.card-h .legend{display:flex;gap:14px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-light);}
+.card-h .legend span{display:flex;align-items:center;gap:6px;}
+.card-h .legend i{width:10px;height:2px;display:inline-block;}
+.chart-wrap{position:relative;height:240px;}
+.chart-wrap-sm{position:relative;height:200px;}
+
+/* brand deals waterfall */
+.deals{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+.deal{display:grid;grid-template-columns:1.5fr 1fr 90px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(232,236,246,.08);}
+.deal .brand{font-family:var(--serif);font-size:16px;color:#fff;}
+.deal .brand small{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-light);letter-spacing:.08em;text-transform:uppercase;margin-top:2px;}
+.deal .bar{height:8px;background:rgba(232,236,246,.06);border-radius:2px;position:relative;overflow:hidden;}
+.deal .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--accent-warm),#c9302c);}
+.deal .amt{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--accent-warm);text-align:right;}
+
+/* tax provision */
+.tax{display:flex;flex-direction:column;gap:14px;}
+.tax-bar{display:flex;flex-direction:column;gap:6px;}
+.tax-bar-track{height:14px;background:rgba(232,236,246,.06);position:relative;overflow:hidden;}
+.tax-bar-track i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#5b8b6c,#86c191);}
+.tax-bar-track i.warn{background:linear-gradient(90deg,#d4a574,#e06c5a);}
+.tax-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);}
+.tax-row b{color:#fff;font-weight:500;}
+.tax-foot{margin-top:6px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:#86c191;}
+
+/* below-fold cta */
+.below-cta{max-width:920px;margin:80px auto 120px;padding:0 40px;text-align:center;}
+.below-cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.5vw,56px);line-height:1;letter-spacing:-.03em;color:var(--ink);}
+.below-cta h2 em{font-style:italic;font-weight:400;color:var(--accent);}
+.below-cta p{margin-top:20px;font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-soft);max-width:48ch;margin-left:auto;margin-right:auto;}
+.below-cta .row{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 26px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:background .25s ease,color .25s ease,border-color .25s ease;}
+.btn .arrow{transition:transform .3s ease;}
+.btn:hover{background:var(--accent);border-color:var(--accent);}
+.btn:hover .arrow{transform:translateX(6px);}
+.btn-ghost{background:transparent;color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+
+footer{padding:40px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);border-top:1px solid var(--rule-soft);}
+
+@media(max-width:980px){
+  .nav{padding:14px 20px;}
+  .intro{padding:110px 20px 30px;grid-template-columns:1fr;gap:24px;}
+  .demo-disclaimer{padding:0 20px;}
+  .dash-wrap{padding:0 20px;}
+  .dash-body{grid-template-columns:1fr;}
+  .dash-side{display:none;}
+  .dash-main{padding:20px;}
+  .kpis{grid-template-columns:repeat(2,1fr);}
+  .grid,.grid-3{grid-template-columns:1fr;}
+  .below-cta{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="currentColor"><rect width="24" height="24" rx="4"/><text x="12" y="18" font-family="Newsreader,Georgia,serif" font-style="italic" font-weight="500" font-size="16" text-anchor="middle" fill="#F7F2EA">e</text></svg>
+    efficio
+  </a>
+  <a href="/" class="nav-back">&larr; Back to home</a>
+  <a href="/audit-quiz" class="nav-cta">Book audit &rarr;</a>
+</nav>
+
+<section class="intro">
+  <div>
+    <p class="label">Live demo &middot; Acme HVAC &middot; $480k/yr</p>
+    <h1>Here&rsquo;s what your <em>AI team</em> cockpit looks like.</h1>
+  </div>
+  <p>Acme HVAC &mdash; <strong>18 techs, 2 dispatchers, $480k/yr</strong> across four service lines. Real layout. Numbers below are illustrative, but every chart, KPI, and breakdown is exactly how your data would render at month two.</p>
+</section>
+
+<div class="demo-disclaimer">
+  <span>Demo data &middot; Not a real customer &middot; Layout matches production</span>
+</div>
+
+<div class="dash-wrap">
+  <div class="dash">
+    <div class="dash-bar">
+      <div class="traffic"><span></span><span></span><span></span></div>
+      <div class="name">efficio &middot; <b>AI team cockpit</b> &middot; acmehvac.com</div>
+      <div class="live">Live &middot; updated 14 min ago</div>
+    </div>
+    <div class="dash-body">
+      <aside class="dash-side">
+        <div class="creator">
+          <div class="avatar">A</div>
+          <div class="name">Acme HVAC</div>
+          <div class="meta">AI Department &middot; tier 3</div>
+        </div>
+        <ul>
+          <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg> Overview</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg> Revenue</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Cash flow</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg> P&amp;L</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg> Top accounts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l3-7 4 4 5-9 6 8"/></svg> Ad spend</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg> Tax</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3"/><path d="M5 21c0-3.866 3.134-7 7-7s7 3.134 7 7"/></svg> AI team</li>
+        </ul>
+      </aside>
+
+      <div class="dash-main">
+        <div class="dash-h">
+          <h2>Overview &mdash; <em>May 2026</em></h2>
+          <span class="ts">Last sync &middot; 14 min ago &middot; all platforms green</span>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpis">
+          <div class="kpi">
+            <div class="lbl">Revenue &middot; trailing 30d</div>
+            <div class="val">$<em>42,310</em></div>
+            <div class="delta">&uarr; 11.4% vs Apr</div>
+            <div class="ctx">4 service lines</div>
+          </div>
+          <div class="kpi">
+            <div class="lbl">Net margin</div>
+            <div class="val">28%</div>
+            <div class="delta">&uarr; 4 pts vs Apr</div>
+            <div class="ctx">after labor + materials + overhead</div>
+          </div>
+          <div class="kpi">
+            <div class="lbl">Ad spend ROAS</div>
+            <div class="val">4.2<span style="font-family:var(--mono);font-size:14px;color:var(--ink-light);margin-left:4px;">x</span></div>
+            <div class="delta">&uarr; from 2.8x in Mar</div>
+            <div class="ctx">$3.4k spent &middot; $14.3k booked jobs</div>
+          </div>
+          <div class="kpi">
+            <div class="lbl">Hours saved by AI team</div>
+            <div class="val"><em>96</em></div>
+            <div class="delta">&uarr; 22h vs Apr</div>
+            <div class="ctx">~ $4,800 in admin time / mo</div>
+          </div>
+        </div>
+
+        <!-- Revenue chart + brand deals -->
+        <div class="grid">
+          <div class="card">
+            <div class="card-h">
+              <h3>Revenue by service line &middot; 6 months</h3>
+              <div class="legend">
+                <span><i style="background:#e06c5a;"></i>Repair</span>
+                <span><i style="background:#d4a574;"></i>Installation</span>
+                <span><i style="background:#5b8b6c;"></i>Maintenance</span>
+                <span><i style="background:#7da4cf;"></i>Commercial</span>
+                <span><i style="background:#a17fb5;"></i>Emergency</span>
+              </div>
+            </div>
+            <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-h">
+              <h3>Top 3 commercial accounts &middot; this month</h3>
+            </div>
+            <div class="deals">
+              <div class="deal">
+                <div class="brand">Riverside Property Mgmt <small>32 units &middot; quarterly maint contract</small></div>
+                <div class="bar"><i style="width:100%;"></i></div>
+                <div class="amt">$8,500</div>
+              </div>
+              <div class="deal">
+                <div class="brand">Oakwood Office Park <small>HVAC retrofit &middot; phase 2</small></div>
+                <div class="bar"><i style="width:64%;"></i></div>
+                <div class="amt">$5,400</div>
+              </div>
+              <div class="deal">
+                <div class="brand">Sunset Storage <small>4 RTU service calls + filter swap</small></div>
+                <div class="bar"><i style="width:36%;"></i></div>
+                <div class="amt">$3,050</div>
+              </div>
+              <div class="deal" style="border-bottom:0;">
+                <div class="brand">Pipeline <small>4 quotes drafted by agent</small></div>
+                <div class="bar"><i style="width:48%;background:linear-gradient(90deg,rgba(212,165,116,.4),rgba(201,48,44,.4));"></i></div>
+                <div class="amt" style="color:var(--ink-light);">~$12k</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cash flow + P&L + tax provision -->
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-h"><h3>Cash flow &middot; next 90 days</h3></div>
+            <div class="chart-wrap-sm"><canvas id="chartCashflow"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-h"><h3>P&amp;L &middot; month-over-month</h3></div>
+            <div class="chart-wrap-sm"><canvas id="chartPnl"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-h"><h3>Tax provision &middot; running</h3></div>
+            <div class="tax">
+              <div class="tax-bar">
+                <div class="tax-bar-track"><i style="width:62%;"></i></div>
+                <div class="tax-row"><span>Set aside YTD</span><b>$9,820 / $15,800</b></div>
+              </div>
+              <div class="tax-bar">
+                <div class="tax-bar-track"><i class="warn" style="width:18%;"></i></div>
+                <div class="tax-row"><span>Q2 estimated due</span><b>Jun 15 &middot; $4,200</b></div>
+              </div>
+              <div class="tax-bar">
+                <div class="tax-bar-track"><i style="width:84%;"></i></div>
+                <div class="tax-row"><span>Effective tax rate</span><b>27.4% (federal+state)</b></div>
+              </div>
+              <p class="tax-foot">On track. No April surprise.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad spend ROI breakdown -->
+        <div class="card" style="margin-top:14px;">
+          <div class="card-h">
+            <h3>Ad spend ROI &middot; by channel &middot; last 30 days</h3>
+            <div class="legend">
+              <span><i style="background:#7da4cf;"></i>Spent</span>
+              <span><i style="background:#86c191;"></i>Booked jobs</span>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartAds"></canvas></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="below-cta">
+  <h2>Want to see <em>your</em> numbers in here?</h2>
+  <p>Free 15-min call. Read-only look at your tools. We&rsquo;ll show you exactly what your AI team cockpit would look like at month two &mdash; and which one AI agent will pay for itself fastest.</p>
+  <div class="row">
+    <a href="/audit-quiz" class="btn">Book your free 15-min call <span class="arrow">&rarr;</span></a>
+    <a href="/" class="btn btn-ghost">Back to home</a>
+  </div>
+</section>
+
+<footer>&copy; 2026 Efficio &middot; Your contracted AI team &middot; <a href="mailto:brady@efficio.tech">brady@efficio.tech</a></footer>
+
+<script>
+// Chart.js global defaults — match dashboard dark theme
+Chart.defaults.color = '#A8B5D2';
+Chart.defaults.font.family = "'Inter','Helvetica Neue',Arial,sans-serif";
+Chart.defaults.font.size = 11;
+Chart.defaults.borderColor = 'rgba(232,236,246,.08)';
+
+const months = ['Dec','Jan','Feb','Mar','Apr','May'];
+
+// ---- Revenue stacked area
+new Chart(document.getElementById('chartRevenue'), {
+  type:'line',
+  data:{
+    labels: months,
+    datasets:[
+      {label:'Repair', data:[5800,6200,7100,8400,9100,9620], borderColor:'#e06c5a', backgroundColor:'rgba(224,108,90,.18)', fill:true, tension:.32, borderWidth:2, pointRadius:0},
+      {label:'Installation', data:[14200,15100,15800,16200,16900,17800], borderColor:'#d4a574', backgroundColor:'rgba(212,165,116,.18)', fill:true, tension:.32, borderWidth:2, pointRadius:0},
+      {label:'Maintenance (recurring)', data:[3200,3400,3600,3700,3900,4100], borderColor:'#5b8b6c', backgroundColor:'rgba(91,139,108,.18)', fill:true, tension:.32, borderWidth:2, pointRadius:0},
+      {label:'Commercial contracts', data:[4500,3800,5600,6200,8400,8500], borderColor:'#7da4cf', backgroundColor:'rgba(125,164,207,.18)', fill:true, tension:.32, borderWidth:2, pointRadius:0},
+      {label:'Emergency / after-hours', data:[1800,2100,2200,2400,2300,2290], borderColor:'#a17fb5', backgroundColor:'rgba(161,127,181,.18)', fill:true, tension:.32, borderWidth:2, pointRadius:0},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#070F26',titleColor:'#fff',bodyColor:'#A8B5D2',borderColor:'rgba(212,165,116,.25)',borderWidth:1,callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toLocaleString()}}},
+    scales:{
+      y:{stacked:true,grid:{color:'rgba(232,236,246,.06)'},ticks:{callback:(v)=>'$'+(v/1000)+'k'}},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+// ---- Cash flow forecast (next 90 days, weekly buckets)
+const cfWeeks = ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12'];
+new Chart(document.getElementById('chartCashflow'), {
+  type:'line',
+  data:{
+    labels: cfWeeks,
+    datasets:[
+      {label:'Inflow', data:[10200,9800,11400,12200,10800,9600,11800,12400,13100,11900,10700,12800], borderColor:'#86c191', backgroundColor:'rgba(134,193,145,.18)', fill:true, tension:.3, borderWidth:2, pointRadius:0},
+      {label:'Outflow', data:[4200,3800,4400,5100,4600,4100,4300,4900,5200,4700,4400,4800], borderColor:'#e06c5a', backgroundColor:'rgba(224,108,90,.10)', fill:true, tension:.3, borderWidth:2, pointRadius:0},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#070F26',titleColor:'#fff',bodyColor:'#A8B5D2',callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toLocaleString()}}},
+    scales:{y:{grid:{color:'rgba(232,236,246,.06)'},ticks:{callback:(v)=>'$'+(v/1000)+'k'}},x:{grid:{display:false}}}
+  }
+});
+
+// ---- P&L MoM bar
+new Chart(document.getElementById('chartPnl'), {
+  type:'bar',
+  data:{
+    labels: months,
+    datasets:[
+      {label:'Net profit', data:[18200,19400,22100,25400,28900,32100], backgroundColor:'#d4a574', borderRadius:0, barThickness:18},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#070F26',titleColor:'#fff',bodyColor:'#A8B5D2',callbacks:{label:(c)=>'Net: $'+c.parsed.y.toLocaleString()}}},
+    scales:{y:{grid:{color:'rgba(232,236,246,.06)'},ticks:{callback:(v)=>'$'+(v/1000)+'k'}},x:{grid:{display:false}}}
+  }
+});
+
+// ---- Ad spend ROI by channel
+new Chart(document.getElementById('chartAds'), {
+  type:'bar',
+  data:{
+    labels:['Google LSA','Google Search','Meta','Yelp','Nextdoor'],
+    datasets:[
+      {label:'Spent', data:[1400,1100,520,260,140], backgroundColor:'#7da4cf', borderRadius:0},
+      {label:'Booked jobs (revenue)', data:[5800,4900,2300,540,160], backgroundColor:'#86c191', borderRadius:0},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#070F26',titleColor:'#fff',bodyColor:'#A8B5D2',callbacks:{label:(c)=>c.dataset.label+': $'+c.parsed.y.toLocaleString()}}},
+    scales:{y:{grid:{color:'rgba(232,236,246,.06)'},ticks:{callback:(v)=>'$'+v.toLocaleString()}},x:{grid:{display:false}}}
+  }
+});
+</script>
+</body>
+</html>

@@ -6,7 +6,12 @@
   <url><loc>https://efficio.tech/services.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://efficio.tech/how-it-works.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://efficio.tech/agents.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://efficio.tech/agents/receptionist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/office-manager.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/sales-navigator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/bookkeeper.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/pricing.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://efficio.tech/compare.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/audit-intake.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://efficio.tech/audit-quiz.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://efficio.tech/why-us.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

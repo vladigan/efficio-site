@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/pixels.js"></script>
+<title>Efficio vs. GoHighLevel vs. in-house vs. an AI consultancy | Efficio</title>
+<meta name="description" content="A real comparison: Efficio (managed AI service) vs. GoHighLevel (DIY platform) vs. hiring in-house (slow + expensive) vs. an AI consultancy (six months + a deck). Picked apart honestly.">
+<link rel="canonical" href="https://efficio.tech/compare.html">
+<meta property="og:title" content="Efficio vs. GoHighLevel vs. in-house vs. consultancy | Efficio">
+<meta property="og:description" content="Where each option wins, where each one breaks. Honest read across the four paths an SMB takes when they want AI.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://efficio.tech/og-image.svg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/theme.css">
+<style>
+.cmp-shell{max-width:1080px;margin:0 auto;padding:130px 28px 80px}
+.cmp-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:22px}
+.cmp-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple);animation:cmp 2s infinite}
+@keyframes cmp{0%,100%{opacity:1}50%{opacity:.5}}
+.cmp-h1{font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:900;color:var(--white);letter-spacing:-.035em;line-height:1.05;margin-bottom:18px}
+.cmp-h1 em{color:var(--purple3);font-style:italic}
+.cmp-sub{font-size:1.1rem;color:var(--text);line-height:1.65;max-width:720px;margin-bottom:48px}
+
+.cmp-table-wrap{overflow-x:auto;margin-bottom:60px}
+.cmp-table{width:100%;border-collapse:collapse;min-width:880px;font-size:14px}
+.cmp-table th{text-align:left;padding:14px 18px;color:var(--purple3);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px;border-bottom:2px solid var(--bd);vertical-align:bottom}
+.cmp-table th.win{color:var(--white);background:rgba(124,58,237,.08)}
+.cmp-table td{padding:13px 18px;color:var(--w2);border-bottom:1px solid var(--bd3);vertical-align:top}
+.cmp-table td:first-child{font-weight:700;color:var(--white)}
+.cmp-table td.win{background:rgba(124,58,237,.06);color:var(--white)}
+.cmp-table td.no{color:var(--muted)}
+.cmp-table td.no::before{content:"✗ ";color:#f87171}
+.cmp-table td.yes::before{content:"✓ ";color:var(--good);font-weight:700}
+.cmp-table .row-h{background:rgba(124,58,237,.04);font-size:12.5px;font-weight:800;color:var(--purple3);letter-spacing:.06em;text-transform:uppercase}
+.cmp-table .row-h td{padding:9px 18px;color:var(--purple3)}
+
+.cmp-deep h2{font-size:1.75rem;font-weight:800;color:var(--white);letter-spacing:-.02em;margin:48px 0 10px}
+.cmp-deep h2 em{font-style:normal;color:var(--purple3)}
+.cmp-deep .sub{font-size:13.5px;color:var(--muted);margin-bottom:18px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+.cmp-deep p{font-size:15px;color:var(--w2);line-height:1.75;margin-bottom:14px}
+.cmp-deep .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 30px}
+@media(max-width:780px){.cmp-deep .breakdown{grid-template-columns:1fr}}
+.cmp-deep .breakdown .col{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:22px 24px}
+.cmp-deep .breakdown .col h3{font-size:13.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.cmp-deep .breakdown .col.wins h3{color:var(--good)}
+.cmp-deep .breakdown .col.breaks h3{color:#f87171}
+.cmp-deep .breakdown .col ul{list-style:none;font-size:14px;color:var(--w2);line-height:1.65}
+.cmp-deep .breakdown .col li{padding:6px 0 6px 22px;position:relative}
+.cmp-deep .breakdown .col.wins li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800}
+.cmp-deep .breakdown .col.breaks li::before{content:"✗";position:absolute;left:0;color:#f87171;font-weight:800}
+
+.cmp-verdict{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(124,58,237,.02));
+  border:1px solid rgba(124,58,237,.30);border-radius:12px;padding:24px 28px;margin:24px 0 0}
+.cmp-verdict .lbl{font-size:11.5px;font-weight:800;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.cmp-verdict p{font-size:14.5px;color:var(--white);line-height:1.65;margin:0}
+.cmp-verdict p b{font-weight:700}
+
+.cmp-cta{margin-top:80px;padding:42px 44px;background:linear-gradient(135deg,var(--purple),var(--purple2));border-radius:14px;text-align:center;color:#fff}
+.cmp-cta h3{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+.cmp-cta p{font-size:14.5px;color:rgba(255,255,255,.85);margin-bottom:22px;max-width:580px;margin-left:auto;margin-right:auto}
+.cmp-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#fff;color:#0a0612 !important;
+  border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .15s}
+.cmp-cta a:hover{transform:translateY(-2px)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em;text-decoration:none}
+.logo .logo-mark{width:30px;height:30px;border-radius:7px;background:var(--purple);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:14px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r);text-decoration:none}
+.nav-links a:hover{color:var(--white)}
+.btn-nav{padding:10px 20px;background:var(--purple);color:#fff !important;border-radius:var(--r);
+  font-size:13.5px;font-weight:700}
+.btn-nav:hover{background:var(--purple2)}
+@media(max-width:780px){.nav-links a:not(.btn-nav){display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/agents.html">AI hires</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/qualify.html" class="btn-nav">Qualify in 60 sec</a>
+  </div>
+</div></nav>
+
+<main class="cmp-shell">
+  <span class="cmp-pill"><span class="dot"></span>Honest comparison</span>
+  <h1 class="cmp-h1">Efficio vs. <em>everyone else.</em></h1>
+  <p class="cmp-sub">There are four real paths an SMB owner takes when they decide they want AI. We've used three of them ourselves before building the fourth. Here's where each one wins, where each one breaks, and which one your business should pick depending on where you actually are.</p>
+
+  <!-- Quick-glance table -->
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>GoHighLevel<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(DIY platform)</small></th>
+          <th>Hire in-house<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(4 humans + manager)</small></th>
+          <th>AI consultancy<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(Deloitte/BCG/boutique)</small></th>
+          <th class="win">Efficio<br><small style="font-weight:500;color:var(--purple3);text-transform:none;letter-spacing:0">(managed AI team)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-h"><td colspan="5">Cost</td></tr>
+        <tr>
+          <td>Monthly</td>
+          <td>$297–$497</td>
+          <td>$15K–$30K + benefits</td>
+          <td>$15K–$50K retainer</td>
+          <td class="win">$497–$3,500</td>
+        </tr>
+        <tr>
+          <td>Setup cost</td>
+          <td>$0 (you build)</td>
+          <td>$50K–$100K recruiting + training</td>
+          <td>$25K–$75K discovery phase</td>
+          <td class="win">$0–$15K depending on tier</td>
+        </tr>
+        <tr>
+          <td>Real annual cost</td>
+          <td>$5K + your 200+ hrs</td>
+          <td>$255K–$475K all-in</td>
+          <td>$180K–$600K + opportunity cost</td>
+          <td class="win">$5,964–$42,000</td>
+        </tr>
+
+        <tr class="row-h"><td colspan="5">Speed</td></tr>
+        <tr>
+          <td>Time to live</td>
+          <td class="no">3–12 months (you DIY)</td>
+          <td class="no">3–6 months (hire + train)</td>
+          <td class="no">6–18 months (discovery → pilot → rollout)</td>
+          <td class="yes win">7 days</td>
+        </tr>
+        <tr>
+          <td>Day-7 promise</td>
+          <td class="no">No</td>
+          <td class="no">No</td>
+          <td class="no">No</td>
+          <td class="yes win">Yes (month free if missed)</td>
+        </tr>
+        <tr>
+          <td>30-day refund</td>
+          <td class="no">Refund only if you cancel during trial</td>
+          <td class="no">No</td>
+          <td class="no">Not standard</td>
+          <td class="yes win">Yes — if the metric hasn't moved</td>
+        </tr>
+
+        <tr class="row-h"><td colspan="5">Who operates it</td></tr>
+        <tr>
+          <td>Who builds it</td>
+          <td class="no">You</td>
+          <td class="no">Your hires (after they ramp)</td>
+          <td>Their team during the engagement</td>
+          <td class="yes win">Us</td>
+        </tr>
+        <tr>
+          <td>Who runs it</td>
+          <td class="no">You + your staff, forever</td>
+          <td class="no">Your hires (if they don't quit)</td>
+          <td class="no">Nobody after they leave</td>
+          <td class="yes win">Us — embedded</td>
+        </tr>
+        <tr>
+          <td>What you need to learn</td>
+          <td class="no">Everything (workflows, automations, AI)</td>
+          <td>How to manage AI work</td>
+          <td>How to direct their team</td>
+          <td class="yes win">Nothing — you operate your business</td>
+        </tr>
+
+        <tr class="row-h"><td colspan="5">Fit</td></tr>
+        <tr>
+          <td>Best for</td>
+          <td>Agencies reselling to clients</td>
+          <td>$5M+ ops with stable AI demand</td>
+          <td>Enterprise digital transformation</td>
+          <td class="win">$30K–$5M/mo SMB owners</td>
+        </tr>
+        <tr>
+          <td>Worst for</td>
+          <td>Owners with no time to learn it</td>
+          <td>Pre-$1M operations (overkill)</td>
+          <td>SMBs (priced out)</td>
+          <td class="win">Anyone who refuses OAuth access</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Deep dive -->
+  <div class="cmp-deep">
+
+    <h2>vs. <em>GoHighLevel</em></h2>
+    <div class="sub">The platform vs. the team</div>
+    <p>GoHighLevel is a DIY automation and CRM platform. Everything you'd build in Efficio you <em>can</em> build in GHL — if you also become the implementer, the operator, the maintainer, and the help desk. A lot of agencies resell it. A lot of agencies also disappear after handing you the login.</p>
+
+    <div class="breakdown">
+      <div class="col wins">
+        <h3>Where GHL wins</h3>
+        <ul>
+          <li>Cheapest entry point ($297/mo)</li>
+          <li>Best fit if you're an agency selling to clients</li>
+          <li>Massive feature surface (calendars, funnels, CRM, automations)</li>
+          <li>Big community + tutorials</li>
+        </ul>
+      </div>
+      <div class="col breaks">
+        <h3>Where it breaks for owners</h3>
+        <ul>
+          <li>You're the implementer (200+ hours to set up well)</li>
+          <li>You're the operator (your staff has to run it daily)</li>
+          <li>You're the maintainer (workflows break, you fix)</li>
+          <li>No accountability when it goes silent at 2pm</li>
+          <li>Reseller "white-label" agencies often vanish after onboarding</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cmp-verdict">
+      <div class="lbl">Pick GHL if</div>
+      <p>You're an agency reselling to your own clients, OR you have a dedicated ops person who genuinely wants to spend 10–15 hrs/week running the platform. If neither applies, you're going to either (a) pay $297/mo to use 6% of it or (b) hire a GHL consultant for $4K/mo and now you're at our price anyway.</p>
+    </div>
+
+    <h2>vs. <em>Hiring in-house</em></h2>
+    <div class="sub">Four humans, three months, fingers crossed</div>
+    <p>The "real" version of the AI team you'd want: one receptionist ($30–50K/yr), one office manager ($45–90K), one sales rep ($50–100K), one bookkeeper ($40–80K). Plus benefits, taxes, training, turnover, and a manager to coordinate them. This is what we replace, role-for-role.</p>
+
+    <div class="breakdown">
+      <div class="col wins">
+        <h3>Where in-house wins</h3>
+        <ul>
+          <li>Real humans with real judgment</li>
+          <li>They can do work AI legitimately can't (yet)</li>
+          <li>Cultural fit if you have a team-building advantage</li>
+          <li>Right call at $5M+ where workload is stable</li>
+        </ul>
+      </div>
+      <div class="col breaks">
+        <h3>Where it breaks below $5M/mo</h3>
+        <ul>
+          <li>$165K–$320K/yr in salaries before benefits + taxes</li>
+          <li>3–6 months to recruit + ramp each role</li>
+          <li>One quits and you're back to drowning</li>
+          <li>You're now a manager of 4 humans, not running a business</li>
+          <li>40% of your week is interviewing + reviewing + firing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cmp-verdict">
+      <div class="lbl">Pick in-house if</div>
+      <p>You're at $5M+ MRR with stable demand and the budget to keep all 4 roles full year-round. Below that, the human cost is irrational vs. what we deliver for $497–$3,500/mo. We literally do the same work the same way you'd want a human to.</p>
+    </div>
+
+    <h2>vs. <em>an AI consultancy</em></h2>
+    <div class="sub">Six months, three decks, one engineer who left</div>
+    <p>Deloitte, BCG, Accenture, and the boutique AI shops they spun out of. They quote a 90-day discovery, charge $15K–$50K/mo, ship a strategy document, hand you a pilot, then leave you to operationalize it. We've watched this pattern destroy more SMB AI budgets than any other path.</p>
+
+    <div class="breakdown">
+      <div class="col wins">
+        <h3>Where consultancies win</h3>
+        <ul>
+          <li>Enterprise digital transformation ($50M+ budgets)</li>
+          <li>Cross-functional strategy work (real consulting)</li>
+          <li>Brand credibility if your board needs a Big 4 logo</li>
+          <li>Deep specialization if you have unusual data needs</li>
+        </ul>
+      </div>
+      <div class="col breaks">
+        <h3>Where it breaks for SMBs</h3>
+        <ul>
+          <li>$15K–$50K/mo retainers (10–100x ours)</li>
+          <li>Discovery phase delivers a deck, not a deployed agent</li>
+          <li>"Implementation phase" means more billable hours</li>
+          <li>They're optimized for partner billing rate, not your ROI</li>
+          <li>Junior engineer doing the actual work has 5 other clients</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cmp-verdict">
+      <div class="lbl">Pick a consultancy if</div>
+      <p>You're a Fortune 500 doing a regulated, multi-year, cross-business-unit AI rollout that needs change management, exec alignment, and procurement-grade documentation. We refer those to QueryNow. If you're below $50M revenue, a consultancy will quietly eat 18 months and $300K. We deliver a working agent in 7 days.</p>
+    </div>
+
+    <h2>vs. <em>Efficio</em></h2>
+    <div class="sub">Honest about where we break too</div>
+    <p>We're not the right pick for everyone. Here's where we lose, said plainly:</p>
+
+    <div class="breakdown">
+      <div class="col wins">
+        <h3>Where we win</h3>
+        <ul>
+          <li>$30K–$5M/mo SMBs in any vertical</li>
+          <li>Owners who don't have time to learn AI</li>
+          <li>First agent live in 7 days, contractually</li>
+          <li>30-day refund if metric doesn't move</li>
+          <li>Read-only OAuth (revocable any time)</li>
+          <li>Month-to-month, cancel any month</li>
+          <li>Same 4 AI hires scale crawl → walk → run → sprint</li>
+        </ul>
+      </div>
+      <div class="col breaks">
+        <h3>Where we lose</h3>
+        <ul>
+          <li>Enterprise (refer to QueryNow)</li>
+          <li>Anyone who refuses read-only OAuth access</li>
+          <li>Owners who insist on building it themselves (use GHL)</li>
+          <li>Highly regulated industries needing custom compliance (talk to us first)</li>
+          <li>Content / marketing creative — we don't do that work, that's Modrn's lane</li>
+          <li>Adult / creator-economy clients (out of scope)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cmp-cta">
+    <h3>Pick the path that fits.</h3>
+    <p>If you're in our zone ($30K–$5M/mo SMB), take the 60-second qualifier. It'll route you to the right tier — Starter, Specialist, Team, or Department — and book your free audit call. No pitch. If you're not a fit, we tell you.</p>
+    <a href="/qualify.html">Take the 60-sec qualifier →</a>
+  </div>
+</main>
+
+<!-- Footer reuse from theme -->
+<footer style="margin-top:80px;padding:40px 28px;border-top:1px solid var(--bd);text-align:center;font-size:13px;color:var(--muted)">
+  © 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL ·
+  <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> ·
+  <a href="/terms.html" style="color:var(--purple3)">Terms</a> ·
+  <a href="/" style="color:var(--purple3)">Back to home</a>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script src="/assets/chat.js" defer></script>
+</body>
+</html>

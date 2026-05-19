@@ -896,7 +896,9 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   });
 
   // ============== AUDIT WIDGET — fit-gate scoring ==============
-  // Calendly URL is held in JS (NOT rendered in HTML by default) — prevents bypassing the quiz.
+  // ⚠ BOOKING URL SWAP POINT — When Modrn ships the GHL booking link, replace this single string.
+  //    Used for both the qualified-path button (line ~1111) and the inline iframe (line ~1128).
+  //    Calendly is being retired; GHL takes over via Modrn.
   var CALENDLY_URL = 'https://calendly.com/brady-bngcent/efficio-strategy-call';
   var QUALIFY_THRESHOLD = 80;
 

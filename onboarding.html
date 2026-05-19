@@ -60,9 +60,9 @@
 <div class="onboard-wrap">
 
   <div class="onboard-header">
-    <div class="badge">New Client Setup</div>
-    <h1>Welcome to Efficio.</h1>
-    <p>Help us build your system right the first time. This takes about 5 minutes and replaces a 45-minute onboarding call.</p>
+    <div class="badge">New Client Setup · Day 1 intake</div>
+    <h1>Welcome to your AI team.</h1>
+    <p>Tell us about your business so we can configure your AI hires for week one. About 5 minutes. <a href="/audit-intake.html" style="color:var(--purple3,#b794f6);text-decoration:underline">Here's exactly what we collect</a> if you want to know in advance.</p>
   </div>
 
   <!-- Progress indicator -->
@@ -74,7 +74,7 @@
     <div class="progress-step"></div>
   </div>
 
-  <form name="client-onboarding" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <form name="client-onboarding" method="POST" id="onboardForm" onsubmit="return submitOnboarding(event)">
     <input type="hidden" name="form-name" value="client-onboarding" />
     <input type="text" name="bot-field" style="display:none" />
 
@@ -293,12 +293,57 @@
       </div>
     </div>
 
-    <button type="submit" class="submit-btn">Submit My Onboarding Info →</button>
+    <button type="submit" class="submit-btn" id="onboardSubmit">Submit My Onboarding Info →</button>
     <p class="form-note">We'll review this before your kick-off call and build a custom action plan. Usually back to you within 2 hours.</p>
+
+    <div id="onboardThanks" style="display:none;padding:24px;text-align:center;border:1px solid #4ade80;border-radius:10px;background:rgba(74,222,128,.08);margin-top:20px">
+      <strong style="color:#fff;display:block;font-size:18px;margin-bottom:6px">Got it — you're in.</strong>
+      <span style="color:#a1a1aa;font-size:14px">Your intake landed. We'll review and reach out within 2 hours.</span>
+    </div>
+    <p id="onboardError" style="display:none;color:#f87171;font-size:13.5px;margin-top:12px;text-align:center">Something didn't go through. Try once more or email brady@efficio.tech.</p>
 
   </form>
 </div>
 
+<script>
+window.submitOnboarding = function(ev) {
+  if (ev && ev.preventDefault) ev.preventDefault();
+  var form = document.getElementById('onboardForm');
+  var btn = document.getElementById('onboardSubmit');
+  var err = document.getElementById('onboardError');
+  var ok = document.getElementById('onboardThanks');
+  if (err) err.style.display = 'none';
+  if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+  var data = new FormData(form);
+  var payload = { kind: 'client_onboarding', ts: new Date().toISOString(), answers: {} };
+  for (var pair of data.entries()) { payload.answers[pair[0]] = pair[1]; }
+  // mirror common fields to top level for easier Telegram alert read
+  payload.firstName = payload.answers.first_name || payload.answers.contact_name || '';
+  payload.company = payload.answers.business_name || '';
+  payload.email = payload.answers.email || '';
+  payload.phone = payload.answers.phone || '';
+  payload.vertical = payload.answers.industry || '';
+
+  fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify(payload),
+    keepalive: true
+  }).then(function(r){
+    if (!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }).then(function(){
+    form.style.display = 'none';
+    if (ok) ok.style.display = 'block';
+    try { if (window.sendConversion) window.sendConversion({ kind: 'onboarding_submitted' }); } catch(e){}
+  }).catch(function(){
+    if (btn) { btn.disabled = false; btn.textContent = 'Submit My Onboarding Info →'; }
+    if (err) err.style.display = 'block';
+  });
+  return false;
+};
+</script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

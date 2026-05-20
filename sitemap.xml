@@ -23,6 +23,9 @@
 
   <!-- Blog hub + 9 category pages (consolidated 2026-05-19 from 12 vertical posts; old URLs 301 to these via meta-refresh) -->
   <url><loc>https://efficio.tech/blog/</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-operations-problem.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-for-hvac-businesses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-for-dental-practices.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-home-and-field-services.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-professional-services.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-healthcare-practices.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>

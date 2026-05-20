@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>AI teams, not AI tools — front office, back office, or your full AI department | Efficio</title>
-<meta name="description" content="We don't sell single bots. We build coordinated AI teams: a front-office team that owns phones, booking and follow-up, a back-office team that owns inbox, ops and books — and an AI department that runs your whole operation. Live in 7 days."/>
+<title>AI teams, not AI tools — 7 teams that run your business | Efficio</title>
+<meta name="description" content="We don't sell single bots. We build coordinated AI teams — front office, back office, sales, finance, marketing, client onboarding and customer retention. Start with the one that's bleeding you, or run the whole AI department. First team live in 7 days."/>
 <link rel="canonical" href="https://efficio.tech/agents.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/agents.html"/>
-<meta property="og:title" content="Efficio Agent Library"/>
-<meta property="og:description" content="12 ready-to-deploy AI agents, real workflow examples, and a make-your-own option."/>
+<meta property="og:title" content="AI teams, not AI tools — 7 teams that run your business | Efficio"/>
+<meta property="og:description" content="Seven coordinated AI teams — front office, back office, sales, finance, marketing, client onboarding, customer retention. Start with one, or run the whole AI department."/>
 <meta property="og:image" content="https://efficio.tech/og-image.svg"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Efficio Agent Library"/>
-<meta name="twitter:description" content="12 ready-to-deploy AI agents, workflow examples, and a make-your-own option."/>
+<meta name="twitter:title" content="AI teams, not AI tools — 7 teams that run your business | Efficio"/>
+<meta name="twitter:description" content="Seven coordinated AI teams — front office, back office, sales, finance, marketing, client onboarding, customer retention. Start with one, or run the whole AI department."/>
 <meta name="twitter:image" content="https://efficio.tech/og-image.svg"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"BreadcrumbList","itemListElement":[
   {"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},
   {"@type":"ListItem","position":2,"name":"Agents","item":"https://efficio.tech/agents.html"}]},
- {"@type":"Service","name":"AI Agent Library — Efficio",
+ {"@type":"Service","name":"AI Teams — Efficio",
   "provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},
-  "description":"Twelve productized AI agents plus per-client custom workflow builds.",
+  "description":"Seven coordinated AI teams — front office, back office, sales, finance, marketing, client onboarding and customer retention — plus per-client custom workflow builds.",
   "areaServed":{"@type":"Country","name":"United States"},
   "serviceType":["AI Agent Build","Workflow Automation","Operational Dashboard"]}]}
 </script>
@@ -134,14 +134,32 @@
 .hier-step.team{border-color:var(--purple);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.03))}
 .hier-step.team .hl{color:var(--purple2)}.hier-step.team p b{color:var(--white)}
 .hier-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple3);font-weight:900;font-size:20px}
-/* team group */
-.team-group{margin-bottom:34px}
-.team-group-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.team-group-h h3{font-size:1.35rem;font-weight:900;color:var(--white);letter-spacing:-.02em;margin:0}
-.team-group-h .anchor{font-size:12px;font-weight:700;color:var(--good)}
-.team-group-h .anchor small{color:var(--muted);font-weight:600}
-.lib2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:680px){.lib2{grid-template-columns:1fr}}
+
+/* "You'll see yourself" — business-type → pains → teams */
+.see{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.see-hd{display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:18px;padding:0 24px 2px}
+.see-hd span{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:780px){.see-hd{display:none}}
+.seerow{display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:18px;align-items:center;
+  background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:18px 24px;transition:.16s}
+.seerow:hover{border-color:var(--bd2);transform:translateY(-2px)}
+@media(max-width:780px){.seerow{grid-template-columns:1fr;gap:10px;padding:18px 20px}}
+.seerow .bt{display:flex;flex-direction:column;gap:3px}
+.seerow .bt b{font-size:14.5px;font-weight:800;color:var(--white);letter-spacing:-.015em}
+.seerow .bt small{font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.4}
+.seerow .pn{font-size:13px;color:var(--text);line-height:1.5}
+.seerow .rt{display:flex;gap:6px;flex-wrap:wrap}
+.seerow .rt .tg{font-size:11.5px;font-weight:700;color:var(--purple2);background:rgba(124,58,237,.12);
+  border:1px solid var(--purple);border-radius:99px;padding:5px 11px;white-space:nowrap}
+.see-foot{background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(124,58,237,.03));
+  border:1px solid var(--purple);border-radius:var(--r2);padding:26px 30px;display:flex;
+  align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.see-foot p{font-size:14.5px;color:var(--w2);line-height:1.6;margin:0;max-width:640px}
+.see-foot p b{color:var(--white)}
+.see-foot a{display:inline-flex;align-items:center;gap:6px;background:var(--purple);color:#fff;
+  font-weight:800;font-size:13.5px;padding:13px 22px;border-radius:var(--r);text-decoration:none;
+  white-space:nowrap;transition:.15s}
+.see-foot a:hover{background:var(--purple2);transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -162,7 +180,7 @@
   <header class="ag-head">
     <div class="eyebrow">We sell AI teams &mdash; not AI tools</div>
     <h1>AI teams, not AI tools. <em>The functions every business already runs.</em></h1>
-    <p>Everyone else sells a single bot you have to operate. We build <b>coordinated AI teams</b> — a <b>front-office team</b> that owns phones, booking and follow-up, and a <b>back-office team</b> that owns inbox, scheduling, ops and books. Want it all? That's your <b>AI department</b> — every team, your whole operation run by AI. Configured to your business, watched in one dashboard. First team live in 7 days.</p>
+    <p>Everyone else sells a single bot you have to operate. We build <b>coordinated AI teams</b> — seven of them, each owning a whole function end-to-end: <b>front office, back office, sales, finance, marketing, client onboarding</b> and <b>customer retention</b>. Start with the one team that's bleeding you most, add teams as you grow — or run all seven as your <b>AI department</b>, your whole operation on autopilot. Configured to your business, watched in one dashboard. First team live in 7 days.</p>
     <div class="ctas">
       <a class="btn-primary" href="/qualify.html">Find your tier in 60 sec &rarr;</a>
       <a class="btn-outline" href="/demo/" target="_blank" rel="noopener">See the live demo</a>
@@ -171,7 +189,8 @@
 </div>
 
 <div class="ag-toc"><div class="ag-toc-in">
-  <a href="#library">The AI teams</a>
+  <a href="#library">The 7 AI teams</a>
+  <a href="#yourself">You'll see yourself</a>
   <a href="#workflows">How the teams work together</a>
   <a href="#custom">Make your own</a>
   <a href="#how">How it works</a>
@@ -181,9 +200,9 @@
 
 <section class="sec" id="library">
   <div class="sec-h">
-    <div class="ix">01 · The AI teams</div>
-    <h2>Two AI teams, built from coordinated agents. <em>Not a menu of single bots.</em></h2>
-    <p>A competitor sells you one bot and walks away. We build <b>teams</b> — each a group of agents that owns a whole function end-to-end, the way you'd staff a department. They learn your voice, your tools, your customers, and your rules. We deploy and run them. You watch in one dashboard. All your teams together = your <b>AI department</b>.</p>
+    <div class="ix">01 · The 7 AI teams</div>
+    <h2>Seven AI teams, built from coordinated agents. <em>Not a menu of single bots.</em></h2>
+    <p>A competitor sells you one bot and walks away. We build <b>teams</b> — each a group of agents that owns a whole function end-to-end, the way you'd staff a department. They learn your voice, your tools, your customers, and your rules. We deploy and run them. You watch in one dashboard. Pick the one that's hurting most; all seven together = your <b>AI department</b>.</p>
   </div>
 
   <div class="hier">
@@ -203,56 +222,103 @@
     </div>
   </div>
 
-  <div class="team-group">
-    <div class="team-group-h">
-      <h3>Front-Office Team</h3>
-      <span class="anchor">Replaces ~$80–150K/yr of headcount <small>· front desk + sales rep</small></span>
+  <div class="lib">
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <a class="nm" href="/agents/receptionist.html" style="text-decoration:none;color:inherit;display:block">Front Office Team <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+      <div class="ds"><b>Owns: inbound phones · texts · web forms · booking · first contact · emergency flagging.</b> Clears the leak where missed calls turn into lost revenue, callbacks come too late, and after-hours leads die in voicemail. Answers in seconds, 24/7 — and never hands a customer to the competitor.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $30–50K/yr front desk</div>
     </div>
-    <div class="lib2">
-      <div class="acard">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <a class="nm" href="/agents/receptionist.html" style="text-decoration:none;color:inherit;display:block">Reception &amp; booking <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-        <div class="ds"><b>Owns: phones · texts · web forms · booking · first contact.</b> Answers in seconds, 24/7. Books appointments, captures details, flags emergencies. Never sends a lead to voicemail. The job a $30–50K/yr human front desk would do.</div>
-        <div class="lift"><span class="ar">↑</span>100% calls captured <small>vs. 30–40% to voicemail (industry avg)</small></div>
-      </div>
-      <div class="acard">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <a class="nm" href="/agents/sales-navigator.html" style="text-decoration:none;color:inherit;display:block">Sales &amp; quotes <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-        <div class="ds"><b>Owns: lead intake · quotes · follow-ups · pipeline tracking.</b> Responds to new leads instantly, builds itemized quotes against your pricing book, drives Day-3 / Day-7 / Day-14 follow-up sequences. Closes the quote-to-job loop most businesses drop. The job a $50–100K/yr human sales rep would do.</div>
-        <div class="lift dn"><span class="ar">↓</span>96% time-to-quote <small>4 hrs → ~11 min</small></div>
-      </div>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <a class="nm" href="/agents/office-manager.html" style="text-decoration:none;color:inherit;display:block">Back Office Team <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+      <div class="ds"><b>Owns: inbox triage · document filing · scheduling · internal handoffs · workflow oversight · KPI tracking · daily owner brief · escalations.</b> Clears the leak where the owner drowns in admin, balls drop between people, and nobody has day-to-day visibility. Routes the work, catches stalls, and lands a six-line briefing on your phone every morning.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $45–90K/yr office manager</div>
     </div>
-  </div>
-
-  <div class="team-group">
-    <div class="team-group-h">
-      <h3>Back-Office Team</h3>
-      <span class="anchor">Replaces ~$85–170K/yr of headcount <small>· office manager + bookkeeper</small></span>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <a class="nm" href="/agents/sales-navigator.html" style="text-decoration:none;color:inherit;display:block">Sales Team <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+      <div class="ds"><b>Owns: lead response · quote generation · follow-up sequences · pipeline tracking · dormant-lead re-engagement.</b> Clears the leak where quotes take hours while the lead goes cold, follow-up never happens, and prospects slip through the cracks. Responds instantly, builds itemized quotes against your pricing, and chases every lead to a yes or a no.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $50–80K/yr sales coordinator + SDR</div>
     </div>
-    <div class="lib2">
-      <div class="acard">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <a class="nm" href="/agents/office-manager.html" style="text-decoration:none;color:inherit;display:block">Office manager &amp; ops <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-        <div class="ds"><b>Owns: inbox triage · document filing · scheduling · internal handoffs · workflow oversight · KPI tracking · daily brief · escalations.</b> Anything happening inside your business: cleans the firehose, routes the work, watches the operation for stalled handoffs, builds your six-line morning briefing. The job a $45–90K/yr human office manager would do.</div>
-        <div class="lift dn"><span class="ar">↓</span>94% owner inbox time</div>
-      </div>
-      <div class="acard">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-        <a class="nm" href="/agents/bookkeeper.html" style="text-decoration:none;color:inherit;display:block">Bookkeeping &amp; AR <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-        <div class="ds"><b>Owns: AR chase · expense categorization · daily reconciliation · monthly close prep · invoice generation.</b> Reads QuickBooks / Stripe / your bank. Drafts the right tone of AR follow-up (polite at 7 days, firm at 21, escalation at 45). Books close by the 3rd of the month, not the 15th. The job a $40–80K/yr human bookkeeper would do.</div>
-        <div class="lift"><span class="ar">↑</span>12× faster close <small>+ cleaner audit trail</small></div>
-      </div>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+      <a class="nm" href="/agents/bookkeeper.html" style="text-decoration:none;color:inherit;display:block">Finance Team <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+      <div class="ds"><b>Owns: invoicing · AR/AP chasing · payment reminders · reconciliation · P&amp;L + cash-flow visibility · expense categorization.</b> Clears the leak where late payments choke cash flow, the books run weeks behind, and you have no clear financial picture. Reads QuickBooks / Stripe / your bank, chases what's owed, and keeps the numbers current.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $50–70K/yr bookkeeper + AR clerk</div>
+    </div>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 14-4v12L3 15z"/><path d="M17 9a3 3 0 0 1 0 6"/><path d="M7 16v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2"/></svg></div>
+      <div class="nm">Marketing Team</div>
+      <div class="ds"><b>Owns: content drafting · social posting · review generation + response · email campaigns · local SEO.</b> Clears the leak where there's never time for marketing, you have too few reviews, and your presence comes and goes. Keeps you posting, asks happy customers for reviews, replies to the ones you get, and runs the campaigns you'd never get to.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $50–75K/yr marketing coordinator</div>
+    </div>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+      <div class="nm">Client Onboarding Team</div>
+      <div class="ds"><b>Owns: new-client intake · doc &amp; data collection · kickoff scheduling · account setup · welcome sequence · first-value delivery.</b> Clears the leak where onboarding is chaos, time-to-value drags, and new clients ghost during setup. Collects what's needed, sets up the account, and walks every new client to their first win. <em style="font-style:normal;color:var(--muted)">It's also how we onboard you.</em></div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $45–65K/yr onboarding specialist</div>
+    </div>
+    <div class="acard">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></div>
+      <div class="nm">Customer Retention Team</div>
+      <div class="ds"><b>Owns: post-service follow-up · review requests · lapsed-customer re-engagement · win-back · NPS &amp; feedback.</b> Clears the leak where customers you served once you never hear from again, follow-up isn't systematic, and your reputation is left to chance. Brings people back, asks for the review at the right moment, and wins back the ones who drifted.</div>
+      <div class="lift dn"><span class="ar">≈</span>Does the job of a $45–60K/yr customer-success coordinator</div>
     </div>
   </div>
 
   <p style="text-align:center;margin-top:8px;font-size:14.5px;color:var(--muted);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.65">
-    Staffing both teams in-house would run you <b style="color:var(--white)">$165K–$320K/year</b> in salaries alone — before benefits, taxes, training, or attrition. Efficio runs the same functions for <b style="color:var(--white)">$497–$3,500/mo</b> total. The math isn't subtle.
+    Staffing all seven functions in-house would run you <b style="color:var(--white)">$315K–$490K/year</b> in salaries alone — before benefits, taxes, training, or attrition. Efficio runs the same functions from <b style="color:var(--white)">$997–$3,500/mo</b> total. The math isn't subtle.
   </p>
+</section>
+
+<section class="sec" id="yourself">
+  <div class="sec-h">
+    <div class="ix">02 · You'll see yourself here</div>
+    <h2>Find your business. <em>See exactly where you're leaking.</em></h2>
+    <p>You don't need to know which agent does what. Find the row that sounds like your week — the pains that show up tell us your business type, and which teams to stand up first.</p>
+  </div>
+
+  <div class="see">
+    <div class="see-hd">
+      <span>Sounds like</span><span>Where you're leaking</span><span>Start with</span>
+    </div>
+    <div class="seerow">
+      <div class="bt"><b>Blue-collar service</b><small>HVAC · plumbing · electrical · cleaning · landscaping</small></div>
+      <div class="pn">Missed calls go to voicemail, quotes take too long, and the schedule is chaos.</div>
+      <div class="rt"><span class="tg">Front Office</span><span class="tg">Sales</span></div>
+    </div>
+    <div class="seerow">
+      <div class="bt"><b>Food &amp; hospitality</b><small>restaurants · catering · food service</small></div>
+      <div class="pn">Phones and reservations overwhelm the line, reviews go unanswered, and margins are thin.</div>
+      <div class="rt"><span class="tg">Front Office</span><span class="tg">Marketing</span><span class="tg">Finance</span></div>
+    </div>
+    <div class="seerow">
+      <div class="bt"><b>Sales-driven</b><small>real estate · insurance · B2B</small></div>
+      <div class="pn">Leads go cold, follow-up never happens, and the pipeline is a black box.</div>
+      <div class="rt"><span class="tg">Sales</span><span class="tg">Customer Retention</span><span class="tg">Marketing</span></div>
+    </div>
+    <div class="seerow">
+      <div class="bt"><b>White-collar &amp; professional</b><small>law · accounting · consulting · agencies</small></div>
+      <div class="pn">Admin buries the team, client onboarding drags, and AR sits unpaid.</div>
+      <div class="rt"><span class="tg">Back Office</span><span class="tg">Client Onboarding</span><span class="tg">Finance</span></div>
+    </div>
+    <div class="seerow">
+      <div class="bt"><b>Auto, repair &amp; specialty trades</b><small>auto shops · repair · specialty trades</small></div>
+      <div class="pn">Front-desk gaps, slow quotes, and no system for repeat business.</div>
+      <div class="rt"><span class="tg">Front Office</span><span class="tg">Sales</span><span class="tg">Customer Retention</span></div>
+    </div>
+  </div>
+
+  <div class="see-foot">
+    <p><b>Start with the team that's bleeding you. Add teams as you grow. Or run the whole department from day one.</b> One team is the <b>AI Specialist</b> ($997/mo) or <b>AI Team</b> ($2,500/mo) tier. All seven, run together, is your <b>AI Department</b> ($3,500/mo).</p>
+    <a href="/pricing.html">See the tiers &rarr;</a>
+  </div>
 </section>
 
 <section class="sec" id="workflows">
   <div class="sec-h">
-    <div class="ix">02 · How the teams work together</div>
+    <div class="ix">03 · How the teams work together</div>
     <h2>What it looks like <em>when the teams work together.</em></h2>
     <p>The real lift isn't one agent — it's your AI teams handing work off automatically across your whole operation. Here are six common patterns. Yours will be one of these, or a custom variant.</p>
   </div>
@@ -328,7 +394,7 @@
 
 <section class="sec" id="custom">
   <div class="sec-h">
-    <div class="ix">03 · Make your own</div>
+    <div class="ix">04 · Make your own</div>
     <h2>The one workflow nobody else has solved? <em>That's the slot we build.</em></h2>
     <p>If your operation has a quirk we haven't seen — and most do — the seventh slot in every engagement is a custom workflow agent scoped just for you. Built from the same modules, but stitched together for the workflow nobody else needed.</p>
   </div>
@@ -358,7 +424,7 @@
 
 <section class="sec" id="how">
   <div class="sec-h">
-    <div class="ix">04 · How it works</div>
+    <div class="ix">05 · How it works</div>
     <h2>From kickoff to live <em>in seven days.</em></h2>
     <p>Same playbook regardless of which agents you pick or what we build custom. Four steps, contractually backed by the day-7 SLA.</p>
   </div>
@@ -371,11 +437,11 @@
 </section>
 
 <div class="cta-strip">
-  <h2>Pick an agent, or describe your bottleneck. <em>Either gets shipped.</em></h2>
-  <p>15-minute call. We come back the next day with what we'd build first, what it ships in week one, and the metric we'll hit by day 30.</p>
+  <h2>Not sure which team you need? <em>Take the 5-min audit.</em></h2>
+  <p>Answer a few questions and we'll tell you where you're leaking and which team fixes it first — then a 15-minute call to scope it.</p>
   <div class="row">
-    <a class="btn-primary" href="/book.html" target="_blank" rel="noopener">Book a 15-min call &rarr;</a>
-    <a class="btn-outline" href="/demo/" target="_blank" rel="noopener">Open the live demo</a>
+    <a class="btn-primary" href="/audit-quiz.html">Take the 5-min audit &rarr;</a>
+    <a class="btn-outline" href="/book.html" target="_blank" rel="noopener">Book a 15-min call</a>
   </div>
 </div>
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>AI hires — the 4 core roles every service business already needs | Efficio</title>
-<meta name="description" content="The Efficio agent library: 12 ready-to-deploy AI agents we drop into any business, real workflow examples we've shipped, and a make-your-own option for the workflow nobody else has."/>
+<title>AI teams, not AI tools — front office, back office, or your full AI department | Efficio</title>
+<meta name="description" content="We don't sell single bots. We build coordinated AI teams: a front-office team that owns phones, booking and follow-up, a back-office team that owns inbox, ops and books — and an AI department that runs your whole operation. Live in 7 days."/>
 <link rel="canonical" href="https://efficio.tech/agents.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/agents.html"/>
@@ -122,6 +122,26 @@
 .cta-strip h2 em{font-style:normal;color:var(--purple2)}
 .cta-strip p{font-size:1rem;color:var(--text);max-width:520px;margin:0 auto 22px;line-height:1.6}
 .cta-strip .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* Tool → Team → Department hierarchy */
+.hier{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-bottom:44px}
+@media(max-width:760px){.hier{grid-template-columns:1fr}.hier .hier-arrow{display:none}}
+.hier-step{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:20px 20px 18px}
+.hier-step .hl{display:block;font-size:15px;font-weight:900;letter-spacing:-.015em;color:var(--w2);margin-bottom:7px}
+.hier-step p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+.hier-step p b{color:var(--w2);font-weight:700}
+.hier-step.tool{opacity:.6}.hier-step.tool .hl{color:var(--muted)}
+.hier-step.team{border-color:var(--purple);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.03))}
+.hier-step.team .hl{color:var(--purple2)}.hier-step.team p b{color:var(--white)}
+.hier-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple3);font-weight:900;font-size:20px}
+/* team group */
+.team-group{margin-bottom:34px}
+.team-group-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.team-group-h h3{font-size:1.35rem;font-weight:900;color:var(--white);letter-spacing:-.02em;margin:0}
+.team-group-h .anchor{font-size:12px;font-weight:700;color:var(--good)}
+.team-group-h .anchor small{color:var(--muted);font-weight:600}
+.lib2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:680px){.lib2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -131,7 +151,7 @@
   <div class="nav-links">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html">AI hires</a>
+    <a href="/agents.html">AI teams</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/blog/">Blog</a>
     <a href="/qualify.html" class="btn-nav">Qualify in 60 sec</a>
@@ -140,9 +160,9 @@
 
 <div class="ag-shell">
   <header class="ag-head">
-    <div class="eyebrow">AI hires · org chart for your business</div>
-    <h1>4 AI hires. <em>The roles every service business already needs.</em></h1>
-    <p>Think of how your business actually operates: front desk, back office, sales, books, marketing, ops. We bring an AI hire for each role — configured to your business, plugged into your stack, watched in one dashboard. Plus custom builds for anything specific to your operation. First hire live in 7 days.</p>
+    <div class="eyebrow">We sell AI teams &mdash; not AI tools</div>
+    <h1>AI teams, not AI tools. <em>The functions every business already runs.</em></h1>
+    <p>Everyone else sells a single bot you have to operate. We build <b>coordinated AI teams</b> — a <b>front-office team</b> that owns phones, booking and follow-up, and a <b>back-office team</b> that owns inbox, scheduling, ops and books. Want it all? That's your <b>AI department</b> — every team, your whole operation run by AI. Configured to your business, watched in one dashboard. First team live in 7 days.</p>
     <div class="ctas">
       <a class="btn-primary" href="/qualify.html">Find your tier in 60 sec &rarr;</a>
       <a class="btn-outline" href="/demo/" target="_blank" rel="noopener">See the live demo</a>
@@ -151,8 +171,8 @@
 </div>
 
 <div class="ag-toc"><div class="ag-toc-in">
-  <a href="#library">The 4 AI hires</a>
-  <a href="#workflows">Workflow examples</a>
+  <a href="#library">The AI teams</a>
+  <a href="#workflows">How the teams work together</a>
   <a href="#custom">Make your own</a>
   <a href="#how">How it works</a>
 </div></div>
@@ -161,52 +181,80 @@
 
 <section class="sec" id="library">
   <div class="sec-h">
-    <div class="ix">01 · The 4 AI hires</div>
-    <h2>The roles every service business already needs. <em>We bring all four.</em></h2>
-    <p>Each AI hire owns a function of your business end-to-end — the same way you'd hire a person to own it. They learn your voice, your tools, your customers, and your rules. We deploy and run them. You watch in one dashboard.</p>
+    <div class="ix">01 · The AI teams</div>
+    <h2>Two AI teams, built from coordinated agents. <em>Not a menu of single bots.</em></h2>
+    <p>A competitor sells you one bot and walks away. We build <b>teams</b> — each a group of agents that owns a whole function end-to-end, the way you'd staff a department. They learn your voice, your tools, your customers, and your rules. We deploy and run them. You watch in one dashboard. All your teams together = your <b>AI department</b>.</p>
   </div>
 
-  <div class="lib">
-    <div class="acard">
-      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <a class="nm" href="/agents/receptionist.html" style="text-decoration:none;color:inherit;display:block">AI Receptionist <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-      <div class="ds"><b>Owns: phones · texts · web forms · booking · first contact.</b> Answers in seconds, 24/7. Books appointments, captures details, flags emergencies. Never sends a lead to voicemail. The job a $30–50K/yr human front desk would do.</div>
-      <div class="lift"><span class="ar">↑</span>100% calls captured <small>vs. 30–40% to voicemail (ServiceTitan)</small></div>
+  <div class="hier">
+    <div class="hier-step tool">
+      <span class="hl">AI Tool</span>
+      <p>A single bot you have to operate and babysit. What every competitor sells. <b>We don't.</b></p>
     </div>
-
-    <div class="acard">
-      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-      <a class="nm" href="/agents/office-manager.html" style="text-decoration:none;color:inherit;display:block">AI Office Manager <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-      <div class="ds"><b>Owns: inbox triage · document filing · scheduling · internal handoffs · workflow oversight · KPI tracking · daily brief · escalations.</b> Anything happening inside your business: cleans the firehose, routes the work, watches the operation for stalled handoffs, builds your six-line morning briefing. The job a $45–90K/yr human office manager would do.</div>
-      <div class="lift dn"><span class="ar">↓</span>94% owner inbox time</div>
+    <div class="hier-arrow" aria-hidden="true">&rarr;</div>
+    <div class="hier-step team">
+      <span class="hl">AI Team</span>
+      <p>A <b>coordinated group of agents</b> that runs a whole function — front office or back office. <b>This is what we build.</b></p>
     </div>
-
-    <div class="acard">
-      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <a class="nm" href="/agents/sales-navigator.html" style="text-decoration:none;color:inherit;display:block">AI Sales Navigator <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-      <div class="ds"><b>Owns: lead intake · quotes · follow-ups · pipeline tracking.</b> Responds to new leads instantly, builds itemized quotes against your pricing book, drives Day-3 / Day-7 / Day-14 follow-up sequences. Closes the quote-to-job loop most shops drop. The job a $50–100K/yr human sales rep would do.</div>
-      <div class="lift dn"><span class="ar">↓</span>96% time-to-quote <small>4 hrs → ~11 min</small></div>
+    <div class="hier-arrow" aria-hidden="true">&rarr;</div>
+    <div class="hier-step dept">
+      <span class="hl">AI Department</span>
+      <p>Every team together — your <b>entire operation</b>, run by AI.</p>
     </div>
-
-    <div class="acard">
-      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-      <a class="nm" href="/agents/bookkeeper.html" style="text-decoration:none;color:inherit;display:block">AI Bookkeeper <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
-      <div class="ds"><b>Owns: AR chase · expense categorization · daily reconciliation · monthly close prep · invoice generation.</b> Reads QuickBooks / Stripe / your bank. Drafts the right tone of AR follow-up (polite at 7 days, firm at 21, escalation at 45). Books close by the 3rd of the month, not the 15th. The job a $40–80K/yr human bookkeeper would do.</div>
-      <div class="lift"><span class="ar">↑</span>12× faster close <small>+ cleaner audit trail</small></div>
-    </div>
-
   </div>
 
-  <p style="text-align:center;margin-top:32px;font-size:14.5px;color:var(--muted);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.65">
-    Hiring all four in-house would run you <b style="color:var(--white)">$165K–$320K/year</b> in salaries alone — before benefits, taxes, training, or attrition. Efficio runs the same four roles for <b style="color:var(--white)">$497–$3,500/mo</b> total. The math isn't subtle.
+  <div class="team-group">
+    <div class="team-group-h">
+      <h3>Front-Office Team</h3>
+      <span class="anchor">Replaces ~$80–150K/yr of headcount <small>· front desk + sales rep</small></span>
+    </div>
+    <div class="lib2">
+      <div class="acard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <a class="nm" href="/agents/receptionist.html" style="text-decoration:none;color:inherit;display:block">Reception &amp; booking <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+        <div class="ds"><b>Owns: phones · texts · web forms · booking · first contact.</b> Answers in seconds, 24/7. Books appointments, captures details, flags emergencies. Never sends a lead to voicemail. The job a $30–50K/yr human front desk would do.</div>
+        <div class="lift"><span class="ar">↑</span>100% calls captured <small>vs. 30–40% to voicemail (industry avg)</small></div>
+      </div>
+      <div class="acard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <a class="nm" href="/agents/sales-navigator.html" style="text-decoration:none;color:inherit;display:block">Sales &amp; quotes <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+        <div class="ds"><b>Owns: lead intake · quotes · follow-ups · pipeline tracking.</b> Responds to new leads instantly, builds itemized quotes against your pricing book, drives Day-3 / Day-7 / Day-14 follow-up sequences. Closes the quote-to-job loop most businesses drop. The job a $50–100K/yr human sales rep would do.</div>
+        <div class="lift dn"><span class="ar">↓</span>96% time-to-quote <small>4 hrs → ~11 min</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-group">
+    <div class="team-group-h">
+      <h3>Back-Office Team</h3>
+      <span class="anchor">Replaces ~$85–170K/yr of headcount <small>· office manager + bookkeeper</small></span>
+    </div>
+    <div class="lib2">
+      <div class="acard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <a class="nm" href="/agents/office-manager.html" style="text-decoration:none;color:inherit;display:block">Office manager &amp; ops <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+        <div class="ds"><b>Owns: inbox triage · document filing · scheduling · internal handoffs · workflow oversight · KPI tracking · daily brief · escalations.</b> Anything happening inside your business: cleans the firehose, routes the work, watches the operation for stalled handoffs, builds your six-line morning briefing. The job a $45–90K/yr human office manager would do.</div>
+        <div class="lift dn"><span class="ar">↓</span>94% owner inbox time</div>
+      </div>
+      <div class="acard">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <a class="nm" href="/agents/bookkeeper.html" style="text-decoration:none;color:inherit;display:block">Bookkeeping &amp; AR <span style="color:var(--purple3);font-weight:600;font-size:12px;margin-left:6px">deep dive →</span></a>
+        <div class="ds"><b>Owns: AR chase · expense categorization · daily reconciliation · monthly close prep · invoice generation.</b> Reads QuickBooks / Stripe / your bank. Drafts the right tone of AR follow-up (polite at 7 days, firm at 21, escalation at 45). Books close by the 3rd of the month, not the 15th. The job a $40–80K/yr human bookkeeper would do.</div>
+        <div class="lift"><span class="ar">↑</span>12× faster close <small>+ cleaner audit trail</small></div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:8px;font-size:14.5px;color:var(--muted);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.65">
+    Staffing both teams in-house would run you <b style="color:var(--white)">$165K–$320K/year</b> in salaries alone — before benefits, taxes, training, or attrition. Efficio runs the same functions for <b style="color:var(--white)">$497–$3,500/mo</b> total. The math isn't subtle.
   </p>
 </section>
 
 <section class="sec" id="workflows">
   <div class="sec-h">
-    <div class="ix">02 · Workflow examples</div>
-    <h2>What it looks like <em>when the hires work together.</em></h2>
-    <p>The real lift isn't one hire — it's three or four AI hires handing work off automatically across your org chart. Here are six common patterns. Yours will be one of these, or a custom variant.</p>
+    <div class="ix">02 · How the teams work together</div>
+    <h2>What it looks like <em>when the teams work together.</em></h2>
+    <p>The real lift isn't one agent — it's your AI teams handing work off automatically across your whole operation. Here are six common patterns. Yours will be one of these, or a custom variant.</p>
   </div>
 
   <div class="wf">

@@ -303,7 +303,7 @@ def page_html(h):
       <div class="row"><span>+ benefits, taxes, training (rough +30%)</span><span class="v">+$15K–$30K</span></div>
       <div class="row"><span>+ turnover risk (avg 18-mo tenure)</span><span class="v">+recruiting cost</span></div>
       <div class="row"><span>True annual cost (all-in)</span><span class="v">$60–130K/yr</span></div>
-      <div class="row"><span><b>AI {h['name'].replace('AI ','')} via Efficio</b></span><span class="v">$497–$3,500/mo · scales w/ tier</span></div>
+      <div class="row"><span><b>AI {h['name'].replace('AI ','')} via Efficio</b></span><span class="v">$497–$3,500/mo · grows w/ tier</span></div>
     </div>
   </div>
 

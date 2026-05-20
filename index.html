@@ -34,7 +34,7 @@
     "foundingDate":"2026",
     "address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},
     "parentOrganization":{"@type":"Organization","name":"BNG Contracting Enterprise LLC"},
-    "knowsAbout":["AI Receptionist","AI Office Manager","AI Sales Navigator","AI Bookkeeper","Operational Dashboards","Workflow Automation","Service Business Operations","Custom AI Builds"],
+    "knowsAbout":["AI Front-Office Team","AI Back-Office Team","AI Department","Operational Dashboards","Workflow Automation","Small Business Operations","Custom AI Builds"],
     "hasOfferCatalog":{
       "@type":"OfferCatalog",
       "name":"Subscription Tiers",
@@ -126,8 +126,22 @@
 .proof-bar .pb-lbl{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .proof-bar .pb-lbl::before,.proof-bar .pb-lbl::after{content:"";flex:1;height:1px;background:var(--bd)}
-.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:960px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.proof-grid{grid-template-columns:1fr}}
+/* Tool → Team → Department hierarchy strip */
+.hier{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-bottom:22px}
+@media(max-width:760px){.hier{grid-template-columns:1fr}.hier .hier-arrow{display:none}}
+.hier-step{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);padding:16px 16px 15px}
+.hier-step .hl{display:block;font-size:13.5px;font-weight:900;letter-spacing:-.01em;color:var(--w2);margin-bottom:6px}
+.hier-step p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.hier-step p b{color:var(--w2);font-weight:700}
+.hier-step.tool{opacity:.62}
+.hier-step.tool .hl{color:var(--muted)}
+.hier-step.team{border-color:var(--purple);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.03))}
+.hier-step.team .hl{color:var(--purple2)}
+.hier-step.team p b{color:var(--white)}
+.hier-step.dept .hl{color:var(--w2)}
+.hier-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple3);font-weight:900;font-size:18px}
 @media(max-width:540px){.proof-grid{grid-template-columns:1fr}}
 .pb-tile{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px 22px;
   transition:.18s;position:relative;overflow:hidden;display:flex;flex-direction:column}
@@ -467,7 +481,7 @@
   <div class="nav-links">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html">AI hires</a>
+    <a href="/agents.html">AI teams</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/blog/">Blog</a>
     <a href="/qualify.html" class="btn-nav">Qualify in 60 sec</a>
@@ -479,9 +493,9 @@
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="hero-eyebrow rv">One dashboard · 4 AI hires · built into your business</div>
+      <div class="hero-eyebrow rv">We sell AI teams &mdash; not AI tools</div>
       <h1 class="rv d1">We're your <span class="ac">AI team.</span></h1>
-      <p class="lede rv d2">Every service business has the same four core roles: <b>someone answering inbound, someone running the back-office, someone closing leads, someone running the books.</b> We bring an AI hire for each — Receptionist · Office Manager · Sales Navigator · Bookkeeper — plus the live dashboard you watch them work in. You don't learn the tools. You don't manage anything. You operate.</p>
+      <p class="lede rv d2">Everyone else sells you <b>a single bot you have to operate.</b> We build and run <b>a coordinated AI team</b> &mdash; a front-office team that owns your phones, booking and follow-up, and a back-office team that owns your inbox, scheduling, ops and books. Want the whole operation run by AI? That's your <b>AI department</b>. You don't learn the tools. You don't manage anything. You operate.</p>
       <div class="hero-ctas-l rv d3">
         <a href="/qualify.html" class="btn-primary" data-magnetic>Find your tier in 60 sec <span class="btn-arrow">&rarr;</span></a>
         <a href="/how-it-works.html" class="btn-outline" data-magnetic>See how it works</a>
@@ -511,31 +525,35 @@
 <!-- PROOF BAR — the same stack runs on -->
 <section class="proof-bar">
   <div class="container">
-    <div class="pb-lbl rv">The 4 AI hires you'd otherwise have to recruit, train, and pay $30K–$100K each</div>
+    <div class="pb-lbl rv">Tool &rarr; Team &rarr; Department &mdash; what we actually sell</div>
+    <div class="hier rv">
+      <div class="hier-step tool">
+        <span class="hl">AI Tool</span>
+        <p>A single bot you have to operate and babysit. What every competitor sells. <b>We don't.</b></p>
+      </div>
+      <div class="hier-arrow" aria-hidden="true">&rarr;</div>
+      <div class="hier-step team">
+        <span class="hl">AI Team</span>
+        <p>A <b>coordinated group of AI agents</b> that runs a whole function for you &mdash; front office or back office. <b>This is what we build.</b></p>
+      </div>
+      <div class="hier-arrow" aria-hidden="true">&rarr;</div>
+      <div class="hier-step dept">
+        <span class="hl">AI Department</span>
+        <p>Every team together &mdash; your <b>entire operation</b>, run by AI.</p>
+      </div>
+    </div>
     <div class="proof-grid">
       <div class="pb-tile rv" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>AI Receptionist</b></div>
+        <div class="pb-h"><span class="dot"></span><b>Front-Office Team</b></div>
         <div class="pb-num"><span class="pb-arrow up">&uarr;</span><em>100</em>%</div>
-        <div class="pb-ds">Of inbound calls, texts, and web forms answered. Books appointments. Never sleeps. Human equiv: $30–50K/yr front desk.</div>
-        <div class="pb-tag">vs 30–40% to voicemail (ServiceTitan)</div>
+        <div class="pb-ds"><b>Owns everything customer-facing:</b> phones, texts and web forms answered in seconds 24/7, booking, instant itemized quotes, and follow-up until the lead decides. Coordinated agents working as one team &mdash; not a single bot.</div>
+        <div class="pb-tag">Replaces ~$80&ndash;150K/yr of front-desk + sales headcount &middot; live in 7 days</div>
       </div>
       <div class="pb-tile rv d1" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>AI Sales Navigator</b></div>
-        <div class="pb-num"><span class="pb-arrow down">&darr;</span><em>96</em>%</div>
-        <div class="pb-ds">Faster inquiry-to-itemized-quote, plus follow-up sequences and pipeline tracking. Human equiv: $50–100K/yr sales rep.</div>
-        <div class="pb-tag">Hours become minutes</div>
-      </div>
-      <div class="pb-tile rv d2" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>AI Office Manager</b></div>
+        <div class="pb-h"><span class="dot"></span><b>Back-Office Team</b></div>
         <div class="pb-num"><span class="pb-arrow down">&darr;</span><em>94</em>%</div>
-        <div class="pb-ds">Drop in owner inbox time. Triage, docs, scheduling, internal handoffs, KPI tracking. Human equiv: $45–90K/yr.</div>
-        <div class="pb-tag">Back-office on autopilot</div>
-      </div>
-      <div class="pb-tile rv d3" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>AI Bookkeeper</b></div>
-        <div class="pb-num"><span class="pb-arrow up">&uarr;</span><em>12</em>×</div>
-        <div class="pb-ds">Faster close. AR chase, expense categorization, reconciliation, monthly close prep. Human equiv: $40–80K/yr bookkeeper.</div>
-        <div class="pb-tag">Books closed by the 3rd, not the 15th</div>
+        <div class="pb-ds"><b>Owns everything behind the scenes:</b> inbox triage, scheduling, internal handoffs, KPI tracking, your daily brief, AR chase, reconciliation and monthly close. The drop in owner inbox time. A real team, not a tool.</div>
+        <div class="pb-tag">Replaces ~$85&ndash;170K/yr of office-manager + bookkeeper headcount &middot; live in 7 days</div>
       </div>
     </div>
   </div>
@@ -554,9 +572,9 @@
           <div class="ava">E</div>
           <div><b>The numbers we work with</b><small>Industry benchmarks · cited below</small></div>
         </div>
-        <div class="fc-stat"><span class="k">HVAC inbound calls to voicemail</span><span class="v"><em>30–40</em>%</span></div>
+        <div class="fc-stat"><span class="k">Inbound calls lost to voicemail</span><span class="v"><em>30–40</em>%</span></div>
         <div class="fc-stat"><span class="k">Owner time spent on admin</span><span class="v"><em>40</em>%</span></div>
-        <div class="fc-stat"><span class="k">GC capacity lost to manual data entry</span><span class="v"><em>25–40</em>%</span></div>
+        <div class="fc-stat"><span class="k">Capacity lost to manual data entry</span><span class="v"><em>25–40</em>%</span></div>
         <div class="fc-stat"><span class="k">SMBs reporting AI lifts revenue</span><span class="v"><em>56</em>%</span></div>
         <div class="fc-stat"><span class="k">First agent live in your stack</span><span class="v">Day 7</span></div>
         <div class="fc-stat"><span class="k">If we miss day 7</span><span class="v" style="color:var(--good)">Month is on us</span></div>
@@ -613,7 +631,7 @@
         <div class="stat" style="--bw:90%">
           <div class="sn"><em><span class="cu" data-count="38">0</span><span style="font-size:.55em;font-weight:800;color:var(--muted);margin-left:4px">sec</span></em></div>
           <div class="sbar"><i></i></div>
-          <div class="sl">Average time your front-desk agent takes to answer an inbound lead. The shop down the road takes 4 hours.</div>
+          <div class="sl">Average time your front-office team takes to answer an inbound lead. The competitor down the road takes 4 hours.</div>
           <div class="ss">First-Party · Production agents</div>
         </div>
         <div class="stat" style="--bw:95%">
@@ -625,14 +643,14 @@
         <div class="stat" style="--bw:80%">
           <div class="sn"><em>$<span class="cu" data-count="2700">0</span></em></div>
           <div class="sbar"><i></i></div>
-          <div class="sl">Median monthly value of jobs walking to the competitor through missed calls in a 6-person home-services shop.</div>
+          <div class="sl">Median monthly value of work walking to the competitor through missed calls in a 6-person small business.</div>
           <div class="ss">Calc: 6 missed callable jobs · $450 avg ticket</div>
         </div>
-        <div class="stat" style="--bw:98%">
-          <div class="sn"><em><span class="cu" data-count="98">0</span>%</em></div>
+        <div class="stat" style="--bw:100%">
+          <div class="sn"><em><span class="cu" data-count="7">0</span><span style="font-size:.55em;font-weight:800;color:var(--muted);margin-left:4px">days</span></em></div>
           <div class="sbar"><i></i></div>
-          <div class="sl">of clients renew after their first 30 days — we keep the agent live or the month is on us.</div>
-          <div class="ss">Efficio · client retention</div>
+          <div class="sl">From kickoff to your first AI team live and working in your stack — or the month is on us. In writing.</div>
+          <div class="ss">Efficio · contractual day-7 guarantee</div>
         </div>
       </div>
     </div>
@@ -701,12 +719,12 @@
     </div>
     <div class="do-grid">
       <div class="do rv">
-        <h3>Agents that run the work</h3>
-        <p>Front desk, sales, scheduling, inbox — each one owns a workflow end-to-end, 24/7.</p>
+        <h3>Teams that run the work</h3>
+        <p>A front-office team and a back-office team — each a group of coordinated agents that owns a whole function end-to-end, 24/7.</p>
         <ul>
           <li>Never miss an inbound call, text, or form</li>
           <li>Every lead worked, quoted, followed up</li>
-          <li>Books and confirms without the back-and-forth</li>
+          <li>Inbox, scheduling, and books run themselves</li>
         </ul>
       </div>
       <div class="do rv d1">
@@ -814,12 +832,12 @@
     </div>
     <div class="price-grid">
       <div class="tier rv">
-        <div class="tag">Entry — one agent</div>
+        <div class="tag">Entry &middot; one AI team</div>
         <div class="name">AI Specialist</div>
         <div class="price">$997<span> /mo</span></div>
-        <div class="blurb">One AI agent doing a real job in your business — and the dashboard to watch it work.</div>
+        <div class="blurb">One AI team that runs your single biggest function end-to-end — front office or back office. Not a single bot you operate; a coordinated set of agents we build and run.</div>
         <ul>
-          <li><b>1 AI agent</b> — answers your calls &amp; texts, books jobs, or chases leads (you pick the job)</li>
+          <li><b>One AI team</b> on the function bleeding the most time — phones &amp; booking, or inbox &amp; ops (you pick)</li>
           <li><b>Your live dashboard</b> — every lead caught, job booked, and hour saved, on one screen</li>
           <li>We build it, run it, and fix it — you never touch the tech</li>
           <li>Monthly strategy call + shared chat channel</li>
@@ -827,26 +845,26 @@
         <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn-price out" target="_blank" rel="noopener">Start with AI Specialist</a>
       </div>
       <div class="tier feat rv d1">
-        <div class="tag">Most popular — two agents</div>
+        <div class="tag">Most popular &middot; two AI teams</div>
         <div class="name">AI Team</div>
         <div class="price">$2,500<span> /mo</span></div>
-        <div class="blurb">A second agent on your next-slowest workflow — so two jobs run themselves.</div>
+        <div class="blurb">Your front-office team and back-office team, both running — the whole customer journey and the whole back office, on autopilot.</div>
         <ul>
           <li>Everything in AI Specialist</li>
-          <li><b>2nd AI agent</b> — a quote bot, intake bot, scheduler, or follow-up agent, built to your workflow</li>
-          <li>We tune both agents every week as your business changes</li>
+          <li><b>A second AI team</b> — add the other half of your operation, front + back office working together</li>
+          <li>We tune both teams every week as your business changes</li>
           <li>Biweekly strategy call + priority response</li>
         </ul>
         <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn-price sol" target="_blank" rel="noopener">Start with AI Team</a>
       </div>
       <div class="tier rv d2">
-        <div class="tag">Full stack — unlimited</div>
+        <div class="tag">Full operation &middot; every team</div>
         <div class="name">AI Department</div>
         <div class="price">$3,500<span> /mo</span></div>
-        <div class="blurb">A standing AI team that keeps building — every new bottleneck, we ship the fix.</div>
+        <div class="blurb">Your full AI department — every team running, plus new ones built on demand. Your whole operation, run by AI.</div>
         <ul>
           <li>Everything in AI Team</li>
-          <li><b>Unlimited agents &amp; tools</b> — a new build whenever you need one, no extra cost</li>
+          <li><b>Every team + unlimited builds</b> — a new agent or team whenever a bottleneck appears, no extra cost</li>
           <li><b>Custom AI products</b> too — internal tools, customer apps, integrations</li>
           <li>Weekly strategy call + 24-hour response SLA</li>
         </ul>
@@ -919,7 +937,7 @@
   </div>
   <div class="foot-bottom">
     <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built for service businesses across the US.</div>
+    <div>Built for small &amp; medium businesses across the US.</div>
   </div>
 </footer>
 

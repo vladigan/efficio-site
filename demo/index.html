@@ -75,13 +75,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   font-size:13px;font-weight:600;color:var(--text);transition:.15s}
 .pill:hover{border-color:var(--bd2);color:var(--w2)}
 .pill.sel{border-color:var(--purple);background:rgba(124,58,237,.12);color:var(--white)}
-.b-go{width:100%;margin-top:6px;background:var(--purple);color:#fff;font-weight:800;font-size:15px;
-  padding:16px;border-radius:var(--r);letter-spacing:-.01em;transition:.15s;
-  display:flex;align-items:center;justify-content:center;gap:9px}
-.b-go:hover{background:var(--purple2)}
-.b-go:disabled{opacity:.4;cursor:not-allowed;background:var(--surf3)}
-.b-go .ar{transition:transform .15s}
-.b-go:hover:not(:disabled) .ar{transform:translateX(4px)}
+.b-go{width:100%;margin-top:6px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;font-weight:900;font-size:16px;
+  padding:18px;border:1px solid rgba(167,139,250,.5);border-radius:var(--r);letter-spacing:-.015em;
+  transition:transform .15s var(--ease),box-shadow .2s,filter .15s;
+  box-shadow:0 12px 30px -10px rgba(124,58,237,.6),inset 0 1px 0 rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;gap:10px}
+.b-go:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.06);
+  box-shadow:0 18px 40px -10px rgba(124,58,237,.75),inset 0 1px 0 rgba(255,255,255,.22)}
+.b-go:active:not(:disabled){transform:translateY(0)}
+.b-go:disabled{opacity:.4;cursor:not-allowed;background:var(--surf3);border-color:transparent;box-shadow:none}
+.b-go .ar{transition:transform .15s;font-size:18px}
+.b-go:hover:not(:disabled) .ar{transform:translateX(5px)}
 .b-foot{text-align:center;font-size:12px;color:var(--muted);margin-top:18px}
 
 /* generating overlay */
@@ -373,6 +377,35 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .dr-cta:hover{background:var(--purple2)}
 
 .foot{text-align:center;font-size:11.5px;color:var(--muted);padding:30px 0 10px}
+/* Today's top 3 actions */
+.t3{display:flex;align-items:flex-start;gap:14px;padding:14px 4px;border-bottom:1px solid var(--bd)}
+.t3:last-child{border-bottom:none}
+.t3-rank{flex:none;width:26px;height:26px;border-radius:7px;background:rgba(124,58,237,.16);border:1px solid var(--purple);
+  color:var(--purple2);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.t3-body{flex:1;min-width:0}
+.t3-top{display:flex;align-items:center;gap:9px;margin-bottom:3px;flex-wrap:wrap}
+.t3-tag{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple3);
+  background:rgba(124,58,237,.12);border-radius:99px;padding:3px 9px}
+.t3-agent{font-size:11.5px;font-weight:700;color:var(--muted)}
+.t3-text{font-size:13.5px;color:var(--w2);line-height:1.45}
+.t3-time{flex:none;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.team-band{display:flex;align-items:center;gap:10px;margin:4px 0 8px;font-size:11px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--purple3)}
+.team-band::after{content:"";flex:1;height:1px;background:var(--bd)}
+.team-band:not(:first-child){margin-top:16px}
+/* next-step CTA after the dashboard */
+.demo-cta{margin:14px 0 40px;padding:32px 28px;border:1px solid var(--purple);border-radius:16px;text-align:center;
+  background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(124,58,237,.03))}
+.demo-cta h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;color:var(--white);letter-spacing:-.02em;margin:0 0 8px}
+.demo-cta p{font-size:14px;color:var(--text);max-width:520px;margin:0 auto 18px;line-height:1.55}
+.demo-cta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.demo-cta a.primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+  color:#fff;font-weight:900;font-size:14.5px;padding:14px 26px;border-radius:10px;text-decoration:none;
+  box-shadow:0 12px 30px -10px rgba(124,58,237,.6);transition:transform .15s,filter .15s}
+.demo-cta a.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.demo-cta a.ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bd2);color:var(--w2);
+  font-weight:700;font-size:14.5px;padding:14px 24px;border-radius:10px;text-decoration:none}
+.demo-cta a.ghost:hover{border-color:var(--white);color:var(--white)}
 .foot b{color:var(--purple3);font-weight:700}
 </style>
 </head>
@@ -380,7 +413,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 <div class="demo-bar">
   <span><b>Efficio live demo</b> — build a sample command center for any business, then click around it.</span>
-  <a href="https://efficio.tech/book.html" target="_blank" rel="noopener">Book a call →</a>
+  <a href="https://efficio.tech/audit-quiz.html">Take the 5-min audit →</a>
 </div>
 
 <!-- ════════ BUILDER ════════ -->
@@ -388,8 +421,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   <div class="b-head">
     <div class="b-logo"><span class="mk"><i></i></span><span>Efficio</span></div>
     <div class="b-eyebrow">Live command center demo</div>
-    <h1>See the dashboard <em>a client gets.</em></h1>
-    <p>Drop in a business — yours, a prospect's, anyone's. We'll spin up the exact command center Efficio builds, customized to that business. Then click into every part of it.</p>
+    <h1>See what Efficio runs <em>for a business like yours.</em></h1>
+    <p>Drop in any business — yours, a prospect's, anyone's. We'll spin up the exact command center your AI teams run from, customized to that business. Then click into every part of it.</p>
   </div>
 
   <div class="b-card">
@@ -440,7 +473,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <nav class="side-nav" id="sideNav">
       <div class="sec">Command center</div>
       <button class="nav-item act" data-tab="overview"><span class="ico">▦</span>Overview</button>
-      <button class="nav-item" data-tab="team"><span class="ico">◈</span>AI team<span class="ct" id="navTeamCt"></span></button>
+      <button class="nav-item" data-tab="team"><span class="ico">◈</span>AI teams<span class="ct" id="navTeamCt"></span></button>
       <button class="nav-item" data-tab="activity"><span class="ico">≋</span>Activity<span class="ct" id="navActCt"></span></button>
       <div class="sec">Delivery</div>
       <button class="nav-item" data-tab="pipeline"><span class="ico">▸</span>Build pipeline<span class="ct" id="navPipeCt"></span></button>
@@ -476,16 +509,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
     <div class="shell">
       <div class="page-head">
-        <h1 id="pageTitle">Your AI team, working now.</h1>
+        <h1 id="pageTitle">Your AI teams, working now.</h1>
         <p id="pageSub">Everything we've built — and everything it's doing — on one screen.</p>
       </div>
 
     <!-- OVERVIEW -->
     <div class="tabpanel act" data-panel="overview">
       <div class="kpis" id="kpis"></div>
+      <div class="panel">
+        <div class="panel-h"><h2>Today's top 3 actions</h2><span class="meta">Prioritized by your AI teams</span></div>
+        <div id="top3"></div>
+      </div>
       <div class="cols">
         <div class="panel">
-          <div class="panel-h"><h2>Your AI team</h2><span class="meta" id="teamMeta"></span></div>
+          <div class="panel-h"><h2>Your AI teams</h2><span class="meta" id="teamMeta"></span></div>
           <div id="agentRows"></div>
         </div>
         <div class="panel">
@@ -548,6 +585,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       </div>
     </div>
 
+    <div class="demo-cta">
+      <h2>Want this live in your business in 7 days?</h2>
+      <p>This is a sample. The real thing is your own AI teams — built, run, and watched from a command center like this one. Take the 5-minute audit and we'll show you exactly what we'd build first.</p>
+      <div class="row">
+        <a class="primary" href="https://efficio.tech/audit-quiz.html">Take the 5-min audit <span aria-hidden="true">→</span></a>
+        <a class="ghost" href="https://calendly.com/brady-bngcent/efficio-ai-audit-15-min" target="_blank" rel="noopener">Or book a 15-min call</a>
+      </div>
+    </div>
+
     <div class="foot">Command center built &amp; run by <b>Efficio</b> — your contracted AI team. This is a demo with sample data.</div>
     </div>
   </div>
@@ -575,7 +621,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <h3>Sample interaction</h3>
       <div class="convo" id="drConvo"></div>
     </div>
-    <a class="dr-cta" href="https://efficio.tech/book.html" target="_blank" rel="noopener">Get this running in your business →</a>
+    <a class="dr-cta" href="https://efficio.tech/audit-quiz.html">Get this running in your business →</a>
   </div>
 </aside>
 
@@ -584,7 +630,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 const INDUSTRIES = {
   homeservices: {
     label:"Home Services", ico:"🔧",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Quote Builder", desc:"Itemized estimates from your pricebook in 90 seconds",
       role:"Pulls your real pricing, builds a clean itemized quote, texts it to the customer, and follows up if they don't open it." },
     kpis:[
@@ -654,7 +700,7 @@ const INDUSTRIES = {
 
   dental: {
     label:"Dental / Medical", ico:"🦷",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Recall Engine", desc:"Brings overdue patients back on the schedule — automatically",
       role:"Watches your patient list for anyone overdue for a cleaning or follow-up and runs a friendly re-book sequence until they're on the calendar." },
     kpis:[
@@ -725,7 +771,7 @@ const INDUSTRIES = {
 
   law: {
     label:"Law Firm", ico:"⚖️",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Intake Screener", desc:"Qualifies new matters before they hit your calendar",
       role:"Runs every new inquiry through your intake criteria, collects the facts, flags conflicts, and only books consults that are actually a fit." },
     kpis:[
@@ -793,7 +839,7 @@ const INDUSTRIES = {
 
   realestate: {
     label:"Real Estate", ico:"🏠",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Listing Engine", desc:"Turns a new listing into copy, emails, and social — instantly",
       role:"The moment a listing goes active, it writes the description, the email blast, and the social posts in your voice — ready to review and send." },
     kpis:[
@@ -862,7 +908,7 @@ const INDUSTRIES = {
 
   auto: {
     label:"Auto Repair", ico:"🚗",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Estimate Builder", desc:"Builds repair estimates from your labor guide in minutes",
       role:"Takes the diagnosis and your labor rates, builds a clear parts-and-labor estimate, and texts it to the customer with one-tap approval." },
     kpis:[
@@ -932,7 +978,7 @@ const INDUSTRIES = {
 
   accounting: {
     label:"Accounting", ico:"📒",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Doc Chaser", desc:"Collects missing client documents — without you asking",
       role:"Knows what's outstanding for every client, sends the requests, and follows up until the documents are actually in — so nothing stalls on a missing W-2." },
     kpis:[
@@ -1002,7 +1048,7 @@ const INDUSTRIES = {
 
   generic: {
     label:"Other / Services", ico:"🏢",
-    headline:"Your AI team, working now.",
+    headline:"Your AI teams, working now.",
     custom:{ name:"Custom Agent", desc:"Built around the one workflow that eats your team's time",
       role:"Whatever the repetitive, manual thing is in your business — we build an agent for exactly that, around how you already work." },
     kpis:[
@@ -1148,7 +1194,7 @@ function scaleNum(base){
 
 const TAB_META = {
   overview: ["Overview","Your command center"],
-  team:     ["AI team","Every agent we've built for you"],
+  team:     ["AI teams","Every agent in your front- and back-office teams"],
   activity: ["Activity","Everything your AI team is doing"],
   pipeline: ["Build pipeline","What we're shipping next"],
   impact:   ["Impact & ROI","What your AI team is worth"]
@@ -1191,6 +1237,7 @@ function renderDashboard(){
   setTab("overview");
 
   renderKpis();
+  renderTop3();
   renderAgentRows();
   renderFeedMini();
   renderTrend();
@@ -1260,7 +1307,8 @@ function renderAgentRows(){
     }
     return bars.join("");
   }
-  document.getElementById("agentRows").innerHTML = ind.agents.map(a=>`
+  const FRONT = ["front","sales"], BACK = ["scheduling","custom"];
+  const rowHtml = a => `
     <button class="agent" data-agent="${a.id}">
       <span class="a-dot ${a.status}"></span>
       <div class="a-body">
@@ -1270,10 +1318,32 @@ function renderAgentRows(){
       <span class="a-spark" aria-hidden="true">${spark(a.id)}</span>
       <span class="a-metric">${a.metric}</span>
       <span class="a-arrow">›</span>
-    </button>`).join("");
+    </button>`;
+  const group = (label, ids) => {
+    const rows = ind.agents.filter(a=>ids.includes(a.id)).map(rowHtml).join("");
+    return rows ? `<div class="team-band">${label}</div>${rows}` : "";
+  };
+  const others = ind.agents.filter(a=>![...FRONT,...BACK].includes(a.id)).map(rowHtml).join("");
+  document.getElementById("agentRows").innerHTML =
+    group("Front-office team", FRONT) + group("Back-office team", BACK) + others;
   document.querySelectorAll("#agentRows .agent").forEach(b=>{
     b.onclick = ()=>openDrawer(b.dataset.agent);
   });
+}
+
+function renderTop3(){
+  const ind = INDUSTRIES[state.industry];
+  const picks = ind.agents.slice(0,3);
+  const tags = ["Revenue at risk","Follow-up due","Flagged for you"];
+  document.getElementById("top3").innerHTML = picks.map((a,i)=>`
+    <div class="t3">
+      <span class="t3-rank">${i+1}</span>
+      <div class="t3-body">
+        <div class="t3-top"><span class="t3-tag">${tags[i]}</span><span class="t3-agent">${a.name}</span></div>
+        <div class="t3-text">${a.actions[0][1]}</div>
+      </div>
+      <span class="t3-time">${a.actions[0][0]}</span>
+    </div>`).join("");
 }
 
 function renderFeedMini(){

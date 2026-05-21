@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Efficio">
+  <defs>
+    <clipPath id="sq"><rect width="100" height="100" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#sq)">
+    <rect width="100" height="100" fill="#0b0713"/>
+    <circle cx="83" cy="19" r="35" fill="#241a47"/>
+  </g>
+  <rect x="29" y="36" width="42" height="9.6" rx="4.8" fill="#7c3aed"/>
+  <rect x="29" y="50.2" width="25" height="9.6" rx="4.8" fill="#b794f6"/>
+  <rect x="29" y="64.4" width="42" height="9.6" rx="4.8" fill="#7c3aed"/>
+</svg>

@@ -31,6 +31,9 @@
 # Unsubscribe
 /unsubscribe                   /unsubscribe.html  200
 
+# Refund policy / guarantee
+/refund                        /refund.html       200
+
 # Deprecated pages — 410 Gone so search engines drop them
 /one-pager.html                /                  410
 /one-pager                     /                  410

@@ -44,5 +44,10 @@
 /v3-legacy.html                /                  410
 /index-editorial-backup.html   /                  410
 /screenshots.html              /                  410
+/case-studies/self-operated/*  /case-studies/     410
+/case-studies/pilot_hvac_coming.html        /case-studies/  410
+/case-studies/pilot_legal_coming.html       /case-studies/  410
+/case-studies/pilot_realestate_coming.html  /case-studies/  410
+/case-studies/template_case_study.html      /case-studies/  410
 /intake.html                   /qualify.html      301
 /audit.html                    /audit-quiz.html   301

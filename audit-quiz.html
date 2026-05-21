@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Efficio — 60-second audit by your future AI team</title>
 <meta name="description" content="60-second audit by your future AI team. Five questions, one score, one workflow we'd give your first AI hire on day one. If it fits, we book the call." />
-<link rel="canonical" href="https://efficio.tech/audit" />
+<link rel="canonical" href="https://efficio.tech/audit-quiz.html" />
 <!-- seo:schema -->
 <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     "@id": "https://efficio.tech/#org",
     "name": "Efficio",
     "url": "https://efficio.tech",
-    "logo": "https://efficio.tech/og-image.svg"
+    "logo": "https://efficio.tech/assets/brand/efficio-mark.png"
    }
   }
  ]
@@ -54,14 +54,16 @@
 <meta property="og:title" content="Efficio — your AI team for small & medium business" />
 <meta property="og:description" content="A 60-second audit that shows where your AI team would start. Your first AI hire from $997/mo. Refund if no measurable lift by day 30." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://efficio.tech/audit" />
-<meta property="og:image" content="https://efficio.tech/og-image.svg" />
+<meta property="og:url" content="https://efficio.tech/audit-quiz.html" />
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
 <meta property="og:site_name" content="Efficio" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Efficio — 60-second AI audit" />
 <meta name="twitter:description" content="Five questions, one score, and the first workflow your AI team would automate." />
-<meta name="twitter:image" content="https://efficio.tech/og-image.svg" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>" />
+<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -101,6 +103,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
+  overflow-x:hidden;
   font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   background:var(--bg);
   color:#cbd5e1;
@@ -334,6 +337,7 @@ footer{background:var(--navy);color:rgba(248,250,252,.7);padding:64px 0 36px;bor
   .hero-inner{grid-template-columns:1fr;gap:36px}
   section{padding:64px 0}
   .audit-shell,.calc-shell,.trust-shell{grid-template-columns:1fr;gap:32px}
+  .hero-inner>*,.audit-shell>*,.calc-shell>*,.trust-shell>*,.steps>*,.price-row>*,.f-grid>*,.case-card>*{min-width:0}
   .case-card{grid-template-columns:1fr}
   .case-visual{min-height:auto;padding:32px 24px}
   .steps,.price-row{grid-template-columns:1fr;gap:18px}

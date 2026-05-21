@@ -13,11 +13,11 @@
   <meta property="og:url" content="https://efficio.tech/pricing.html" />
   <meta property="og:title" content="Pricing | Efficio" />
   <meta property="og:description" content="AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day measurable-savings refund." />
-  <meta property="og:image" content="https://efficio.tech/og-image.svg" />
+  <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing | Efficio" />
   <meta name="twitter:description" content="AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day refund." />
-  <meta name="twitter:image" content="https://efficio.tech/og-image.svg" />
+  <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -49,7 +49,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 :root{
   /* bold & confident — matches /assets/theme.css */
@@ -79,7 +81,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:32px;height:32px;flex-shrink:0;font-size:0;color:transparent;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>") center/contain no-repeat}
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
 .logo-text{font-size:17px;font-weight:900;color:var(--white);letter-spacing:-.04em}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none}
 .nav-links a{padding:7px 14px;border-radius:var(--r);font-size:14px;font-weight:500;
@@ -141,7 +143,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .rv.vis{opacity:1;transform:none}
 
 /* TIER CARDS — 3D tilt */
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
   perspective:1400px;margin-top:48px}
 @media (max-width:880px){.tiers{grid-template-columns:1fr}}
 .tier{background:linear-gradient(180deg,var(--surf),var(--bg2));
@@ -387,21 +389,6 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
 <section class="section" id="tiers">
   <div class="container">
     <div class="tiers">
-      <div class="tier rv" data-tilt>
-        <div class="tier-name">Starter</div>
-        <div class="tier-price">$497<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
-        <p class="tier-desc">Crawl. For businesses still on paper, cash-only, sub-$50K MRR, or without a real CRM. We set up your stack first (Stripe, QuickBooks, a real CRM), then stand up your first AI team in week 3.</p>
-        <ul class="tier-features">
-          <li><b>Your first AI team</b> (one function) live by week 3 — usually reception or books</li>
-          <li>Tool setup in week 1-2 (Stripe / QuickBooks / CRM)</li>
-          <li>Light cockpit (no custom dashboard yet)</li>
-          <li>Monthly call · 30 min</li>
-          <li>+$1,500 one-time setup fee</li>
-        </ul>
-        <a href="/qualify.html" class="tier-cta">Qualify for Starter <span class="tier-arrow">→</span></a>
-        <div class="tier-foot">Setup required · scoped on call</div>
-      </div>
-
       <div class="tier rv d1" data-tilt>
         <div class="tier-name">AI Specialist</div>
         <div class="tier-price">$997<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
@@ -464,11 +451,10 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
       <p class="s-sub rv d2">The same core functions every business runs. Which team you start with depends on where you're hurting most.</p>
     </div>
     <div class="rv d3" style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:680px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:560px">
         <thead>
           <tr style="border-bottom:2px solid var(--bd)">
             <th style="text-align:left;padding:14px 16px;color:var(--purple3);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px">AI Hire</th>
-            <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">Starter<br><small style="color:var(--muted);font-weight:500">$497/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">AI Specialist<br><small style="color:var(--muted);font-weight:500">$997/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--purple3);font-weight:700">AI Team<br><small style="color:var(--muted);font-weight:500">$2,500/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">AI Department<br><small style="color:var(--muted);font-weight:500">$3,500/mo</small></th>
@@ -480,18 +466,15 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
-            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Office Manager <small style="color:var(--muted);display:block;font-weight:400">inbox · docs · scheduling · handoffs · KPIs · daily brief</small></td>
-            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Sales Navigator <small style="color:var(--muted);display:block;font-weight:400">lead intake · quotes · follow-ups · pipeline</small></td>
-            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
@@ -499,20 +482,17 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
           <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Bookkeeper <small style="color:var(--muted);display:block;font-weight:400">AR · expenses · reconciliation · monthly close</small></td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
-            <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3);background:rgba(124,58,237,.06)">
             <td style="padding:13px 16px;color:var(--white);font-weight:700">Custom builds (case-by-case)</td>
             <td style="text-align:center;color:var(--muted)">—</td>
-            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--w2)">1 custom</td>
             <td style="text-align:center;color:var(--purple3);font-weight:700">continuous</td>
           </tr>
           <tr>
             <td style="padding:13px 16px;color:var(--white);font-weight:700">Dashboard</td>
-            <td style="text-align:center;color:var(--w2)">light</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
@@ -660,7 +640,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
   </div>
   <div class="foot-bottom">
     <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built by a founder who runs four businesses on it.</div>
+    <div>Built by an operator, not a software vendor.</div>
   </div>
 </footer>
 

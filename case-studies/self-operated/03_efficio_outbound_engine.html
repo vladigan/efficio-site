@@ -216,7 +216,7 @@
     <p class="hook">The Efficio outbound system didn't start clean — it started with a fractured send history, a guessed-email bug, and a real reputation risk. The engineering story is the case study.</p>
 
     <h2>The Pain</h2>
-    <p>Running cold outreach at scale isn't a volume problem — it's a data-quality and deliverability problem. By the time Efficio's first outreach campaign ran, send history existed in three disconnected places: a legacy JSON log, a separate outreach log, and a sparse SQLite database. Nobody knew exactly who had already received an email. The scraper was also pattern-guessing email addresses (<code>info@domain.com</code>) when it couldn't find a real one, silently polluting the lead list with generic inboxes that hurt deliverability. Starting a new send wave without solving both of these first would have meant re-emailing already-contacted leads AND burning sender reputation on guessed addresses — two ways to get your domain blacklisted fast.</p>
+    <p>Running cold outreach to thousands of contacts isn't a volume problem — it's a data-quality and deliverability problem. By the time Efficio's first outreach campaign ran, send history existed in three disconnected places: a legacy JSON log, a separate outreach log, and a sparse SQLite database. Nobody knew exactly who had already received an email. The scraper was also pattern-guessing email addresses (<code>info@domain.com</code>) when it couldn't find a real one, silently polluting the lead list with generic inboxes that hurt deliverability. Starting a new send wave without solving both of these first would have meant re-emailing already-contacted leads AND burning sender reputation on guessed addresses — two ways to get your domain blacklisted fast.</p>
 
     <h2>The Build</h2>
     <ul class="build-list">
@@ -287,7 +287,7 @@ nationwide_leads_master.csv  (18,034 rows, multi-vertical)
 
     <h2>The Takeaway</h2>
     <div class="takeaway">
-      <p>The engineering investment here wasn't in the sending — it was in the guardrails that make sending safe at scale. Any business running email outreach eventually hits the same wall: fragmented history, questionable addresses, and no single source of truth for who's already been touched. The suppression guard pattern is the same whether you're running 1,300 contacts or 130,000. Build the guard before you build the volume. Re-emailing a contact who asked you to stop is not a deliverability problem — it's a trust problem, and trust is what the whole system is built on.</p>
+      <p>The engineering investment here wasn't in the sending — it was in the guardrails that make high-volume sending safe. Any business running email outreach eventually hits the same wall: fragmented history, questionable addresses, and no single source of truth for who's already been touched. The suppression guard pattern is the same whether you're running 1,300 contacts or 130,000. Build the guard before you build the volume. Re-emailing a contact who asked you to stop is not a deliverability problem — it's a trust problem, and trust is what the whole system is built on.</p>
     </div>
 
     <div class="cta-block">

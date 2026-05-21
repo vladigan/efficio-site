@@ -14,7 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c3aed'/><rect x='28' y='25' width='44' height='13' rx='4' fill='%23fff'/><rect x='28' y='43.5' width='30' height='13' rx='4' fill='%23fff'/><rect x='28' y='62' width='44' height='13' rx='4' fill='%23fff'/></svg>">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 :root{
   --bg:#08080a;--bg2:#0d0d10;--bg3:#121216;
@@ -37,10 +39,8 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid var(--bd)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:32px;height:32px;border-radius:8px;
-  background:var(--purple);
-  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;
-  box-shadow:0 0 20px var(--glow2)}
+.logo-mark{width:32px;height:32px;flex-shrink:0;font-size:0;color:transparent;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
 .logo-text{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.02em}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none}
 .nav-links a{padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text);transition:all .2s}

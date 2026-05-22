@@ -10,6 +10,12 @@
   <url><loc>https://efficio.tech/agents/office-manager.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/agents/sales-navigator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/agents/bookkeeper.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/inbox-manager.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/review-engine.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/retention-coordinator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/weekly-recap.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/marketing-coordinator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/agents/onboarding-specialist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/pricing.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://efficio.tech/compare.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/audit-intake.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>

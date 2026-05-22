@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/pixels.js"></script>
+<title>Weekly Recap — Your week with Efficio, in one email — what your AI team act | Efficio</title>
+<meta name="description" content="Weekly Recap: Your week with Efficio, in one email — what your AI team actually did for you, every Monday. Replaces a $25–40/hr ops / reporting analyst time.">
+<link rel="canonical" href="https://efficio.tech/agents/weekly-recap.html">
+<meta property="og:title" content="Weekly Recap | Efficio">
+<meta property="og:description" content="Your week with Efficio, in one email — what your AI team actually did for you, every Monday.">
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},{"@type":"ListItem","position":2,"name":"AI teams","item":"https://efficio.tech/agents.html"},{"@type":"ListItem","position":3,"name":"Weekly Recap","item":"https://efficio.tech/agents/weekly-recap.html"}]},{"@type":"Service","name":"Weekly Recap","description":"Your week with Efficio, in one email — what your AI team actually did for you, every Monday.","provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},"areaServed":{"@type":"Country","name":"United States"}}]}</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/theme.css">
+<style>
+.hr-shell{max-width:980px;margin:0 auto;padding:130px 28px 80px}
+.hr-crumb{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
+.hr-crumb a{color:var(--purple3)}
+.hr-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--purple3);margin-bottom:16px}
+.hr-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple)}
+.hr-h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.05;margin-bottom:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hr-h1 .ic{width:56px;height:56px;border-radius:14px;background:#7c3aed;color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hr-h1 .ic svg{width:32px;height:32px}
+.hr-tagline{font-size:1.2rem;color:var(--text);line-height:1.5;max-width:760px;margin-bottom:30px}
+
+.hr-stat{display:flex;align-items:center;gap:24px;padding:22px 26px;
+  background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(124,58,237,.02));
+  border:1px solid rgba(124,58,237,.30);border-radius:12px;margin-bottom:10px;flex-wrap:wrap}
+.hr-stat-num{font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;color:var(--purple2);letter-spacing:-.03em;line-height:1}
+.hr-stat-text{flex:1;min-width:240px}
+.hr-stat-label{font-size:1.02rem;font-weight:600;color:var(--w2);line-height:1.5;margin-bottom:4px}
+.hr-stat-source{font-size:12px;color:var(--muted);font-style:italic}
+
+.hr-section h2{font-size:1.7rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin:56px 0 14px}
+.hr-section h2 em{color:var(--purple3);font-style:italic}
+.hr-section .lead{font-size:15.5px;color:var(--w2);line-height:1.75;margin-bottom:14px;max-width:820px}
+.hr-section p{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:14px;max-width:820px}
+
+/* workflow diagram */
+.flow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:2px;margin-top:20px;
+  background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.01));
+  border:1px solid var(--bd);border-radius:16px;padding:28px 20px}
+.flow-step{flex:1 1 150px;min-width:140px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px 8px}
+.flow-node{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;
+  background:rgba(124,58,237,.16);border:1px solid rgba(124,58,237,.45);color:var(--purple3);margin-bottom:13px;position:relative}
+.flow-node svg{width:25px;height:25px}
+.flow-num{position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
+  background:var(--purple);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg2)}
+.flow-t{font-size:13px;font-weight:800;color:var(--white);letter-spacing:-.01em;margin-bottom:5px;line-height:1.25}
+.flow-d{font-size:11.5px;color:var(--text);line-height:1.45}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple2);flex:0 0 24px;margin-top:28px}
+.flow-arrow .ar-svg{width:22px;height:22px}
+@media(max-width:760px){
+  .flow{flex-direction:column;align-items:stretch;padding:22px 18px}
+  .flow-step{flex-direction:row;text-align:left;align-items:flex-start;gap:15px;min-width:0;width:100%}
+  .flow-node{margin-bottom:0;flex-shrink:0}
+  .flow-tx{padding-top:3px}
+  .flow-arrow{flex-basis:auto;margin:3px 0 3px 16px;justify-content:flex-start}
+  .flow-arrow .ar-svg{transform:rotate(90deg)}
+}
+
+/* build timeline (built-to-order) */
+.btl{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btl-row{flex:1 1 120px;min-width:118px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:13px 14px;position:relative;overflow:hidden}
+.btl-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple)}
+.btl-d{font-size:12px;font-weight:900;color:var(--purple3);letter-spacing:.04em;margin-bottom:5px}
+.btl-t{font-size:12.5px;color:var(--w2);line-height:1.4}
+
+/* what-it-handles chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;
+  background:var(--surf);border:1px solid var(--bd);font-size:13px;font-weight:600;color:var(--w2)}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);flex-shrink:0}
+
+/* owns grid */
+.owns{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.owns{grid-template-columns:1fr}}
+
+/* before / after */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:680px){.ba{grid-template-columns:1fr}}
+.ba-col{border-radius:14px;padding:22px 22px;border:1px solid var(--bd)}
+.ba-before{background:rgba(248,113,113,.05);border-color:rgba(248,113,113,.25)}
+.ba-after{background:rgba(74,222,128,.05);border-color:rgba(74,222,128,.28)}
+.ba-h{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.ba-before .ba-h{color:var(--no)}
+.ba-after .ba-h{color:var(--good)}
+.ba-row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:13.5px;color:var(--w2);line-height:1.5}
+.ba-row svg{width:17px;height:17px;flex-shrink:0;margin-top:2px}
+.ba-before .ba-row svg{color:var(--no)}
+.ba-after .ba-row svg{color:var(--good)}
+
+/* sample dashboard mockup */
+.mock{margin-top:20px;background:var(--bg2);border:1px solid var(--bd);border-radius:16px;overflow:hidden}
+.mock-top{display:flex;align-items:center;gap:9px;padding:13px 18px;border-bottom:1px solid var(--bd);background:var(--surf)}
+.mock-dot{width:10px;height:10px;border-radius:50%;background:var(--dim)}
+.mock-title{margin-left:8px;font-size:12.5px;font-weight:700;color:var(--text)}
+.mock-sample{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:var(--purple3);
+  background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.4);padding:3px 9px;border-radius:100px}
+.mock-body{padding:20px 18px}
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:680px){.mock-kpis{grid-template-columns:repeat(2,1fr)}}
+.mock-kpi{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 14px}
+.mock-kpi .v{font-size:1.55rem;font-weight:900;color:var(--white);letter-spacing:-.02em;line-height:1}
+.mock-kpi .l{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;line-height:1.3}
+.mock-mid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:14px;margin-top:14px}
+@media(max-width:680px){.mock-mid{grid-template-columns:1fr}}
+.mock-chart{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.mock-chart .ct{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+.mock-chart svg{width:100%;height:64px;display:block}
+.mock-agents{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:8px 14px}
+.mock-agent{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px dashed var(--bd3)}
+.mock-agent:last-child{border-bottom:0}
+.mock-agent .ai{width:30px;height:30px;border-radius:8px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.35);
+  color:var(--purple3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mock-agent .ai svg{width:15px;height:15px}
+.mock-agent .an{font-size:12.5px;font-weight:800;color:var(--white)}
+.mock-agent .ad{font-size:11.5px;color:var(--text);line-height:1.4;margin-top:1px}
+.mock-agent .live{margin-left:auto;flex-shrink:0;font-size:9.5px;font-weight:800;color:var(--good);letter-spacing:.08em;display:flex;align-items:center;gap:5px}
+.mock-agent .live .pulse{width:6px;height:6px;border-radius:50%;background:var(--good);box-shadow:0 0 7px var(--good)}
+.mock-cap{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:11px;text-align:center}
+
+.own-row{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:16px 18px}
+.own-label{font-size:12px;font-weight:800;color:var(--purple3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.own-text{font-size:13.5px;color:var(--w2);line-height:1.6}
+
+.tools{list-style:none;margin:14px 0 4px;padding:0}
+.tools li{padding:9px 0 9px 22px;position:relative;font-size:14px;color:var(--w2);border-bottom:1px dashed var(--bd3)}
+.tools li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--purple2)}
+.tools-note{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+
+.math{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.02));
+  border:1px solid rgba(124,58,237,.25);border-radius:12px;padding:24px 28px;margin:18px 0 0}
+.math .mlbl{font-size:11.5px;font-weight:800;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.math .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:9px 0;border-bottom:1px dashed var(--bd3);font-size:14.5px;color:var(--w2)}
+.math .row:last-child{border-bottom:0;padding-top:12px;border-top:1px solid var(--bd);margin-top:6px;font-size:1.05rem;font-weight:700;color:var(--white)}
+.math .row b{color:var(--white);font-weight:700}
+.math .row .v{font-weight:800;color:var(--purple3);font-size:1.05rem;text-align:right}
+
+.cta-bar{margin-top:54px;padding:34px 32px;background:linear-gradient(135deg,var(--purple),var(--purple2));
+  border-radius:16px;text-align:center;color:#fff}
+.cta-bar h3{font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+.cta-bar p{font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:22px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.55}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:#fff;color:#0a0612 !important;
+  border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .15s}
+.cta-bar a:hover{transform:translateY(-2px)}
+.cta-bar a.ghost{background:transparent;color:#fff !important;border:1px solid rgba(255,255,255,.5)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em;text-decoration:none}
+.logo .logo-mark{width:30px;height:30px;flex-shrink:0;font-size:0;color:transparent;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r);text-decoration:none}
+.nav-links a:hover{color:var(--white)}
+.btn-nav{padding:10px 20px;background:var(--purple);color:#fff !important;border-radius:var(--r);
+  font-size:13.5px;font-weight:700}
+.btn-nav:hover{background:var(--purple2)}
+@media(max-width:780px){.nav-links a:not(.btn-nav){display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+  <div class="nav-links">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/agents.html">AI teams</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a href="/qualify.html" class="btn-nav">Qualify in 60 sec</a>
+  </div>
+</div></nav>
+
+<main class="hr-shell">
+  <div class="hr-crumb"><a href="/">Home</a> &middot; <a href="/agents.html">AI teams</a> &middot; Weekly Recap</div>
+  <span class="hr-pill"><span class="dot"></span>Available now · $197/mo add-on</span>
+  <h1 class="hr-h1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></span><span>Weekly Recap</span></h1>
+  <p class="hr-tagline">Your week with Efficio, in one email — what your AI team actually did for you, every Monday.</p>
+<div class="hr-stat"><div class="hr-stat-num" style="font-size:1.5rem;line-height:1.2;min-width:0"><svg style="width:34px;height:34px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="hr-stat-text"><div class="hr-stat-label">Proof of what your AI team did — leads caught, calls recovered, bookings, emails triaged — totalled and trended, in your inbox every Monday. No logging in, no digging.</div></div></div>
+  <div class="hr-section"><h2>What the <em>Weekly Recap</em> does</h2><p class="lead">Weekly Recap reads the data your other Efficio modules already produce — Front Office KPIs, the Inbox Manager queue, your bookings — and turns it into a clean, plain-English recap email with the week-over-week trend. It's the status report you'd never sit down to write, drafted for you and delivered every Monday. It rides on top of any paid module; it adds no new fulfillment work.</p></div>
+  <div class="hr-section"><h2>How it <em>works</em></h2><p>The actual step-by-step flow — each stage runs automatically; you stay in control of anything that sends.</p><div class="flow"><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg><span class="flow-num">1</span></div><div class="flow-tx"><div class="flow-t">Your AI team works</div><div class="flow-d">Every module runs across your business all week long.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg><span class="flow-num">2</span></div><div class="flow-tx"><div class="flow-t">Everything logged</div><div class="flow-d">Leads caught, missed calls recovered, bookings, emails triaged, hot leads.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg><span class="flow-num">3</span></div><div class="flow-tx"><div class="flow-t">Totalled + trended</div><div class="flow-d">Summed for the week with the week-over-week movement.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span class="flow-num">4</span></div><div class="flow-tx"><div class="flow-t">Recap drafted</div><div class="flow-d">A clean, plain-English email — the proof you'd never write yourself.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="flow-num">5</span></div><div class="flow-tx"><div class="flow-t">In your inbox Monday</div><div class="flow-d">No logging in, no digging. Just momentum, every week.</div></div></div></div></div>
+<div class="hr-section"><h2>Already <em>live</em></h2><p class="lead">This is a productized module — it’s built and running today. We connect it to your stack and tune it to your voice, tools, and rules on the audit call, and it’s live in your business inside 7 days.</p></div>
+  <div class="hr-section"><h2>What it <em>handles</em></h2><p>The responsibilities this team owns, in plain terms:</p><div class="chips"><span class="chip"><span class="dot"></span>Weekly totals</span><span class="chip"><span class="dot"></span>Week-over-week trend</span><span class="chip"><span class="dot"></span>Leads + bookings recap</span><span class="chip"><span class="dot"></span>Inbox + hot-lead recap</span><span class="chip"><span class="dot"></span>Plain-English summary</span><span class="chip"><span class="dot"></span>Monday delivery</span><span class="chip"><span class="dot"></span>Generate-only — never auto-sends</span></div><div class="owns"><div class="own-row"><div class="own-label">Your AI team works</div><div class="own-text">Every module runs across your business all week long.</div></div><div class="own-row"><div class="own-label">Everything logged</div><div class="own-text">Leads caught, missed calls recovered, bookings, emails triaged, hot leads.</div></div><div class="own-row"><div class="own-label">Totalled + trended</div><div class="own-text">Summed for the week with the week-over-week movement.</div></div><div class="own-row"><div class="own-label">Recap drafted</div><div class="own-text">A clean, plain-English email — the proof you'd never write yourself.</div></div><div class="own-row"><div class="own-label">In your inbox Monday</div><div class="own-text">No logging in, no digging. Just momentum, every week.</div></div></div></div>
+  <div class="hr-section"><h2>A day in the life — <em>before vs. after</em></h2><div class="ba"><div class="ba-col ba-before"><div class="ba-h">Before — the leak</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>You're paying for AI but can't see what it actually did.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>"Is this working?" with no number to point at.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Nobody has time to compile a weekly report.</span></div></div><div class="ba-col ba-after"><div class="ba-h">After — with the team</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>A clear recap of the week's wins, automatically.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Week-over-week trend so you see momentum at a glance.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Proof in your inbox every Monday — zero effort.</span></div></div></div></div>
+  <div class="hr-section"><h2>Your <em>command center</em></h2><p>Everything this team does shows up on your branded dashboard — live numbers, the agents at work, and the trend over time.</p><div class="mock"><div class="mock-top"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">Weekly Recap · your command center</span><span class="mock-sample">SAMPLE</span></div><div class="mock-body"><div class="mock-kpis"><div class="mock-kpi"><div class="v">31</div><div class="l">Leads caught · wk</div></div><div class="mock-kpi"><div class="v">12</div><div class="l">Bookings · wk</div></div><div class="mock-kpi"><div class="v">188</div><div class="l">Emails triaged</div></div><div class="mock-kpi"><div class="v">9</div><div class="l">Hot leads surfaced</div></div></div><div class="mock-mid"><div class="mock-chart"><div class="ct">This week</div><svg viewBox="0 0 100 64" preserveAspectRatio="none"><rect x="2.68" y="24.97" width="8.93" height="37.03" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="16.96" y="15.29" width="8.93" height="46.71" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="31.25" y="20.13" width="8.93" height="41.87" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="45.54" y="10.45" width="8.93" height="51.55" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="59.82" y="13.68" width="8.93" height="48.32" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="74.11" y="4.00" width="8.93" height="58.00" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="88.39" y="7.23" width="8.93" height="54.77" rx="1.2" fill="#9b6cf6" opacity="1"/></svg></div><div class="mock-agents"><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Weekly recap</div><div class="ad">Totals everything your AI team did and emails you the proof every week</div></div><span class="live"><span class="pulse"></span>LIVE</span></div><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Trend tracker</div><div class="ad">Week-over-week movement so you see momentum at a glance</div></div><span class="live"><span class="pulse"></span>LIVE</span></div></div></div><div class="mock-cap">Illustration of the live dashboard — your real numbers flow in once connected.</div></div></div></div>
+  <div class="hr-section"><h2>Tools we <em>plug into</em></h2><p>We connect to the stack you already run:</p><ul class="tools"><li>Your other Efficio module dashboards (data source)</li><li>Optional: Calendly / pipeline feeds</li><li>Your branded /c/ dashboard (reporting panel)</li><li>Email delivery (your account)</li></ul><div class="tools-note">Read-only OAuth where it applies. We never see your passwords, and access is revocable any time from inside each tool.</div></div>
+  <div class="hr-section"><h2>The math <em>vs. hiring this role</em></h2><div class="math"><div class="mlbl">Annual cost comparison</div><div class="row"><span>Human ops / reporting analyst time</span><span class="v">$25–40/hr</span></div><div class="row"><span>+ benefits, taxes, training (rough +30%)</span><span class="v">+ overhead</span></div><div class="row"><span>+ turnover + ramp risk</span><span class="v">+ recruiting cost</span></div><div class="row"><span><b>Weekly Recap via Efficio</b></span><span class="v">$197/mo add-on</span></div></div></div>
+<div class="cta-bar"><h3>See if the Weekly Recap is your next teammate.</h3><p>The 60-second qualifier routes you to the right tier and books your free audit. We name the workflow we’d ship in week one and the metric we’ll move by day 30.</p><div class="cta-row"><a href="/qualify.html">Take the 60-sec qualifier &rarr;</a></div></div>
+</main>
+
+<footer style="margin-top:80px;padding:40px 28px;border-top:1px solid var(--bd);text-align:center;font-size:13px;color:var(--muted)">
+  &copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL &middot;
+  <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> &middot;
+  <a href="/terms.html" style="color:var(--purple3)">Terms</a> &middot;
+  <a href="/agents.html" style="color:var(--purple3)">All AI teams</a>
+</footer>
+
+<script src="/assets/transitions.js" defer></script>
+<script src="/assets/chat.js" defer></script>
+</body>
+</html>

@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Google Analytics 4 -->
   <script src="/assets/pixels.js"></script>
-  <meta name="description" content="Efficio pricing — AI Specialist $997, AI Team $2,500, AI Department $3,500 per month. Month-to-month, 30-day refund. From custom AI dashboards to continuous build cadence." />
+  <meta name="description" content="Efficio pricing — Starter $497, AI Specialist $997, AI Team $2,500, AI Department $3,500 per month. Month-to-month, 30-day refund. From a first automation to continuous build cadence." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://efficio.tech/pricing.html" />
-  <title>Pricing — AI Specialist, Team, Department | Efficio</title>
+  <title>Pricing — Starter, AI Specialist, Team, Department | Efficio</title>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://efficio.tech/pricing.html" />
   <meta property="og:title" content="Pricing | Efficio" />
-  <meta property="og:description" content="AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day measurable-savings refund." />
+  <meta property="og:description" content="Starter $497/mo · AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day measurable-savings refund." />
   <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing | Efficio" />
-  <meta name="twitter:description" content="AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day refund." />
+  <meta name="twitter:description" content="Starter $497/mo · AI Specialist $997/mo · AI Team $2,500/mo · AI Department $3,500/mo. Month-to-month, 30-day refund." />
   <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <script type="application/ld+json">
   {
@@ -40,6 +40,7 @@
     "description":"Managed AI service for small and medium service businesses. Three subscription tiers, month-to-month.",
     "brand":{"@type":"Brand","name":"Efficio"},
     "offers":[
+      {"@type":"Offer","name":"Starter","price":"497","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"497","priceCurrency":"USD","unitText":"MONTH"},"availability":"https://schema.org/InStock","url":"https://efficio.tech/pricing.html"},
       {"@type":"Offer","name":"AI Specialist","price":"997","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"997","priceCurrency":"USD","unitText":"MONTH"},"availability":"https://schema.org/InStock","url":"https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b"},
       {"@type":"Offer","name":"AI Team","price":"2500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"2500","priceCurrency":"USD","unitText":"MONTH"},"availability":"https://schema.org/InStock","url":"https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c"},
       {"@type":"Offer","name":"AI Department","price":"3500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"3500","priceCurrency":"USD","unitText":"MONTH"},"availability":"https://schema.org/InStock","url":"https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d"}
@@ -93,6 +94,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   box-shadow:0 0 20px var(--glow2);transition:all .2s}
 .btn-nav:hover{background:var(--purple2);transform:translateY(-1px);
   box-shadow:0 0 36px var(--glow),0 8px 24px rgba(124,58,237,.25)}
+@media (max-width:880px){.nav-links a:not(.btn-nav){display:none}}
 
 /* HERO */
 .hero{padding:140px 0 70px;position:relative;overflow:hidden;text-align:center}
@@ -143,9 +145,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .rv.vis{opacity:1;transform:none}
 
 /* TIER CARDS — 3D tilt */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
   perspective:1400px;margin-top:48px}
-@media (max-width:880px){.tiers{grid-template-columns:1fr}}
+@media (max-width:1080px){.tiers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tiers{grid-template-columns:1fr}}
 .tier{background:linear-gradient(180deg,var(--surf),var(--bg2));
   border:1px solid var(--bd);border-radius:var(--r2);padding:34px 28px;
   position:relative;transition:transform .55s var(--ease),border-color .3s,box-shadow .4s;
@@ -211,7 +214,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   background:linear-gradient(135deg,var(--purple),var(--purple2));
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
   box-shadow:0 0 24px var(--glow2)}
-.callout-text{flex:1;min-width:280px;font-size:14px;color:var(--w2);line-height:1.6}
+.callout-text{flex:1;min-width:0;font-size:14px;color:var(--w2);line-height:1.6}
 .callout-text strong{color:var(--white)}
 
 /* COMPARISON */
@@ -390,6 +393,21 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
   <div class="container">
     <div class="tiers">
       <div class="tier rv d1" data-tilt>
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">$497<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
+        <p class="tier-desc">Crawl. For owners just getting into AI who want a low-risk first step. We optimize and build your website, run an AI-direction session — where AI actually helps you, plus a practical roadmap — and ship your first automation. Start here, build momentum, upgrade when you're ready.</p>
+        <ul class="tier-features">
+          <li><b>Website optimization + build</b> — your site tuned to convert and load fast</li>
+          <li><b>AI-direction session</b> — where AI helps your business, plus a practical roadmap</li>
+          <li>Your first automation, built and live</li>
+          <li>Your starting dashboard</li>
+          <li>30-day measurable-savings refund</li>
+        </ul>
+        <a href="/audit-quiz.html" class="tier-cta">Start with Starter <span class="tier-arrow">→</span></a>
+        <div class="tier-foot">Start with the 5-min audit · checkout live soon</div>
+      </div>
+
+      <div class="tier rv d2" data-tilt>
         <div class="tier-name">AI Specialist</div>
         <div class="tier-price">$997<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">Walk. For $50K–$200K MRR businesses with one obvious bottleneck. We build and run one AI team with a custom dashboard — your Front Office team is live in 7 days; other teams scoped on the call. The most common starting tier.</p>
@@ -404,7 +422,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <div class="tier-foot">Stripe checkout · live</div>
       </div>
 
-      <div class="tier feat rv d2" data-tilt>
+      <div class="tier feat rv d3" data-tilt>
         <div class="tier-name">AI Team</div>
         <div class="tier-price">$2,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">Run. For $200K–$1M MRR operations past one-bottleneck territory. A full department — say Growth (Sales + Marketing + Retention) — running in parallel, plus room for a custom build on top.</p>
@@ -419,7 +437,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <div class="tier-foot">Stripe checkout · live</div>
       </div>
 
-      <div class="tier rv d3" data-tilt>
+      <div class="tier rv d4" data-tilt>
         <div class="tier-name">AI Department</div>
         <div class="tier-price">$3,500<span class="tier-price-sub" style="display:inline;font-size:.45em;font-weight:500">/mo</span></div>
         <p class="tier-desc">Sprint. For $1M+ MRR operations where ops are the constraint. All three departments — your whole operation — plus a continuous custom-build cadence, for less than one VP salary.</p>
@@ -459,10 +477,11 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
       <p class="s-sub rv d2">The same core functions every business runs. Which team you start with depends on where you're hurting most.</p>
     </div>
     <div class="rv d3" style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:560px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:680px">
         <thead>
           <tr style="border-bottom:2px solid var(--bd)">
-            <th style="text-align:left;padding:14px 16px;color:var(--purple3);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px">AI Team</th>
+            <th style="text-align:left;padding:14px 16px;color:var(--purple3);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:11.5px">What you get</th>
+            <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">Starter<br><small style="color:var(--muted);font-weight:500">$497/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">AI Specialist<br><small style="color:var(--muted);font-weight:500">$997/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--purple3);font-weight:700">AI Team<br><small style="color:var(--muted);font-weight:500">$2,500/mo</small></th>
             <th style="text-align:center;padding:14px 12px;color:var(--white);font-weight:700">AI Department<br><small style="color:var(--muted);font-weight:500">$3,500/mo</small></th>
@@ -470,25 +489,36 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         </thead>
         <tbody>
           <tr style="border-bottom:1px solid var(--bd3)">
+            <td style="padding:13px 16px;color:var(--w2);font-weight:600">Website + AI direction <small style="color:var(--muted);display:block;font-weight:400">optimization &middot; build &middot; roadmap &middot; first automation</small></td>
+            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
+            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
+            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
+            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Receptionist <small style="color:var(--muted);display:block;font-weight:400">phones · texts · forms · booking</small></td>
+            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Office Manager <small style="color:var(--muted);display:block;font-weight:400">inbox · docs · scheduling · handoffs · KPIs · daily brief</small></td>
+            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3)">
             <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Sales Navigator <small style="color:var(--muted);display:block;font-weight:400">lead intake · quotes · follow-ups · pipeline</small></td>
+            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
           </tr>
           <tr style="border-bottom:1px solid var(--bd3)">
-            <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Bookkeeper <small style="color:var(--muted);display:block;font-weight:400">AR · expenses · reconciliation · monthly close</small></td>
+            <td style="padding:13px 16px;color:var(--w2);font-weight:600">AI Bookkeeper <small style="color:var(--muted);display:block;font-weight:400">invoicing · AR follow-ups · at-risk flags</small></td>
+            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--muted)">pick 1</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
@@ -496,11 +526,13 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
           <tr style="border-bottom:1px solid var(--bd3);background:rgba(124,58,237,.06)">
             <td style="padding:13px 16px;color:var(--white);font-weight:700">Custom builds (case-by-case)</td>
             <td style="text-align:center;color:var(--muted)">—</td>
+            <td style="text-align:center;color:var(--muted)">—</td>
             <td style="text-align:center;color:var(--w2)">1 custom</td>
             <td style="text-align:center;color:var(--purple3);font-weight:700">continuous</td>
           </tr>
           <tr>
             <td style="padding:13px 16px;color:var(--white);font-weight:700">Dashboard</td>
+            <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
             <td style="text-align:center;color:var(--purple3);font-size:16px">●</td>
@@ -533,7 +565,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <div class="label">Starting price</div>
         <div class="cell">$50–$500/mo per seat</div>
         <div class="cell">$15K–$50K + months</div>
-        <div class="cell best yes">From $997/mo · month-to-month</div>
+        <div class="cell best yes">From $497/mo · month-to-month</div>
       </div>
       <div class="compare-row">
         <div class="label">Time to first value</div>

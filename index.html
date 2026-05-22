@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="/assets/pixels.js"></script>
-  <meta name="description" content="Efficio is your contracted AI team. We build and run AI agents, automations, and a live dashboard inside your business — so you operate while we handle the AI. From $997/mo. Month-to-month, 30-day refund." />
+  <meta name="description" content="Efficio is your contracted AI team. We build and run AI agents, automations, and a live dashboard inside your business — so you operate while we handle the AI. From $497/mo. Month-to-month, 30-day refund." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://efficio.tech/" />
   <title>Efficio — We sell AI teams, not AI tools</title>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://efficio.tech/" />
   <meta property="og:title" content="Efficio — We sell AI teams, not AI tools" />
-  <meta property="og:description" content="Your contracted AI team. We build and run the AI inside your business — and you watch it work on one live dashboard. From $997/mo." />
+  <meta property="og:description" content="Your contracted AI team. We build and run the AI inside your business — and you watch it work on one live dashboard. From $497/mo." />
   <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <meta property="og:site_name" content="Efficio" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Efficio — We sell AI teams, not AI tools" />
-  <meta name="twitter:description" content="Your contracted AI team. We build it, run it, and put it on one dashboard you can watch. From $997/mo." />
+  <meta name="twitter:description" content="Your contracted AI team. We build it, run it, and put it on one dashboard you can watch. From $497/mo." />
   <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <script type="application/ld+json">
   {
@@ -30,7 +30,7 @@
     "email":"brady@efficio.tech",
     "areaServed":{"@type":"Country","name":"United States"},
     "serviceType":["AI Agent Build","Workflow Automation","AI Back-Office Automation","Live Operational Dashboard","Custom AI Products"],
-    "priceRange":"$997-$3500/mo",
+    "priceRange":"$497-$3500/mo",
     "foundingDate":"2026",
     "address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},
     "parentOrganization":{"@type":"Organization","name":"BNG Contracting Enterprise LLC"},
@@ -39,6 +39,7 @@
       "@type":"OfferCatalog",
       "name":"Subscription Tiers",
       "itemListElement":[
+        {"@type":"Offer","name":"Starter","price":"497","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"497","priceCurrency":"USD","unitText":"MONTH"}},
         {"@type":"Offer","name":"AI Specialist","price":"997","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"997","priceCurrency":"USD","unitText":"MONTH"}},
         {"@type":"Offer","name":"AI Team","price":"2500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"2500","priceCurrency":"USD","unitText":"MONTH"}},
         {"@type":"Offer","name":"AI Department","price":"3500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"3500","priceCurrency":"USD","unitText":"MONTH"}}
@@ -331,8 +332,9 @@
 .do li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--purple2)}
 
 /* pricing */
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
-@media(max-width:880px){.price-grid{grid-template-columns:1fr}}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:start}
+@media(max-width:1080px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.price-grid{grid-template-columns:1fr}}
 .tier{border:1px solid var(--bd);border-radius:var(--r2);padding:32px 28px;background:var(--surf)}
 .tier.feat{border-color:var(--purple);background:var(--surf2)}
 .tier .tag{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
@@ -516,7 +518,7 @@
       </div>
     </div>
     <div class="proof-strip rv d4">
-      <div><b>From $997/mo</b>Month-to-month. Cancel anytime.</div>
+      <div><b>From $497/mo</b>Month-to-month. Cancel anytime.</div>
       <div><b>Front Office in 7 days</b>Your fastest team live week one; bigger builds scoped on the call.</div>
       <div><b>30-day refund</b>If we don't ship measurable lift.</div>
       <div><b>Founder-led</b>You work with the person who builds it.</div>
@@ -838,6 +840,19 @@
     </div>
     <div class="price-grid">
       <div class="tier rv">
+        <div class="tag">New to AI &middot; start here</div>
+        <div class="name">Starter</div>
+        <div class="price">$497<span> /mo</span></div>
+        <div class="blurb">Just getting into AI? Start here. We optimize and build your website, run an AI-direction session, and ship your first automation — a low-risk first step, no big commitment.</div>
+        <ul>
+          <li><b>Website optimization + build</b> — your site tuned to convert and load fast</li>
+          <li><b>AI-direction session</b> — where AI actually helps you, plus a practical roadmap</li>
+          <li>Your first automation, built and live, on your starting dashboard</li>
+          <li>30-day measurable-savings refund</li>
+        </ul>
+        <a href="/audit-quiz.html" class="btn-price out">Start with Starter</a>
+      </div>
+      <div class="tier rv d1">
         <div class="tag">Entry &middot; one AI team</div>
         <div class="name">AI Specialist</div>
         <div class="price">$997<span> /mo</span></div>
@@ -850,7 +865,7 @@
         </ul>
         <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn-price out" target="_blank" rel="noopener">Start with AI Specialist</a>
       </div>
-      <div class="tier feat rv d1">
+      <div class="tier feat rv d2">
         <div class="tag">Most popular &middot; two AI teams</div>
         <div class="name">AI Team</div>
         <div class="price">$2,500<span> /mo</span></div>
@@ -863,7 +878,7 @@
         </ul>
         <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn-price sol" target="_blank" rel="noopener">Start with AI Team</a>
       </div>
-      <div class="tier rv d2">
+      <div class="tier rv d3">
         <div class="tag">Full operation &middot; every team</div>
         <div class="name">AI Department</div>
         <div class="price">$3,500<span> /mo</span></div>

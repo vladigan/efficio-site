@@ -28,6 +28,9 @@
   <url><loc>https://efficio.tech/demo/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog hub + 9 category pages (consolidated 2026-05-19 from 12 vertical posts; old URLs 301 to these via meta-refresh) -->
+  <!-- Vertical deep-dive posts (added 2026-05-29) -->
+  <url><loc>https://efficio.tech/blog/ai-team-for-real-estate-agents.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-team-for-plumbing-businesses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/ai-receptionist-for-dental-practices.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/how-hvac-owners-use-ai-to-never-miss-a-call.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/best-ai-tools-for-small-law-firms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

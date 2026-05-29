@@ -405,6 +405,15 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
 @keyframes pdot{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}70%{box-shadow:0 0 0 6px rgba(155,108,246,0)}100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
 @media (prefers-reduced-motion:reduce){.eyebrow .dot{animation:none}}
 
+/* Quiz-focus mode: hide the below-quiz marketing until the result renders, so an
+   in-progress respondent sees only the question card (+ hero sample). Removed by
+   JS the moment the score panel shows. Degrades open if JS is off. */
+body.quiz-active #calc,
+body.quiz-active #case,
+body.quiz-active #how,
+body.quiz-active #trust,
+body.quiz-active #book,
+body.quiz-active #faq{display:none !important}
 </style>
 
 <!-- Conversion tracking — shared config + helpers (paste real IDs in /assets/pixels.js) -->
@@ -638,11 +647,23 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
 
             <!-- Qualified path: reveal Calendly book button (URL injected by JS only) -->
             <div id="qualifiedPanel" style="display:none">
-              <p style="font-size:15px;color:var(--ink);line-height:1.6;margin-bottom:14px">
-                <strong>Your AI team can fit. Let's talk.</strong> Pick a 15-min slot below — I'll show up with the first role your AI team would take and what they'd handle in their first week, based on what you just told me.
+              <p style="font-size:17px;color:var(--ink);line-height:1.55;margin-bottom:16px">
+                <strong>Good fit — your AI team can start here.</strong> Book your strategy call now and I'll walk you through the first team your business would put to work, and what they'd handle in week one — built around what you just told me.
               </p>
               <div id="bookSlot"></div>
-              <p style="font-size:12px;color:var(--muted);margin-top:12px">No deck. No demo. If an AI team doesn't make sense for you yet, I tell you — and we both move on.</p>
+              <p style="font-size:12px;color:var(--muted);margin-top:12px">No deck. No demo. If an AI team doesn't make sense for you yet, I'll tell you — and we both move on.</p>
+
+              <!-- Non-booker safety net: capture email so a qualified lead is never lost to a closed tab -->
+              <div id="qualEmailWrap" style="margin-top:22px;padding-top:20px;border-top:1px solid var(--line)">
+                <p style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">Not ready to book? Get your audit in writing.</p>
+                <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Drop your email and I'll send your score, the first workflow we'd build, and your booking link — so it's waiting for you when you are.</p>
+                <form class="email-row" id="qualEmailCapture" onsubmit="return submitQualEmail(event)">
+                  <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Email" />
+                  <button type="submit" id="qualSubmit">Email me my audit + booking link</button>
+                </form>
+                <p id="qualError" style="font-size:13px;color:var(--orange);margin-top:8px;display:none">Something didn't go through. Try again in a moment.</p>
+                <div id="qualThanks" style="display:none;margin-top:12px;font-size:14px;color:var(--ink)"><strong>Sent.</strong> Check your inbox in a minute or two — your booking link is in there too.</div>
+              </div>
             </div>
 
             <!-- Unqualified path: deflect to email capture -->
@@ -952,7 +973,20 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   var state = {1:null, 2:null, 3:[], 4:null, 5:null, 6:null, current:1};
   var maxQ = 6;
 
-  function showStep(n){
+  // Smooth-scroll a quiz card / result into view below the sticky nav, so the
+  // respondent never has to hunt for the next question after clicking Next/Back.
+  function scrollQuizIntoView(el){
+    if (!el) return;
+    try {
+      var navH = 76;
+      var top = el.getBoundingClientRect().top + window.pageYOffset - navH;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    } catch (e) {
+      try { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {}
+    }
+  }
+
+  function showStep(n, doScroll){
     state.current = n;
     document.querySelectorAll('.q-step').forEach(function(c){
       c.hidden = (parseInt(c.dataset.q,10) !== n);
@@ -968,6 +1002,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
       var nextBtn = card.querySelector('.next');
       if (nextBtn){ nextBtn.disabled = !(isAnswered(n) || isOptional(card)); }
     }
+    if (doScroll){ scrollQuizIntoView(card); }
   }
 
   function isOptional(card){
@@ -1016,13 +1051,13 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   // Nav
   document.querySelectorAll('.q-nav .next').forEach(function(b){
     b.addEventListener('click', function(){
-      if (state.current < maxQ){ showStep(state.current + 1); }
+      if (state.current < maxQ){ showStep(state.current + 1, true); }
       else { computeScore(); }
     });
   });
   document.querySelectorAll('.q-nav .back').forEach(function(b){
     b.addEventListener('click', function(){
-      if (state.current > 1){ showStep(state.current - 1); }
+      if (state.current > 1){ showStep(state.current - 1, true); }
     });
   });
 
@@ -1124,6 +1159,9 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
     var res = document.getElementById('audit-result');
     res.hidden = false;
     res.classList.add('show');
+    // Quiz finished — reveal the below-quiz sections and bring the result into view.
+    document.body.classList.remove('quiz-active');
+    scrollQuizIntoView(res);
     document.querySelectorAll('.audit-progress .step').forEach(function(s){ s.classList.add('done'); s.classList.remove('active'); });
 
     // Branch: qualified → reveal Calendly; unqualified → email capture
@@ -1176,7 +1214,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
       var url = CALENDLY_URL + '?primary_color=0B1736&utm_source=audit_quiz&utm_content=' + verticalParam;
       slot.innerHTML =
         '<a href="' + url + '" class="btn btn-primary" target="_blank" rel="noopener" ' +
-        'style="display:inline-flex;margin-top:6px">Book my 15-min call →</a>' +
+        'style="display:inline-flex;margin-top:6px;font-size:16px;padding:16px 30px">Book your strategy call now →</a>' +
         '<a href="#book" class="btn btn-ghost" style="margin-left:10px;color:var(--ink);border:1px solid var(--line)">Or pick a slot below</a>';
       slot.dataset.rendered = '1';
     }
@@ -1243,6 +1281,7 @@ h1 em,h2 em,.hero-h1 em{font-style:normal !important;color:var(--purple2) !impor
   updateCalc();
 
   // ============== INIT — show question 1 ==============
+  document.body.classList.add('quiz-active');  // focus mode: hide below-quiz marketing until result
   showStep(1);
 })();
 
@@ -1287,6 +1326,52 @@ window.submitDQEmail = function(ev) {
     } catch(e){}
   }).catch(function(){
     if (btn) { btn.disabled = false; btn.textContent = 'Send me the resources'; }
+    if (err) { err.textContent = 'Something didn\'t go through. Try again in a moment.'; err.style.display = 'block'; }
+  });
+  return false;
+};
+
+// ============== submitQualEmail — qualified-path email capture (non-booker safety net) ==============
+// A qualified lead who doesn't book and closes the tab used to vanish. Now we capture
+// their email + score and POST it to the Worker, which fires the immediate audit email
+// (score + first workflow + Calendly link) and pushes the lead to GHL. The booking
+// option stays on screen — this is a parallel safety net, not a replacement.
+window.submitQualEmail = function(ev) {
+  if (ev && ev.preventDefault) ev.preventDefault();
+  var form = document.getElementById('qualEmailCapture');
+  var input = form && form.querySelector('input[name="email"]');
+  var btn = document.getElementById('qualSubmit');
+  var err = document.getElementById('qualError');
+  if (err) err.style.display = 'none';
+  var email = input ? input.value.trim().toLowerCase() : '';
+  if (!email || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
+    if (err) { err.textContent = 'Looks like that email is incomplete. Try again.'; err.style.display = 'block'; }
+    return false;
+  }
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+  var s = window._auditState || {};
+  fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+      score: s.score || 0,
+      qualified: !!s.qualified,
+      tier: s.tier || '',
+      vertical: s.vertical || '',
+      answers: s.answers || {},
+      email: email,
+      ts: new Date().toISOString()
+    })
+  }).then(function(r){
+    if (!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }).then(function(){
+    form.style.display = 'none';
+    var ok = document.getElementById('qualThanks');
+    if (ok) ok.style.display = 'block';
+    try { if (window.sendConversion) { window.sendConversion({ score: s.score, qualified: s.qualified, tier: 'email_captured_qualified' }); } } catch(e){}
+  }).catch(function(){
+    if (btn) { btn.disabled = false; btn.textContent = 'Email me my audit + booking link'; }
     if (err) { err.textContent = 'Something didn\'t go through. Try again in a moment.'; err.style.display = 'block'; }
   });
   return false;

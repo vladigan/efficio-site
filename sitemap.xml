@@ -50,6 +50,12 @@
   <url><loc>https://efficio.tech/blog/ai-for-cleaning-services.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-any-service-business.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
+  <!-- Industry hub pages (grouped — sit above the per-vertical landing pages) -->
+  <url><loc>https://efficio.tech/for/home-services.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/for/health-practices.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/for/professional-services.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/for/agencies.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+
   <!-- Vertical landing pages -->
   <url><loc>https://efficio.tech/landings/hvac.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://efficio.tech/landings/dental.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

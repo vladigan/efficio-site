@@ -2,40 +2,84 @@
    Efficio — conversion tracking (shared across the funnel)
    Drop-in:  <script src="/assets/pixels.js"></script>  (in <head>)
 
-   ONE place to manage tracking. Paste real IDs into EFFICIO_PIXELS
-   below. Each pixel loads ONLY when its ID is real — placeholders
-   stay fully dormant: no network requests, no console errors.
+   ONE place to manage tracking. Replace the placeholder IDs below
+   with real values from each ad platform. The script is gated:
+   any value containing "_PLACEHOLDER", "REPLACE_ME", or "XXXX"
+   stays fully dormant — no network requests, no console errors.
 
-   Where to get each ID:
-     googleAds  — Google Ads ▸ Goals ▸ Conversions ▸ tag setup
-                  ("AW-..." conversion ID + a per-action label)
-     metaPixel  — Meta Events Manager ▸ Data Sources (15-16 digits)
-     tiktok / snap / linkedin — only if you actually run those ads.
+   ===========================================================
+   PLACEHOLDER SWAP LIST  (find/replace these 7 strings once)
+   ===========================================================
+     META_PIXEL_ID_PLACEHOLDER          (Meta Events Manager -> 15-16 digits)
+     GA4_MEASUREMENT_ID_PLACEHOLDER     (GA4 -> Data Streams -> "G-..." )    [already LIVE - see note]
+     GADS_CONVERSION_ID_PLACEHOLDER     (Google Ads -> Goals -> Conversions -> "AW-...")
+     GADS_CONVERSION_LABEL_PLACEHOLDER  (Google Ads -> same screen -> per-action label)
+     LI_PARTNER_ID_PLACEHOLDER          (LinkedIn Campaign Manager -> Insight Tag -> partner ID)
+     LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER  (LinkedIn -> Conversions -> ID for qualifier-completed)
+     LI_BOOKING_CONVERSION_ID_PLACEHOLDER    (LinkedIn -> Conversions -> ID for calendly-booked)
+   ===========================================================
+
+   NOTE: ga4 was already LIVE on this site as "G-62FVTS6S1Z"
+   before phase-2 wiring. Preserved here so existing measurement
+   stays intact. If you want to swap GA4 to the placeholder gate
+   too, replace the live value with GA4_MEASUREMENT_ID_PLACEHOLDER.
 
    Fire conversions from page code:
-     window.efficioTrackLead({...})     // lead captured (audit / qualify)
-     window.efficioTrackBooking({...})  // call booked
+     window.efficioTrackQualifierStart({...})    // qualifier opened/first option click
+     window.efficioTrackQualifierComplete({...}) // qualifier finished (last step)
+     window.efficioTrackBooking({...})           // call booked on Calendly
+
    A Calendly inline embed auto-fires efficioTrackBooking on
    `calendly.event_scheduled` — no per-page wiring needed.
+
+   Legacy aliases retained for backward compatibility:
+     window.sendConversion()        = efficioTrackQualifierComplete
+     window.efficioTrackLead()      = efficioTrackQualifierComplete
    ============================================================ */
 window.EFFICIO_PIXELS = {
-  ga4:             "G-62FVTS6S1Z",                  /* LIVE — Google Analytics 4 */
-  googleAds:       "AW-XXXXXXXXXX",                 /* Google Ads conversion ID  */
-  googleAdsLabel:  "CONVERSION_LABEL",              /* Google Ads conversion label */
-  metaPixel:       "REPLACE_ME_META_PIXEL_ID",      /* Meta (Facebook) Pixel ID  */
-  linkedinPartner: "REPLACE_ME_LINKEDIN_PARTNER_ID",
-  linkedinConv:    "REPLACE_ME_LINKEDIN_CONVERSION_ID",
+  ga4:             "G-62FVTS6S1Z",                        /* LIVE - keep unless intentionally swapping */
+  googleAds:       "GADS_CONVERSION_ID_PLACEHOLDER",      /* "AW-1234567890"  */
+  googleAdsLabel:  "GADS_CONVERSION_LABEL_PLACEHOLDER",   /* per-action label */
+  metaPixel:       "META_PIXEL_ID_PLACEHOLDER",           /* 15-16 digit Meta Pixel ID */
+  linkedinPartner: "LI_PARTNER_ID_PLACEHOLDER",
+  linkedinConv:    "LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER",  /* fired on qualifier complete */
+  linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on Calendly booking  */
   tiktokPixel:     "REPLACE_ME_TIKTOK_PIXEL_ID",
   snapPixel:       "REPLACE_ME_SNAP_PIXEL_ID"
 };
 (function () {
   var P = window.EFFICIO_PIXELS;
-  /* a value counts as "real" only if it's set and carries no placeholder marker */
   function ok(v) {
-    return !!v && v.indexOf("REPLACE_ME") === -1
-      && v.indexOf("XXXX") === -1 && v !== "CONVERSION_LABEL";
+    if (!v || typeof v !== "string") return false;
+    if (v.indexOf("_PLACEHOLDER") !== -1) return false;
+    if (v.indexOf("REPLACE_ME")  !== -1) return false;
+    if (v.indexOf("XXXX")        !== -1) return false;
+    if (v === "CONVERSION_LABEL") return false;
+    return true;
   }
   window._pxOk = ok;
+
+  /* ---- pull UTM params from URL so every conversion fire is attributed ---- */
+  function captureUtms() {
+    var out = {}, q;
+    try { q = new URLSearchParams(window.location.search); } catch (e) { return out; }
+    ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","eff_variant","gclid","fbclid","li_fat_id"].forEach(function (k) {
+      var v = q.get(k);
+      if (v) out[k] = v;
+    });
+    return out;
+  }
+  (function persistUtms(){
+    var snap = captureUtms();
+    if (Object.keys(snap).length === 0) return;
+    try { sessionStorage.setItem("efficio_utms", JSON.stringify(snap)); } catch (e) {}
+  })();
+  function getUtms() {
+    var fromUrl = captureUtms();
+    if (Object.keys(fromUrl).length) return fromUrl;
+    try { return JSON.parse(sessionStorage.getItem("efficio_utms") || "{}"); } catch (e) { return {}; }
+  }
+  window._pxUtms = getUtms;
 
   /* ---- Google: GA4 + Google Ads share one gtag loader ---- */
   window.dataLayer = window.dataLayer || [];
@@ -100,36 +144,58 @@ window.EFFICIO_PIXELS = {
   }
 })();
 
-/* ---- Unified conversion helpers — fire only to pixels that loaded ---- */
-window.efficioTrackLead = function (meta) {
-  meta = meta || {};
+/* ============================================================
+   UNIFIED CONVERSION HELPERS — fire only to pixels that loaded
+   ============================================================ */
+
+/* === STAGE 1: qualifier STARTED (first option click on audit-quiz) === */
+window.efficioTrackQualifierStart = function (meta) {
+  meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
+  if (window.__efQualifierStarted) return; window.__efQualifierStarted = true;
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
-  try { if (window.gtag) gtag('event', 'generate_lead', meta); } catch (e) {}
-  try {
-    if (window.gtag && ok(P.googleAds) && ok(P.googleAdsLabel))
-      gtag('event', 'conversion', { send_to: P.googleAds + '/' + P.googleAdsLabel });
-  } catch (e) {}
-  try { if (window.fbq) fbq('track', 'Lead', meta); } catch (e) {}
-  try { if (window.lintrk && ok(P.linkedinConv)) lintrk('track', { conversion_id: P.linkedinConv }); } catch (e) {}
-  try { if (window.ttq) ttq.track('SubmitForm', meta); } catch (e) {}
-  try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'qualifier_started', meta); } catch (e) {}
+  try { if (window.fbq)  fbq('track', 'Lead', meta); } catch (e) {}
+  try { if (window.ttq)  ttq.track('ClickButton', meta); } catch (e) {}
+  try { if (window.snaptr) snaptr('track', 'START_TRIAL', meta); } catch (e) {}
 };
-window.efficioTrackBooking = function (meta) {
-  meta = meta || {};
+
+/* === STAGE 2: qualifier COMPLETED (last step / email captured) === */
+window.efficioTrackQualifierComplete = function (meta) {
+  meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
-  try { if (window.gtag) gtag('event', 'book_call', meta); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'qualifier_completed', meta); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'generate_lead',       meta); } catch (e) {}
   try {
     if (window.gtag && ok(P.googleAds) && ok(P.googleAdsLabel))
       gtag('event', 'conversion', { send_to: P.googleAds + '/' + P.googleAdsLabel });
   } catch (e) {}
   try { if (window.fbq) fbq('track', 'CompleteRegistration', meta); } catch (e) {}
   try { if (window.lintrk && ok(P.linkedinConv)) lintrk('track', { conversion_id: P.linkedinConv }); } catch (e) {}
+  try { if (window.ttq) ttq.track('SubmitForm', meta); } catch (e) {}
+  try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
+};
+
+/* === STAGE 3: Calendly call BOOKED === */
+window.efficioTrackBooking = function (meta) {
+  meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
+  var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
+  try { if (window.gtag) gtag('event', 'calendly_booking_completed', meta); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'book_call',                  meta); } catch (e) {}
+  try {
+    if (window.gtag && ok(P.googleAds) && ok(P.googleAdsLabel))
+      gtag('event', 'conversion', { send_to: P.googleAds + '/' + P.googleAdsLabel });
+  } catch (e) {}
+  try { if (window.fbq) fbq('track', 'Schedule', meta); } catch (e) {}
+  try { if (window.lintrk && ok(P.linkedinBookConv)) lintrk('track', { conversion_id: P.linkedinBookConv }); } catch (e) {}
   try { if (window.ttq) ttq.track('CompleteRegistration', meta); } catch (e) {}
   try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
 };
-/* legacy alias — older quiz code calls sendConversion() */
-window.sendConversion = window.efficioTrackLead;
-/* Calendly inline embed -> booking conversion (works on any page that loads this) */
+
+/* Legacy aliases — keep existing audit-quiz.html / qualify.html calls working */
+window.efficioTrackLead = window.efficioTrackQualifierComplete;
+window.sendConversion   = window.efficioTrackQualifierComplete;
+
+/* Calendly inline embed -> booking conversion (auto-wired everywhere pixels.js loads) */
 window.addEventListener('message', function (e) {
   try {
     var d = e && e.data;

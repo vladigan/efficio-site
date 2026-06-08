@@ -446,44 +446,66 @@
 .stat .ss{margin-top:14px;font-size:10.5px;color:var(--muted);font-weight:700;
   text-transform:uppercase;letter-spacing:.1em}
 
-/* ── LIVE OPS WIDGET — left-edge "agents working now" popup ─────────────── */
-#liveops{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:80;
-  display:flex;align-items:stretch;font-family:'Inter',system-ui,sans-serif}
-#liveops .lo-tab{cursor:pointer;background:var(--purple);color:#fff;width:38px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  padding:18px 0;border-radius:0 var(--r) var(--r) 0;
-  box-shadow:0 8px 26px rgba(124,58,237,.45);transition:.2s;border:0}
-#liveops .lo-tab:hover{background:var(--purple2)}
+/* ── LIVE OPS WIDGET — bottom-docked "agents working now" panel ─────────── */
+/* Collapsed = thin full-width strip at the bottom. Expanded = slides up.   */
+/* Interactive content is kept clear of the bottom-right chat bubble.        */
+#liveops{position:fixed;left:0;right:0;bottom:0;z-index:80;
+  display:flex;flex-direction:column;font-family:'Inter',system-ui,sans-serif}
+
+/* the always-visible bottom strip (this IS the collapse/expand handle) */
+#liveops .lo-tab{order:2;display:flex;align-items:center;gap:12px;width:100%;
+  cursor:pointer;background:var(--surf2);color:var(--w2);text-align:left;
+  border:0;border-top:1px solid var(--bd2);
+  padding:0 92px 0 20px;            /* right pad keeps the chat bubble clear */
+  height:46px;box-sizing:border-box;
+  box-shadow:0 -8px 26px rgba(0,0,0,.35);transition:background .2s}
+#liveops .lo-tab:hover{background:var(--surf3)}
 #liveops .lo-tab .pdot{width:8px;height:8px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 8px #4ade80;animation:loDot 1.6s ease-in-out infinite}
-#liveops .lo-tab .vlabel{writing-mode:vertical-rl;transform:rotate(180deg);
-  font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+  box-shadow:0 0 8px #4ade80;animation:loDot 1.6s ease-in-out infinite;flex-shrink:0}
+#liveops .lo-tab .vlabel{font-size:11px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--white);flex-shrink:0}
+#liveops .lo-tab .lo-preview{flex:1;min-width:0;font-size:12px;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#liveops .lo-tab .lo-preview .ag{color:var(--purple3);font-weight:700}
+#liveops .lo-tab .lo-chev{flex-shrink:0;color:var(--purple3);font-size:11px;
+  transition:transform .28s var(--ease)}
+#liveops.open .lo-tab .lo-chev{transform:rotate(180deg)}
 @keyframes loDot{0%,100%{opacity:1}50%{opacity:.4}}
-#liveops .lo-panel{width:0;overflow:hidden;background:var(--surf);
-  border:1px solid var(--bd2);border-left:none;border-radius:0 var(--r2) var(--r2) 0;
-  transition:width .28s cubic-bezier(.3,.8,.3,1);box-shadow:0 24px 60px rgba(0,0,0,.45)}
-#liveops.open .lo-panel{width:340px}
-#liveops .lo-inner{width:340px;padding:16px 16px 14px;display:flex;flex-direction:column;
-  height:min(560px,72vh)}
+
+/* the slide-up panel sits ABOVE the strip and grows upward */
+#liveops .lo-panel{order:1;width:100%;max-height:0;overflow:hidden;background:var(--surf);
+  border-top:1px solid var(--bd2);box-sizing:border-box;
+  transition:max-height .3s cubic-bezier(.3,.8,.3,1);box-shadow:0 -24px 60px rgba(0,0,0,.45)}
+#liveops.open .lo-panel{max-height:min(46vh,360px)}
+#liveops .lo-inner{max-width:1120px;margin:0 auto;padding:16px 20px 14px;
+  display:flex;flex-direction:column;max-height:min(46vh,360px);box-sizing:border-box}
 #liveops .lo-h{display:flex;align-items:center;gap:9px;padding-bottom:12px;
   border-bottom:1px solid var(--bd);margin-bottom:11px;flex-shrink:0}
 #liveops .lo-h b{font-size:12.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;flex:1}
 #liveops .lo-h .pdot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px #4ade80;animation:loDot 1.6s ease-in-out infinite}
 #liveops .lo-x{background:none;border:0;color:var(--muted);font-size:17px;cursor:pointer;padding:0 4px;line-height:1}
 #liveops .lo-x:hover{color:var(--white)}
-#liveops .lo-feed{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:0}
+#liveops .lo-feed{flex:1;overflow-y:auto;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 26px;align-content:start}
 #liveops .lo-feed::-webkit-scrollbar{width:5px}
 #liveops .lo-feed::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 #liveops .lo-item{padding:10px 4px;border-bottom:1px dashed var(--bd);font-size:12px;line-height:1.5;color:var(--text);animation:loIn .4s ease}
-#liveops .lo-item:last-child{border-bottom:0}
 #liveops .lo-item time{display:block;font-size:10.5px;font-weight:700;color:var(--purple3);font-variant-numeric:tabular-nums;margin-bottom:3px;letter-spacing:.04em}
 #liveops .lo-item .ag{color:var(--white);font-weight:700}
 #liveops .lo-item .pct.up{color:#4ade80;font-weight:800}
 #liveops .lo-item .pct.dn{color:var(--purple2);font-weight:800}
 #liveops .lo-foot{padding-top:11px;margin-top:8px;border-top:1px solid var(--bd);
   font-size:10.5px;color:var(--muted);text-align:center;flex-shrink:0;letter-spacing:.04em}
-@keyframes loIn{from{opacity:0;transform:translateX(-12px);background:rgba(124,58,237,.08)}to{opacity:1;transform:none}}
-@media(max-width:780px){#liveops{display:none}}
+@keyframes loIn{from{opacity:0;transform:translateY(8px);background:rgba(124,58,237,.08)}to{opacity:1;transform:none}}
+/* mobile: stay docked at the bottom, slimmer strip, single-column feed */
+@media(max-width:780px){
+  #liveops .lo-tab{height:42px;padding:0 70px 0 14px;gap:9px}
+  #liveops .lo-tab .vlabel{font-size:10px;letter-spacing:.1em}
+  #liveops .lo-tab .lo-preview{display:none}
+  #liveops.open .lo-panel{max-height:56vh}
+  #liveops .lo-inner{max-height:56vh;padding:14px 14px 12px}
+  #liveops .lo-feed{grid-template-columns:1fr;gap:0}
+}
 @media(prefers-reduced-motion:reduce){#liveops .lo-item{animation:none}#liveops .lo-tab .pdot,#liveops .lo-h .pdot{animation:none}}
 </style>
 </head>
@@ -1231,11 +1253,13 @@
   })();
 </script>
 
-<!-- ── LIVE OPS WIDGET — "agents working now" popup on left edge ─── -->
+<!-- ── LIVE OPS WIDGET — "agents working now" bottom-docked panel ─── -->
 <div id="liveops" aria-label="Live agent activity">
   <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
     <span class="pdot" aria-hidden="true"></span>
     <span class="vlabel">Agents · demo</span>
+    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
+    <span class="lo-chev" aria-hidden="true">▴</span>
   </button>
   <div class="lo-panel" id="loPanel">
     <div class="lo-inner">
@@ -1254,6 +1278,7 @@
 (function(){
   var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
       feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
+      preview=document.getElementById('loPreview'),
       wrap=document.getElementById('liveops');
   if(!tab||!feed||!wrap) return;
   function setOpen(o){
@@ -1287,14 +1312,16 @@
               +'<span class="ag">'+x.ag+'</span> '+x.txt;
     feed.insertBefore(n,feed.firstChild);
     while(feed.children.length>14) feed.removeChild(feed.lastChild);
+    if(preview){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; }
   }
   for(var i=0;i<4;i++) push();
   if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){ setInterval(push,9000); }
+  // Default to the collapsed strip so it never blocks page content; only
+  // restore the expanded panel if the visitor explicitly opened it before.
   try{
     var s=localStorage.getItem('efficio_liveops_open');
-    if(s===null){ setTimeout(function(){setOpen(true);},1200); }
-    else { setOpen(s==='1'); }
-  }catch(e){ setTimeout(function(){setOpen(true);},1200); }
+    setOpen(s==='1');
+  }catch(e){ setOpen(false); }
 })();
 </script>
 <script src="/assets/chat.js" defer></script>

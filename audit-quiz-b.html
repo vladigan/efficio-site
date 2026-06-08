@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- A/B variant router + attribution (this page = variant A / control).
-     ?v=b or ?v=c redirects to the matching variant file (all other query params,
-     incl. UTMs, preserved); otherwise this stamps eff_variant=a into the URL
-     BEFORE pixels.js loads, so the variant rides into every conversion fire. -->
+<meta name="robots" content="noindex,follow" />
+<!-- A/B variant attribution — this page = variant B (heavy social proof).
+     Stamps eff_variant=b into the URL BEFORE pixels.js loads so every
+     conversion + Worker POST is attributed to this variant. An explicit
+     ?eff_variant= override (a|b|c) still wins, for QA. -->
 <script>
 (function(){
+  var PAGE_VARIANT = 'b';
   try{
     var qs = new URLSearchParams(window.location.search);
-    var v = (qs.get('v') || '').toLowerCase();
-    if (v === 'b' || v === 'c'){
-      qs.delete('v');
-      qs.set('eff_variant', v);
-      window.location.replace('/audit-quiz-' + v + '.html?' + qs.toString() + window.location.hash);
-      return;
-    }
-    var variant = 'a';
+    var ev = (qs.get('eff_variant') || '').toLowerCase();
+    var variant = (ev === 'a' || ev === 'b' || ev === 'c') ? ev : PAGE_VARIANT;
     window.__effVariant = variant;
     if (qs.get('eff_variant') !== variant){
       qs.set('eff_variant', variant);
       window.history.replaceState(null, '', window.location.pathname + '?' + qs.toString() + window.location.hash);
     }
-  }catch(e){ window.__effVariant = window.__effVariant || 'a'; }
+  }catch(e){ window.__effVariant = 'b'; }
 })();
 </script>
 <title>Efficio — 60-second audit by your future AI team</title>
@@ -512,6 +508,45 @@ body.quiz-active #faq{display:none !important}
   </div>
 </header>
 
+<!-- ░░░░░ VARIANT B — social-proof components (scoped styles; inherit brand tokens) ░░░░░ -->
+<style>
+.sp-bar{background:var(--surf2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.sp-bar-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.sp-claim{font-size:15px;font-weight:700;color:var(--ink);max-width:430px;line-height:1.45}
+.sp-claim em{font-style:normal;color:var(--orange)}
+.sp-pills{display:flex;gap:10px;flex-wrap:wrap}
+.sp-pill{font-size:12.5px;color:var(--muted);background:var(--surf);border:1px solid var(--line);border-radius:999px;padding:7px 14px;white-space:nowrap}
+.sp-pill strong{color:var(--ink);font-weight:800}
+.sp-wall{background:var(--surf2)}
+.sp-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+.sp-cards-client{margin-top:20px}
+.sp-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-2);padding:28px;display:flex;flex-direction:column;gap:14px}
+.sp-card.feat{border-color:var(--orange)}
+.sp-quote{font-size:1.05rem;line-height:1.5;color:var(--ink);font-weight:600}
+.sp-stat-num{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-.04em;font-size:2.6rem;color:var(--orange);line-height:1}
+.sp-stat-desc{font-size:.95rem;color:var(--muted);line-height:1.55}
+.sp-attr{margin-top:auto;font-size:13px;color:var(--muted);line-height:1.4}
+.sp-attr strong{display:block;color:var(--ink);font-weight:700}
+.sp-stars{color:var(--orange);letter-spacing:3px;font-size:15px}
+.sp-foot{margin-top:22px;font-size:13px;color:var(--muted)}
+.sp-foot a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+body.quiz-active #proof{display:none !important}
+@media (max-width:880px){.sp-cards{grid-template-columns:1fr}.sp-bar-inner{flex-direction:column;align-items:flex-start}}
+</style>
+
+<!-- VARIANT B: trust / social-proof bar (directly under hero, above the quiz) -->
+<section class="sp-bar" aria-label="Why operators trust Efficio">
+  <div class="wrap sp-bar-inner">
+    <div class="sp-claim">Built and proven across our own <em>four-business stack</em> before we sold it to a single operator.</div>
+    <div class="sp-pills">
+      <span class="sp-pill"><strong>7 days</strong> to first agent live</span>
+      <span class="sp-pill"><strong>30-day</strong> refund — or the month's on us</span>
+      <span class="sp-pill"><strong>Month-to-month</strong> · cancel anytime</span>
+      <span class="sp-pill"><strong>Engineer-led</strong> · we write the code</span>
+    </div>
+  </div>
+</section>
+
 <!-- AUDIT WIDGET -->
 <section id="audit" aria-labelledby="audit-h">
   <div class="wrap">
@@ -831,6 +866,58 @@ body.quiz-active #faq{display:none !important}
         <span class="when">Ongoing</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- VARIANT B: results wall (honest, launch-ready proof) -->
+<section class="sp-wall" id="proof" aria-labelledby="proof-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Proof</div>
+      <h2 id="proof-h">We ran this on ourselves first.</h2>
+      <p class="lede">Efficio's agents have been running our own four businesses — recruiting, trading ops, government-bid sourcing and outreach — for months. The ranges below come from that stack. Your own metric is agreed on day 0 and refunded if it hasn't moved by day 30.</p>
+    </div>
+    <div class="sp-cards">
+      <article class="sp-card feat">
+        <div class="sp-quote">"The first agent goes live in your stack inside seven days of the kickoff call. Miss day 7 and the month is on us — that's the contract, in writing."</div>
+        <div class="sp-attr"><strong>The Efficio team</strong>Your contracted AI team</div>
+      </article>
+      <article class="sp-card">
+        <div class="sp-stat-num">~46 hrs</div>
+        <div class="sp-stat-desc">Owner-hours recovered per month once the front-office agent takes over manual handoffs and confirmations.</div>
+        <div class="sp-attr"><strong>From agents in production</strong>Across our own back-office</div>
+      </article>
+      <article class="sp-card">
+        <div class="sp-stat-num">~80%</div>
+        <div class="sp-stat-desc">Drop in first-response latency on inbound — leads get answered before they go cold.</div>
+        <div class="sp-attr"><strong>From agents in production</strong>Typical range · varies by workflow</div>
+      </article>
+    </div>
+
+    <!-- ████ CLIENT TESTIMONIALS — FILL BEFORE ENABLING VARIANT B IN PRODUCTION ████
+         Do NOT invent quotes. When you have real, attributable client quotes,
+         delete this comment wrapper so the cards below go live. Until then they
+         stay commented out, so no placeholder text ever ships to a visitor. -->
+    <!--
+    <div class="sp-cards sp-cards-client">
+      <article class="sp-card sp-card-client">
+        <div class="sp-stars">★★★★★</div>
+        <div class="sp-quote">"&lt;&lt;Client quote — what changed in week one&gt;&gt;"</div>
+        <div class="sp-attr"><strong>&lt;&lt;Owner name&gt;&gt;</strong>&lt;&lt;Business · City&gt;&gt;</div>
+      </article>
+      <article class="sp-card sp-card-client">
+        <div class="sp-stars">★★★★★</div>
+        <div class="sp-quote">"&lt;&lt;Client quote — the number that moved&gt;&gt;"</div>
+        <div class="sp-attr"><strong>&lt;&lt;Owner name&gt;&gt;</strong>&lt;&lt;Business · City&gt;&gt;</div>
+      </article>
+      <article class="sp-card sp-card-client">
+        <div class="sp-stars">★★★★★</div>
+        <div class="sp-quote">"&lt;&lt;Client quote — why they stayed&gt;&gt;"</div>
+        <div class="sp-attr"><strong>&lt;&lt;Owner name&gt;&gt;</strong>&lt;&lt;Business · City&gt;&gt;</div>
+      </article>
+    </div>
+    -->
+    <p class="sp-foot">Real client quotes drop in here as our first operators go live. <a href="#audit">Take the 60-second audit</a> and you could be one of them.</p>
   </div>
 </section>
 

@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- A/B variant router + attribution (this page = variant A / control).
-     ?v=b or ?v=c redirects to the matching variant file (all other query params,
-     incl. UTMs, preserved); otherwise this stamps eff_variant=a into the URL
-     BEFORE pixels.js loads, so the variant rides into every conversion fire. -->
+<meta name="robots" content="noindex,follow" />
+<!-- A/B variant attribution — this page = variant C (outcome-led pricing).
+     Stamps eff_variant=c into the URL BEFORE pixels.js loads so every
+     conversion + Worker POST is attributed to this variant. An explicit
+     ?eff_variant= override (a|b|c) still wins, for QA. -->
 <script>
 (function(){
+  var PAGE_VARIANT = 'c';
   try{
     var qs = new URLSearchParams(window.location.search);
-    var v = (qs.get('v') || '').toLowerCase();
-    if (v === 'b' || v === 'c'){
-      qs.delete('v');
-      qs.set('eff_variant', v);
-      window.location.replace('/audit-quiz-' + v + '.html?' + qs.toString() + window.location.hash);
-      return;
-    }
-    var variant = 'a';
+    var ev = (qs.get('eff_variant') || '').toLowerCase();
+    var variant = (ev === 'a' || ev === 'b' || ev === 'c') ? ev : PAGE_VARIANT;
     window.__effVariant = variant;
     if (qs.get('eff_variant') !== variant){
       qs.set('eff_variant', variant);
       window.history.replaceState(null, '', window.location.pathname + '?' + qs.toString() + window.location.hash);
     }
-  }catch(e){ window.__effVariant = window.__effVariant || 'a'; }
+  }catch(e){ window.__effVariant = 'c'; }
 })();
 </script>
 <title>Efficio — 60-second audit by your future AI team</title>
@@ -767,6 +763,69 @@ body.quiz-active #faq{display:none !important}
         <p class="footnote">Conservative — doesn't price the faster follow-up or the leads you stop losing.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ░░░░░ VARIANT C — outcome-led pricing (scoped styles; inherit brand tokens) ░░░░░ -->
+<style>
+.oc-pricing{background:var(--surf2)}
+.oc-outcome{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.15rem;color:var(--ink);line-height:1.25;margin-bottom:14px;min-height:42px}
+.price-card.feat .oc-outcome{color:var(--orange)}
+.oc-roi{font-size:13.5px;color:var(--muted);line-height:1.5;margin:-4px 0 16px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.oc-note{margin-top:24px;font-size:14px;color:var(--muted);line-height:1.6;text-align:center;max-width:680px;margin-left:auto;margin-right:auto}
+.oc-note strong{color:var(--ink);font-weight:800}
+.oc-note a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+body.quiz-active #pricing{display:none !important}
+@media (max-width:880px){.oc-outcome{min-height:0}}
+</style>
+
+<!-- VARIANT C: outcome-led pricing (right after the savings calculator) -->
+<section class="oc-pricing" id="pricing" aria-labelledby="pricing-h">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Pricing</div>
+      <h2 id="pricing-h">Priced against the outcome — not the hours.</h2>
+      <p class="lede">You just moved the sliders and saw the recoverable number. Here's what it costs to go get it. Every plan is month-to-month and refunded if your AI team hasn't moved a real metric by day 30.</p>
+    </div>
+    <div class="price-row">
+      <div class="price-card">
+        <div class="oc-outcome">Reclaim ~46 hours a month</div>
+        <div class="price-tier">AI Specialist</div>
+        <div class="price-amt">$997<small>/mo</small></div>
+        <div class="oc-roi">Pays for itself the first week against the ~$48K/yr hire it stands in for.</div>
+        <ul>
+          <li>One AI teammate live in your stack in 7 days</li>
+          <li>Scoped to your single biggest time leak</li>
+          <li>Weekly 15-min tune · monthly hours-recovered report</li>
+        </ul>
+        <a href="#audit" class="price-cta">See if you qualify →</a>
+      </div>
+      <div class="price-card feat">
+        <div class="oc-outcome">Cover the work of 2–3 hires</div>
+        <div class="price-tier">AI Team</div>
+        <div class="price-amt">$2,500<small>/mo</small></div>
+        <div class="oc-roi">An ops lead plus supporting roles for less than one mid-level salary.</div>
+        <ul>
+          <li>3–5 AI roles, one anchored as your ops lead</li>
+          <li>Covers phones, quotes, follow-up and scheduling</li>
+          <li>Cross-trained on your voice and your exceptions</li>
+        </ul>
+        <a href="#audit" class="price-cta">See if you qualify →</a>
+      </div>
+      <div class="price-card">
+        <div class="oc-outcome">Run a back-office, no headcount</div>
+        <div class="price-tier">AI Department</div>
+        <div class="price-amt">$3,500<small>/mo</small></div>
+        <div class="oc-roi">A whole department's output at a fraction of one back-office salary.</div>
+        <ul>
+          <li>5+ AI teammates across the operation</li>
+          <li>For higher-volume operators with multiple leaks</li>
+          <li>Quarterly roadmap · priority build queue</li>
+        </ul>
+        <a href="#audit" class="price-cta">See if you qualify →</a>
+      </div>
+    </div>
+    <p class="oc-note">Just getting started? Launch-cohort operators can begin with a single agent from <strong>$497/mo</strong>, locked for life. <a href="#audit">Take the 60-second audit</a> — it tells you which plan actually fits before you ever talk to us.</p>
   </div>
 </section>
 

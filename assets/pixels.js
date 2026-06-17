@@ -16,7 +16,7 @@
      GADS_CONVERSION_LABEL_PLACEHOLDER  (Google Ads -> same screen -> per-action label)
      LI_PARTNER_ID_PLACEHOLDER          (LinkedIn Campaign Manager -> Insight Tag -> partner ID)
      LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER  (LinkedIn -> Conversions -> ID for qualifier-completed)
-     LI_BOOKING_CONVERSION_ID_PLACEHOLDER    (LinkedIn -> Conversions -> ID for booking-completed)
+     LI_BOOKING_CONVERSION_ID_PLACEHOLDER    (LinkedIn -> Conversions -> ID for calendly-booked)
    ===========================================================
 
    NOTE: ga4 was already LIVE on this site as "G-62FVTS6S1Z"
@@ -27,11 +27,10 @@
    Fire conversions from page code:
      window.efficioTrackQualifierStart({...})    // qualifier opened/first option click
      window.efficioTrackQualifierComplete({...}) // qualifier finished (last step)
-     window.efficioTrackBooking({...})           // call booked (GHL booking widget)
+     window.efficioTrackBooking({...})           // call booked on Calendly
 
-   The GHL / LeadConnector booking widget auto-fires efficioTrackBooking on
-   its booking-success postMessage — no per-page wiring needed. See the
-   booking-success listener at the bottom of this file.
+   A Calendly inline embed auto-fires efficioTrackBooking on
+   `calendly.event_scheduled` — no per-page wiring needed.
 
    Legacy aliases retained for backward compatibility:
      window.sendConversion()        = efficioTrackQualifierComplete
@@ -44,7 +43,7 @@ window.EFFICIO_PIXELS = {
   metaPixel:       "META_PIXEL_ID_PLACEHOLDER",           /* 15-16 digit Meta Pixel ID */
   linkedinPartner: "LI_PARTNER_ID_PLACEHOLDER",
   linkedinConv:    "LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER",  /* fired on qualifier complete */
-  linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on booking complete  */
+  linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on Calendly booking  */
   tiktokPixel:     "REPLACE_ME_TIKTOK_PIXEL_ID",
   snapPixel:       "REPLACE_ME_SNAP_PIXEL_ID"
 };
@@ -176,7 +175,7 @@ window.efficioTrackQualifierComplete = function (meta) {
   try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
 };
 
-/* === STAGE 3: call BOOKED (GHL booking widget) === */
+/* === STAGE 3: Calendly call BOOKED === */
 window.efficioTrackBooking = function (meta) {
   meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
@@ -196,99 +195,12 @@ window.efficioTrackBooking = function (meta) {
 window.efficioTrackLead = window.efficioTrackQualifierComplete;
 window.sendConversion   = window.efficioTrackQualifierComplete;
 
-/* GHL (LeadConnector) booking widget -> booking conversion (auto-wired everywhere pixels.js loads) */
-window.EFFICIO_WORKER = window.EFFICIO_WORKER || 'https://efficio-chat.bgay3500.workers.dev';
-
-/* Server-side booking record: a client-side pixel alone left bookings.jsonl empty
-   (no producer for the post-booking daemon). On every booking we also
-   POST a durable beacon to the Worker /booking endpoint. Best-effort: never blocks
-   the conversion pixel. The Worker also accepts a booking webhook (GHL/LeadConnector)
-   on the same endpoint for full invitee PII — this beacon is the always-on safety net. */
-window.efficioRecordBooking = function (meta) {
-  try {
-    var s = window._auditState || {};
-    var payload = {
-      source: (location.pathname || 'site'),
-      page: (location.pathname || 'site'),
-      email: s.email || (meta && meta.email) || '',
-      tier: s.tier || '',
-      vertical: s.vertical || '',
-      utms: (window._pxUtms ? window._pxUtms() : {}),
-      ts: new Date().toISOString()
-    };
-    fetch(window.EFFICIO_WORKER + '/booking', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(payload),
-      keepalive: true
-    }).catch(function () {});
-  } catch (err) {}
-};
-
-/* === Booking-success listener ============================================
-   The booking calendar is now GHL / LeadConnector's embedded widget
-   (api.leadconnectorhq.com/widget/booking/...), loaded via its form_embed.js.
-   GHL does NOT emit Calendly's `calendly.event_scheduled` event. On a completed
-   booking the widget posts a window message FROM the leadconnectorhq iframe.
-   The success payload is most commonly the ARRAY form:
-        ['msgsndr-booking-complete', { calendarId: '...' }]
-   sent with origin https://api.leadconnectorhq.com (sometimes link.msgsndr.com).
-   We match that robustly, plus a few object-shaped variants GHL has used, and
-   still honour Calendly's old event as a harmless fallback.
-
-   >>> CONFIRM ON THE LIVE PAGE: open the booking page, paste this in the console
-       window.addEventListener('message',function(ev){console.log(ev.origin,ev.data)})
-       then complete a test booking and verify the exact origin + payload below
-       match what fires. If GHL changes the string, update GHL_BOOKING_MATCH. <<<
-   ======================================================================== */
-window.EFFICIO_BOOKING_ORIGIN_RE = /(^|\.)leadconnectorhq\.com$|(^|\.)msgsndr\.com$/i;
-
-/* Returns true if a postMessage payload looks like a GHL booking success. */
-function efficioIsGhlBooking(d) {
-  if (!d) return false;
-  // Array form: ['msgsndr-booking-complete', {calendarId}]
-  if (Array.isArray(d)) {
-    return typeof d[0] === 'string' && /booking-?complete|appointment[-_ ]?booked/i.test(d[0]);
-  }
-  // String form: 'msgsndr-booking-complete'
-  if (typeof d === 'string') {
-    return /booking-?complete|appointment[-_ ]?booked/i.test(d);
-  }
-  // Object form: {type|event|page|action: '...booked/booking complete...'}
-  if (typeof d === 'object') {
-    var keys = ['type', 'event', 'eventName', 'page', 'action', 'name'];
-    for (var i = 0; i < keys.length; i++) {
-      var v = d[keys[i]];
-      if (typeof v === 'string' && /booking-?complete|appointment[-_ ]?booked|booking_completed/i.test(v)) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
+/* Calendly inline embed -> booking conversion (auto-wired everywhere pixels.js loads) */
 window.addEventListener('message', function (e) {
   try {
-    var origin = (e && e.origin) || '';
     var d = e && e.data;
     if (typeof d === 'string') { try { d = JSON.parse(d); } catch (_) {} }
-
-    // Calendly fallback (legacy; embed retired but harmless to keep)
-    var isCalendly = d && d.event === 'calendly.event_scheduled';
-
-    // GHL / LeadConnector booking success — only trust messages from the widget origin
-    var isGhl = false;
-    try {
-      var host = origin ? new URL(origin).hostname : '';
-      isGhl = window.EFFICIO_BOOKING_ORIGIN_RE.test(host) && efficioIsGhlBooking(d);
-    } catch (_) {
-      // If origin can't be parsed, still accept an unambiguous GHL payload shape
-      isGhl = efficioIsGhlBooking(d);
-    }
-
-    if (isGhl || isCalendly) {
+    if (d && d.event === 'calendly.event_scheduled')
       window.efficioTrackBooking({ source: (location.pathname || 'site') });
-      window.efficioRecordBooking({ source: (location.pathname || 'site') });
-    }
   } catch (err) {}
 });

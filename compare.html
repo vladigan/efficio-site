@@ -77,6 +77,21 @@
 .cmp-cta a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#fff;color:#0a0612 !important;
   border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .15s}
 .cmp-cta a:hover{transform:translateY(-2px)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
+  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em;text-decoration:none}
+.logo .logo-mark{width:30px;height:30px;flex-shrink:0;font-size:0;color:transparent;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r);text-decoration:none}
+.nav-links a:hover{color:var(--white)}
+.btn-nav{padding:10px 20px;background:var(--purple);color:#fff !important;border-radius:var(--r);
+  font-size:13.5px;font-weight:700}
+.btn-nav:hover{background:var(--purple2)}
+@media(max-width:780px){.nav-links a:not(.btn-nav){display:none}}
 </style>
 </head>
 <body>
@@ -95,8 +110,8 @@
 
 <main class="cmp-shell">
   <span class="cmp-pill"><span class="dot"></span>Honest comparison</span>
-  <h1 class="cmp-h1">A managed AI workforce vs. <em>everyone else.</em></h1>
-  <p class="cmp-sub">When an SMB owner decides they want AI, there are four real paths: a DIY platform, hiring in-house, an AI consultancy &mdash; or giving your business its own Jarvis. Efficio is that fourth path: an <b style="color:var(--white);font-weight:700">always-on AI workforce</b> built on Anthropic's Claude and plugged into your stack via MCP and APIs &mdash; a managed AI team, not a tool you operate. Here's where each path wins, where each one breaks, and why the managed-workforce model beats DIY software, headcount, and one-off consulting projects.</p>
+  <h1 class="cmp-h1">Efficio vs. <em>everyone else.</em></h1>
+  <p class="cmp-sub">There are four real paths an SMB owner takes when they decide they want AI. We've used three of them ourselves before building the fourth. Here's where each one wins, where each one breaks, and which one your business should pick depending on where you actually are.</p>
 
   <!-- Quick-glance table -->
   <div class="cmp-table-wrap">
@@ -107,7 +122,7 @@
           <th>GoHighLevel<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(DIY platform)</small></th>
           <th>Hire in-house<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(4 humans + manager)</small></th>
           <th>AI consultancy<br><small style="font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0">(Deloitte/BCG/boutique)</small></th>
-          <th class="win">Efficio<br><small style="font-weight:500;color:var(--purple3);text-transform:none;letter-spacing:0">(managed AI workforce on Claude)</small></th>
+          <th class="win">Efficio<br><small style="font-weight:500;color:var(--purple3);text-transform:none;letter-spacing:0">(managed AI team)</small></th>
         </tr>
       </thead>
       <tbody>
@@ -193,7 +208,7 @@
           <td>Owners with no time to learn it</td>
           <td>Pre-$1M operations (overkill)</td>
           <td>SMBs (priced out)</td>
-          <td class="win">Anyone who refuses scoped, revocable tool access</td>
+          <td class="win">Anyone who refuses OAuth access</td>
         </tr>
       </tbody>
     </table>
@@ -296,28 +311,27 @@
     </div>
 
     <h2>vs. <em>Efficio</em></h2>
-    <div class="sub">A managed AI workforce — not software, not headcount, not a project</div>
-    <p>The reason Efficio wins the column above isn't a feature list &mdash; it's the <em>model</em>. We give your business its own Jarvis: an always-on AI workforce built on <b style="color:var(--w2);font-weight:700">Anthropic's Claude</b> (your own Claude Teams account, set up by us) and plugged into the tools you already run through <b style="color:var(--w2);font-weight:700">MCP and direct APIs</b>. We build it, we run it, and it lands on one live dashboard. <b style="color:var(--w2);font-weight:700">You operate your business; it works.</b> That's the difference from DIY software you have to operate, headcount you have to manage, and a consultancy that hands you a deck and leaves. But we're not the right pick for everyone &mdash; here's where we lose, said plainly:</p>
+    <div class="sub">Honest about where we break too</div>
+    <p>We're not the right pick for everyone. Here's where we lose, said plainly:</p>
 
     <div class="breakdown">
       <div class="col wins">
         <h3>Where we win</h3>
         <ul>
           <li>$30K–$5M/mo SMBs in any vertical</li>
-          <li>Owners who want the work done, not a tool to operate</li>
-          <li>Built on Claude, plugged into your stack via MCP + APIs</li>
-          <li>First build live in ~7 days, contractually</li>
-          <li>$0 upfront · 30-day refund if the metric doesn't move</li>
-          <li>Scoped, revocable access — your data stays in your tools</li>
+          <li>Owners who don't have time to learn AI</li>
+          <li>First agent live in 7 days, contractually</li>
+          <li>30-day refund if metric doesn't move</li>
+          <li>Read-only OAuth (revocable any time)</li>
           <li>Month-to-month, cancel any month</li>
-          <li>One workforce that grows with you: crawl → walk → run → sprint</li>
+          <li>Same AI teams grow with you: crawl → walk → run → sprint</li>
         </ul>
       </div>
       <div class="col breaks">
         <h3>Where we lose</h3>
         <ul>
           <li>Enterprise (refer to QueryNow)</li>
-          <li>Anyone who refuses scoped, revocable access to their tools</li>
+          <li>Anyone who refuses read-only OAuth access</li>
           <li>Owners who insist on building it themselves (use GHL)</li>
           <li>Highly regulated industries needing custom compliance (talk to us first)</li>
           <li>Content / marketing creative — we don't do that work, that's Modrn's lane</li>
@@ -328,137 +342,19 @@
 
   </div>
 
-  <!-- WHY EFFICIO WINS — the managed-workforce model, built on Claude via MCP + APIs -->
-  <section class="section implement" id="why-efficio" style="padding:0;background:none;margin-top:64px">
-    <div class="container" style="padding:0;max-width:none">
-      <div class="sh rv">
-        <div class="s-label">Why the managed model wins</div>
-        <h2 class="s-title">It's not a tool you run. <em>It's a workforce we run for you.</em></h2>
-        <p class="s-sub">DIY platforms make you the implementer. Headcount makes you a manager. Consultancies hand you a deck. Efficio plugs a workforce of AI agents into the tools you already use &mdash; through <b>MCP</b> (the Model Context Protocol) and direct <b>APIs</b>, running on <b>Anthropic's Claude</b> &mdash; and runs it for you.</p>
-      </div>
-
-      <!-- the flow: your tools → MCP/API → Claude agents → outcomes -->
-      <div class="arch rv d1" role="img" aria-label="Architecture: your tools connect through MCP and APIs to Claude-powered agents, which produce business outcomes.">
-        <div class="arch-col arch-tools">
-          <div class="arch-cap">Your stack</div>
-          <div class="arch-chips">
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Inbox</span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone</span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
-            <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l5 5v13H6zM15 3v5h5"/></svg>Docs</span>
-          </div>
-        </div>
-
-        <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">MCP&nbsp;+&nbsp;API</span></div>
-
-        <div class="arch-col arch-hub">
-          <div class="arch-cap">Integration layer</div>
-          <div class="arch-node">
-            <div class="arch-node-ic">&#x21C4;</div>
-            <b>MCP&nbsp;+ API gateway</b>
-            <small>Secure, scoped, revocable. Your data stays in your tools.</small>
-          </div>
-        </div>
-
-        <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">context</span></div>
-
-        <div class="arch-col arch-brain">
-          <div class="arch-cap">The workforce</div>
-          <div class="arch-node feat">
-            <div class="arch-brain-mark"><span></span><span></span><span></span></div>
-            <b>Claude-powered agents</b>
-            <small>Reasoning + action on Anthropic's Claude — in your own Claude Teams account, set up by us.</small>
-            <div class="arch-agents">
-              <span>Front desk</span><span>Sales &amp; quoting</span><span>Back office</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">actions</span></div>
-
-        <div class="arch-col arch-out">
-          <div class="arch-cap">Outcomes</div>
-          <ul class="arch-results">
-            <li><span class="ad"></span>Calls &amp; texts answered 24/7</li>
-            <li><span class="ad"></span>Leads qualified &amp; booked</li>
-            <li><span class="ad"></span>Itemized quotes sent in seconds</li>
-            <li><span class="ad"></span>Inbox, AR &amp; ops handled</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- the three reasons the model wins -->
-      <div class="impl-cards rv d2">
-        <div class="impl-card" data-tilt>
-          <div class="impl-ic">&#x7B;&#x7D;</div>
-          <h3>Beats DIY software</h3>
-          <p>A platform like GoHighLevel makes <b>you</b> the implementer, operator, and help desk. We integrate through MCP and direct APIs, then <b>run</b> the workforce for you &mdash; inside the tools you already have. You operate; it works.</p>
-        </div>
-        <div class="impl-card feat" data-tilt>
-          <div class="impl-ic">&#x25C8;</div>
-          <h3>Beats hiring headcount</h3>
-          <p>No recruiting, ramp, turnover, or managing four humans. The agents reason and act on <b>Claude</b> &mdash; provisioned in your own <b>Claude Teams</b> account, configured by us &mdash; for a fraction of a single salary.</p>
-        </div>
-        <div class="impl-card" data-tilt>
-          <div class="impl-ic">&#x29BF;</div>
-          <h3>Beats a one-off consultancy</h3>
-          <p>No 90-day discovery, no deck, no junior engineer with five other clients. First build live in ~7 days, then we keep running it &mdash; every action landing on your live dashboard.</p>
-        </div>
-      </div>
-
-      <!-- the offer band -->
-      <div class="offer-grid rv d3" style="margin-top:14px">
-        <div class="offer-item" data-tilt>
-          <span class="oi-n">~7</span><span class="oi-u">days</span>
-          <h3>First build, live</h3>
-          <p>Your fastest team is in your stack and doing real work within about a week of kickoff. Bigger builds get scoped on the call.</p>
-        </div>
-        <div class="offer-item feat" data-tilt>
-          <span class="oi-n">$0</span><span class="oi-u">upfront</span>
-          <h3>No setup cost to start</h3>
-          <p>We deploy first. No discovery invoice, no recruiting spend, no platform you have to learn before you see value.</p>
-        </div>
-        <div class="offer-item" data-tilt>
-          <span class="oi-n">30</span><span class="oi-u">day refund</span>
-          <h3>Pay only if it works</h3>
-          <p>We agree the metric on the first call. If it hasn't moved a real number you can see by day 30, you get the month back.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <div class="cmp-cta">
-    <h3>Give your business its own Jarvis.</h3>
-    <p>If you're in our zone ($30K–$5M/mo SMB), take the 60-second qualifier. It routes you to the right tier — one AI team, two teams, or your full AI department — and books your free audit call. $0 upfront, first build in ~7 days, pay only if it works. If you're not a fit, we tell you.</p>
+    <h3>Pick the path that fits.</h3>
+    <p>If you're in our zone ($30K–$5M/mo SMB), take the 60-second qualifier. It'll route you to the right tier — one AI team, two teams, or your full AI department — and book your free audit call. No pitch. If you're not a fit, we tell you.</p>
     <a href="https://go.efficio.tech/">Take the 60-sec qualifier →</a>
   </div>
 </main>
 
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — plugged into your tools via MCP and APIs, on one live dashboard — so you operate while we handle the AI.</p>
-    </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/demo/">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
-    </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
-      <a href="https://go.efficio.tech/">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built for small &amp; medium businesses across the US.</div>
-  </div>
+<!-- Footer reuse from theme -->
+<footer style="margin-top:80px;padding:40px 28px;border-top:1px solid var(--bd);text-align:center;font-size:13px;color:var(--muted)">
+  © 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL ·
+  <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> ·
+  <a href="/terms.html" style="color:var(--purple3)">Terms</a> ·
+  <a href="/" style="color:var(--purple3)">Back to home</a>
 </footer>
 
 <script src="/assets/transitions.js" defer></script>

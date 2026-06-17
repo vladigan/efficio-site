@@ -288,27 +288,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:50px 0 28px;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
   font-size:12px;color:var(--muted)}
 
-/* OFFER BAND — matches homepage .offer-grid/.offer-item */
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
-@media(max-width:880px){.offer-grid{grid-template-columns:1fr}}
-.offer-item{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:30px 26px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.offer-item:hover{border-color:var(--bd2);transform:translateY(-4px)}
-.offer-item.feat{border-color:var(--purple);
-  background:linear-gradient(180deg,rgba(124,58,237,.12),var(--surf))}
-.offer-item .oi-n{font-size:3.2rem;font-weight:900;color:var(--purple2);letter-spacing:-.05em;
-  line-height:1;display:inline-block}
-.offer-item .oi-u{display:inline-block;margin-left:8px;font-size:11px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);vertical-align:middle}
-.offer-item h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;
-  margin:16px 0 8px}
-.offer-item p{font-size:13.5px;color:var(--text);line-height:1.6}
-/* "built on Claude + MCP" reassurance line */
-.stack-note{margin:0 0 8px;display:flex;align-items:center;justify-content:center;gap:10px;
-  flex-wrap:wrap;font-size:13px;color:var(--muted);text-align:center;letter-spacing:.01em}
-.stack-note b{color:var(--purple3);font-weight:700}
-.stack-note .dot-sep{width:4px;height:4px;border-radius:50%;background:var(--bd2)}
-
 /* === BOLD & CONFIDENT — final override === */
 body{letter-spacing:-.011em}
 /* animated perspective grid — match the rest of the site */
@@ -389,7 +368,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
     <a href="/agents.html">AI teams</a>
-    <a href="/pricing.html" class="active">Pricing</a>
+    <a href="/pricing.html">Pricing</a>
     <a href="/blog/">Blog</a>
     <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
   </div>
@@ -402,8 +381,8 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
   <div class="hero-dots"></div>
   <div class="hero-inner">
     <span class="hero-pill rv"><span class="pill-dot"></span>Pricing · Month-to-month</span>
-    <h1 class="rv d1">Pricing for your own <span class="grad-purple">AI workforce</span>.</h1>
-    <p class="rv d2">Every tier buys the same thing: an <strong style="color:var(--white)">always-on AI workforce</strong> we build and run for you — not another tool you operate. Built on Anthropic's Claude, plugged into your stack, with one promise across the board: <strong style="color:var(--white)">measurable savings by day 30 or your money back</strong>. Month-to-month. No contracts. Cancel anytime.</p>
+    <h1 class="rv d1">Pricing that grows with <span class="grad-purple">what we ship</span>.</h1>
+    <p class="rv d2">We sell AI teams, not AI tools — one promise across every tier: <strong style="color:var(--white)">measurable savings by day 30 or your money back</strong>. Month-to-month. No contracts. Cancel anytime.</p>
     <div class="hero-trust rv d3">
       <span class="ti"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30-day refund</span>
       <span class="ti-sep"></span>
@@ -417,30 +396,6 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
 <!-- TIERS -->
 <section class="section" id="tiers">
   <div class="container">
-    <!-- offer band — same promise as the homepage -->
-    <div class="text-center" style="margin-bottom:24px">
-      <span class="s-label rv">The offer · every tier</span>
-      <h2 class="s-title rv d1">Built fast. <span class="grad-purple">Risk on us.</span></h2>
-      <p class="s-sub rv d2" style="margin-left:auto;margin-right:auto">You don't build, learn, or manage anything. We deploy your AI workforce — and if it doesn't move a number you can see, you don't pay.</p>
-    </div>
-    <div class="offer-grid rv d2" style="margin-bottom:40px">
-      <div class="offer-item" data-tilt>
-        <div class="oi-n">~7</div><div class="oi-u">days</div>
-        <h3>First build live</h3>
-        <p>Your Front Office team is live and working in your stack within about a week of kickoff — not a quarter-long project.</p>
-      </div>
-      <div class="offer-item" data-tilt>
-        <div class="oi-n">$0</div><div class="oi-u">upfront</div>
-        <h3>No build fee</h3>
-        <p>No setup invoice, no implementation bill. We build the workforce on us and earn the monthly seat.</p>
-      </div>
-      <div class="offer-item feat" data-tilt>
-        <div class="oi-n">30</div><div class="oi-u">day proof</div>
-        <h3>Pay only if it works</h3>
-        <p>We agree on the metric on call one. If we don't move it by day 30, the month is on us. In writing.</p>
-      </div>
-    </div>
-    <p class="stack-note rv d2">Every tier is <b>built on Anthropic's Claude</b> — your own Claude account, set up by us<span class="dot-sep"></span>plugged into your tools via <b>MCP + APIs</b>, scoped &amp; revocable<span class="dot-sep"></span>live on one dashboard you watch.</p>
     <div class="tiers">
       <div class="tier rv d1" data-tilt>
         <div class="tier-name">Starter</div>
@@ -713,7 +668,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
         <span class="logo-mark">E</span>
         <span class="logo-text">Efficio</span>
       </div>
-      <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — plugged into your tools via MCP and APIs, on one live dashboard — so you operate while we handle the AI.</p>
+      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
     </div>
     <div class="foot-col">
       <h5>Product</h5>
@@ -738,7 +693,7 @@ html .rv,html.js .rv,html:not(.js) .rv{opacity:1 !important;transform:none !impo
   </div>
   <div class="foot-bottom">
     <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built for small &amp; medium businesses across the US.</div>
+    <div>Built by an operator, not a software vendor.</div>
   </div>
 </footer>
 

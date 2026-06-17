@@ -1,1574 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/assets/pixels.js"></script>
-  <meta name="description" content="Efficio gives your business its own AI workforce — an always-on team of AI agents, built on Anthropic's Claude and plugged into the tools you already use via MCP and APIs. We build it, run it, and put it on one live dashboard. From $497/mo. No upfront cost. You don't pay if it doesn't work." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://efficio.tech/" />
-  <title>Efficio — Your business's AI workforce, built on Claude</title>
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://efficio.tech/" />
-  <meta property="og:title" content="Efficio — Your business's AI workforce, built on Claude" />
-  <meta property="og:description" content="An always-on AI workforce embedded in your operations — built on Claude, plugged into your tools via MCP and APIs. Built in ~7 days. No upfront cost. You don't pay if it doesn't work." />
-  <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
-  <meta property="og:site_name" content="Efficio" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Efficio — Your business's AI workforce, built on Claude" />
-  <meta name="twitter:description" content="An always-on AI workforce embedded in your operations — built on Claude, plugged into your stack via MCP and APIs. We build it, run it, watch it work. From $497/mo." />
-  <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"Efficio",
-    "alternateName":"Efficio AI",
-    "url":"https://efficio.tech",
-    "logo":"https://efficio.tech/assets/brand/efficio-mark.png",
-    "description":"Managed AI service for small and medium businesses. We build and operate AI agents, automations, and live operational dashboards. Embedded, not software-to-buy.",
-    "email":"brady@efficio.tech",
-    "areaServed":{"@type":"Country","name":"United States"},
-    "serviceType":["AI Agent Build","Workflow Automation","AI Back-Office Automation","Live Operational Dashboard","Custom AI Products"],
-    "priceRange":"$497-$3500/mo",
-    "foundingDate":"2026",
-    "address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},
-    "parentOrganization":{"@type":"Organization","name":"BNG Contracting Enterprise LLC"},
-    "knowsAbout":["AI Front-Office Team","AI Back-Office Team","AI Department","Operational Dashboards","Workflow Automation","Small Business Operations","Custom AI Builds"],
-    "hasOfferCatalog":{
-      "@type":"OfferCatalog",
-      "name":"Subscription Tiers",
-      "itemListElement":[
-        {"@type":"Offer","name":"Starter","price":"497","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"497","priceCurrency":"USD","unitText":"MONTH"}},
-        {"@type":"Offer","name":"AI Specialist","price":"997","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"997","priceCurrency":"USD","unitText":"MONTH"}},
-        {"@type":"Offer","name":"AI Team","price":"2500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"2500","priceCurrency":"USD","unitText":"MONTH"}},
-        {"@type":"Offer","name":"AI Department","price":"3500","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","price":"3500","priceCurrency":"USD","unitText":"MONTH"}}
-      ]
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Do I need to know anything about AI?","acceptedAnswer":{"@type":"Answer","text":"No. That's the entire point. You tell us what's slow, manual, or falling through the cracks — we handle every technical decision, every tool, every build. You operate your business; we operate the AI."}},
-      {"@type":"Question","name":"Aren't there already a million AI tools out there?","acceptedAnswer":{"@type":"Answer","text":"Yes — and that's the problem. Efficio is built on Anthropic's published framework for running an AI-driven business, not patched together from random tools. Each AI team is integrated into your existing stack — CRM, phone, inbox, booking — by human engineers, owned and operated by us."}},
-      {"@type":"Question","name":"What does the 30-day refund actually mean?","acceptedAnswer":{"@type":"Answer","text":"If by day 30 we haven't moved a real number you can see — recovered hours, faster response, fewer dropped leads — you get the month back, no debate. We agree on the metric on the first call so there's no moving goalpost."}},
-      {"@type":"Question","name":"What kind of businesses do you work with?","acceptedAnswer":{"@type":"Answer","text":"Small and medium businesses — really, anyone whose team is losing hours to manual work. Home services, trades, professional services, healthcare, real estate, retail, agencies. The agents and dashboard are universal; we customize them to how you actually work."}},
-      {"@type":"Question","name":"Does this replace my staff or my software?","acceptedAnswer":{"@type":"Answer","text":"No. The AI works alongside your people and plugs into the tools you already use. Your team gets hours back; your stack stays where it is. If something blocks the build, we tell you on the first call."}},
-      {"@type":"Question","name":"How fast does something actually go live?","acceptedAnswer":{"@type":"Answer","text":"The first build is in your stack and doing real work within seven days of the kickoff call. After that we keep shipping — and everything lands on your dashboard so you watch it happen."}}
-    ]
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/theme.css" />
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="/assets/pixels.js"></script>
+<title>Efficio — Not software. A team.</title>
+<meta name="description" content="An always-on AI workforce that lives inside your apps. @mention it like a teammate — it answers, books, quotes, and follows up. Built on Claude, connected by MCP + API. Live in 7 days." />
+<link rel="canonical" href="https://efficio.tech/"/>
+<meta property="og:title" content="Efficio — Not software. A team."/>
+<meta property="og:description" content="An always-on AI workforce that lives inside your apps. Built on Claude."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta property="og:site_name" content="Efficio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Efficio — Not software. A team."/>
+<meta name="twitter:description" content="An always-on AI workforce that lives inside your apps. Built on Claude."/>
+<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<script>document.documentElement.className='js';</script>
 <style>
-/* ── page-specific · bold & confident ── */
-.hero-home{padding:150px 0 56px;position:relative;overflow:hidden}
-/* animated perspective grid — engineering-floor depth */
-.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.hero-grid::before{content:"";position:absolute;left:-60%;right:-60%;bottom:-30%;height:130%;
-  background-image:linear-gradient(rgba(155,108,246,.17) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(155,108,246,.17) 1px,transparent 1px);
-  background-size:46px 46px;
-  transform:perspective(440px) rotateX(60deg);transform-origin:bottom center;
-  -webkit-mask-image:linear-gradient(to top,#000,transparent 72%);
-  mask-image:linear-gradient(to top,#000,transparent 72%);
-  animation:gridscroll 3.4s linear infinite}
-@keyframes gridscroll{from{background-position:0 0}to{background-position:0 46px}}
-.hero-home .hero-inner{position:relative;z-index:1;display:grid;
-  grid-template-columns:1.04fr .96fr;gap:40px 56px;align-items:start}
-@media(max-width:920px){.hero-home .hero-inner{grid-template-columns:1fr;gap:44px}}
-.hero-eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:24px;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:"";width:30px;height:1px;background:var(--purple2)}
-.hero-home h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:900;line-height:.96;
-  letter-spacing:-.05em;color:var(--white);margin-bottom:24px;max-width:13ch}
-.hero-home h1 .ac{color:var(--purple2)}
-.hero-home .hero-oneliner{font-size:1.06rem;line-height:1.5;color:var(--w2);font-weight:600;
-  max-width:520px;margin-bottom:22px;letter-spacing:-.012em}
-.hero-home .hero-oneliner b{color:var(--purple3);font-weight:700}
-.hero-home .lede{font-size:1.1rem;line-height:1.55;color:var(--text);max-width:500px;margin-bottom:30px}
-.hero-home .lede b{color:var(--w2);font-weight:600}
-.hero-ctas-l{display:flex;gap:12px;flex-wrap:wrap}
-.proof-strip{grid-column:1/-1;margin-top:30px;padding-top:26px;border-top:1px solid var(--bd);
-  display:flex;gap:44px;flex-wrap:wrap}
-.proof-strip div{font-size:.86rem;color:var(--muted);line-height:1.5}
-.proof-strip div b{display:block;color:var(--white);font-size:1.05rem;font-weight:800;
-  letter-spacing:-.02em;margin-bottom:2px}
+:root{
+  --violet:#7C4DFF;--violet-d:#6a36f0;--violet-dd:#5a27d8;
+  --ink:#171426;--ink2:#322d45;--muted:#75718a;
+  --bg:#fbfaff;--card:#ffffff;
+  --line:rgba(23,20,38,.08);--line2:rgba(23,20,38,.14);
+  --soft:0 18px 50px -18px rgba(91,52,196,.28);
+  --soft2:0 12px 34px -16px rgba(91,52,196,.22);
+  --r:18px;--r2:24px;--ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.55;letter-spacing:-.012em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+::selection{background:var(--violet);color:#fff}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
 
-/* ── LIVE BUILD CONSOLE — the dynamic centerpiece ── */
-.console{border:1px solid var(--bd2);border-radius:var(--r2);background:#0a0a0d;overflow:hidden;
-  box-shadow:0 36px 90px rgba(0,0,0,.65);
-  font-family:'SF Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;
-  transform-style:preserve-3d;transition:transform .25s var(--ease),border-color .25s;will-change:transform}
-.console:hover{border-color:var(--purple)}
-.console-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;
-  background:#121215;border-bottom:1px solid var(--bd)}
-.console-bar .cd{width:9px;height:9px;border-radius:50%}
-.console-bar .ct{margin-left:8px;font-size:11px;color:var(--muted);font-weight:500}
-.console-bar .cstat{margin-left:auto;font-size:8.5px;font-weight:800;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--good);display:flex;align-items:center;gap:6px}
-.console-body{padding:18px 17px 20px;min-height:312px;font-size:12.4px;line-height:1.92}
-.console-body .ln{white-space:pre-wrap;word-break:break-word;color:var(--text)}
-.console-body .ln .pr{color:var(--purple3)}
-.console-body .ln .ok{color:var(--good)}
-.console-body .ln .dim{color:var(--muted)}
-.console-body .ln .hl{color:var(--white)}
-.console-cur{display:inline-block;width:7px;height:14px;background:var(--purple2);
-  vertical-align:-2px;margin-left:1px;animation:cblink 1.05s steps(1) infinite}
-@keyframes cblink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){
-  .hero-grid::before{animation:none}.console-cur{animation:none}
+/* floating glass pill nav */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:120;width:min(960px,calc(100% - 28px))}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:9px 9px 9px 18px;border-radius:999px;
+  background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid rgba(255,255,255,.7);box-shadow:0 10px 30px -12px rgba(40,20,90,.35)}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-mark{width:26px;height:26px;flex-shrink:0;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c4dff'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b39bff'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c4dff'/></svg>") center/contain no-repeat}
+.logo-text{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.nav-mid{display:flex;align-items:center;gap:6px}
+.nav-mid a{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink2);transition:background .15s,color .15s}
+.nav-mid a:hover{background:rgba(124,77,255,.10);color:var(--violet-d)}
+.btn-dark{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;
+  font-size:14px;font-weight:700;background:var(--ink);color:#fff;border:1px solid var(--ink);transition:transform .14s,background .15s}
+.btn-dark:hover{background:#000;transform:translateY(-1px)}
+@media(max-width:760px){.nav-mid{display:none}}
+
+/* buttons */
+.btn-light{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:700;
+  background:#fff;color:var(--ink);border:1px solid transparent;box-shadow:0 12px 30px -10px rgba(20,10,50,.4);transition:transform .14s}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-size:15px;font-weight:600;
+  color:#fff;border:1px solid rgba(255,255,255,.5);transition:background .15s}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-violet{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:700;
+  background:var(--violet);color:#fff;border:1px solid var(--violet);box-shadow:var(--soft2);transition:transform .14s,background .15s}
+.btn-violet:hover{background:var(--violet-d);transform:translateY(-2px)}
+.arr{transition:transform .2s var(--ease)}
+a:hover .arr{transform:translateX(4px)}
+
+/* HERO — violet gradient */
+.hero{position:relative;padding:150px 24px 96px;text-align:center;color:#fff;overflow:hidden;
+  background:radial-gradient(125% 120% at 50% -12%,#c3b1ff 0%,#9a7bff 30%,#7C4DFF 56%,#6a36f0 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:140px;
+  background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:880px;margin:0 auto}
+.proof{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);font-size:12.5px;font-weight:600;
+  color:#fff;margin-bottom:26px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.proof .avs{display:flex}
+.proof .avs i{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.9);margin-left:-7px;
+  background:linear-gradient(135deg,#fff,#d9ccff);display:block}
+.proof .avs i:first-child{margin-left:0}
+.hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:800;letter-spacing:-.045em;line-height:.98;margin:0 0 20px}
+.hero p.sub{font-size:clamp(1.05rem,2.3vw,1.4rem);font-weight:500;color:rgba(255,255,255,.92);line-height:1.45;
+  max-width:30ch;margin:0 auto 36px}
+.hero-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;align-items:center}
+/* works-with row */
+.works{margin-top:54px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.works .lbl{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.works .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.wchip{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);font-size:13px;font-weight:600;color:#fff}
+.wchip svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* generic section */
+.sec{padding:clamp(72px,10vh,120px) 0;position:relative}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--violet);margin-bottom:16px}
+.sec h2{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;color:var(--ink);margin:0 auto;max-width:18ch}
+.sec .lede{font-size:clamp(1rem,2vw,1.2rem);font-weight:500;color:var(--muted);max-width:34ch;margin:16px auto 0}
+
+/* ── differentiator: lives inside your apps (chat + floating app chips) ── */
+.stage{position:relative;margin-top:clamp(44px,6vh,72px);display:flex;justify-content:center}
+.chatcard{position:relative;z-index:2;width:min(560px,100%);background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r2);box-shadow:var(--soft);padding:22px 22px 24px;text-align:left}
+.chathead{display:flex;align-items:center;gap:10px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.chathead .dot{width:9px;height:9px;border-radius:50%;background:#2bd07a;box-shadow:0 0 0 3px rgba(43,208,122,.16)}
+.chathead .t{font-size:13px;font-weight:700;color:var(--ink2)}
+.chathead .ch{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--muted)}
+.msg{display:flex;gap:11px;margin-bottom:16px;align-items:flex-start}
+.msg .ava{width:30px;height:30px;border-radius:9px;flex-shrink:0;display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff}
+.msg.u .ava{background:#e9e6f4;color:var(--ink2)}
+.msg.b .ava{background:linear-gradient(135deg,#7C4DFF,#9a7bff)}
+.msg .bub{font-size:14px;line-height:1.5;font-weight:500}
+.msg .who{font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:3px}
+.msg.u .bub{color:var(--ink2)}
+.msg.b .bub{color:var(--ink)}
+.msg .bub .mention{color:var(--violet);font-weight:700}
+.msg .bub .ok{display:inline-flex;align-items:center;gap:5px;color:#179a55;font-weight:700}
+.msg:last-child{margin-bottom:0}
+/* floating app chips */
+.float{position:absolute;display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--soft2);font-size:12.5px;font-weight:700;color:var(--ink2);z-index:3}
+.float svg{width:15px;height:15px;fill:none;stroke:var(--violet);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.f1{top:6%;left:-2%}.f2{top:30%;right:-4%}.f3{bottom:20%;left:-5%}.f4{bottom:2%;right:2%}
+@media(max-width:820px){.float{display:none}}
+
+/* ── how it works flow ── */
+.flow{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;margin-top:clamp(44px,6vh,72px);
+  gap:0;max-width:900px;margin-left:auto;margin-right:auto}
+.fnode{display:flex;flex-direction:column;align-items:center;gap:13px;flex:0 0 auto}
+.fg{width:clamp(64px,9vw,86px);height:clamp(64px,9vw,86px);border-radius:22px;background:var(--card);border:1px solid var(--line);
+  box-shadow:var(--soft2);display:grid;place-items:center;color:var(--violet)}
+.fg.core{background:linear-gradient(160deg,#7C4DFF,#6a36f0);border-color:transparent;color:#fff;box-shadow:0 18px 44px -14px rgba(124,77,255,.6)}
+.fg svg{width:42%;height:42%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.flab{font-size:13px;font-weight:700;color:var(--ink2);white-space:nowrap}
+.fw{flex:1 1 auto;height:2px;min-width:24px;position:relative;margin:0 8px 30px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(124,77,255,.15),rgba(124,77,255,.4),rgba(124,77,255,.15))}
+.fw::after{content:"";position:absolute;top:50%;left:0;width:8px;height:8px;margin-top:-4px;border-radius:50%;
+  background:var(--violet);box-shadow:0 0 10px rgba(124,77,255,.8);animation:fdot 2.8s linear infinite}
+.flow .fw:nth-of-type(4)::after{animation-delay:1.4s}
+@keyframes fdot{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+@media(max-width:760px){
+  .flow{flex-direction:column;max-width:260px}
+  .fnode{flex-direction:row;gap:15px;width:100%}
+  .flab{white-space:normal}
+  .fw{width:2px;height:30px;min-width:0;flex:none;margin:6px 0 6px 42px;
+    background:linear-gradient(180deg,rgba(124,77,255,.15),rgba(124,77,255,.4),rgba(124,77,255,.15))}
+  .fw::after{left:50%;top:0;margin-left:-4px;margin-top:0;animation:fdotV 2.8s linear infinite}
+  @keyframes fdotV{0%{top:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:100%;opacity:0}}
 }
 
-/* "the same stack runs on" proof bar — slots in below the hero */
-.proof-bar{padding:34px 0 0;position:relative}
-.proof-bar .pb-lbl{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.proof-bar .pb-lbl::before,.proof-bar .pb-lbl::after{content:"";flex:1;height:1px;background:var(--bd)}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:760px){.proof-grid{grid-template-columns:1fr}}
-/* Tool → Team → Department hierarchy strip */
-.hier{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-bottom:22px}
-@media(max-width:760px){.hier{grid-template-columns:1fr}.hier .hier-arrow{display:none}}
-.hier-step{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);padding:16px 16px 15px}
-.hier-step .hl{display:block;font-size:13.5px;font-weight:900;letter-spacing:-.01em;color:var(--w2);margin-bottom:6px}
-.hier-step p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
-.hier-step p b{color:var(--w2);font-weight:700}
-.hier-step.tool{opacity:.62}
-.hier-step.tool .hl{color:var(--muted)}
-.hier-step.team{border-color:var(--purple);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.03))}
-.hier-step.team .hl{color:var(--purple2)}
-.hier-step.team p b{color:var(--white)}
-.hier-step.dept .hl{color:var(--w2)}
-.hier-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple3);font-weight:900;font-size:18px}
-@media(max-width:540px){.proof-grid{grid-template-columns:1fr}}
-.pb-tile{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px 22px;
-  transition:.18s;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.pb-tile:hover{border-color:var(--purple);transform:translateY(-3px)}
-.pb-tile::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(124,58,237,.12),transparent 60%);opacity:0;transition:.25s;pointer-events:none}
-.pb-tile:hover::after{opacity:1}
-.pb-tile .pb-h{display:flex;align-items:center;gap:9px;margin-bottom:11px}
-.pb-tile .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 9px var(--good);animation:dotPulse 2s ease-in-out infinite}
-.pb-tile .pb-h b{font-size:13.5px;font-weight:800;color:var(--white);letter-spacing:-.01em}
-.pb-tile .pb-num{font-size:1.85rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1;margin-bottom:6px}
-.pb-tile .pb-num em{font-style:normal;color:var(--purple2)}
-.pb-tile .pb-arrow{display:inline-block;font-size:1.1rem;font-weight:900;margin-right:6px;line-height:1;vertical-align:.05em}
-.pb-tile .pb-arrow.up{color:var(--good)}
-.pb-tile .pb-arrow.down{color:var(--purple3)}
-.pb-tile .pb-ds{font-size:12px;color:var(--text);line-height:1.55;flex:1}
-.pb-tile .pb-tag{margin-top:11px;font-size:10px;color:var(--purple3);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.45}}
+/* ── what we build cards ── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(44px,6vh,68px)}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 26px;box-shadow:var(--soft2);
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.card:hover{transform:translateY(-5px);box-shadow:var(--soft)}
+.card .ci{width:46px;height:46px;border-radius:13px;background:rgba(124,77,255,.10);display:grid;place-items:center;color:var(--violet);margin-bottom:18px}
+.card .ci svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.12rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:0 0 5px}
+.card p{font-size:13px;font-weight:500;color:var(--muted);line-height:1.5;margin:0}
 
-/* big editorial statement — now 2-column with founder card */
-.statement{padding:64px 0;border-bottom:1px solid var(--bd3);position:relative;overflow:hidden}
-.statement::before{content:"";position:absolute;top:-30%;right:-10%;width:60%;height:160%;
-  background:radial-gradient(closest-side,rgba(124,58,237,.08),transparent);pointer-events:none;z-index:0}
-.statement .container{position:relative;z-index:1}
-.statement-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center}
-@media(max-width:880px){.statement-grid{grid-template-columns:1fr;gap:32px}}
-.statement p{font-size:clamp(1.6rem,3.2vw,2.6rem);font-weight:800;line-height:1.2;
-  letter-spacing:-.035em;color:var(--w2);max-width:22ch}
-.statement p .mut{color:var(--muted)}
-.statement .sig{margin-top:24px;font-size:.92rem;color:var(--muted)}
-.founder-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);padding:24px;
-  position:relative}
-.founder-card .fc-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}
-.founder-card .ava{width:54px;height:54px;border-radius:14px;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#fff;flex-shrink:0;
-  box-shadow:0 0 22px rgba(124,58,237,.34)}
-.founder-card .fc-head b{font-size:14.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;display:block}
-.founder-card .fc-head small{font-size:11.5px;color:var(--muted);font-weight:600}
-.founder-card .fc-stat{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--bd);font-size:13px}
-.founder-card .fc-stat:last-child{border-bottom:0}
-.founder-card .fc-stat .k{color:var(--text)}
-.founder-card .fc-stat .v{color:var(--white);font-weight:700;font-variant-numeric:tabular-nums}
-.founder-card .fc-stat .v em{font-style:normal;color:var(--purple3)}
+/* ── offer stats ── */
+.stats{display:flex;flex-wrap:wrap;gap:clamp(36px,7vw,96px);justify-content:center;margin-top:clamp(44px,6vh,68px)}
+.stat{display:flex;flex-direction:column;align-items:center;gap:8px}
+.stat .n{font-size:clamp(3rem,7vw,5rem);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--violet)}
+.stat .l{font-size:13.5px;font-weight:700;letter-spacing:.03em;color:var(--muted);text-transform:uppercase}
 
-/* live ticker — animated marquee under the statement */
-.ticker{padding:0;border-bottom:1px solid var(--bd3);overflow:hidden;position:relative;background:rgba(15,15,20,.4)}
-.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
-.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
-.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
-.ticker-track{display:flex;gap:0;animation:tickerScroll 60s linear infinite;width:max-content;padding:18px 0}
-.ticker-track:hover{animation-play-state:paused}
-@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 24px;font-size:13px;color:var(--text);
-  white-space:nowrap;border-right:1px solid var(--bd)}
-.ticker-item time{color:var(--purple3);font-weight:700;font-variant-numeric:tabular-nums;font-size:11.5px}
-.ticker-item .biz{color:var(--purple2);font-weight:700;font-size:11.5px;letter-spacing:.03em}
-.ticker-item strong{color:var(--w2);font-weight:700}
-@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ── pricing ── */
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(40px,5vh,64px)}
+@media(max-width:900px){.prices{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.prices{grid-template-columns:1fr}}
+.price{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 22px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;box-shadow:var(--soft2);transition:transform .2s var(--ease)}
+.price:hover{transform:translateY(-4px)}
+.price.feat{border-color:rgba(124,77,255,.5);box-shadow:0 22px 50px -20px rgba(124,77,255,.5)}
+.price .pn{font-size:14px;font-weight:700;color:var(--ink2)}
+.price .pp{font-size:2.3rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);line-height:1.1;margin-top:6px}
+.price .pp span{font-size:.8rem;font-weight:600;color:var(--muted)}
+.price .pd{font-size:12.5px;font-weight:500;color:var(--muted);min-height:34px;line-height:1.4;margin:4px 0 16px}
+.price .pb{margin-top:auto;width:100%;padding:11px 16px;border-radius:999px;font-size:13.5px;font-weight:700;
+  border:1px solid var(--line2);color:var(--ink);transition:all .15s}
+.price .pb:hover{border-color:var(--violet);color:var(--violet)}
+.price.feat .pb{background:var(--violet);border-color:var(--violet);color:#fff}
+.price.feat .pb:hover{background:var(--violet-d)}
+.pnote{margin-top:24px;font-size:13.5px;color:var(--muted);text-align:center}
+.pnote a{color:var(--violet);font-weight:600}
 
-/* ── LEFT-RAIL · live agent activity popup (desktop) ── */
-#liverail{position:fixed;left:18px;top:96px;bottom:24px;width:268px;z-index:80;
-  background:rgba(15,15,20,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border:1px solid var(--bd);border-radius:var(--r2);
-  display:flex;flex-direction:column;overflow:hidden;
-  box-shadow:0 24px 60px rgba(0,0,0,.55);
-  transform:translateX(0);transition:transform .35s var(--ease)}
-#liverail.collapsed{transform:translateX(calc(-100% + 14px))}
-#liverail .lr-head{display:flex;align-items:center;gap:9px;padding:13px 15px 12px;
-  border-bottom:1px solid var(--bd);background:rgba(8,8,10,.5)}
-#liverail .lr-head .lr-dot{width:8px;height:8px;border-radius:50%;background:var(--good);
-  box-shadow:0 0 0 0 rgba(74,222,128,.55);animation:livepulse 2s ease-in-out infinite;flex-shrink:0}
-#liverail .lr-head b{font-size:11px;font-weight:800;color:var(--white);letter-spacing:.1em;text-transform:uppercase;display:block}
-#liverail .lr-head small{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-top:1px}
-#liverail .lr-head .lr-toggle{margin-left:auto;background:none;border:1px solid var(--bd);
-  color:var(--muted);font-size:14px;width:24px;height:24px;border-radius:5px;line-height:1;
-  display:flex;align-items:center;justify-content:center;transition:.13s;flex-shrink:0}
-#liverail .lr-head .lr-toggle:hover{color:var(--white);border-color:var(--bd2)}
-#liverail .lr-feed{flex:1;overflow-y:auto;padding:6px 0;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
-#liverail .lr-feed::-webkit-scrollbar{width:4px}
-#liverail .lr-feed::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
-#liverail .lr-item{padding:11px 15px;border-bottom:1px solid var(--bd3);
-  animation:lrslidein .4s cubic-bezier(.2,.7,.2,1);position:relative}
-@keyframes lrslidein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-#liverail .lr-item:last-child{border-bottom:0}
-#liverail .lr-item.fresh::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--purple);animation:lrfresh 6s linear forwards}
-@keyframes lrfresh{to{background:transparent}}
-#liverail .lr-item .lr-row1{display:flex;align-items:center;gap:7px;margin-bottom:5px}
-#liverail .lr-item .lr-row1 .lr-time{font-size:10.5px;font-weight:700;color:var(--purple3);font-variant-numeric:tabular-nums;letter-spacing:.02em}
-#liverail .lr-item .lr-row1 .lr-tag{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--w2);padding:2px 7px;border-radius:99px;background:rgba(124,58,237,.13);border:1px solid var(--bd2)}
-#liverail .lr-item .lr-msg{font-size:12px;color:var(--text);line-height:1.5}
-#liverail .lr-item .lr-msg strong{color:var(--w2);font-weight:700}
-#liverail .lr-foot{padding:10px 15px;border-top:1px solid var(--bd);
-  font-size:10.5px;color:var(--muted);text-align:center;letter-spacing:.04em}
-#liverail .lr-foot a{color:var(--purple3);font-weight:700}
+/* ── final CTA panel ── */
+.cta{margin:0 24px clamp(48px,7vh,80px);border-radius:34px;padding:clamp(60px,9vw,104px) 24px;text-align:center;color:#fff;
+  background:radial-gradient(120% 130% at 50% 0%,#9a7bff 0%,#7C4DFF 48%,#5a27d8 100%);box-shadow:var(--soft)}
+.cta h2{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:0 0 14px;color:#fff}
+.cta p{font-size:1.05rem;font-weight:500;color:rgba(255,255,255,.9);margin:0 auto 30px;max-width:30ch}
 
-/* push main content right so the rail isn't overlapping (only when rail is visible) */
-@media (min-width:1240px){
-  body.has-rail .container,
-  body.has-rail .hero-inner,
-  body.has-rail .nav-inner,
-  body.has-rail .foot-grid,
-  body.has-rail .foot-bottom{padding-left:320px}
-}
-@media (max-width:1239px){
-  #liverail{display:none}
-}
+/* footer */
+footer{background:#120f1f;color:#9b96ad;padding:56px 0 30px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px}
+@media(max-width:720px){.fgrid{grid-template-columns:1fr 1fr}}
+.fbrand .logo-text{color:#fff}
+.fbrand p{font-size:12.5px;margin-top:13px;line-height:1.6;max-width:280px;color:#857f99}
+.fcol h5{font-size:11px;color:#6f6a82;text-transform:uppercase;letter-spacing:.16em;margin-bottom:13px;font-weight:800}
+.fcol a{display:block;font-size:13.5px;padding:5px 0;color:#b3aec4;transition:color .15s}
+.fcol a:hover{color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;font-size:12px;color:#6f6a82}
 
-/* dashboard showcase */
-.dash-frame{margin-top:50px;border:1px solid var(--bd2);border-radius:var(--r2);
-  background:var(--surf);overflow:hidden}
-.dash-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;
-  background:var(--bg2);border-bottom:1px solid var(--bd)}
-.dash-bar .d{width:9px;height:9px;border-radius:50%}
-.dash-bar .t{margin-left:10px;font-size:12px;font-weight:600;color:var(--text)}
-.dash-bar .l{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--purple3)}
-.dash-body{padding:22px}
-.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
-@media(max-width:680px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
-.dk{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
-.dk .lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.dk .num{font-size:1.8rem;font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1}
-.dk .sub{font-size:11px;color:var(--purple3);margin-top:6px}
-.dash-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:680px){.dash-cols{grid-template-columns:1fr}}
-.dash-p{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
-.dash-p h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.dash-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--bd3);font-size:12.5px}
-.dash-row:last-child{border-bottom:0;padding-bottom:0}
-.dash-row:first-child{padding-top:0}
-.dash-row .st{width:7px;height:7px;border-radius:50%;background:var(--good);flex-shrink:0}
-.dash-row .st.b{background:var(--purple2)}
-.dash-row .nm{color:var(--w2);font-weight:600}
-.dash-row .mt{margin-left:auto;color:var(--muted);font-size:11.5px}
-.dash-feed div{display:flex;gap:9px;font-size:11.5px;color:var(--text);line-height:1.5;
-  padding:6px 0;border-bottom:1px solid var(--bd3)}
-.dash-feed div:last-child{border-bottom:0;padding-bottom:0}
-.dash-feed div:first-child{padding-top:0}
-.dash-feed time{color:var(--purple3);font-weight:700;flex-shrink:0}
-.dash-feed div.new{animation:feedin .55s var(--ease)}
-@keyframes feedin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-/* live status dots inside the mock — purposeful pulse */
-.dash-row .st{box-shadow:0 0 0 0 rgba(74,222,128,.5);animation:dotpulse 2.4s ease-in-out infinite}
-.dash-row .st.b{box-shadow:0 0 0 0 rgba(155,108,246,.5);animation:dotpulseB 2.4s ease-in-out infinite}
-@keyframes dotpulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)}70%{box-shadow:0 0 0 5px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
-@keyframes dotpulseB{0%{box-shadow:0 0 0 0 rgba(155,108,246,.5)}70%{box-shadow:0 0 0 5px rgba(155,108,246,0)}100%{box-shadow:0 0 0 0 rgba(155,108,246,0)}}
-.dash-bar .l::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
-  background:var(--good);margin-right:6px;vertical-align:1px;
-  box-shadow:0 0 0 0 rgba(74,222,128,.5);animation:dotpulse 2s ease-in-out infinite}
-/* dashboard frame — subtle 3D tilt + lift on entrance */
-.dash-frame{transform-style:preserve-3d;transition:transform .25s var(--ease),border-color .25s;will-change:transform}
-.dash-frame:hover{border-color:var(--purple)}
-@media (prefers-reduced-motion:reduce){
-  .dash-row .st,.dash-row .st.b,.dash-bar .l::before{animation:none}
-  .dash-feed div.new{animation:none}
-}
-
-/* numbered steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden}
-.steps.six{grid-template-columns:repeat(3,1fr)}
-.steps.six .step{border-bottom:1px solid var(--bd)}
-.steps.six .step:nth-child(n+4){border-bottom:0}
-.steps.six .step:nth-child(3n){border-right:0}
-@media(max-width:780px){.steps,.steps.six{grid-template-columns:1fr}
-  .steps.six .step{border-right:0;border-bottom:1px solid var(--bd)}
-  .steps.six .step:last-child{border-bottom:0}}
-.step{padding:34px 30px;border-right:1px solid var(--bd)}
-.step:last-child{border-right:0}
-@media(max-width:780px){.step{border-right:0;border-bottom:1px solid var(--bd)}.step:last-child{border-bottom:0}}
-.step .n{font-size:.78rem;font-weight:900;color:var(--purple2);letter-spacing:.05em;margin-bottom:18px}
-.step h3{font-size:1.3rem;font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:9px}
-.step p{font-size:13.5px;color:var(--text);line-height:1.6}
-.step .when{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-/* what-we-do columns */
-.do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:880px){.do-grid{grid-template-columns:1fr}}
-.do{border:1px solid var(--bd);border-radius:var(--r2);padding:28px 26px;background:var(--surf);transition:border-color .15s}
-.do:hover{border-color:var(--bd2)}
-.do h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
-.do p{font-size:13.5px;color:var(--text);line-height:1.6;margin-bottom:14px}
-.do ul{list-style:none}
-.do li{font-size:12.5px;color:var(--muted);line-height:1.5;padding-left:15px;position:relative;margin-bottom:5px}
-.do li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--purple2)}
-
-/* pricing */
-.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:start}
-@media(max-width:1080px){.price-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.price-grid{grid-template-columns:1fr}}
-.tier{border:1px solid var(--bd);border-radius:var(--r2);padding:32px 28px;background:var(--surf)}
-.tier.feat{border-color:var(--purple);background:var(--surf2)}
-.tier .tag{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple3);margin-bottom:14px}
-.tier .name{font-size:1.35rem;font-weight:900;color:var(--white);letter-spacing:-.03em;margin-bottom:6px}
-.tier .price{font-size:2.6rem;font-weight:900;color:var(--white);letter-spacing:-.05em;line-height:1;margin-bottom:4px}
-.tier .price span{font-size:.95rem;font-weight:600;color:var(--muted);letter-spacing:0}
-.tier .blurb{font-size:13px;color:var(--text);line-height:1.55;margin:14px 0 18px;min-height:42px}
-.tier ul{list-style:none;margin-bottom:24px}
-.tier li{font-size:13px;color:var(--w2);line-height:1.5;padding:7px 0 7px 20px;position:relative;border-bottom:1px solid var(--bd3)}
-.tier li:last-child{border-bottom:0}
-.tier li::before{content:"+";position:absolute;left:0;top:7px;color:var(--purple2);font-weight:800}
-.tier .btn-price{display:block;text-align:center;padding:14px;border-radius:var(--r);
-  font-size:14px;font-weight:700;transition:background .15s,color .15s,border-color .15s}
-.tier .btn-price.sol{background:var(--purple);color:#fff;border:1px solid var(--purple)}
-.tier .btn-price.sol:hover{background:var(--purple2);border-color:var(--purple2)}
-.tier .btn-price.out{border:1px solid var(--bd2);color:var(--w2)}
-.tier .btn-price.out:hover{border-color:var(--white);color:var(--white)}
-.price-note{text-align:center;margin-top:24px;font-size:13px;color:var(--muted)}
-.price-note a{color:var(--purple3);font-weight:600}
-
-/* ── under-the-hood: interactive code viewer ── */
-.code-wrap{margin-top:44px;border:1px solid var(--bd2);border-radius:var(--r2);
-  background:#0a0a0d;overflow:hidden;
-  font-family:'SF Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;
-  box-shadow:0 36px 90px rgba(0,0,0,.6);transform-style:preserve-3d;
-  transition:transform .25s var(--ease),border-color .25s;will-change:transform}
-.code-wrap:hover{border-color:var(--purple)}
-.code-tabs{display:flex;align-items:center;background:#121215;border-bottom:1px solid var(--bd)}
-.code-tabs .cdots{display:flex;gap:7px;padding:0 15px;flex-shrink:0}
-.code-tabs .cdots i{width:9px;height:9px;border-radius:50%;display:block}
-.code-tab{padding:13px 18px;font-size:11.5px;color:var(--muted);font-weight:500;
-  border-left:1px solid var(--bd);cursor:pointer;transition:color .15s,background .15s;
-  white-space:nowrap;background:none}
-.code-tab:hover{color:var(--w2)}
-.code-tab.on{color:var(--white);background:#0a0a0d;box-shadow:inset 0 -2px 0 var(--purple2)}
-.code-pane-wrap{padding:18px 6px 20px}
-.pane{display:none;counter-reset:ln;font-size:12.6px;line-height:1.92}
-.pane.on{display:block}
-.pane .cl{display:block;white-space:pre;counter-increment:ln;
-  opacity:0;transform:translateY(7px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
-.pane.lit .cl{opacity:1;transform:none}
-.pane .cl::before{content:counter(ln);display:inline-block;width:34px;margin-right:16px;
-  color:#34343d;text-align:right;-webkit-user-select:none;user-select:none}
-.pane .k{color:#c084fc}
-.pane .s{color:#86efac}
-.pane .c{color:#52525b;font-style:italic}
-.pane .f{color:#93c5fd}
-.pane .n{color:#fbbf24}
-.pane .t{color:#7dd3fc}
-.code-cur{display:inline-block;width:7px;height:13px;background:var(--purple2);
-  vertical-align:-2px;margin-left:2px;animation:cblink 1.05s steps(1) infinite}
-@media(max-width:560px){.pane{font-size:11.4px}.pane .cl::before{width:24px;margin-right:10px}}
-@media(prefers-reduced-motion:reduce){.pane .cl{opacity:1;transform:none}.code-cur{animation:none}}
-
-/* faq */
-.faq{max-width:760px;margin:0 auto;border-top:1px solid var(--bd)}
-.faq-item{border-bottom:1px solid var(--bd)}
-.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;
-  padding:24px 0;text-align:left;font-size:1.05rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
-.faq-q .pm{color:var(--purple2);font-size:1.4rem;font-weight:400;flex-shrink:0;transition:transform .2s}
-.faq-item.open .faq-q .pm{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .25s var(--ease)}
-.faq-a p{font-size:14px;color:var(--text);line-height:1.65;padding-bottom:24px;max-width:62ch}
-.faq-item.open .faq-a{max-height:240px}
-
-/* section header — left aligned, bold */
-.sh{margin-bottom:48px;max-width:640px}
-.sh.center{margin-left:auto;margin-right:auto;text-align:center}
-
-/* why-now stats band — 2-column, full-width */
-.why-now{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
-  background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(124,58,237,.08),transparent 70%)}
-.why-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:64px;align-items:start}
-@media(max-width:980px){.why-grid{grid-template-columns:1fr;gap:40px}}
-.why-left{position:sticky;top:108px}
-@media(max-width:980px){.why-left{position:static}}
-.why-left .s-sub{margin-bottom:24px}
-.why-foot{font-size:13px;color:var(--muted);line-height:1.6;max-width:420px;
-  padding-top:22px;border-top:1px solid var(--bd)}
-.why-foot a{color:var(--purple3);font-weight:600;text-decoration:none;
-  border-bottom:1px solid rgba(183,148,246,.3)}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:560px){.stat-grid{grid-template-columns:1fr}}
-.stat{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);
-  padding:30px 28px 26px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
-.stat:hover{border-color:var(--bd2);transform:translateY(-3px)}
-.stat::after{content:"";position:absolute;inset:0;border-radius:var(--r);
-  background:radial-gradient(circle at 90% 0%,rgba(124,58,237,.1),transparent 55%);
-  opacity:0;transition:opacity .3s;pointer-events:none}
-.stat:hover::after{opacity:1}
-.stat .sn{font-size:clamp(3rem,4.5vw,4.2rem);font-weight:900;letter-spacing:-.05em;
-  line-height:.92;color:var(--white)}
-.stat .sn em{color:var(--purple2);font-style:normal}
-.stat .sbar{height:3px;border-radius:3px;background:var(--bd2);margin:18px 0 16px;overflow:hidden}
-.stat .sbar i{display:block;height:100%;width:0;border-radius:3px;
-  background:linear-gradient(90deg,var(--purple),var(--purple3));
-  transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
-.stat-grid.vis .sbar i{width:var(--bw,100%)}
-.stat .sl{font-size:13.5px;line-height:1.55;color:var(--text);font-weight:500}
-.stat .ss{margin-top:14px;font-size:10.5px;color:var(--muted);font-weight:700;
-  text-transform:uppercase;letter-spacing:.1em}
-
-/* hero stack note — under the lede */
-.hero-home .hero-stack-note{font-size:.92rem;font-weight:600;color:var(--purple3);
-  margin:-10px 0 26px;letter-spacing:.01em}
-
-/* ════════════════════════════════════════════════════════════════
-   HOW WE IMPLEMENT — API + MCP + Claude architecture
-   ════════════════════════════════════════════════════════════════ */
-.implement{position:relative;overflow:hidden;
-  background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(124,77,255,.10),transparent 60%)}
-.implement::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    linear-gradient(rgba(155,108,246,.05) 1px,transparent 1px) 0 0/100% 64px,
-    linear-gradient(90deg,rgba(155,108,246,.05) 1px,transparent 1px) 0 0/64px 100%;
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%);
-  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%)}
-.implement .container{position:relative;z-index:1}
-
-/* the flow rail */
-.arch{display:grid;
-  grid-template-columns:1.15fr .5fr 1fr .5fr 1.2fr .5fr 1fr;
-  align-items:stretch;gap:0;margin-bottom:40px}
-@media(max-width:1024px){
-  .arch{grid-template-columns:1fr;gap:0}
-}
-.arch-col{display:flex;flex-direction:column;gap:12px;justify-content:center}
-.arch-cap{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--muted)}
-
-/* tool chips */
-.arch-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.chip{display:flex;align-items:center;gap:8px;padding:11px 12px;border-radius:var(--r);
-  background:var(--surf);border:1px solid var(--bd);font-size:12.5px;font-weight:700;
-  color:var(--w2);letter-spacing:-.01em;transition:border-color .2s,transform .2s}
-.chip:hover{border-color:var(--purple);transform:translateY(-2px)}
-.chip svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:var(--purple2);
-  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-
-/* node cards (hub + brain) */
-.arch-node{background:var(--surf);border:1px solid var(--bd2);border-radius:var(--r2);
-  padding:20px 18px;text-align:center;position:relative}
-.arch-node b{display:block;font-size:14px;font-weight:800;color:var(--white);
-  letter-spacing:-.02em;margin-bottom:6px}
-.arch-node small{display:block;font-size:11.5px;color:var(--muted);line-height:1.5}
-.arch-node-ic{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
-  border:1px solid var(--bd2);background:rgba(124,77,255,.08)}
-.arch-node.feat{border-color:var(--purple);
-  background:linear-gradient(180deg,rgba(124,77,255,.14),rgba(124,77,255,.03));
-  box-shadow:0 0 0 1px rgba(124,77,255,.25),0 22px 60px rgba(124,77,255,.16)}
-.arch-brain-mark{width:46px;height:46px;margin:0 auto 12px;border-radius:12px;
-  background:linear-gradient(135deg,#7C4DFF,#9b6cf6);display:flex;align-items:center;
-  justify-content:center;gap:3px;box-shadow:0 0 26px rgba(124,77,255,.5)}
-.arch-brain-mark span{width:4px;border-radius:2px;background:#fff;display:block}
-.arch-brain-mark span:nth-child(1){height:14px;animation:brainBar 1.6s ease-in-out infinite}
-.arch-brain-mark span:nth-child(2){height:22px;animation:brainBar 1.6s ease-in-out .2s infinite}
-.arch-brain-mark span:nth-child(3){height:18px;animation:brainBar 1.6s ease-in-out .4s infinite}
-@keyframes brainBar{0%,100%{transform:scaleY(.6)}50%{transform:scaleY(1)}}
-.arch-agents{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:13px}
-.arch-agents span{font-size:10px;font-weight:700;letter-spacing:.02em;color:var(--purple3);
-  padding:4px 9px;border-radius:99px;background:rgba(124,77,255,.10);border:1px solid var(--bd2)}
-
-/* outcomes list */
-.arch-results{list-style:none;display:flex;flex-direction:column;gap:9px}
-.arch-results li{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--w2);
-  font-weight:600;line-height:1.4}
-.arch-results .ad{width:7px;height:7px;border-radius:50%;background:var(--good);flex-shrink:0;
-  box-shadow:0 0 8px var(--good);animation:dotPulse 2.2s ease-in-out infinite}
-
-/* connectors — animated flowing wire */
-.arch-link{position:relative;display:flex;align-items:center;justify-content:center;min-height:60px}
-.arch-wire{position:absolute;left:-2px;right:-2px;top:50%;height:2px;transform:translateY(-50%);
-  background:linear-gradient(90deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
-.arch-wire::after{content:"";position:absolute;top:0;left:0;height:100%;width:38%;
-  background:linear-gradient(90deg,transparent,#7C4DFF,transparent);
-  filter:drop-shadow(0 0 6px rgba(124,77,255,.8));
-  animation:wireFlow 2.6s linear infinite}
-@keyframes wireFlow{0%{left:-40%}100%{left:100%}}
-.arch-tag{position:relative;z-index:2;font-size:9px;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--purple3);background:var(--bg);padding:4px 8px;
-  border:1px solid var(--bd);border-radius:99px}
-/* stacked (mobile/tablet): wires turn vertical */
-@media(max-width:1024px){
-  .arch-link{min-height:46px}
-  .arch-wire{left:50%;right:auto;top:-2px;bottom:-2px;width:2px;height:auto;transform:translateX(-50%);
-    background:linear-gradient(180deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
-  .arch-wire::after{top:0;left:0;width:100%;height:38%;
-    background:linear-gradient(180deg,transparent,#7C4DFF,transparent);animation:wireFlowV 2.6s linear infinite}
-  .arch-chips{grid-template-columns:repeat(3,1fr)}
-  .arch-results{flex-direction:row;flex-wrap:wrap;gap:8px 16px;justify-content:center}
-}
-@keyframes wireFlowV{0%{top:-40%}100%{top:100%}}
-@media(max-width:560px){.arch-chips{grid-template-columns:1fr 1fr}}
-@media(prefers-reduced-motion:reduce){
-  .arch-wire::after{animation:none;opacity:.5}
-  .arch-brain-mark span,.arch-results .ad{animation:none}
-}
-
-/* implementation pillar cards */
-.impl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:880px){.impl-cards{grid-template-columns:1fr}}
-.impl-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:26px 24px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.impl-card:hover{border-color:var(--bd2);transform:translateY(-4px)}
-.impl-card.feat{border-color:var(--purple);
-  background:linear-gradient(180deg,rgba(124,77,255,.10),var(--surf))}
-.impl-ic{width:44px;height:44px;border-radius:var(--r);border:1px solid var(--bd2);
-  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
-  margin-bottom:16px}
-.impl-card h3{font-size:1.12rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
-.impl-card p{font-size:13.5px;color:var(--text);line-height:1.6}
-.impl-card p b{color:var(--w2);font-weight:700}
-
-/* the offer band */
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:880px){.offer-grid{grid-template-columns:1fr}}
-.offer-item{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
-  padding:30px 26px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.offer-item:hover{border-color:var(--bd2);transform:translateY(-4px)}
-.offer-item.feat{border-color:var(--purple);
-  background:linear-gradient(180deg,rgba(124,77,255,.12),var(--surf))}
-.offer-item .oi-n{font-size:3.2rem;font-weight:900;color:var(--purple2);letter-spacing:-.05em;
-  line-height:1;display:inline-block}
-.offer-item .oi-u{display:inline-block;margin-left:8px;font-size:11px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);vertical-align:middle}
-.offer-item h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;
-  margin:16px 0 8px}
-.offer-item p{font-size:13.5px;color:var(--text);line-height:1.6}
-
-/* ── LIVE OPS WIDGET — bottom-docked "agents working now" panel ─────────── */
-/* Collapsed = thin full-width strip at the bottom. Expanded = slides up.   */
-/* Interactive content is kept clear of the bottom-right chat bubble.        */
-#liveops{position:fixed;left:0;right:0;bottom:0;z-index:80;
-  display:flex;flex-direction:column;font-family:'Inter',system-ui,sans-serif}
-
-/* the always-visible bottom strip (this IS the collapse/expand handle) */
-#liveops .lo-tab{order:2;display:flex;align-items:center;gap:12px;width:100%;
-  cursor:pointer;background:var(--surf2);color:var(--w2);text-align:left;
-  border:0;border-top:1px solid var(--bd2);
-  padding:0 92px 0 20px;            /* right pad keeps the chat bubble clear */
-  height:46px;box-sizing:border-box;
-  box-shadow:0 -8px 26px rgba(0,0,0,.35);transition:background .2s}
-#liveops .lo-tab:hover{background:var(--surf3)}
-#liveops .lo-tab .pdot{width:8px;height:8px;border-radius:50%;background:#4ade80;
-  box-shadow:0 0 8px #4ade80;animation:loDot 1.6s ease-in-out infinite;flex-shrink:0}
-#liveops .lo-tab .vlabel{font-size:11px;font-weight:800;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--white);flex-shrink:0}
-#liveops .lo-tab .lo-preview{flex:1;min-width:0;font-size:12px;color:var(--text);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#liveops .lo-tab .lo-preview .ag{color:var(--purple3);font-weight:700}
-#liveops .lo-tab .lo-chev{flex-shrink:0;color:var(--purple3);font-size:11px;
-  transition:transform .28s var(--ease)}
-#liveops.open .lo-tab .lo-chev{transform:rotate(180deg)}
-@keyframes loDot{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* the slide-up panel sits ABOVE the strip and grows upward */
-#liveops .lo-panel{order:1;width:100%;max-height:0;overflow:hidden;background:var(--surf);
-  border-top:1px solid var(--bd2);box-sizing:border-box;
-  transition:max-height .3s cubic-bezier(.3,.8,.3,1);box-shadow:0 -24px 60px rgba(0,0,0,.45)}
-#liveops.open .lo-panel{max-height:min(46vh,360px)}
-#liveops .lo-inner{max-width:1120px;margin:0 auto;padding:16px 20px 14px;
-  display:flex;flex-direction:column;max-height:min(46vh,360px);box-sizing:border-box}
-#liveops .lo-h{display:flex;align-items:center;gap:9px;padding-bottom:12px;
-  border-bottom:1px solid var(--bd);margin-bottom:11px;flex-shrink:0}
-#liveops .lo-h b{font-size:12.5px;font-weight:800;color:var(--white);letter-spacing:-.01em;flex:1}
-#liveops .lo-h .pdot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px #4ade80;animation:loDot 1.6s ease-in-out infinite}
-#liveops .lo-x{background:none;border:0;color:var(--muted);font-size:17px;cursor:pointer;padding:0 4px;line-height:1}
-#liveops .lo-x:hover{color:var(--white)}
-#liveops .lo-feed{flex:1;overflow-y:auto;display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 26px;align-content:start}
-#liveops .lo-feed::-webkit-scrollbar{width:5px}
-#liveops .lo-feed::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
-#liveops .lo-item{padding:10px 4px;border-bottom:1px dashed var(--bd);font-size:12px;line-height:1.5;color:var(--text);animation:loIn .4s ease}
-#liveops .lo-item time{display:block;font-size:10.5px;font-weight:700;color:var(--purple3);font-variant-numeric:tabular-nums;margin-bottom:3px;letter-spacing:.04em}
-#liveops .lo-item .ag{color:var(--white);font-weight:700}
-#liveops .lo-item .pct.up{color:#4ade80;font-weight:800}
-#liveops .lo-item .pct.dn{color:var(--purple2);font-weight:800}
-#liveops .lo-foot{padding-top:11px;margin-top:8px;border-top:1px solid var(--bd);
-  font-size:10.5px;color:var(--muted);text-align:center;flex-shrink:0;letter-spacing:.04em}
-@keyframes loIn{from{opacity:0;transform:translateY(8px);background:rgba(124,58,237,.08)}to{opacity:1;transform:none}}
-/* mobile: stay docked at the bottom, slimmer strip, single-column feed */
-@media(max-width:780px){
-  #liveops .lo-tab{height:42px;padding:0 70px 0 14px;gap:9px}
-  #liveops .lo-tab .vlabel{font-size:10px;letter-spacing:.1em}
-  #liveops .lo-tab .lo-preview{display:none}
-  #liveops.open .lo-panel{max-height:56vh}
-  #liveops .lo-inner{max-height:56vh;padding:14px 14px 12px}
-  #liveops .lo-feed{grid-template-columns:1fr;gap:0}
-}
-@media(prefers-reduced-motion:reduce){#liveops .lo-item{animation:none}#liveops .lo-tab .pdot,#liveops .lo-h .pdot{animation:none}}
+/* reveals */
+html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.js .rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.fw::after{animation:none}html.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
+<nav class="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
     <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
     <a href="/agents.html">AI teams</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/blog/">Blog</a>
-    <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
   </div>
+  <a href="https://go.efficio.tech/" class="btn-dark">Get started <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <!-- HERO -->
-<header class="hero hero-home">
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-eyebrow rv">An AI workforce for your business</div>
-      <h1 class="rv d1">Give your business<br>its own <span class="ac">Jarvis.</span></h1>
-      <p class="hero-oneliner rv d2">An <b>always-on AI workforce</b> embedded in your operations &mdash; answering, booking, quoting, following up, and running the back office while you sleep.</p>
-      <p class="lede rv d2">Not another AI tool you have to operate. We <b>build and run</b> a custom workforce of AI agents inside your business &mdash; built on <b>Anthropic's Claude</b> and plugged into the tools you already use through <b>MCP and APIs</b>. You operate. It works.</p>
-      <p class="rv d2 hero-stack-note">Built on Claude &middot; integrated via MCP + API &middot; live on one dashboard you watch.</p>
-      <div class="hero-ctas-l rv d3">
-        <a href="https://go.efficio.tech/" class="btn-primary" data-magnetic>Deploy your AI workforce <span class="btn-arrow">&rarr;</span></a>
-        <a href="#implement" class="btn-outline" data-magnetic>See how it plugs in</a>
-      </div>
+<header class="hero">
+  <div class="hero-in">
+    <div class="proof"><span class="avs"><i></i><i></i><i></i></span>Trusted by busy operators · built on Claude</div>
+    <h1>Not software.<br>A team.</h1>
+    <p class="sub">An always-on AI workforce that lives inside your apps and gets the work done.</p>
+    <div class="hero-cta">
+      <a href="https://go.efficio.tech/" class="btn-light">Get started <span class="arr">&rarr;</span></a>
+      <a href="#how" class="btn-ghost">See how it works</a>
     </div>
-    <div class="hero-visual rv d2">
-      <div class="console" id="console">
-        <div class="console-bar">
-          <span class="cd" style="background:#ff5f57"></span>
-          <span class="cd" style="background:#febc2e"></span>
-          <span class="cd" style="background:#28c840"></span>
-          <span class="ct">efficio — deploy</span>
-          <span class="cstat"><span class="live-dot"></span>Demo</span>
-        </div>
-        <div class="console-body" id="consoleBody" aria-hidden="true"></div>
+    <div class="works">
+      <div class="lbl">Plugs into the tools you already use</div>
+      <div class="row">
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Email</span>
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone</span>
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
+        <span class="wchip"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-1.2 4.4L21 21l-5.3-1.2A8.5 8.5 0 1121 11.5z"/></svg>Chat</span>
       </div>
-    </div>
-    <div class="proof-strip rv d4">
-      <div><b>From $497/mo</b>Month-to-month. Cancel anytime.</div>
-      <div><b>Front Office in 7 days</b>Your fastest team live week one; bigger builds scoped on the call.</div>
-      <div><b>30-day refund</b>If we don't ship measurable lift.</div>
-      <div><b>Founder-led</b>You work with the person who builds it.</div>
     </div>
   </div>
 </header>
 
-<!-- PROOF BAR — the same stack runs on -->
-<section class="proof-bar">
-  <div class="container">
-    <div class="pb-lbl rv">Not a tool &rarr; a team &rarr; a whole workforce</div>
-    <div class="hier rv">
-      <div class="hier-step tool">
-        <span class="hl">AI Tool</span>
-        <p>A single bot you have to operate and babysit. What every competitor sells. <b>We don't.</b></p>
-      </div>
-      <div class="hier-arrow" aria-hidden="true">&rarr;</div>
-      <div class="hier-step team">
-        <span class="hl">AI Team</span>
-        <p>A <b>coordinated group of AI agents</b> that runs a whole function for you &mdash; front office or back office. <b>This is what we build.</b></p>
-      </div>
-      <div class="hier-arrow" aria-hidden="true">&rarr;</div>
-      <div class="hier-step dept">
-        <span class="hl">AI Department</span>
-        <p>Every team together &mdash; your <b>entire operation</b>, run by AI.</p>
-      </div>
-    </div>
-    <div class="proof-grid">
-      <div class="pb-tile rv" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>Growth Department</b></div>
-        <div class="pb-ds"><b>Wins the next customer and keeps the last one:</b> lead response, itemized quotes, follow-up, content, reviews, and win-back &mdash; Sales, Marketing, and Retention working as one. A real team, not a tool.</div>
-        <div class="pb-tag">Replaces ~45&ndash;215K/yr of sales + marketing + CS headcount</div>
-      </div>
-      <div class="pb-tile rv" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>Front Office Department</b></div>
-        <div class="pb-ds"><b>Owns everything customer-facing:</b> phones, texts and web forms answered in seconds 24/7, booking, instant itemized quotes, and follow-up until the lead decides. Coordinated agents working as one team &mdash; not a single bot.</div>
-        <div class="pb-tag">Replaces ~$80&ndash;150K/yr of front-desk + sales headcount &middot; live in 7 days</div>
-      </div>
-      <div class="pb-tile rv d1" data-tilt>
-        <div class="pb-h"><span class="dot"></span><b>Back Office Department</b></div>
-        <div class="pb-ds"><b>Owns everything behind the scenes:</b> inbox triage, scheduling, internal handoffs, KPI tracking, your daily brief, AR chase, reconciliation and monthly close. A real team, not a tool.</div>
-        <div class="pb-tag">Replaces ~$85&ndash;170K/yr of office-manager + bookkeeper headcount</div>
-      </div>
-    </div>
-    <p class="rv" style="text-align:center;margin-top:26px;font-size:13.5px;color:var(--muted)">Want the substance? See <a href="/how-it-works.html#stack" style="color:var(--purple3);font-weight:600">the 9-layer stack we build under the hood &rarr;</a></p>
-  </div>
-</section>
-
-<!-- STATEMENT — now 2-column with founder card -->
-<section class="statement">
-  <div class="container">
-    <div class="statement-grid">
-      <div>
-        <p class="rv">Small businesses can't afford a CTO and can't keep up with AI. <span class="mut">You tell us what's eating your time and money. We build and run the AI that fixes it. You don't lift a finger.</span></p>
-        <div class="sig rv d1">— The Efficio team</div>
-      </div>
-      <div class="founder-card rv d2" data-tilt>
-        <div class="fc-head">
-          <div class="ava">E</div>
-          <div><b>The numbers we work with</b><small>Industry benchmarks · cited below</small></div>
-        </div>
-        <div class="fc-stat"><span class="k">Inbound calls lost to voicemail</span><span class="v"><em>30–40</em>%</span></div>
-        <div class="fc-stat"><span class="k">Owner time spent on admin</span><span class="v"><em>40</em>%</span></div>
-        <div class="fc-stat"><span class="k">Capacity lost to manual data entry</span><span class="v"><em>25–40</em>%</span></div>
-        <div class="fc-stat"><span class="k">SMBs reporting AI lifts revenue</span><span class="v"><em>56</em>%</span></div>
-        <div class="fc-stat"><span class="k">First agent live in your stack</span><span class="v">Day 7</span></div>
-        <div class="fc-stat"><span class="k">If we miss day 7</span><span class="v" style="color:var(--good)">Month is on us</span></div>
-        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--bd);font-size:10.5px;color:var(--muted);line-height:1.5">
-          Built on Anthropic's published framework for running an AI-driven business.<br>
-          Sources: ServiceTitan SMB Report 2023 · Gusto SMB State of Work · McKinsey · SMB Group 2023. Our day-7 + 30-day guarantees are contractual.
-        </div>
+<!-- DIFFERENTIATOR — lives inside your apps -->
+<section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">Lives inside your apps</div>
+    <h2 class="rv d1">@mention it like a teammate.</h2>
+    <p class="lede rv d1">It already has your tools. Just ask.</p>
+    <div class="stage rv d2">
+      <span class="float f1"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-1.2 4.4L21 21l-5.3-1.2A8.5 8.5 0 1121 11.5z"/></svg>Chat</span>
+      <span class="float f2"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
+      <span class="float f3"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
+      <span class="float f4"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
+      <div class="chatcard">
+        <div class="chathead"><span class="dot"></span><span class="t">Efficio · your AI team</span><span class="ch">#front-desk</span></div>
+        <div class="msg u"><div class="ava">YO</div><div><div class="who">You</div><div class="bub"><span class="mention">@Efficio</span> a call just came in after hours — book them in.</div></div></div>
+        <div class="msg b"><div class="ava">E</div><div><div class="who">Efficio</div><div class="bub">Booked <b>Thu 10:00 AM</b> <span class="ok">&#x2713; done</span> — texted confirmation, logged to the CRM.</div></div></div>
+        <div class="msg u"><div class="ava">YO</div><div><div class="who">You</div><div class="bub"><span class="mention">@Efficio</span> send the Johnson quote.</div></div></div>
+        <div class="msg b"><div class="ava">E</div><div><div class="who">Efficio</div><div class="bub">Sent a <b>$3,180</b> itemized quote <span class="ok">&#x2713; done</span> — I'll follow up in 2 days if it's quiet.</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AGENT ACTIVITY FEED — animated marquee showing what each productized agent does -->
-<section class="ticker" aria-label="Sample agent activity feed">
-  <div class="ticker-cap" style="text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:9px 16px 0">Live demo &middot; simulated activity, not customer data</div>
-  <div class="ticker-track">
-    <span class="ticker-item"><time>14:42</time><span class="biz">AI RECEPTIONIST</span><strong>Caught 4 after-hours calls and booked them.</strong></span>
-    <span class="ticker-item"><time>14:38</time><span class="biz">AI OFFICE ADMIN</span><strong>Spotted a manual handoff and shipped an auto-route.</strong></span>
-    <span class="ticker-item"><time>14:30</time><span class="biz">AI RECEPTIONIST</span><strong>Qualified 7 inbound inquiries before staff arrived.</strong></span>
-    <span class="ticker-item"><time>14:21</time><span class="biz">AI SALES NAVIGATOR</span><strong>Sent 9 itemized estimates, under 5 min each.</strong></span>
-    <span class="ticker-item"><time>14:15</time><span class="biz">AI BOOKKEEPER</span><strong>Cleared 14 outstanding items off the bottleneck list.</strong></span>
-    <span class="ticker-item"><time>14:08</time><span class="biz">AI MARKETING COORDINATOR</span><strong>Re-engaged 22 cold leads; booked 3 back in.</strong></span>
-    <span class="ticker-item"><time>14:02</time><span class="biz">AI SALES NAVIGATOR</span><strong>Customer approved an estimate in 11 minutes.</strong></span>
-    <span class="ticker-item"><time>13:55</time><span class="biz">AI OPERATIONS LEAD</span><strong>Re-routed 6 recurring tasks off the owner.</strong></span>
-    <span class="ticker-item"><time>13:47</time><span class="biz">AI OFFICE ADMIN</span><strong>Auto-sent 18 weekly progress updates.</strong></span>
-    <span class="ticker-item"><time>13:38</time><span class="biz">AI SALES NAVIGATOR</span><strong>Drafted a fully-spec'd quote from a customer photo; approved in 4 minutes.</strong></span>
-    <span class="ticker-item"><time>13:30</time><span class="biz">AI RECEPTIONIST</span><strong>Filled 3 same-week cancellations from the waitlist.</strong></span>
-    <span class="ticker-item"><time>13:22</time><span class="biz">AI MARKETING COORDINATOR</span><strong>Flagged a lukewarm survey before it went public.</strong></span>
-    <!-- duplicate set for seamless loop -->
-    <span class="ticker-item"><time>14:42</time><span class="biz">AI RECEPTIONIST</span><strong>Caught 4 after-hours calls and booked them.</strong></span>
-    <span class="ticker-item"><time>14:38</time><span class="biz">AI OFFICE ADMIN</span><strong>Spotted a manual handoff and shipped an auto-route.</strong></span>
-    <span class="ticker-item"><time>14:30</time><span class="biz">AI RECEPTIONIST</span><strong>Qualified 7 inbound inquiries before staff arrived.</strong></span>
-    <span class="ticker-item"><time>14:21</time><span class="biz">AI SALES NAVIGATOR</span><strong>Sent 9 itemized estimates, under 5 min each.</strong></span>
-    <span class="ticker-item"><time>14:15</time><span class="biz">AI BOOKKEEPER</span><strong>Cleared 14 outstanding items off the bottleneck list.</strong></span>
-    <span class="ticker-item"><time>14:08</time><span class="biz">AI MARKETING COORDINATOR</span><strong>Re-engaged 22 cold leads; booked 3 back in.</strong></span>
-    <span class="ticker-item"><time>14:02</time><span class="biz">AI SALES NAVIGATOR</span><strong>Customer approved an estimate in 11 minutes.</strong></span>
-    <span class="ticker-item"><time>13:55</time><span class="biz">AI OPERATIONS LEAD</span><strong>Re-routed 6 recurring tasks off the owner.</strong></span>
-    <span class="ticker-item"><time>13:47</time><span class="biz">AI OFFICE ADMIN</span><strong>Auto-sent 18 weekly progress updates.</strong></span>
-    <span class="ticker-item"><time>13:38</time><span class="biz">AI SALES NAVIGATOR</span><strong>Drafted a fully-spec'd quote from a customer photo; approved in 4 minutes.</strong></span>
-    <span class="ticker-item"><time>13:30</time><span class="biz">AI RECEPTIONIST</span><strong>Filled 3 same-week cancellations from the waitlist.</strong></span>
-    <span class="ticker-item"><time>13:22</time><span class="biz">AI MARKETING COORDINATOR</span><strong>Flagged a lukewarm survey before it went public.</strong></span>
+<!-- HOW WE BUILD IT -->
+<section class="sec" id="how">
+  <div class="wrap center">
+    <div class="eyebrow rv">How we build it</div>
+    <h2 class="rv d1">Your apps, wired to a workforce.</h2>
+    <p class="lede rv d1">Connected by <b>MCP + API</b>. Powered by <b>Claude</b>.</p>
+    <div class="flow rv d2" role="img" aria-label="Your apps connect through MCP and API to Claude-powered agents, which get the work done.">
+      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M4 5h7v7H4zM13 5h7v4h-7zM13 12h7v7h-7zM4 14h7v5H4z"/></svg></div><div class="flab">Your apps</div></div>
+      <div class="fw"></div>
+      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 6l-4 12"/></svg></div><div class="flab">MCP &middot; API</div></div>
+      <div class="fw"></div>
+      <div class="fnode"><div class="fg core"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 014 4 4 4 0 010 8 4 4 0 01-8 0 4 4 0 010-8 4 4 0 014-4zM12 3v18"/></svg></div><div class="flab">Claude agents</div></div>
+      <div class="fw"></div>
+      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><div class="flab">Work done</div></div>
+    </div>
   </div>
 </section>
 
-<!-- WHY NOW — STATS -->
-<section class="section why-now" id="why-now">
-  <div class="container">
-    <div class="why-grid">
-      <div class="why-left rv">
-        <div class="s-label">Why now</div>
-        <h2 class="s-title">The businesses around you <em>already moved.</em></h2>
-        <p class="s-sub">AI stopped being a someday line item. The companies winning your customers aren't smarter — they just answer faster, drop fewer leads, and waste less of their team's day. This is the gap, in numbers.</p>
-        <p class="why-foot">You don't need to learn any of this. You tell us what's slow, we build and run the AI, and it all lands on a dashboard you can watch. <a href="#see-platform">See the dashboard ↓</a></p>
+<!-- WHAT WE BUILD -->
+<section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">What it owns</div>
+    <h2 class="rv d1">A team for every job.</h2>
+    <div class="cards">
+      <div class="card rv">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
+        <h3>Reception</h3><p>Answers every call, books the job.</p>
       </div>
-      <div class="stat-grid rv d1">
-        <div class="stat" style="--bw:90%">
-          <div class="sn"><em><span class="cu" data-count="38">0</span><span style="font-size:.55em;font-weight:800;color:var(--muted);margin-left:4px">sec</span></em></div>
-          <div class="sbar"><i></i></div>
-          <div class="sl">Average time your front-office team takes to answer an inbound lead. The competitor down the road takes 4 hours.</div>
-          <div class="ss">First-Party · Production agents</div>
-        </div>
-        <div class="stat" style="--bw:95%">
-          <div class="sn"><em><span class="cu" data-count="21">0</span>×</em></div>
-          <div class="sbar"><i></i></div>
-          <div class="sl">More likely to qualify a lead when you answer in 5 min vs 30. Yours answers in 38 seconds.</div>
-          <div class="ss">Lead Response Mgmt Study</div>
-        </div>
-        <div class="stat" style="--bw:80%">
-          <div class="sn"><em>$<span class="cu" data-count="2700">0</span></em></div>
-          <div class="sbar"><i></i></div>
-          <div class="sl">Median monthly value of work walking to the competitor through missed calls in a 6-person small business.</div>
-          <div class="ss">Calc: 6 missed callable jobs · $450 avg ticket</div>
-        </div>
-        <div class="stat" style="--bw:100%">
-          <div class="sn"><em><span class="cu" data-count="7">0</span><span style="font-size:.55em;font-weight:800;color:var(--muted);margin-left:4px">days</span></em></div>
-          <div class="sbar"><i></i></div>
-          <div class="sl">From kickoff to your first AI team live and working in your stack — or the month is on us. In writing.</div>
-          <div class="ss">Efficio · contractual day-7 guarantee</div>
-        </div>
+      <div class="card rv d1">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/></svg></div>
+        <h3>Sales</h3><p>Quotes, follow-ups, pipeline.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
+        <h3>Office</h3><p>Inbox triaged, replies drafted.</p>
+      </div>
+      <div class="card rv">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6zM15 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3>Books</h3><p>Reconciled daily, AR chased.</p>
+      </div>
+      <div class="card rv d1">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-3-7-8-4z"/></svg></div>
+        <h3>Marketing</h3><p>Content and campaigns, shipped.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg></div>
+        <h3>Win-back</h3><p>Quiet customers re-engaged.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DASHBOARD SHOWCASE -->
-<section class="section section-alt" id="see-platform">
-  <div class="container">
-    <div class="sh rv">
-      <div class="s-label">The difference</div>
-      <h2 class="s-title">Not a black box. <em>A window into the work.</em></h2>
-      <p class="s-sub">Most agencies hand you an invoice and a shrug. We hand you a live dashboard — every agent we've built, every hour it's saved, every lead it caught, what's shipping next. The work is the service. The visibility is what makes it ours.</p>
-    </div>
-    <div class="dash-frame rv d1" id="dashFrame">
-      <div class="dash-bar">
-        <span class="d" style="background:#ff5f57"></span>
-        <span class="d" style="background:#febc2e"></span>
-        <span class="d" style="background:#28c840"></span>
-        <span class="t">Your Efficio command center</span>
-        <span class="l">Demo</span>
-      </div>
-      <div class="dash-body">
-        <div class="dash-kpis">
-          <div class="dk"><div class="lbl">Hours saved · this month</div><div class="num" data-count="142">0</div><div class="sub">illustrative</div></div>
-          <div class="dk"><div class="lbl">Leads caught</div><div class="num" data-count="386">0</div><div class="sub">0 missed inbounds</div></div>
-          <div class="dk"><div class="lbl">Replies triaged</div><div class="num" data-count="1204">0</div><div class="sub">hot leads first</div></div>
-          <div class="dk"><div class="lbl">Active builds</div><div class="num" data-count="2">0</div><div class="sub">1 ships this week</div></div>
-        </div>
-        <div class="dash-cols">
-          <div class="dash-p">
-            <h4>Your AI team — working now</h4>
-            <div class="dash-row"><span class="st"></span><span class="nm">AI Receptionist</span><span class="mt">24 calls handled today</span></div>
-            <div class="dash-row"><span class="st"></span><span class="nm">AI Sales Navigator</span><span class="mt">11 leads · 3 quoted</span></div>
-            <div class="dash-row"><span class="st"></span><span class="nm">AI Office Manager</span><span class="mt">63 triaged today</span></div>
-            <div class="dash-row"><span class="st"></span><span class="nm">AI Bookkeeper</span><span class="mt">$8.2K AR cleared</span></div>
-            <div class="dash-row"><span class="st b"></span><span class="nm">Custom build · quote tool</span><span class="mt">in progress</span></div>
-          </div>
-          <div class="dash-p">
-            <h4>Activity feed</h4>
-            <div class="dash-feed" id="dashFeed">
-              <div><time>2:47</time><span>AI Receptionist booked a Thursday 10am from a missed call</span></div>
-              <div><time>2:31</time><span>AI Sales Navigator sent an itemized quote — opened twice</span></div>
-              <div><time>1:58</time><span>AI Office Manager flagged a hot lead, pushed to top of queue</span></div>
-              <div><time>1:12</time><span>AI Bookkeeper cleared $1,800 of overdue AR — 2 invoices paid</span></div>
-              <div><time>11:40</time><span>AI Office Manager re-engaged 7 cold leads from spring</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="rv d2" style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-      <a href="/demo/" class="btn-primary" data-magnetic target="_blank" rel="noopener">Open the live demo dashboard <span class="btn-arrow">&rarr;</span></a>
-      <span style="font-size:13px;color:var(--muted)">Real working dashboard, sample data — click around it.</span>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT WE DO -->
-<section class="section" id="how">
-  <div class="container">
-    <div class="sh rv">
-      <div class="s-label">What we do</div>
-      <h2 class="s-title">We build and run a custom <em>AI workforce</em> inside your operations.</h2>
-      <p class="s-sub">Not a catalog of pre-made bots. A coordinated workforce of AI agents &mdash; engineered, deployed, and operated by us, embedded in the tools you already run. Three things it does day one:</p>
-    </div>
-    <div class="do-grid">
-      <div class="do rv">
-        <h3>Teams that run the work</h3>
-        <p>A front-office team and a back-office team — each a group of coordinated agents that owns a whole function end-to-end, 24/7.</p>
-        <ul>
-          <li>Never miss an inbound call, text, or form</li>
-          <li>Every lead worked, quoted, followed up</li>
-          <li>Inbox, scheduling, and books run themselves</li>
-        </ul>
-      </div>
-      <div class="do rv d1">
-        <h3>Custom AI products</h3>
-        <p>If it can be built, we build it — internal tools, customer apps, document AI, integrations.</p>
-        <ul>
-          <li>Built to your spec, in your stack</li>
-          <li>Data pipelines, scrapers, lookups</li>
-          <li>Connects to whatever you already run</li>
-        </ul>
-      </div>
-      <div class="do rv d2">
-        <h3>The command dashboard</h3>
-        <p>One live screen over everything we've built — deploy, watch, and measure it all.</p>
-        <ul>
-          <li>Real-time metrics and agent activity</li>
-          <li>Hours and dollars saved, counted</li>
-          <li>Your branding, your command center</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW WE IMPLEMENT — API + MCP + Claude architecture -->
-<section class="section implement" id="implement">
-  <div class="container">
-    <div class="sh rv">
-      <div class="s-label">How we implement</div>
-      <h2 class="s-title">It plugs into the tools you <em>already use.</em></h2>
-      <p class="s-sub">No rip-and-replace. We connect your existing stack to a workforce of AI agents through <b>MCP</b> (the Model Context Protocol) and direct <b>APIs</b> — running on <b>Anthropic's Claude</b>. The agents read and act across your tools, in real time, with your guardrails.</p>
-    </div>
-
-    <!-- the flow: your tools → MCP/API → Claude agents → outcomes -->
-    <div class="arch rv d1" role="img" aria-label="Architecture: your tools connect through MCP and APIs to Claude-powered agents, which produce business outcomes.">
-      <div class="arch-col arch-tools">
-        <div class="arch-cap">Your stack</div>
-        <div class="arch-chips">
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Inbox</span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone</span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
-          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l5 5v13H6zM15 3v5h5"/></svg>Docs</span>
-        </div>
-      </div>
-
-      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">MCP&nbsp;+&nbsp;API</span></div>
-
-      <div class="arch-col arch-hub">
-        <div class="arch-cap">Integration layer</div>
-        <div class="arch-node">
-          <div class="arch-node-ic">&#x21C4;</div>
-          <b>MCP&nbsp;+ API gateway</b>
-          <small>Secure, scoped, revocable. Your data stays in your tools.</small>
-        </div>
-      </div>
-
-      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">context</span></div>
-
-      <div class="arch-col arch-brain">
-        <div class="arch-cap">The workforce</div>
-        <div class="arch-node feat">
-          <div class="arch-brain-mark"><span></span><span></span><span></span></div>
-          <b>Claude-powered agents</b>
-          <small>Reasoning + action on Anthropic's Claude — in your own Claude Teams account, set up by us.</small>
-          <div class="arch-agents">
-            <span>Front desk</span><span>Sales &amp; quoting</span><span>Back office</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">actions</span></div>
-
-      <div class="arch-col arch-out">
-        <div class="arch-cap">Outcomes</div>
-        <ul class="arch-results">
-          <li><span class="ad"></span>Calls &amp; texts answered 24/7</li>
-          <li><span class="ad"></span>Leads qualified &amp; booked</li>
-          <li><span class="ad"></span>Itemized quotes sent in seconds</li>
-          <li><span class="ad"></span>Inbox, AR &amp; ops handled</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- the three implementation pillars -->
-    <div class="impl-cards rv d2">
-      <div class="impl-card" data-tilt>
-        <div class="impl-ic">&#x7B;&#x7D;</div>
-        <h3>MCP + APIs, not rip-and-replace</h3>
-        <p>We integrate through the Model Context Protocol and direct APIs, so the workforce reads and acts inside the tools you already run &mdash; CRM, inbox, calendar, phone, payments. Access is scoped and revocable at any time.</p>
-      </div>
-      <div class="impl-card feat" data-tilt>
-        <div class="impl-ic">&#x25C8;</div>
-        <h3>Built on Anthropic's Claude</h3>
-        <p>The agents reason and take action on Claude &mdash; provisioned in your own <b>Claude Teams</b> account, configured by us. Frontier intelligence, enterprise-grade, with humans in the loop where it matters.</p>
-      </div>
-      <div class="impl-card" data-tilt>
-        <div class="impl-ic">&#x29BF;</div>
-        <h3>Acts across your whole stack</h3>
-        <p>Agents don't just answer &mdash; they book the slot, log the deal, send the quote, chase the invoice. One coordinated workforce moving work across every tool, with every action landing on your live dashboard.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UNDER THE HOOD — interactive code viewer -->
-<section class="section section-alt" id="under-the-hood">
-  <div class="container">
-    <div class="sh rv">
-      <div class="s-label">Under the hood</div>
-      <h2 class="s-title">Real code, <em>shipped into your stack.</em></h2>
-      <p class="s-sub">You never read a line of it — that's the entire point. But this is what we're actually writing, deploying, and running for you. Click through.</p>
-    </div>
-    <div class="code-wrap rv d1" id="codeWrap">
-      <div class="code-tabs">
-        <span class="cdots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>
-        <button class="code-tab on" type="button" data-pane="p0">front_desk.py</button>
-        <button class="code-tab" type="button" data-pane="p1">quote_tool.py</button>
-        <button class="code-tab" type="button" data-pane="p2">pipeline.yaml</button>
-      </div>
-      <div class="code-pane-wrap">
-        <div class="pane on" id="p0"><span class="cl"><span class="c"># front_desk — answers every inbound, books it, escalates if urgent</span></span><span class="cl"><span class="k">class</span> <span class="f">FrontDesk</span>(<span class="t">Agent</span>):</span><span class="cl">    <span class="k">async def</span> <span class="f">on_inbound</span>(<span class="k">self</span>, msg):</span><span class="cl">        intent = <span class="k">await</span> <span class="k">self</span>.classify(msg)      <span class="c"># call · text · web form</span></span><span class="cl">        <span class="k">if</span> intent.is_emergency:</span><span class="cl">            <span class="k">return</span> <span class="k">self</span>.escalate(msg, to=<span class="s">"on-call"</span>)</span><span class="cl">        slot = <span class="k">self</span>.calendar.next_open(intent.service)</span><span class="cl">        booking = <span class="k">self</span>.calendar.book(slot, msg.contact)</span><span class="cl">        <span class="k">self</span>.crm.log(booking)</span><span class="cl">        <span class="k">self</span>.events.append(<span class="s">"appointment_booked"</span>, booking.summary)</span><span class="cl">        <span class="k">return</span> <span class="k">self</span>.reply(msg, confirm=booking)<span class="code-cur"></span></span></div>
-        <div class="pane" id="p1"><span class="cl"><span class="c"># quote_tool — itemized quotes from an intake form, in seconds</span></span><span class="cl"><span class="k">def</span> <span class="f">build_quote</span>(intake: <span class="t">Intake</span>) -&gt; <span class="t">Quote</span>:</span><span class="cl">    items = price_book.match(intake.scope)     <span class="c"># your pricing, your rules</span></span><span class="cl">    quote = <span class="f">Quote</span>(items, tax=intake.region.tax)</span><span class="cl">    quote.attach(branding=client.brand)</span><span class="cl">    quote.send(intake.contact, channel=<span class="s">"email"</span>)</span><span class="cl">    events.append(<span class="s">"quote_sent"</span>, <span class="s">f"${quote.total} — {intake.company}"</span>)</span><span class="cl">    <span class="k">return</span> quote<span class="code-cur"></span></span></div>
-        <div class="pane" id="p2"><span class="cl"><span class="c"># pipeline.yaml — what we're building for you, in order</span></span><span class="cl"><span class="t">client</span>: acme-plumbing</span><span class="cl"><span class="t">agents</span>:</span><span class="cl">  - front_desk      <span class="c"># live</span></span><span class="cl">  - sales_engine    <span class="c"># live</span></span><span class="cl">  - scheduling      <span class="c"># live</span></span><span class="cl"><span class="t">build_queue</span>:</span><span class="cl">  - custom_quote_tool:  <span class="s">ships this week</span></span><span class="cl">  - review_automation:  <span class="s">next up</span></span><span class="cl"><span class="t">dashboard</span>:</span><span class="cl">  <span class="t">refresh</span>: <span class="n">5m</span></span><span class="cl">  <span class="t">url</span>: acme.efficio.tech<span class="code-cur"></span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section">
-  <div class="container">
-    <div class="sh rv">
-      <div class="s-label">How it works</div>
-      <h2 class="s-title">From quiz to live agents in <em>seven days.</em></h2>
-      <p class="s-sub">Total customer effort across the entire onboarding: about 25 minutes. Zero ongoing data entry. Most agencies make you maintain spreadsheets. We don't.</p>
-    </div>
-    <div class="steps six rv d1">
-      <div class="step">
-        <div class="n">STEP 01 · 5 min</div>
-        <h3>Take the qualification quiz</h3>
-        <p><b>You:</b> 8 questions about your revenue, tools, and where time is leaking.<br><b>We:</b> route you to the right tier and book your free audit call.</p>
-        <span class="when">Day 0</span>
-      </div>
-      <div class="step">
-        <div class="n">STEP 02 · 30 min</div>
-        <h3>Audit kickoff call</h3>
-        <p><b>You:</b> walk us through your operation, your pain, your stack.<br><b>We:</b> name the one workflow we'd ship in week one and the metric we'll move by day 30.</p>
-        <span class="when">Day 1</span>
-      </div>
-      <div class="step">
-        <div class="n">STEP 03 · 10 min</div>
-        <h3>OAuth onboarding</h3>
-        <p><b>You:</b> one-click connect Stripe, Plaid, QuickBooks, your CRM, Google Workspace, ad accounts.<br><b>We:</b> read-only access only · revocable any time.</p>
-        <span class="when">Day 2</span>
-      </div>
-      <div class="step">
-        <div class="n">STEP 04 · 5 min</div>
-        <h3>Document drop</h3>
-        <p><b>You:</b> drop 3 months of bank statements + a customer roster CSV + 5-10 recent invoices into a private Dropbox folder we create for you.<br><b>We:</b> Hermes processes everything overnight.</p>
-        <span class="when">Day 2-3</span>
-      </div>
-      <div class="step">
-        <div class="n">STEP 05</div>
-        <h3>Audit report + cockpit live</h3>
-        <p><b>You:</b> review the audit · 10-page deliverable mapped to your operation.<br><b>We:</b> ship your cockpit with your real data flowing in.</p>
-        <span class="when">Day 5</span>
-      </div>
-      <div class="step">
-        <div class="n">STEP 06</div>
-        <h3>First agent live · weekly digest</h3>
-        <p><b>You:</b> watch the work happen.<br><b>We:</b> first agent (usually front-desk or quote &amp; sales) is running. Weekly digest in your inbox every Monday 8am.</p>
-        <span class="when">Day 7+</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THE OFFER -->
-<section class="section section-alt offer" id="offer">
-  <div class="container">
-    <div class="sh center rv">
-      <div class="s-label">The offer</div>
-      <h2 class="s-title">Done for you. <em>Risk on us.</em></h2>
-      <p class="s-sub" style="margin-left:auto;margin-right:auto">You don't build anything, learn anything, or manage anything. We deploy your AI workforce &mdash; and if it doesn't move a number you can see, you don't pay.</p>
-    </div>
-    <div class="offer-grid rv d1">
-      <div class="offer-item" data-tilt>
-        <div class="oi-n">~7</div>
-        <div class="oi-u">days</div>
-        <h3>Built fast</h3>
-        <p>Your first agent is live and working in your stack within about a week of kickoff &mdash; not a quarter-long project.</p>
-      </div>
-      <div class="offer-item" data-tilt>
-        <div class="oi-n">$0</div>
-        <div class="oi-u">upfront</div>
-        <h3>No build fee</h3>
-        <p>No setup invoice, no implementation bill. We build the workforce on us and earn the monthly seat.</p>
-      </div>
-      <div class="offer-item feat" data-tilt>
-        <div class="oi-n">30</div>
-        <div class="oi-u">day proof</div>
-        <h3>Pay only if it works</h3>
-        <p>We agree on the metric on call one. If we don't move it by day 30, the month is on us. In writing.</p>
-      </div>
+<!-- OFFER -->
+<section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">The offer</div>
+    <h2 class="rv d1">Nothing to lose.</h2>
+    <div class="stats rv d2">
+      <div class="stat"><div class="n">7</div><div class="l">days to live</div></div>
+      <div class="stat"><div class="n">$0</div><div class="l">upfront</div></div>
+      <div class="stat"><div class="n">&#x2713;</div><div class="l">pay only if it works</div></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="sh center rv">
-      <div class="s-label">Pricing</div>
-      <h2 class="s-title">Pick where to start.</h2>
-      <p class="s-sub" style="margin-left:auto;margin-right:auto">Month-to-month. No contract. 30-day refund if we don't ship measurable lift. Move up or down any time.</p>
-    </div>
-    <div class="price-grid">
-      <div class="tier rv">
-        <div class="tag">New to AI &middot; start here</div>
-        <div class="name">Starter</div>
-        <div class="price">$497<span> /mo</span></div>
-        <div class="blurb">Just getting into AI? Start here. We optimize and build your website, run an AI-direction session, and ship your first automation — a low-risk first step, no big commitment.</div>
-        <ul>
-          <li><b>Website optimization + build</b> — your site tuned to convert and load fast</li>
-          <li><b>AI-direction session</b> — where AI actually helps you, plus a practical roadmap</li>
-          <li>Your first automation, built and live, on your starting dashboard</li>
-          <li>30-day measurable-savings refund</li>
-        </ul>
-        <a href="https://buy.stripe.com/9B66oJffT1Dq2l43p4dQQ0i" class="btn-price out" target="_blank" rel="noopener">Start with Starter</a>
+<section class="sec" id="pricing">
+  <div class="wrap center">
+    <div class="eyebrow rv">Pricing</div>
+    <h2 class="rv d1">Start anywhere.</h2>
+    <div class="prices rv d2">
+      <div class="price">
+        <div class="pn">Starter</div><div class="pp">$497<span> /mo</span></div>
+        <div class="pd">Website + your first automation.</div>
+        <a href="https://buy.stripe.com/9B66oJffT1Dq2l43p4dQQ0i" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
-      <div class="tier rv d1">
-        <div class="tag">Entry &middot; one AI team</div>
-        <div class="name">AI Specialist</div>
-        <div class="price">$997<span> /mo</span></div>
-        <div class="blurb">One AI team that runs your single biggest function end-to-end — front office or back office. Not a single bot you operate; a coordinated set of agents we build and run.</div>
-        <ul>
-          <li><b>One AI team</b> on the function bleeding the most time — phones &amp; booking, or inbox &amp; ops (you pick)</li>
-          <li><b>Your live dashboard</b> — every lead caught, job booked, and hour saved, on one screen</li>
-          <li>We build it, run it, and fix it — you never touch the tech</li>
-          <li>Monthly strategy call + shared chat channel</li>
-        </ul>
-        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="btn-price out" target="_blank" rel="noopener">Start with AI Specialist</a>
+      <div class="price">
+        <div class="pn">AI Specialist</div><div class="pp">$997<span> /mo</span></div>
+        <div class="pd">One AI team, end-to-end.</div>
+        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
-      <div class="tier feat rv d2">
-        <div class="tag">Most popular &middot; two AI teams</div>
-        <div class="name">AI Team</div>
-        <div class="price">$2,500<span> /mo</span></div>
-        <div class="blurb">Your front-office team and back-office team, both running — the whole customer journey and the whole back office, on autopilot.</div>
-        <ul>
-          <li>Everything in AI Specialist</li>
-          <li><b>A second AI team</b> — add the other half of your operation, front + back office working together</li>
-          <li>We tune both teams every week as your business changes</li>
-          <li>Biweekly strategy call + priority response</li>
-        </ul>
-        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="btn-price sol" target="_blank" rel="noopener">Start with AI Team</a>
+      <div class="price feat">
+        <div class="pn">AI Team</div><div class="pp">$2,500<span> /mo</span></div>
+        <div class="pd">Front + back office together.</div>
+        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
-      <div class="tier rv d3">
-        <div class="tag">Full operation &middot; every team</div>
-        <div class="name">AI Department</div>
-        <div class="price">$3,500<span> /mo</span></div>
-        <div class="blurb">Your full AI department — every team running, plus new ones built on demand. Your whole operation, run by AI.</div>
-        <ul>
-          <li>Everything in AI Team</li>
-          <li><b>Every team + unlimited builds</b> — a new agent or team whenever a bottleneck appears, no extra cost</li>
-          <li><b>Custom AI products</b> too — internal tools, customer apps, integrations</li>
-          <li>Weekly strategy call + 24-hour response SLA</li>
-        </ul>
-        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="btn-price out" target="_blank" rel="noopener">Start with AI Department</a>
+      <div class="price">
+        <div class="pn">AI Department</div><div class="pp">$3,500<span> /mo</span></div>
+        <div class="pd">Every team + unlimited builds.</div>
+        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
     </div>
-    <p class="price-note rv">Not sure which fits? <a href="https://go.efficio.tech/">Take the 60-second audit</a> or <a href="https://go.efficio.tech/">book a 15-min call</a>.</p>
+    <p class="pnote rv">Not sure? <a href="https://go.efficio.tech/">Take the 60-second audit</a>.</p>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section section-alt" id="faq">
-  <div class="container">
-    <div class="sh center rv">
-      <div class="s-label">FAQ</div>
-      <h2 class="s-title">The straight answers.</h2>
-    </div>
-    <div class="faq rv d1">
-      <div class="faq-item">
-        <button class="faq-q" type="button">Do I need to know anything about AI?<span class="pm">+</span></button>
-        <div class="faq-a"><p>No. That's the entire point. You tell us what's slow, manual, or falling through the cracks — we handle every technical decision, every tool, every build. You operate your business; we operate the AI.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">Aren't there already a million AI tools out there?<span class="pm">+</span></button>
-        <div class="faq-a"><p>Yes — and that's the problem. Efficio is built on Anthropic's published framework for running an AI-driven business, not patched together from random tools. Each AI team is integrated into your existing stack — CRM, phone, inbox, booking — by human engineers, owned and operated by us.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">What does the 30-day refund actually mean?<span class="pm">+</span></button>
-        <div class="faq-a"><p>If by day 30 we haven't moved a real number you can see — recovered hours, faster response, fewer dropped leads — you get the month back, no debate. We agree on the metric on the first call so there's no moving goalpost.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">What kind of businesses do you work with?<span class="pm">+</span></button>
-        <div class="faq-a"><p>Small and medium businesses — really, anyone whose team is losing hours to manual work. Home services, trades, professional services, healthcare, real estate, retail, agencies. The agents and dashboard are universal; we customize them to how you actually work.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">Does this replace my staff or my software?<span class="pm">+</span></button>
-        <div class="faq-a"><p>No. The AI works alongside your people and plugs into the tools you already use. Your team gets hours back; your stack stays where it is. If something blocks the build, we tell you on the first call.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">How does it actually connect to my tools?<span class="pm">+</span></button>
-        <div class="faq-a"><p>Through MCP — the Model Context Protocol — and direct APIs. That lets the agents read and act inside your existing CRM, inbox, calendar, phone, and payment tools without replacing any of them. The agents run on Anthropic's Claude, in your own Claude Teams account that we set up and configure. Access is scoped, logged, and revocable at any time.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">How fast does something actually go live?<span class="pm">+</span></button>
-        <div class="faq-a"><p>The first build is in your stack and doing real work within seven days of the kickoff call. After that we keep shipping — and everything lands on your dashboard so you watch it happen.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-strip">
-  <div class="container">
-    <h2>Tell us what's slow. <span class="grad-purple">We'll deploy the workforce.</span></h2>
-    <p>Book a 15-minute call. No deck, no pitch — we'll tell you exactly which agents we'd build, how they'd plug into your stack, and the number we'd move first.</p>
-    <a href="https://go.efficio.tech/" class="btn-big">Deploy your AI workforce <span class="btn-arrow">&rarr;</span></a>
-  </div>
+<!-- FINAL CTA -->
+<section class="cta rv">
+  <h2>Hire your AI team.</h2>
+  <p>Sixty seconds to see where it fits. No deck, no homework.</p>
+  <a href="https://go.efficio.tech/" class="btn-light">Get started <span class="arr">&rarr;</span></a>
 </section>
 
 <footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — plugged into your tools via MCP and APIs, on one live dashboard — so you operate while we handle the AI.</p>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
+        <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
     </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/demo/">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
+    <div class="fbot">
+      <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
     </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
-      <a href="https://go.efficio.tech/">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built for small &amp; medium businesses across the US.</div>
   </div>
 </footer>
 
-<script src="/assets/transitions.js" defer></script>
 <script>
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
-
-  // Scroll reveals
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -50px 0px'});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(b=>{
-    b.addEventListener('click',()=>b.parentElement.classList.toggle('open'));
-  });
-
-  // Animated KPI counters — fire when the dashboard scrolls into view
-  function runCounters(){
-    document.querySelectorAll('#dashFrame [data-count]').forEach(el=>{
-      const target=parseInt(el.dataset.count,10)||0;
-      if(reduceMotion){el.textContent=target.toLocaleString('en-US');return;}
-      const dur=1400, t0=performance.now();
-      (function step(now){
-        const p=Math.min(1,(now-t0)/dur);
-        const eased=1-Math.pow(1-p,3);
-        el.textContent=Math.round(target*eased).toLocaleString('en-US');
-        if(p<1) requestAnimationFrame(step);
-      })(t0);
-    });
-  }
-  // Generic count-up for stat bands (.cu)
-  function countUp(el){
-    const target=parseInt(el.dataset.count,10)||0;
-    if(reduceMotion){el.textContent=target.toLocaleString('en-US');return;}
-    const dur=1300,t0=performance.now();
-    (function step(now){
-      const p=Math.min(1,(now-t0)/dur),eased=1-Math.pow(1-p,3);
-      el.textContent=Math.round(target*eased).toLocaleString('en-US');
-      if(p<1)requestAnimationFrame(step);
-    })(t0);
-  }
-  const cuio=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){countUp(e.target);cuio.unobserve(e.target);}
-  }),{threshold:.6});
-  document.querySelectorAll('.cu').forEach(el=>cuio.observe(el));
-
-  const dashFrame=document.getElementById('dashFrame');
-  if(dashFrame){
-    const cio=new IntersectionObserver(es=>es.forEach(e=>{
-      if(e.isIntersecting){runCounters();startFeed();cio.unobserve(e.target);}
-    }),{threshold:.35});
-    cio.observe(dashFrame);
-
-    // Subtle 3D tilt on pointer (fine pointers only)
-    if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
-      let raf=null;
-      dashFrame.addEventListener('mousemove',e=>{
-        const r=dashFrame.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-0.5)*-4;
-        const ry=((e.clientX-r.left)/r.width-0.5)*4;
-        if(raf)cancelAnimationFrame(raf);
-        raf=requestAnimationFrame(()=>{dashFrame.style.transform=`perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
-      });
-      dashFrame.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);dashFrame.style.transform='';});
-    }
-  }
-
-  // Live activity feed — new lines slide in over time
-  const FEED_POOL=[
-    'AI Receptionist answered an after-hours call and booked it',
-    'AI Sales Navigator followed up with a lead that went quiet',
-    'AI Office Manager drafted 4 replies — ready for one-click send',
-    'AI Receptionist reminded tomorrow’s appointments automatically',
-    'AI Sales Navigator built a $3,180 itemized quote in 90 seconds',
-    'AI Office Manager re-engaged a customer overdue since last quarter',
-    'AI Receptionist routed an urgent request to the on-call human',
-    'AI Sales Navigator logged a closed job back to the CRM',
-    'AI Office Manager flagged a pricing question as HOT — top of queue',
-    'AI Bookkeeper reconciled today’s Stripe + bank — $0 drift',
-    'AI Bookkeeper sent 6 polite AR-7-day follow-ups — 2 paid within an hour',
-    'AI Office Manager caught a workflow handoff stalled 12 min idle'
-  ];
-  function startFeed(){
-    const feed=document.getElementById('dashFeed');
-    if(!feed||reduceMotion) return;
-    let i=0;
-    setInterval(()=>{
-      const now=new Date();
-      const hh=((now.getHours()%12)||12);
-      const mm=String(now.getMinutes()).padStart(2,'0');
-      const row=document.createElement('div');
-      row.className='new';
-      row.innerHTML='<time>'+hh+':'+mm+'</time><span>'+FEED_POOL[i%FEED_POOL.length]+'</span>';
-      feed.insertBefore(row,feed.firstChild);
-      while(feed.children.length>5) feed.removeChild(feed.lastElementChild);
-      i++;
-    },4200);
-  }
-
-  // ── Live build console — typewriter deploy log ──
-  (function(){
-    const body=document.getElementById('consoleBody');
-    if(!body) return;
-    const LINES=[
-      {pre:'<span class="pr">$</span> ', t:'efficio deploy --workforce "your business"'},
-      {pre:'<span class="dim">→</span> ', t:'connecting your tools via MCP + API…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'CRM · inbox · calendar · phone — linked', cls:'hl', d:420},
-      {pre:'<span class="dim">→</span> ', t:'provisioning agents on Claude…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'front-desk agent — live', d:300},
-      {pre:'<span class="ok">✓</span> ', t:'sales + quoting agent — live', d:300},
-      {pre:'<span class="ok">✓</span> ', t:'back-office agent — live', d:320},
-      {pre:'<span class="dim">→</span> ', t:'wiring command dashboard…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'dashboard — live', d:320},
-      {pre:'<span class="ok">✓</span> ', t:'workforce shipped in 7 days · running in your stack', cls:'hl', d:780},
-      {pre:'<span class="pr">→</span> ', t:'on the clock 24/7 — watching for the next job', cls:'dim', d:2800}
-    ];
-    const CUR='<span class="console-cur"></span>';
-    let li=0,ci=0,lineEl=null,txtEl=null;
-    if(reduceMotion){
-      body.innerHTML=LINES.map(L=>'<div class="ln">'+L.pre+'<span class="'+(L.cls||'')+'">'+L.t+'</span></div>').join('');
-      return;
-    }
-    function step(){
-      if(li>=LINES.length){ setTimeout(()=>{body.innerHTML='';li=0;ci=0;step();},1200); return; }
-      const L=LINES[li];
-      if(ci===0){
-        lineEl=document.createElement('div');lineEl.className='ln';
-        lineEl.innerHTML=L.pre+'<span class="'+(L.cls||'')+'"></span>'+CUR;
-        txtEl=lineEl.querySelector('.console-cur').previousElementSibling;
-        body.appendChild(lineEl);
-      }
-      if(ci<L.t.length){
-        txtEl.textContent+=L.t[ci];ci++;
-        setTimeout(step,15+Math.random()*28);
-      } else {
-        const c=lineEl.querySelector('.console-cur'); if(c) c.remove();
-        li++;ci=0;
-        setTimeout(step,L.d||300);
-      }
-    }
-    step();
-  })();
-
-  // ── Subtle 3D tilt on the build console ──
-  (function(){
-    const con=document.getElementById('console');
-    if(!con||reduceMotion||!window.matchMedia('(pointer:fine)').matches) return;
-    let raf=null;
-    con.addEventListener('mousemove',e=>{
-      const r=con.getBoundingClientRect();
-      const rx=((e.clientY-r.top)/r.height-0.5)*-5;
-      const ry=((e.clientX-r.left)/r.width-0.5)*5;
-      if(raf)cancelAnimationFrame(raf);
-      raf=requestAnimationFrame(()=>{con.style.transform=`perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
-    });
-    con.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);con.style.transform='';});
-  })();
-
-  // ── Generic 3D tilt on [data-tilt] elements ──
-  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
-    document.querySelectorAll('[data-tilt]').forEach(el=>{
-      el.style.transition='transform .2s cubic-bezier(.2,.7,.2,1)';
-      el.style.willChange='transform';
-      let raf=null;
-      el.addEventListener('mousemove',e=>{
-        const r=el.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-0.5)*-6;
-        const ry=((e.clientX-r.left)/r.width-0.5)*6;
-        if(raf)cancelAnimationFrame(raf);
-        raf=requestAnimationFrame(()=>{el.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;});
-      });
-      el.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);el.style.transform='';});
-    });
-  }
-
-  // ── Magnetic CTAs ──
-  if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
-    document.querySelectorAll('[data-magnetic]').forEach(el=>{
-      el.addEventListener('mousemove',e=>{
-        const r=el.getBoundingClientRect();
-        const mx=(e.clientX-r.left-r.width/2)*0.22;
-        const my=(e.clientY-r.top-r.height/2)*0.38;
-        el.style.transform=`translate(${mx}px,${my}px)`;
-      });
-      el.addEventListener('mouseleave',()=>{el.style.transform='';});
-    });
-  }
-
-  // ── Interactive code viewer — tab switch + staggered line reveal + tilt ──
-  (function(){
-    const wrap=document.getElementById('codeWrap');
-    if(!wrap) return;
-    const panes=wrap.querySelectorAll('.pane');
-    const tabs=wrap.querySelectorAll('.code-tab');
-    function lightPane(pane){
-      if(!pane) return;
-      if(reduceMotion){pane.classList.add('lit');return;}
-      pane.classList.remove('lit');
-      [...pane.querySelectorAll('.cl')].forEach((cl,i)=>{cl.style.transitionDelay=(i*0.055)+'s';});
-      void pane.offsetWidth;            // reflow so the stagger replays
-      pane.classList.add('lit');
-    }
-    const cvio=new IntersectionObserver(es=>es.forEach(e=>{
-      if(e.isIntersecting){ lightPane(wrap.querySelector('.pane.on')); cvio.unobserve(e.target); }
-    }),{threshold:.3});
-    cvio.observe(wrap);
-    tabs.forEach(tab=>{
-      tab.addEventListener('click',()=>{
-        tabs.forEach(t=>t.classList.remove('on'));
-        panes.forEach(p=>p.classList.remove('on'));
-        tab.classList.add('on');
-        const pane=document.getElementById(tab.dataset.pane);
-        if(pane){ pane.classList.add('on'); lightPane(pane); }
-      });
-    });
-    if(!reduceMotion && window.matchMedia('(pointer:fine)').matches){
-      let raf=null;
-      wrap.addEventListener('mousemove',e=>{
-        const r=wrap.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-0.5)*-3;
-        const ry=((e.clientX-r.left)/r.width-0.5)*3;
-        if(raf)cancelAnimationFrame(raf);
-        raf=requestAnimationFrame(()=>{wrap.style.transform=`perspective(1400px) rotateX(${rx}deg) rotateY(${ry}deg)`;});
-      });
-      wrap.addEventListener('mouseleave',()=>{if(raf)cancelAnimationFrame(raf);wrap.style.transform='';});
-    }
-  })();
-
-  // ── Hero parallax — layered depth on pointer move ──
-  (function(){
-    const hero=document.querySelector('.hero-home');
-    const grid=document.querySelector('.hero-grid');
-    const copy=document.querySelector('.hero-copy');
-    if(!hero||reduceMotion||!window.matchMedia('(pointer:fine)').matches) return;
-    let raf=null;
-    hero.addEventListener('mousemove',e=>{
-      const r=hero.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-0.5;
-      const y=(e.clientY-r.top)/r.height-0.5;
-      if(raf)cancelAnimationFrame(raf);
-      raf=requestAnimationFrame(()=>{
-        if(grid) grid.style.transform=`translate(${x*-24}px,${y*-15}px)`;
-        if(copy) copy.style.transform=`translate(${x*9}px,${y*6}px)`;
-      });
-    });
-    hero.addEventListener('mouseleave',()=>{
-      if(raf)cancelAnimationFrame(raf);
-      if(grid) grid.style.transform='';
-      if(copy) copy.style.transform='';
-    });
-  })();
-</script>
-
-<!-- ── LIVE OPS WIDGET — "agents working now" bottom-docked panel ─── -->
-<div id="liveops" aria-label="Live agent activity">
-  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
-    <span class="pdot" aria-hidden="true"></span>
-    <span class="vlabel">Agents · demo</span>
-    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
-    <span class="lo-chev" aria-hidden="true">▴</span>
-  </button>
-  <div class="lo-panel" id="loPanel">
-    <div class="lo-inner">
-      <div class="lo-h">
-        <span class="pdot" aria-hidden="true"></span>
-        <b>Agents working now · demo</b>
-        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="lo-feed" id="loFeed"></div>
-      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
-      feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
-      preview=document.getElementById('loPreview'),
-      wrap=document.getElementById('liveops');
-  if(!tab||!feed||!wrap) return;
-  function setOpen(o){
-    wrap.classList.toggle('open',o);
-    tab.setAttribute('aria-expanded',o?'true':'false');
-    try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){}
-  }
-  tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
-  close.addEventListener('click',function(){setOpen(false);});
-
-  var POOL=[
-   {ag:'AI Receptionist',         txt:'answered 3 inbound calls before staff arrived',          pct:'',cls:'up',meta:'calls captured'},
-   {ag:'AI Sales Navigator',      txt:'sent an itemized estimate in 11 sec',                    pct:'', cls:'dn',meta:'time-to-quote'},
-   {ag:'AI Office Manager',         txt:'sorted 41 messages, drafted 14, flagged 2 urgent',       pct:'', cls:'dn',meta:'owner inbox time'},
-   {ag:'AI Bookkeeper',           txt:'cleared $2,400 of overdue AR — 4 invoices paid',         pct:'', cls:'up',meta:'close-the-books speed'},
-   {ag:'AI Receptionist',         txt:'filled a cancellation in 14 min',                        pct:'', cls:'dn',meta:'calendar gap time'},
-   {ag:'AI Office Manager',txt:'sent a review request after a 5-star job',               pct:'', cls:'up',meta:'review rate'},
-   {ag:'AI Office Manager',txt:'rebooked an overdue customer worth $480',                pct:'', cls:'up',meta:'reactivations / mo'},
-   {ag:'AI Office Manager',      txt:'flagged Tuesdays as the worst follow-up day',            pct:'', cls:'dn',meta:'leakage rate'},
-   {ag:'AI Office Manager',      txt:'compiled tomorrow\'s briefing in 6 lines',               pct:'', cls:'dn',meta:'morning prep time'},
-   {ag:'AI Office Manager',         txt:'chased 4 outstanding documents — 3 came back',           pct:'', cls:'up',meta:'docs-returned rate'},
-   {ag:'AI Receptionist',         txt:'drafted a "running late" text — sent in 0.4s',           pct:'', cls:'dn',meta:'comms latency'},
-   {ag:'AI Bookkeeper',           txt:'reconciled today\'s Stripe + bank — $0 drift',           pct:'',cls:'up',meta:'reconciliation accuracy'}
-  ];
-  var pi=0;
-  function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-  function push(){
-    var x=POOL[pi%POOL.length];pi++;
-    var n=document.createElement('div');n.className='lo-item';
-    n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time>'
-              +'<span class="ag">'+x.ag+'</span> '+x.txt;
-    feed.insertBefore(n,feed.firstChild);
-    while(feed.children.length>14) feed.removeChild(feed.lastChild);
-    if(preview){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; }
-  }
-  for(var i=0;i<4;i++) push();
-  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){ setInterval(push,9000); }
-  // Default to the collapsed strip so it never blocks page content; only
-  // restore the expanded panel if the visitor explicitly opened it before.
-  try{
-    var s=localStorage.getItem('efficio_liveops_open');
-    setOpen(s==='1');
-  }catch(e){ setOpen(false); }
-})();
 </script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

@@ -262,3 +262,133 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:64px 0 32px;c
   color:#000;border-color:var(--white)}
 #efficio-cookie button.primary:hover{background:var(--purple);border-color:var(--purple);color:#fff}
 @media (max-width:520px){#efficio-cookie{left:8px;right:8px;bottom:84px;padding:16px}}
+
+/* ============================================================================
+   SHARED PREMIUM COMPONENTS — reused from the Jarvis homepage redesign
+   so every prospect-facing page matches without duplicating CSS.
+   Drop the matching markup on any page; these classes resolve from here.
+   ============================================================================ */
+
+/* ── Tool → Team → Department hierarchy strip ── */
+.hier{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-bottom:22px}
+@media(max-width:760px){.hier{grid-template-columns:1fr}.hier .hier-arrow{display:none}}
+.hier-step{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r);padding:16px 16px 15px}
+.hier-step .hl{display:block;font-size:13.5px;font-weight:900;letter-spacing:-.01em;color:var(--w2);margin-bottom:6px}
+.hier-step p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.hier-step p b{color:var(--w2);font-weight:700}
+.hier-step.tool{opacity:.62}
+.hier-step.tool .hl{color:var(--muted)}
+.hier-step.team{border-color:var(--purple);background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(124,58,237,.03))}
+.hier-step.team .hl{color:var(--purple2)}
+.hier-step.team p b{color:var(--white)}
+.hier-step.dept .hl{color:var(--w2)}
+.hier-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple3);font-weight:900;font-size:18px}
+
+/* ════════════ HOW WE IMPLEMENT — API + MCP + Claude architecture ════════════ */
+.implement{position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(124,77,255,.10),transparent 60%)}
+.implement::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(rgba(155,108,246,.05) 1px,transparent 1px) 0 0/100% 64px,
+    linear-gradient(90deg,rgba(155,108,246,.05) 1px,transparent 1px) 0 0/64px 100%;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%)}
+.implement .container{position:relative;z-index:1}
+/* the flow rail */
+.arch{display:grid;
+  grid-template-columns:1.15fr .5fr 1fr .5fr 1.2fr .5fr 1fr;
+  align-items:stretch;gap:0;margin-bottom:40px}
+@media(max-width:1024px){.arch{grid-template-columns:1fr;gap:0}}
+.arch-col{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.arch-cap{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.arch-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip{display:flex;align-items:center;gap:8px;padding:11px 12px;border-radius:var(--r);
+  background:var(--surf);border:1px solid var(--bd);font-size:12.5px;font-weight:700;
+  color:var(--w2);letter-spacing:-.01em;transition:border-color .2s,transform .2s}
+.chip:hover{border-color:var(--purple);transform:translateY(-2px)}
+.chip svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:var(--purple2);
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.arch-node{background:var(--surf);border:1px solid var(--bd2);border-radius:var(--r2);
+  padding:20px 18px;text-align:center;position:relative}
+.arch-node b{display:block;font-size:14px;font-weight:800;color:var(--white);
+  letter-spacing:-.02em;margin-bottom:6px}
+.arch-node small{display:block;font-size:11.5px;color:var(--muted);line-height:1.5}
+.arch-node-ic{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
+  border:1px solid var(--bd2);background:rgba(124,77,255,.08)}
+.arch-node.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.14),rgba(124,77,255,.03));
+  box-shadow:0 0 0 1px rgba(124,77,255,.25),0 22px 60px rgba(124,77,255,.16)}
+.arch-brain-mark{width:46px;height:46px;margin:0 auto 12px;border-radius:12px;
+  background:linear-gradient(135deg,#7C4DFF,#9b6cf6);display:flex;align-items:center;
+  justify-content:center;gap:3px;box-shadow:0 0 26px rgba(124,77,255,.5)}
+.arch-brain-mark span{width:4px;border-radius:2px;background:#fff;display:block}
+.arch-brain-mark span:nth-child(1){height:14px;animation:brainBar 1.6s ease-in-out infinite}
+.arch-brain-mark span:nth-child(2){height:22px;animation:brainBar 1.6s ease-in-out .2s infinite}
+.arch-brain-mark span:nth-child(3){height:18px;animation:brainBar 1.6s ease-in-out .4s infinite}
+@keyframes brainBar{0%,100%{transform:scaleY(.6)}50%{transform:scaleY(1)}}
+.arch-agents{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:13px}
+.arch-agents span{font-size:10px;font-weight:700;letter-spacing:.02em;color:var(--purple3);
+  padding:4px 9px;border-radius:99px;background:rgba(124,77,255,.10);border:1px solid var(--bd2)}
+.arch-results{list-style:none;display:flex;flex-direction:column;gap:9px}
+.arch-results li{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--w2);
+  font-weight:600;line-height:1.4}
+.arch-results .ad{width:7px;height:7px;border-radius:50%;background:var(--good);flex-shrink:0;
+  box-shadow:0 0 8px var(--good);animation:dotPulseAd 2.2s ease-in-out infinite}
+@keyframes dotPulseAd{0%,100%{opacity:1}50%{opacity:.45}}
+.arch-link{position:relative;display:flex;align-items:center;justify-content:center;min-height:60px}
+.arch-wire{position:absolute;left:-2px;right:-2px;top:50%;height:2px;transform:translateY(-50%);
+  background:linear-gradient(90deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
+.arch-wire::after{content:"";position:absolute;top:0;left:0;height:100%;width:38%;
+  background:linear-gradient(90deg,transparent,#7C4DFF,transparent);
+  filter:drop-shadow(0 0 6px rgba(124,77,255,.8));
+  animation:wireFlow 2.6s linear infinite}
+@keyframes wireFlow{0%{left:-40%}100%{left:100%}}
+.arch-tag{position:relative;z-index:2;font-size:9px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--purple3);background:var(--bg);padding:4px 8px;
+  border:1px solid var(--bd);border-radius:99px}
+@media(max-width:1024px){
+  .arch-link{min-height:46px}
+  .arch-wire{left:50%;right:auto;top:-2px;bottom:-2px;width:2px;height:auto;transform:translateX(-50%);
+    background:linear-gradient(180deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
+  .arch-wire::after{top:0;left:0;width:100%;height:38%;
+    background:linear-gradient(180deg,transparent,#7C4DFF,transparent);animation:wireFlowV 2.6s linear infinite}
+  .arch-chips{grid-template-columns:repeat(3,1fr)}
+  .arch-results{flex-direction:row;flex-wrap:wrap;gap:8px 16px;justify-content:center}
+}
+@keyframes wireFlowV{0%{top:-40%}100%{top:100%}}
+@media(max-width:560px){.arch-chips{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){
+  .arch-wire::after{animation:none;opacity:.5}
+  .arch-brain-mark span,.arch-results .ad{animation:none}
+}
+/* implementation pillar cards */
+.impl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.impl-cards{grid-template-columns:1fr}}
+.impl-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:26px 24px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.impl-card:hover{border-color:var(--bd2);transform:translateY(-4px)}
+.impl-card.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.10),var(--surf))}
+.impl-ic{width:44px;height:44px;border-radius:var(--r);border:1px solid var(--bd2);
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
+  margin-bottom:16px}
+.impl-card h3{font-size:1.12rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
+.impl-card p{font-size:13.5px;color:var(--text);line-height:1.6}
+.impl-card p b{color:var(--w2);font-weight:700}
+
+/* ── The offer band (7 days · $0 upfront · pay only if it works) ── */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.offer-grid{grid-template-columns:1fr}}
+.offer-item{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:30px 26px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.offer-item:hover{border-color:var(--bd2);transform:translateY(-4px)}
+.offer-item.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.12),var(--surf))}
+.offer-item .oi-n{font-size:3.2rem;font-weight:900;color:var(--purple2);letter-spacing:-.05em;
+  line-height:1;display:inline-block}
+.offer-item .oi-u{display:inline-block;margin-left:8px;font-size:11px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);vertical-align:middle}
+.offer-item h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;
+  margin:16px 0 8px}
+.offer-item p{font-size:13.5px;color:var(--text);line-height:1.6}

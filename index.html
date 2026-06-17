@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="/assets/pixels.js"></script>
-  <meta name="description" content="Efficio is your contracted AI team. We build and run AI agents, automations, and a live dashboard inside your business — so you operate while we handle the AI. From $497/mo. Month-to-month, 30-day refund." />
+  <meta name="description" content="Efficio gives your business its own AI workforce — an always-on team of AI agents, built on Anthropic's Claude and plugged into the tools you already use via MCP and APIs. We build it, run it, and put it on one live dashboard. From $497/mo. No upfront cost. You don't pay if it doesn't work." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://efficio.tech/" />
-  <title>Efficio — We sell AI teams, not AI tools</title>
+  <title>Efficio — Your business's AI workforce, built on Claude</title>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://efficio.tech/" />
-  <meta property="og:title" content="Efficio — We sell AI teams, not AI tools" />
-  <meta property="og:description" content="Your contracted AI team. We build and run the AI inside your business — and you watch it work on one live dashboard. From $497/mo." />
+  <meta property="og:title" content="Efficio — Your business's AI workforce, built on Claude" />
+  <meta property="og:description" content="An always-on AI workforce embedded in your operations — built on Claude, plugged into your tools via MCP and APIs. Built in ~7 days. No upfront cost. You don't pay if it doesn't work." />
   <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <meta property="og:site_name" content="Efficio" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Efficio — We sell AI teams, not AI tools" />
-  <meta name="twitter:description" content="Your contracted AI team. We build it, run it, and put it on one dashboard you can watch. From $497/mo." />
+  <meta name="twitter:title" content="Efficio — Your business's AI workforce, built on Claude" />
+  <meta name="twitter:description" content="An always-on AI workforce embedded in your operations — built on Claude, plugged into your stack via MCP and APIs. We build it, run it, watch it work. From $497/mo." />
   <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
   <script type="application/ld+json">
   {
@@ -446,6 +446,134 @@
 .stat .ss{margin-top:14px;font-size:10.5px;color:var(--muted);font-weight:700;
   text-transform:uppercase;letter-spacing:.1em}
 
+/* hero stack note — under the lede */
+.hero-home .hero-stack-note{font-size:.92rem;font-weight:600;color:var(--purple3);
+  margin:-10px 0 26px;letter-spacing:.01em}
+
+/* ════════════════════════════════════════════════════════════════
+   HOW WE IMPLEMENT — API + MCP + Claude architecture
+   ════════════════════════════════════════════════════════════════ */
+.implement{position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(124,77,255,.10),transparent 60%)}
+.implement::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(rgba(155,108,246,.05) 1px,transparent 1px) 0 0/100% 64px,
+    linear-gradient(90deg,rgba(155,108,246,.05) 1px,transparent 1px) 0 0/64px 100%;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent 75%)}
+.implement .container{position:relative;z-index:1}
+
+/* the flow rail */
+.arch{display:grid;
+  grid-template-columns:1.15fr .5fr 1fr .5fr 1.2fr .5fr 1fr;
+  align-items:stretch;gap:0;margin-bottom:40px}
+@media(max-width:1024px){
+  .arch{grid-template-columns:1fr;gap:0}
+}
+.arch-col{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.arch-cap{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted)}
+
+/* tool chips */
+.arch-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip{display:flex;align-items:center;gap:8px;padding:11px 12px;border-radius:var(--r);
+  background:var(--surf);border:1px solid var(--bd);font-size:12.5px;font-weight:700;
+  color:var(--w2);letter-spacing:-.01em;transition:border-color .2s,transform .2s}
+.chip:hover{border-color:var(--purple);transform:translateY(-2px)}
+.chip svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:var(--purple2);
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* node cards (hub + brain) */
+.arch-node{background:var(--surf);border:1px solid var(--bd2);border-radius:var(--r2);
+  padding:20px 18px;text-align:center;position:relative}
+.arch-node b{display:block;font-size:14px;font-weight:800;color:var(--white);
+  letter-spacing:-.02em;margin-bottom:6px}
+.arch-node small{display:block;font-size:11.5px;color:var(--muted);line-height:1.5}
+.arch-node-ic{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
+  border:1px solid var(--bd2);background:rgba(124,77,255,.08)}
+.arch-node.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.14),rgba(124,77,255,.03));
+  box-shadow:0 0 0 1px rgba(124,77,255,.25),0 22px 60px rgba(124,77,255,.16)}
+.arch-brain-mark{width:46px;height:46px;margin:0 auto 12px;border-radius:12px;
+  background:linear-gradient(135deg,#7C4DFF,#9b6cf6);display:flex;align-items:center;
+  justify-content:center;gap:3px;box-shadow:0 0 26px rgba(124,77,255,.5)}
+.arch-brain-mark span{width:4px;border-radius:2px;background:#fff;display:block}
+.arch-brain-mark span:nth-child(1){height:14px;animation:brainBar 1.6s ease-in-out infinite}
+.arch-brain-mark span:nth-child(2){height:22px;animation:brainBar 1.6s ease-in-out .2s infinite}
+.arch-brain-mark span:nth-child(3){height:18px;animation:brainBar 1.6s ease-in-out .4s infinite}
+@keyframes brainBar{0%,100%{transform:scaleY(.6)}50%{transform:scaleY(1)}}
+.arch-agents{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:13px}
+.arch-agents span{font-size:10px;font-weight:700;letter-spacing:.02em;color:var(--purple3);
+  padding:4px 9px;border-radius:99px;background:rgba(124,77,255,.10);border:1px solid var(--bd2)}
+
+/* outcomes list */
+.arch-results{list-style:none;display:flex;flex-direction:column;gap:9px}
+.arch-results li{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--w2);
+  font-weight:600;line-height:1.4}
+.arch-results .ad{width:7px;height:7px;border-radius:50%;background:var(--good);flex-shrink:0;
+  box-shadow:0 0 8px var(--good);animation:dotPulse 2.2s ease-in-out infinite}
+
+/* connectors — animated flowing wire */
+.arch-link{position:relative;display:flex;align-items:center;justify-content:center;min-height:60px}
+.arch-wire{position:absolute;left:-2px;right:-2px;top:50%;height:2px;transform:translateY(-50%);
+  background:linear-gradient(90deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
+.arch-wire::after{content:"";position:absolute;top:0;left:0;height:100%;width:38%;
+  background:linear-gradient(90deg,transparent,#7C4DFF,transparent);
+  filter:drop-shadow(0 0 6px rgba(124,77,255,.8));
+  animation:wireFlow 2.6s linear infinite}
+@keyframes wireFlow{0%{left:-40%}100%{left:100%}}
+.arch-tag{position:relative;z-index:2;font-size:9px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--purple3);background:var(--bg);padding:4px 8px;
+  border:1px solid var(--bd);border-radius:99px}
+/* stacked (mobile/tablet): wires turn vertical */
+@media(max-width:1024px){
+  .arch-link{min-height:46px}
+  .arch-wire{left:50%;right:auto;top:-2px;bottom:-2px;width:2px;height:auto;transform:translateX(-50%);
+    background:linear-gradient(180deg,transparent,var(--bd2) 12%,var(--bd2) 88%,transparent)}
+  .arch-wire::after{top:0;left:0;width:100%;height:38%;
+    background:linear-gradient(180deg,transparent,#7C4DFF,transparent);animation:wireFlowV 2.6s linear infinite}
+  .arch-chips{grid-template-columns:repeat(3,1fr)}
+  .arch-results{flex-direction:row;flex-wrap:wrap;gap:8px 16px;justify-content:center}
+}
+@keyframes wireFlowV{0%{top:-40%}100%{top:100%}}
+@media(max-width:560px){.arch-chips{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){
+  .arch-wire::after{animation:none;opacity:.5}
+  .arch-brain-mark span,.arch-results .ad{animation:none}
+}
+
+/* implementation pillar cards */
+.impl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.impl-cards{grid-template-columns:1fr}}
+.impl-card{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:26px 24px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.impl-card:hover{border-color:var(--bd2);transform:translateY(-4px)}
+.impl-card.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.10),var(--surf))}
+.impl-ic{width:44px;height:44px;border-radius:var(--r);border:1px solid var(--bd2);
+  display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--purple2);
+  margin-bottom:16px}
+.impl-card h3{font-size:1.12rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
+.impl-card p{font-size:13.5px;color:var(--text);line-height:1.6}
+.impl-card p b{color:var(--w2);font-weight:700}
+
+/* the offer band */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.offer-grid{grid-template-columns:1fr}}
+.offer-item{background:var(--surf);border:1px solid var(--bd);border-radius:var(--r2);
+  padding:30px 26px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.offer-item:hover{border-color:var(--bd2);transform:translateY(-4px)}
+.offer-item.feat{border-color:var(--purple);
+  background:linear-gradient(180deg,rgba(124,77,255,.12),var(--surf))}
+.offer-item .oi-n{font-size:3.2rem;font-weight:900;color:var(--purple2);letter-spacing:-.05em;
+  line-height:1;display:inline-block}
+.offer-item .oi-u{display:inline-block;margin-left:8px;font-size:11px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);vertical-align:middle}
+.offer-item h3{font-size:1.18rem;font-weight:800;color:var(--white);letter-spacing:-.025em;
+  margin:16px 0 8px}
+.offer-item p{font-size:13.5px;color:var(--text);line-height:1.6}
+
 /* ── LIVE OPS WIDGET — bottom-docked "agents working now" panel ─────────── */
 /* Collapsed = thin full-width strip at the bottom. Expanded = slides up.   */
 /* Interactive content is kept clear of the bottom-right chat bubble.        */
@@ -528,14 +656,14 @@
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="hero-eyebrow rv">We sell AI teams &mdash; not AI tools</div>
-      <h1 class="rv d1">We're your <span class="ac">AI team.</span></h1>
-      <p class="hero-oneliner rv d2"><b>CEO:</b> 1 human (who sleeps). <b>Employees:</b> an AI team. <b>Day-to-day:</b> they divide the work and move forward on their own.</p>
-      <p class="lede rv d2">Everyone else sells you <b>a single bot you have to operate.</b> We build and run <b>coordinated AI teams</b> &mdash; grouped into three departments: <b>Growth</b> (sales, marketing, retention), <b>Front Office</b> (phones, booking, onboarding), and <b>Back Office</b> (inbox, ops, books). Buy one team, a whole department, or run your whole operation. You don't learn the tools. You don't manage anything. You operate.</p>
-      <p class="rv d2" style="font-size:1rem;font-weight:600;color:var(--purple3);margin:-12px 0 26px">Your AI team lives in Claude — your own account, set up for you.</p>
+      <div class="hero-eyebrow rv">An AI workforce for your business</div>
+      <h1 class="rv d1">Give your business<br>its own <span class="ac">Jarvis.</span></h1>
+      <p class="hero-oneliner rv d2">An <b>always-on AI workforce</b> embedded in your operations &mdash; answering, booking, quoting, following up, and running the back office while you sleep.</p>
+      <p class="lede rv d2">Not another AI tool you have to operate. We <b>build and run</b> a custom workforce of AI agents inside your business &mdash; built on <b>Anthropic's Claude</b> and plugged into the tools you already use through <b>MCP and APIs</b>. You operate. It works.</p>
+      <p class="rv d2 hero-stack-note">Built on Claude &middot; integrated via MCP + API &middot; live on one dashboard you watch.</p>
       <div class="hero-ctas-l rv d3">
-        <a href="https://go.efficio.tech/" class="btn-primary" data-magnetic>Find your tier in 60 sec <span class="btn-arrow">&rarr;</span></a>
-        <a href="/how-it-works.html" class="btn-outline" data-magnetic>See how it works</a>
+        <a href="https://go.efficio.tech/" class="btn-primary" data-magnetic>Deploy your AI workforce <span class="btn-arrow">&rarr;</span></a>
+        <a href="#implement" class="btn-outline" data-magnetic>See how it plugs in</a>
       </div>
     </div>
     <div class="hero-visual rv d2">
@@ -562,7 +690,7 @@
 <!-- PROOF BAR — the same stack runs on -->
 <section class="proof-bar">
   <div class="container">
-    <div class="pb-lbl rv">Tool &rarr; Team &rarr; Department &mdash; what we actually sell</div>
+    <div class="pb-lbl rv">Not a tool &rarr; a team &rarr; a whole workforce</div>
     <div class="hier rv">
       <div class="hier-step tool">
         <span class="hl">AI Tool</span>
@@ -756,9 +884,9 @@
 <section class="section" id="how">
   <div class="container">
     <div class="sh rv">
-      <div class="s-label">What we build</div>
-      <h2 class="s-title">Whatever your business needs — <em>we build it.</em></h2>
-      <p class="s-sub">We're not a catalog of pre-made bots. We're a one-stop shop — agents, automations, dev, ops, engineering — custom-built into your stack. Three areas we build most:</p>
+      <div class="s-label">What we do</div>
+      <h2 class="s-title">We build and run a custom <em>AI workforce</em> inside your operations.</h2>
+      <p class="s-sub">Not a catalog of pre-made bots. A coordinated workforce of AI agents &mdash; engineered, deployed, and operated by us, embedded in the tools you already run. Three things it does day one:</p>
     </div>
     <div class="do-grid">
       <div class="do rv">
@@ -787,6 +915,88 @@
           <li>Hours and dollars saved, counted</li>
           <li>Your branding, your command center</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE IMPLEMENT — API + MCP + Claude architecture -->
+<section class="section implement" id="implement">
+  <div class="container">
+    <div class="sh rv">
+      <div class="s-label">How we implement</div>
+      <h2 class="s-title">It plugs into the tools you <em>already use.</em></h2>
+      <p class="s-sub">No rip-and-replace. We connect your existing stack to a workforce of AI agents through <b>MCP</b> (the Model Context Protocol) and direct <b>APIs</b> — running on <b>Anthropic's Claude</b>. The agents read and act across your tools, in real time, with your guardrails.</p>
+    </div>
+
+    <!-- the flow: your tools → MCP/API → Claude agents → outcomes -->
+    <div class="arch rv d1" role="img" aria-label="Architecture: your tools connect through MCP and APIs to Claude-powered agents, which produce business outcomes.">
+      <div class="arch-col arch-tools">
+        <div class="arch-cap">Your stack</div>
+        <div class="arch-chips">
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Inbox</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l5 5v13H6zM15 3v5h5"/></svg>Docs</span>
+        </div>
+      </div>
+
+      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">MCP&nbsp;+&nbsp;API</span></div>
+
+      <div class="arch-col arch-hub">
+        <div class="arch-cap">Integration layer</div>
+        <div class="arch-node">
+          <div class="arch-node-ic">&#x21C4;</div>
+          <b>MCP&nbsp;+ API gateway</b>
+          <small>Secure, scoped, revocable. Your data stays in your tools.</small>
+        </div>
+      </div>
+
+      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">context</span></div>
+
+      <div class="arch-col arch-brain">
+        <div class="arch-cap">The workforce</div>
+        <div class="arch-node feat">
+          <div class="arch-brain-mark"><span></span><span></span><span></span></div>
+          <b>Claude-powered agents</b>
+          <small>Reasoning + action on Anthropic's Claude — in your own Claude Teams account, set up by us.</small>
+          <div class="arch-agents">
+            <span>Front desk</span><span>Sales &amp; quoting</span><span>Back office</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-link" aria-hidden="true"><span class="arch-wire"></span><span class="arch-tag">actions</span></div>
+
+      <div class="arch-col arch-out">
+        <div class="arch-cap">Outcomes</div>
+        <ul class="arch-results">
+          <li><span class="ad"></span>Calls &amp; texts answered 24/7</li>
+          <li><span class="ad"></span>Leads qualified &amp; booked</li>
+          <li><span class="ad"></span>Itemized quotes sent in seconds</li>
+          <li><span class="ad"></span>Inbox, AR &amp; ops handled</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- the three implementation pillars -->
+    <div class="impl-cards rv d2">
+      <div class="impl-card" data-tilt>
+        <div class="impl-ic">&#x7B;&#x7D;</div>
+        <h3>MCP + APIs, not rip-and-replace</h3>
+        <p>We integrate through the Model Context Protocol and direct APIs, so the workforce reads and acts inside the tools you already run &mdash; CRM, inbox, calendar, phone, payments. Access is scoped and revocable at any time.</p>
+      </div>
+      <div class="impl-card feat" data-tilt>
+        <div class="impl-ic">&#x25C8;</div>
+        <h3>Built on Anthropic's Claude</h3>
+        <p>The agents reason and take action on Claude &mdash; provisioned in your own <b>Claude Teams</b> account, configured by us. Frontier intelligence, enterprise-grade, with humans in the loop where it matters.</p>
+      </div>
+      <div class="impl-card" data-tilt>
+        <div class="impl-ic">&#x29BF;</div>
+        <h3>Acts across your whole stack</h3>
+        <p>Agents don't just answer &mdash; they book the slot, log the deal, send the quote, chase the invoice. One coordinated workforce moving work across every tool, with every action landing on your live dashboard.</p>
       </div>
     </div>
   </div>
@@ -860,6 +1070,37 @@
         <h3>First agent live · weekly digest</h3>
         <p><b>You:</b> watch the work happen.<br><b>We:</b> first agent (usually front-desk or quote &amp; sales) is running. Weekly digest in your inbox every Monday 8am.</p>
         <span class="when">Day 7+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE OFFER -->
+<section class="section section-alt offer" id="offer">
+  <div class="container">
+    <div class="sh center rv">
+      <div class="s-label">The offer</div>
+      <h2 class="s-title">Done for you. <em>Risk on us.</em></h2>
+      <p class="s-sub" style="margin-left:auto;margin-right:auto">You don't build anything, learn anything, or manage anything. We deploy your AI workforce &mdash; and if it doesn't move a number you can see, you don't pay.</p>
+    </div>
+    <div class="offer-grid rv d1">
+      <div class="offer-item" data-tilt>
+        <div class="oi-n">~7</div>
+        <div class="oi-u">days</div>
+        <h3>Built fast</h3>
+        <p>Your first agent is live and working in your stack within about a week of kickoff &mdash; not a quarter-long project.</p>
+      </div>
+      <div class="offer-item" data-tilt>
+        <div class="oi-n">$0</div>
+        <div class="oi-u">upfront</div>
+        <h3>No build fee</h3>
+        <p>No setup invoice, no implementation bill. We build the workforce on us and earn the monthly seat.</p>
+      </div>
+      <div class="offer-item feat" data-tilt>
+        <div class="oi-n">30</div>
+        <div class="oi-u">day proof</div>
+        <h3>Pay only if it works</h3>
+        <p>We agree on the metric on call one. If we don't move it by day 30, the month is on us. In writing.</p>
       </div>
     </div>
   </div>
@@ -960,6 +1201,10 @@
         <div class="faq-a"><p>No. The AI works alongside your people and plugs into the tools you already use. Your team gets hours back; your stack stays where it is. If something blocks the build, we tell you on the first call.</p></div>
       </div>
       <div class="faq-item">
+        <button class="faq-q" type="button">How does it actually connect to my tools?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Through MCP — the Model Context Protocol — and direct APIs. That lets the agents read and act inside your existing CRM, inbox, calendar, phone, and payment tools without replacing any of them. The agents run on Anthropic's Claude, in your own Claude Teams account that we set up and configure. Access is scoped, logged, and revocable at any time.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q" type="button">How fast does something actually go live?<span class="pm">+</span></button>
         <div class="faq-a"><p>The first build is in your stack and doing real work within seven days of the kickoff call. After that we keep shipping — and everything lands on your dashboard so you watch it happen.</p></div>
       </div>
@@ -970,9 +1215,9 @@
 <!-- CTA -->
 <section class="cta-strip">
   <div class="container">
-    <h2>Tell us what's slow. <span class="grad-purple">We'll build the fix.</span></h2>
-    <p>Book a 15-minute call. No deck, no pitch — we'll tell you exactly what we'd build you and what your dashboard would track.</p>
-    <a href="https://go.efficio.tech/" class="btn-big">Book a 15-min call <span class="btn-arrow">&rarr;</span></a>
+    <h2>Tell us what's slow. <span class="grad-purple">We'll deploy the workforce.</span></h2>
+    <p>Book a 15-minute call. No deck, no pitch — we'll tell you exactly which agents we'd build, how they'd plug into your stack, and the number we'd move first.</p>
+    <a href="https://go.efficio.tech/" class="btn-big">Deploy your AI workforce <span class="btn-arrow">&rarr;</span></a>
   </div>
 </section>
 
@@ -980,7 +1225,7 @@
   <div class="foot-grid">
     <div class="foot-brand">
       <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your contracted AI team. We engineer, deploy, and run AI agents, automations, and live dashboards inside your business — so you operate while we handle the AI.</p>
+      <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — plugged into your tools via MCP and APIs, on one live dashboard — so you operate while we handle the AI.</p>
     </div>
     <div class="foot-col"><h5>Product</h5>
       <a href="/services.html">Services</a><a href="/demo/">Dashboard</a>
@@ -1104,17 +1349,17 @@
     const body=document.getElementById('consoleBody');
     if(!body) return;
     const LINES=[
-      {pre:'<span class="pr">$</span> ', t:'efficio deploy --for "your business"'},
-      {pre:'<span class="dim">→</span> ', t:'reading your workflow…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'bottleneck found — manual lead handoff', cls:'hl', d:420},
-      {pre:'<span class="dim">→</span> ', t:'building front-desk agent…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'front-desk agent — live', d:320},
-      {pre:'<span class="dim">→</span> ', t:'building custom quote tool…', cls:'dim', d:520},
-      {pre:'<span class="ok">✓</span> ', t:'quote tool — live', d:320},
+      {pre:'<span class="pr">$</span> ', t:'efficio deploy --workforce "your business"'},
+      {pre:'<span class="dim">→</span> ', t:'connecting your tools via MCP + API…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'CRM · inbox · calendar · phone — linked', cls:'hl', d:420},
+      {pre:'<span class="dim">→</span> ', t:'provisioning agents on Claude…', cls:'dim', d:520},
+      {pre:'<span class="ok">✓</span> ', t:'front-desk agent — live', d:300},
+      {pre:'<span class="ok">✓</span> ', t:'sales + quoting agent — live', d:300},
+      {pre:'<span class="ok">✓</span> ', t:'back-office agent — live', d:320},
       {pre:'<span class="dim">→</span> ', t:'wiring command dashboard…', cls:'dim', d:520},
       {pre:'<span class="ok">✓</span> ', t:'dashboard — live', d:320},
-      {pre:'<span class="ok">✓</span> ', t:'shipped in 6 days · running in your stack', cls:'hl', d:780},
-      {pre:'<span class="pr">→</span> ', t:'watching for the next bottleneck', cls:'dim', d:2800}
+      {pre:'<span class="ok">✓</span> ', t:'workforce shipped in 7 days · running in your stack', cls:'hl', d:780},
+      {pre:'<span class="pr">→</span> ', t:'on the clock 24/7 — watching for the next job', cls:'dim', d:2800}
     ];
     const CUR='<span class="console-cur"></span>';
     let li=0,ci=0,lineEl=null,txtEl=null;

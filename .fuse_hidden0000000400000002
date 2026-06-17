@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1736" />
+<title>Watch your AI Team work · Efficio demo</title>
+<meta name="description" content="A 3-minute scrollable demo of how an Efficio AI Team handles an inbound lead — from the first ping to the deliverable. See it before you book the call." />
+<link rel="canonical" href="https://efficio.tech/demo.html" />
+
+<meta property="og:title" content="Watch your AI Team work · Efficio demo" />
+<meta property="og:description" content="3-minute scroll. 5 chapters. See exactly what an Efficio AI Team does between an inbound lead and a closed deliverable." />
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
+<meta property="og:type" content="website" />
+
+<script src="/assets/pixels.js"></script>
+<script>try{gtag('event','demo_view');}catch(e){}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300..800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
+
+<style>
+:root{
+  /* Remapped 2026-05-15 — v5 cream/navy/gold tokens now point at the bold-dark
+     theme used by the rest of the site. Variable NAMES kept so the rest of
+     this file's CSS keeps working without per-rule edits. */
+  --navy-100:#27272a;--navy-200:#3f3f46;--navy-300:#71717a;--navy-400:#a1a1aa;
+  --navy-500:#d4d4d8;--navy-600:#e4e4e7;--navy-700:#fafafa;--navy-800:#ffffff;--navy-900:#ffffff;
+  --cream-50:#0f0f14;--cream-100:#08080a;--cream-200:#13131a;--cream-300:rgba(255,255,255,.10);
+  --cream-500:#a1a1aa;--cream-600:#d4d4d8;--cream-700:#fafafa;
+  --gold-300:#b794f6;--gold-400:#9b6cf6;--gold-500:#7c3aed;--gold-600:#b794f6;--gold-700:#9b6cf6;
+  --success:#4ade80;
+  --serif:'Newsreader','Tiempos Headline','Times New Roman',Georgia,serif;
+  --sans:'Inter','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --ease-soft:cubic-bezier(.22,.61,.36,1);
+  --ease-firm:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --ease-expo:cubic-bezier(.19,1,.22,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);font-weight:400;color:var(--navy-700);background:var(--cream-100);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  line-height:1.55;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+img,svg{display:block;max-width:100%}
+::selection{background:rgba(155,108,246,.28);color:var(--navy-800)}
+
+.scroller{height:100vh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory}
+.chapter{height:100vh;width:100vw;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:80px 36px 100px;position:relative;overflow:hidden}
+
+.brandbar{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 32px;display:flex;align-items:center;gap:14px;background:rgba(8,8,10,.85);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid rgba(255,255,255,.10)}
+.brandbar a.home{display:flex;align-items:center;gap:12px;color:var(--navy-700)}
+.wordmark{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-0.04em;color:var(--navy-700)}
+.dots{display:inline-flex;gap:5px;align-items:center}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--gold-400)}
+.dot:nth-child(2){background:var(--gold-500);opacity:.85}
+.dot:nth-child(3){background:var(--navy-700);opacity:.65}
+.brandbar .meta{margin-left:auto;display:flex;gap:14px;align-items:center}
+.brandbar .meta a{font-size:13px;font-weight:500;color:var(--navy-500)}
+.brandbar .meta a:hover{color:var(--navy-700)}
+.brandbar .pill{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600);padding:5px 10px;border:1px solid var(--cream-300);border-radius:999px;background:var(--cream-50)}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold-400);z-index:60;transition:width .25s var(--ease-soft)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-600);margin-bottom:14px}
+.eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-400);box-shadow:0 0 0 4px rgba(155,108,246,.16)}
+.eyebrow .ord{color:var(--navy-300);margin-right:6px}
+.chapter h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.5vw,52px);line-height:1.06;letter-spacing:-0.035em;color:var(--navy-700);max-width:14ch;margin-bottom:14px;font-variation-settings:"opsz" 60,"wght" 500}
+.chapter h2 em{font-style:italic;position:relative;display:inline-block}
+.chapter h2 em::after{content:"";position:absolute;left:.02em;right:.02em;bottom:.04em;height:.10em;background:var(--gold-400);opacity:.55;z-index:-1;border-radius:2px}
+.chapter .caption{font-size:15.5px;line-height:1.6;color:var(--navy-500);max-width:46ch}
+
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1180px;width:100%;align-items:center}
+.ch-text{padding-right:8px}
+.ch-stage{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center}
+.is-visible .ch-text > *{opacity:0;transform:translateY(14px);animation:fadeUp .8s var(--ease-soft) forwards}
+.is-visible .ch-text > *:nth-child(1){animation-delay:.05s}
+.is-visible .ch-text > *:nth-child(2){animation-delay:.2s}
+.is-visible .ch-text > *:nth-child(3){animation-delay:.35s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.scene-card{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:18px;padding:24px;width:100%;max-width:480px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.scene-tag{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-600);margin-bottom:12px}
+.scene-tag .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold-400);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(155,108,246,.6)}50%{box-shadow:0 0 0 6px rgba(155,108,246,0)}}
+
+/* Chapter 1 — phone */
+.phone{width:300px;height:540px;background:var(--navy-800);border-radius:42px;padding:14px;position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:80px;height:6px;background:var(--navy-900);border-radius:3px}
+.phone-screen{width:100%;height:100%;background:linear-gradient(160deg,var(--navy-700) 0%,var(--navy-800) 100%);border-radius:32px;padding:50px 14px 14px;position:relative;overflow:hidden}
+.notification{background:rgba(15,15,20,.95);backdrop-filter:blur(12px);border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;transform:translateY(-90px);opacity:0}
+.is-visible .notification{animation:notifyIn .8s var(--ease-expo) .35s forwards}
+@keyframes notifyIn{to{transform:translateY(0);opacity:1}}
+.notif-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--gold-400),var(--gold-500));display:grid;place-items:center;color:var(--navy-800);font-weight:700;font-size:14px;flex-shrink:0}
+.notif-body{flex:1;min-width:0}
+.notif-meta{display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-500);margin-bottom:3px}
+.notif-text{font-size:13px;color:var(--navy-800);line-height:1.4}
+.phone-time{position:absolute;top:18px;left:24px;font-size:12px;font-weight:600;color:var(--cream-200)}
+.phone-status{position:absolute;top:18px;right:24px;font-size:12px;color:var(--cream-200)}
+
+/* Chapter 2 — split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:580px}
+.split .pane{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:14px;padding:18px;min-height:360px;position:relative;overflow:hidden}
+.split .pane h4{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600);margin-bottom:10px}
+.typing-stream{font-size:12.5px;line-height:1.55;color:var(--navy-700);font-family:var(--sans)}
+.typing-stream .typed{display:inline-block;overflow:hidden;white-space:pre-wrap;max-width:100%}
+.is-visible .typing-stream .typed{animation:type 2.4s steps(40) .4s both}
+@keyframes type{from{max-width:0}to{max-width:100%}}
+.draft{display:flex;flex-direction:column;gap:8px;height:100%}
+.draft .from{font-size:11px;color:var(--cream-700)}
+.draft .subj{font-family:var(--serif);font-size:14px;font-weight:500;color:var(--navy-700);letter-spacing:-0.01em}
+.draft .body{font-size:12px;line-height:1.55;color:var(--navy-500);opacity:0}
+.is-visible .draft .body{animation:fadeUp .6s var(--ease-soft) 1.6s forwards}
+.timer{position:absolute;bottom:14px;right:14px;background:var(--navy-700);color:var(--gold-400);font-family:'SF Mono',ui-monospace,monospace;font-size:11px;padding:5px 9px;border-radius:6px;font-weight:600;letter-spacing:.04em}
+
+/* Chapter 3 — Calendly + PDF */
+.cal-card{background:var(--cream-50);border:1px solid var(--cream-300);border-radius:14px;padding:20px;max-width:340px;width:100%}
+.cal-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cal-head .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-300),var(--gold-500));display:grid;place-items:center;color:var(--navy-800);font-weight:700;font-size:14px}
+.cal-head .name{font-size:13px;font-weight:600;color:var(--navy-700)}
+.cal-head .who{font-size:11px;color:var(--cream-700)}
+.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:8px}
+.slot{padding:9px;border:1px solid var(--cream-300);border-radius:8px;font-size:12px;font-weight:500;color:var(--navy-600);text-align:center;background:var(--cream-50);transition:all .3s ease}
+.slot.pulse-on{background:var(--gold-400);color:var(--navy-800);border-color:var(--gold-500);transform:scale(1.04);box-shadow:0 8px 20px -10px rgba(184,137,78,.5)}
+.cal-confirm{margin-top:14px;padding:10px 12px;background:rgba(79,124,87,.1);border:1px solid rgba(79,124,87,.3);border-radius:8px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--success);opacity:0;transform:translateY(6px)}
+.is-visible .cal-confirm{animation:fadeUp .5s var(--ease-soft) 1.8s forwards}
+.cal-confirm .check{width:16px;height:16px;border-radius:50%;background:var(--success);display:grid;place-items:center;color:#fff;font-size:10px}
+.pdf-mini{position:absolute;right:-12px;bottom:24px;width:160px;height:200px;background:var(--cream-50);border-radius:6px;padding:14px 12px;box-shadow:0 30px 50px -20px rgba(0,0,0,.4);transform:rotate(6deg) translateY(20px);opacity:0;border:1px solid var(--cream-300)}
+.is-visible .pdf-mini{animation:pdfIn .8s var(--ease-spring) 1.4s forwards}
+@keyframes pdfIn{to{transform:rotate(6deg) translateY(0);opacity:1}}
+.pdf-mini .pdf-tag{font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-600);margin-bottom:8px}
+.pdf-mini h5{font-family:var(--serif);font-size:13px;font-weight:500;line-height:1.2;letter-spacing:-0.02em;color:var(--navy-700);margin-bottom:8px}
+.pdf-mini .pdf-lines{display:flex;flex-direction:column;gap:4px}
+.pdf-mini .pdf-line{height:3px;background:var(--cream-300);border-radius:2px}
+.pdf-mini .pdf-line.gold{background:var(--gold-400);width:60%}
+
+/* Chapter 4 — PDF flip */
+.pdf-stage{position:relative;width:260px;height:340px;perspective:1200px}
+.pdf-page{position:absolute;inset:0;background:var(--cream-50);border:1px solid var(--cream-300);border-radius:10px;padding:24px 20px;box-shadow:0 30px 60px -30px rgba(0,0,0,.4);transform-style:preserve-3d}
+.pdf-page.p1{transform:rotate(-3deg) translateX(-6px)}
+.pdf-page.p2{transform:rotate(0deg)}
+.pdf-page.p3{transform:rotate(3deg) translateX(6px)}
+.is-visible .pdf-page.p1{animation:flipLeft 2.4s var(--ease-soft) .4s infinite}
+.is-visible .pdf-page.p2{animation:flipMid 2.4s var(--ease-soft) .6s infinite}
+@keyframes flipLeft{0%,40%,100%{transform:rotate(-3deg) translateX(-6px)}50%{transform:rotate(-30deg) translateX(-30px);opacity:.6}60%{transform:rotate(-3deg) translateX(-6px)}}
+@keyframes flipMid{0%,40%,100%{transform:rotate(0deg)}48%{transform:rotate(-3deg) translateX(-6px);z-index:0}52%{transform:rotate(0deg);z-index:2}}
+.pdf-page h6{font-family:var(--serif);font-size:14px;font-weight:500;color:var(--navy-700);margin-bottom:12px;letter-spacing:-0.015em}
+.pdf-page .score{font-family:var(--serif);font-size:46px;font-weight:500;color:var(--gold-600);letter-spacing:-0.04em;line-height:1}
+.pdf-page .score-meta{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-700);margin-bottom:18px}
+.pdf-page .pdf-bars{display:flex;align-items:flex-end;gap:5px;height:50px;margin-bottom:10px}
+.pdf-page .pdf-bar{flex:1;background:var(--navy-300);border-radius:2px 2px 0 0}
+.pdf-page .pdf-bar.gold{background:var(--gold-400)}
+.pdf-page .pdf-list{display:flex;flex-direction:column;gap:6px;margin-top:10px;list-style:none;padding:0}
+.pdf-page .pdf-list li{font-size:10px;color:var(--navy-500);display:flex;gap:6px;align-items:center}
+.pdf-page .pdf-list li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold-400);flex-shrink:0}
+.pdf-page .fnum{font-size:9px;letter-spacing:.14em;color:var(--cream-700);position:absolute;bottom:14px;left:20px}
+
+/* Chapter 5 — Command Center */
+.cc{background:var(--navy-700);border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:560px;width:100%;box-shadow:0 50px 100px -40px rgba(0,0,0,.55);color:var(--cream-100)}
+.cc-tile{background:rgba(255,255,255,.06);border:1px solid rgba(155,108,246,.18);border-radius:12px;padding:14px}
+.cc-tile.full{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+.cc-tile .label{font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-400);margin-bottom:8px}
+.cc-tile .num{font-family:var(--serif);font-size:28px;font-weight:500;color:var(--cream-100);letter-spacing:-0.025em;line-height:1}
+.cc-tile .sub{font-size:11px;color:var(--navy-200);margin-top:4px}
+.cc-counter{font-variant-numeric:tabular-nums}
+.cc-line{height:50px;display:flex;align-items:flex-end;gap:3px;margin-top:6px}
+.cc-line .bar{width:5px;background:var(--gold-400);border-radius:2px 2px 0 0;opacity:.85}
+.cc-agents{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.cc-agent{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--cream-200)}
+.cc-agent .av{width:6px;height:6px;border-radius:50%;background:var(--gold-400);animation:pulse 1.6s ease-in-out infinite}
+.cc-mrr{font-family:var(--serif);font-size:24px;color:var(--gold-400);letter-spacing:-0.025em}
+
+/* Final */
+.final{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:24px}
+.final h2{max-width:18ch;margin:0 auto}
+.final .lede{font-size:17px;color:var(--navy-500);max-width:42ch;margin:0 auto}
+.cta-row{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:16px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:18px 32px;border-radius:999px;background:linear-gradient(120deg,var(--gold-400),var(--gold-500));color:var(--navy-800);font-size:16px;font-weight:700;letter-spacing:-0.005em;box-shadow:0 18px 36px -14px rgba(184,137,78,.55),inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .4s var(--ease-soft),box-shadow .4s var(--ease-soft);will-change:transform}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 28px 50px -18px rgba(184,137,78,.7),inset 0 0 0 1px rgba(255,255,255,.32)}
+.btn-ghost{color:var(--navy-500);font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--cream-400);transition:color .2s ease}
+.btn-ghost:hover{color:var(--navy-700)}
+
+.chrome{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:55;display:flex;gap:8px;align-items:center;background:rgba(8,8,10,.85);backdrop-filter:blur(12px);border:1px solid var(--cream-300);border-radius:999px;padding:7px 8px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
+.chrome button{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--navy-600);transition:background .2s ease}
+.chrome button:hover{background:rgba(255,255,255,.10);color:var(--navy-700)}
+.chrome .count{font-family:var(--serif);font-size:13px;color:var(--navy-500);padding:0 8px}
+.chrome svg{width:14px;height:14px}
+.chrome .dotnav{display:flex;gap:5px;align-items:center;padding:0 6px}
+.chrome .dotnav button{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.35);padding:0;border:none}
+.chrome .dotnav button.on{background:var(--gold-400)}
+
+.veil{position:fixed;inset:0;background:var(--navy-700);z-index:99;transform:translateY(100%);transition:transform .9s var(--ease-expo);pointer-events:none}
+.veil.out{transform:translateY(0)}
+
+@media (max-width:880px){
+  .ch-grid{grid-template-columns:1fr;gap:30px;text-align:center}
+  .ch-text{padding-right:0}
+  .ch-stage{min-height:340px}
+  .phone{width:240px;height:430px}
+  .split{max-width:100%}
+  .cc{grid-template-columns:1fr}
+  .pdf-mini{position:relative;right:0;bottom:0;margin:18px auto 0;transform:rotate(0)}
+  .is-visible .pdf-mini{animation:fadeUp .6s var(--ease-soft) 1.4s forwards;transform:none}
+  .chapter h2{margin-left:auto;margin-right:auto}
+  .chapter .caption{margin-left:auto;margin-right:auto}
+}
+@media (max-width:480px){
+  .brandbar .meta a:not(.pill){display:none}
+  .pdf-stage{width:220px;height:300px}
+  .chapter{padding:80px 22px 100px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .scroller{scroll-snap-type:none}
+}
+</style>
+<link rel="stylesheet" href="/assets/theme.css" />
+<style>html,body{background:#0a0612 !important}body{position:relative;isolation:isolate}</style>
+</head>
+<body>
+
+<div class="veil" id="veil" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="brandbar">
+  <a href="/" class="home">
+    <span class="wordmark">efficio</span>
+    <span class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+  </a>
+  <span class="meta">
+    <span class="pill">3-min demo</span>
+    <a href="/">Home</a>
+    <a href="https://go.efficio.tech/">Book a call</a>
+  </span>
+</header>
+
+<main class="scroller" id="scroller">
+
+  <section class="chapter" data-ch="1" aria-label="Chapter 1: The inbound">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">01</span>The inbound</div>
+        <h2>Your AI team <em>gets the lead first.</em></h2>
+        <p class="caption">A prospect texts. Most teams take hours to respond. Yours sees it instantly, scores it, and starts working before anyone is at their desk.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <span class="phone-time">9:14</span>
+            <span class="phone-status">●●●●●</span>
+            <div class="notification">
+              <div class="notif-icon">M</div>
+              <div class="notif-body">
+                <div class="notif-meta"><span>Messages</span><span>now</span></div>
+                <div class="notif-text">Hey — looking for AI back-office for my dental practice in Tampa. Got a few minutes this week?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="2" aria-label="Chapter 2: The instant draft" style="background:var(--cream-200)">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">02</span>The instant draft</div>
+        <h2>Drafts the reply in <em>under five minutes.</em></h2>
+        <p class="caption">Your AI specialist reads the message, pulls public signals on the practice, and writes a real reply — in your voice — before your front desk has refilled the coffee.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="split" aria-hidden="true">
+          <div class="pane">
+            <h4>Specialist · drafting</h4>
+            <div class="typing-stream">
+              <span class="typed">Hi Mark — saw your message. Loved the dental practice page; nine locations across Florida is real momentum. Yes, we can talk. I block off Wednesday and Thursday for new conversations. Would 2pm or 3:30 work better Wednesday?</span>
+            </div>
+          </div>
+          <div class="pane">
+            <h4>Gmail draft</h4>
+            <div class="draft">
+              <div class="from">From: Brady · brady@efficio.tech</div>
+              <div class="subj">Re: AI back-office for Bright Now Dental</div>
+              <div class="body">Hi Mark — saw your message. Loved the dental practice page; nine locations across Florida is real momentum. Yes, we can talk…</div>
+            </div>
+            <span class="timer" id="timer-ch2">⏱ 04.7s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="3" aria-label="Chapter 3: The booking">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">03</span>The booking</div>
+        <h2>Books the call. <em>Ships the prep brief.</em></h2>
+        <p class="caption">Prospect picks a slot. Your AI team auto-generates a one-page prep brief with their company name on the cover — and it's in your inbox before you sit down.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="cal-card" aria-hidden="true">
+          <div class="cal-head">
+            <div class="avatar">E</div>
+            <div>
+              <div class="name">Efficio · client kickoff (30 min)</div>
+              <div class="who">Wednesday, May 14</div>
+            </div>
+          </div>
+          <div class="slots">
+            <button type="button" class="slot">9:00 am</button>
+            <button type="button" class="slot">10:30 am</button>
+            <button type="button" class="slot" id="ch3-slot">2:00 pm</button>
+            <button type="button" class="slot">3:30 pm</button>
+          </div>
+          <div class="cal-confirm"><span class="check">✓</span> Booked · invite sent to Mark · prep brief generating</div>
+        </div>
+        <div class="pdf-mini" aria-hidden="true">
+          <div class="pdf-tag">Prep brief</div>
+          <h5>Bright Now Dental — Tampa</h5>
+          <div class="pdf-lines">
+            <div class="pdf-line"></div>
+            <div class="pdf-line gold"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line gold"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="4" aria-label="Chapter 4: The deliverable" style="background:var(--cream-200)">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">04</span>The deliverable</div>
+        <h2>Ships a Local SEO audit <em>before the call.</em></h2>
+        <p class="caption">Bright Now Dental Tampa — 24 pages. GBP score, competitor map, seven ranked quick wins, three strategic plays. The prospect reads it before they ever talk to you.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="pdf-stage" aria-hidden="true">
+          <div class="pdf-page p1">
+            <h6>Competitor map</h6>
+            <div class="pdf-bars">
+              <div class="pdf-bar" style="height:34%"></div>
+              <div class="pdf-bar" style="height:52%"></div>
+              <div class="pdf-bar gold" style="height:72%"></div>
+              <div class="pdf-bar" style="height:48%"></div>
+              <div class="pdf-bar" style="height:38%"></div>
+            </div>
+            <span class="fnum">P. 11 / 24</span>
+          </div>
+          <div class="pdf-page p2">
+            <h6>Bright Now Dental — Tampa</h6>
+            <div class="score-meta">GBP Score</div>
+            <div class="score">64<span style="font-size:18px;color:var(--cream-500)">/100</span></div>
+            <ul class="pdf-list">
+              <li>Photos: 3 of 12 categories</li>
+              <li>Reviews: 47 · need 120 to rank</li>
+              <li>Hours mismatch on 2 locations</li>
+              <li>Missing "implant" service tag</li>
+            </ul>
+            <span class="fnum">P. 03 / 24 · Executive summary</span>
+          </div>
+          <div class="pdf-page p3">
+            <h6>7 quick wins, ranked</h6>
+            <ul class="pdf-list">
+              <li>Add 9 photo categories (#1)</li>
+              <li>Auto-request reviews (#2)</li>
+              <li>Fix Westshore hours (#3)</li>
+              <li>Service tag: implants</li>
+              <li>Reply to 14 stale reviews</li>
+              <li>"Insurance accepted" CTA</li>
+              <li>Embed map in service pages</li>
+            </ul>
+            <span class="fnum">P. 14 / 24 · Quick wins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" data-ch="5" aria-label="Chapter 5: Command Center">
+    <div class="ch-grid">
+      <div class="ch-text">
+        <div class="eyebrow"><span class="ord">05</span>The handoff</div>
+        <h2>Lives in your Command Center <em>24/7.</em></h2>
+        <p class="caption">Pipeline. Agents at work. Deliverables shipped. MRR projection. Your AI team works while you sleep — one dashboard tells you exactly what they did.</p>
+      </div>
+      <div class="ch-stage">
+        <div class="cc" aria-hidden="true">
+          <div class="cc-tile">
+            <div class="label">Pipeline</div>
+            <div class="num cc-counter" data-target="47">0</div>
+            <div class="sub">leads · last 24h</div>
+          </div>
+          <div class="cc-tile">
+            <div class="label">Drafts sent</div>
+            <div class="num cc-counter" data-target="38">0</div>
+            <div class="sub">avg 4.7s response</div>
+          </div>
+          <div class="cc-tile" style="grid-column:1/-1">
+            <div class="label">Agents at work</div>
+            <div class="cc-agents">
+              <div class="cc-agent"><span class="av"></span>Reception · drafting reply #39</div>
+              <div class="cc-agent"><span class="av"></span>Audit specialist · running GBP scan</div>
+              <div class="cc-agent"><span class="av"></span>Scheduler · confirming 3 kickoffs</div>
+            </div>
+          </div>
+          <div class="cc-tile full">
+            <div>
+              <div class="label">MRR projection</div>
+              <div class="cc-mrr cc-counter" data-target="42500" data-prefix="$">$0</div>
+            </div>
+            <div class="cc-line">
+              <div class="bar" style="height:30%"></div>
+              <div class="bar" style="height:45%"></div>
+              <div class="bar" style="height:52%"></div>
+              <div class="bar" style="height:48%"></div>
+              <div class="bar" style="height:62%"></div>
+              <div class="bar" style="height:70%"></div>
+              <div class="bar" style="height:78%"></div>
+              <div class="bar" style="height:92%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter final" data-ch="6" aria-label="Final CTA" style="background:linear-gradient(180deg,var(--cream-100) 0%,var(--cream-200) 100%)">
+    <div class="eyebrow"><span class="ord">06</span>That's the demo</div>
+    <h2>Want this <em>for your business?</em></h2>
+    <p class="lede">A 15-minute strategy call. We map your AI team's first three hires to your exact stack. No pitch deck — just where the work lives next.</p>
+    <div class="cta-row">
+      <a href="https://go.efficio.tech/" class="btn-gold" id="finalCta" data-magnetic>Book a strategy call <span aria-hidden="true">→</span></a>
+      <button class="btn-ghost" id="replay" type="button">Replay the demo</button>
+    </div>
+  </section>
+
+</main>
+
+<div class="chrome" role="navigation" aria-label="Demo navigation">
+  <button id="prev" aria-label="Previous chapter" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <span class="dotnav" id="dotnav" aria-hidden="true"></span>
+  <span class="count" id="counter">1 / 6</span>
+  <button id="next" aria-label="Next chapter" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  const scroller = document.getElementById('scroller');
+  const chapters = [...document.querySelectorAll('.chapter')];
+  const total = chapters.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const dotnav = document.getElementById('dotnav');
+
+  chapters.forEach((_,i)=>{
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to chapter ' + (i+1));
+    b.addEventListener('click', ()=>scrollTo(i));
+    dotnav.appendChild(b);
+  });
+
+  function activate(idx){
+    chapters.forEach((c,i)=>c.classList.toggle('is-visible', i===idx));
+    counter.textContent = (idx+1) + ' / ' + total;
+    progress.style.width = (((idx+1)/total)*100) + '%';
+    [...dotnav.children].forEach((d,i)=>d.classList.toggle('on', i===idx));
+    if(idx===2){ pulseChapter3(); }
+    if(idx===4){ animateCounters(); }
+    try{ gtag && gtag('event','demo_chapter_view',{chapter:idx+1}); }catch(e){}
+  }
+
+  function scrollTo(idx){
+    chapters[Math.max(0,Math.min(total-1,idx))].scrollIntoView({behavior:'smooth'});
+  }
+
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && e.intersectionRatio > 0.55){
+        const idx = chapters.indexOf(e.target);
+        activate(idx);
+      }
+    });
+  },{root:scroller,threshold:[0.55,0.75]});
+  chapters.forEach(c=>io.observe(c));
+  activate(0);
+
+  document.getElementById('prev').addEventListener('click', ()=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    scrollTo(Math.max(0, cur-1));
+  });
+  document.getElementById('next').addEventListener('click', ()=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    scrollTo(Math.min(total-1, cur+1));
+  });
+
+  window.addEventListener('keydown', e=>{
+    const cur = chapters.findIndex(c=>c.classList.contains('is-visible'));
+    if(e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); scrollTo(cur+1); }
+    if(e.key === 'ArrowUp' || e.key === 'PageUp'){ e.preventDefault(); scrollTo(cur-1); }
+    if(e.key === 'Home'){ e.preventDefault(); scrollTo(0); }
+    if(e.key === 'End'){ e.preventDefault(); scrollTo(total-1); }
+  });
+
+  document.getElementById('replay').addEventListener('click', ()=>{
+    try{ gtag && gtag('event','demo_replay'); }catch(e){}
+    scrollTo(0);
+  });
+
+  let pulsed = false;
+  function pulseChapter3(){
+    if(pulsed) return; pulsed = true;
+    const slot = document.getElementById('ch3-slot');
+    if(!slot) return;
+    setTimeout(()=>slot.classList.add('pulse-on'), 700);
+  }
+
+  const timer = document.getElementById('timer-ch2');
+  if(timer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let v = 0;
+    let raf;
+    const tick = () => {
+      const visible = chapters[1].classList.contains('is-visible');
+      if(visible){
+        v = Math.min(4.7, v + 0.07);
+        timer.textContent = '⏱ ' + (v < 10 ? '0' : '') + v.toFixed(1) + 's';
+        if(v < 4.7) raf = requestAnimationFrame(tick);
+      } else {
+        v = 0;
+        timer.textContent = '⏱ 00.0s';
+        setTimeout(tick, 600);
+        return;
+      }
+    };
+    tick();
+  }
+
+  function animateCounters(){
+    document.querySelectorAll('.cc-counter').forEach(el=>{
+      if(el.dataset.played) return;
+      el.dataset.played = '1';
+      const target = parseInt(el.dataset.target, 10);
+      const prefix = el.dataset.prefix || '';
+      const start = performance.now();
+      const dur = 1200;
+      const step = (now)=>{
+        const t = Math.min(1, (now-start)/dur);
+        const eased = 1 - Math.pow(1-t, 3);
+        const val = Math.round(target * eased);
+        el.textContent = prefix + val.toLocaleString();
+        if(t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  const cta = document.getElementById('finalCta');
+  if(cta && !window.matchMedia('(pointer:coarse)').matches){
+    cta.addEventListener('mousemove', e=>{
+      const r = cta.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width/2)) * 0.15;
+      const y = (e.clientY - (r.top + r.height/2)) * 0.15;
+      cta.style.transform = `translate(${x}px,${y}px)`;
+    });
+    cta.addEventListener('mouseleave', ()=> cta.style.transform = '');
+  }
+  cta.addEventListener('click', e=>{
+    e.preventDefault();
+    try{ gtag && gtag('event','demo_final_cta_click'); }catch(e){}
+    document.getElementById('veil').classList.add('out');
+    setTimeout(()=>{ window.location.href = '/audit-quiz'; }, 750);
+  });
+})();
+</script>
+<script src="/assets/chat.js" defer></script>
+</body>
+</html>

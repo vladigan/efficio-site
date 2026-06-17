@@ -32,8 +32,8 @@ Tone:
 
 When to steer toward action:
 - If they ask "how much" → quote AI Specialist, frame it as the entry hire.
-- If they ask "is this a fit" → 1–2 quick clarifying questions, then point to the audit quiz (efficio.tech/audit-quiz) or a 15-min call (efficio.tech/book).
-- If they ask to talk to a human → "Brady answers personally — book 15 min: efficio.tech/book, or email brady@efficio.tech."
+- If they ask "is this a fit" → 1–2 quick clarifying questions, then point to the audit quiz (efficio.tech/audit-quiz) or a 15-min call (calendly.com/brady-bngcent/efficio-strategy-call).
+- If they ask to talk to a human → "Brady answers personally — book 15 min: calendly.com/brady-bngcent/efficio-strategy-call, or email brady@efficio.tech."
 - Don't pitch unprompted on every message. Be useful first.
 
 If asked anything outside Efficio's scope (legal advice, medical, etc.) — politely decline and redirect.
@@ -71,7 +71,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: { ...corsHeaders(), 'content-type': 'application/json' },
       body: JSON.stringify({
-        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book 15 min at efficio.tech/book. He'll answer anything I can't."
+        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book 15 min at calendly.com/brady-bngcent/efficio-strategy-call. He'll answer anything I can't."
       })
     };
   }
@@ -107,7 +107,7 @@ exports.handler = async (event) => {
         statusCode: 200,
         headers: { ...corsHeaders(), 'content-type': 'application/json' },
         body: JSON.stringify({
-          reply: "I hit a snag reaching my brain. Email brady@efficio.tech or book at efficio.tech/book — he answers personally."
+          reply: "I hit a snag reaching my brain. Email brady@efficio.tech or book at calendly.com/brady-bngcent/efficio-strategy-call — he answers personally."
         })
       };
     }
@@ -140,7 +140,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: { ...corsHeaders(), 'content-type': 'application/json' },
       body: JSON.stringify({
-        reply: "Something broke on my end. Quickest path: email brady@efficio.tech or book at efficio.tech/book."
+        reply: "Something broke on my end. Quickest path: email brady@efficio.tech or book at calendly.com/brady-bngcent/efficio-strategy-call."
       })
     };
   }

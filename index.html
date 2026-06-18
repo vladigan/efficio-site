@@ -44,6 +44,7 @@ body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--b
 a{color:inherit;text-decoration:none}
 img,svg{max-width:100%;display:block}
 ::selection{background:var(--violet);color:#fff}
+a:focus-visible,button:focus-visible,.btn-primary:focus-visible,.btn-outline:focus-visible,.nav-mid a:focus-visible,.price .pb:focus-visible,.card:focus-visible,.chip:focus-visible,#liveops .lo-tab:focus-visible{outline:2px solid var(--violet-l);outline-offset:3px;border-radius:10px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 .center{text-align:center}
 .mono{font-family:var(--mono)}
@@ -165,12 +166,20 @@ a:hover .arr{transform:translateX(4px)}
 .tdot{width:11px;height:11px;border-radius:50%;display:block}
 .tdot.r{background:#ff5f57}.tdot.y{background:#febc2e}.tdot.g{background:#28c840}
 .term-title{margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:500}
-.term-stat{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--green);font-weight:600}
+.term-stat{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--green);font-weight:600;transition:color .5s var(--ease)}
+.term-stat .lbl{display:inline-block;transition:opacity .3s var(--ease)}
 .term-stat .pulse{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;animation:stPulse 1.4s ease-in-out infinite}
 @keyframes stPulse{0%,100%{opacity:1}50%{opacity:.35}}
 .term-body{font-family:var(--mono);font-size:13.5px;line-height:1.62;padding:18px 20px 22px;min-height:340px;
   color:var(--ink2);white-space:pre-wrap}
-@media(max-width:520px){.term-body{font-size:12px;min-height:320px}}
+@media(max-width:520px){
+  .term-body{font-size:12px;min-height:300px}
+  .callwrap .term-body{font-size:11.5px;padding-left:14px;padding-right:14px}
+  .callwrap .cgline{white-space:normal;gap:10px}
+  .callwrap .cgline .code{white-space:pre-wrap;overflow-wrap:anywhere}
+  .term-bar{gap:6px}
+  .term-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+}
 .term-body .ln{white-space:pre;display:block;opacity:0;transform:translateY(2px);animation:lnin .26s var(--ease) forwards}
 @keyframes lnin{to{opacity:1;transform:none}}
 .term-body .pr{color:var(--violet-l)}
@@ -388,7 +397,7 @@ html.js .rv.vis{opacity:1;transform:none}
 #liveops .lo-tab .pdot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--green);opacity:.6;animation:ping 2.4s ease-out infinite}
 #liveops .lo-tab .vlabel{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;flex-shrink:0}
 #liveops .lo-tab .vlabel b{color:var(--violet-l);font-weight:700}
-#liveops .lo-tab .lo-preview{flex:1;min-width:0;font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#liveops .lo-tab .lo-preview{flex:1;min-width:0;font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s var(--ease)}
 #liveops .lo-tab .lo-preview .ag{color:var(--violet-l);font-weight:700}
 #liveops .lo-tab .lo-chev{flex-shrink:0;color:var(--violet-l);font-size:11px;transition:transform .3s var(--ease)}
 #liveops.open .lo-tab .lo-chev{transform:rotate(180deg)}
@@ -423,6 +432,22 @@ html.js .rv.vis{opacity:1;transform:none}
 }
 footer{padding-bottom:96px}
 
+/* ── mobile refinements (v6.1 polish) ── */
+@media(max-width:560px){
+  #heroTerm{animation:none}                 /* steadier centerpiece on phones */
+  .hero{padding-top:118px;padding-bottom:60px}
+  .sec{padding:62px 0}                       /* tighter vertical rhythm */
+  .band{padding-top:26px}
+  .guarantee{gap:12px;padding:13px 16px}
+  .guarantee .gt{font-size:14px}
+  .guarantee .gm{font-size:11px}
+  .chat-wrap{margin-top:30px}
+  .stats{gap:30px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:clamp(2.7rem,11.5vw,3.2rem)}
+  .hero .sub{font-size:1.04rem}
+}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important}
   html.js .rv{opacity:1;transform:none}
@@ -753,7 +778,13 @@ footer{padding-bottom:96px}
 
   /* hero session: provision -> connect -> operate, with status + progress */
   var heroStat=document.getElementById('heroStat'), heroProg=document.getElementById('heroProg');
-  function setStat(el,txt,color){ if(!el) return; el.innerHTML='<span class="pulse"></span>'+txt; if(color) el.style.color=color; }
+  function setStat(el,txt,color){ if(!el) return;
+    var lbl=el.querySelector('.lbl');
+    if(!lbl){ el.innerHTML='<span class="pulse"></span><span class="lbl">'+txt+'</span>'; if(color) el.style.color=color; return; }
+    if(reduce){ lbl.textContent=txt; if(color) el.style.color=color; return; }
+    lbl.style.opacity='0';
+    setTimeout(function(){ lbl.textContent=txt; if(color) el.style.color=color; lbl.style.opacity='1'; }, 190);
+  }
   function prog(p){ if(heroProg) heroProg.style.width=p+'%'; }
 
   var heroFrames=[
@@ -820,9 +851,8 @@ footer{padding-bottom:96px}
   (function(){
     var body=document.getElementById('chatBody'); if(!body) return;
     var msgs=body.querySelectorAll('.cmsg');
-    function play(){ msgs.forEach(function(m){m.classList.remove('show');});
-      msgs.forEach(function(m,idx){ setTimeout(function(){ m.classList.add('show'); }, reduce?0:(idx*900+300)); });
-      if(!reduce){ setTimeout(play, msgs.length*900+4200); }
+    function play(){
+      msgs.forEach(function(m,idx){ setTimeout(function(){ m.classList.add('show'); }, reduce?0:(idx*820+260)); });
     }
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ play(); obs.disconnect(); }});},{threshold:.3});
     obs.observe(body);
@@ -861,7 +891,8 @@ footer{padding-bottom:96px}
       n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time><span class="ag">'+x.ag+'</span> '+x.txt;
       feed.insertBefore(n,feed.firstChild);
       while(feed.children.length>14) feed.removeChild(feed.lastChild);
-      if(preview){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; }
+      if(preview){ preview.style.opacity='0';
+        setTimeout(function(){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; preview.style.opacity='1'; }, reduce?0:200); }
     }
     for(var i=0;i<4;i++) push();
     if(!reduce){ setInterval(push,8000); }

@@ -837,15 +837,40 @@ footer{padding-bottom:96px}
     }};
   }
 
-  function startOnView(elId, maker){
-    var el=document.getElementById(elId); if(!el) return;
-    var term=maker(el);
-    if(reduce){ term.run(); return; }
-    var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ term.run(); obs.disconnect(); }});},{threshold:.3});
-    obs.observe(el.closest('.term')||el);
+  /* Reveal a panel's scroll-reveal (.rv) ancestor so the container is never left invisible. */
+  function revealPanel(el){ var r=el.closest('.rv'); if(r) r.classList.add('vis'); }
+  /* Seed the hero terminal with visible lines immediately, so it is NEVER blank
+     (even before the animation starts or if IntersectionObserver never fires). */
+  function seedTerm(el){
+    el.innerHTML='<div class="ln pr">efficio build --agent receptionist</div>'+
+      '<div class="ln cm"># provisioning Claude agent...</div>'+
+      '<div class="ln ok">\u2713 workspace authenticated</div>'+
+      '<div class="ln ar">\u2192 gmail        connected</div>'+
+      '<div class="ln ar">\u2192 calendar     connected</div>';
   }
-  startOnView('termBody', function(el){ return Terminal(el, heroFrames, {loop:true, pauseEnd:3600, speed:20}); });
-  startOnView('callBody', function(el){ return buildCodegen(el); });
+  /* Seed the code-generator panel with the full handler immediately, so it is never blank. */
+  function seedCodegen(el){
+    var h=''; for(var i=0;i<codeLines.length;i++){
+      h+='<div class="cgline"><span class="gut">'+(i+1)+'</span><span class="code">'+codeLines[i]+'</span></div>';
+    }
+    el.innerHTML=h;
+  }
+  function startOnView(elId, maker, seed){
+    var el=document.getElementById(elId); if(!el) return;
+    revealPanel(el);                 /* container visible right away */
+    if(seed){ seed(el); }            /* paint visible content right away — never blank */
+    var term=maker(el), started=false;
+    function go(){ if(started) return; started=true; revealPanel(el); term.run(); }
+    if(reduce){ go(); return; }
+    /* Start when the panel scrolls into view (nice effect)... */
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ go(); obs.disconnect(); }});},{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    obs.observe(el.closest('.term')||el);
+    /* ...but NEVER depend on it alone: a load fallback guarantees the animation runs
+       (fixes blank above-the-fold / mobile panels where IO may not fire). */
+    setTimeout(go, 900);
+  }
+  startOnView('termBody', function(el){ return Terminal(el, heroFrames, {loop:true, pauseEnd:3600, speed:20}); }, seedTerm);
+  startOnView('callBody', function(el){ return buildCodegen(el); }, seedCodegen);
 
   /* chat sequential reveal */
   (function(){

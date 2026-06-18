@@ -1,243 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>Front Office Team — Answers every inbound, books every appointment, never sends | Efficio</title>
-<meta name="description" content="Front Office Team: Answers every inbound, books every appointment, never sends a lead to voicemail. Replaces a $30–50K/yr front desk.">
-<link rel="canonical" href="https://efficio.tech/agents/receptionist.html">
-<meta property="og:title" content="Front Office Team | Efficio">
-<meta property="og:description" content="Answers every inbound, books every appointment, never sends a lead to voicemail.">
-<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png">
-<meta property="og:type" content="article">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},{"@type":"ListItem","position":2,"name":"AI teams","item":"https://efficio.tech/agents.html"},{"@type":"ListItem","position":3,"name":"Front Office Team","item":"https://efficio.tech/agents/receptionist.html"}]},{"@type":"Service","name":"Front Office Team","description":"Answers every inbound, books every appointment, never sends a lead to voicemail.","provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},"areaServed":{"@type":"Country","name":"United States"}}]}</script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/theme.css">
-<style>
-.hr-shell{max-width:980px;margin:0 auto;padding:130px 28px 80px}
-.hr-crumb{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
-.hr-crumb a{color:var(--purple3)}
-.hr-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
-  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
-  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:16px}
-.hr-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple)}
-.hr-h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.05;margin-bottom:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.hr-h1 .ic{width:56px;height:56px;border-radius:14px;background:#7c3aed;color:#fff;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hr-h1 .ic svg{width:32px;height:32px}
-.hr-tagline{font-size:1.2rem;color:var(--text);line-height:1.5;max-width:760px;margin-bottom:30px}
-
-.hr-stat{display:flex;align-items:center;gap:24px;padding:22px 26px;
-  background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(124,58,237,.02));
-  border:1px solid rgba(124,58,237,.30);border-radius:12px;margin-bottom:10px;flex-wrap:wrap}
-.hr-stat-num{font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;color:var(--purple2);letter-spacing:-.03em;line-height:1}
-.hr-stat-text{flex:1;min-width:240px}
-.hr-stat-label{font-size:1.02rem;font-weight:600;color:var(--w2);line-height:1.5;margin-bottom:4px}
-.hr-stat-source{font-size:12px;color:var(--muted);font-style:italic}
-
-.hr-section h2{font-size:1.7rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin:56px 0 14px}
-.hr-section h2 em{color:var(--purple3);font-style:italic}
-.hr-section .lead{font-size:15.5px;color:var(--w2);line-height:1.75;margin-bottom:14px;max-width:820px}
-.hr-section p{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:14px;max-width:820px}
-
-/* workflow diagram */
-.flow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:2px;margin-top:20px;
-  background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.01));
-  border:1px solid var(--bd);border-radius:16px;padding:28px 20px}
-.flow-step{flex:1 1 150px;min-width:140px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px 8px}
-.flow-node{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;
-  background:rgba(124,58,237,.16);border:1px solid rgba(124,58,237,.45);color:var(--purple3);margin-bottom:13px;position:relative}
-.flow-node svg{width:25px;height:25px}
-.flow-num{position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
-  background:var(--purple);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg2)}
-.flow-t{font-size:13px;font-weight:800;color:var(--white);letter-spacing:-.01em;margin-bottom:5px;line-height:1.25}
-.flow-d{font-size:11.5px;color:var(--text);line-height:1.45}
-.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple2);flex:0 0 24px;margin-top:28px}
-.flow-arrow .ar-svg{width:22px;height:22px}
-@media(max-width:760px){
-  .flow{flex-direction:column;align-items:stretch;padding:22px 18px}
-  .flow-step{flex-direction:row;text-align:left;align-items:flex-start;gap:15px;min-width:0;width:100%}
-  .flow-node{margin-bottom:0;flex-shrink:0}
-  .flow-tx{padding-top:3px}
-  .flow-arrow{flex-basis:auto;margin:3px 0 3px 16px;justify-content:flex-start}
-  .flow-arrow .ar-svg{transform:rotate(90deg)}
-}
-
-/* build timeline (built-to-order) */
-.btl{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.btl-row{flex:1 1 120px;min-width:118px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:13px 14px;position:relative;overflow:hidden}
-.btl-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple)}
-.btl-d{font-size:12px;font-weight:900;color:var(--purple3);letter-spacing:.04em;margin-bottom:5px}
-.btl-t{font-size:12.5px;color:var(--w2);line-height:1.4}
-
-/* what-it-handles chips */
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;
-  background:var(--surf);border:1px solid var(--bd);font-size:13px;font-weight:600;color:var(--w2)}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);flex-shrink:0}
-
-/* owns grid */
-.owns{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
-@media(max-width:760px){.owns{grid-template-columns:1fr}}
-
-/* before / after */
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-@media(max-width:680px){.ba{grid-template-columns:1fr}}
-.ba-col{border-radius:14px;padding:22px 22px;border:1px solid var(--bd)}
-.ba-before{background:rgba(248,113,113,.05);border-color:rgba(248,113,113,.25)}
-.ba-after{background:rgba(74,222,128,.05);border-color:rgba(74,222,128,.28)}
-.ba-h{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
-.ba-before .ba-h{color:var(--no)}
-.ba-after .ba-h{color:var(--good)}
-.ba-row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:13.5px;color:var(--w2);line-height:1.5}
-.ba-row svg{width:17px;height:17px;flex-shrink:0;margin-top:2px}
-.ba-before .ba-row svg{color:var(--no)}
-.ba-after .ba-row svg{color:var(--good)}
-
-/* sample dashboard mockup */
-.mock{margin-top:20px;background:var(--bg2);border:1px solid var(--bd);border-radius:16px;overflow:hidden}
-.mock-top{display:flex;align-items:center;gap:9px;padding:13px 18px;border-bottom:1px solid var(--bd);background:var(--surf)}
-.mock-dot{width:10px;height:10px;border-radius:50%;background:var(--dim)}
-.mock-title{margin-left:8px;font-size:12.5px;font-weight:700;color:var(--text)}
-.mock-sample{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:var(--purple3);
-  background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.4);padding:3px 9px;border-radius:100px}
-.mock-body{padding:20px 18px}
-.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:680px){.mock-kpis{grid-template-columns:repeat(2,1fr)}}
-.mock-kpi{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 14px}
-.mock-kpi .v{font-size:1.55rem;font-weight:900;color:var(--white);letter-spacing:-.02em;line-height:1}
-.mock-kpi .l{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;line-height:1.3}
-.mock-mid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:14px;margin-top:14px}
-@media(max-width:680px){.mock-mid{grid-template-columns:1fr}}
-.mock-chart{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
-.mock-chart .ct{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
-.mock-chart svg{width:100%;height:64px;display:block}
-.mock-agents{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:8px 14px}
-.mock-agent{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px dashed var(--bd3)}
-.mock-agent:last-child{border-bottom:0}
-.mock-agent .ai{width:30px;height:30px;border-radius:8px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.35);
-  color:var(--purple3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mock-agent .ai svg{width:15px;height:15px}
-.mock-agent .an{font-size:12.5px;font-weight:800;color:var(--white)}
-.mock-agent .ad{font-size:11.5px;color:var(--text);line-height:1.4;margin-top:1px}
-.mock-agent .live{margin-left:auto;flex-shrink:0;font-size:9.5px;font-weight:800;color:var(--good);letter-spacing:.08em;display:flex;align-items:center;gap:5px}
-.mock-agent .live .pulse{width:6px;height:6px;border-radius:50%;background:var(--good);box-shadow:0 0 7px var(--good)}
-.mock-cap{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:11px;text-align:center}
-
-.own-row{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:16px 18px}
-.own-label{font-size:12px;font-weight:800;color:var(--purple3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-.own-text{font-size:13.5px;color:var(--w2);line-height:1.6}
-
-.tools{list-style:none;margin:14px 0 4px;padding:0}
-.tools li{padding:9px 0 9px 22px;position:relative;font-size:14px;color:var(--w2);border-bottom:1px dashed var(--bd3)}
-.tools li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--purple2)}
-.tools-note{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
-
-.math{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.02));
-  border:1px solid rgba(124,58,237,.25);border-radius:12px;padding:24px 28px;margin:18px 0 0}
-.math .mlbl{font-size:11.5px;font-weight:800;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.math .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:9px 0;border-bottom:1px dashed var(--bd3);font-size:14.5px;color:var(--w2)}
-.math .row:last-child{border-bottom:0;padding-top:12px;border-top:1px solid var(--bd);margin-top:6px;font-size:1.05rem;font-weight:700;color:var(--white)}
-.math .row b{color:var(--white);font-weight:700}
-.math .row .v{font-weight:800;color:var(--purple3);font-size:1.05rem;text-align:right}
-
-.cta-bar{margin-top:54px;padding:34px 32px;background:linear-gradient(135deg,var(--purple),var(--purple2));
-  border-radius:16px;text-align:center;color:#fff}
-.cta-bar h3{font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
-.cta-bar p{font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:22px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.55}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:#fff;color:#0a0612 !important;
-  border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .15s}
-.cta-bar a:hover{transform:translateY(-2px)}
-.cta-bar a.ghost{background:transparent;color:#fff !important;border:1px solid rgba(255,255,255,.5)}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
-  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em;text-decoration:none}
-.logo .logo-mark{width:30px;height:30px;flex-shrink:0;font-size:0;color:transparent;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r);text-decoration:none}
-.nav-links a:hover{color:var(--white)}
-.btn-nav{padding:10px 20px;background:var(--purple);color:#fff !important;border-radius:var(--r);
-  font-size:13.5px;font-weight:700}
-.btn-nav:hover{background:var(--purple2)}
-@media(max-width:780px){.nav-links a:not(.btn-nav){display:none}}
-</style>
+<title>Front Office Team — answers every inbound, books every job | Efficio</title>
+<meta name="description" content="An always-on AI team that answers every call, text, and web form in seconds, books the job, and escalates real emergencies. Never sends a lead to voicemail. Built on Claude."/>
+<link rel="canonical" href="https://efficio.tech/agents/receptionist.html"/>
+<meta property="og:title" content="Front Office Team — answers every inbound, books every job | Efficio"/>
+<meta property="og:description" content="An always-on AI team that answers every call, text, and web form in seconds, books the job, and escalates real emergencies. Never sends a lead to voicemail. Built on Claude."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/agents/receptionist.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<script>document.documentElement.className='js';</script>
 </head>
 <body>
-
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html" class="active">AI teams</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/blog/">Blog</a>
-    <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
+    <a href="/agents.html">AI teams</a>
   </div>
+  <a href="https://go.efficio.tech/" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
 </div></nav>
-
-<main class="hr-shell">
-  <div class="hr-crumb"><a href="/">Home</a> &middot; <a href="/agents.html">AI teams</a> &middot; Front Office Team</div>
-  <span class="hr-pill"><span class="dot"></span>Available now · first team live in 7 days</span>
-  <h1 class="hr-h1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>Front Office Team</span></h1>
-  <p class="hr-tagline">Answers every inbound, books every appointment, never sends a lead to voicemail.</p>
-  <p class="hr-tagline" style="font-size:.98rem;color:var(--muted);margin-top:-20px">Part of your always-on AI workforce — built on Anthropic's Claude, plugged into your tools via MCP + APIs, live on one dashboard.</p>
-<div class="hr-stat"><div class="hr-stat-num">30–40%</div><div class="hr-stat-text"><div class="hr-stat-label">of inbound calls go to voicemail at peak — every one of them is a lead the next shop catches. The Front Office Team answers all of them.</div><div class="hr-stat-source">ServiceTitan SMB Report</div></div></div>
-  <div class="hr-section"><h2>What the <em>Front Office Team</em> does</h2><p class="lead">The Front Office Team is the teammate that owns first contact. It picks up every call, text, and web form the moment it lands — day, night, weekend — answers in your voice, captures the lead, books the job on your calendar, and flags real emergencies to your on-call. The customer never hits voicemail and never shops the next number.</p></div>
-  <div class="hr-section"><h2>How it <em>works</em></h2><p>The actual step-by-step flow — each stage runs automatically; you stay in control of anything that sends.</p><div class="flow"><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="flow-num">1</span></div><div class="flow-tx"><div class="flow-t">Inbound arrives</div><div class="flow-d">A call, text, or web form hits your business — 24/7.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="flow-num">2</span></div><div class="flow-tx"><div class="flow-t">Replies in seconds</div><div class="flow-d">Texts the missed caller back and answers in your voice before they dial the next shop.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg><span class="flow-num">3</span></div><div class="flow-tx"><div class="flow-t">Captures the details</div><div class="flow-d">Name, job, reason, urgency — logged straight to your CRM.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg><span class="flow-num">4</span></div><div class="flow-tx"><div class="flow-t">Books the job</div><div class="flow-d">Drops it on your calendar per your scheduling rules — service type, provider, recovery time.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="flow-num">5</span></div><div class="flow-tx"><div class="flow-t">Confirms + reminds</div><div class="flow-d">Sends confirmation and reminders, and pushes true emergencies to your on-call line.</div></div></div></div></div>
-<div class="hr-section"><h2>Already <em>live</em></h2><p class="lead">This is a productized module — it’s built and running today. We connect it to your stack and tune it to your voice, tools, and rules on the audit call, and it’s live in your business inside 7 days.</p></div>
-  <div class="hr-section"><h2>What it <em>handles</em></h2><p>The responsibilities this team owns, in plain terms:</p><div class="chips"><span class="chip"><span class="dot"></span>Missed-call text-back</span><span class="chip"><span class="dot"></span>Inbound calls</span><span class="chip"><span class="dot"></span>Web-form auto-reply</span><span class="chip"><span class="dot"></span>Appointment booking</span><span class="chip"><span class="dot"></span>Confirmations + reminders</span><span class="chip"><span class="dot"></span>Emergency triage</span><span class="chip"><span class="dot"></span>Lead capture to CRM</span></div><div class="owns"><div class="own-row"><div class="own-label">Inbound arrives</div><div class="own-text">A call, text, or web form hits your business — 24/7.</div></div><div class="own-row"><div class="own-label">Replies in seconds</div><div class="own-text">Texts the missed caller back and answers in your voice before they dial the next shop.</div></div><div class="own-row"><div class="own-label">Captures the details</div><div class="own-text">Name, job, reason, urgency — logged straight to your CRM.</div></div><div class="own-row"><div class="own-label">Books the job</div><div class="own-text">Drops it on your calendar per your scheduling rules — service type, provider, recovery time.</div></div><div class="own-row"><div class="own-label">Confirms + reminds</div><div class="own-text">Sends confirmation and reminders, and pushes true emergencies to your on-call line.</div></div></div></div>
-  <div class="hr-section"><h2>A day in the life — <em>before vs. after</em></h2><div class="ba"><div class="ba-col ba-before"><div class="ba-h">Before — the leak</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Phone rings while you're on a job — it goes to voicemail.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>After-hours leads call the next contractor and book them instead.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Web-form inquiries sit unread until tomorrow morning.</span></div></div><div class="ba-col ba-after"><div class="ba-h">After — with the team</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Every call, text, and form answered in seconds, around the clock.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>The 11pm emergency is captured, booked, and confirmed before you wake up.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Your calendar fills itself; you just show up to the work.</span></div></div></div></div>
-  <div class="hr-section"><h2>Your <em>command center</em></h2><p>Everything this team does shows up on your branded dashboard — live numbers, the agents at work, and the trend over time.</p><div class="mock"><div class="mock-top"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">Front Office Team · your command center</span><span class="mock-sample">SAMPLE</span></div><div class="mock-body"><div class="mock-kpis"><div class="mock-kpi"><div class="v">18</div><div class="l">Leads caught · wk</div></div><div class="mock-kpi"><div class="v">6</div><div class="l">Missed calls recovered</div></div><div class="mock-kpi"><div class="v">12</div><div class="l">Bookings</div></div><div class="mock-kpi"><div class="v">18s</div><div class="l">Avg response</div></div></div><div class="mock-mid"><div class="mock-chart"><div class="ct">This week</div><svg viewBox="0 0 100 64" preserveAspectRatio="none"><rect x="2.68" y="35.82" width="8.93" height="26.18" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="16.96" y="26.73" width="8.93" height="35.27" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="31.25" y="31.27" width="8.93" height="30.73" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="45.54" y="17.64" width="8.93" height="44.36" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="59.82" y="22.18" width="8.93" height="39.82" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="74.11" y="13.09" width="8.93" height="48.91" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="88.39" y="4.00" width="8.93" height="58.00" rx="1.2" fill="#9b6cf6" opacity="1"/></svg></div><div class="mock-agents"><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Speed-to-lead responder</div><div class="ad">Answers every call, text, and form in seconds</div></div><span class="live"><span class="pulse"></span>LIVE</span></div><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Booker</div><div class="ad">Drops the job on your calendar per your rules</div></div><span class="live"><span class="pulse"></span>LIVE</span></div><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Emergency triage</div><div class="ad">Pushes true emergencies to your on-call line</div></div><span class="live"><span class="pulse"></span>LIVE</span></div></div></div><div class="mock-cap">Illustration of the live dashboard — your real numbers flow in once connected.</div></div></div></div>
-  <div class="hr-section"><h2>Tools we <em>plug into</em></h2><p>We connect to the stack you already run:</p><ul class="tools"><li>Twilio / your phone system</li><li>Google Calendar / Outlook / Calendly</li><li>Your CRM (HubSpot / Pipedrive / GHL / ServiceTitan / Housecall Pro / Jobber / kvCORE)</li><li>Your booking software</li><li>Slack / Teams (for emergency escalations)</li></ul><div class="tools-note">Read-only OAuth where it applies. We never see your passwords, and access is revocable any time from inside each tool.</div></div>
-  <div class="hr-section"><h2>The math <em>vs. hiring this role</em></h2><div class="math"><div class="mlbl">Annual cost comparison</div><div class="row"><span>Human front desk</span><span class="v">$30–50K/yr</span></div><div class="row"><span>+ benefits, taxes, training (rough +30%)</span><span class="v">+ overhead</span></div><div class="row"><span>+ turnover + ramp risk</span><span class="v">+ recruiting cost</span></div><div class="row"><span><b>Front Office Team via Efficio</b></span><span class="v">$497/mo standalone · or bundled in a tier</span></div></div></div>
-<div class="cta-bar"><h3>See if the Front Office Team is your next teammate.</h3><p>The 60-second qualifier routes you to the right tier and books your free audit. We name the workflow we’d ship in week one and the metric we’ll move by day 30.</p><div class="cta-row"><a href="https://go.efficio.tech/">Take the 60-sec qualifier &rarr;</a></div></div>
-</main>
-
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — plugged into your tools via MCP and APIs, on one live dashboard — so you operate while we handle the AI.</p>
+<header class="phero">
+  <div class="wrap">
+    <a class="pill-back" href="/agents.html">&larr; All AI teams</a>
+    <div class="eyebrow rv">// front office team &middot; available now</div>
+    <h1 class="rv d1">The front desk that <span class="grad">never</span>misses a call.</h1>
+    <p class="sub rv d1">Answers every inbound call, text, and web form the moment it lands &mdash; day, night, weekend &mdash; in your voice, books the job, and pushes true emergencies to your on-call. The customer never hits voicemail.</p>
+    <div class="hero-cta rv d2">
+      <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+      <a href="#what" class="btn-outline lg">See what it does</a>
     </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/demo/">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
-    </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
-      <a href="https://go.efficio.tech/">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+    <div class="guarantee">
+        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+        <span class="gtxt">
+          <span class="gt">Pay only if it works.</span>
+          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
+        </span>
+      </div>
+  </div>
+</header>
+<section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the leak it plugs</div>
+    <h2 class="rv d1">30&ndash;40% of peak calls go to voicemail.</h2>
+    <p class="lede rv d1">Every voicemail is a lead the next shop catches. The Front Office Team answers all of them &mdash; it&rsquo;s not a hire, it&rsquo;s a team that owns first contact.</p>
+    <div class="stats rv d2">
+      <div class="stat"><div class="n">30&ndash;40%</div><div class="l">of peak inbound goes to voicemail</div></div>
+      <div class="stat"><div class="n">18s</div><div class="l">average response, day or night</div></div>
+      <div class="stat"><div class="n">24/7</div><div class="l">every call, text &amp; form answered</div></div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built for small &amp; medium businesses across the US.</div>
+</section>
+<section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">// what it handles</div>
+    <h2 class="rv d1">Owns first contact, end to end.</h2>
+    <p class="lede rv d1">Inbound calls, web-form auto-reply, confirmations and reminders, and lead capture straight to your CRM.</p>
+    <div class="cards rv d1">
+      <div class="card rv">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg></div>
+        <h3>Missed-call text-back</h3>
+        <p>Texts the missed caller back in seconds and answers in your voice before they dial the next number.</p>
+      </div>
+      <div class="card rv d1">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v16H3zM3 9h18M8 3v4M16 3v4"/></svg></div>
+        <h3>Appointment booking</h3>
+        <p>Drops the job on your calendar per your rules &mdash; service type, provider, recovery time.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 4 2 20h20zM12 10v5M12 17.5v.5"/></svg></div>
+        <h3>Emergency triage</h3>
+        <p>Captures the details, then pushes true after-hours emergencies straight to your on-call line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// how it works</div>
+    <h2 class="rv d1">Five steps, fully automatic. You stay in control of anything that sends.</h2>
+    <div class="steps rv d2">
+      <div class="step"><span class="sn">1</span><h3>Inbound arrives</h3><p>A call, text, or web form hits your business &mdash; 24/7.</p></div>
+      <div class="step"><span class="sn">2</span><h3>Replies in seconds</h3><p>Texts the caller back and answers in your voice before they shop the next number.</p></div>
+      <div class="step"><span class="sn">3</span><h3>Captures the details</h3><p>Name, job, reason, urgency &mdash; logged straight to your CRM.</p></div>
+      <div class="step"><span class="sn">4</span><h3>Books the job</h3><p>Drops it on your calendar per your scheduling rules.</p></div>
+      <div class="step"><span class="sn">5</span><h3>Confirms + reminds</h3><p>Sends confirmations and reminders, and escalates real emergencies to on-call.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// a day in the life</div>
+    <h2 class="rv d1">Before vs. after.</h2>
+    <div class="vs rv d2">
+      <div class="col old"><h3>Before &mdash; the leak</h3><ul><li>Phone rings while you&rsquo;re on a job &mdash; it goes to voicemail.</li><li>After-hours leads call the next contractor and book them instead.</li><li>Web-form inquiries sit unread until tomorrow morning.</li></ul></div>
+      <div class="col eff"><h3>After &mdash; with the team</h3><ul><li>Every call, text, and form answered in seconds, around the clock.</li><li>The 11pm emergency captured, booked, and confirmed before you wake up.</li><li>Your calendar fills itself &mdash; you just show up to the work.</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <div class="band-lbl">// plugs into the stack you already run</div>
+    <div class="chips rv">
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg>Twilio / phone system<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v16H3zM3 9h18M8 3v4M16 3v4"/></svg>Calendar / Calendly<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM9 4v6h6"/></svg>Your CRM<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM14 3v4h4"/></svg>Booking software<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 3z"/></svg>Slack / Teams<span class="cdot"></span></span>
+    </div>
+  </div>
+</section>
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the math vs. hiring</div>
+    <h2 class="rv d1">A front desk, without the hire.</h2>
+    <p class="lede rv d1">No turnover, no ramp risk, no recruiting cost &mdash; an always-on AI workforce that answers every time.</p>
+    <div class="stats rv d2">
+      <div class="stat"><div class="n">$30&ndash;50K</div><div class="l">/yr for a human front desk</div></div>
+      <div class="stat"><div class="n">+30%</div><div class="l">benefits, taxes, training, overhead</div></div>
+      <div class="stat"><div class="n">$497</div><div class="l">/mo standalone &middot; or bundled</div></div>
+    </div>
+  </div>
+</section>
+<section class="cta rv">
+  <div class="prompt">$ efficio hire --front-office<span class="cur"></span></div>
+  <h2>See if the Front Office Team is your next teammate.</h2>
+  <p>The 60-second qualifier routes you to the right tier and books your free audit. We name the workflow we&rsquo;d ship in week one and the metric we&rsquo;ll move by day 30.</p>
+  <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
+        <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
   </div>
 </footer>
-
-<script src="/assets/transitions.js" defer></script>
+<!-- LIVE AGENTS — bottom-docked popup -->
+<div id="liveops" aria-label="Live agent activity">
+  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="vlabel">Live agents &middot; <b id="loCount">6</b> online</span>
+    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
+    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
+  </button>
+  <div class="lo-panel" id="loPanel">
+    <div class="lo-inner">
+      <div class="lo-h">
+        <span class="pdot" aria-hidden="true"></span>
+        <b>Agents working now</b>
+        <span class="cnt">live &middot; demo</span>
+        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="lo-feed" id="loFeed"></div>
+      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
+    </div>
+  </div>
+</div>
+<script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

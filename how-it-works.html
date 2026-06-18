@@ -4,423 +4,251 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
 <title>How it works — Plug-and-play AI dashboard + custom agents | Efficio</title>
-<meta name="description" content="Five steps from 60-second audit to a live AI agent in your stack. Audit, strategy call, build, deploy, operate. Week-one ship promise." />
+<meta name="description" content="Five steps from 60-second audit to a live AI agent in your stack. Audit, strategy call, build, deploy, operate. Week-one ship promise."/>
 <link rel="canonical" href="https://efficio.tech/how-it-works.html"/>
-<!-- seo:schema -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://efficio.tech/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "How it works",
-     "item": "https://efficio.tech/how-it-works.html"
-    }
-   ]
-  },
-  {
-   "@type": "HowTo",
-   "name": "How Efficio works: from audit to a live AI agent in 7 days",
-   "description": "Five steps from a 60-second audit to a live AI agent running in your business.",
-   "totalTime": "P7D",
-   "step": [
-    {
-     "@type": "HowToStep",
-     "position": 1,
-     "name": "60-second audit",
-     "text": "Answer five questions about where your team loses time. You get a score and the first workflow we'd automate."
-    },
-    {
-     "@type": "HowToStep",
-     "position": 2,
-     "name": "Strategy call",
-     "text": "A 15-minute call to confirm the highest-impact build and agree on the metric we'll move."
-    },
-    {
-     "@type": "HowToStep",
-     "position": 3,
-     "name": "Build",
-     "text": "We build your first AI agent or automation, customized to how your business actually works."
-    },
-    {
-     "@type": "HowToStep",
-     "position": 4,
-     "name": "Deploy",
-     "text": "The build goes live in your stack within seven days of the kickoff call."
-    },
-    {
-     "@type": "HowToStep",
-     "position": 5,
-     "name": "Operate",
-     "text": "We run and improve it — and everything lands on a live dashboard you can watch."
-    }
-   ]
-  }
- ]
-}
-</script>
-<meta property="og:title" content="How it works | Efficio"/>
-<meta property="og:description" content="From audit to live agent in 7 days."/>
+<meta property="og:title" content="How it works — Plug-and-play AI dashboard + custom agents | Efficio"/>
+<meta property="og:description" content="Five steps from 60-second audit to a live AI agent in your stack. Audit, strategy call, build, deploy, operate. Week-one ship promise."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/how-it-works.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
-<meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="How it works | Efficio"/>
-<meta name="twitter:description" content="From audit to live agent in 7 days."/>
-<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/theme.css"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
-<style>
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px;position:relative}
-.flow::before{content:"";position:absolute;top:34px;left:7%;right:7%;height:2px;
-  background:linear-gradient(90deg,var(--purple) 0%,var(--purple) 20%,var(--bd3) 20%,var(--bd3) 40%,var(--purple) 40%,var(--purple) 60%,var(--bd3) 60%,var(--bd3) 80%,var(--purple) 80%);
-  opacity:.4;z-index:0}
-/* traveling pulse along the flow connector */
-.flow::after{content:"";position:absolute;top:30px;left:7%;width:10px;height:10px;border-radius:50%;
-  background:var(--purple2);box-shadow:0 0 14px var(--purple2);z-index:1;margin-left:-5px;
-  animation:flowtravel 3.8s linear infinite}
-@keyframes flowtravel{0%{left:7%;opacity:0}7%{opacity:1}93%{opacity:1}100%{left:93%;opacity:0}}
-@media (max-width:880px){.flow{grid-template-columns:1fr}.flow::before,.flow::after{display:none}}
-@media (prefers-reduced-motion:reduce){.flow::after{animation:none;opacity:0}.step-num::before{animation:none}}
-.step{position:relative;z-index:1;padding:0 6px}
-.step-num{width:68px;height:68px;border-radius:50%;position:relative;
-  background:var(--surf2);
-  border:2px solid rgba(168,85,247,.5);color:var(--purple3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:22px}
-.step-num::before{content:"";position:absolute;inset:-2px;border-radius:50%;
-  border:2px solid var(--purple2);opacity:0;animation:stepring 3.6s ease-in-out infinite}
-.step:nth-of-type(2) .step-num::before{animation-delay:.4s}
-.step:nth-of-type(3) .step-num::before{animation-delay:.8s}
-.step:nth-of-type(4) .step-num::before{animation-delay:1.2s}
-.step:nth-of-type(5) .step-num::before{animation-delay:1.6s}
-@keyframes stepring{0%,60%,100%{opacity:0;transform:scale(1)}20%{opacity:.7;transform:scale(1)}40%{opacity:0;transform:scale(1.35)}}
-.step h3{font-size:1.2rem;color:var(--white);font-weight:700;margin-bottom:10px;letter-spacing:-.015em}
-.step p{font-size:13px;color:var(--text);line-height:1.6;margin-bottom:10px}
-.step-time{display:inline-block;font-size:11px;font-weight:700;color:var(--purple3);letter-spacing:.06em;text-transform:uppercase}
-.promise{margin-top:50px;background:var(--surf2);
-  border:1px solid rgba(168,85,247,.3);border-radius:var(--r2);padding:32px 30px;
-  display:grid;grid-template-columns:1fr 1.4fr;gap:30px;align-items:center}
-@media (max-width:880px){.promise{grid-template-columns:1fr}}
-.promise-num{font-family:'Inter',serif;font-size:5rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff;
-  background:var(--purple2);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.promise-num span{display:block;font-size:1rem;color:var(--text);margin-top:10px;font-weight:500;letter-spacing:0;-webkit-text-fill-color:var(--text);background:none}
-.promise-text h3{font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:10px;letter-spacing:-.02em}
-.promise-text p{font-size:14.5px;color:var(--text);line-height:1.65}
-/* 9-layer stack */
-.layer-no{display:inline-block;font-family:'SF Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--purple3);margin-bottom:9px}
-.stack-note{text-align:center;margin-top:30px;font-size:14.5px;color:var(--muted);max-width:660px;margin-left:auto;margin-right:auto;line-height:1.65}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<script>document.documentElement.className='js';</script>
 </head>
 <body>
-
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html">AI teams</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/blog/">Blog</a>
-    <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
+    <a href="/agents.html">AI teams</a>
   </div>
+  <a href="https://go.efficio.tech/" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
 </div></nav>
 
-<section class="hero center">
-  <div class="hero-bg"></div>
-  <div class="hero-dots"></div>
-  <div class="hero-inner">
-    <span class="hero-pill rv"><span class="pill-dot"></span>How it works · plug-and-play · 7 days to live</span>
-    <h1 class="rv d1">One <span class="grad-purple">dashboard</span> for your business. The <span class="grad-purple">AI agents and tools</span> that fill it.</h1>
-    <p class="lede rv d2">Every customer gets the same cockpit within 7 days — plug-and-play, your data, your business, one screen. Behind it: <b>your AI teams</b> we deploy into your operation — Front Office, Back Office, Sales, Finance, Marketing, Client Onboarding, Customer Retention. The functions every business runs — some ready to deploy now, the rest built for you in 7 days. Plus custom tools we build case by case.</p>
-    <div class="hero-ctas rv d3">
-      <a href="https://go.efficio.tech/" class="btn-primary">Take the 60-sec qualifier <span class="btn-arrow">→</span></a>
-      <a href="/demo/" class="btn-outline">See the dashboard</a>
+<header class="phero">
+  <div class="wrap">
+    <div class="eyebrow rv">// how it works &middot; built on Claude &middot; plugged in via MCP + APIs</div>
+    <h1 class="rv d1">How we give your business its <span class="grad">own AI team</span>.</h1>
+    <p class="sub rv d1">An always-on AI workforce embedded in your operation — on Claude, plugged into your tools via MCP and APIs. We build it, run it, and put every action on one live dashboard. You operate; it works. Below: exactly how it plugs in, the onboarding, and the dashboard.</p>
+    <div class="hero-cta rv d2">
+      <a href="https://go.efficio.tech/" class="btn-primary lg">Deploy your AI workforce <span class="arr">&rarr;</span></a>
+      <a href="#implement" class="btn-outline lg">See how it plugs in</a>
     </div>
+    <div class="guarantee">
+        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+        <span class="gtxt">
+          <span class="gt">Pay only if it works.</span>
+          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
+        </span>
+      </div>
   </div>
-</section>
+</header>
 
-<!-- WHAT EVERY CUSTOMER GETS -->
-<section class="section">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px">
-      <span class="s-label rv">What every customer gets</span>
-      <h2 class="s-title rv d1">The cockpit is consistent. <em>The AI is custom.</em></h2>
-      <p class="s-sub rv d2">We don't sell you a fixed bot. We sell you the dashboard and the team that builds whatever AI your business actually needs.</p>
+<section class="sec" id="implement" style="padding-top:clamp(20px,3vh,40px)">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv">// how we implement</div>
+      <h2 class="rv d1">It plugs into the tools you already use.</h2>
+      <p class="lede rv d1">No rip-and-replace. We connect your existing stack to a workforce of agents through MCP and direct APIs — running on Claude. The agents read and act across your tools in real time, with your guardrails.</p>
     </div>
-    <div class="flow">
-      <div class="step rv">
-        <div class="step-num">1</div>
-        <h3>Qualify</h3>
-        <p>8-question screen on our site. We route you to the right tier — Starter, AI Specialist, AI Team, or AI Department — and book your free audit call.</p>
-        <span class="step-time">Day 0 · 60 sec</span>
+    <div class="cards rv d1">
+      <div class="card">
+        <span class="tag">&#x7B;&#x7D;/</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></div>
+        <h3>MCP + APIs, not rip-and-replace</h3>
+        <p>The workforce reads and acts inside the tools you already run — CRM, inbox, calendar, phone, payments. Access is scoped and revocable at any time.</p>
       </div>
-      <div class="step rv d1">
-        <div class="step-num">2</div>
-        <h3>Audit call</h3>
-        <p>30-min Zoom. You walk us through your operation. We name the metric we'll move by day 30 and the agent or tool we'll ship first.</p>
-        <span class="step-time">Day 1 · 30 min</span>
+      <div class="card">
+        <span class="tag">&#x25C8;/</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></svg></div>
+        <h3>Built on Anthropic's Claude</h3>
+        <p>The agents reason and take action on Claude — provisioned in your own Claude Teams account, configured by us. Frontier intelligence, with humans in the loop where it matters.</p>
       </div>
-      <div class="step rv d2">
-        <div class="step-num">3</div>
-        <h3>We set you up</h3>
-        <p>We provision the whole stack for you — your own Claude account, your CRM, your phone line, and your website if you don't have one. No OAuth screens to click, no accounts to connect, no prompts to write — you tell us how the work flows, we wire it all up.</p>
-        <span class="step-time">Day 2 · we handle it</span>
-      </div>
-      <div class="step rv d3">
-        <div class="step-num">4</div>
-        <h3>Audit report + cockpit live</h3>
-        <p>Your dashboard goes live with your real data flowing in, and we walk you through the gaps we found.</p>
-        <span class="step-time">Day 5 · delivered</span>
-      </div>
-      <div class="step rv d4">
-        <div class="step-num">5</div>
-        <h3>First AI agent or tool live</h3>
-        <p>The first build is in your business and working. Sometimes from our ready library, sometimes custom — always wired into your stack.</p>
-        <span class="step-time">Day 7 · live</span>
-      </div>
-      <div class="step rv d4">
-        <div class="step-num">6</div>
-        <h3>We keep building</h3>
-        <p>Monthly / biweekly / weekly strategy calls (depending on tier). Every new pain we find, we build the agent or tool for. New things ship into the same dashboard.</p>
-        <span class="step-time">Ongoing</span>
-      </div>
-    </div>
-
-    <div class="promise rv d4">
-      <div class="promise-num">7<span>days · or it's free</span></div>
-      <div class="promise-text">
-        <h3>Day-7 promise.</h3>
-        <p>If the first agent or tool isn't live in your business inside seven calendar days of the kickoff call, your first month is refunded in full. The dashboard ships day 5. The build ships day 7. We bet our income on it.</p>
+      <div class="card">
+        <span class="tag">&#x29BF;/</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
+        <h3>Acts across your whole stack</h3>
+        <p>Agents book the slot, log the deal, send the quote, chase the invoice. One coordinated workforce moving work across every tool — every action landing on your live dashboard.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE DASHBOARD -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:36px">
-      <span class="s-label rv">The dashboard</span>
-      <h2 class="s-title rv d1">One screen. <em>Everything happening</em> in your business.</h2>
-      <p class="s-sub rv d2">Plug-and-play architecture, same shape every customer, customized to your data and brand. You don't manage it. You watch it.</p>
+<section class="band">
+  <div class="wrap">
+    <div class="band-lbl">// your stack &mdash; everything stays where it lives</div>
+    <div class="chips">
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM9 4v6h6"/></svg>CRM<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Inbox<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v16H3zM8 3v4M16 3v4"/></svg>Calendar<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg>Phone<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments<span class="cdot"></span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM14 3v4h4"/></svg>Docs<span class="cdot"></span></span>
     </div>
-    <div class="grid-3">
-      <div class="card rv">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:clamp(30px,4vh,50px)">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the onboarding</div>
+    <h2 class="rv d1">The cockpit is consistent. The AI is custom.</h2>
+    <p class="lede rv d1">We don't sell you a fixed bot to operate. We build and run your AI workforce on Claude, plug it into your tools via MCP and APIs, and put it on one dashboard. Here's the onboarding — about 25 minutes of your time, total.</p>
+    <div class="steps rv d2">
+      <div class="step"><span class="sn">1</span><h3>Qualify <span class="tag" style="float:none;margin-left:8px">Day 0 &middot; 60 sec</span></h3><p>8-question screen on our site. We route you to the right tier and book your free audit call.</p></div>
+      <div class="step"><span class="sn">2</span><h3>Audit call <span class="tag" style="float:none;margin-left:8px">Day 1 &middot; 30 min</span></h3><p>30-min Zoom. You walk us through your operation. We name the metric we'll move by day 30 and the first agent or tool we'll ship.</p></div>
+      <div class="step"><span class="sn">3</span><h3>We set you up <span class="tag" style="float:none;margin-left:8px">Day 2 &middot; we handle it</span></h3><p>We provision the whole stack — your Claude account, CRM, phone line, and website if you need one. No OAuth screens, no prompts to write. You tell us how work flows; we wire it up.</p></div>
+      <div class="step"><span class="sn">4</span><h3>Audit report + cockpit live <span class="tag" style="float:none;margin-left:8px">Day 5 &middot; delivered</span></h3><p>Your dashboard goes live with real data flowing in, and we walk you through the gaps we found.</p></div>
+      <div class="step"><span class="sn">5</span><h3>First agent or tool live <span class="tag" style="float:none;margin-left:8px">Day 7 &middot; live</span></h3><p>The first build is in your business and working — sometimes from our ready library, sometimes custom, always wired into your stack.</p></div>
+      <div class="step"><span class="sn">6</span><h3>We keep building <span class="tag" style="float:none;margin-left:8px">Ongoing</span></h3><p>Monthly, biweekly, or weekly strategy calls by tier. Every new pain we find, we build the agent or tool for — shipped into the same dashboard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// 7 days &middot; or it's free</div>
+    <h2 class="rv d1">The day-7 promise.</h2>
+    <p class="lede rv d1">If the first agent or tool isn't live in your business inside seven calendar days of the kickoff call, your first month is refunded in full. The dashboard ships day 5. The build ships day 7. We bet our income on it.</p>
+    <div class="stats rv d2">
+      <div class="stat"><div class="n">5</div><div class="l">dashboard ships</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">build ships, or it's free</div></div>
+      <div class="stat"><div class="n">30</div><div class="l">measurable proof or refund</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the dashboard</div>
+    <h2 class="rv d1">One screen. Everything happening in your business.</h2>
+    <p class="lede rv d1">Plug-and-play architecture, same shape every customer, customized to your data and brand. You don't manage it — you watch it.</p>
+    <div class="cards rv d2">
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 4h18v13H3zM3 9h18M9 21h6"/></svg></div>
         <h3>Live KPI tiles</h3>
-        <p>Hours saved · leads caught · replies triaged · active builds. The numbers you actually care about, surfaced in one glance.</p>
-        <div class="card-meta"><strong>refresh</strong> every 5 minutes · real-time event log</div>
+        <p>Hours saved &middot; leads caught &middot; replies triaged &middot; active builds. The numbers you care about, in one glance — real-time event log, refreshed every 5 minutes.</p>
       </div>
-      <div class="card rv d1">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M9 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM4 20a8 8 0 0 1 16 0"/></svg></div>
         <h3>Your AI team status</h3>
-        <p>Every agent we've built for you, what it's doing right now, how many actions it took today. Green dot when active, paused when not.</p>
-        <div class="card-meta"><strong>per-agent</strong> activity feed · health pings</div>
+        <p>Every agent we've built for you, what it's doing right now, how many actions it took today. Green dot when active, paused when not. Per-agent feed + health pings.</p>
       </div>
-      <div class="card rv d2">
-        <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+      <div class="card imagine">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 12h4l2 5 4-12 2 7h4"/></svg></div>
         <h3>The activity feed</h3>
-        <p>"Front desk just booked a Thursday 10am from a missed call." "Quote agent sent itemized estimate — opened twice." Receipts of the work, in plain English.</p>
-        <div class="card-meta"><strong>plain-text</strong> · receipt-of-work · auditable</div>
+        <p>&ldquo;Front desk just booked a Thursday 10am from a missed call.&rdquo; &ldquo;Quote agent sent itemized estimate — opened twice.&rdquo; Receipts of the work, in plain English. Auditable.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AGENTS AND TOOLS -->
-<section class="section">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px">
-      <span class="s-label rv">The AI teams you deploy</span>
-      <h2 class="s-title rv d1">7 functions every business runs. <em>We bring an AI team for each.</em></h2>
-      <p class="s-sub rv d2">Every business runs the same core functions: front office · back office · sales · finance · marketing · onboarding · retention. We have an AI team for each, ready to deploy and configured to your business on the audit call.</p>
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv">// the AI teams you deploy</div>
+      <h2 class="rv d1">7 functions every business runs. An AI team for each.</h2>
+      <p class="lede rv d1">Front office &middot; back office &middot; sales &middot; finance &middot; marketing &middot; onboarding &middot; retention. Ready to deploy and configured to your business on the audit call.</p>
     </div>
-
-    <div style="margin-bottom:36px">
-      <h3 style="font-size:1.2rem;color:var(--white);font-weight:700;margin-bottom:14px;letter-spacing:-.01em">Ready to deploy day one — your AI teams</h3>
-      <p style="font-size:14px;color:var(--muted);margin-bottom:18px;max-width:680px;line-height:1.6">
-        Every business runs the same core functions — front office, back office, sales, finance, marketing, onboarding, retention. We have an AI team ready for each, configured to your business on the audit call.
-      </p>
-      <div class="grid-3">
-        <div class="card rv">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <h3>AI Receptionist</h3>
-          <p>Every inbound call, text, and web form — answered, qualified, booked. The role you'd hire a $30–50K/yr front desk for.</p>
-          <div class="card-meta">most common starter · <strong>5-day setup</strong></div>
-        </div>
-        <div class="card rv d1">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
-          <h3>AI Office Manager</h3>
-          <p>Inbox triage, docs filed, scheduling logistics, internal handoffs, KPI tracking, daily brief. Anything inside your business. The role you'd hire a $45–90K/yr office manager for.</p>
-          <div class="card-meta">gives the owner their <strong>inbox back</strong></div>
-        </div>
-        <div class="card rv d2">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <h3>AI Sales Navigator</h3>
-          <p>Lead intake → qualification → itemized quote → follow-up → pipeline tracking. The role you'd hire a $50–100K/yr sales rep for.</p>
-          <div class="card-meta">inquiry to quote in <strong>minutes</strong></div>
-        </div>
-        <div class="card rv d3">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-          <h3>AI Bookkeeper</h3>
-          <p>AR chase, expense categorization, daily reconciliation, monthly close prep, invoice generation. The role you'd hire a $40–80K/yr bookkeeper for.</p>
-          <div class="card-meta">books close by the <strong>3rd, not the 15th</strong></div>
-        </div>
-      </div>
+    <div class="cards rv d1">
+      <a href="/agents.html" class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg></div>
+        <h3>AI Receptionist</h3>
+        <p>Every inbound call, text, and web form — answered, qualified, booked. The role you'd hire a $30&ndash;50K/yr front desk for.</p>
+        <span class="go">most common starter &middot; 5-day setup &rarr;</span>
+      </a>
+      <a href="/agents.html" class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
+        <h3>AI Office Manager</h3>
+        <p>Inbox triage, docs filed, scheduling, internal handoffs, KPI tracking, daily brief. The role you'd hire a $45&ndash;90K/yr office manager for.</p>
+        <span class="go">gives the owner their inbox back &rarr;</span>
+      </a>
+      <a href="/agents.html" class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3>AI Sales Navigator</h3>
+        <p>Lead intake &rarr; qualification &rarr; itemized quote &rarr; follow-up &rarr; pipeline tracking. The role you'd hire a $50&ndash;100K/yr sales rep for.</p>
+        <span class="go">inquiry to quote in minutes &rarr;</span>
+      </a>
+      <a href="/agents.html" class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"/></svg></div>
+        <h3>AI Bookkeeper</h3>
+        <p>AR chase, expense categorization, daily reconciliation, monthly close prep, invoice generation. The role you'd hire a $40&ndash;80K/yr bookkeeper for.</p>
+        <span class="go">books close by the 3rd, not the 15th &rarr;</span>
+      </a>
     </div>
-
-    <div>
-      <h3 style="font-size:1.2rem;color:var(--white);font-weight:700;margin-bottom:14px;letter-spacing:-.01em">Custom — built after we audit your business</h3>
-      <div class="grid-3">
-        <div class="card rv">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Voice + phone agents</h3>
-          <p>Custom voice that answers in your business name, books per your scheduling rules, escalates per your triage logic. Connects to whatever PBX or VoIP you run.</p>
-          <div class="card-meta">case-by-case · scope on call</div>
-        </div>
-        <div class="card rv d1">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <h3>Document AI</h3>
-          <p>Reads PDFs, intake forms, contracts, insurance documents — pulls the fields you care about, drops them in your CRM. Built around your form layouts.</p>
-          <div class="card-meta">case-by-case · per document type</div>
-        </div>
-        <div class="card rv d2">
-          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-          <h3>Internal tools</h3>
-          <p>Customer portals. Integration glue between two systems you already use. A scheduling rules engine. A pricing calculator. A reports generator. If it can be built, we build it.</p>
-          <div class="card-meta">case-by-case · scope on call</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="rv d4" style="text-align:center;margin-top:32px;font-size:14.5px;color:var(--muted);max-width:640px;margin-left:auto;margin-right:auto;line-height:1.6">
-      Anything we build lands in the same dashboard. You don't pick which technology — we route Claude / GPT / smaller models / vector DBs / scrapers / browsers / queues / cron to whatever the job needs. You see the work, not the wiring.
-    </p>
+    <p class="pnote rv">See the full roster on the <a href="/agents.html">AI teams</a> page, or compare tiers on <a href="/pricing.html">pricing</a>.</p>
   </div>
 </section>
 
-<!-- THE 9-LAYER STACK — what we actually build under the hood -->
-<section class="section section-alt" id="stack">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px">
-      <span class="s-label rv">Under the hood</span>
-      <h2 class="s-title rv d1">What we actually build under the hood. <em>The 9-layer Efficio stack.</em></h2>
-      <p class="s-sub rv d2">You see the work, not the wiring — but if you want the substance, here it is. Every AI team we run is engineered across nine layers. This is the difference between a bot you bought and a team we built.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card rv">
-        <span class="layer-no">LAYER 01</span>
-        <h3>Prompt</h3>
-        <p>What we ask the model to do. The exact instructions behind every agent — written, versioned, and tuned to your business, not a generic chatbot.</p>
-      </div>
-      <div class="card rv d1">
-        <span class="layer-no">LAYER 02</span>
-        <h3>Context</h3>
-        <p>What information the model has. Your rules, brand voice, pricing, and history — loaded so the AI answers like someone who works for you.</p>
-      </div>
-      <div class="card rv d2">
-        <span class="layer-no">LAYER 03</span>
-        <h3>Output</h3>
-        <p>What shape the answer must take. Structured, predictable results — a booked appointment, a filled CRM field, an itemized quote — not a wall of text.</p>
-      </div>
-      <div class="card rv">
-        <span class="layer-no">LAYER 04</span>
-        <h3>Retrieval</h3>
-        <p>Where the model gets external knowledge. Your documents, past jobs, and live records, pulled in on demand so answers stay grounded in your real data.</p>
-      </div>
-      <div class="card rv d1">
-        <span class="layer-no">LAYER 05</span>
-        <h3>Tool</h3>
-        <p>What the model can call, search, calculate, edit, or execute. The AI doesn't just talk — it books, quotes, files, updates, and triggers real actions in your stack.</p>
-      </div>
-      <div class="card rv d2">
-        <span class="layer-no">LAYER 06</span>
-        <h3>Workflow / agent</h3>
-        <p>Whether the system follows fixed steps or decides on its own. Some jobs run a fixed path; others let the agent choose. We pick the right one per task.</p>
-      </div>
-      <div class="card rv">
-        <span class="layer-no">LAYER 07</span>
-        <h3>Evaluation</h3>
-        <p>How we know whether it worked. Every build is measured against the metric we agreed on — so "it's working" is a number, not a feeling.</p>
-      </div>
-      <div class="card rv d1">
-        <span class="layer-no">LAYER 08</span>
-        <h3>Guardrail</h3>
-        <p>What the system is forbidden from doing. Hard limits on what the AI can say, send, or change — so it never goes off-script or off-brand.</p>
-      </div>
-      <div class="card rv d2">
-        <span class="layer-no">LAYER 09</span>
-        <h3>Improvement loop</h3>
-        <p>How the system gets better over time. We review real performance every week and tune the build — it gets sharper the longer it runs.</p>
-      </div>
-    </div>
-    <p class="stack-note rv d3">Most vendors sell you Layer 1 and call it a product. We engineer all nine — and operate them for you. That's why it's an AI team, not an AI tool.</p>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <div class="container">
-    <h2>Start with the <span class="grad-purple">60-second audit.</span></h2>
-    <p>Five questions. One score. One ranked list. We map week-one workflow on the call after.</p>
-    <a href="https://go.efficio.tech/" class="btn-big">Take the audit <span class="btn-arrow">→</span></a>
-  </div>
+<section class="cta rv">
+  <div class="prompt">$ efficio deploy --day7<span class="cur"></span></div>
+  <h2>Live in your stack in 7 days.</h2>
+  <p>Start with the 60-second audit. We name the metric, ship the dashboard by day 5, and the first build by day 7.</p>
+  <a href="https://go.efficio.tech/" class="btn-primary lg">Deploy your AI workforce <span class="arr">&rarr;</span></a>
 </section>
 
 <footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></div>
-      <p>Your AI team for the next era of business operations. Custom AI agents, AI admins, and the dashboards to deploy and track them.</p>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
+        <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
     </div>
-    <div class="foot-col"><h5>Product</h5>
-      <a href="/services.html">Services</a><a href="/demo/">Dashboard</a>
-      <a href="/how-it-works.html">How it works</a><a href="/pricing.html">Pricing</a>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
     </div>
-    <div class="foot-col"><h5>Company</h5>
-      <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
-      <a href="https://go.efficio.tech/">Book a call</a>
-      <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-    </div>
-    <div class="foot-col"><h5>Legal</h5>
-      <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-    <div>Built by an operator, not a software vendor.</div>
   </div>
 </footer>
-
-<script src="/assets/transitions.js" defer></script>
-<script>
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-</script>
+<!-- LIVE AGENTS — bottom-docked popup -->
+<div id="liveops" aria-label="Live agent activity">
+  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="vlabel">Live agents &middot; <b id="loCount">6</b> online</span>
+    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
+    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
+  </button>
+  <div class="lo-panel" id="loPanel">
+    <div class="lo-inner">
+      <div class="lo-h">
+        <span class="pdot" aria-hidden="true"></span>
+        <b>Agents working now</b>
+        <span class="cnt">live &middot; demo</span>
+        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="lo-feed" id="loFeed"></div>
+      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
+    </div>
+  </div>
+</div>
+<script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

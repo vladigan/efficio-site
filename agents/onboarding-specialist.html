@@ -1,224 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>Client Onboarding Team — Runs your new-client onboarding — intake, documents, kickoff | Efficio</title>
-<meta name="description" content="Client Onboarding Team: Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup. Built for you in 7 days.">
-<link rel="canonical" href="https://efficio.tech/agents/onboarding-specialist.html">
-<meta property="og:title" content="Client Onboarding Team | Efficio">
-<meta property="og:description" content="Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup.">
-<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png">
-<meta property="og:type" content="article">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},{"@type":"ListItem","position":2,"name":"AI teams","item":"https://efficio.tech/agents.html"},{"@type":"ListItem","position":3,"name":"Client Onboarding Team","item":"https://efficio.tech/agents/onboarding-specialist.html"}]},{"@type":"Service","name":"Client Onboarding Team","description":"Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup.","provider":{"@type":"Organization","name":"Efficio","url":"https://efficio.tech"},"areaServed":{"@type":"Country","name":"United States"}}]}</script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/theme.css">
-<style>
-.hr-shell{max-width:980px;margin:0 auto;padding:130px 28px 80px}
-.hr-crumb{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
-.hr-crumb a{color:var(--purple3)}
-.hr-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
-  border:1px solid var(--bd2);background:rgba(124,58,237,.08);
-  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--purple3);margin-bottom:16px}
-.hr-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--purple2);box-shadow:0 0 8px var(--purple)}
-.hr-h1{font-size:clamp(2.3rem,4.6vw,3.5rem);font-weight:900;color:var(--white);letter-spacing:-.04em;line-height:1.05;margin-bottom:18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.hr-h1 .ic{width:56px;height:56px;border-radius:14px;background:#7c3aed;color:#fff;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hr-h1 .ic svg{width:32px;height:32px}
-.hr-tagline{font-size:1.2rem;color:var(--text);line-height:1.5;max-width:760px;margin-bottom:30px}
-
-.hr-stat{display:flex;align-items:center;gap:24px;padding:22px 26px;
-  background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(124,58,237,.02));
-  border:1px solid rgba(124,58,237,.30);border-radius:12px;margin-bottom:10px;flex-wrap:wrap}
-.hr-stat-num{font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;color:var(--purple2);letter-spacing:-.03em;line-height:1}
-.hr-stat-text{flex:1;min-width:240px}
-.hr-stat-label{font-size:1.02rem;font-weight:600;color:var(--w2);line-height:1.5;margin-bottom:4px}
-.hr-stat-source{font-size:12px;color:var(--muted);font-style:italic}
-
-.hr-section h2{font-size:1.7rem;font-weight:800;color:var(--white);letter-spacing:-.025em;margin:56px 0 14px}
-.hr-section h2 em{color:var(--purple3);font-style:italic}
-.hr-section .lead{font-size:15.5px;color:var(--w2);line-height:1.75;margin-bottom:14px;max-width:820px}
-.hr-section p{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:14px;max-width:820px}
-
-/* workflow diagram */
-.flow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:2px;margin-top:20px;
-  background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.01));
-  border:1px solid var(--bd);border-radius:16px;padding:28px 20px}
-.flow-step{flex:1 1 150px;min-width:140px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px 8px}
-.flow-node{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;
-  background:rgba(124,58,237,.16);border:1px solid rgba(124,58,237,.45);color:var(--purple3);margin-bottom:13px;position:relative}
-.flow-node svg{width:25px;height:25px}
-.flow-num{position:absolute;top:-9px;right:-9px;width:22px;height:22px;border-radius:50%;
-  background:var(--purple);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg2)}
-.flow-t{font-size:13px;font-weight:800;color:var(--white);letter-spacing:-.01em;margin-bottom:5px;line-height:1.25}
-.flow-d{font-size:11.5px;color:var(--text);line-height:1.45}
-.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple2);flex:0 0 24px;margin-top:28px}
-.flow-arrow .ar-svg{width:22px;height:22px}
-@media(max-width:760px){
-  .flow{flex-direction:column;align-items:stretch;padding:22px 18px}
-  .flow-step{flex-direction:row;text-align:left;align-items:flex-start;gap:15px;min-width:0;width:100%}
-  .flow-node{margin-bottom:0;flex-shrink:0}
-  .flow-tx{padding-top:3px}
-  .flow-arrow{flex-basis:auto;margin:3px 0 3px 16px;justify-content:flex-start}
-  .flow-arrow .ar-svg{transform:rotate(90deg)}
-}
-
-/* build timeline (built-to-order) */
-.btl{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.btl-row{flex:1 1 120px;min-width:118px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:13px 14px;position:relative;overflow:hidden}
-.btl-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple)}
-.btl-d{font-size:12px;font-weight:900;color:var(--purple3);letter-spacing:.04em;margin-bottom:5px}
-.btl-t{font-size:12.5px;color:var(--w2);line-height:1.4}
-
-/* what-it-handles chips */
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:100px;
-  background:var(--surf);border:1px solid var(--bd);font-size:13px;font-weight:600;color:var(--w2)}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--purple2);flex-shrink:0}
-
-/* owns grid */
-.owns{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
-@media(max-width:760px){.owns{grid-template-columns:1fr}}
-
-/* before / after */
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-@media(max-width:680px){.ba{grid-template-columns:1fr}}
-.ba-col{border-radius:14px;padding:22px 22px;border:1px solid var(--bd)}
-.ba-before{background:rgba(248,113,113,.05);border-color:rgba(248,113,113,.25)}
-.ba-after{background:rgba(74,222,128,.05);border-color:rgba(74,222,128,.28)}
-.ba-h{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
-.ba-before .ba-h{color:var(--no)}
-.ba-after .ba-h{color:var(--good)}
-.ba-row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;font-size:13.5px;color:var(--w2);line-height:1.5}
-.ba-row svg{width:17px;height:17px;flex-shrink:0;margin-top:2px}
-.ba-before .ba-row svg{color:var(--no)}
-.ba-after .ba-row svg{color:var(--good)}
-
-/* sample dashboard mockup */
-.mock{margin-top:20px;background:var(--bg2);border:1px solid var(--bd);border-radius:16px;overflow:hidden}
-.mock-top{display:flex;align-items:center;gap:9px;padding:13px 18px;border-bottom:1px solid var(--bd);background:var(--surf)}
-.mock-dot{width:10px;height:10px;border-radius:50%;background:var(--dim)}
-.mock-title{margin-left:8px;font-size:12.5px;font-weight:700;color:var(--text)}
-.mock-sample{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:var(--purple3);
-  background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.4);padding:3px 9px;border-radius:100px}
-.mock-body{padding:20px 18px}
-.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:680px){.mock-kpis{grid-template-columns:repeat(2,1fr)}}
-.mock-kpi{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 14px}
-.mock-kpi .v{font-size:1.55rem;font-weight:900;color:var(--white);letter-spacing:-.02em;line-height:1}
-.mock-kpi .l{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;line-height:1.3}
-.mock-mid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:14px;margin-top:14px}
-@media(max-width:680px){.mock-mid{grid-template-columns:1fr}}
-.mock-chart{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
-.mock-chart .ct{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
-.mock-chart svg{width:100%;height:64px;display:block}
-.mock-agents{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:8px 14px}
-.mock-agent{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px dashed var(--bd3)}
-.mock-agent:last-child{border-bottom:0}
-.mock-agent .ai{width:30px;height:30px;border-radius:8px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.35);
-  color:var(--purple3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mock-agent .ai svg{width:15px;height:15px}
-.mock-agent .an{font-size:12.5px;font-weight:800;color:var(--white)}
-.mock-agent .ad{font-size:11.5px;color:var(--text);line-height:1.4;margin-top:1px}
-.mock-agent .live{margin-left:auto;flex-shrink:0;font-size:9.5px;font-weight:800;color:var(--good);letter-spacing:.08em;display:flex;align-items:center;gap:5px}
-.mock-agent .live .pulse{width:6px;height:6px;border-radius:50%;background:var(--good);box-shadow:0 0 7px var(--good)}
-.mock-cap{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:11px;text-align:center}
-
-.own-row{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:16px 18px}
-.own-label{font-size:12px;font-weight:800;color:var(--purple3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-.own-text{font-size:13.5px;color:var(--w2);line-height:1.6}
-
-.tools{list-style:none;margin:14px 0 4px;padding:0}
-.tools li{padding:9px 0 9px 22px;position:relative;font-size:14px;color:var(--w2);border-bottom:1px dashed var(--bd3)}
-.tools li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--purple2)}
-.tools-note{font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
-
-.math{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(124,58,237,.02));
-  border:1px solid rgba(124,58,237,.25);border-radius:12px;padding:24px 28px;margin:18px 0 0}
-.math .mlbl{font-size:11.5px;font-weight:800;color:var(--purple3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.math .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:9px 0;border-bottom:1px dashed var(--bd3);font-size:14.5px;color:var(--w2)}
-.math .row:last-child{border-bottom:0;padding-top:12px;border-top:1px solid var(--bd);margin-top:6px;font-size:1.05rem;font-weight:700;color:var(--white)}
-.math .row b{color:var(--white);font-weight:700}
-.math .row .v{font-weight:800;color:var(--purple3);font-size:1.05rem;text-align:right}
-
-.cta-bar{margin-top:54px;padding:34px 32px;background:linear-gradient(135deg,var(--purple),var(--purple2));
-  border-radius:16px;text-align:center;color:#fff}
-.cta-bar h3{font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
-.cta-bar p{font-size:14.5px;color:rgba(255,255,255,.88);margin-bottom:22px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.55}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.cta-bar a{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:#fff;color:#0a0612 !important;
-  border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .15s}
-.cta-bar a:hover{transform:translateY(-2px)}
-.cta-bar a.ghost{background:transparent;color:#fff !important;border:1px solid rgba(255,255,255,.5)}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;
-  background:rgba(8,8,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--white);font-size:17px;letter-spacing:-.02em;text-decoration:none}
-.logo .logo-mark{width:30px;height:30px;flex-shrink:0;font-size:0;color:transparent;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c3aed'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b794f6'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c3aed'/></svg>") center/contain no-repeat}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{padding:8px 14px;font-size:14px;color:var(--text);font-weight:500;border-radius:var(--r);text-decoration:none}
-.nav-links a:hover{color:var(--white)}
-.btn-nav{padding:10px 20px;background:var(--purple);color:#fff !important;border-radius:var(--r);
-  font-size:13.5px;font-weight:700}
-.btn-nav:hover{background:var(--purple2)}
-@media(max-width:780px){.nav-links a:not(.btn-nav){display:none}}
-</style>
+<title>Client Onboarding Team — intake, docs, kickoff, status | Efficio</title>
+<meta name="description" content="Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup. Built for you in 7 days, part of your always-on AI workforce."/>
+<link rel="canonical" href="https://efficio.tech/agents/onboarding-specialist.html"/>
+<meta property="og:title" content="Client Onboarding Team — intake, docs, kickoff, status | Efficio"/>
+<meta property="og:description" content="Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup. Built for you in 7 days, part of your always-on AI workforce."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/agents/onboarding-specialist.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<script>document.documentElement.className='js';</script>
 </head>
 <body>
-
-<nav class="nav" id="nav"><div class="nav-inner">
-  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
-  <div class="nav-links">
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="/agents.html">AI teams</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/blog/">Blog</a>
-    <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
+    <a href="/agents.html">AI teams</a>
   </div>
+  <a href="https://go.efficio.tech/" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
 </div></nav>
-
-<main class="hr-shell">
-  <div class="hr-crumb"><a href="/">Home</a> &middot; <a href="/agents.html">AI teams</a> &middot; Client Onboarding Team</div>
-  <span class="hr-pill"><span class="dot"></span>Built for you in 7 days</span>
-  <h1 class="hr-h1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></span><span>Client Onboarding Team</span></h1>
-  <p class="hr-tagline">Runs your new-client onboarding — intake, documents, kickoff, status — so no client ghosts during setup.</p>
-<div class="hr-stat"><div class="hr-stat-num" style="font-size:1.5rem;line-height:1.2;min-width:0"><svg style="width:34px;height:34px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="hr-stat-text"><div class="hr-stat-label">First impressions set the relationship. The Client Onboarding Team gives every new client the same flawless welcome — intake, docs, kickoff, status tracking — modelled on your exact process.</div></div></div>
-  <div class="hr-section"><h2>What the <em>Client Onboarding Team</em> does</h2><p class="lead">The Client Onboarding Team re-points our own intake and onboarding spine at your process: a branded intake form that collects the docs you need, a welcome and step sequence drafted in your voice, kickoff scheduling wired to your calendar tool, and a dashboard tracking each new client's onboarding stage. We productized our own onboarding — this builds yours. Drafts and links only; your tools execute signing and payment.</p></div>
-  <div class="hr-section"><h2>How it <em>works</em></h2><p>The actual step-by-step flow — each stage runs automatically; you stay in control of anything that sends.</p><div class="flow"><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="flow-num">1</span></div><div class="flow-tx"><div class="flow-t">New client signs</div><div class="flow-d">The handoff that usually gets messy.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg><span class="flow-num">2</span></div><div class="flow-tx"><div class="flow-t">Branded intake</div><div class="flow-d">A form collects their docs and info — built to your process.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg><span class="flow-num">3</span></div><div class="flow-tx"><div class="flow-t">Welcome drafted</div><div class="flow-d">Welcome + step emails in your voice, draft-only.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg><span class="flow-num">4</span></div><div class="flow-tx"><div class="flow-t">Kickoff scheduled</div><div class="flow-d">Their kickoff wired into Calendly / GHL.</div></div></div><div class="flow-arrow"><svg class="ar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><div class="flow-step"><div class="flow-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg><span class="flow-num">5</span></div><div class="flow-tx"><div class="flow-t">Stage tracked</div><div class="flow-d">Each client's onboarding stage on one dashboard — nothing slips.</div></div></div></div></div>
-<div class="hr-section"><h2>How we <em>build it</em> — 7 days</h2><p class="lead">Built-to-order, honestly: we assemble it from the modules we’ve already shipped plus the light, per-client glue your business needs. From kickoff to live in a week.</p><div class="btl"><div class="btl-row"><div class="btl-d">D1</div><div class="btl-t">Map their flow + docs</div></div><div class="btl-row"><div class="btl-d">D2</div><div class="btl-t">Branded intake form</div></div><div class="btl-row"><div class="btl-d">D3</div><div class="btl-t">Welcome sequence drafted</div></div><div class="btl-row"><div class="btl-d">D4</div><div class="btl-t">Kickoff scheduling wired</div></div><div class="btl-row"><div class="btl-d">D5</div><div class="btl-t">Status tracking dashboard</div></div><div class="btl-row"><div class="btl-d">D6</div><div class="btl-t">Dry run a test client</div></div><div class="btl-row"><div class="btl-d">D7</div><div class="btl-t">Go live</div></div></div></div>
-  <div class="hr-section"><h2>What it <em>handles</em></h2><p>The responsibilities this team owns, in plain terms:</p><div class="chips"><span class="chip"><span class="dot"></span>Branded client intake</span><span class="chip"><span class="dot"></span>Document collection</span><span class="chip"><span class="dot"></span>Welcome + step emails</span><span class="chip"><span class="dot"></span>Kickoff scheduling</span><span class="chip"><span class="dot"></span>Per-client stage tracking</span><span class="chip"><span class="dot"></span>Draft-only sends</span><span class="chip"><span class="dot"></span>Modelled to your process</span></div><div class="owns"><div class="own-row"><div class="own-label">New client signs</div><div class="own-text">The handoff that usually gets messy.</div></div><div class="own-row"><div class="own-label">Branded intake</div><div class="own-text">A form collects their docs and info — built to your process.</div></div><div class="own-row"><div class="own-label">Welcome drafted</div><div class="own-text">Welcome + step emails in your voice, draft-only.</div></div><div class="own-row"><div class="own-label">Kickoff scheduled</div><div class="own-text">Their kickoff wired into Calendly / GHL.</div></div><div class="own-row"><div class="own-label">Stage tracked</div><div class="own-text">Each client's onboarding stage on one dashboard — nothing slips.</div></div></div></div>
-  <div class="hr-section"><h2>A day in the life — <em>before vs. after</em></h2><div class="ba"><div class="ba-col ba-before"><div class="ba-h">Before — the leak</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>New clients get a different, improvised welcome every time.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Documents trickle in late; setup stalls and clients go quiet.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>No one can say which client is stuck at which step.</span></div></div><div class="ba-col ba-after"><div class="ba-h">After — with the team</div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Every client gets the same polished welcome, automatically.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Intake and documents collected through one branded form.</span></div><div class="ba-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>A board showing exactly where each new client stands.</span></div></div></div></div>
-  <div class="hr-section"><h2>Your <em>command center</em></h2><p>Everything this team does shows up on your branded dashboard — live numbers, the agents at work, and the trend over time.</p><div class="mock"><div class="mock-top"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">Client Onboarding Team · your command center</span><span class="mock-sample">SAMPLE</span></div><div class="mock-body"><div class="mock-kpis"><div class="mock-kpi"><div class="v">7</div><div class="l">Clients onboarding</div></div><div class="mock-kpi"><div class="v">5</div><div class="l">Intakes complete</div></div><div class="mock-kpi"><div class="v">4</div><div class="l">Kickoffs booked</div></div><div class="mock-kpi"><div class="v">1</div><div class="l">Stuck</div></div></div><div class="mock-mid"><div class="mock-chart"><div class="ct">This week</div><svg viewBox="0 0 100 64" preserveAspectRatio="none"><rect x="2.68" y="39.71" width="8.93" height="22.29" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="16.96" y="32.57" width="8.93" height="29.43" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="31.25" y="32.57" width="8.93" height="29.43" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="45.54" y="18.29" width="8.93" height="43.71" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="59.82" y="25.43" width="8.93" height="36.57" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="74.11" y="11.14" width="8.93" height="50.86" rx="1.2" fill="#9b6cf6" opacity="0.55"/><rect x="88.39" y="4.00" width="8.93" height="58.00" rx="1.2" fill="#9b6cf6" opacity="1"/></svg></div><div class="mock-agents"><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Intake builder</div><div class="ad">Runs a branded intake form that collects every doc you need</div></div><span class="live"><span class="pulse"></span>LIVE</span></div><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Welcome drafter</div><div class="ad">Drafts the welcome and step emails in your voice</div></div><span class="live"><span class="pulse"></span>LIVE</span></div><div class="mock-agent"><div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="an">Stage tracker</div><div class="ad">Shows where each new client stands in onboarding</div></div><span class="live"><span class="pulse"></span>LIVE</span></div></div></div><div class="mock-cap">Illustration of the live dashboard — your real numbers flow in once connected.</div></div></div></div>
-  <div class="hr-section"><h2>Tools we <em>plug into</em></h2><p>We connect to the stack you already run:</p><ul class="tools"><li>Your intake / onboarding tools</li><li>Calendly / GHL (kickoff scheduling)</li><li>Your e-sign + payment tools (you execute; we draft + link)</li><li>Your branded /c/ dashboard (onboarding board)</li></ul><div class="tools-note">Read-only OAuth where it applies. We never see your passwords, and access is revocable any time from inside each tool.</div></div>
-  <div class="hr-section"><h2>The math <em>vs. hiring this role</em></h2><div class="math"><div class="mlbl">Annual cost comparison</div><div class="row"><span>Human onboarding specialist</span><span class="v">$45–65K/yr</span></div><div class="row"><span>+ benefits, taxes, training (rough +30%)</span><span class="v">+ overhead</span></div><div class="row"><span>+ turnover + ramp risk</span><span class="v">+ recruiting cost</span></div><div class="row"><span><b>Client Onboarding Team via Efficio</b></span><span class="v">Built-to-order · from $997/mo</span></div></div></div>
-<div class="cta-bar"><h3>Have us build your Client Onboarding Team.</h3><p>The 60-second qualifier routes you to the right tier and books your free audit. We name what we’d build, the workflow we’d ship, and the metric we’ll move — then it’s live in 7 days.</p><div class="cta-row"><a href="https://go.efficio.tech/">Take the 60-sec qualifier &rarr;</a></div></div>
-</main>
-
-<footer style="margin-top:80px;padding:40px 28px;border-top:1px solid var(--bd);text-align:center;font-size:13px;color:var(--muted)">
-  &copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL &middot;
-  <a href="/privacy.html" style="color:var(--purple3)">Privacy</a> &middot;
-  <a href="/terms.html" style="color:var(--purple3)">Terms</a> &middot;
-  <a href="/agents.html" style="color:var(--purple3)">All AI teams</a>
+<header class="phero">
+  <div class="wrap">
+    <a class="pill-back rv" href="/agents.html">&larr; All AI teams</a>
+    <div class="eyebrow rv" style="margin-top:18px">// client onboarding &middot; built in 7 days</div>
+    <h1 class="rv d1">Your <span class="grad">Client Onboarding</span> team.</h1>
+    <p class="sub rv d1">Runs your new-client onboarding — intake, documents, kickoff, status — so no client ever ghosts during setup.</p>
+    <div class="hero-cta rv d2">
+      <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+      <a href="#how" class="btn-outline lg">See what it does</a>
+    </div>
+    <div class="guarantee">
+        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+        <span class="gtxt">
+          <span class="gt">Pay only if it works.</span>
+          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
+        </span>
+      </div>
+  </div>
+</header><section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">// what it handles</div>
+    <h2 class="rv d1">Every new client, the same flawless welcome.</h2>
+    <p class="lede rv d1">We re-point our own onboarding spine at your process. Drafts and links only — your tools execute signing and payment.</p><div class="cards"><div class="card rv"><span class="tag">intake</span><div class="ci"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><h3>Branded intake</h3><p>A form that collects the exact docs and info your process needs.</p></div><div class="card rv"><span class="tag">voice</span><div class="ci"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div><h3>Welcome drafted</h3><p>Welcome and step emails written in your voice — draft-only.</p></div><div class="card rv"><span class="tag">calendar</span><div class="ci"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div><h3>Kickoff scheduled</h3><p>Each kickoff wired straight into your calendar tool.</p></div><div class="card rv"><span class="tag">dashboard</span><div class="ci"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg></div><h3>Stage tracked</h3><p>Every client's onboarding stage on one live board — nothing slips.</p></div></div></div></section><section class="sec" id="how">
+  <div class="wrap center">
+    <div class="eyebrow rv">// how it works</div>
+    <h2 class="rv d1">Five steps, kickoff to live.</h2>
+    <div class="steps"><div class="step rv"><span class="sn">01</span><div style="width:40px;height:40px;border-radius:11px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);margin:0 0 14px"><span style="display:grid;place-items:center;width:19px;height:19px;color:var(--violet-l)"><svg viewBox="0 0 24 24" style="width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div><h3>New client signs</h3><p>The handoff that usually gets messy — caught the moment it happens.</p></div><div class="step rv"><span class="sn">02</span><div style="width:40px;height:40px;border-radius:11px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);margin:0 0 14px"><span style="display:grid;place-items:center;width:19px;height:19px;color:var(--violet-l)"><svg viewBox="0 0 24 24" style="width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span></div><h3>Branded intake fires</h3><p>A form collects their documents and details, built to your process.</p></div><div class="step rv"><span class="sn">03</span><div style="width:40px;height:40px;border-radius:11px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);margin:0 0 14px"><span style="display:grid;place-items:center;width:19px;height:19px;color:var(--violet-l)"><svg viewBox="0 0 24 24" style="width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span></div><h3>Welcome drafted</h3><p>Welcome + step emails in your voice, queued for your approval.</p></div><div class="step rv"><span class="sn">04</span><div style="width:40px;height:40px;border-radius:11px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);margin:0 0 14px"><span style="display:grid;place-items:center;width:19px;height:19px;color:var(--violet-l)"><svg viewBox="0 0 24 24" style="width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></span></div><h3>Kickoff scheduled</h3><p>Their kickoff call wired into your calendar tool, automatically.</p></div></div></div></section><section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">// a day in the life</div>
+    <h2 class="rv d1">Before vs. with Efficio.</h2>
+    <div class="vs rv d1">
+      <div class="col old"><h3>The manual way</h3><ul><li>Every new client gets a different, improvised welcome</li><li>Documents trickle in late; setup stalls and clients go quiet</li><li>No one can say which client is stuck at which step</li></ul></div>
+      <div class="col eff"><h3>With the Onboarding team</h3><ul><li>Every client gets the same polished welcome, automatically</li><li>Intake and documents collected through one branded form</li><li>A board showing exactly where each new client stands</li></ul></div>
+    </div></div></section><section class="band">
+  <div class="wrap">
+    <div class="band-lbl rv">// plugs into your stack</div>
+    <div class="chips rv d1"><span class="chip"><span class="cdot"></span>Your intake / onboarding tools</span><span class="chip"><span class="cdot"></span>Your scheduling tools</span><span class="chip"><span class="cdot"></span>Your e-sign + payment tools</span><span class="chip"><span class="cdot"></span>Your branded /c/ dashboard</span></div>
+  </div>
+</section><section class="sec">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the math vs. hiring</div>
+    <h2 class="rv d1">A team, not a hire.</h2>
+    <p class="lede rv d1">A human onboarding specialist runs <b>$45–65K/yr</b> before benefits, taxes, training, turnover, and ramp.</p><div class="stats rv d2"><div class="stat"><div class="n">$45–65K</div><div class="l">human specialist / yr</div></div><div class="stat"><div class="n">from $997</div><div class="l">per month, built-to-order</div></div><div class="stat"><div class="n">7</div><div class="l">days to live</div></div></div></div></section><section class="cta rv">
+  <div class="prompt">$ efficio hire --onboarding<span class="cur"></span></div>
+  <h2>Have us build your Onboarding team.</h2>
+  <p>Sixty seconds to qualify. We name the workflow we'd ship and the metric we'll move — then it's live in 7 days.</p>
+  <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
+        <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
+  </div>
 </footer>
-
-<script src="/assets/transitions.js" defer></script>
+<!-- LIVE AGENTS — bottom-docked popup -->
+<div id="liveops" aria-label="Live agent activity">
+  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
+    <span class="pdot" aria-hidden="true"></span>
+    <span class="vlabel">Live agents &middot; <b id="loCount">6</b> online</span>
+    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
+    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
+  </button>
+  <div class="lo-panel" id="loPanel">
+    <div class="lo-inner">
+      <div class="lo-h">
+        <span class="pdot" aria-hidden="true"></span>
+        <b>Agents working now</b>
+        <span class="cnt">live &middot; demo</span>
+        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="lo-feed" id="loFeed"></div>
+      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
+    </div>
+  </div>
+</div>
+<script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

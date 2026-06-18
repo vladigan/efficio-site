@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script src="/assets/pixels.js"></script>
-<title>Efficio — Not a hire. A team.</title>
-<meta name="description" content="An always-on AI workforce that lives inside the apps you already use. @mention it like a teammate — it answers, books, quotes, and follows up. Built on Claude, connected by MCP + API. Live in 7 days. Pay only if it works." />
-<link rel="canonical" href="https://efficio.tech/"/>
-<meta property="og:title" content="Efficio — Not a hire. A team."/>
-<meta property="og:description" content="An always-on AI workforce that lives inside your apps. Built on Claude."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://efficio.tech/"/>
-<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
-<meta property="og:site_name" content="Efficio"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Efficio — Not a hire. A team."/>
-<meta name="twitter:description" content="An always-on AI workforce that lives inside your apps. Built on Claude."/>
-<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
-<script>document.documentElement.className='js';</script>
-<style>
+/* Efficio v6 design system — shared. Extracted from homepage (fix/homepage-v6-eng @127925b). */
 :root{
   --violet:#7C4DFF;--violet-l:#9a7bff;--violet-xl:#c3b0ff;--violet-d:#6a36f0;
   --bg:#06060b;--bg2:#0a0a12;--panel:#0d0d17;--panel2:#11111d;
@@ -453,453 +426,75 @@ footer{padding-bottom:96px}
   html.js .rv{opacity:1;transform:none}
   .live::after,#liveops .lo-tab .pdot::after{display:none}
 }
-</style>
-</head>
-<body>
 
-<div class="scrollbar" id="scrollbar"></div>
+/* ───────────────────────── v6 INNER-PAGE HELPERS ───────────────────────── */
+/* page hero (clears fixed nav) */
+.phero{padding:150px 24px 46px;text-align:center;position:relative}
+@media(max-width:560px){.phero{padding:120px 20px 34px}}
+.phero .eyebrow{margin-bottom:16px}
+.phero h1{font-size:clamp(2.5rem,6.4vw,4.6rem);font-weight:800;letter-spacing:-.045em;line-height:1.0;color:#fff;margin:0 auto 20px;max-width:16ch}
+.phero h1 .grad{background:linear-gradient(110deg,#fff 8%,var(--violet-xl) 42%,var(--violet-l) 64%,var(--violet) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s ease-in-out infinite}
+.phero .sub{font-size:clamp(1.05rem,2.1vw,1.3rem);font-weight:500;color:var(--ink2);line-height:1.5;max-width:40ch;margin:0 auto 30px}
+.phero .hero-cta{display:flex;gap:13px;flex-wrap:wrap;align-items:center;justify-content:center}
+.phero .guarantee{margin-left:auto;margin-right:auto}
+/* generic two-col split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.split.rev>*:first-child{order:2}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:34px}.split.rev>*:first-child{order:0}}
+.split h2{text-align:left;margin:0 0 14px;max-width:none}
+.split .lede{text-align:left;margin:0 0 22px}
+/* checkmark feature list */
+.flist{list-style:none;display:flex;flex-direction:column;gap:13px;margin:0;padding:0;text-align:left}
+.flist li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;font-weight:500;color:var(--ink2);line-height:1.5}
+.flist li::before{content:"";flex-shrink:0;width:22px;height:22px;margin-top:1px;border-radius:7px;
+  background:rgba(86,216,160,.14);border:1px solid rgba(86,216,160,.34);
+  background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356d8a0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M4 12.5l5 5 11-11'/></svg>");background-size:13px;background-position:center;background-repeat:no-repeat}
+.flist li b{color:#fff;font-weight:700}
+/* numbered steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(40px,6vh,64px)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:26px 22px;text-align:left;overflow:hidden;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s}
+.step:hover{transform:translateY(-5px);border-color:rgba(124,77,255,.4);box-shadow:0 28px 60px -32px rgba(124,77,255,.5)}
+.step .sn{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--violet-l);margin-bottom:14px;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.25)}
+.step h3{font-size:1.04rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
+.step p{font-size:13px;font-weight:500;color:var(--muted);line-height:1.5;margin:0}
+/* generic comparison: the old way vs Efficio */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,6vh,64px);text-align:left}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+.vs .col{background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:28px 26px;overflow:hidden;position:relative}
+.vs .col.old{opacity:.92}
+.vs .col.eff{border-color:rgba(124,77,255,.5);box-shadow:0 0 0 1px rgba(124,77,255,.2),0 26px 60px -30px rgba(124,77,255,.5)}
+.vs .col h3{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;margin:0 0 16px;color:#fff}
+.vs .col.old h3{color:var(--muted)}
+.vs ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:0;padding:0}
+.vs li{display:flex;gap:11px;font-size:14px;font-weight:500;line-height:1.5}
+.vs .col.old li{color:var(--muted)}
+.vs .col.old li::before{content:"✕";color:var(--red);font-weight:700;flex-shrink:0}
+.vs .col.eff li{color:var(--ink2)}
+.vs .col.eff li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
+/* simple FAQ */
+.faq{max-width:760px;margin:clamp(36px,5vh,56px) auto 0;text-align:left;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:4px 20px;transition:border-color .2s}
+.faq details[open]{border-color:rgba(124,77,255,.4)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-size:15px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--violet-l);font-size:20px;font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{font-size:14px;font-weight:500;color:var(--muted);line-height:1.6;margin:0 0 16px;max-width:none;text-align:left}
+/* pill subnav for agent pages / breadcrumbs */
+.pill-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--violet-l);padding:7px 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(124,77,255,.06);transition:background .2s,border-color .2s}
+.pill-back:hover{background:rgba(124,77,255,.14);border-color:rgba(124,77,255,.4)}
+/* generic stat row reused via .stats/.stat already defined */
 
-<div class="bgfx" aria-hidden="true">
-  <div class="grid"></div>
-  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
-  <div class="noise"></div>
-</div>
-
-<nav class="nav" id="nav"><div class="nav-in">
-  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
-  <div class="nav-mid">
-    <a href="/services.html">Services</a>
-    <a href="#build">How it works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="/agents.html">AI teams</a>
-  </div>
-  <a href="https://go.efficio.tech/" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
-</div></nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="status-pill"><span class="live"></span>built on Claude · connected by MCP</div>
-      <h1>Not a hire.<br><span class="grad">A team.</span></h1>
-      <p class="sub">An always-on AI workforce that lives inside the apps you already use — built and working in 7 days.</p>
-      <div class="hero-cta">
-        <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
-        <a href="#build" class="btn-outline lg">See how it works</a>
-      </div>
-      <div class="guarantee">
-        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
-        <span class="gtxt">
-          <span class="gt">Pay only if it works.</span>
-          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
-        </span>
-      </div>
-    </div>
-    <div class="term" id="heroTerm">
-      <div class="term-bar">
-        <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-        <span class="term-title">efficio — agent session</span>
-        <span class="term-stat" id="heroStat"><span class="pulse"></span>building</span>
-      </div>
-      <div class="term-prog"><i id="heroProg"></i></div>
-      <div class="term-body" id="termBody"></div>
-    </div>
-  </div>
-</header>
-
-<!-- WORKS-WITH BAND -->
-<section class="band">
-  <div class="wrap">
-    <div class="band-lbl">// plugs into the tools you already use</div>
-    <div class="chips">
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Email<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-1.2 4.4L21 21l-5.3-1.2A8.5 8.5 0 1121 11.5z"/></svg>Chat<span class="cdot"></span></span>
-    </div>
-  </div>
-</section>
-
-<!-- DIFFERENTIATOR -->
-<section class="sec" id="apps">
-  <div class="wrap center">
-    <div class="eyebrow rv">// lives inside your apps</div>
-    <h2 class="rv d1">@mention it like a teammate.</h2>
-    <p class="lede rv d1">It already has your tools. Just ask.</p>
-    <div class="chat-wrap rv d2">
-      <span class="float f1"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-1.2 4.4L21 21l-5.3-1.2A8.5 8.5 0 1121 11.5z"/></svg>Chat</span>
-      <span class="float f2"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar</span>
-      <span class="float f3"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM</span>
-      <span class="float f4"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments</span>
-      <div class="term chat" id="chatTerm">
-        <div class="term-bar">
-          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-          <span class="term-title">#front-desk</span>
-          <span class="term-stat"><span class="pulse"></span>online</span>
-        </div>
-        <div class="term-body" id="chatBody">
-          <div class="cmsg u"><div class="ava">YO</div><div><div class="who">you</div><div class="bub"><span class="mention">@Efficio</span> a call just came in after hours — book them in.</div></div></div>
-          <div class="cmsg b"><div class="ava">E</div><div><div class="who">efficio</div><div class="bub">Booked <b>Thu 10:00 AM</b> <span class="ok">&#x2713; done</span> — texted confirmation, logged to the CRM.</div></div></div>
-          <div class="cmsg u"><div class="ava">YO</div><div><div class="who">you</div><div class="bub"><span class="mention">@Efficio</span> send the Johnson quote.</div></div></div>
-          <div class="cmsg b"><div class="ava">E</div><div><div class="who">efficio</div><div class="bub">Sent a <b>$3,180</b> itemized quote <span class="ok">&#x2713; done</span> — I'll follow up in 2 days if it's quiet.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW WE BUILD IT -->
-<section class="sec" id="build">
-  <div class="wrap center">
-    <div class="eyebrow rv">// how we build it</div>
-    <h2 class="rv d1">Your apps, wired to a workforce.</h2>
-    <p class="lede rv d1">Connected by <b>MCP + API</b>. Powered by <b>Claude</b>.</p>
-    <div class="arch rv d2" role="img" aria-label="Your apps connect through MCP and API to Claude-powered agents, which get the work done.">
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M4 5h7v7H4zM13 5h7v4h-7zM13 12h7v7h-7zM4 14h7v5H4z"/></svg></div><div class="flab">your apps</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 6l-4 12"/></svg></div><div class="flab">MCP &middot; API</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg core"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 014 4 4 4 0 010 8 4 4 0 01-8 0 4 4 0 010-8 4 4 0 014-4zM12 3v18"/></svg></div><div class="flab">Claude agents</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><div class="flab">work done</div></div>
-    </div>
-    <div class="callwrap rv d2">
-      <div class="term">
-        <div class="term-bar">
-          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-          <span class="term-title">agent.handler.ts — generating</span>
-          <span class="term-stat" id="callStat"><span class="pulse"></span>writing</span>
-        </div>
-        <div class="term-body" id="callBody"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IT OWNS -->
-<section class="sec">
-  <div class="wrap center">
-    <div class="eyebrow rv">// what it owns</div>
-    <h2 class="rv d1">A team for every job.</h2>
-    <p class="lede rv d1">And if you can describe it, <b>we build it</b> — your imagination is the only limit.</p>
-    <div class="cards">
-      <a href="/agents.html" class="card rv"><span class="tag">reception/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
-        <h3>Reception</h3><p>Answers every call, books the job.</p><span class="go">explore &rarr;</span>
-      </a>
-      <a href="/agents.html" class="card rv d1"><span class="tag">sales/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/></svg></div>
-        <h3>Sales</h3><p>Quotes, follow-ups, pipeline.</p><span class="go">explore &rarr;</span>
-      </a>
-      <a href="/agents.html" class="card rv d2"><span class="tag">office/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
-        <h3>Office</h3><p>Inbox triaged, replies drafted.</p><span class="go">explore &rarr;</span>
-      </a>
-      <a href="/agents.html" class="card rv"><span class="tag">books/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6zM15 3v5h5M9 13h6M9 17h4"/></svg></div>
-        <h3>Books</h3><p>Reconciled daily, AR chased.</p><span class="go">explore &rarr;</span>
-      </a>
-      <a href="/agents.html" class="card rv d1"><span class="tag">marketing/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-3-7-8-4z"/></svg></div>
-        <h3>Marketing</h3><p>Content and campaigns, shipped.</p><span class="go">explore &rarr;</span>
-      </a>
-      <a href="https://go.efficio.tech/" class="card imagine rv d2"><span class="tag">custom/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
-        <h3>Anything else</h3><p>Describe the workflow. We engineer it.</p><span class="go">build yours &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- OFFER -->
-<section class="sec">
-  <div class="wrap center">
-    <div class="eyebrow rv">// the offer</div>
-    <h2 class="rv d1">Nothing to lose.</h2>
-    <div class="stats rv d2">
-      <div class="stat"><div class="n">7</div><div class="l">days to live</div></div>
-      <div class="stat"><div class="n">$0</div><div class="l">upfront</div></div>
-      <div class="stat"><div class="n">&#x2713;</div><div class="l">pay only if it works</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="sec" id="pricing">
-  <div class="wrap center">
-    <div class="eyebrow rv">// pricing</div>
-    <h2 class="rv d1">Start anywhere.</h2>
-    <div class="prices rv d2">
-      <div class="price">
-        <div class="pn">Starter</div><div class="pp">$497<span> /mo</span></div>
-        <div class="pd">Website + your first automation.</div>
-        <a href="https://buy.stripe.com/9B66oJffT1Dq2l43p4dQQ0i" class="pb" target="_blank" rel="noopener">Select</a>
-      </div>
-      <div class="price">
-        <div class="pn">AI Specialist</div><div class="pp">$997<span> /mo</span></div>
-        <div class="pd">One AI team, end-to-end.</div>
-        <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="pb" target="_blank" rel="noopener">Select</a>
-      </div>
-      <div class="price feat">
-        <div class="badge">Most popular</div>
-        <div class="pn">AI Team</div><div class="pp">$2,500<span> /mo</span></div>
-        <div class="pd">Front + back office together.</div>
-        <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="pb" target="_blank" rel="noopener">Select</a>
-      </div>
-      <div class="price">
-        <div class="pn">AI Department</div><div class="pp">$3,500<span> /mo</span></div>
-        <div class="pd">Every team + unlimited builds.</div>
-        <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="pb" target="_blank" rel="noopener">Select</a>
-      </div>
-    </div>
-    <p class="pnote rv">Not sure? <a href="https://go.efficio.tech/">Take the 60-second audit</a>.</p>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta rv">
-  <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Hire your AI team.</h2>
-  <p>Sixty seconds to see where it fits. No deck, no homework.</p>
-  <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="fgrid">
-      <div class="fbrand">
-        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
-      </div>
-      <div class="fcol"><h5>Product</h5>
-        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
-        <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-      </div>
-      <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
-      </div>
-    </div>
-    <div class="fbot">
-      <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
-    </div>
-  </div>
-</footer>
-
-<!-- LIVE AGENTS — bottom-docked popup -->
-<div id="liveops" aria-label="Live agent activity">
-  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
-    <span class="pdot" aria-hidden="true"></span>
-    <span class="vlabel">Live agents · <b id="loCount">6</b> online</span>
-    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
-    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
-  </button>
-  <div class="lo-panel" id="loPanel">
-    <div class="lo-inner">
-      <div class="lo-h">
-        <span class="pdot" aria-hidden="true"></span>
-        <b>Agents working now</b>
-        <span class="cnt">live · demo</span>
-        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="lo-feed" id="loFeed"></div>
-      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* scroll progress + nav state */
-  var bar=document.getElementById('scrollbar'), nav=document.getElementById('nav'), ticking=false;
-  function onScroll(){
-    if(ticking) return; ticking=true;
-    requestAnimationFrame(function(){
-      var h=document.documentElement, max=(h.scrollHeight-h.clientHeight)||1;
-      bar.style.width=(h.scrollTop/max*100)+'%';
-      nav.classList.toggle('scrolled', h.scrollTop>20);
-      ticking=false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  /* scroll reveal */
-  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
-
-  /* spotlight cursor tracking on cards + price tiles */
-  if(!reduce && window.matchMedia('(pointer:fine)').matches){
-    document.querySelectorAll('.card,.price').forEach(function(el){
-      el.addEventListener('pointermove', function(e){
-        var r=el.getBoundingClientRect();
-        el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-        el.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-      });
-    });
-  }
-
-  /* terminal engine (supports raw-HTML highlighted lines) */
-  function Terminal(el, frames, opt){
-    opt = opt || {};
-    var loop = opt.loop !== false, pauseEnd = opt.pauseEnd || 2800, speed = opt.speed || 22;
-    function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-    function addLine(cls, html){var d=document.createElement('div');d.className='ln'+(cls?(' '+cls):'');d.innerHTML=html;el.appendChild(d);el.scrollTop=el.scrollHeight;return d;}
-    function cursor(node){var c=document.createElement('span');c.className='cur';node.appendChild(c);return c;}
-    function run(){
-      el.innerHTML=''; var i=0;
-      function next(){
-        if(i>=frames.length){ if(loop){ setTimeout(run, pauseEnd); } return; }
-        var f=frames[i++];
-        if(f.do){ f.do(); }
-        if(f.t==='sp'){ addLine('','&nbsp;'); setTimeout(next, 110); return; }
-        if(f.t==='p'){
-          var line=addLine('pr',''); var cur=cursor(line); var txt=f.s, k=0;
-          (function tick(){
-            if(k<=txt.length){ line.textContent=txt.slice(0,k); line.appendChild(cur); k++; setTimeout(tick, speed); }
-            else { line.appendChild(cur); setTimeout(function(){ if(cur.parentNode)cur.parentNode.removeChild(cur); next(); }, f.after||320); }
-          })();
-          return;
-        }
-        addLine(f.c||'', f.html ? f.s : esc(f.s));
-        setTimeout(next, f.after||(reduce?50:200));
-      }
-      next();
-    }
-    return {run:run};
-  }
-
-  /* hero session: provision -> connect -> operate, with status + progress */
-  var heroStat=document.getElementById('heroStat'), heroProg=document.getElementById('heroProg');
-  function setStat(el,txt,color){ if(!el) return;
-    var lbl=el.querySelector('.lbl');
-    if(!lbl){ el.innerHTML='<span class="pulse"></span><span class="lbl">'+txt+'</span>'; if(color) el.style.color=color; return; }
-    if(reduce){ lbl.textContent=txt; if(color) el.style.color=color; return; }
-    lbl.style.opacity='0';
-    setTimeout(function(){ lbl.textContent=txt; if(color) el.style.color=color; lbl.style.opacity='1'; }, 190);
-  }
-  function prog(p){ if(heroProg) heroProg.style.width=p+'%'; }
-
-  var heroFrames=[
-    {t:'p', s:'efficio build --agent receptionist', do:function(){setStat(heroStat,'building','var(--violet-l)');prog(8);}},
-    {t:'o', c:'cm',  s:'# provisioning Claude agent...', after:260},
-    {t:'o', c:'ok',  s:'✓ workspace authenticated', do:function(){prog(22);}},
-    {t:'o', c:'dim', s:'connecting servers...', do:function(){setStat(heroStat,'deploying','var(--cyan)');}},
-    {t:'o', c:'ar',  s:'→ gmail        connected', do:function(){prog(38);}},
-    {t:'o', c:'ar',  s:'→ calendar     connected', do:function(){prog(52);}},
-    {t:'o', c:'ar',  s:'→ crm          connected', do:function(){prog(66);}},
-    {t:'o', c:'ar',  s:'→ stripe       connected', do:function(){prog(80);}},
-    {t:'o', c:'ok',  s:'✓ Claude agents online · 6', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
-    {t:'sp'},
-    {t:'p', s:'# after-hours call · (305) 555-0148'},
-    {t:'o', c:'ar',  s:'→ booking job · Thu 10:00 AM'},
-    {t:'o', c:'ok',  s:'✓ confirmation texted · logged to CRM'},
-    {t:'o', c:'ar',  s:'→ quote · Johnson · $3,180 sent'},
-    {t:'o', c:'ok',  s:'✓ follow-up scheduled +2d', after:480},
-    {t:'sp'},
-    {t:'o', c:'lv',  s:'● all systems operational'}
-  ];
-
-  /* build section: watch a handler being written line-by-line, then deployed */
-  var callStat=document.getElementById('callStat');
-  var codeLines=[
-    '<span class="kw">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fn">onCall</span>(c) {',
-    '  <span class="kw">const</span> slot = <span class="kw">await</span> <span class="fn">calendar.book</span>(c)',
-    '  <span class="kw">await</span> <span class="fn">sms.send</span>(c.from, slot.<span class="fn">confirm</span>)',
-    '  <span class="kw">await</span> <span class="fn">crm.log</span>({ lead: c, slot, src: <span class="st">&quot;after-hours&quot;</span> })',
-    '  <span class="kw">return</span> { booked: <span class="nu">true</span>, at: slot.time }',
-    '}'
-  ];
-  function buildCodegen(el){
-    return { run:function run(){
-      el.innerHTML=''; setStat(callStat,'writing','var(--violet-l)');
-      var i=0;
-      (function step(){
-        if(i>=codeLines.length){
-          var d=document.createElement('div'); d.className='ln ok'; d.style.marginTop='8px';
-          d.innerHTML='✓ deployed to your stack · 1.2s';
-          el.appendChild(d); setStat(callStat,'deployed','var(--green)');
-          if(!reduce) setTimeout(run, 3400);
-          return;
-        }
-        var row=document.createElement('div'); row.className='cgline';
-        row.innerHTML='<span class="gut">'+(i+1)+'</span><span class="code">'+codeLines[i]+'</span>';
-        el.appendChild(row); el.scrollTop=el.scrollHeight; i++;
-        setTimeout(step, reduce?40:260);
-      })();
-    }};
-  }
-
-  function startOnView(elId, maker){
-    var el=document.getElementById(elId); if(!el) return;
-    var term=maker(el);
-    if(reduce){ term.run(); return; }
-    var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ term.run(); obs.disconnect(); }});},{threshold:.3});
-    obs.observe(el.closest('.term')||el);
-  }
-  startOnView('termBody', function(el){ return Terminal(el, heroFrames, {loop:true, pauseEnd:3600, speed:20}); });
-  startOnView('callBody', function(el){ return buildCodegen(el); });
-
-  /* chat sequential reveal */
-  (function(){
-    var body=document.getElementById('chatBody'); if(!body) return;
-    var msgs=body.querySelectorAll('.cmsg');
-    function play(){
-      msgs.forEach(function(m,idx){ setTimeout(function(){ m.classList.add('show'); }, reduce?0:(idx*820+260)); });
-    }
-    var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ play(); obs.disconnect(); }});},{threshold:.3});
-    obs.observe(body);
-  })();
-
-  /* LIVE AGENTS popup */
-  (function(){
-    var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
-        feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
-        preview=document.getElementById('loPreview'),wrap=document.getElementById('liveops');
-    if(!tab||!feed||!wrap) return;
-    function setOpen(o){ wrap.classList.toggle('open',o); tab.setAttribute('aria-expanded',o?'true':'false');
-      try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){} }
-    tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
-    close.addEventListener('click',function(e){e.stopPropagation();setOpen(false);});
-
-    var POOL=[
-     {ag:'AI Receptionist',    txt:'answered 3 inbound calls before staff arrived', meta:'calls captured'},
-     {ag:'AI Sales Navigator', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
-     {ag:'AI Office Manager',  txt:'sorted 41 messages, drafted 14, flagged 2 urgent', meta:'owner inbox time'},
-     {ag:'AI Bookkeeper',      txt:'cleared $2,400 of overdue AR — 4 invoices paid', meta:'close-the-books speed'},
-     {ag:'AI Receptionist',    txt:'filled a cancellation in 14 min',               meta:'calendar gap time'},
-     {ag:'AI Office Manager',  txt:'sent a review request after a 5-star job',       meta:'review rate'},
-     {ag:'AI Sales Navigator', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
-     {ag:'AI Office Manager',  txt:'compiled tomorrow’s briefing in 6 lines',   meta:'morning prep time'},
-     {ag:'AI Bookkeeper',      txt:'reconciled today’s Stripe + bank — $0 drift', meta:'reconciliation accuracy'},
-     {ag:'AI Receptionist',    txt:'drafted a "running late" text — sent in 0.4s', meta:'comms latency'},
-     {ag:'AI Marketing',       txt:'shipped a 3-email win-back campaign',            meta:'pipeline revived'},
-     {ag:'AI Office Manager',  txt:'chased 4 outstanding documents — 3 came back', meta:'docs-returned rate'}
-    ];
-    var pi=0;
-    function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-    function push(){
-      var x=POOL[pi%POOL.length];pi++;
-      var n=document.createElement('div');n.className='lo-item';
-      n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time><span class="ag">'+x.ag+'</span> '+x.txt;
-      feed.insertBefore(n,feed.firstChild);
-      while(feed.children.length>14) feed.removeChild(feed.lastChild);
-      if(preview){ preview.style.opacity='0';
-        setTimeout(function(){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; preview.style.opacity='1'; }, reduce?0:200); }
-    }
-    for(var i=0;i<4;i++) push();
-    if(!reduce){ setInterval(push,8000); }
-    try{ setOpen(localStorage.getItem('efficio_liveops_open')==='1'); }catch(e){ setOpen(false); }
-  })();
-})();
-</script>
-<script src="/assets/chat.js" defer></script>
-</body>
-</html>
+/* comparison / feature matrix table */
+.vtable{width:100%;border-collapse:collapse;min-width:540px;text-align:left;font-size:13.5px}
+.vtable th,.vtable td{padding:13px 14px;border-bottom:1px solid var(--line)}
+.vtable thead th{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--line2)}
+.vtable thead th.hot{color:var(--violet-l)}
+.vtable tbody td:first-child{color:var(--ink2);font-weight:600}
+.vtable tbody td{color:var(--muted);text-align:center}
+.vtable tbody td:first-child{text-align:left}
+.vtable td.y{color:var(--green);font-weight:700}
+.vtable td.p{color:var(--violet-l);font-family:var(--mono);font-size:11px;font-weight:600}
+.vtable tbody tr:hover td{background:rgba(124,77,255,.04)}

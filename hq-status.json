@@ -1,0 +1,105 @@
+{
+  "$schema_version": "1.0",
+  "_comment": "Efficio HQ — internal agent fleet status. This is the SAMPLE/seed feed. The dashboard (hq.html) fetches this file on load and re-polls it every poll_interval_seconds. To go live, replace this static file with a real endpoint that each Hermes agent on the VPS writes to (see HQ_MAKE_IT_LIVE.md). Keep the same shape. 'verification' MUST be honest: 'verified-live' only when the value is confirmed by a real signal; otherwise 'awaiting-feed'.",
+  "generated_at": "2026-06-19T14:30:00Z",
+  "source": "static-config",
+  "poll_interval_seconds": 30,
+  "fleet": {
+    "host": "Hetzner VPS (Hermes framework)",
+    "heartbeat_endpoint": null,
+    "note": "No live heartbeat endpoint wired yet. Statuses below are from this session's audits, not a real-time feed. 'awaiting-feed' agents will turn green automatically once the VPS starts writing this file."
+  },
+  "stats": {
+    "agents_tracked": 6,
+    "verified_live": 3,
+    "needs_attention": 1,
+    "tasks_logged_24h": 24,
+    "last_updated": "2026-06-19T14:30:00Z"
+  },
+  "agents": [
+    {
+      "id": "inbox-monitor",
+      "name": "Inbox Monitor",
+      "role": "ops/inbox",
+      "status": "active",
+      "verification": "verified-live",
+      "current_task": "Hourly Gmail summary delivered — inbox healthy, 0 bounces",
+      "last_run": "2026-06-19T14:00:00Z",
+      "metrics": { "summaries_today": 14, "bounces": 0, "uptime": "healthy" },
+      "log": [
+        { "t": "2026-06-19T14:00:00Z", "text": "Hourly inbox summary sent — 0 bounces" },
+        { "t": "2026-06-19T13:00:00Z", "text": "Hourly inbox summary sent — 0 bounces" },
+        { "t": "2026-06-19T12:00:00Z", "text": "Flagged 1 reply needing attention, summarized rest" }
+      ]
+    },
+    {
+      "id": "lead-chat",
+      "name": "Lead-Capture Chat",
+      "role": "web/cloudflare",
+      "status": "active",
+      "verification": "verified-live",
+      "current_task": "Cloudflare Worker deployed — answering site chats & capturing leads",
+      "last_run": "2026-06-19T14:25:00Z",
+      "metrics": { "worker": "deployed", "endpoint": "live" },
+      "log": [
+        { "t": "2026-06-19T14:25:00Z", "text": "Worker responding to site chat requests" },
+        { "t": "2026-06-18T10:00:00Z", "text": "Chat + lead-capture Worker deployed to Cloudflare" }
+      ]
+    },
+    {
+      "id": "marketing-social",
+      "name": "Marketing / Social Coordinator",
+      "role": "marketing/social",
+      "status": "active",
+      "verification": "verified-live",
+      "current_task": "FB + LinkedIn posts scheduled through mid-July (via GoHighLevel)",
+      "last_run": "2026-06-19T09:00:00Z",
+      "metrics": { "channels": 2, "scheduled_through": "2026-07-14", "platform": "GHL" },
+      "log": [
+        { "t": "2026-06-19T09:00:00Z", "text": "Confirmed FB + LinkedIn queue filled through Jul 14" },
+        { "t": "2026-06-17T15:00:00Z", "text": "Scheduled social posts in GHL across both channels" }
+      ]
+    },
+    {
+      "id": "outreach-emailer",
+      "name": "Sales Navigator / Outreach Emailer",
+      "role": "outreach/email",
+      "status": "needs-attention",
+      "verification": "awaiting-feed",
+      "current_task": "Paused — last real send 6/16 bounced (2/2); no campaign sending verified",
+      "last_run": "2026-06-16T00:00:00Z",
+      "metrics": { "last_send": "2026-06-16", "bounces": 2, "delivered": 0, "campaigns_verified": 0 },
+      "log": [
+        { "t": "2026-06-16T00:00:00Z", "text": "Last real send — 2/2 bounced. Held pending deliverability fix" }
+      ]
+    },
+    {
+      "id": "build-web",
+      "name": "Site & Dashboard Builder",
+      "role": "build/web",
+      "status": "working",
+      "verification": "verified-live",
+      "current_task": "Shipped v6 site + this Efficio HQ command center",
+      "last_run": "2026-06-19T14:30:00Z",
+      "metrics": { "shipped": "v6 site + HQ dashboard" },
+      "log": [
+        { "t": "2026-06-19T14:30:00Z", "text": "Built Efficio HQ internal command center (hq.html)" },
+        { "t": "2026-06-18T01:40:00Z", "text": "Shipped v6 homepage rollout" }
+      ]
+    },
+    {
+      "id": "deliverability",
+      "name": "Deliverability & Ads Prep",
+      "role": "ops/email-health",
+      "status": "idle",
+      "verification": "awaiting-feed",
+      "current_task": "Deliverability remediation plan + paid-ads pack prepared; awaiting go-live",
+      "last_run": "2026-06-16T12:14:00Z",
+      "metrics": { "ad_pack": "ready", "deliverability_plan": "drafted" },
+      "log": [
+        { "t": "2026-06-16T12:14:00Z", "text": "Paid-ads readiness + go-live plan drafted" },
+        { "t": "2026-06-16T12:00:00Z", "text": "Drafted SPF/DKIM/DMARC remediation plan for outreach" }
+      ]
+    }
+  ]
+}

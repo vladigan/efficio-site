@@ -291,8 +291,8 @@ a:hover .arr{transform:translateX(4px)}
 @media(max-width:900px){.prices{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.prices{grid-template-columns:1fr}}
 .price{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:28px 22px;text-align:left;
-  display:flex;flex-direction:column;overflow:hidden;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s}
-.price::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;
+  display:flex;flex-direction:column;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s}
+.price::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;border-radius:inherit;overflow:hidden;
   background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(124,77,255,.14),transparent 60%)}
 .price:hover{transform:translateY(-6px);border-color:var(--line2);box-shadow:0 28px 60px -32px rgba(0,0,0,.9)}
 .price:hover::before{opacity:1}

@@ -508,6 +508,14 @@ footer{padding-bottom:96px}
   .sc-grid .sc-card:nth-child(n+3){display:none}
   .sc-fade{height:96px}
 }
+
+/* ===== SEE IT IN ACTION — interactive embed ===== */
+.showcase .sc-frameWrap{position:relative;margin:40px auto 0;max-width:1040px;border-radius:var(--r2);
+  overflow:hidden;border:1px solid var(--line2);box-shadow:var(--glow),var(--soft);
+  background:linear-gradient(180deg,var(--panel) 0%,var(--bg2) 100%)}
+.showcase .sc-frame{display:block;width:100%;height:clamp(560px,80vh,860px);border:0;background:transparent}
+.showcase .sc-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2}
+@media(max-width:760px){.showcase .sc-frame{height:74vh;min-height:520px}}
 </style>
 </head>
 <body>
@@ -656,55 +664,12 @@ footer{padding-bottom:96px}
     <h2 class="rv d1">Watch your AI team work.</h2>
     <p class="lede rv d1">A live command center: deploy agents, see what each one is doing, and watch the work land in real time. <b>Open it and poke at anything.</b></p>
     <div class="sc-wrap rv d2">
-      <a class="sc-panel" href="/demo.html" aria-label="Open the live Efficio command center demo">
-        <div class="sc-bar">
-          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-          <span class="sc-title">efficio &middot; command center</span>
-          <span class="sc-stat"><span class="pulse"></span>live</span>
-        </div>
-        <div class="sc-stats">
-          <div class="st"><div class="sl"><span class="live"></span>agents online</div><div class="sn g">5</div></div>
-          <div class="st"><div class="sl">tasks today</div><div class="sn">128</div></div>
-          <div class="st"><div class="sl">revenue recovered</div><div class="sn c">$14.2k</div></div>
-          <div class="st"><div class="sl">hours saved</div><div class="sn v">37</div></div>
-        </div>
-        <div class="sc-grid">
-          <div class="sc-card">
-            <div class="ac-top">
-              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span>
-              <span class="sc-nm">AI Receptionist<span class="role">reception/</span></span>
-              <span class="sc-pill working">Working</span>
-            </div>
-            <div class="sc-task">Booking a Thursday estimate from a missed call.</div>
-          </div>
-          <div class="sc-card">
-            <div class="ac-top">
-              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/></svg></span>
-              <span class="sc-nm">AI Sales Navigator<span class="role">sales/</span></span>
-              <span class="sc-pill active">Active</span>
-            </div>
-            <div class="sc-task">Sending a follow-up quote to a warm lead.</div>
-          </div>
-          <div class="sc-card">
-            <div class="ac-top">
-              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span>
-              <span class="sc-nm">AI Inbox Manager<span class="role">office/</span></span>
-              <span class="sc-pill idle">Idle</span>
-            </div>
-            <div class="sc-task">Inbox triaged &mdash; waiting on the next reply.</div>
-          </div>
-        </div>
-        <div class="sc-feed">
-          <div class="fh"><span class="live"></span> live activity</div>
-          <div class="sc-line"><span class="t">09:41</span><span class="dot"></span>Booked a job for Thursday at 2:00 PM.</div>
-          <div class="sc-line"><span class="t">09:38</span><span class="dot"></span>Drafted and sent a $1,200 quote follow-up.</div>
-          <div class="sc-line"><span class="t">09:34</span><span class="dot"></span>Reconciled 9 transactions in the books.</div>
-        </div>
-        <div class="sc-fade"></div>
-        <span class="btn-primary lg sc-open">Open the live demo <span class="arr">&rarr;</span></span>
-      </a>
+      <div class="sc-frameWrap rv d2">
+        <iframe id="scDemoFrame" class="sc-frame" title="Efficio command center — live, interactive demo" loading="lazy"></iframe>
+        <a class="sc-fallback btn-primary lg" href="/demo.html">Open the live demo <span class="arr">&rarr;</span></a>
+      </div>
       <div class="sc-cta">
-        <a href="/demo.html" class="btn-outline lg">Explore the command center <span class="arr">&rarr;</span></a>
+        <a href="/demo.html" class="btn-outline lg">Open full demo <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -1023,5 +988,30 @@ footer{padding-bottom:96px}
 })();
 </script>
 <script src="/assets/chat.js" defer></script>
+<script>
+/* Inline interactive command-center demo: load demo-embed.html into an isolated iframe (srcdoc bypasses X-Frame-Options; full CSS/JS isolation). */
+(function(){
+  var f=document.getElementById('scDemoFrame');
+  if(!f) return;
+  var fb=document.querySelector('.sc-fallback');
+  function hide(){ if(fb) fb.style.display='none'; }
+  function show(){ if(fb) fb.style.display=''; }
+  hide();
+  var loaded=false;
+  function load(){
+    if(loaded) return; loaded=true;
+    fetch('/demo-embed.html',{cache:'no-cache'})
+      .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r.text(); })
+      .then(function(html){ f.srcdoc=html; })
+      .catch(function(){ loaded=false; show(); });
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      for(var k=0;k<es.length;k++){ if(es[k].isIntersecting){ io.disconnect(); load(); break; } }
+    },{rootMargin:'500px'});
+    io.observe(f);
+  } else { load(); }
+})();
+</script>
 </body>
 </html>

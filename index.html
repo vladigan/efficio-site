@@ -453,6 +453,61 @@ footer{padding-bottom:96px}
   html.js .rv{opacity:1;transform:none}
   .live::after,#liveops .lo-tab .pdot::after{display:none}
 }
+/* ===== SEE IT IN ACTION — demo showcase ===== */
+.showcase .sc-wrap{max-width:1040px;margin:0 auto}
+.sc-panel{position:relative;display:block;margin:40px auto 0;border-radius:var(--r2);
+  background:linear-gradient(180deg,var(--panel) 0%,var(--bg2) 100%);
+  border:1px solid var(--line2);box-shadow:var(--glow),var(--soft);overflow:hidden;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.sc-panel:hover{transform:translateY(-3px)}
+.sc-bar{display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.02)}
+.sc-bar .tdot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.sc-bar .tdot.r{background:#ff5f57}.sc-bar .tdot.y{background:#febc2e}.sc-bar .tdot.g{background:#28c840}
+.sc-title{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:6px}
+.sc-stat{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
+  font-size:11px;color:var(--green);font-weight:600}
+.sc-stat .pulse{width:7px;height:7px;border-radius:50%;background:currentColor;
+  box-shadow:0 0 8px currentColor;animation:stPulse 1.4s ease-in-out infinite}
+.sc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.sc-stats .st{background:var(--bg2);padding:16px 18px}
+.sc-stats .sl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted2);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.sc-stats .sn{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.03em;color:#fff;
+  font-variant-numeric:tabular-nums;line-height:1}
+.sc-stats .sn.g{color:var(--green)}.sc-stats .sn.c{color:var(--cyan)}.sc-stats .sn.v{color:var(--violet-l)}
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px}
+.sc-card{text-align:left;border:1px solid var(--line);border-radius:var(--r);
+  background:rgba(13,13,23,.66);padding:16px 16px 15px}
+.sc-card .ac-top{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.sc-av{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(124,77,255,.25),rgba(124,77,255,.08));border:1px solid var(--line2)}
+.sc-av svg{width:18px;height:18px;fill:none;stroke:var(--violet-xl);stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.sc-nm{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.2}
+.sc-nm .role{display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.sc-pill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0}
+.sc-pill.active{color:var(--green);background:rgba(86,216,160,.1);border:1px solid rgba(86,216,160,.25)}
+.sc-pill.working{color:var(--cyan);background:rgba(92,200,255,.1);border:1px solid rgba(92,200,255,.25)}
+.sc-pill.idle{color:var(--amber);background:rgba(232,194,117,.1);border:1px solid rgba(232,194,117,.22)}
+.sc-task{font-size:12.5px;color:var(--ink2);line-height:1.45}
+.sc-feed{border-top:1px solid var(--line);padding:14px 18px 16px;background:rgba(255,255,255,.015)}
+.sc-feed .fh{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.sc-line{display:flex;align-items:baseline;gap:10px;font-size:12.5px;color:var(--ink2);padding:3px 0}
+.sc-line .t{font-family:var(--mono);font-size:10.5px;color:var(--muted2);flex-shrink:0;min-width:42px}
+.sc-line .dot{width:5px;height:5px;border-radius:50%;background:var(--violet-l);flex-shrink:0;align-self:center}
+.sc-fade{position:absolute;left:0;right:0;bottom:0;height:128px;pointer-events:none;
+  background:linear-gradient(transparent,var(--bg) 92%)}
+.sc-open{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3}
+.showcase .sc-cta{margin-top:26px;display:flex;justify-content:center}
+@media(max-width:760px){
+  .sc-stats{grid-template-columns:repeat(2,1fr)}
+  .sc-grid{grid-template-columns:1fr}
+  .sc-grid .sc-card:nth-child(n+3){display:none}
+  .sc-fade{height:96px}
+}
 </style>
 </head>
 <body>
@@ -485,7 +540,7 @@ footer{padding-bottom:96px}
       <p class="sub">An always-on AI workforce that lives inside the apps you already use — built and working in 7 days.</p>
       <div class="hero-cta">
         <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
-        <a href="/demo.html" class="btn-outline lg">See the live demo</a>
+        <a href="/demo.html" class="btn-outline lg">Watch the live demo <span class="arr">&rarr;</span></a>
       </div>
       <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
@@ -590,6 +645,67 @@ footer{padding-bottom:96px}
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
         <h3>Anything else</h3><p>Describe the workflow. We engineer it.</p><span class="go">build yours &rarr;</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT IN ACTION — demo showcase -->
+<section class="sec showcase" id="demo">
+  <div class="wrap center">
+    <div class="eyebrow rv">// see it in action</div>
+    <h2 class="rv d1">Watch your AI team work.</h2>
+    <p class="lede rv d1">A live command center: deploy agents, see what each one is doing, and watch the work land in real time. <b>Open it and poke at anything.</b></p>
+    <div class="sc-wrap rv d2">
+      <a class="sc-panel" href="/demo.html" aria-label="Open the live Efficio command center demo">
+        <div class="sc-bar">
+          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+          <span class="sc-title">efficio &middot; command center</span>
+          <span class="sc-stat"><span class="pulse"></span>live</span>
+        </div>
+        <div class="sc-stats">
+          <div class="st"><div class="sl"><span class="live"></span>agents online</div><div class="sn g">5</div></div>
+          <div class="st"><div class="sl">tasks today</div><div class="sn">128</div></div>
+          <div class="st"><div class="sl">revenue recovered</div><div class="sn c">$14.2k</div></div>
+          <div class="st"><div class="sl">hours saved</div><div class="sn v">37</div></div>
+        </div>
+        <div class="sc-grid">
+          <div class="sc-card">
+            <div class="ac-top">
+              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span>
+              <span class="sc-nm">AI Receptionist<span class="role">reception/</span></span>
+              <span class="sc-pill working">Working</span>
+            </div>
+            <div class="sc-task">Booking a Thursday estimate from a missed call.</div>
+          </div>
+          <div class="sc-card">
+            <div class="ac-top">
+              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/></svg></span>
+              <span class="sc-nm">AI Sales Navigator<span class="role">sales/</span></span>
+              <span class="sc-pill active">Active</span>
+            </div>
+            <div class="sc-task">Sending a follow-up quote to a warm lead.</div>
+          </div>
+          <div class="sc-card">
+            <div class="ac-top">
+              <span class="sc-av"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span>
+              <span class="sc-nm">AI Inbox Manager<span class="role">office/</span></span>
+              <span class="sc-pill idle">Idle</span>
+            </div>
+            <div class="sc-task">Inbox triaged &mdash; waiting on the next reply.</div>
+          </div>
+        </div>
+        <div class="sc-feed">
+          <div class="fh"><span class="live"></span> live activity</div>
+          <div class="sc-line"><span class="t">09:41</span><span class="dot"></span>Booked a job for Thursday at 2:00 PM.</div>
+          <div class="sc-line"><span class="t">09:38</span><span class="dot"></span>Drafted and sent a $1,200 quote follow-up.</div>
+          <div class="sc-line"><span class="t">09:34</span><span class="dot"></span>Reconciled 9 transactions in the books.</div>
+        </div>
+        <div class="sc-fade"></div>
+        <span class="btn-primary lg sc-open">Open the live demo <span class="arr">&rarr;</span></span>
+      </a>
+      <div class="sc-cta">
+        <a href="/demo.html" class="btn-outline lg">Explore the command center <span class="arr">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>

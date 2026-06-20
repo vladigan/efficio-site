@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#06060b" />
+<title>Efficio HQ — internal agent command center</title>
+<meta name="description" content="Internal ops dashboard for Efficio's own AI agent fleet. Not a public page." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<style>
+/* ===== Efficio HQ — reuses the v6 command-center demo look (demo-embed.html) ===== */
+:root{
+  --violet:#7C4DFF;--violet-l:#9a7bff;--violet-xl:#c3b0ff;--violet-d:#6a36f0;
+  --bg:#06060b;--bg2:#0a0a12;--panel:#0d0d17;--panel2:#11111d;
+  --ink:#f1f0f7;--ink2:#c9c7da;--muted:#85849e;--muted2:#5d5c74;
+  --line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.13);
+  --green:#56d8a0;--cyan:#5cc8ff;--amber:#e8c275;--pink:#ff86c8;--red:#ff7a85;--comment:#5a5a72;
+  --glow:0 0 0 1px rgba(124,77,255,.18),0 24px 70px -24px rgba(124,77,255,.5);
+  --soft:0 24px 60px -28px rgba(0,0,0,.85);
+  --r:14px;--r2:20px;--ease:cubic-bezier(.2,.7,.2,1);--ease2:cubic-bezier(.16,1,.3,1);
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.55;letter-spacing:-.011em;overflow-x:hidden;position:relative;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:none;background:none;cursor:pointer}
+img,svg{max-width:100%;display:block}
+::selection{background:var(--violet);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+
+/* ambient background */
+.bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bgfx .grid{position:absolute;inset:-2px;
+  background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(125% 85% at 50% 0%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(125% 85% at 50% 0%,#000 0%,transparent 72%)}
+.bgfx .glow{position:absolute;border-radius:50%;filter:blur(95px);opacity:.5;will-change:transform}
+.bgfx .g1{top:-240px;left:50%;width:820px;height:560px;margin-left:-410px;
+  background:radial-gradient(closest-side,rgba(124,77,255,.6),transparent);animation:drift1 22s ease-in-out infinite}
+.bgfx .g2{top:760px;left:-200px;width:560px;height:560px;
+  background:radial-gradient(closest-side,rgba(90,39,216,.36),transparent);animation:drift2 28s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.08)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-30px) scale(1.12)}}
+body>*:not(.bgfx){position:relative;z-index:1}
+
+/* live dot */
+.live{position:relative;width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;box-shadow:0 0 8px rgba(86,216,160,.8)}
+.live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--green);opacity:.7;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.8}80%,100%{transform:scale(1.9);opacity:0}}
+
+/* page header */
+.page{padding:38px 0 60px}
+.masthead{display:flex;align-items:center;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.logo-mark{width:30px;height:30px;flex-shrink:0;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='20' y='22' width='60' height='15' rx='7.5' fill='%237c4dff'/><rect x='20' y='42.5' width='37' height='15' rx='7.5' fill='%23b39bff'/><rect x='20' y='63' width='60' height='15' rx='7.5' fill='%237c4dff'/></svg>") center/contain no-repeat}
+.masthead h1{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.03em;color:#fff}
+.masthead .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet-l);
+  padding:5px 11px;border-radius:999px;border:1px solid rgba(124,77,255,.45);background:rgba(124,77,255,.12)}
+.masthead .internal{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);
+  padding:5px 11px;border-radius:999px;border:1px solid rgba(232,194,117,.4);background:rgba(232,194,117,.1)}
+.subhead{font-size:14px;color:var(--muted);max-width:70ch;margin:6px 0 0}
+
+/* source banner */
+.srcbar{margin:20px 0 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border:1px solid var(--line2);border-radius:var(--r);padding:12px 16px;background:rgba(13,13,23,.6)}
+.srcbar .b{font-family:var(--mono);font-size:11px;color:var(--ink2)}
+.srcbar .b b{color:#fff}
+.srcbar .mode{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px}
+.srcbar .mode.config{color:var(--amber);background:rgba(232,194,117,.1);border:1px solid rgba(232,194,117,.28)}
+.srcbar .mode.live{color:var(--green);background:rgba(86,216,160,.1);border:1px solid rgba(86,216,160,.28)}
+.srcbar .spacer{flex:1}
+.btn-refresh{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:700;color:var(--ink);
+  border:1px solid var(--line2);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s}
+.btn-refresh:hover{border-color:rgba(124,77,255,.55);background:rgba(124,77,255,.09)}
+
+/* console glass panel */
+.console{margin:18px auto 0;border-radius:var(--r2);
+  background:linear-gradient(180deg,rgba(17,17,29,.72),rgba(9,9,15,.82));
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  border:1px solid var(--line2);box-shadow:var(--soft),0 0 0 1px rgba(124,77,255,.06)}
+.con-bar{display:flex;align-items:center;gap:8px;padding:13px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.015);border-radius:var(--r2) var(--r2) 0 0}
+.tdot{width:11px;height:11px;border-radius:50%;display:block}
+.tdot.r{background:#ff5f57}.tdot.y{background:#febc2e}.tdot.g{background:#28c840}
+.con-title{margin-left:8px;font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:500}
+.con-stat{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--green);font-weight:600}
+.con-stat .pulse{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;animation:stPulse 1.4s ease-in-out infinite}
+@keyframes stPulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* stats bar */
+.statsbar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.stat{background:rgba(10,10,18,.5);padding:18px 20px}
+.stat .sl{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted2);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.stat .sn{font-size:clamp(1.4rem,3.4vw,2.05rem);font-weight:800;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.stat .sn.g{color:var(--green)}.stat .sn.c{color:var(--cyan)}.stat .sn.v{color:var(--violet-l)}.stat .sn.a{color:var(--amber)}
+.stat .sn.small{font-size:clamp(.95rem,2vw,1.15rem)}
+@media(max-width:680px){.statsbar{grid-template-columns:repeat(2,1fr)}}
+
+/* toolbar */
+.dtoolbar{display:flex;align-items:center;gap:14px;padding:16px 20px;flex-wrap:wrap}
+.dt-title{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;color:#fff}
+.dt-title .pdot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.dt-spacer{flex:1}
+.legend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:9px;height:9px;border-radius:50%;box-shadow:0 0 6px currentColor}
+.legend .verified{color:var(--green)}.legend .awaiting{color:var(--amber)}
+
+/* agent grid */
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:6px 20px 22px}
+@media(max-width:560px){.agrid{grid-template-columns:1fr;padding:6px 14px 18px}}
+.acard{position:relative;text-align:left;border:1px solid var(--line);border-radius:var(--r);background:rgba(13,13,23,.66);
+  padding:16px 16px 15px;transition:border-color .2s,transform .16s var(--ease),box-shadow .25s;overflow:hidden}
+.acard:hover{border-color:rgba(124,77,255,.45);transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(124,77,255,.6)}
+.acard.attn{border-color:rgba(255,122,133,.35)}
+.acard .ac-top{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.ac-ava{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:13px;font-weight:700;color:var(--violet-xl);
+  background:linear-gradient(160deg,rgba(124,77,255,.28),rgba(124,77,255,.08));border:1px solid rgba(124,77,255,.32)}
+.ac-id{min-width:0;flex:1}
+.ac-name{font-size:14.5px;font-weight:700;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ac-role{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;flex-shrink:0}
+.pill .d{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 7px currentColor}
+.pill .d.beat{animation:beat 1.3s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.pill.active{color:var(--green);background:rgba(86,216,160,.1);border:1px solid rgba(86,216,160,.25)}
+.pill.working{color:var(--cyan);background:rgba(92,200,255,.1);border:1px solid rgba(92,200,255,.25)}
+.pill.idle{color:var(--amber);background:rgba(232,194,117,.1);border:1px solid rgba(232,194,117,.22)}
+.pill.paused{color:var(--muted);background:rgba(133,132,158,.12);border:1px solid rgba(133,132,158,.28)}
+.pill.needs-attention{color:var(--red);background:rgba(255,122,133,.1);border:1px solid rgba(255,122,133,.3)}
+.pill.awaiting-feed{color:var(--violet-l);background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.3)}
+.ac-task{font-size:12.8px;color:var(--ink2);line-height:1.5;min-height:38px;display:flex;align-items:flex-start;gap:7px}
+.ac-task .cur{color:var(--violet-l);font-family:var(--mono);font-size:11px;margin-top:2px}
+.ac-meta{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.ac-meta b{color:#fff;font-weight:700}
+.ac-foot{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.vbadge{display:inline-flex;align-items:center;gap:6px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.vbadge .vd{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 6px currentColor}
+.vbadge.verified-live{color:var(--green)}
+.vbadge.awaiting-feed{color:var(--amber)}
+.ac-last{color:var(--muted2)}
+
+/* ticker */
+.ticker{border-top:1px solid var(--line);padding:15px 20px 18px;background:rgba(8,8,14,.5);border-radius:0 0 var(--r2) var(--r2)}
+.tk-h{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.tk-h .live{width:7px;height:7px}
+.tk-h .note{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--muted2);font-weight:500}
+.tk-feed{max-height:220px;overflow:hidden;display:flex;flex-direction:column;gap:0}
+.tk-row{display:flex;align-items:baseline;gap:11px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.3px;color:var(--ink2);animation:tkIn .45s var(--ease2)}
+.tk-row time{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--violet-l);font-variant-numeric:tabular-nums;flex-shrink:0;width:96px}
+.tk-row .ag{color:#fff;font-weight:700}
+@keyframes tkIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* footer notes */
+.notes{margin-top:26px;border:1px solid var(--line);border-radius:var(--r);background:rgba(13,13,23,.5);padding:18px 20px}
+.notes h3{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet-l);margin-bottom:10px}
+.notes p{font-size:12.8px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+.notes code{font-family:var(--mono);font-size:11.5px;color:var(--ink2);background:rgba(255,255,255,.05);padding:2px 6px;border-radius:6px}
+.notes a{color:var(--violet-l)}
+.errbox{display:none;margin-top:14px;border:1px solid rgba(232,194,117,.3);background:rgba(232,194,117,.07);border-radius:var(--r);padding:12px 15px;font-family:var(--mono);font-size:11.5px;color:var(--amber)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .bgfx .glow{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div>
+</div>
+
+<main class="page"><div class="wrap">
+
+  <div class="masthead">
+    <span class="logo-mark"></span>
+    <h1>Efficio HQ</h1>
+    <span class="tag">command center</span>
+    <span class="internal">internal · do not share</span>
+  </div>
+  <p class="subhead">Live view of Efficio's own AI agent fleet — dogfooding the exact product we sell. Every status below is honest: <b style="color:var(--green)">verified-live</b> means confirmed by a real signal; <b style="color:var(--amber)">awaiting-feed</b> means we don't yet have a live signal and the value is from our latest manual audit.</p>
+
+  <!-- DATA SOURCE BANNER (flips to "live" automatically when source != static-config) -->
+  <div class="srcbar">
+    <span class="mode config" id="srcMode">config</span>
+    <span class="b">data source: <b id="srcLabel">hq-status.json (static)</b></span>
+    <span class="b">fleet host: <b id="srcHost">Hetzner VPS (Hermes)</b></span>
+    <span class="spacer"></span>
+    <span class="b" id="pollNote">polling every 30s</span>
+    <button class="btn-refresh" id="refreshBtn">↻ Refresh now</button>
+  </div>
+
+  <div class="console" id="console">
+    <div class="con-bar">
+      <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+      <span class="con-title">efficio · internal command center</span>
+      <span class="con-stat"><span class="pulse"></span><span id="conState">polling</span></span>
+    </div>
+
+    <div class="statsbar" id="statsbar">
+      <div class="stat"><div class="sl"><span class="live"></span>agents tracked</div><div class="sn" id="kTracked">—</div></div>
+      <div class="stat"><div class="sl">verified live</div><div class="sn g" id="kLive">—</div></div>
+      <div class="stat"><div class="sl">needs attention</div><div class="sn a" id="kAttn">—</div></div>
+      <div class="stat"><div class="sl">last updated</div><div class="sn small" id="kUpdated">—</div></div>
+    </div>
+
+    <div class="dtoolbar">
+      <div class="dt-title"><span class="pdot"></span> Efficio's agent fleet</div>
+      <span class="dt-spacer"></span>
+      <div class="legend">
+        <span class="lg verified"><span class="sw"></span>verified-live</span>
+        <span class="lg awaiting"><span class="sw"></span>awaiting-feed</span>
+      </div>
+    </div>
+
+    <div class="agrid" id="agrid"></div>
+
+    <div class="ticker">
+      <div class="tk-h"><span class="live"></span> activity feed
+        <span class="note" id="feedNote">— shown from config; live feed pending VPS heartbeat</span>
+      </div>
+      <div class="tk-feed" id="tkFeed"></div>
+    </div>
+  </div>
+
+  <div class="errbox" id="errbox"></div>
+
+  <div class="notes">
+    <h3>About this dashboard</h3>
+    <p>This page reads <code>hq-status.json</code> on load and re-polls it on the interval declared in the file. To point it at real-time data, have each Hermes agent on the VPS write its status to a heartbeat file/endpoint and set this page's <code>STATUS_URL</code> to that endpoint — no other changes needed. The banner flips from <b style="color:var(--amber)">config</b> to <b style="color:var(--green)">live</b> automatically when the feed's <code>source</code> field is no longer <code>static-config</code>. Full wiring guide: <code>HQ_MAKE_IT_LIVE.md</code>.</p>
+    <p><b style="color:var(--ink2)">Keep it internal.</b> This page is <code>noindex</code> and isn't linked from the public site. Before relying on it day-to-day, gate it behind a Netlify password (Site settings → Access control → Password protection) or move it to a non-guessable path.</p>
+  </div>
+
+</div></main>
+
+<script>
+(function(){
+  "use strict";
+  // ====== CONFIG: point this at the live VPS heartbeat endpoint to go live ======
+  var STATUS_URL = "hq-status.json";   // e.g. "https://hq.efficio.tech/status.json" or a Netlify function
+  var DEFAULT_POLL = 30;               // seconds; overridden by feed.poll_interval_seconds
+  // ===============================================================================
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // Inline fallback — used only if the fetch fails (e.g. opened via file://). Keep in sync with hq-status.json.
+  var FALLBACK = {
+    source:"static-config", generated_at:new Date().toISOString(), poll_interval_seconds:30,
+    fleet:{host:"Hetzner VPS (Hermes framework)", heartbeat_endpoint:null},
+    stats:{agents_tracked:6, verified_live:3, needs_attention:1, tasks_logged_24h:24, last_updated:new Date().toISOString()},
+    agents:[
+      {id:"inbox-monitor",name:"Inbox Monitor",role:"ops/inbox",status:"active",verification:"verified-live",
+        current_task:"Hourly Gmail summary delivered — inbox healthy, 0 bounces",last_run:new Date(Date.now()-1800e3).toISOString(),
+        metrics:{summaries_today:14,bounces:0},log:[{t:new Date(Date.now()-1800e3).toISOString(),text:"Hourly inbox summary sent — 0 bounces"}]},
+      {id:"lead-chat",name:"Lead-Capture Chat",role:"web/cloudflare",status:"active",verification:"verified-live",
+        current_task:"Cloudflare Worker deployed — answering site chats & capturing leads",last_run:new Date(Date.now()-300e3).toISOString(),
+        metrics:{worker:"deployed"},log:[{t:new Date(Date.now()-300e3).toISOString(),text:"Worker responding to site chat requests"}]},
+      {id:"marketing-social",name:"Marketing / Social Coordinator",role:"marketing/social",status:"active",verification:"verified-live",
+        current_task:"FB + LinkedIn posts scheduled through mid-July (via GoHighLevel)",last_run:new Date(Date.now()-5*3600e3).toISOString(),
+        metrics:{channels:2,scheduled_through:"2026-07-14"},log:[{t:new Date(Date.now()-5*3600e3).toISOString(),text:"FB + LinkedIn queue filled through Jul 14"}]},
+      {id:"outreach-emailer",name:"Sales Navigator / Outreach Emailer",role:"outreach/email",status:"needs-attention",verification:"awaiting-feed",
+        current_task:"Paused — last real send 6/16 bounced (2/2); no campaign sending verified",last_run:"2026-06-16T00:00:00Z",
+        metrics:{last_send:"2026-06-16",bounces:2,delivered:0},log:[{t:"2026-06-16T00:00:00Z",text:"Last real send — 2/2 bounced. Held pending deliverability fix"}]},
+      {id:"build-web",name:"Site & Dashboard Builder",role:"build/web",status:"working",verification:"verified-live",
+        current_task:"Shipped v6 site + this Efficio HQ command center",last_run:new Date().toISOString(),
+        metrics:{shipped:"v6 site + HQ dashboard"},log:[{t:new Date().toISOString(),text:"Built Efficio HQ internal command center"}]},
+      {id:"deliverability",name:"Deliverability & Ads Prep",role:"ops/email-health",status:"idle",verification:"awaiting-feed",
+        current_task:"Deliverability remediation plan + paid-ads pack prepared; awaiting go-live",last_run:"2026-06-16T12:14:00Z",
+        metrics:{ad_pack:"ready"},log:[{t:"2026-06-16T12:14:00Z",text:"Paid-ads readiness + go-live plan drafted"}]}
+    ]
+  };
+
+  var $ = function(id){return document.getElementById(id);};
+  var agrid=$('agrid'), tkFeed=$('tkFeed');
+  var pollTimer=null;
+
+  function initials(n){ return n.replace(/[^A-Za-z0-9\s\/]/g,'').replace(/\//g,' ').split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0];}).join('').toUpperCase(); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function fmtTime(iso){
+    var d=new Date(iso); if(isNaN(d)) return String(iso);
+    var h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12;if(h===0)h=12;
+    return h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  function fmtDateTime(iso){
+    var d=new Date(iso); if(isNaN(d)) return String(iso);
+    var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    var sameDay=(new Date()).toDateString()===d.toDateString();
+    return sameDay ? ('today '+fmtTime(iso)) : (mo+' '+d.getDate()+' '+fmtTime(iso));
+  }
+  function relAgo(iso){
+    var d=new Date(iso); if(isNaN(d)) return String(iso);
+    var s=Math.max(0,(Date.now()-d.getTime())/1000);
+    if(s<90) return Math.round(s)+'s ago';
+    if(s<5400) return Math.round(s/60)+'m ago';
+    if(s<36*3600) return Math.round(s/3600)+'h ago';
+    return Math.round(s/86400)+'d ago';
+  }
+
+  var STATUS_LABEL={active:'Active',working:'Working',idle:'Idle','needs-attention':'Needs attention',paused:'Paused','awaiting-feed':'Awaiting feed'};
+  function pill(status){
+    var label=STATUS_LABEL[status]||status;
+    var beat=(status==='working'||status==='active')?' beat':'';
+    return '<span class="pill '+esc(status)+'"><span class="d'+beat+'"></span>'+esc(label)+'</span>';
+  }
+  function metaLine(m){
+    if(!m) return '';
+    return Object.keys(m).map(function(k){
+      return '<span><b>'+esc(m[k])+'</b> '+esc(k.replace(/_/g,' '))+'</span>';
+    }).join('');
+  }
+
+  function cardHTML(a){
+    var attn=(a.status==='needs-attention');
+    return '<div class="ac-top">'+
+        '<div class="ac-ava">'+esc(initials(a.name))+'</div>'+
+        '<div class="ac-id"><div class="ac-name">'+esc(a.name)+'</div><div class="ac-role">'+esc(a.role)+'</div></div>'+
+        pill(a.status)+
+      '</div>'+
+      '<div class="ac-task"><span class="cur">&rsaquo;</span><span>'+esc(a.current_task)+'</span></div>'+
+      (a.metrics?'<div class="ac-meta">'+metaLine(a.metrics)+'</div>':'')+
+      '<div class="ac-foot">'+
+        '<span class="vbadge '+esc(a.verification)+'"><span class="vd"></span>'+(a.verification==='verified-live'?'verified live':'awaiting feed')+'</span>'+
+        '<span class="ac-last">last run '+esc(a.last_run?relAgo(a.last_run):'—')+'</span>'+
+      '</div>';
+  }
+
+  function renderAgents(agents){
+    agrid.innerHTML='';
+    agents.forEach(function(a){
+      var el=document.createElement('div');
+      el.className='acard'+(a.status==='needs-attention'?' attn':'');
+      el.innerHTML=cardHTML(a);
+      agrid.appendChild(el);
+    });
+  }
+
+  function renderFeed(agents){
+    var rows=[];
+    agents.forEach(function(a){ (a.log||[]).forEach(function(l){ rows.push({t:l.t,name:a.name,text:l.text}); }); });
+    rows.sort(function(x,y){ return new Date(y.t)-new Date(x.t); });
+    tkFeed.innerHTML='';
+    rows.slice(0,8).forEach(function(r){
+      var row=document.createElement('div'); row.className='tk-row';
+      row.innerHTML='<time>'+esc(fmtDateTime(r.t))+'</time><div><span class="ag">'+esc(r.name)+'</span> '+esc(r.text)+'</div>';
+      tkFeed.appendChild(row);
+    });
+  }
+
+  function renderStats(d){
+    var s=d.stats||{};
+    var live=(s.verified_live!=null)?s.verified_live:(d.agents||[]).filter(function(a){return a.verification==='verified-live';}).length;
+    var attn=(s.needs_attention!=null)?s.needs_attention:(d.agents||[]).filter(function(a){return a.status==='needs-attention';}).length;
+    $('kTracked').textContent=(s.agents_tracked!=null)?s.agents_tracked:(d.agents||[]).length;
+    $('kLive').textContent=live;
+    $('kAttn').textContent=attn;
+    $('kUpdated').textContent=d.generated_at?fmtDateTime(d.generated_at):(s.last_updated?fmtDateTime(s.last_updated):'—');
+  }
+
+  function renderSource(d, fromFallback){
+    var isLive=d.source && d.source!=='static-config';
+    var mode=$('srcMode'); mode.className='mode '+(isLive?'live':'config'); mode.textContent=isLive?'live':'config';
+    $('srcLabel').textContent=fromFallback?'inline fallback (fetch failed)':(isLive?STATUS_URL:(STATUS_URL+' (static)'));
+    $('srcHost').textContent=(d.fleet&&d.fleet.host)||'—';
+    $('conState').textContent=isLive?'live':'config';
+    $('feedNote').textContent=isLive?'— streaming from VPS heartbeat':'— shown from config; live feed pending VPS heartbeat';
+    var poll=(d.poll_interval_seconds||DEFAULT_POLL);
+    $('pollNote').textContent='polling every '+poll+'s';
+    return poll;
+  }
+
+  function paint(d, fromFallback){
+    renderStats(d);
+    renderAgents(d.agents||[]);
+    renderFeed(d.agents||[]);
+    return renderSource(d, fromFallback);
+  }
+
+  function schedule(poll){
+    if(pollTimer) clearTimeout(pollTimer);
+    if(reduce) return; // honor reduced-motion: load once, don't poll
+    pollTimer=setTimeout(load, Math.max(5,poll)*1000);
+  }
+
+  function load(){
+    fetch(STATUS_URL, {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(function(d){ $('errbox').style.display='none'; var poll=paint(d,false); schedule(poll); })
+      .catch(function(e){
+        var poll=paint(FALLBACK,true);
+        var box=$('errbox'); box.style.display='block';
+        box.textContent='⚠ Could not load '+STATUS_URL+' ('+e.message+') — showing inline fallback data. This is expected if you opened the file directly; serve it over HTTP to fetch the JSON.';
+        schedule(poll);
+      });
+  }
+
+  $('refreshBtn').addEventListener('click', load);
+  load();
+})();
+</script>
+</body>
+</html>

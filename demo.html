@@ -78,7 +78,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--violet-l);outline-o
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,20px) scale(1.1)}}
 .bgfx .noise{position:absolute;inset:0;opacity:.035;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body>*:not(.bgfx):not(.scrollbar){position:relative;z-index:1}
+/* Overlays (drawer + deploy modal) must stay position:fixed/high z-index.
+   Excluded here so this stacking rule can't override them to position:relative,
+   which previously dropped the drawer in-flow far below the viewport. */
+body>*:not(.bgfx):not(.scrollbar):not(.drawer):not(.modal){position:relative;z-index:1}
 
 /* nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:120;width:min(1000px,calc(100% - 24px))}
@@ -212,13 +215,20 @@ a:hover .arr{transform:translateX(4px)}
 .dhint{text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--muted2);margin-top:16px;letter-spacing:.02em}
 
 /* ===== detail drawer ===== */
-.drawer{position:fixed;inset:0;z-index:160;display:flex;justify-content:flex-end}
+/* Resting state is robustly HIDDEN regardless of any [hidden] attribute:
+   invisible, non-interactive, and the panel pushed fully off-canvas. It only
+   becomes visible/interactive when JS adds the .open class on a card click. */
+.drawer{position:fixed;inset:0;z-index:160;display:flex;justify-content:flex-end;
+  visibility:hidden;opacity:0;pointer-events:none;
+  transition:opacity .25s var(--ease),visibility .25s var(--ease)}
+.drawer.open{visibility:visible;opacity:1;pointer-events:auto}
 .drawer[hidden]{display:none}
-.dr-scrim{position:absolute;inset:0;background:rgba(4,4,9,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:fade .25s ease}
 @keyframes fade{from{opacity:0}to{opacity:1}}
-.dr-panel{position:relative;width:min(440px,100%);height:100%;overflow-y:auto;
+.dr-scrim{position:absolute;inset:0;background:rgba(4,4,9,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.dr-panel{position:relative;width:min(440px,100%);height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;
   background:linear-gradient(180deg,#0d0d17,#08080e);border-left:1px solid var(--line2);box-shadow:-30px 0 80px -30px rgba(0,0,0,.9);
-  animation:slideIn .32s var(--ease2);padding:24px 24px 40px}
+  transform:translateX(100%);transition:transform .34s var(--ease2);padding:24px 24px 40px}
+.drawer.open .dr-panel{transform:translateX(0)}
 @keyframes slideIn{from{transform:translateX(40px);opacity:.6}to{transform:none;opacity:1}}
 .dr-top{display:flex;align-items:flex-start;gap:13px;margin-bottom:6px}
 .dr-ava{width:46px;height:46px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
@@ -420,7 +430,7 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
 </footer>
 
 <!-- detail drawer -->
-<div class="drawer" id="drawer" hidden>
+<div class="drawer" id="drawer" aria-hidden="true">
   <div class="dr-scrim" id="drScrim"></div>
   <aside class="dr-panel" id="drPanel" role="dialog" aria-modal="true" aria-label="Agent detail"></aside>
 </div>
@@ -541,12 +551,25 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
       el.className='acard'+(isNew?' new':'');
       el.id='card-'+a.id;
       el.setAttribute('type','button');
-      el.addEventListener('click',function(){ if(a.status!=='deploying') openDrawer(a.id); });
+      el.setAttribute('data-agent',a.id);
       agrid.appendChild(el);
     }
+    el.setAttribute('data-agent',a.id);
     el.classList.toggle('deploying',a.status==='deploying');
     el.innerHTML=cardHTML(a);
   }
+
+  /* Event delegation: a single listener on #agrid handles clicks for EVERY
+     card — seeded AND newly deployed — and for the "open >" span inside them.
+     Bound once; never depends on per-card wiring or render order. */
+  agrid.addEventListener('click',function(e){
+    var card=e.target.closest && e.target.closest('.acard');
+    if(!card || !agrid.contains(card)) return;
+    var id=card.getAttribute('data-agent');
+    if(!id) return;
+    var a=AGENTS.filter(function(x){return x.id===id;})[0];
+    if(a && a.status!=='deploying') openDrawer(id);
+  });
 
   function renderAll(){ AGENTS.forEach(function(a){renderCard(a,false);}); }
 
@@ -617,11 +640,14 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
     buildLog(a);
     openId=id;
     drPanel.innerHTML=drawerHTML(a);
-    drawer.hidden=false;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    drPanel.scrollTop=0;
     document.body.style.overflow='hidden';
-    document.getElementById('drX').addEventListener('click',closeDrawer);
+    var x=document.getElementById('drX');
+    if(x) x.addEventListener('click',closeDrawer);
   }
-  function closeDrawer(){ drawer.hidden=true; openId=null; document.body.style.overflow=''; }
+  function closeDrawer(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); openId=null; document.body.style.overflow=''; }
   drScrim.addEventListener('click',closeDrawer);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeDrawer(); closeModal(); } });
 

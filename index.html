@@ -561,6 +561,39 @@ footer{padding-bottom:96px}
 .showcase .sc-frame{display:block;width:100%;height:760px;border:0;background:transparent;overflow:hidden}
 .showcase .sc-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2}
 @media(max-width:760px){.showcase .sc-frame{height:74vh;min-height:520px}}
+
+/* ===== audit section (#build) polish: friendlier multi-tone palette + brand logos ===== */
+#build .flow{gap:20px}
+#build .fstep{--ac:var(--violet-l);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 7%,#13131f),#0e0e18);
+  border:1px solid color-mix(in srgb,var(--ac) 18%,rgba(255,255,255,.09));border-radius:20px;
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 44px -32px color-mix(in srgb,var(--ac) 60%,transparent)}
+#build .fstep:hover{border-color:color-mix(in srgb,var(--ac) 52%,transparent);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 12%,#15151f),#0f0f1a);
+  box-shadow:0 30px 64px -30px color-mix(in srgb,var(--ac) 70%,transparent),var(--soft)}
+#build .fs-num{color:var(--ac);opacity:1}
+#build .fs-ic{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--ac) 22%,transparent) inset,0 8px 22px -12px color-mix(in srgb,var(--ac) 70%,transparent)}
+#build .fstep:hover .fs-ic{background:color-mix(in srgb,var(--ac) 26%,transparent)}
+#build .fstep:not(:last-child)::after{border-top-color:var(--ac);border-right-color:var(--ac);opacity:.55}
+#build .fs-badge{background:color-mix(in srgb,var(--green) 15%,transparent);
+  border:1px solid color-mix(in srgb,var(--green) 36%,transparent);color:#9af0c9}
+#build .conn-apps .integ{gap:14px}
+#build .icat{--bc:var(--violet-l);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--bc) 6%,#13131f),#0e0e18);
+  border:1px solid color-mix(in srgb,var(--bc) 16%,rgba(255,255,255,.08));border-radius:16px;
+  transition:transform .28s var(--ease2),border-color .28s,background .28s,box-shadow .28s}
+#build .icat:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--bc) 48%,transparent);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--bc) 11%,#15151f),#0f0f1a);
+  box-shadow:0 22px 48px -26px color-mix(in srgb,var(--bc) 65%,transparent)}
+#build .icat .ic-logos{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+#build .icat .blogo{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;
+  background:color-mix(in srgb,var(--lc,var(--bc)) 13%,#0b0b13);
+  border:1px solid color-mix(in srgb,var(--lc,var(--bc)) 26%,transparent);
+  box-shadow:0 6px 16px -10px color-mix(in srgb,var(--lc,var(--bc)) 80%,transparent);
+  transition:transform .28s var(--ease2)}
+#build .icat:hover .blogo{transform:translateY(-1px) scale(1.04)}
+#build .icat .blogo svg{width:19px;height:19px;display:block}
 </style>
 </head>
 <body>
@@ -615,28 +648,6 @@ footer{padding-bottom:96px}
   </div>
 </header>
 
-<!-- WORKS-WITH BAND -->
-<section class="band">
-  <div class="wrap">
-    <div class="band-lbl">// plugs into the tools you already use</div>
-    <div class="chips">
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Email<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Calendar<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>Phone<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M4 6h16v4H4zM4 14h10v4H4z"/></svg>CRM<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-1.2 4.4L21 21l-5.3-1.2A8.5 8.5 0 1121 11.5z"/></svg>Chat<span class="cdot"></span></span>
-    </div>
-  </div>
-</section>
-
-<!-- DIFFERENTIATOR -->
-<section class="sec" id="apps">
-  <div class="wrap center">
-    <h2 class="rv d1">It works where your business already runs.</h2>
-  </div>
-</section>
-
 <!-- HOW WE DEPLOY (audit-driven, live in 7 days) -->
 <section class="sec" id="build">
   <div class="wrap center">
@@ -645,23 +656,23 @@ footer{padding-bottom:96px}
     <p class="lede rv d1">Four steps from the tools you already use to a working AI team &mdash; done for you, powered by <b>Claude</b>.</p>
 
     <div class="flow rv d2">
-      <div class="fstep" style="--i:0">
+      <div class="fstep" style="--i:0;--ac:#9a7bff">
         <div class="fs-head"><span class="fs-num">01</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M9 15l6-6M10.5 6.5l1-1a4 4 0 015.5 5.5l-1 1M13.5 17.5l-1 1a4 4 0 01-5.5-5.5l1-1"/></svg></span></div>
         <h3>Connect</h3>
         <p>We plug into the apps you already run on &mdash; secured through <b>MCP + API</b>. Nothing to migrate, no new app to learn.</p>
       </div>
-      <div class="fstep" style="--i:1">
+      <div class="fstep" style="--i:1;--ac:#45d3c9">
         <div class="fs-head"><span class="fs-num">02</span><span class="fs-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.6-3.6"/></svg></span></div>
         <h3>Audit</h3>
         <p>We read your workflow, documents, and records to pinpoint exactly where time and money leak.</p>
       </div>
-      <div class="fstep" style="--i:2">
+      <div class="fstep" style="--i:2;--ac:#ecc06a">
         <div class="fs-head"><span class="fs-num">03</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.4 1.4-1.8 5-1.8 5s3.6-.4 5-1.8M9.5 15l-3-3c1-5 5-9 11-9 0 6-4 10-9 11zM14.5 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3"/></svg></span></div>
         <h3>Deploy</h3>
         <p>Your AI agent team is built, tested, and deployed &mdash; done for you.</p>
         <div class="fs-badge"><span class="bdot"></span>Live in 7 days</div>
       </div>
-      <div class="fstep" style="--i:3">
+      <div class="fstep" style="--i:3;--ac:#56d8a0">
         <div class="fs-head"><span class="fs-num">04</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2 5 4-13 2 8h6"/></svg></span></div>
         <h3>Run</h3>
         <p>State-of-the-art agents plus your live dashboard, running in your <b>Claude Teams</b> workspace &mdash; done for you.</p>
@@ -671,24 +682,24 @@ footer{padding-bottom:96px}
     <div class="conn-apps rv d2">
       <div class="ca-label">// connects to the tools you already use</div>
       <div class="integ">
-        <div class="icat">
-          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
+        <div class="icat" style="--bc:#4285F4">
+          <div class="ic-logos"><span class="blogo" style="--lc:#EA4335"><svg viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span><span class="blogo" style="--lc:#4285F4"><svg viewBox="0 0 24 24" fill="#4285F4" aria-hidden="true"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></svg></span></div>
           <h4>Google Workspace</h4><p>Gmail &middot; Calendar &middot; Drive &amp; Docs</p>
         </div>
-        <div class="icat">
-          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M16 19a4 4 0 00-8 0M12 11a3 3 0 100-6 3 3 0 000 6M20 19a3 3 0 00-4-2.8M18 9.6a2.5 2.5 0 000-5"/></svg></div>
+        <div class="icat" style="--bc:#FF7A59">
+          <div class="ic-logos"><span class="blogo" style="--lc:#FF7A59"><svg viewBox="0 0 24 24" fill="#FF7A59" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></span></div>
           <h4>Your CRM</h4><p>HubSpot &middot; Salesforce &middot; GoHighLevel</p>
         </div>
-        <div class="icat">
-          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
+        <div class="icat" style="--bc:#5cc8ff">
+          <div class="ic-logos"><span class="blogo" style="--lc:#5cc8ff"><svg viewBox="0 0 24 24" fill="none" stroke="#5cc8ff" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span></div>
           <h4>Phone &amp; SMS</h4><p>Calls &middot; texts &middot; voicemail</p>
         </div>
-        <div class="icat">
-          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg></div>
+        <div class="icat" style="--bc:#635BFF">
+          <div class="ic-logos"><span class="blogo" style="--lc:#635BFF"><svg viewBox="0 0 24 24" fill="#635BFF" aria-hidden="true"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg></span></div>
           <h4>Payments</h4><p>Stripe &middot; invoices &middot; checkout</p>
         </div>
-        <div class="icat">
-          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-3-2-2 2-2-2-2 2-3-2zM8 9h8M8 13h5"/></svg></div>
+        <div class="icat" style="--bc:#2CA01C">
+          <div class="ic-logos"><span class="blogo" style="--lc:#2CA01C"><svg viewBox="0 0 24 24" fill="#2CA01C" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm.642 4.1335c.9554 0 1.7296.776 1.7296 1.7332v9.0667h1.6c1.614 0 2.9275-1.3156 2.9275-2.933 0-1.6173-1.3136-2.9333-2.9276-2.9333h-.6654V7.3334h.6654c2.5722 0 4.6577 2.0897 4.6577 4.667 0 2.5774-2.0855 4.6666-4.6577 4.6666H12.642zM7.9837 7.333h3.3291v12.533c-.9555 0-1.73-.7759-1.73-1.7332V9.0662H7.9837c-1.6146 0-2.9277 1.316-2.9277 2.9334 0 1.6175 1.3131 2.9333 2.9277 2.9333h.6654v1.7332h-.6654c-2.5725 0-4.6577-2.0892-4.6577-4.6665 0-2.5771 2.0852-4.6666 4.6577-4.6666Z"/></svg></span></div>
           <h4>Accounting</h4><p>QuickBooks &middot; books &middot; receipts</p>
         </div>
       </div>

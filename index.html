@@ -283,6 +283,22 @@ a:hover .arr{transform:translateX(4px)}
 .cgline .gut{color:var(--muted2);user-select:none;width:18px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
 .cgline .code{flex:1;min-width:0}
 
+/* integrations grid */
+.integ{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:940px;margin:clamp(34px,5vh,54px) auto 0}
+@media(max-width:900px){.integ{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.integ{grid-template-columns:1fr}}
+.icat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:left;
+  transition:transform .22s var(--ease2),border-color .22s,background .22s}
+.icat:hover{transform:translateY(-4px);border-color:rgba(124,77,255,.4);background:rgba(124,77,255,.05)}
+.icat .ic-ic{width:34px;height:34px;border-radius:9px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);margin-bottom:12px}
+.icat .ic-ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.icat h4{font-size:14px;font-weight:700;color:var(--ink);margin:0 0 5px;letter-spacing:-.01em}
+.icat p{font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--muted);margin:0}
+.integ-note{font-size:clamp(1rem,1.8vw,1.16rem);font-weight:500;color:var(--ink2);max-width:62ch;margin:clamp(26px,3.6vh,40px) auto 0;line-height:1.6}
+.integ-note b{color:#fff;font-weight:700}
+.integ-unblock{font-size:clamp(.95rem,1.6vw,1.05rem);font-weight:500;color:var(--muted);max-width:60ch;margin:14px auto 0;line-height:1.6}
+.integ-unblock b{color:var(--ink2);font-weight:600}
+
 /* cards — interactive spotlight + clickable */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(44px,6vh,68px)}
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
@@ -594,7 +610,6 @@ footer{padding-bottom:96px}
 <section class="sec" id="apps">
   <div class="wrap center">
     <h2 class="rv d1">It works where your business already runs.</h2>
-    <p class="lede rv d1">Connected to your phone, inbox, calendar, CRM, and payments — so the work just gets done, no new app to babysit.</p>
   </div>
 </section>
 
@@ -603,7 +618,31 @@ footer{padding-bottom:96px}
   <div class="wrap center">
     <div class="eyebrow rv">// how we build it</div>
     <h2 class="rv d1">Your apps, wired to a workforce.</h2>
-    <p class="lede rv d1">Connected by <b>MCP + API</b>. Powered by <b>Claude</b>.</p>
+    <p class="lede rv d1">It plugs into the everyday tools your business already runs on — powered by <b>Claude</b>.</p>
+    <div class="integ rv d2">
+      <div class="icat">
+        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
+        <h4>Google Workspace</h4><p>Gmail &middot; Calendar &middot; Drive &amp; Docs</p>
+      </div>
+      <div class="icat">
+        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M16 19a4 4 0 00-8 0M12 11a3 3 0 100-6 3 3 0 000 6M20 19a3 3 0 00-4-2.8M18 9.6a2.5 2.5 0 000-5"/></svg></div>
+        <h4>Your CRM</h4><p>HubSpot &middot; Salesforce &middot; GoHighLevel</p>
+      </div>
+      <div class="icat">
+        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
+        <h4>Phone &amp; SMS</h4><p>Calls &middot; texts &middot; voicemail</p>
+      </div>
+      <div class="icat">
+        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg></div>
+        <h4>Payments</h4><p>Stripe &middot; invoices &middot; checkout</p>
+      </div>
+      <div class="icat">
+        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-3-2-2 2-2-2-2 2-3-2zM8 9h8M8 13h5"/></svg></div>
+        <h4>Accounting</h4><p>QuickBooks &middot; books &middot; receipts</p>
+      </div>
+    </div>
+    <p class="integ-note rv d2">Connected securely through <b>MCP + API</b>, your agents read and write inside the tools you already use and pull your own documents and data &mdash; <b>no new app to learn, nothing to migrate.</b></p>
+    <p class="integ-unblock rv d2">So they take the repetitive, time-draining work off your plate &mdash; answering inquiries, following up, scheduling, invoicing &mdash; working straight from your inboxes, records, and docs.</p>
     <div class="arch rv d2" role="img" aria-label="Your apps connect through MCP and API to Claude-powered agents, which get the work done.">
       <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M4 5h7v7H4zM13 5h7v4h-7zM13 12h7v7h-7zM4 14h7v5H4z"/></svg></div><div class="flab">your apps</div></div>
       <div class="fw"></div>
@@ -623,6 +662,24 @@ footer{padding-bottom:96px}
         <div class="term-body" id="callBody"></div>
       </div>
       <p class="code-plain"><span class="cp-tag">In plain English</span>A customer asks to book &rarr; your AI checks the calendar, books the slot, and confirms &mdash; live on your tools, in seconds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT IN ACTION — demo showcase -->
+<section class="sec showcase" id="demo">
+  <div class="wrap center">
+    <div class="eyebrow rv">// see it in action</div>
+    <h2 class="rv d1">Watch your AI team work.</h2>
+    <p class="lede rv d1">A live command center: deploy agents, see what each one is doing, and watch the work land in real time. <b>Open it and poke at anything.</b></p>
+    <div class="sc-wrap rv d2">
+      <div class="sc-frameWrap rv d2">
+        <iframe id="scDemoFrame" class="sc-frame" title="Efficio command center — live, interactive demo" loading="lazy" scrolling="no"></iframe>
+        <a class="sc-fallback btn-primary lg" href="/demo.html">Open the live demo <span class="arr">&rarr;</span></a>
+      </div>
+      <div class="sc-cta">
+        <a href="/demo.html" class="btn-outline lg">Open full demo <span class="arr">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -658,24 +715,6 @@ footer{padding-bottom:96px}
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
         <h3>Anything else</h3><p>Describe the workflow. We engineer it.</p><span class="go">build yours &rarr;</span>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- SEE IT IN ACTION — demo showcase -->
-<section class="sec showcase" id="demo">
-  <div class="wrap center">
-    <div class="eyebrow rv">// see it in action</div>
-    <h2 class="rv d1">Watch your AI team work.</h2>
-    <p class="lede rv d1">A live command center: deploy agents, see what each one is doing, and watch the work land in real time. <b>Open it and poke at anything.</b></p>
-    <div class="sc-wrap rv d2">
-      <div class="sc-frameWrap rv d2">
-        <iframe id="scDemoFrame" class="sc-frame" title="Efficio command center — live, interactive demo" loading="lazy" scrolling="no"></iframe>
-        <a class="sc-fallback btn-primary lg" href="/demo.html">Open the live demo <span class="arr">&rarr;</span></a>
-      </div>
-      <div class="sc-cta">
-        <a href="/demo.html" class="btn-outline lg">Open full demo <span class="arr">&rarr;</span></a>
-      </div>
     </div>
   </div>
 </section>

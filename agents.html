@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/assets/pixels.js"></script>
-<title>AI teams — give your business its own AI team | Efficio</title>
-<meta name="description" content="Not AI tools — coordinated AI teams that run whole functions: reception, inbox, sales, finance, admin and more. Five deploy today, five built for you in 7 days. Run for you on Claude."/>
+<title>AI teams — front office, back office, or start with one | Efficio</title>
+<meta name="description" content="Two AI teams that run your business: a Front Office that wins and keeps customers, and a Back Office that runs the admin. Or start with a single agent on your #1 bottleneck from $497/mo. $0 upfront, pay only if it works."/>
 <link rel="canonical" href="https://efficio.tech/agents.html"/>
-<meta property="og:title" content="AI teams — give your business its own AI team | Efficio"/>
-<meta property="og:description" content="Not AI tools — coordinated AI teams that run whole functions: reception, inbox, sales, finance, admin and more. Five deploy today, five built for you in 7 days. Run for you on Claude."/>
+<meta property="og:title" content="AI teams — front office, back office, or start with one | Efficio"/>
+<meta property="og:description" content="A Front Office team that wins and keeps customers, a Back Office team that runs the admin, or a single agent to start. $0 upfront, pay only if it works."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/agents.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
@@ -21,7 +21,33 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
-<script>document.documentElement.className='js';</script>
+<style>
+/* page-local helpers — all on v6 tokens */
+.yget{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:center;text-align:left;
+  background:linear-gradient(165deg,rgba(124,77,255,.14),rgba(13,13,23,.5));border:1px solid rgba(124,77,255,.38);
+  border-radius:var(--r2);padding:22px 26px;margin-top:clamp(28px,4vh,40px)}
+.yget h3{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
+.yget p{font-size:13px;color:var(--ink2);line-height:1.55;margin:0}
+.yget ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.yget li{position:relative;padding-left:24px;font-size:13px;color:var(--ink2);line-height:1.45}
+.yget li::before{content:"";position:absolute;left:0;top:4px;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+@media(max-width:720px){.yget{grid-template-columns:1fr;gap:14px}}
+.grp{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:clamp(30px,4vh,46px) 0 0;justify-content:center}
+.grp .gl{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--violet-l)}
+.ctarow{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:clamp(26px,4vh,40px)}
+.singles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;text-align:left}
+@media(max-width:780px){.singles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.singles{grid-template-columns:1fr}}
+.sgl{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:13px 15px;transition:transform .2s var(--ease2),border-color .2s}
+.sgl:hover{transform:translateY(-3px);border-color:rgba(124,77,255,.42)}
+.sgl .si{width:30px;height:30px;flex-shrink:0;border-radius:8px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l)}
+.sgl .si svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sgl b{display:block;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.sgl span{font-size:11px;color:var(--muted);font-family:var(--mono)}
+.start-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start;text-align:left;margin-top:clamp(28px,4vh,44px)}
+@media(max-width:860px){.start-wrap{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="scrollbar" id="scrollbar"></div>
@@ -43,224 +69,206 @@
 
 <header class="phero">
   <div class="wrap">
-    <div class="eyebrow rv">// AI teams &middot; not AI tools</div>
+    <div class="eyebrow rv">// AI teams &middot; two offices, one workforce</div>
     <h1 class="rv d1">Give your business its own <span class="grad">AI team</span>.</h1>
-    <p class="sub rv d1">Everyone else sells a single bot you have to operate. We build an always-on AI workforce — coordinated teams covering reception, inbox, reviews, win-back, reporting, sales, marketing, finance, admin, and onboarding. Some deploy today; the rest we build for you in 7 days. We run it; you watch on a live dashboard.</p>
+    <p class="sub rv d1">A <b>Front Office</b> team that wins and keeps customers, a <b>Back Office</b> team that runs the admin &mdash; or start with a <b>single agent</b> on your #1 bottleneck. Built and run for you on Claude.</p>
     <div class="hero-cta rv d2">
-      <a href="https://go.efficio.tech/" class="btn-primary lg">Find your tier in 60 sec <span class="arr">&rarr;</span></a>
-      <a href="#roster" class="btn-outline lg">See the full roster</a>
+      <a href="https://go.efficio.tech/" class="btn-primary lg">Which one's right for you? <span class="arr">&rarr;</span></a>
+      <a href="/case-studies/" class="btn-outline lg">See the proof</a>
     </div>
     <div class="guarantee">
-        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
-        <span class="gtxt">
-          <span class="gt">Pay only if it works.</span>
-          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
-        </span>
-      </div>
+      <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+      <span class="gtxt">
+        <span class="gt">Pay only if it works.</span>
+        <span class="gm">$0 upfront &middot; live in 7 days &middot; month-to-month, cancel anytime</span>
+      </span>
+    </div>
   </div>
 </header>
 
-<section class="sec" style="padding-top:clamp(20px,3vh,40px)">
+<!-- FRONT OFFICE -->
+<section class="sec" id="front" style="padding-top:clamp(24px,4vh,48px)">
   <div class="wrap center">
-    <div class="eyebrow rv">// tool &rarr; team &rarr; department</div>
-    <h2 class="rv d1">A bot is one thing. We build the whole function.</h2>
-    <div class="steps rv d2">
-      <div class="step"><div class="sn">1</div><h3>AI Tool</h3><p>A single bot you have to operate and babysit. What every competitor sells. We don't.</p></div>
-      <div class="step"><div class="sn">2</div><h3>AI Team</h3><p>A coordinated group of agents that runs a whole function — front office or back office. This is what we build.</p></div>
-      <div class="step"><div class="sn">3</div><h3>AI Department</h3><p>Several teams running together — your whole operation on autopilot, watched from one dashboard.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="roster" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// available now &middot; deployable today</div>
-    <h2 class="rv d1">Five productized teams, live on day one.</h2>
-    <p class="lede rv d1">Each team owns a whole function end-to-end. Take what you need; stack more as you grow.</p>
+    <div class="eyebrow rv">// front office &middot; wins &amp; keeps customers</div>
+    <h2 class="rv d1">Your front office, run for you.</h2>
+    <p class="lede rv d1">The customer-facing team. Every call, message, quote, and review &mdash; handled, 24/7.</p>
     <div class="cards rv d2">
       <a href="/agents/receptionist.html" class="card rv">
         <span class="tag">deploy now</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
         <h3>Front Office</h3>
-        <p>Owns first contact. Answers every call, text, and web form in seconds, 24/7 — books the job, captures details, flags emergencies, and follows up so no after-hours lead dies in voicemail.</p>
-        <span class="go">&asymp; a $30&ndash;50K/yr front desk &rarr;</span>
+        <p>Answers every call, text &amp; web form in seconds, 24/7 &mdash; and books the job.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
       <a href="/agents/inbox-manager.html" class="card imagine rv">
-        <span class="tag">live today &middot; $497/mo</span>
+        <span class="tag">live today</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
         <h3>Inbox Manager</h3>
-        <p>Owns your inbox. Reads every inbound email, triages by urgency, and drafts replies into a queue you approve. Handled before you open it.</p>
-        <span class="go" style="margin-bottom:6px">deep dive &rarr;</span>
-        <a href="https://buy.stripe.com/aFa4gB2t795S3p88JodQQ0h" target="_blank" rel="noopener" class="go" style="color:var(--purple3,#a78bfa);font-weight:700">Buy it now &mdash; $497/mo &rarr;</a>
+        <p>Triages every email and drafts the replies into a queue you approve.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
-      <a href="/agents/review-engine.html" class="card rv">
-        <span class="tag">deploy now</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
-        <h3>Review Engine</h3>
-        <p>Owns your reputation. After a completed job it drafts the review request — Google and Facebook — and tracks your rating on one dashboard. The reviews you never get around to asking for.</p>
-        <span class="go">turns jobs into reviews &rarr;</span>
-      </a>
-      <a href="/agents/retention-coordinator.html" class="card rv">
-        <span class="tag">deploy now</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></div>
-        <h3>Win-Back</h3>
-        <p>Owns repeat business. Finds the customers who drifted and drafts the re-engagement that brings them back. The revenue already sitting in your customer list.</p>
-        <span class="go">&asymp; a $45&ndash;60K/yr coordinator &rarr;</span>
-      </a>
-      <a href="/agents/weekly-recap.html" class="card rv">
-        <span class="tag">+$197/mo add-on</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-        <h3>Weekly Recap</h3>
-        <p>Owns the Monday update. Reads your live dashboards and emails a plain-English weekly recap — what happened, what needs you, what's next. Adds onto any team.</p>
-        <span class="go">the report you'd never write &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// built for you in 7 days &middot; from your intake</div>
-    <h2 class="rv d1">Five more teams, built around your workflow.</h2>
-    <p class="lede rv d1">The build model is the offering, not a wait. We model your ops and ship.</p>
-    <div class="cards rv d2">
       <a href="/agents/sales-navigator.html" class="card rv">
         <span class="tag">7-day build</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Sales</h3>
-        <p>Owns the pipeline. Instant lead response, itemized quotes against your pricing, and follow-up until they decide. Built from your quoting math and pipeline map.</p>
-        <span class="go">&asymp; a $50&ndash;80K/yr sales coordinator &rarr;</span>
+        <p>Instant lead response, itemized quotes, and follow-up until they decide.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
       <a href="/agents/marketing-coordinator.html" class="card rv">
         <span class="tag">7-day build</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="m3 11 14-4v12L3 15z"/><path d="M17 9a3 3 0 0 1 0 6"/></svg></div>
         <h3>Marketing</h3>
-        <p>Owns your presence. Content, social posts, review generation, and local SEO — kept consistent. Built from your voice and an SEO audit. Organic only.</p>
-        <span class="go">&asymp; a $50&ndash;75K/yr coordinator &rarr;</span>
+        <p>Content, social posts, reviews, and local SEO &mdash; kept consistent. Organic only.</p>
+        <span class="go">learn more &rarr;</span>
+      </a>
+      <a href="/agents/review-engine.html" class="card rv">
+        <span class="tag">deploy now</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
+        <h3>Review Engine</h3>
+        <p>Drafts the review request after every job and tracks your Google &amp; Facebook rating.</p>
+        <span class="go">learn more &rarr;</span>
+      </a>
+      <a href="/agents/retention-coordinator.html" class="card rv">
+        <span class="tag">deploy now</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></div>
+        <h3>Win-Back</h3>
+        <p>Finds customers who drifted and drafts the re-engagement that brings them back.</p>
+        <span class="go">learn more &rarr;</span>
+      </a>
+    </div>
+    <div class="yget rv">
+      <div>
+        <h3>What owning the Front Office gets you</h3>
+        <p>Never miss a lead again. First contact, follow-up, reviews, and repeat business run themselves &mdash; while you stay on the tools.</p>
+      </div>
+      <ul>
+        <li>Every call, text &amp; form answered in seconds, day or night</li>
+        <li>Quotes out fast and chased until the customer decides</li>
+        <li>More 5-star reviews and dormant customers brought back</li>
+      </ul>
+    </div>
+    <div class="ctarow rv">
+      <a href="https://go.efficio.tech/" class="btn-primary">Which one's right for you? <span class="arr">&rarr;</span></a>
+      <a href="/catalog.html" class="btn-outline">See everything we build</a>
+    </div>
+  </div>
+</section>
+
+<!-- BACK OFFICE -->
+<section class="sec" id="back" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// back office &middot; runs the admin</div>
+    <h2 class="rv d1">Your back office, run for you.</h2>
+    <p class="lede rv d1">The behind-the-scenes team. Scheduling, money, onboarding, and the brief that keeps you in the loop.</p>
+    <div class="cards rv d2">
+      <a href="/agents/office-manager.html" class="card rv">
+        <span class="tag">7-day build</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Back Office</h3>
+        <p>Inbox triage, scheduling, internal handoffs, KPIs, and a daily owner brief.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
       <a href="/agents/bookkeeper.html" class="card rv">
         <span class="tag">7-day build</span>
         <div class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
         <h3>Finance</h3>
-        <p>Owns the money-out work. Invoicing, AR follow-ups, payment reminders, and at-risk flags — draft-only, no money moved automatically. Built from your AR sequence.</p>
-        <span class="go">&asymp; a $50&ndash;70K/yr bookkeeper &rarr;</span>
-      </a>
-      <a href="/agents/office-manager.html" class="card rv">
-        <span class="tag">7-day build</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>Back Office</h3>
-        <p>Owns behind the scenes. Inbox triage, scheduling, internal handoffs, KPI tracking, and a six-line owner brief every morning. Built from your workflows.</p>
-        <span class="go">&asymp; a $45&ndash;90K/yr office manager &rarr;</span>
+        <p>Invoicing, AR follow-ups, and payment reminders &mdash; draft-only, no money moved.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
       <a href="/agents/onboarding-specialist.html" class="card rv">
         <span class="tag">7-day build</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
         <h3>Client Onboarding</h3>
-        <p>Owns first impressions. Intake, document collection, kickoff scheduling, account setup, and a welcome that lands — so no new client ghosts during setup. Built to model your flow.</p>
-        <span class="go">&asymp; a $45&ndash;65K/yr specialist &rarr;</span>
+        <p>Intake, document collection, kickoff scheduling, and account setup &mdash; no ghosting.</p>
+        <span class="go">learn more &rarr;</span>
+      </a>
+      <a href="/agents/weekly-recap.html" class="card rv">
+        <span class="tag">+$197/mo add-on</span>
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Weekly Recap</h3>
+        <p>A plain-English Monday recap &mdash; what happened, what needs you, what's next.</p>
+        <span class="go">learn more &rarr;</span>
       </a>
     </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// beyond the roster &middot; per scope</div>
-    <h2 class="rv d1">The workflow nobody else has solved? That's the slot we build.</h2>
-    <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto">
-      <a href="https://go.efficio.tech/" class="card imagine rv">
-        <span class="tag">per scope</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Custom Build</h3>
-        <p>Anything off-the-shelf can't do — bespoke engineering, software, and automation. We scope it, quote it, build it, and run it on your dashboard. Not a seat.</p>
-        <span class="go">scope mine &rarr;</span>
-      </a>
-      <a href="/pricing.html" class="card rv d1">
-        <span class="tag">see pricing</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>The math vs. headcount</h3>
-        <p>Hiring even half this roster in-house runs into the high six figures a year — before benefits, taxes, training, or attrition. Efficio runs it month-to-month for a fraction.</p>
-        <span class="go">see the tiers &rarr;</span>
-      </a>
+    <div class="yget rv">
+      <div>
+        <h3>What owning the Back Office gets you</h3>
+        <p>The admin runs itself. Scheduling, invoicing, onboarding, and reporting stop eating your nights and weekends.</p>
+      </div>
+      <ul>
+        <li>Invoices sent and chased &mdash; AR aging drops, books close on time</li>
+        <li>New clients onboarded smoothly, nothing falls through</li>
+        <li>One clear brief so you always know what needs you</li>
+      </ul>
+    </div>
+    <div class="ctarow rv">
+      <a href="https://go.efficio.tech/" class="btn-primary">Which one's right for you? <span class="arr">&rarr;</span></a>
+      <a href="/case-studies/" class="btn-outline">See the case studies</a>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<!-- STARTER — single agents -->
+<section class="sec" id="starter" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// find your business</div>
-    <h2 class="rv d1">See exactly where you're leaking.</h2>
-    <p class="lede rv d1">Find the row that sounds like your week — the pains tell us which teams to stand up first.</p>
-    <div class="rv d2" style="overflow-x:auto;margin-top:clamp(28px,4vh,44px)">
-    <table class="vtable">
-      <thead><tr><th>Sounds like</th><th>Where you're leaking</th><th class="hot">Start with</th></tr></thead>
-      <tbody>
-        <tr><td>Blue-collar service<br><span style="opacity:.6;font-size:12px">HVAC &middot; plumbing &middot; electrical &middot; cleaning</span></td><td>Missed calls go to voicemail, quotes take too long, the schedule is chaos.</td><td class="p">Front Office &middot; Sales</td></tr>
-        <tr><td>Food &amp; hospitality<br><span style="opacity:.6;font-size:12px">restaurants &middot; catering</span></td><td>Phones overwhelm the line, reviews go unanswered, margins are thin.</td><td class="p">Front Office &middot; Marketing &middot; Finance</td></tr>
-        <tr><td>Sales-driven<br><span style="opacity:.6;font-size:12px">real estate &middot; insurance &middot; B2B</span></td><td>Leads go cold, follow-up never happens, the pipeline is a black box.</td><td class="p">Sales &middot; Win-Back &middot; Marketing</td></tr>
-        <tr><td>White-collar &amp; pro<br><span style="opacity:.6;font-size:12px">law &middot; accounting &middot; agencies</span></td><td>Admin buries the team, onboarding drags, AR sits unpaid.</td><td class="p">Back Office &middot; Onboarding &middot; Finance</td></tr>
-        <tr><td>Auto &amp; specialty<br><span style="opacity:.6;font-size:12px">auto shops &middot; repair &middot; trades</span></td><td>Front-desk gaps, slow quotes, no system for repeat business.</td><td class="p">Front Office &middot; Sales &middot; Win-Back</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="pnote rv">Start with the team that's bleeding you. Add teams as you grow, or run the whole department from day one. <a href="/pricing.html">See the tiers &rarr;</a></p>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// how the teams work together</div>
-    <h2 class="rv d1">The real lift is the hand-off.</h2>
-    <p class="lede rv d1">Not one agent — your teams passing work across your whole operation, automatically.</p>
-    <div class="cards rv d2">
-      <div class="card"><span class="tag">Workflow 01</span><div class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div><h3>Missed call &rarr; booked job &rarr; confirmed crew</h3><p>A homeowner calls after hours. They're booked, the crew is notified, and they have a text reminder by 8am. <b>Front Office &rarr; Back Office &rarr; Marketing.</b></p></div>
-      <div class="card"><span class="tag">Workflow 02</span><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Web lead &rarr; instant quote &rarr; won deal</h3><p>An 11pm inquiry gets an itemized estimate against your pricing book, with follow-up at day 2, 5, and 10. <b>Sales &rarr; Back Office &rarr; Marketing.</b></p></div>
-      <div class="card"><span class="tag">Workflow 03</span><div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></div><h3>Overdue customer &rarr; reactivation &rarr; renewal</h3><p>240 customers overdue 6+ months each get a message tied to their last visit. Polite, persistent. They book. <b>Marketing &rarr; Front Office &rarr; Sales.</b></p></div>
-      <div class="card"><span class="tag">Workflow 04</span><div class="ci"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Morning chaos &rarr; six-line brief &rarr; calm</h3><p>Inbox, calendar, activity log, open work — read overnight. By 7am you have a six-line briefing: what happened, what needs you, what's at risk. <b>Back Office &rarr; Daily brief.</b></p></div>
-      <div class="card"><span class="tag">Workflow 05</span><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h3>Stalled handoff &rarr; caught &rarr; fixed</h3><p>A file sits idle 8 hours past SLA. It pings the right human, drafts the apology, and logs the leak so Friday-at-5pm doesn't repeat. <b>Back Office &rarr; Exception log.</b></p></div>
-      <div class="card"><span class="tag">Workflow 06</span><div class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><h3>AR backlog &rarr; cleared invoices &rarr; books closed</h3><p>28 invoices past 7 days get the right tone of follow-up; the worst three escalate for a personal touch. Books close by the 3rd. <b>Finance &rarr; Sales &rarr; Close.</b></p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// how it plugs in</div>
-    <h2 class="rv d1">Built on Claude. Plugged into the tools you already use.</h2>
-    <p class="lede rv d1">No rip-and-replace. Provisioned in your own Claude Teams account, connected through MCP and direct APIs — scoped and revocable, every action on one live dashboard.</p>
-    <div class="band rv d2">
-      <div class="band-lbl">Your stack &middot; MCP + API</div>
-      <div class="chips">
-        <span class="chip">CRM</span><span class="chip">Inbox</span><span class="chip">Calendar</span>
-        <span class="chip">Phone</span><span class="chip">Payments</span><span class="chip">Docs</span>
+    <div class="eyebrow rv">// start with one &middot; Starter $497/mo</div>
+    <h2 class="rv d1">Don't need a whole team? Start with one agent.</h2>
+    <p class="lede rv d1">Pick the single agent fixing your #1 bottleneck. Prove it works, then stack into a full team whenever you're ready.</p>
+    <div class="start-wrap">
+      <div class="price rv d1" style="text-align:left">
+        <div class="pn">Starter</div><div class="pp">$497<span> /mo</span></div>
+        <div class="pd">One agent, on your biggest leak.</div>
+        <ul class="pf">
+          <li>1 AI agent on your #1 bottleneck</li>
+          <li>Your own Claude account, set up for you</li>
+          <li>Live dashboard + your first automation</li>
+          <li>$0 upfront &middot; pay only if it works</li>
+        </ul>
+        <a href="https://go.efficio.tech/" class="pb" target="_blank" rel="noopener">Start with one &rarr;</a>
+      </div>
+      <div class="rv d2">
+        <div class="grp" style="justify-content:flex-start;margin-top:0"><span class="gl">// ready to deploy now</span></div>
+        <div class="singles">
+          <a href="/agents/receptionist.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span>
+            <span><b>Front Office</b><span>answers &amp; books</span></span>
+          </a>
+          <a href="/agents/inbox-manager.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></span>
+            <span><b>Inbox Manager</b><span>live today</span></span>
+          </a>
+          <a href="/agents/review-engine.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></span>
+            <span><b>Review Engine</b><span>more 5-stars</span></span>
+          </a>
+          <a href="/agents/retention-coordinator.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></span>
+            <span><b>Win-Back</b><span>repeat revenue</span></span>
+          </a>
+          <a href="/agents/sales-navigator.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+            <span><b>Sales</b><span>quotes &amp; follow-up</span></span>
+          </a>
+          <a href="/agents/weekly-recap.html" class="sgl">
+            <span class="si"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+            <span><b>Weekly Recap</b><span>add-on</span></span>
+          </a>
+        </div>
+        <p class="pnote rv" style="text-align:left;margin-top:18px">Any agent can be your first &mdash; not sure which? <a href="https://go.efficio.tech/">Take the 60-second audit &rarr;</a> &middot; <a href="/pricing.html">see all tiers</a></p>
       </div>
     </div>
-    <div class="cards rv d2">
-      <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg></div><h3>MCP + APIs, not rip-and-replace</h3><p>The workforce reads and acts inside the tools you already run — CRM, inbox, calendar, phone, payments. Access is scoped and revocable at any time.</p></div>
-      <div class="card imagine"><div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/></svg></div><h3>Built on Anthropic's Claude</h3><p>Agents reason and act on Claude — provisioned in your own Claude Teams account, configured by us. Frontier intelligence with humans in the loop where it matters.</p></div>
-      <div class="card"><div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Acts across your whole stack</h3><p>Agents don't just answer — they book the slot, log the deal, send the quote, chase the invoice. One coordinated workforce, every action on your live dashboard.</p></div>
-    </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// how it works &middot; kickoff to live</div>
-    <h2 class="rv d1">From kickoff to live, fast.</h2>
-    <div class="steps rv d2">
-      <div class="step"><div class="sn">D0</div><h3>Kickoff call</h3><p>15 minutes. We scope the first build and agree on the one number we'll move by day 30.</p></div>
-      <div class="step"><div class="sn">1-5</div><h3>Build</h3><p>We build the agent around your real workflow. You watch progress in your shared chat.</p></div>
-      <div class="step"><div class="sn">D7</div><h3>Live</h3><p>The agent ships into your stack. Dashboard goes live with your branding. You watch the work happen.</p></div>
-      <div class="step"><div class="sn">D30</div><h3>Operate</h3><p>We tune it, run it, ship the next thing. The day-30 number is the test. If it didn't move, the month's on us.</p></div>
-    </div>
-  </div>
-</section>
-
+<!-- CLOSER -->
 <section class="cta rv">
   <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Not sure which team you need?</h2>
-  <p>Take the 5-min audit. We'll tell you where you're leaking and which team fixes it first — then a 15-minute call to scope it.</p>
-  <a href="https://go.efficio.tech/" class="btn-primary lg">Take the audit <span class="arr">&rarr;</span></a>
+  <h2>Not sure which one you need?</h2>
+  <p>Take the 60-second audit. We'll tell you where you're leaking and which agent or team fixes it first &mdash; then a 15-minute call to scope it.</p>
+  <div class="ctarow" style="margin-top:22px">
+    <a href="https://go.efficio.tech/" class="btn-primary lg">Take the audit <span class="arr">&rarr;</span></a>
+    <a href="/case-studies/" class="btn-outline lg">See the proof</a>
+  </div>
 </section>
 
 <footer>
@@ -275,7 +283,7 @@
         <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
       </div>
       <div class="fcol"><h5>Company</h5>
-        <a href="/why-us.html">Why us</a><a href="https://go.efficio.tech/">Take the audit</a>
+        <a href="/why-us.html">Why us</a><a href="/case-studies/">Case studies</a>
         <a href="https://go.efficio.tech/">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>

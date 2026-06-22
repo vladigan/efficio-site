@@ -276,6 +276,8 @@ a:hover .arr{transform:translateX(4px)}
 }
 /* code-call / generation block */
 .callwrap{max-width:580px;margin:clamp(34px,4vh,52px) auto 0}
+.code-plain{max-width:560px;margin:16px auto 0;font-size:13.5px;line-height:1.6;color:var(--muted);text-align:center}
+.code-plain .cp-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-l);margin-right:9px;white-space:nowrap}
 .callwrap .term-body{min-height:210px;font-size:13px;white-space:normal}
 .cgline{display:flex;gap:14px;white-space:pre;opacity:1;transform:none;animation:lnin .26s cubic-bezier(.2,.7,.2,1) forwards}
 .cgline .gut{color:var(--muted2);user-select:none;width:18px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
@@ -318,8 +320,8 @@ a:hover .arr{transform:translateX(4px)}
 @media(max-width:900px){.prices{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.prices{grid-template-columns:1fr}}
 .price{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:28px 22px;text-align:left;
-  display:flex;flex-direction:column;overflow:hidden;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s}
-.price::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;
+  display:flex;flex-direction:column;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s}
+.price::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;border-radius:inherit;overflow:hidden;
   background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(124,77,255,.14),transparent 60%)}
 .price:hover{transform:translateY(-6px);border-color:var(--line2);box-shadow:0 28px 60px -32px rgba(0,0,0,.9)}
 .price:hover::before{opacity:1}
@@ -351,6 +353,9 @@ a:hover .arr{transform:translateX(4px)}
 .cta .prompt{font-family:var(--mono);font-size:13px;color:var(--violet-l);margin-bottom:18px}
 .cta h2{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:0 0 14px;color:#fff}
 .cta p{font-size:1.05rem;font-weight:500;color:var(--ink2);margin:0 auto 32px;max-width:32ch}
+.cta .stats{margin:clamp(34px,5vh,54px) auto clamp(28px,4vh,44px)}
+.cta .stat .n{font-size:clamp(2.3rem,4.6vw,3.3rem)}
+.cta .cta-sub{font-size:clamp(1.5rem,3.2vw,2.15rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;color:#fff;margin:0 0 12px}
 
 /* footer */
 footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding:58px 0 96px}
@@ -513,7 +518,7 @@ footer{padding-bottom:96px}
 .showcase .sc-frameWrap{position:relative;margin:40px auto 0;max-width:1040px;border-radius:var(--r2);
   overflow:hidden;border:1px solid var(--line2);box-shadow:var(--glow),var(--soft);
   background:linear-gradient(180deg,var(--panel) 0%,var(--bg2) 100%)}
-.showcase .sc-frame{display:block;width:100%;height:clamp(560px,80vh,860px);border:0;background:transparent}
+.showcase .sc-frame{display:block;width:100%;height:760px;border:0;background:transparent;overflow:hidden}
 .showcase .sc-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2}
 @media(max-width:760px){.showcase .sc-frame{height:74vh;min-height:520px}}
 </style>
@@ -588,7 +593,6 @@ footer{padding-bottom:96px}
 <!-- DIFFERENTIATOR -->
 <section class="sec" id="apps">
   <div class="wrap center">
-    <div class="eyebrow rv">// lives inside your apps</div>
     <h2 class="rv d1">It works where your business already runs.</h2>
     <p class="lede rv d1">Connected to your phone, inbox, calendar, CRM, and payments — so the work just gets done, no new app to babysit.</p>
   </div>
@@ -618,6 +622,7 @@ footer{padding-bottom:96px}
         </div>
         <div class="term-body" id="callBody"></div>
       </div>
+      <p class="code-plain"><span class="cp-tag">In plain English</span>A customer asks to book &rarr; your AI checks the calendar, books the slot, and confirms &mdash; live on your tools, in seconds.</p>
     </div>
   </div>
 </section>
@@ -665,7 +670,7 @@ footer{padding-bottom:96px}
     <p class="lede rv d1">A live command center: deploy agents, see what each one is doing, and watch the work land in real time. <b>Open it and poke at anything.</b></p>
     <div class="sc-wrap rv d2">
       <div class="sc-frameWrap rv d2">
-        <iframe id="scDemoFrame" class="sc-frame" title="Efficio command center — live, interactive demo" loading="lazy"></iframe>
+        <iframe id="scDemoFrame" class="sc-frame" title="Efficio command center — live, interactive demo" loading="lazy" scrolling="no"></iframe>
         <a class="sc-fallback btn-primary lg" href="/demo.html">Open the live demo <span class="arr">&rarr;</span></a>
       </div>
       <div class="sc-cta">
@@ -676,18 +681,6 @@ footer{padding-bottom:96px}
 </section>
 
 <!-- OFFER -->
-<section class="sec">
-  <div class="wrap center">
-    <div class="eyebrow rv">// the offer</div>
-    <h2 class="rv d1">Nothing to lose.</h2>
-    <div class="stats rv d2">
-      <div class="stat"><div class="n">7</div><div class="l">days to live</div></div>
-      <div class="stat"><div class="n">$0</div><div class="l">upfront</div></div>
-      <div class="stat"><div class="n">&#x2713;</div><div class="l">pay only if it works</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- PRICING -->
 <section class="sec" id="pricing">
   <div class="wrap center">
@@ -723,7 +716,13 @@ footer{padding-bottom:96px}
 <!-- FINAL CTA -->
 <section class="cta rv">
   <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Hire your AI team.</h2>
+  <h2>Nothing to lose.</h2>
+  <div class="stats cta-stats">
+    <div class="stat"><div class="n">7</div><div class="l">days to live</div></div>
+    <div class="stat"><div class="n">$0</div><div class="l">upfront</div></div>
+    <div class="stat"><div class="n">&#x2713;</div><div class="l">pay only if it works</div></div>
+  </div>
+  <h3 class="cta-sub">Hire your AI team.</h3>
   <p>Sixty seconds to see where it fits. No deck, no homework.</p>
   <a href="https://go.efficio.tech/" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
 </section>
@@ -1002,9 +1001,20 @@ footer{padding-bottom:96px}
     if(loaded) return; loaded=true;
     fetch('/demo-embed.html',{cache:'no-cache'})
       .then(function(r){ if(!r.ok) throw new Error('http '+r.status); return r.text(); })
-      .then(function(html){ f.srcdoc=html; })
+      .then(function(html){ f.addEventListener('load', onFrameLoad); f.srcdoc=html; })
       .catch(function(){ loaded=false; show(); });
   }
+  function fitFrame(){
+    try{
+      var doc=f.contentDocument||(f.contentWindow&&f.contentWindow.document);
+      if(!doc||!doc.body) return;
+      doc.documentElement.style.overflow='hidden';
+      var h=Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, doc.body.offsetHeight);
+      if(h>0) f.style.height=(h+2)+'px';
+    }catch(e){}
+  }
+  function onFrameLoad(){ fitFrame(); setTimeout(fitFrame,150); setTimeout(fitFrame,600); setTimeout(fitFrame,1600); }
+  var _rt; window.addEventListener('resize',function(){ clearTimeout(_rt); _rt=setTimeout(fitFrame,180); });
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
       for(var k=0;k<es.length;k++){ if(es[k].isIntersecting){ io.disconnect(); load(); break; } }

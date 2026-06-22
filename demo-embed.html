@@ -163,8 +163,13 @@ a:hover .arr{transform:translateX(4px)}
 .btn-deploy .plus{font-size:16px;line-height:1;margin-top:-1px}
 
 /* agent grid */
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;padding:6px 20px 22px}
-@media(max-width:560px){.agrid{grid-template-columns:1fr;padding:6px 14px 18px}}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;padding:0 20px 6px}
+.agroup{padding-top:2px}
+.agroup:last-of-type .agrid{padding-bottom:18px}
+.ag-label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted2);padding:0 20px;margin:16px 0 10px;display:flex;align-items:center;gap:8px}
+.agroup:first-of-type .ag-label{margin-top:6px}
+.ag-label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet-l);box-shadow:0 0 7px var(--violet-l);opacity:.85;flex-shrink:0}
+@media(max-width:560px){.agrid{grid-template-columns:1fr;padding:0 14px 6px}.ag-label{padding:0 14px}}
 .acard{position:relative;text-align:left;border:1px solid var(--line);border-radius:var(--r);background:rgba(13,13,23,.66);
   padding:16px 16px 15px;cursor:pointer;transition:border-color .2s,transform .16s var(--ease),box-shadow .25s;overflow:hidden}
 .acard:hover{border-color:rgba(124,77,255,.45);transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(124,77,255,.6)}
@@ -188,8 +193,6 @@ a:hover .arr{transform:translateX(4px)}
 .ac-task .cur{color:var(--violet-l);font-family:var(--mono);font-size:11px;margin-top:2px}
 .ac-foot{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);display:flex;gap:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 .ac-foot b{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
-.ac-open{position:absolute;top:15px;right:15px;color:var(--muted);font-size:12px;transition:color .2s,transform .2s}
-.acard:hover .ac-open{color:var(--violet-l);transform:translateX(2px)}
 /* deploying progress */
 .dep-bar{height:3px;border-radius:3px;background:rgba(124,77,255,.18);overflow:hidden;margin-top:11px}
 .dep-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet-d),var(--violet-l));animation:depfill 1.7s var(--ease) forwards}
@@ -303,7 +306,7 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
 <style>
 /* ---- embed-only layout overrides (no site nav/footer) ---- */
 html,body{margin:0}
-body.efc-embed{min-height:0}
+body.efc-embed{min-height:0;overflow:hidden}
 body.efc-embed .dhero{padding:16px 0 28px}
 body.efc-embed .console{margin:0 auto}
 body.efc-embed .wrap{padding:0 16px;max-width:1100px}
@@ -336,7 +339,14 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
         <button class="btn-deploy" id="deployBtn"><span class="plus">+</span> Deploy agent</button>
       </div>
 
-      <div class="agrid" id="agrid"></div>
+      <div class="agroup" id="grpFront">
+        <div class="ag-label">Front office</div>
+        <div class="agrid" id="agridFront"></div>
+      </div>
+      <div class="agroup" id="grpBack">
+        <div class="ag-label">Back office</div>
+        <div class="agrid" id="agridBack"></div>
+      </div>
 
       <div class="ticker">
         <div class="tk-h"><span class="live"></span> live activity</div>
@@ -437,7 +447,11 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
   var stats = {online:0, tasks:734, recovered:18940, hours:62};
 
   /* ---- DOM refs ---- */
-  var agrid=document.getElementById('agrid'), tkFeed=document.getElementById('tkFeed');
+  var agridFront=document.getElementById('agridFront'), agridBack=document.getElementById('agridBack'), tkFeed=document.getElementById('tkFeed');
+  var SECTION={reception:'front',sales:'front',inbox:'front',review:'front',winback:'front',marketing:'front',books:'back',office:'back'};
+  function sectionOf(a){ if(SECTION[a.id]) return SECTION[a.id]; return /book|office|account|admin|payroll|ops|finance|invoice|ledger/i.test(((a.id||'')+(a.role||'')))?'back':'front'; }
+  function gridFor(a){ return sectionOf(a)==='back'?agridBack:agridFront; }
+  function updateGroups(){ var f=document.getElementById('grpFront'), b=document.getElementById('grpBack'); if(f) f.style.display=agridFront.children.length?'':'none'; if(b) b.style.display=agridBack.children.length?'':'none'; }
   var kOnline=document.getElementById('kOnline'),kTasks=document.getElementById('kTasks'),
       kRec=document.getElementById('kRecovered'),kHours=document.getElementById('kHours');
 
@@ -457,8 +471,7 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
         pill(a.status)+
       '</div>'+
       '<div class="ac-task"><span class="cur">&rsaquo;</span><span class="taskline">'+a.task+'</span></div>'+
-      foot+
-      (a.status!=='deploying'?'<span class="ac-open">open &rarr;</span>':'');
+      foot;
   }
 
   function renderCard(a,isNew){
@@ -469,13 +482,13 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
       el.id='card-'+a.id;
       el.setAttribute('type','button');
       el.addEventListener('click',function(){ if(a.status!=='deploying') openDrawer(a.id); });
-      agrid.appendChild(el);
+      gridFor(a).appendChild(el);
     }
     el.classList.toggle('deploying',a.status==='deploying');
     el.innerHTML=cardHTML(a);
   }
 
-  function renderAll(){ AGENTS.forEach(function(a){renderCard(a,false);}); }
+  function renderAll(){ AGENTS.forEach(function(a){renderCard(a,false);}); updateGroups(); }
 
   /* ---- stats bar ---- */
   function bumpEl(el){ if(!el) return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
@@ -590,6 +603,7 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
       tasksToday:0,saved:0,recovered:0,pool:t.pool,logseed:t.logseed});
     AGENTS.push(a);
     renderCard(a,true);
+    updateGroups();
     addTicker(a.name,'is deploying — connecting to your tools',nowt());
     paintStats();
     // scroll the new card into view on mobile

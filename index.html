@@ -365,6 +365,13 @@ html.js .flow.vis .fstep{opacity:1;transform:none;transition-delay:calc(var(--i)
 .price .pp{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1.1;margin-top:8px}
 .price .pp span{font-size:.78rem;font-weight:600;color:var(--muted)}
 .price .pd{font-size:12.5px;font-weight:500;color:var(--muted);min-height:36px;line-height:1.45;margin:6px 0 18px}
+
+.price .pd{margin-bottom:13px}
+.pf{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:9px}
+.pf li{position:relative;padding-left:21px;font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.45}
+.pf li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--violet-l);font-weight:700;font-size:12px;line-height:1.45}
+.pf li.inc{color:var(--ink2);font-weight:600}
+.pf li.inc::before{content:"+";color:var(--violet-l);font-size:14px;top:-1px}
 .price .pb{position:relative;margin-top:auto;width:100%;padding:12px 16px;border-radius:999px;font-size:13.5px;font-weight:700;text-align:center;overflow:hidden;
   border:1px solid var(--line2);color:var(--ink);background:rgba(255,255,255,.02);transition:all .2s}
 .price .pb:hover{border-color:var(--violet);color:#fff;background:rgba(124,77,255,.14);transform:translateY(-1px)}
@@ -752,22 +759,45 @@ footer{padding-bottom:96px}
       <div class="price">
         <div class="pn">Starter</div><div class="pp">$497<span> /mo</span></div>
         <div class="pd">Website + your first automation.</div>
+        <ul class="pf">
+          <li>1 AI agent on your #1 bottleneck</li>
+          <li>Connected to your core tools (email + calendar)</li>
+          <li>Live dashboard</li>
+          <li>$0 upfront, pay only if it works</li>
+        </ul>
         <a href="https://buy.stripe.com/9B66oJffT1Dq2l43p4dQQ0i" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
       <div class="price">
         <div class="pn">AI Specialist</div><div class="pp">$997<span> /mo</span></div>
         <div class="pd">One AI team, end-to-end.</div>
+        <ul class="pf">
+          <li>1 fully-built agent running a complete workflow (reception, inbox, or sales follow-up)</li>
+          <li>Multi-tool integration (CRM, phone, payments)</li>
+          <li>Dashboard + ongoing tuning</li>
+          <li class="inc">Everything in Starter</li>
+        </ul>
         <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
       <div class="price feat">
         <div class="badge">Most popular</div>
         <div class="pn">AI Team</div><div class="pp">$2,500<span> /mo</span></div>
         <div class="pd">Front + back office together.</div>
+        <ul class="pf">
+          <li>A team of agents across front &amp; back office (reception, inbox, scheduling, follow-up, bookkeeping)</li>
+          <li>Priority builds + tuning</li>
+          <li class="inc">Everything in Specialist</li>
+        </ul>
         <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
       <div class="price">
         <div class="pn">AI Department</div><div class="pp">$3,500<span> /mo</span></div>
         <div class="pd">Every team + unlimited builds.</div>
+        <ul class="pf">
+          <li>Full AI department &mdash; all agents, unlimited workflows</li>
+          <li>Custom agents built on demand</li>
+          <li>Dedicated support</li>
+          <li class="inc">Everything in Team</li>
+        </ul>
         <a href="https://buy.stripe.com/aFaeVf9Vzdm84tc8JodQQ0d" class="pb" target="_blank" rel="noopener">Select</a>
       </div>
     </div>

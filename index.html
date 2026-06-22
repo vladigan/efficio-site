@@ -174,9 +174,6 @@ a:hover .arr{transform:translateX(4px)}
   color:var(--ink2);white-space:pre-wrap}
 @media(max-width:520px){
   .term-body{font-size:12px;min-height:300px}
-  .callwrap .term-body{font-size:11.5px;padding-left:14px;padding-right:14px}
-  .callwrap .cgline{white-space:normal;gap:10px}
-  .callwrap .cgline .code{white-space:pre-wrap;overflow-wrap:anywhere}
   .term-bar{gap:6px}
   .term-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 }
@@ -275,10 +272,6 @@ a:hover .arr{transform:translateX(4px)}
   @keyframes fdotV{0%{top:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:100%;opacity:0}}
 }
 /* code-call / generation block */
-.callwrap{max-width:580px;margin:clamp(34px,4vh,52px) auto 0}
-.code-plain{max-width:560px;margin:16px auto 0;font-size:13.5px;line-height:1.6;color:var(--muted);text-align:center}
-.code-plain .cp-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-l);margin-right:9px;white-space:nowrap}
-.callwrap .term-body{min-height:210px;font-size:13px;white-space:normal}
 .cgline{display:flex;gap:14px;white-space:pre;opacity:1;transform:none;animation:lnin .26s cubic-bezier(.2,.7,.2,1) forwards}
 .cgline .gut{color:var(--muted2);user-select:none;width:18px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
 .cgline .code{flex:1;min-width:0}
@@ -298,6 +291,29 @@ a:hover .arr{transform:translateX(4px)}
 .integ-note b{color:#fff;font-weight:700}
 .integ-unblock{font-size:clamp(.95rem,1.6vw,1.05rem);font-weight:500;color:var(--muted);max-width:60ch;margin:14px auto 0;line-height:1.6}
 .integ-unblock b{color:var(--ink2);font-weight:600}
+
+/* how-we-deploy flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1060px;margin:clamp(40px,5.5vh,64px) auto 0}
+.fstep{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:24px 20px 22px;text-align:left;transition:transform .28s var(--ease2),border-color .28s,box-shadow .28s,background .28s}
+.fstep:hover{transform:translateY(-6px);border-color:rgba(124,77,255,.42);background:rgba(124,77,255,.05);box-shadow:0 30px 64px -30px rgba(124,77,255,.55),var(--soft)}
+.fs-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.fs-num{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--violet-l);opacity:.85}
+.fs-ic{width:46px;height:46px;border-radius:13px;background:rgba(124,77,255,.12);display:grid;place-items:center;color:var(--violet-l);transition:transform .28s var(--ease2),background .28s}
+.fstep:hover .fs-ic{transform:scale(1.08) rotate(-4deg);background:rgba(124,77,255,.2)}
+.fs-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fstep h3{font-size:1.12rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 7px}
+.fstep p{font-size:13px;font-weight:500;color:var(--muted);line-height:1.55;margin:0}
+.fstep p b{color:var(--ink2);font-weight:700}
+.fs-badge{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:6px 12px;border-radius:999px;background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.3);font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--violet-xl)}
+.fs-badge .bdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:stPulse 1.6s ease-in-out infinite}
+.fstep:not(:last-child)::after{content:"";position:absolute;top:46px;right:-15px;width:10px;height:10px;border-top:2px solid var(--violet-l);border-right:2px solid var(--violet-l);transform:rotate(45deg);opacity:.5;z-index:2}
+html.js .flow .fstep{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease2),transform .6s var(--ease2)}
+html.js .flow.vis .fstep{opacity:1;transform:none;transition-delay:calc(var(--i) * .12s)}
+.conn-apps{max-width:940px;margin:clamp(34px,4.5vh,52px) auto 0}
+.conn-apps .integ{margin-top:18px}
+.ca-label{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted);text-align:center}
+@media(max-width:900px){.flow{grid-template-columns:repeat(2,1fr)}.fstep:not(:last-child)::after{display:none}}
+@media(max-width:520px){.flow{grid-template-columns:1fr}}
 
 /* cards — interactive spotlight + clickable */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(44px,6vh,68px)}
@@ -472,6 +488,7 @@ footer{padding-bottom:96px}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important}
   html.js .rv{opacity:1;transform:none}
+  html.js .flow .fstep{opacity:1;transform:none}
   .live::after,#liveops .lo-tab .pdot::after{display:none}
 }
 /* ===== SEE IT IN ACTION — demo showcase ===== */
@@ -613,55 +630,62 @@ footer{padding-bottom:96px}
   </div>
 </section>
 
-<!-- HOW WE BUILD IT -->
+<!-- HOW WE DEPLOY (audit-driven, live in 7 days) -->
 <section class="sec" id="build">
   <div class="wrap center">
-    <div class="eyebrow rv">// how we build it</div>
+    <div class="eyebrow rv">// how we deploy</div>
     <h2 class="rv d1">Your apps, wired to a workforce.</h2>
-    <p class="lede rv d1">It plugs into the everyday tools your business already runs on — powered by <b>Claude</b>.</p>
-    <div class="integ rv d2">
-      <div class="icat">
-        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
-        <h4>Google Workspace</h4><p>Gmail &middot; Calendar &middot; Drive &amp; Docs</p>
+    <p class="lede rv d1">Four steps from the tools you already use to a working AI team &mdash; done for you, powered by <b>Claude</b>.</p>
+
+    <div class="flow rv d2">
+      <div class="fstep" style="--i:0">
+        <div class="fs-head"><span class="fs-num">01</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M9 15l6-6M10.5 6.5l1-1a4 4 0 015.5 5.5l-1 1M13.5 17.5l-1 1a4 4 0 01-5.5-5.5l1-1"/></svg></span></div>
+        <h3>Connect</h3>
+        <p>We plug into the apps you already run on &mdash; secured through <b>MCP + API</b>. Nothing to migrate, no new app to learn.</p>
       </div>
-      <div class="icat">
-        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M16 19a4 4 0 00-8 0M12 11a3 3 0 100-6 3 3 0 000 6M20 19a3 3 0 00-4-2.8M18 9.6a2.5 2.5 0 000-5"/></svg></div>
-        <h4>Your CRM</h4><p>HubSpot &middot; Salesforce &middot; GoHighLevel</p>
+      <div class="fstep" style="--i:1">
+        <div class="fs-head"><span class="fs-num">02</span><span class="fs-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.6-3.6"/></svg></span></div>
+        <h3>Audit</h3>
+        <p>We read your workflow, documents, and records to pinpoint exactly where time and money leak.</p>
       </div>
-      <div class="icat">
-        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
-        <h4>Phone &amp; SMS</h4><p>Calls &middot; texts &middot; voicemail</p>
+      <div class="fstep" style="--i:2">
+        <div class="fs-head"><span class="fs-num">03</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.4 1.4-1.8 5-1.8 5s3.6-.4 5-1.8M9.5 15l-3-3c1-5 5-9 11-9 0 6-4 10-9 11zM14.5 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3"/></svg></span></div>
+        <h3>Deploy</h3>
+        <p>Your AI agent team is built, tested, and deployed &mdash; done for you.</p>
+        <div class="fs-badge"><span class="bdot"></span>Live in 7 days</div>
       </div>
-      <div class="icat">
-        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg></div>
-        <h4>Payments</h4><p>Stripe &middot; invoices &middot; checkout</p>
-      </div>
-      <div class="icat">
-        <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-3-2-2 2-2-2-2 2-3-2zM8 9h8M8 13h5"/></svg></div>
-        <h4>Accounting</h4><p>QuickBooks &middot; books &middot; receipts</p>
+      <div class="fstep" style="--i:3">
+        <div class="fs-head"><span class="fs-num">04</span><span class="fs-ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2 5 4-13 2 8h6"/></svg></span></div>
+        <h3>Run</h3>
+        <p>State-of-the-art agents plus your live dashboard, running in your <b>Claude Teams</b> workspace &mdash; done for you.</p>
       </div>
     </div>
-    <p class="integ-note rv d2">Connected securely through <b>MCP + API</b>, your agents read and write inside the tools you already use and pull your own documents and data &mdash; <b>no new app to learn, nothing to migrate.</b></p>
-    <p class="integ-unblock rv d2">So they take the repetitive, time-draining work off your plate &mdash; answering inquiries, following up, scheduling, invoicing &mdash; working straight from your inboxes, records, and docs.</p>
-    <div class="arch rv d2" role="img" aria-label="Your apps connect through MCP and API to Claude-powered agents, which get the work done.">
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M4 5h7v7H4zM13 5h7v4h-7zM13 12h7v7h-7zM4 14h7v5H4z"/></svg></div><div class="flab">your apps</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 6l-4 12"/></svg></div><div class="flab">MCP &middot; API</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg core"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 014 4 4 4 0 010 8 4 4 0 01-8 0 4 4 0 010-8 4 4 0 014-4zM12 3v18"/></svg></div><div class="flab">Claude agents</div></div>
-      <div class="fw"></div>
-      <div class="fnode"><div class="fg"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><div class="flab">work done</div></div>
-    </div>
-    <div class="callwrap rv d2">
-      <div class="term">
-        <div class="term-bar">
-          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-          <span class="term-title">agent.handler.ts — generating</span>
-          <span class="term-stat" id="callStat"><span class="pulse"></span>writing</span>
+
+    <div class="conn-apps rv d2">
+      <div class="ca-label">// connects to the tools you already use</div>
+      <div class="integ">
+        <div class="icat">
+          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
+          <h4>Google Workspace</h4><p>Gmail &middot; Calendar &middot; Drive &amp; Docs</p>
         </div>
-        <div class="term-body" id="callBody"></div>
+        <div class="icat">
+          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M16 19a4 4 0 00-8 0M12 11a3 3 0 100-6 3 3 0 000 6M20 19a3 3 0 00-4-2.8M18 9.6a2.5 2.5 0 000-5"/></svg></div>
+          <h4>Your CRM</h4><p>HubSpot &middot; Salesforce &middot; GoHighLevel</p>
+        </div>
+        <div class="icat">
+          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></div>
+          <h4>Phone &amp; SMS</h4><p>Calls &middot; texts &middot; voicemail</p>
+        </div>
+        <div class="icat">
+          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg></div>
+          <h4>Payments</h4><p>Stripe &middot; invoices &middot; checkout</p>
+        </div>
+        <div class="icat">
+          <div class="ic-ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-3-2-2 2-2-2-2 2-3-2zM8 9h8M8 13h5"/></svg></div>
+          <h4>Accounting</h4><p>QuickBooks &middot; books &middot; receipts</p>
+        </div>
       </div>
-      <p class="code-plain"><span class="cp-tag">In plain English</span>A customer asks to book &rarr; your AI checks the calendar, books the slot, and confirms &mdash; live on your tools, in seconds.</p>
+      <p class="integ-note rv">Connected securely through <b>MCP + API</b>, your agents read and write inside the tools you already use &mdash; <b>no new app to learn, nothing to migrate.</b></p>
     </div>
   </div>
 </section>
@@ -906,35 +930,6 @@ footer{padding-bottom:96px}
     {t:'o', c:'lv',  s:'● all systems operational'}
   ];
 
-  /* build section: watch a handler being written line-by-line, then deployed */
-  var callStat=document.getElementById('callStat');
-  var codeLines=[
-    '<span class="kw">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fn">onCall</span>(c) {',
-    '  <span class="kw">const</span> slot = <span class="kw">await</span> <span class="fn">calendar.book</span>(c)',
-    '  <span class="kw">await</span> <span class="fn">sms.send</span>(c.from, slot.<span class="fn">confirm</span>)',
-    '  <span class="kw">await</span> <span class="fn">crm.log</span>({ lead: c, slot, src: <span class="st">&quot;after-hours&quot;</span> })',
-    '  <span class="kw">return</span> { booked: <span class="nu">true</span>, at: slot.time }',
-    '}'
-  ];
-  function buildCodegen(el){
-    return { run:function run(){
-      el.innerHTML=''; setStat(callStat,'writing','var(--violet-l)');
-      var i=0;
-      (function step(){
-        if(i>=codeLines.length){
-          var d=document.createElement('div'); d.className='ln ok'; d.style.marginTop='8px';
-          d.innerHTML='✓ deployed to your stack · 1.2s';
-          el.appendChild(d); setStat(callStat,'deployed','var(--green)');
-          if(!reduce) setTimeout(run, 3400);
-          return;
-        }
-        var row=document.createElement('div'); row.className='cgline';
-        row.innerHTML='<span class="gut">'+(i+1)+'</span><span class="code">'+codeLines[i]+'</span>';
-        el.appendChild(row); el.scrollTop=el.scrollHeight; i++;
-        setTimeout(step, reduce?40:260);
-      })();
-    }};
-  }
 
   /* Reveal a panel's scroll-reveal (.rv) ancestor so the container is never left invisible. */
   function revealPanel(el){ var r=el.closest('.rv'); if(r) r.classList.add('vis'); }
@@ -946,13 +941,6 @@ footer{padding-bottom:96px}
       '<div class="ln ok">\u2713 workspace authenticated</div>'+
       '<div class="ln ar">\u2192 gmail        connected</div>'+
       '<div class="ln ar">\u2192 calendar     connected</div>';
-  }
-  /* Seed the code-generator panel with the full handler immediately, so it is never blank. */
-  function seedCodegen(el){
-    var h=''; for(var i=0;i<codeLines.length;i++){
-      h+='<div class="cgline"><span class="gut">'+(i+1)+'</span><span class="code">'+codeLines[i]+'</span></div>';
-    }
-    el.innerHTML=h;
   }
   function startOnView(elId, maker, seed){
     var el=document.getElementById(elId); if(!el) return;
@@ -969,7 +957,6 @@ footer{padding-bottom:96px}
     setTimeout(go, 900);
   }
   startOnView('termBody', function(el){ return Terminal(el, heroFrames, {loop:true, pauseEnd:3600, speed:20}); }, seedTerm);
-  startOnView('callBody', function(el){ return buildCodegen(el); }, seedCodegen);
 
   /* chat sequential reveal */
   (function(){

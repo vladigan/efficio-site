@@ -38,7 +38,7 @@
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);
   -webkit-font-smoothing:antialiased;line-height:1.55;letter-spacing:-.011em;overflow-x:hidden;position:relative}
 a{color:inherit;text-decoration:none}
@@ -83,7 +83,7 @@ body>*:not(.bgfx):not(.scrollbar){position:relative;z-index:1}
   padding:9px 9px 9px 18px;border-radius:999px;
   background:rgba(13,13,23,.55);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);
   border:1px solid var(--line2);box-shadow:0 14px 40px -16px rgba(0,0,0,.8);
-  transition:background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+  transition:background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
 .nav.scrolled .nav-in{background:rgba(11,11,19,.82);box-shadow:0 18px 50px -16px rgba(0,0,0,.92),0 0 0 1px rgba(124,77,255,.12)}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-mark{width:26px;height:26px;flex-shrink:0;transition:transform .4s var(--ease2);
@@ -91,13 +91,13 @@ body>*:not(.bgfx):not(.scrollbar){position:relative;z-index:1}
 .logo:hover .logo-mark{transform:rotate(-8deg) scale(1.06)}
 .logo-text{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.03em}
 .nav-mid{display:flex;align-items:center;gap:4px}
-.nav-mid a{padding:8px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:background .15s,color .15s}
+.nav-mid a{padding:8px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:background .2s var(--ease),color .2s var(--ease)}
 .nav-mid a:hover{background:rgba(124,77,255,.14);color:#fff}
 .btn-primary{position:relative;display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:999px;
   font-size:14px;font-weight:700;color:#fff;border:1px solid rgba(124,77,255,.6);overflow:hidden;
   background:linear-gradient(180deg,var(--violet-l),var(--violet-d));
   box-shadow:0 8px 22px -8px rgba(124,77,255,.8),inset 0 1px 0 rgba(255,255,255,.25);
-  transition:transform .14s var(--ease),box-shadow .25s,filter .2s}
+  transition:transform .16s var(--ease),box-shadow .25s var(--ease),filter .2s var(--ease)}
 .btn-primary::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg)}
 .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 16px 34px -10px rgba(124,77,255,.95),inset 0 1px 0 rgba(255,255,255,.32)}
@@ -105,7 +105,7 @@ body>*:not(.bgfx):not(.scrollbar){position:relative;z-index:1}
 @keyframes shine{to{left:130%}}
 .btn-primary.lg{padding:15px 28px;font-size:15px}
 .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:600;
-  color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s,transform .14s,box-shadow .2s}
+  color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.02);transition:border-color .2s var(--ease),background .2s var(--ease),transform .16s var(--ease),box-shadow .2s var(--ease)}
 .btn-outline:hover{border-color:rgba(124,77,255,.55);background:rgba(124,77,255,.09);transform:translateY(-2px);box-shadow:0 12px 30px -16px rgba(124,77,255,.7)}
 .arr{transition:transform .2s var(--ease)}
 a:hover .arr{transform:translateX(4px)}
@@ -373,7 +373,7 @@ html.js .flow.vis .fstep{opacity:1;transform:none;transition-delay:calc(var(--i)
 .pf li.inc{color:var(--ink2);font-weight:600}
 .pf li.inc::before{content:"+";color:var(--violet-l);font-size:14px;top:-1px}
 .price .pb{position:relative;margin-top:auto;width:100%;padding:12px 16px;border-radius:999px;font-size:13.5px;font-weight:700;text-align:center;overflow:hidden;
-  border:1px solid var(--line2);color:var(--ink);background:rgba(255,255,255,.02);transition:all .2s}
+  border:1px solid var(--line2);color:var(--ink);background:rgba(255,255,255,.02);transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease),filter .2s var(--ease)}
 .price .pb:hover{border-color:var(--violet);color:#fff;background:rgba(124,77,255,.14);transform:translateY(-1px)}
 .price.feat .pb{background:linear-gradient(180deg,var(--violet-l),var(--violet-d));border-color:transparent;color:#fff;
   box-shadow:0 8px 22px -8px rgba(124,77,255,.85)}
@@ -403,13 +403,13 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
 .fbrand .logo-text{color:#fff}
 .fbrand p{font-size:12.5px;margin-top:13px;line-height:1.65;max-width:300px;color:#76758e}
 .fcol h5{font-family:var(--mono);font-size:11px;color:#6b6a82;text-transform:uppercase;letter-spacing:.1em;margin-bottom:13px;font-weight:600}
-.fcol a{display:block;font-size:13.5px;padding:5px 0;color:#aaa9c0;transition:color .15s,transform .15s}
+.fcol a{display:block;font-size:13.5px;padding:5px 0;color:#aaa9c0;transition:color .2s var(--ease),transform .2s var(--ease)}
 .fcol a:hover{color:#fff;transform:translateX(3px)}
 .fbot{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;
   flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11.5px;color:#6b6a82}
 
 /* reveals */
-html.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease2),transform .8s var(--ease2)}
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease2),transform .6s var(--ease2)}
 html.js .rv.vis{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
@@ -434,7 +434,7 @@ html.js .rv.vis{opacity:1;transform:none}
   background:rgba(11,11,19,.82);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);
   color:var(--ink2);border:0;border-top:1px solid var(--line2);
   padding:0 96px 0 22px;height:46px;box-sizing:border-box;
-  box-shadow:0 -10px 30px rgba(0,0,0,.5);transition:background .25s}
+  box-shadow:0 -10px 30px rgba(0,0,0,.5);transition:background .25s var(--ease)}
 #liveops .lo-tab:hover{background:rgba(18,18,30,.9)}
 #liveops .lo-tab .pdot{position:relative;width:8px;height:8px;border-radius:50%;background:var(--green);
   box-shadow:0 0 10px var(--green);flex-shrink:0}
@@ -456,7 +456,7 @@ html.js .rv.vis{opacity:1;transform:none}
 #liveops .lo-h .pdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
 #liveops .lo-h b{font-size:13px;font-weight:800;color:#fff;letter-spacing:-.01em;flex:1}
 #liveops .lo-h .cnt{font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600}
-#liveops .lo-x{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;transition:color .15s}
+#liveops .lo-x{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;transition:color .2s var(--ease)}
 #liveops .lo-x:hover{color:#fff}
 #liveops .lo-feed{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:0 28px;align-content:start}
 #liveops .lo-feed::-webkit-scrollbar{width:5px}
@@ -493,7 +493,8 @@ footer{padding-bottom:96px}
   .hero .sub{font-size:1.04rem}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.001ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
   html.js .flow .fstep{opacity:1;transform:none}
   .live::after,#liveops .lo-tab .pdot::after{display:none}
@@ -804,26 +805,24 @@ footer{padding-bottom:96px}
 .agc::before{background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--ac) 20%,transparent),transparent 60%)}
 .agc:hover{border-color:color-mix(in srgb,var(--ac) 45%,transparent);box-shadow:0 30px 64px -30px color-mix(in srgb,var(--ac) 55%,transparent),var(--soft)}
 .agc.open{border-color:color-mix(in srgb,var(--ac) 52%,transparent);box-shadow:0 30px 64px -30px color-mix(in srgb,var(--ac) 55%,transparent),var(--soft)}
-/* avatar tile */
-.abot{position:relative;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;margin-bottom:16px;color:var(--ac);
-  background:color-mix(in srgb,var(--ac) 13%,transparent);border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);
-  transition:transform .26s var(--ease2),background .26s,box-shadow .26s}
-.agc:hover .abot{transform:translateY(-2px) scale(1.05);background:color-mix(in srgb,var(--ac) 20%,transparent);box-shadow:0 12px 28px -12px color-mix(in srgb,var(--ac) 75%,transparent)}
-.abot .bot{width:36px;height:36px;overflow:visible}
-.abot .bhead{fill:color-mix(in srgb,var(--ac) 18%,transparent);stroke:var(--ac);stroke-width:1.9}
-.abot .bln{stroke:var(--ac);stroke-width:1.9;stroke-linecap:round}
-.abot .bdot{fill:var(--ac);transform-box:fill-box;transform-origin:center}
-.abot .beye{fill:var(--ac);transform-box:fill-box;transform-origin:center}
-.abot .btype{fill:var(--ac);opacity:.32;transform-box:fill-box;transform-origin:center}
-/* idle life: blink, antenna pulse, typing dots */
-.abot .beye{animation:bblink 5.4s var(--ease) infinite}
-.abot .bdot{animation:bpulse 2.6s ease-in-out infinite}
-.abot .btype{animation:btype 1.5s ease-in-out infinite}
-.abot .btype.d2{animation-delay:.18s}
-.abot .btype.d3{animation-delay:.36s}
-@keyframes bblink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.12)}}
-@keyframes bpulse{0%,100%{opacity:.5;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
-@keyframes btype{0%,100%{opacity:.28;transform:translateY(0)}50%{opacity:1;transform:translateY(-1.6px)}}
+/* avatar — visor character mark + per-agent function badge (matches /agents.html family) */
+.abot{position:relative;width:56px;height:56px;margin-bottom:14px;display:inline-block;color:var(--ac)}
+.abot .bot{width:56px;height:56px;overflow:visible;transition:transform .3s var(--ease2)}
+.agc:hover .abot .bot{transform:translateY(-3px) rotate(-2deg)}
+.abot .bw{stroke:var(--ac);stroke-width:2.4;stroke-linecap:round;opacity:.6}
+.abot .bear{fill:var(--ac);opacity:.4}
+.abot .bhead{fill:var(--ac);fill-opacity:.13;stroke:var(--ac);stroke-opacity:.6;stroke-width:1.6}
+.abot .bvisor{fill:#0a0a12;stroke:var(--ac);stroke-opacity:.22;stroke-width:1}
+.abot .bdot{fill:var(--ac);transform-box:fill-box;transform-origin:center;animation:abDot 2.6s ease-in-out infinite}
+.abot .beye{fill:var(--ac);transform-box:fill-box;transform-origin:center;animation:abBlink 4.4s infinite}
+.abot .bsmile{fill:none;stroke:var(--ac);stroke-width:2;stroke-linecap:round;opacity:.75}
+.abot .avb{position:absolute;right:-3px;bottom:-1px;width:23px;height:23px;border-radius:50%;background:var(--ac);
+  display:grid;place-items:center;transition:transform .26s var(--ease2);
+  box-shadow:0 5px 14px -4px color-mix(in srgb,var(--ac) 85%,transparent),0 0 0 3px var(--bg)}
+.agc:hover .abot .avb{transform:scale(1.12)}
+.abot .avb svg{width:12px;height:12px;fill:none;stroke:#0a0a12;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes abBlink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+@keyframes abDot{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
 /* stagger blink so the bots don't blink in unison */
 .tcards .agc:nth-of-type(2) .beye{animation-delay:.9s}
 .tcards .agc:nth-of-type(3) .beye{animation-delay:2.1s}
@@ -877,7 +876,7 @@ footer{padding-bottom:96px}
 @keyframes wsBar{0%{height:15%;opacity:.4}50%{opacity:1}100%{height:var(--bh,80%);opacity:.9}}
 /* reduced motion: freeze all the new life, show resting states */
 @media(prefers-reduced-motion:reduce){
-  .abot .beye,.abot .bdot,.abot .btype{animation:none;opacity:1}
+  .abot .beye,.abot .bdot{animation:none;opacity:1;transform:none}
   .agc.open .ws-code i,.agc.open .ws-msg .m2,.agc.open .ws-stars svg,.agc.open .ws-check svg path,.agc.open .ws-chart i{animation:none}
   .ws-code i{width:80%}.ws-check svg path{stroke-dashoffset:0}.ws-chart i{height:75%}.ws-stars svg{opacity:1;transform:none}
 }
@@ -895,9 +894,9 @@ footer{padding-bottom:96px}
     </div>
     <div class="cards tcards rv d2">
       <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-0" style="--ac:#9a7bff"><span class="tag">front/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Front Office</h3><p>Answers every call, text &amp; web form in seconds, 24/7 &mdash; and books the job.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-0" role="region" aria-label="Front Office &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span></div>
+        <h3>AI Receptionist</h3><p>Picks up every call, text &amp; web form in seconds &mdash; and books the job, 24/7.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-0" role="region" aria-label="AI Receptionist &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-msg" aria-hidden="true"><i class="m1"></i><i class="m2"></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Answering inbound calls &amp; texts and booking jobs straight into your calendar.</span></div>
           <div class="cd-log">
@@ -908,9 +907,9 @@ footer{padding-bottom:96px}
         </div></div></div>
       </div>
       <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-1" style="--ac:#5cc8ff"><span class="tag">inbox/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Inbox Manager</h3><p>Triages every email and drafts the replies into a queue you approve.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-1" role="region" aria-label="Inbox Manager &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span></div>
+        <h3>AI Inbox Manager</h3><p>Sorts your inbox by urgency and writes the replies &mdash; you just approve and send.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-1" role="region" aria-label="AI Inbox Manager &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-check" aria-hidden="true"><div class="rl"><span></span><span></span></div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Sorting the shared inbox and drafting replies into an approval queue.</span></div>
           <div class="cd-log">
@@ -921,9 +920,9 @@ footer{padding-bottom:96px}
         </div></div></div>
       </div>
       <div class="card agc rv d2" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-2" style="--ac:#56d8a0"><span class="tag">sales/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Sales</h3><p>Instant lead response, itemized quotes, and follow-up until they decide.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-2" role="region" aria-label="Sales &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span></div>
+        <h3>AI Sales Rep</h3><p>Answers new leads in seconds, sends the quote, and follows up until they decide.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-2" role="region" aria-label="AI Sales Rep &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-msg" aria-hidden="true"><i class="m1"></i><i class="m2"></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Responding to new leads and chasing open quotes until they decide.</span></div>
           <div class="cd-log">
@@ -934,9 +933,9 @@ footer{padding-bottom:96px}
         </div></div></div>
       </div>
       <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-3" style="--ac:#ff86c8"><span class="tag">marketing/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Marketing</h3><p>Content, social posts, reviews, and local SEO &mdash; kept consistent. Organic only.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-3" role="region" aria-label="Marketing &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="m3 11 14-4v12L3 15z"/><path d="M17 9a3 3 0 0 1 0 6"/></svg></span></div>
+        <h3>AI Marketing Coordinator</h3><p>Keeps your content, social &amp; local listings consistent &mdash; so you stay visible without thinking about it.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-3" role="region" aria-label="AI Marketing Coordinator &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-code" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Scheduling content, posting reviews, and keeping local listings consistent.</span></div>
           <div class="cd-log">
@@ -946,10 +945,10 @@ footer{padding-bottom:96px}
           <div class="cd-foot"><span class="cd-count"><b data-to="9">0</b> posts queued this week</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
         </div></div></div>
       </div>
-      <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-4" style="--ac:#e8c275"><span class="tag">reviews/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Review Engine</h3><p>Drafts the review request after every job and tracks your Google &amp; Facebook rating.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-4" role="region" aria-label="Review Engine &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-4" style="--ac:#f0b54a"><span class="tag">reviews/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></span></div>
+        <h3>AI Review Engine</h3><p>Asks every happy customer for a review and grows your Google rating on autopilot.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-4" role="region" aria-label="AI Review Engine &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Sending review requests after each completed job and tracking your rating.</span></div>
           <div class="cd-log">
@@ -959,10 +958,10 @@ footer{padding-bottom:96px}
           <div class="cd-foot"><span class="cd-count"><b data-to="17">0</b> review requests sent this week</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
         </div></div></div>
       </div>
-      <div class="card agc rv d2" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-5" style="--ac:#34d8c8"><span class="tag">win-back/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Win-Back</h3><p>Finds customers who drifted and drafts the re-engagement that brings them back.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-front-5" role="region" aria-label="Win-Back &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv d2" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-5" style="--ac:#6aa0ff"><span class="tag">win-back/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3M3 21v-5h5"/></svg></span></div>
+        <h3>AI Win-Back</h3><p>Spots customers who&rsquo;ve gone quiet and brings them back with the right nudge.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-front-5" role="region" aria-label="AI Win-Back &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-msg" aria-hidden="true"><i class="m1"></i><i class="m2"></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Finding lapsed customers and drafting the re-engagement that brings them back.</span></div>
           <div class="cd-log">
@@ -991,10 +990,10 @@ footer{padding-bottom:96px}
       <p class="gsub">The behind-the-scenes team &mdash; scheduling, money, onboarding, and the brief that keeps you in the loop.</p>
     </div>
     <div class="cards tcards rv">
-      <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-0" style="--ac:#6f9cff"><span class="tag">office/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Back Office</h3><p>Inbox triage, scheduling, internal handoffs, KPIs, and a daily owner brief.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-back-0" role="region" aria-label="Back Office &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-0" style="--ac:#c3b0ff"><span class="tag">office/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span></div>
+        <h3>AI Office Manager</h3><p>Runs the scheduling, handoffs &amp; daily brief so the day organizes itself.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-back-0" role="region" aria-label="AI Office Manager &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-chart" aria-hidden="true"><i style="--bh:55%"></i><i style="--bh:80%"></i><i style="--bh:45%"></i><i style="--bh:95%"></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Running scheduling, handoffs, KPIs, and your daily owner brief.</span></div>
           <div class="cd-log">
@@ -1004,10 +1003,10 @@ footer{padding-bottom:96px}
           <div class="cd-foot"><span class="cd-count"><b data-to="28">0</b> tasks coordinated today</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
         </div></div></div>
       </div>
-      <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-1" style="--ac:#56d8a0"><span class="tag">books/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Finance</h3><p>Invoicing, AR follow-ups, and payment reminders &mdash; draft-only, no money moved.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-back-1" role="region" aria-label="Finance &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-1" style="--ac:#3fd0c9"><span class="tag">books/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2z"/><path d="M2 10h20"/></svg></span></div>
+        <h3>AI Bookkeeper</h3><p>Sends invoices on time and chases overdue accounts &mdash; draft-only, never moves your money.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-back-1" role="region" aria-label="AI Bookkeeper &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-check" aria-hidden="true"><div class="rl"><span></span><span></span></div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Drafting invoices and AR follow-ups &mdash; draft-only, no money moved.</span></div>
           <div class="cd-log">
@@ -1017,10 +1016,10 @@ footer{padding-bottom:96px}
           <div class="cd-foot"><span class="cd-count"><b data-to="11">0</b> invoices &amp; reminders drafted today</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
         </div></div></div>
       </div>
-      <div class="card agc rv d2" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-2" style="--ac:#5cc8ff"><span class="tag">onboarding/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Client Onboarding</h3><p>Intake, document collection, kickoff scheduling, and account setup &mdash; no ghosting.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-back-2" role="region" aria-label="Client Onboarding &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv d2" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-2" style="--ac:#ff9e7a"><span class="tag">onboarding/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span></div>
+        <h3>AI Onboarding Specialist</h3><p>Walks every new client through intake, docs &amp; kickoff &mdash; so nobody slips through the cracks.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-back-2" role="region" aria-label="AI Onboarding Specialist &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-check" aria-hidden="true"><div class="rl"><span></span><span></span></div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Collecting documents, scheduling kickoffs, and setting up new accounts.</span></div>
           <div class="cd-log">
@@ -1030,10 +1029,10 @@ footer{padding-bottom:96px}
           <div class="cd-foot"><span class="cd-count"><b data-to="5">0</b> clients onboarding this week</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
         </div></div></div>
       </div>
-      <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-3" style="--ac:#e8c275"><span class="tag">recap/</span>
-        <div class="abot"><svg viewBox="0 0 48 48" class="bot" aria-hidden="true" focusable="false"><line class="bln" x1="24" y1="6.5" x2="24" y2="11"/><circle class="bdot" cx="24" cy="4.6" r="2.1"/><rect class="bhead" x="9" y="11" width="30" height="27" rx="9"/><circle class="beye e1" cx="19" cy="22" r="2.5"/><circle class="beye e2" cx="29" cy="22" r="2.5"/><circle class="btype d1" cx="18" cy="31" r="1.5"/><circle class="btype d2" cx="24" cy="31" r="1.5"/><circle class="btype d3" cx="30" cy="31" r="1.5"/></svg></div>
-        <h3>Weekly Recap</h3><p>A plain-English Monday recap &mdash; what happened, what needs you, what's next.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
-        <div class="cdetail" id="ag-back-3" role="region" aria-label="Weekly Recap &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
+      <div class="card agc rv" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-3" style="--ac:#aee06a"><span class="tag">recap/</span>
+        <div class="abot"><svg class="bot" viewBox="0 0 62 62" aria-hidden="true"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></svg><span class="avb"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span></div>
+        <h3>AI Weekly Recap</h3><p>Emails you a plain-English Monday recap &mdash; what happened, what needs you, what&rsquo;s next.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
+        <div class="cdetail" id="ag-back-3" role="region" aria-label="AI Weekly Recap &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-chart" aria-hidden="true"><i style="--bh:55%"></i><i style="--bh:80%"></i><i style="--bh:45%"></i><i style="--bh:95%"></i></div>
           <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Compiling a plain-English Monday recap of the week &mdash; what needs you, what's next.</span></div>
           <div class="cd-log">
@@ -1346,16 +1345,16 @@ footer{padding-bottom:96px}
 
     var POOL=[
      {ag:'AI Receptionist',    txt:'answered 3 inbound calls before staff arrived', meta:'calls captured'},
-     {ag:'AI Sales Navigator', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
+     {ag:'AI Sales Rep', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
      {ag:'AI Office Manager',  txt:'sorted 41 messages, drafted 14, flagged 2 urgent', meta:'owner inbox time'},
      {ag:'AI Bookkeeper',      txt:'cleared $2,400 of overdue AR — 4 invoices paid', meta:'close-the-books speed'},
      {ag:'AI Receptionist',    txt:'filled a cancellation in 14 min',               meta:'calendar gap time'},
      {ag:'AI Office Manager',  txt:'sent a review request after a 5-star job',       meta:'review rate'},
-     {ag:'AI Sales Navigator', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
+     {ag:'AI Sales Rep', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
      {ag:'AI Office Manager',  txt:'compiled tomorrow’s briefing in 6 lines',   meta:'morning prep time'},
      {ag:'AI Bookkeeper',      txt:'reconciled today’s Stripe + bank — $0 drift', meta:'reconciliation accuracy'},
      {ag:'AI Receptionist',    txt:'drafted a "running late" text — sent in 0.4s', meta:'comms latency'},
-     {ag:'AI Marketing',       txt:'shipped a 3-email win-back campaign',            meta:'pipeline revived'},
+     {ag:'AI Marketing Coordinator',       txt:'shipped a 3-email win-back campaign',            meta:'pipeline revived'},
      {ag:'AI Office Manager',  txt:'chased 4 outstanding documents — 3 came back', meta:'docs-returned rate'}
     ];
     var pi=0;

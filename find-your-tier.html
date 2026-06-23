@@ -490,7 +490,7 @@
 
     document.getElementById('rName').innerHTML = t.name;
     document.getElementById('rPrice').textContent = t.price;
-    var pop = document.getElementById('rPop'); pop.hidden = !t.popular;
+    var pop = document.getElementById('rPop'); var isTeam = (res.key === 'team'); pop.hidden = !isTeam; pop.style.display = isTeam ? '' : 'none';
     document.getElementById('rWhy').innerHTML = whyText(res.key);
 
     var getUl = document.getElementById('rGet');

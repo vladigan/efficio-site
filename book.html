@@ -90,8 +90,8 @@
   border:1px solid rgba(168,85,247,.28);
   box-shadow:0 24px 64px rgba(0,0,0,.5),0 0 40px rgba(124,58,237,.18);
   background:var(--surf)}
-.calendly-inline-widget{min-width:320px;height:720px}
-@media (max-width:560px){.calendly-inline-widget{height:1000px}}
+.ghl-booking{min-width:320px;width:100%;height:720px;border:0;display:block}
+@media (max-width:560px){.ghl-booking{height:1000px}}
 
 .book-after{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media (max-width:680px){.book-after{grid-template-columns:1fr}}
@@ -112,7 +112,7 @@
     <a href="/agents.html">AI teams</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/blog/">Blog</a>
-    <a href="https://go.efficio.tech/" class="btn-nav">Qualify in 60 sec</a>
+    <a href="/find-your-tier.html" class="btn-nav">Qualify in 60 sec</a>
   </div>
 </div></nav>
 
@@ -130,14 +130,15 @@
     </div>
   </div>
 
-  <!-- ⚠ BOOKING WIDGET SWAP POINT — Replace the Calendly inline widget below with Modrn's
-       GHL booking embed when ready. This file is the single source of truth for the booking
-       experience; every "Book a call" CTA across the site lands here. -->
+  <!-- BOOKING WIDGET — GHL (GoHighLevel) booking embed. This file is the single source of
+       truth for the on-site booking experience; the /book route maps here. Calendly retired
+       2026-06-23 (funnel repoint). NOTE: booking-conversion tracking in assets/pixels.js still
+       listens for Calendly's postMessage and must be updated to GHL's event (separate task). -->
   <div class="cal-wrap">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/brady-bngcent/efficio-ai-audit-15-min?hide_event_type_details=0&background_color=050a16&text_color=f8fafc&primary_color=a855f7"></div>
+    <iframe src="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" class="ghl-booking" scrolling="no" id="ghl_booking_HS90f7YhCSn6J6nB6j9T" title="Book your Efficio call"></iframe>
   </div>
   <div class="book-fallback">
-    Calendar not loading? <a href="https://calendly.com/brady-bngcent/efficio-ai-audit-15-min" target="_blank" rel="noopener">Open it in a new tab →</a>
+    Calendar not loading? <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" target="_blank" rel="noopener">Open it in a new tab →</a>
   </div>
 
   <div class="book-after">
@@ -163,7 +164,7 @@
   </div>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://link.msgsndr.com/js/form_embed.js" async></script>
 <script src="/assets/transitions.js" defer></script>
 <script>
   const nav=document.getElementById('nav');

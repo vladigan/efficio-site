@@ -2,17 +2,20 @@
 # Efficio — Netlify _redirects
 # =============================================================================
 
-# Funnel shortcuts
-/book                          /book.html         200
-/book.html                     /book.html         200
-/audit                         /audit-quiz.html   301
-/audit-quiz                    /audit-quiz.html   200
-/quiz                          /qualify.html      301
-/qualifyme                     /qualify.html      301
-/apply                         /qualify.html      301
-/watch                         /vsl.html          301
-/video                         /vsl.html          301
-/demo                          /vsl.html          301
+# Funnel: quiz/audit entry → on-site quiz (find-your-tier). Booking → /book.html (GHL embed).
+# Reconciled with netlify.toml 2026-06-23; netlify.toml rules take precedence on Netlify.
+/find-your-tier                /find-your-tier.html   200
+/audit                         /find-your-tier.html   301
+/audit-quiz                    /find-your-tier.html   301
+/quiz                          /find-your-tier.html   301
+/qualifyme                     /find-your-tier.html   301
+/apply                         /find-your-tier.html   301
+/book                          /book.html             200
+/book.html                     /book.html             200
+/watch                         /vsl.html              301
+/video                         /vsl.html              301
+# NOTE: bare /demo serves the VSL video; /demo/ serves the dashboard. Divergence flagged for Brady.
+/demo                          /vsl.html              301
 
 # Pretty URLs for marketing pages
 /services                      /services.html     200
@@ -21,7 +24,7 @@
 /pricing                       /pricing.html      200
 /why-us                        /why-us.html       200
 /vsl                           /vsl.html          200
-/qualify                       /qualify.html      200
+/qualify                       /find-your-tier.html   301
 
 # Post-checkout
 /onboard                       /onboarding.html   301
@@ -49,5 +52,5 @@
 /case-studies/pilot_legal_coming.html       /case-studies/  410
 /case-studies/pilot_realestate_coming.html  /case-studies/  410
 /case-studies/template_case_study.html      /case-studies/  410
-/intake.html                   /qualify.html      301
-/audit.html                    /audit-quiz.html   301
+/intake.html                   /find-your-tier.html   301
+/audit.html                    /find-your-tier.html   301

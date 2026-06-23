@@ -16,7 +16,7 @@
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
   /* scroll reveal */
-  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -50px 0px'});
+  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 
   /* spotlight cursor tracking on cards + price tiles */

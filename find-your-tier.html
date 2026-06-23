@@ -58,11 +58,11 @@
   box-shadow:0 0 0 1px rgba(124,77,255,.3),0 16px 40px -24px rgba(124,77,255,.85)}
 .qopt .qkey{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
   font-family:var(--mono);font-size:13px;font-weight:700;color:var(--violet-l);
-  background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);transition:background .18s,color .18s}
+  background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);transition:background .2s var(--ease),color .2s var(--ease)}
 .qopt:hover .qkey,.qopt[aria-pressed="true"] .qkey{background:rgba(124,77,255,.26);color:#fff}
 .qopt .qtxt{flex:1;min-width:0}
 .qopt .qtxt small{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-top:2px;letter-spacing:0}
-.qopt .qtick{flex-shrink:0;width:20px;height:20px;opacity:0;transform:scale(.6);transition:opacity .18s,transform .18s}
+.qopt .qtick{flex-shrink:0;width:20px;height:20px;opacity:0;transform:scale(.6);transition:opacity .2s var(--ease),transform .25s var(--ease2)}
 .qopt[aria-pressed="true"] .qtick{opacity:1;transform:none}
 .qopt .qtick svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
@@ -70,7 +70,7 @@
 .qnav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px}
 .qback{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;font-weight:600;
   color:var(--muted);padding:9px 15px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.02);
-  cursor:pointer;transition:color .18s,border-color .18s,background .18s,opacity .18s}
+  cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease),opacity .2s var(--ease)}
 .qback:hover{color:#fff;border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08)}
 .qback[disabled]{opacity:.32;cursor:not-allowed;pointer-events:none}
 .qnav .qhelp{font-family:var(--mono);font-size:11.5px;color:var(--muted2)}
@@ -124,7 +124,7 @@
 .rretake{display:flex;justify-content:center;margin-top:24px}
 .rretake button{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;font-weight:600;
   color:var(--ink2);padding:11px 20px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.02);
-  cursor:pointer;transition:color .18s,border-color .18s,background .18s}
+  cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
 .rretake button:hover{color:#fff;border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08)}
 
 @media(prefers-reduced-motion:reduce){

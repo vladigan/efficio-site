@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="/assets/pixels.js"></script>
+<title>Find your tier — a 60-second fit quiz | Efficio</title>
+<meta name="description" content="Answer six quick questions and we'll point you to the right Efficio tier — Starter, AI Specialist, AI Team, or AI Department. $0 upfront, pay only if it works, month-to-month."/>
+<link rel="canonical" href="https://efficio.tech/find-your-tier.html"/>
+<meta property="og:title" content="Find your tier — a 60-second fit quiz | Efficio"/>
+<meta property="og:description" content="Six quick questions to find the right AI workforce tier for your business. $0 upfront, pay only if it works, month-to-month. Built on Claude."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/find-your-tier.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<style>
+/* ── Find-your-tier quiz — page-scoped styles (build on v6 tokens) ── */
+.quizwrap{max-width:760px;margin:clamp(26px,4vh,46px) auto 0}
+.qcard{position:relative;background:linear-gradient(180deg,var(--panel),#09090f);border:1px solid var(--line2);
+  border-radius:var(--r2);box-shadow:var(--glow),var(--soft);overflow:hidden;padding:clamp(24px,4vw,40px)}
+.qcard::after{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(195,176,255,.55),transparent)}
+
+/* progress */
+.qprog-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:8px}
+.qprog-lbl{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);text-transform:uppercase}
+.qprog-pct{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--muted)}
+.qbar{height:5px;width:100%;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--violet-d),var(--violet-l),var(--cyan));
+  box-shadow:0 0 10px rgba(124,77,255,.7);transition:width .45s var(--ease)}
+
+/* steps */
+.qstep{display:none}
+.qstep.active{display:block;animation:qin .4s var(--ease2)}
+@keyframes qin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.qstep h2{font-size:clamp(1.45rem,3.6vw,2.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:#fff;
+  margin:22px 0 6px;max-width:22ch;text-align:left}
+.qstep .qhint{font-size:13.5px;font-weight:500;color:var(--muted);margin:0 0 22px;line-height:1.5}
+
+/* options */
+.qopts{display:flex;flex-direction:column;gap:11px;margin:0;list-style:none;padding:0}
+.qopt{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;
+  background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--ink2);
+  font-family:inherit;font-size:15px;font-weight:600;line-height:1.4;
+  transition:transform .16s var(--ease),border-color .18s,background .18s,box-shadow .18s}
+.qopt:hover{transform:translateY(-2px);border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08);
+  box-shadow:0 14px 34px -22px rgba(124,77,255,.8)}
+.qopt[aria-pressed="true"]{border-color:rgba(124,77,255,.65);background:rgba(124,77,255,.12);
+  box-shadow:0 0 0 1px rgba(124,77,255,.3),0 16px 40px -24px rgba(124,77,255,.85)}
+.qopt .qkey{flex-shrink:0;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:13px;font-weight:700;color:var(--violet-l);
+  background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);transition:background .18s,color .18s}
+.qopt:hover .qkey,.qopt[aria-pressed="true"] .qkey{background:rgba(124,77,255,.26);color:#fff}
+.qopt .qtxt{flex:1;min-width:0}
+.qopt .qtxt small{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-top:2px;letter-spacing:0}
+.qopt .qtick{flex-shrink:0;width:20px;height:20px;opacity:0;transform:scale(.6);transition:opacity .18s,transform .18s}
+.qopt[aria-pressed="true"] .qtick{opacity:1;transform:none}
+.qopt .qtick svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* nav row */
+.qnav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px}
+.qback{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;font-weight:600;
+  color:var(--muted);padding:9px 15px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.02);
+  cursor:pointer;transition:color .18s,border-color .18s,background .18s,opacity .18s}
+.qback:hover{color:#fff;border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08)}
+.qback[disabled]{opacity:.32;cursor:not-allowed;pointer-events:none}
+.qnav .qhelp{font-family:var(--mono);font-size:11.5px;color:var(--muted2)}
+
+/* intro / loading */
+.qintro h2{text-align:left}
+.qspin{display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid rgba(124,77,255,.25);
+  border-top-color:var(--violet-l);animation:qspin .7s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes qspin{to{transform:rotate(360deg)}}
+
+/* ── RESULT ── */
+.qresult{display:none}
+.qresult.show{display:block;animation:qin .5s var(--ease2)}
+.rtop{text-align:center;margin-bottom:6px}
+.rmatch{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--violet-l);text-transform:uppercase}
+.rname{font-size:clamp(2rem,5.5vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;margin:10px 0 2px}
+.rname .grad{background:linear-gradient(110deg,#fff 8%,var(--violet-xl) 42%,var(--violet-l) 64%,var(--violet) 100%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s ease-in-out infinite}
+.rprice{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink2);margin-top:4px}
+.rprice b{color:#fff;font-weight:800;font-size:1.6rem;letter-spacing:-.02em}
+.rpop{display:inline-block;margin-left:8px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--violet);color:#fff;vertical-align:3px}
+
+.rpanel{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r2);padding:24px 24px 26px;margin-top:22px;text-align:left}
+.rwhy-h{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);text-transform:uppercase;margin-bottom:9px}
+.rwhy{font-size:15px;font-weight:500;color:var(--ink2);line-height:1.6;margin:0}
+.rwhy b{color:#fff;font-weight:700}
+.rget-h{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);text-transform:uppercase;margin:22px 0 12px}
+
+.rcta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
+@media(max-width:520px){.rcta .btn-primary,.rcta .btn-outline{width:100%;justify-content:center}}
+
+.rnote{font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.6;margin:16px 0 0;text-align:center}
+.rnote b{color:var(--ink2)}
+
+/* other tiers / retake */
+.rother{margin-top:30px}
+.rother-h{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:14px}
+.rmini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:620px){.rmini{grid-template-columns:repeat(2,1fr)}}
+.minit{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 14px;text-align:left;
+  cursor:pointer;transition:transform .2s var(--ease2),border-color .2s,box-shadow .2s;color:inherit;font-family:inherit}
+.minit:hover{transform:translateY(-4px);border-color:rgba(124,77,255,.42);box-shadow:0 22px 50px -30px rgba(124,77,255,.6)}
+.minit.is-rec{border-color:rgba(124,77,255,.6);box-shadow:0 0 0 1px rgba(124,77,255,.25)}
+.minit .mn{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--violet-l)}
+.minit .mp{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-top:4px}
+.minit .mp span{font-size:.7rem;font-weight:600;color:var(--muted)}
+.minit .md{font-size:11.5px;font-weight:500;color:var(--muted);margin-top:6px;line-height:1.4}
+.minit .mrec{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--green)}
+.rretake{display:flex;justify-content:center;margin-top:24px}
+.rretake button{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;font-weight:600;
+  color:var(--ink2);padding:11px 20px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.02);
+  cursor:pointer;transition:color .18s,border-color .18s,background .18s}
+.rretake button:hover{color:#fff;border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08)}
+
+@media(prefers-reduced-motion:reduce){
+  .qstep.active,.qresult.show{animation:none}
+  .qspin{animation:none}
+}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+<script>document.documentElement.className='js';</script>
+</head>
+<body>
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/agents.html">AI teams</a>
+  </div>
+  <a href="/pricing.html" class="btn-primary">See pricing <span class="arr">&rarr;</span></a>
+</div></nav>
+
+<header class="phero" style="padding-bottom:8px">
+  <div class="wrap">
+    <div class="eyebrow rv">// find your fit &middot; ~60 seconds</div>
+    <h1 class="rv d1">Which tier is <span class="grad">right for you</span>?</h1>
+    <p class="sub rv d1">Six quick questions about your business. We'll point you to the tier that fits — then you book a call to confirm it. No email required to see your result.</p>
+  </div>
+</header>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="quizwrap rv d1">
+      <!-- live region for screen readers -->
+      <p class="visually-hidden" aria-live="polite" id="qLive"></p>
+
+      <div class="qcard">
+        <!-- progress -->
+        <div id="qProgZone">
+          <div class="qprog-row">
+            <span class="qprog-lbl" id="qProgLbl">Question 1 of 6</span>
+            <span class="qprog-pct" id="qProgPct">0%</span>
+          </div>
+          <div class="qbar"><i id="qBar"></i></div>
+        </div>
+
+        <!-- question steps injected here -->
+        <div id="qSteps"></div>
+
+        <!-- nav -->
+        <div class="qnav" id="qNav">
+          <button type="button" class="qback" id="qBack" disabled>&larr; Back</button>
+          <span class="qhelp">Tap an answer &middot; or press 1&ndash;4</span>
+        </div>
+
+        <!-- result -->
+        <div class="qresult" id="qResult" role="region" aria-label="Your recommended tier" tabindex="-1">
+          <div class="rtop">
+            <div class="rmatch">Your best-fit tier</div>
+            <div class="rname"><span class="grad" id="rName">AI Team</span></div>
+            <div class="rprice"><b id="rPrice">$2,500</b> /mo<span class="rpop" id="rPop" hidden>Most popular</span></div>
+          </div>
+
+          <div class="rpanel">
+            <div class="rwhy-h">Why this fits you</div>
+            <p class="rwhy" id="rWhy"></p>
+            <div class="rget-h">What you get at this tier</div>
+            <ul class="flist" id="rGet" style="font-size:14px"></ul>
+          </div>
+
+          <div class="guarantee" style="margin-top:22px;width:100%;box-sizing:border-box">
+            <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+            <span class="gtxt">
+              <span class="gt">Pay only if it works.</span>
+              <span class="gm">$0 upfront &middot; pay only if it works &middot; month-to-month</span>
+            </span>
+          </div>
+
+          <div class="rcta">
+            <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" class="btn-primary lg" id="rBook" target="_blank" rel="noopener">Book your strategy call <span class="arr">&rarr;</span></a>
+            <a href="/pricing.html" class="btn-outline lg">See all tiers</a>
+          </div>
+          <p class="rnote">This is a <b>recommendation, not a quote.</b> On your call we confirm the right fit and agree on the one metric we'll prove in the first 30 days.</p>
+
+          <div class="rother">
+            <div class="rother-h">// not sure? compare the other tiers</div>
+            <div class="rmini" id="rMini"></div>
+          </div>
+
+          <div class="rretake">
+            <button type="button" id="qRetake">&#x21BA; Retake the quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="pnote rv" style="margin-top:22px">Prefer to skip ahead? <a href="/pricing.html">See all four tiers &amp; what runs at each &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="/find-your-tier.html">Find your tier</a>
+        <a href="/pricing.html">Pricing</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================================
+   FIND YOUR TIER — self-contained quiz engine (vanilla, no deps)
+   Tiers: starter | specialist | team | department
+   Scoring: each chosen option adds a weighted point vector to the tiers.
+   Recommendation = argmax(total). Tie-break = lower-priced (more conservative)
+   tier, so we never oversell. Deterministic — no randomness.
+   ========================================================================= */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- tier reference data (pulled from pricing.html) ---- */
+  var TIERS = {
+    starter:    {name:'Starter',        price:'$497',   popular:false, tag:'A low-risk first step into AI.',
+      get:['Your own <b>Claude account</b>, set up for you','Free website build or conversion tune-up','AI-direction session + roadmap','Your first automation, live']},
+    specialist: {name:'AI Specialist',  price:'$997',   popular:false, tag:'One AI team, end-to-end.',
+      get:['<b>One AI team</b> — front <em>or</em> back office','Custom dashboard for your ops','Monthly strategy call','Shared chat channel']},
+    team:       {name:'AI Team',        price:'$2,500', popular:true,  tag:'A full department in parallel.',
+      get:['<b>Two AI teams</b> + 1 custom build','Everything in AI Specialist','Biweekly strategy call','Priority response &middot; quarterly review']},
+    department: {name:'AI Department',   price:'$3,500', popular:false, tag:'Your whole operation, run.',
+      get:['<b>Every team</b> + continuous custom builds','Weekly strategy call &middot; 45 min','24-hour response SLA','90-day written roadmap']}
+  };
+  var ORDER = ['starter','specialist','team','department']; // also low→high price for tie-break
+
+  /* ---- questions. each option carries a point vector [starter,specialist,team,department] ---- */
+  var Q = [
+    {
+      q:'How big is your team right now?',
+      hint:"Headcount is the fastest signal of how much an AI workforce can take off your plate.",
+      opts:[
+        {label:"It's just me",              sub:'Solo owner-operator',           v:[3,1,0,0]},
+        {label:'2&ndash;5 people',          sub:'Small team, wearing many hats',  v:[1,3,0,0]},
+        {label:'6&ndash;20 people',         sub:'Growing, departments forming',   v:[0,1,3,0]},
+        {label:'20+ people',                sub:'Multiple functions to run',      v:[0,0,1,3]}
+      ]
+    },
+    {
+      q:"What's your monthly revenue, roughly?",
+      hint:'Be honest — this only sets the scale of what makes sense to invest.',
+      opts:[
+        {label:'Under $25k / month',        sub:'Early or lean',                  v:[3,1,0,0]},
+        {label:'$25k&ndash;$75k / month',   sub:'Established, steady',            v:[1,3,1,0]},
+        {label:'$75k&ndash;$250k / month',  sub:'Scaling fast',                  v:[0,1,3,1]},
+        {label:'$250k+ / month',            sub:'Serious operation',             v:[0,0,1,3]}
+      ]
+    },
+    {
+      q:'Which side of the business needs the most help?',
+      hint:'Front office = customer-facing. Back office = the admin behind it.',
+      opts:[
+        {label:'Front office',  sub:'Calls, booking, sales follow-up, reviews',  v:[1,4,0,0]},
+        {label:'Back office',   sub:'Admin, scheduling, bookkeeping, inbox',     v:[1,4,0,0]},
+        {label:'Both, equally', sub:'Front and back are both stretched',         v:[0,0,5,0]},
+        {label:'Everything',    sub:'I want my whole operation run for me',      v:[0,0,1,5]}
+      ]
+    },
+    {
+      q:'How much admin and ops do you still do yourself?',
+      hint:'The owner-time you spend on busywork is exactly what we aim to give back.',
+      opts:[
+        {label:'Just a little',         sub:'Mostly delegated already',          v:[3,1,0,0]},
+        {label:'A few hours a week',    sub:'Manageable, but it adds up',        v:[1,3,0,0]},
+        {label:"A big chunk of my week",sub:'It pulls me off real work',         v:[0,1,3,1]},
+        {label:"I'm drowning in it",    sub:"It's basically my whole job",       v:[0,0,1,3]}
+      ]
+    },
+    {
+      q:'How hands-on and custom do you want it?',
+      hint:'From one simple automation to a fully bespoke operation.',
+      opts:[
+        {label:'Keep it simple',            sub:'One automation to start',           v:[4,1,0,0]},
+        {label:'One solid system, set up for me', sub:'A team that just runs',        v:[1,3,1,0]},
+        {label:'A custom build for my workflow',  sub:'Tailored to how I actually work', v:[0,1,3,1]},
+        {label:'Continuous builds + high touch',  sub:'Always improving, hands-on support', v:[0,0,1,4]}
+      ]
+    },
+    {
+      q:"What's your comfort level on monthly investment?",
+      hint:'$0 upfront on every tier — you only ever pay if it works.',
+      opts:[
+        {label:'Start small, prove it first', sub:'~$500 / month',                v:[3,1,0,0]},
+        {label:'Ready to fund one team',      sub:'~$1,000 / month',              v:[1,3,0,0]},
+        {label:'Want real horsepower',        sub:'~$2,500 / month',              v:[0,1,3,1]},
+        {label:'Whatever offloads the most',  sub:'$3,500+ / month',              v:[0,0,1,3]}
+      ]
+    }
+  ];
+
+  /* ---- state ---- */
+  var answers = new Array(Q.length).fill(null); // stores chosen option index per question
+  var cur = 0;
+
+  /* ---- elements ---- */
+  var stepsEl = document.getElementById('qSteps'),
+      progLbl = document.getElementById('qProgLbl'),
+      progPct = document.getElementById('qProgPct'),
+      bar     = document.getElementById('qBar'),
+      backBtn = document.getElementById('qBack'),
+      navRow  = document.getElementById('qNav'),
+      progZone= document.getElementById('qProgZone'),
+      resultEl= document.getElementById('qResult'),
+      live    = document.getElementById('qLive');
+
+  /* build all step nodes once */
+  var stepNodes = Q.map(function(item, qi){
+    var step = document.createElement('div');
+    step.className = 'qstep';
+    step.setAttribute('role','group');
+    step.setAttribute('aria-labelledby','qh'+qi);
+
+    var h = document.createElement('h2'); h.id='qh'+qi; h.innerHTML=item.q;
+    var hint = document.createElement('p'); hint.className='qhint'; hint.innerHTML=item.hint;
+    var ul = document.createElement('ul'); ul.className='qopts';
+
+    item.opts.forEach(function(opt, oi){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type='button'; b.className='qopt'; b.setAttribute('aria-pressed','false');
+      b.dataset.qi=qi; b.dataset.oi=oi;
+      b.innerHTML =
+        '<span class="qkey" aria-hidden="true">'+(oi+1)+'</span>'+
+        '<span class="qtxt">'+opt.label+'<small>'+opt.sub+'</small></span>'+
+        '<span class="qtick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>';
+      b.addEventListener('click', function(){ choose(qi, oi); });
+      li.appendChild(b); ul.appendChild(li);
+    });
+
+    step.appendChild(h); step.appendChild(hint); step.appendChild(ul);
+    stepsEl.appendChild(step);
+    return step;
+  });
+
+  function syncPressed(qi){
+    var btns = stepNodes[qi].querySelectorAll('.qopt');
+    btns.forEach(function(b){
+      b.setAttribute('aria-pressed', (answers[qi]!==null && +b.dataset.oi===answers[qi]) ? 'true':'false');
+    });
+  }
+
+  function showStep(i){
+    cur = i;
+    stepNodes.forEach(function(s, idx){ s.classList.toggle('active', idx===i); });
+    syncPressed(i);
+    var pct = Math.round((i)/Q.length*100);
+    bar.style.width = pct+'%';
+    progPct.textContent = pct+'%';
+    progLbl.textContent = 'Question '+(i+1)+' of '+Q.length;
+    backBtn.disabled = (i===0);
+    live.textContent = 'Question '+(i+1)+' of '+Q.length+'. '+strip(Q[i].q);
+    // move focus to the first option for keyboard users (not on initial paint)
+    if(focusReady){
+      var first = stepNodes[i].querySelector('.qopt');
+      if(first) first.focus();
+    }
+  }
+
+  var focusReady = false;
+
+  function choose(qi, oi){
+    answers[qi] = oi;
+    syncPressed(qi);
+    var delay = reduce ? 80 : 240;
+    setTimeout(function(){
+      if(qi < Q.length-1){ focusReady=true; showStep(qi+1); }
+      else { finish(); }
+    }, delay);
+  }
+
+  backBtn.addEventListener('click', function(){
+    if(cur>0){ focusReady=true; showStep(cur-1); }
+  });
+
+  /* keyboard: number keys 1-4 pick, ArrowLeft = back */
+  document.addEventListener('keydown', function(e){
+    if(resultEl.classList.contains('show')) return;
+    if(navRow.style.display==='none') return;
+    if(e.key>='1' && e.key<='4'){
+      var idx = +e.key-1;
+      var opts = Q[cur] && Q[cur].opts;
+      if(opts && idx<opts.length){ e.preventDefault(); choose(cur, idx); }
+    } else if(e.key==='ArrowLeft' && cur>0){ e.preventDefault(); focusReady=true; showStep(cur-1); }
+  });
+
+  /* ---- scoring ---- */
+  function score(){
+    var totals = {starter:0, specialist:0, team:0, department:0};
+    answers.forEach(function(oi, qi){
+      if(oi===null) return;
+      var v = Q[qi].opts[oi].v;
+      totals.starter   += v[0];
+      totals.specialist+= v[1];
+      totals.team      += v[2];
+      totals.department+= v[3];
+    });
+    // argmax with conservative (lower-price) tie-break via ORDER iteration
+    var best = ORDER[0], bestScore = -1;
+    ORDER.forEach(function(k){
+      if(totals[k] > bestScore){ bestScore = totals[k]; best = k; }
+    });
+    return {key:best, totals:totals};
+  }
+
+  /* per-tier tailored "why" line, lightly personalised by the scope answer (Q3) */
+  function whyText(key){
+    var scope = answers[2]; // 0 front, 1 back, 2 both, 3 everything
+    var sideWord = scope===0 ? 'your front office' : scope===1 ? 'your back office'
+                 : scope===2 ? 'both your front and back office' : 'your entire operation';
+    var map = {
+      starter:'You told us you’re early and lean, and you’d rather <b>prove it before you scale</b>. '+
+              'Starter is the low-risk way in: your own Claude account, a website or conversion tune-up, and your <b>first automation live</b> — so you see real value before committing to a full team.',
+      specialist:'Your answers point to <b>one clear pressure point</b> rather than the whole business. '+
+              'AI Specialist puts a single end-to-end AI team on '+sideWord+', plus a live dashboard and a monthly strategy call — enough to take a real function off your plate without over-buying.',
+      team:'You’re stretched on <b>more than one front</b> and ready for real horsepower. '+
+              'AI Team runs '+sideWord+' as two AI teams working in parallel, adds a custom build for your specific workflow, and steps up the cadence to biweekly — a full department’s output without the headcount.',
+      department:'You’re effectively asking us to <b>run the operation</b>, not just patch one gap. '+
+              'AI Department covers every team with continuous custom builds, weekly strategy calls, and a 24-hour response SLA — the highest-touch tier, built for owners who want '+sideWord+' handled end-to-end.'
+    };
+    return map[key];
+  }
+
+  function strip(html){ var d=document.createElement('div'); d.innerHTML=html; return d.textContent||''; }
+
+  function finish(){
+    var res = score();
+    var t = TIERS[res.key];
+
+    // hide quiz chrome, show result
+    progZone.style.display='none';
+    stepsEl.style.display='none';
+    navRow.style.display='none';
+
+    document.getElementById('rName').innerHTML = t.name;
+    document.getElementById('rPrice').textContent = t.price;
+    var pop = document.getElementById('rPop'); pop.hidden = !t.popular;
+    document.getElementById('rWhy').innerHTML = whyText(res.key);
+
+    var getUl = document.getElementById('rGet');
+    getUl.innerHTML='';
+    t.get.forEach(function(g){ var li=document.createElement('li'); li.innerHTML=g; getUl.appendChild(li); });
+
+    // mini compare strip
+    var mini = document.getElementById('rMini'); mini.innerHTML='';
+    ORDER.forEach(function(k){
+      var d=TIERS[k];
+      var btn=document.createElement(k===res.key?'div':'a');
+      btn.className='minit'+(k===res.key?' is-rec':'');
+      if(k!==res.key){ btn.href='/pricing.html'; }
+      btn.innerHTML='<div class="mn">'+d.name+'</div>'+
+        '<div class="mp">'+d.price+'<span> /mo</span></div>'+
+        '<div class="md">'+d.tag+'</div>'+
+        (k===res.key?'<span class="mrec">✓ your match</span>':'');
+      mini.appendChild(btn);
+    });
+
+    resultEl.classList.add('show');
+    live.textContent = 'Done. Your recommended tier is '+t.name+', '+t.price+' per month.';
+    if(focusReady){ resultEl.focus(); }
+    if(!reduce && resultEl.scrollIntoView){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+
+  document.getElementById('qRetake').addEventListener('click', function(){
+    answers = new Array(Q.length).fill(null);
+    resultEl.classList.remove('show');
+    progZone.style.display='';
+    stepsEl.style.display='';
+    navRow.style.display='';
+    focusReady=true;
+    showStep(0);
+    var qw=document.querySelector('.quizwrap');
+    if(!reduce && qw.scrollIntoView){ qw.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+
+  /* init */
+  showStep(0);
+})();
+</script>
+<script src="/assets/v6.js" defer></script>

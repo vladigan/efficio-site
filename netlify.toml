@@ -13,22 +13,21 @@
 
 # ─── Redirects ────────────────────────────────────────────────────────────────
 
-# Book / Audit shortcuts → Calendly directly
-# /book — was a Calendly backdoor; now routes through the gate
+# Booking → on-site GHL booking page (book.html embeds the GHL widget). Calendly retired 2026-06-23.
 [[redirects]]
   from   = "/book"
-  to     = "/audit-quiz.html"
-  status = 301
+  to     = "/book.html"
+  status = 200
 
-# /audit-quiz pretty URL
+# Quiz/audit entry → on-site quiz (find-your-tier)
 [[redirects]]
   from   = "/audit-quiz"
-  to     = "/audit-quiz.html"
-  status = 200
+  to     = "/find-your-tier.html"
+  status = 301
 
 [[redirects]]
   from   = "/audit"
-  to     = "/audit-quiz.html"
+  to     = "/find-your-tier.html"
   status = 301
 
 # Unsubscribe — serves unsubscribe.html (CAN-SPAM compliant opt-out page)

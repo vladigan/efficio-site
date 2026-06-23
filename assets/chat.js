@@ -166,7 +166,7 @@
         appendMsg('bot',
           "I can't reach my brain right now. Two ways forward:\n\n" +
           "1. Email brady@efficio.tech with your question — he answers personally.\n" +
-          "2. Book a 15-min call: https://go.efficio.tech/");
+          "2. Book a 15-min call: https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T");
       })
       .finally(function () {
         sending = false;

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="/assets/pixels.js"></script>
+<title>What an AI team would save you — ROI calculator | Efficio</title>
+<meta name="description" content="Estimate the hours and revenue an AI team could reclaim for your business — using your own numbers. Plug in your admin hours, weekly leads, and follow-up gaps and see your estimate. $0 upfront, pay only if it works."/>
+<link rel="canonical" href="https://efficio.tech/savings.html"/>
+<meta property="og:title" content="What an AI team would save you — ROI calculator | Efficio"/>
+<meta property="og:description" content="A transparent savings calculator: estimate reclaimed hours and recovered revenue from your own numbers. Built on Claude. $0 upfront, pay only if it works."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/savings.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta property="og:site_name" content="Efficio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="What an AI team would save you — ROI calculator | Efficio"/>
+<meta name="twitter:description" content="Estimate reclaimed hours and recovered revenue from your own numbers. A clear, honest calculator — no black box."/>
+<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<script>document.documentElement.className='js';</script>
+<link rel="stylesheet" href="/assets/v6.css"/>
+<style>
+/* ── Savings / ROI calculator — page-scoped styles (build on v6 tokens) ── */
+.calcwrap{max-width:1080px;margin:clamp(20px,3vh,40px) auto 0}
+.calc{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(18px,2.4vw,26px);align-items:start}
+@media(max-width:880px){.calc{grid-template-columns:1fr;gap:18px}}
+
+/* shared panel surface */
+.cpanel{position:relative;background:linear-gradient(180deg,var(--panel),#09090f);border:1px solid var(--line2);
+  border-radius:var(--r2);box-shadow:var(--glow),var(--soft);overflow:hidden;padding:clamp(22px,3.2vw,34px)}
+.cpanel::after{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(195,176,255,.55),transparent)}
+.cpanel h2{font-size:1.18rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0;text-align:left;max-width:none}
+.cpanel .phint{font-size:13px;font-weight:500;color:var(--muted);margin:6px 0 0;line-height:1.5}
+
+/* input rows */
+.field{padding:18px 0;border-bottom:1px solid var(--line)}
+.field:first-of-type{padding-top:20px}
+.field:last-of-type{border-bottom:0;padding-bottom:2px}
+.field .flab{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:11px}
+.field .flab label{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em;line-height:1.35}
+.field .fsub{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-top:3px;letter-spacing:0}
+.field .opt{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--violet-l);background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);
+  padding:2px 7px;border-radius:999px;margin-left:7px;vertical-align:1px}
+
+/* live value badge for sliders */
+.fval{flex-shrink:0;font-family:var(--mono);font-size:15px;font-weight:700;color:#fff;
+  background:rgba(124,77,255,.14);border:1px solid rgba(124,77,255,.3);border-radius:10px;
+  padding:5px 11px;min-width:62px;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* range slider */
+.field input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;margin:4px 0 0;
+  background:linear-gradient(90deg,var(--violet-l) 0%,var(--violet-l) var(--fill,40%),rgba(255,255,255,.08) var(--fill,40%),rgba(255,255,255,.08) 100%);
+  cursor:pointer;outline-offset:4px}
+.field input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(180deg,var(--violet-l),var(--violet-d));border:2px solid #0b0b14;
+  box-shadow:0 0 0 1px rgba(124,77,255,.5),0 6px 16px -4px rgba(124,77,255,.9);cursor:pointer;transition:transform .14s var(--ease)}
+.field input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+.field input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(180deg,var(--violet-l),var(--violet-d));border:2px solid #0b0b14;
+  box-shadow:0 0 0 1px rgba(124,77,255,.5),0 6px 16px -4px rgba(124,77,255,.9);cursor:pointer}
+.field .frange{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--muted2);margin-top:8px}
+
+/* number (currency) input */
+.cnum{position:relative;display:flex;align-items:center;max-width:220px;
+  background:var(--panel2);border:1px solid var(--line2);border-radius:12px;
+  transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.cnum:focus-within{border-color:rgba(124,77,255,.6);box-shadow:0 0 0 3px rgba(124,77,255,.16)}
+.cnum .cpfx{padding:0 2px 0 14px;font-family:var(--mono);font-size:15px;font-weight:600;color:var(--violet-l)}
+.cnum input{flex:1;width:100%;background:transparent;border:0;outline:0;color:#fff;font-family:var(--mono);
+  font-size:16px;font-weight:600;padding:12px 14px 12px 6px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;min-width:0}
+.cnum input::-webkit-outer-spin-button,.cnum input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cnum input[type=number]{-moz-appearance:textfield;appearance:textfield}
+
+/* ── results panel ── */
+.results{position:relative}
+@media(min-width:881px){.results{position:sticky;top:96px}}
+.results .reyebrow{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);
+  text-transform:uppercase;margin-bottom:6px}
+.results .rtitle{font-size:1.18rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 2px}
+.results .rsub{font-size:12.5px;font-weight:500;color:var(--muted);margin:0 0 20px;line-height:1.5}
+
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:520px){.rgrid{grid-template-columns:1fr}}
+.rstat{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;overflow:hidden;
+  transition:border-color .25s var(--ease)}
+.rstat.lead{border-color:rgba(124,77,255,.4);background:linear-gradient(165deg,rgba(124,77,255,.12),rgba(13,13,23,.5))}
+.rstat .rk{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;display:block}
+.rstat .rv{font-size:clamp(1.9rem,4.6vw,2.5rem);font-weight:800;letter-spacing:-.04em;line-height:.98;color:#fff;
+  font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,#fff,var(--violet-l));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rstat .rvu{font-size:12px;font-weight:600;color:var(--muted);margin-top:7px}
+
+/* headline total */
+.rtotal{margin-top:14px;position:relative;border-radius:18px;padding:22px 22px 20px;overflow:hidden;
+  border:1px solid rgba(124,77,255,.34);
+  background:radial-gradient(120% 130% at 50% 0%,rgba(124,77,255,.2),rgba(10,10,18,.4) 62%),var(--panel)}
+.rtotal::after{content:"";position:absolute;top:-1px;left:14%;right:14%;height:1px;background:linear-gradient(90deg,transparent,var(--violet-l),transparent)}
+.rtotal .rk{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--violet-l);text-transform:uppercase}
+.rtotal .rbig{font-size:clamp(2.4rem,6.5vw,3.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:#fff;
+  font-variant-numeric:tabular-nums;margin-top:8px}
+.rtotal .rbig .yr{display:block;font-size:13px;font-weight:600;letter-spacing:0;color:var(--ink2);margin-top:9px}
+.rtotal .rbig .yr b{color:#fff;font-weight:700}
+
+/* honesty stamp */
+.rstamp{display:flex;align-items:flex-start;gap:10px;margin-top:16px;padding:13px 15px;border-radius:13px;
+  background:rgba(86,216,160,.07);border:1px solid rgba(86,216,160,.26)}
+.rstamp svg{flex-shrink:0;width:17px;height:17px;margin-top:1px;fill:none;stroke:var(--green);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.rstamp p{font-size:12.5px;font-weight:500;color:var(--ink2);line-height:1.5;margin:0}
+.rstamp p b{color:#fff;font-weight:700}
+
+/* assumptions / math transparency */
+.assume{max-width:1080px;margin:22px auto 0}
+.assume details{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:4px 22px;transition:border-color .2s var(--ease)}
+.assume details[open]{border-color:rgba(124,77,255,.34)}
+.assume summary{cursor:pointer;list-style:none;padding:17px 0;font-size:14.5px;font-weight:700;color:#fff;
+  display:flex;justify-content:space-between;align-items:center;gap:12px}
+.assume summary::-webkit-details-marker{display:none}
+.assume summary .smini{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--muted);letter-spacing:0}
+.assume summary::after{content:"+";color:var(--violet-l);font-size:21px;font-weight:400;transition:transform .25s var(--ease2);margin-left:auto}
+.assume details[open] summary::after{transform:rotate(45deg)}
+.assume .abody{padding:2px 0 20px}
+.assume .abody>p{font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.65;margin:0 0 16px;max-width:64ch;text-align:left}
+.assume .arow{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-top:1px dashed var(--line)}
+.assume .arow .an{flex-shrink:0;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--violet-l);
+  width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(124,77,255,.1);border:1px solid rgba(124,77,255,.24)}
+.assume .arow .at{font-size:13.5px;font-weight:500;color:var(--ink2);line-height:1.55}
+.assume .arow .at b{color:#fff;font-weight:700}
+.assume .arow .at code{font-family:var(--mono);font-size:12px;color:var(--violet-xl);background:rgba(124,77,255,.1);padding:1px 6px;border-radius:6px}
+.assume .anote{font-size:12.5px;font-weight:500;color:var(--muted2);line-height:1.6;margin:16px 0 2px;font-style:italic;max-width:64ch}
+
+/* cta band */
+.scta{position:relative;margin:clamp(56px,8vh,92px) 24px clamp(80px,10vh,120px);border-radius:30px;
+  padding:clamp(52px,8vw,92px) 24px;text-align:center;overflow:hidden;
+  border:1px solid rgba(124,77,255,.32);
+  background:radial-gradient(120% 130% at 50% 0%,rgba(124,77,255,.24),rgba(10,10,18,.4) 60%),var(--panel);
+  box-shadow:var(--glow)}
+.scta::before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:conic-gradient(from 0deg at 50% 50%,transparent,rgba(124,77,255,.18),transparent 30%);animation:spin 14s linear infinite;opacity:.7}
+.scta>*{position:relative}
+.scta .prompt{font-family:var(--mono);font-size:13px;color:var(--violet-l);margin-bottom:16px}
+.scta h2{font-size:clamp(2rem,5.2vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin:0 auto 14px;color:#fff;max-width:18ch}
+.scta p{font-size:1.04rem;font-weight:500;color:var(--ink2);margin:0 auto 30px;max-width:40ch}
+.scta-cta{display:flex;gap:13px;flex-wrap:wrap;align-items:center;justify-content:center}
+@media(prefers-reduced-motion:reduce){.scta::before{animation:none}}
+</style>
+</head>
+<body>
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/agents.html">AI teams</a>
+  </div>
+  <a href="/find-your-tier.html" class="btn-primary">Find your tier <span class="arr">&rarr;</span></a>
+</div></nav>
+
+<main>
+<!-- ── page hero ── -->
+<header class="phero">
+  <div class="eyebrow rv">ROI &amp; savings calculator</div>
+  <h1 class="rv d1">What an AI team would <span class="grad">save you</span></h1>
+  <p class="sub rv d2">Plug in a few numbers about your own business and see the hours and revenue an always-on AI team could reasonably reclaim. It&rsquo;s an estimate, built from <em>your</em> inputs &mdash; the math is right here in the open.</p>
+</header>
+
+<!-- ── calculator ── -->
+<section class="sec" style="padding-top:0" aria-label="Savings calculator">
+  <div class="wrap">
+    <div class="calcwrap rv">
+      <div class="calc">
+
+        <!-- inputs -->
+        <form class="cpanel" id="calcForm" autocomplete="off" novalidate>
+          <h2>Your business, today</h2>
+          <p class="phint">Drag the sliders or type your own numbers. Nothing is sent anywhere &mdash; it all runs in your browser.</p>
+
+          <div class="field">
+            <div class="flab">
+              <label for="hours">Hours a week you or your team spend on admin, scheduling &amp; follow-up
+                <span class="fsub">Inbox, booking, quotes, chasing replies &mdash; the repetitive stuff.</span>
+              </label>
+              <span class="fval" id="hoursVal">12 hrs</span>
+            </div>
+            <input type="range" id="hours" name="hours" min="0" max="60" step="1" value="12"
+              aria-describedby="hoursVal" aria-valuetext="12 hours per week"/>
+            <div class="frange" aria-hidden="true"><span>0</span><span>60 hrs/wk</span></div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="leads">New inquiries / leads per week
+                <span class="fsub">Calls, forms, DMs, walk-ins &mdash; anyone who reaches out.</span>
+              </label>
+              <span class="fval" id="leadsVal">25</span>
+            </div>
+            <input type="range" id="leads" name="leads" min="0" max="200" step="1" value="25"
+              aria-describedby="leadsVal" aria-valuetext="25 leads per week"/>
+            <div class="frange" aria-hidden="true"><span>0</span><span>200/wk</span></div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="slip">Roughly what % slip through or never get a follow-up
+                <span class="fsub">Missed calls, leads that go cold, replies that never happen.</span>
+              </label>
+              <span class="fval" id="slipVal">30%</span>
+            </div>
+            <input type="range" id="slip" name="slip" min="0" max="100" step="1" value="30"
+              aria-describedby="slipVal" aria-valuetext="30 percent"/>
+            <div class="frange" aria-hidden="true"><span>0%</span><span>100%</span></div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="value">Average revenue per customer or job</label>
+            </div>
+            <div class="cnum">
+              <span class="cpfx" aria-hidden="true">$</span>
+              <input type="number" id="value" name="value" min="0" step="50" value="500"
+                inputmode="numeric" aria-label="Average revenue per customer or job, in dollars"/>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="rate">What an hour of your time is worth <span class="opt">optional</span>
+                <span class="fsub">Used only to put a dollar value on reclaimed hours. Change it to whatever feels right.</span>
+              </label>
+            </div>
+            <div class="cnum">
+              <span class="cpfx" aria-hidden="true">$</span>
+              <input type="number" id="rate" name="rate" min="0" step="5" value="50"
+                inputmode="numeric" aria-label="Hourly value of your time, in dollars per hour"/>
+            </div>
+          </div>
+        </form>
+
+        <!-- results -->
+        <div class="cpanel results" aria-live="polite">
+          <div class="reyebrow">Your estimate</div>
+          <div class="rtitle">Here&rsquo;s what that could look like</div>
+          <p class="rsub">Based on the numbers you entered &mdash; per month.</p>
+
+          <div class="rgrid">
+            <div class="rstat">
+              <span class="rk">Hours reclaimed</span>
+              <div class="rv" id="outHours">31</div>
+              <div class="rvu" id="outHoursU">hours / month back</div>
+            </div>
+            <div class="rstat lead">
+              <span class="rk">Revenue recovered</span>
+              <div class="rv" id="outRev">$8,119</div>
+              <div class="rvu">per month, est.</div>
+            </div>
+          </div>
+
+          <div class="rtotal">
+            <span class="rk">Estimated monthly upside</span>
+            <div class="rbig" id="outTotal">$9,678
+              <span class="yr">about <b id="outYear">$116,131</b> a year &mdash; recovered revenue plus the value of reclaimed time</span>
+            </div>
+          </div>
+
+          <div class="rstamp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12.5l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            <p><b>This is your estimate, based on the numbers you entered.</b> Not a guarantee or an average of other clients &mdash; just your inputs run through the conservative assumptions spelled out below.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- assumptions -->
+    <div class="assume rv">
+      <details>
+        <summary>Show the math &amp; assumptions <span class="smini">no black box</span></summary>
+        <div class="abody">
+          <p>Every number above comes straight from what you typed, multiplied by a few clearly-stated, deliberately conservative assumptions. Here&rsquo;s exactly how it&rsquo;s calculated:</p>
+
+          <div class="arow"><span class="an">1</span><span class="at">We convert weeks to months at <code>4.33 weeks</code> per month (52 &divide; 12).</span></div>
+
+          <div class="arow"><span class="an">2</span><span class="at"><b>Hours reclaimed</b> assumes an AI team takes <code>60%</code> of your routine admin, scheduling &amp; follow-up off your plate &mdash; not all of it. The rest still needs a human. <br>So: <code>your hours/week &times; 4.33 &times; 60%</code>.</span></div>
+
+          <div class="arow"><span class="an">3</span><span class="at"><b>Leads slipping through</b> = your weekly leads &times; the % you entered. We assume we recover <code>half (50%)</code> of those &mdash; the rest were never reachable. Recovering even half is the conservative case.</span></div>
+
+          <div class="arow"><span class="an">4</span><span class="at"><b>Revenue recovered</b> = recovered leads/week &times; <code>4.33</code> &times; your average revenue per customer. We don&rsquo;t assume every recovered lead becomes a sale beyond that 50% capture rate &mdash; no extra close-rate magic layered on top.</span></div>
+
+          <div class="arow"><span class="an">5</span><span class="at"><b>Value of reclaimed time</b> = reclaimed hours &times; the hourly value you entered. The <b>monthly upside</b> simply adds recovered revenue + that time value. Annual figure is &times; 12.</span></div>
+
+          <p class="anote">These percentages are our own conservative planning assumptions, not measured benchmarks or claims about typical results &mdash; your real numbers depend on your business, your tools, and how much you hand over. The point isn&rsquo;t a precise promise; it&rsquo;s a defensible, in-the-open ballpark you can sanity-check yourself.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── final CTA ── -->
+<section class="rv">
+  <div class="scta">
+    <div class="prompt">$0 upfront &middot; pay only if it works &middot; month-to-month</div>
+    <h2>Want this handled? See which AI team fits.</h2>
+    <p>The calculator shows the opportunity. A 60-second fit quiz shows where to start &mdash; or talk to us directly.</p>
+    <div class="scta-cta">
+      <a href="/find-your-tier.html" class="btn-primary lg">Find your tier <span class="arr">&rarr;</span></a>
+      <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" class="btn-outline">Book a call</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="/find-your-tier.html">Find your tier</a>
+        <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── assumptions (single source of truth; mirrored in the on-page "Show the math") ── */
+  var WEEKS_PER_MONTH = 4.33;   // 52 / 12
+  var ADMIN_AUTOMATION = 0.60;  // share of routine admin/follow-up an AI team handles
+  var LEAD_CAPTURE = 0.50;      // share of slipping leads we conservatively assume we recover
+
+  var $ = function(id){ return document.getElementById(id); };
+  var hours = $('hours'), leads = $('leads'), slip = $('slip'), value = $('value'), rate = $('rate');
+  if(!hours || !leads || !slip || !value || !rate) return;
+
+  var usd0 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+  var num0 = new Intl.NumberFormat('en-US', {maximumFractionDigits:0});
+
+  function clampNum(el){
+    var v = parseFloat(el.value);
+    if(isNaN(v) || v < 0) v = 0;
+    var max = el.getAttribute('max');
+    if(max !== null && v > parseFloat(max)) v = parseFloat(max);
+    return v;
+  }
+
+  function paintRange(el){
+    var min = parseFloat(el.min)||0, max = parseFloat(el.max)||100, v = parseFloat(el.value)||0;
+    var pct = max>min ? ((v-min)/(max-min)*100) : 0;
+    el.style.setProperty('--fill', pct.toFixed(2)+'%');
+  }
+
+  /* lightweight count-up that respects reduced-motion */
+  function setText(el, target, fmt){
+    if(!el) return;
+    var to = target;
+    if(reduce){ el.textContent = fmt(to); return; }
+    var from = (typeof el.__v === 'number') ? el.__v : to;
+    el.__v = to;
+    if(from === to){ el.textContent = fmt(to); return; }
+    var start = null, dur = 420;
+    function frame(ts){
+      if(start === null) start = ts;
+      var p = Math.min(1, (ts - start)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      var cur = from + (to - from) * eased;
+      el.textContent = fmt(cur);
+      if(p < 1) requestAnimationFrame(frame);
+      else el.textContent = fmt(to);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* outTotal contains a nested .yr line — update it without clobbering the span */
+  function computeTotals(){
+    var h = clampNum(hours), l = clampNum(leads), s = clampNum(slip)/100, rev = clampNum(value), hr = clampNum(rate);
+    var hoursReclaimed = h * WEEKS_PER_MONTH * ADMIN_AUTOMATION;
+    var leadsRecovered = l * s * LEAD_CAPTURE;
+    var revRecovered   = leadsRecovered * WEEKS_PER_MONTH * rev;
+    var timeValue      = hoursReclaimed * hr;
+    var monthlyUpside  = revRecovered + timeValue;
+    var yearlyUpside   = monthlyUpside * 12;
+
+    var totalEl = $('outTotal'), yearEl = $('outYear');
+    if(totalEl){
+      var node = totalEl.firstChild; // the text node before the .yr span
+      var fmt = usd0.format(monthlyUpside);
+      if(node && node.nodeType === 3){ node.nodeValue = fmt; }
+      else { totalEl.insertBefore(document.createTextNode(fmt), totalEl.firstChild); }
+    }
+    if(yearEl){ yearEl.textContent = usd0.format(yearlyUpside); }
+  }
+
+  function update(){
+    paintRange(hours); paintRange(leads); paintRange(slip);
+
+    var h = clampNum(hours), l = clampNum(leads), sRaw = clampNum(slip), s = sRaw/100,
+        rev = clampNum(value), hr = clampNum(rate);
+
+    var hoursReclaimed = h * WEEKS_PER_MONTH * ADMIN_AUTOMATION;
+    var leadsRecovered = l * s * LEAD_CAPTURE;
+    var revRecovered   = leadsRecovered * WEEKS_PER_MONTH * rev;
+    var timeValue      = hoursReclaimed * hr;
+    var monthlyUpside  = revRecovered + timeValue;
+
+    /* badges */
+    $('hoursVal').textContent = num0.format(h) + ' hr' + (h===1?'':'s');
+    $('leadsVal').textContent = num0.format(l);
+    $('slipVal').textContent  = num0.format(sRaw) + '%';
+    hours.setAttribute('aria-valuetext', num0.format(h)+' hours per week');
+    leads.setAttribute('aria-valuetext', num0.format(l)+' leads per week');
+    slip.setAttribute('aria-valuetext', num0.format(sRaw)+' percent');
+
+    /* outputs */
+    setText($('outHours'), hoursReclaimed, function(v){ return num0.format(Math.round(v)); });
+    var oh = $('outHoursU'); if(oh) oh.textContent = (Math.round(hoursReclaimed)===1?'hour':'hours') + ' / month back';
+    setText($('outRev'), revRecovered, function(v){ return usd0.format(v); });
+    computeTotals();
+  }
+
+  ['input','change'].forEach(function(ev){
+    [hours,leads,slip,value,rate].forEach(function(el){ el.addEventListener(ev, update); });
+  });
+  /* normalize number fields on blur so empty/garbage becomes a clean value */
+  [value, rate].forEach(function(el){
+    el.addEventListener('blur', function(){ el.value = String(clampNum(el)); update(); });
+  });
+
+  update();
+})();
+</script>
+<script src="/assets/v6.js" defer></script>
+</body>
+</html>

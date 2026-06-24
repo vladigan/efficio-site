@@ -22,6 +22,87 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
 <script>document.documentElement.className='js';</script>
+<style id="svc-x">
+/* ── Services visual-first redesign (scoped .svc-*) ───────────────── */
+.svc-explorer{margin-top:clamp(40px,5vh,64px)}
+.svc-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:26px}
+.svc-tab{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;cursor:pointer;
+  background:var(--panel);border:1px solid var(--line);color:var(--ink2);font-weight:600;font-size:14px;
+  transition:transform .25s var(--ease),border-color .25s,background .25s,color .25s}
+.svc-tab .st-ic{width:20px;height:20px;display:grid;place-items:center;color:var(--violet-l)}
+.svc-tab .st-ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-tab:hover{transform:translateY(-2px);border-color:rgba(124,77,255,.4);background:rgba(124,77,255,.08)}
+.svc-tab[aria-selected="true"]{background:rgba(124,77,255,.16);border-color:rgba(124,77,255,.55);color:#fff;box-shadow:0 12px 30px -16px rgba(124,77,255,.7)}
+.svc-tab[aria-selected="true"] .st-ic{color:#fff}
+.svc-panels{position:relative}
+.svc-panel{display:none;animation:svcfade .5s var(--ease2)}
+.svc-panel.on{display:block}
+@keyframes svcfade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.svc-panel-in{display:grid;grid-template-columns:1.05fr 1.2fr;gap:28px;align-items:center;
+  background:linear-gradient(165deg,rgba(124,77,255,.08),rgba(13,13,23,.5));
+  border:1px solid var(--line);border-radius:var(--r2);padding:clamp(22px,3vw,38px);box-shadow:var(--soft)}
+@media(max-width:840px){.svc-panel-in{grid-template-columns:1fr;gap:22px}}
+.svc-copy h3{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin:0 0 10px}
+.svc-copy p{font-size:14.5px;color:var(--ink2);line-height:1.55;margin:0 0 16px;max-width:42ch}
+.svc-meta{display:flex;flex-wrap:wrap;gap:8px}
+.svc-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:600;
+  font-family:var(--mono);background:rgba(124,77,255,.1);border:1px solid var(--line2);color:var(--ink2)}
+.svc-pill i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.svc-stage{position:relative;min-height:248px;border-radius:16px;background:rgba(6,6,11,.55);
+  border:1px solid var(--line);padding:18px;overflow:hidden}
+/* roster grid (Teams panel) */
+.svc-roster{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.svc-role{display:flex;flex-direction:column;gap:8px;padding:13px 12px;border-radius:12px;text-align:left;
+  background:var(--panel2);border:1px solid var(--line);transition:transform .25s var(--ease),border-color .25s,background .25s}
+.svc-role:hover{transform:translateY(-3px);border-color:rgba(124,77,255,.4);background:rgba(124,77,255,.07)}
+.svc-role .rr-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(124,77,255,.14);color:var(--rc,var(--violet-l))}
+.svc-role .rr-ic svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc-role b{font-size:12.5px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.svc-role span{font-size:11px;color:var(--muted);font-family:var(--mono)}
+/* dashboard mock (Dashboard panel) */
+.svc-dash{display:flex;flex-direction:column;gap:12px;height:100%}
+.svc-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.svc-kpi{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px}
+.svc-kpi .kl{font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+.svc-kpi .kv{font-size:1.35rem;font-weight:800;color:#fff;letter-spacing:-.03em;margin-top:3px}
+.svc-kpi .kbar{height:4px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:9px;overflow:hidden}
+.svc-kpi .kbar i{display:block;height:100%;border-radius:3px;width:0;
+  background:linear-gradient(90deg,var(--violet-d),var(--violet-l));transition:width 1.1s var(--ease2)}
+.svc-panel.on .svc-kpi .kbar i{width:var(--w,70%)}
+.svc-log{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-family:var(--mono);font-size:11.5px}
+.svc-log .lg-h{font-size:10.5px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.svc-log .lg-h i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.svc-log .lg-row{display:flex;gap:8px;padding:5px 0;color:var(--ink2);opacity:0;transform:translateX(-8px);
+  animation:lgin .5s var(--ease2) forwards}
+.svc-panel.on .svc-log .lg-row:nth-child(2){animation-delay:.15s}
+.svc-panel.on .svc-log .lg-row:nth-child(3){animation-delay:.45s}
+.svc-panel.on .svc-log .lg-row:nth-child(4){animation-delay:.75s}
+@keyframes lgin{to{opacity:1;transform:none}}
+.svc-log .lg-row .ok{color:var(--green)}
+.svc-log .lg-row .ar{color:var(--violet-l)}
+/* custom build diagram (Custom panel) */
+.svc-build{display:grid;place-items:center;height:100%}
+.svc-build svg{width:100%;max-width:330px;height:auto}
+.svc-build .flow-dot{fill:var(--violet-l)}
+@media(prefers-reduced-motion:no-preference){
+  .svc-build .flow-dot{animation:svcdot 2.4s linear infinite}
+  .svc-build .fd2{animation-delay:.8s}.svc-build .fd3{animation-delay:1.6s}
+}
+@keyframes svcdot{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+/* hub-and-spoke integration */
+.svc-hub{margin:clamp(34px,5vh,56px) auto 0;max-width:760px}
+.svc-hub svg{width:100%;height:auto}
+.svc-hub .spoke{stroke:rgba(124,77,255,.32);stroke-width:1.5;fill:none}
+.svc-hub .node{fill:var(--panel2);stroke:var(--line2);stroke-width:1.2}
+.svc-hub .node-lbl{fill:var(--ink2);font-family:var(--mono);font-size:11px;text-anchor:middle}
+.svc-hub .hub-core{fill:rgba(124,77,255,.16);stroke:rgba(124,77,255,.6);stroke-width:1.6}
+.svc-hub .hub-lbl{fill:#fff;font-weight:700;font-size:13px;text-anchor:middle}
+.svc-hub .pulse{stroke:var(--violet-l);stroke-width:2;fill:none;stroke-dasharray:5 180;stroke-dashoffset:0}
+@media(prefers-reduced-motion:no-preference){.svc-hub .pulse{animation:svcpulse 3s linear infinite}
+  .svc-hub .p2{animation-delay:.6s}.svc-hub .p3{animation-delay:1.2s}.svc-hub .p4{animation-delay:1.8s}.svc-hub .p5{animation-delay:2.4s}}
+@keyframes svcpulse{to{stroke-dashoffset:-185}}
+</style>
 </head>
 <body>
 <div class="scrollbar" id="scrollbar"></div>
@@ -45,7 +126,7 @@
   <div class="wrap">
     <div class="eyebrow rv">// what we build &amp; run</div>
     <h1 class="rv d1">Give your business its own <span class="grad">AI team</span>.</h1>
-    <p class="sub rv d1">An always-on AI workforce embedded in your operations — not another tool you operate. We build and run a coordinated team of agents inside your business, on Anthropic's Claude, plugged into your tools via MCP and APIs. You operate. It works.</p>
+    <p class="sub rv d1">An always-on AI workforce embedded in your operations &mdash; built and run on Claude, inside the tools you already use. You operate. It works.</p>
     <div class="hero-cta rv d2">
       <a href="/find-your-tier.html" class="btn-primary lg">Find your tier <span class="arr">&rarr;</span></a>
       <a href="#implement" class="btn-outline lg">See how it plugs in</a>
@@ -60,183 +141,173 @@
   </div>
 </header>
 
+<!-- ── What we build · interactive explorer ─────────────────────── -->
 <section class="sec" style="padding-top:clamp(20px,3vh,40px)">
   <div class="wrap center">
-    <div class="eyebrow rv">// three pillars &middot; one delivery pattern</div>
-    <h2 class="rv d1">A team for every function. One cockpit. Builds on demand.</h2>
-    <p class="lede rv d1">Same delivery pattern for every customer — a full roster of AI teams (some ready now, some built in 7 days), scoped custom builds, and one live dashboard you watch.</p>
-    <div class="cards rv d2">
-      <div class="card">
-        <span class="tag">01/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M9 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM4 20a8 8 0 0 1 16 0"/></svg></div>
-        <h3>A team for every function</h3>
-        <p>Reception, inbox, sales, marketing, books, admin, reviews, win-back, reporting, onboarding. Some deploy now; the rest we build in 7 days. Each owns a function end-to-end — your voice, your tools, your rules.</p>
+    <div class="eyebrow rv">// what we build &amp; run</div>
+    <h2 class="rv d1">Three things. One cockpit.</h2>
+    <p class="lede rv d1">Tap to see each one in action.</p>
+
+    <div class="svc-explorer rv d2">
+      <div class="svc-tabs" role="tablist" aria-label="What we build">
+        <button class="svc-tab" role="tab" id="svtab-teams" aria-controls="svp-teams" aria-selected="true" tabindex="0">
+          <span class="st-ic"><svg viewBox="0 0 24 24"><path d="M9 7a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM4 20a8 8 0 0 1 16 0"/></svg></span>AI teams
+        </button>
+        <button class="svc-tab" role="tab" id="svtab-dash" aria-controls="svp-dash" aria-selected="false" tabindex="-1">
+          <span class="st-ic"><svg viewBox="0 0 24 24"><path d="M3 4h18v13H3zM3 9h18M9 21h6M12 17v4"/></svg></span>The dashboard
+        </button>
+        <button class="svc-tab" role="tab" id="svtab-custom" aria-controls="svp-custom" aria-selected="false" tabindex="-1">
+          <span class="st-ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>Custom builds
+        </button>
       </div>
-      <div class="card">
-        <span class="tag">02/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 4h18v13H3zM3 9h18M9 21h6M12 17v4"/></svg></div>
-        <h3>The Dashboard</h3>
-        <p>One plug-and-play cockpit, white-labeled to you. KPI tiles, agent activity log, pipeline view, hours-saved tracker — refreshed every 5 minutes. You operate from one screen, not four tools.</p>
-      </div>
-      <div class="card imagine">
-        <span class="tag">03/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
-        <h3>Custom Builds</h3>
-        <p>Something nobody else has — a voice agent, document AI tuned to your forms, an integration between two systems. We scope it on the audit call and build it into the same cockpit.</p>
+
+      <div class="svc-panels">
+        <!-- TEAMS -->
+        <div class="svc-panel on" id="svp-teams" role="tabpanel" aria-labelledby="svtab-teams" tabindex="0">
+          <div class="svc-panel-in">
+            <div class="svc-copy">
+              <h3>A team for every function</h3>
+              <p>Reception, sales, books, admin &mdash; each agent owns a job end-to-end, in your voice, on your tools. Some deploy now; the rest in 7 days.</p>
+              <div class="svc-meta">
+                <span class="svc-pill"><i></i>runs 24/7</span>
+                <span class="svc-pill"><i></i>buy one or all</span>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-roster">
+                <span class="svc-role" style="--rc:#9a7bff"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a12 12 0 006 6l2-2 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg></span><b>Receptionist</b><span>calls &amp; booking</span></span>
+                <span class="svc-role" style="--rc:#5cc8ff"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span><b>Inbox</b><span>triage &amp; reply</span></span>
+                <span class="svc-role" style="--rc:#56d8a0"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><b>Sales</b><span>quote &amp; follow-up</span></span>
+                <span class="svc-role" style="--rc:#ff86c8"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="m3 11 14-4v12L3 15z"/></svg></span><b>Marketing</b><span>content &amp; listings</span></span>
+                <span class="svc-role" style="--rc:#f0b54a"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/></svg></span><b>Reviews</b><span>5-star engine</span></span>
+                <span class="svc-role" style="--rc:#3fd0c9"><span class="rr-ic"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"/></svg></span><b>Bookkeeper</b><span>AR &amp; close</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DASHBOARD -->
+        <div class="svc-panel" id="svp-dash" role="tabpanel" aria-labelledby="svtab-dash" tabindex="0" hidden>
+          <div class="svc-panel-in">
+            <div class="svc-copy">
+              <h3>One screen, white-labeled to you</h3>
+              <p>KPI tiles, a plain-English activity log, hours saved &mdash; refreshed every 5 minutes. You operate from one cockpit, not four tools.</p>
+              <div class="svc-meta">
+                <span class="svc-pill"><i></i>live by day 5</span>
+                <span class="svc-pill"><i></i>OAuth to your data</span>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-dash">
+                <div class="svc-kpis">
+                  <div class="svc-kpi"><div class="kl">// sample</div><div class="kv">100%</div><div class="kbar"><i style="--w:100%"></i></div></div>
+                  <div class="svc-kpi"><div class="kl">// sample</div><div class="kv">31</div><div class="kbar"><i style="--w:78%"></i></div></div>
+                  <div class="svc-kpi"><div class="kl">// sample</div><div class="kv">$18k</div><div class="kbar"><i style="--w:64%"></i></div></div>
+                </div>
+                <div class="svc-log">
+                  <div class="lg-h"><i></i>sample activity feed</div>
+                  <div class="lg-row"><span class="ar">&rarr;</span><span>Receptionist booked Thu 10:00 AM</span></div>
+                  <div class="lg-row"><span class="ok">&check;</span><span>Inbox drafted 14 replies</span></div>
+                  <div class="lg-row"><span class="ok">&check;</span><span>Bookkeeper reconciled Stripe &middot; $0 drift</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CUSTOM -->
+        <div class="svc-panel" id="svp-custom" role="tabpanel" aria-labelledby="svtab-custom" tabindex="0" hidden>
+          <div class="svc-panel-in">
+            <div class="svc-copy">
+              <h3>When you need something nobody else has</h3>
+              <p>A voice agent, document AI tuned to your forms, an integration between two systems you already run. We scope it on the audit call and build it into the same cockpit.</p>
+              <div class="svc-meta">
+                <span class="svc-pill"><i></i>scoped case by case</span>
+                <span class="svc-pill"><i></i>not separate software</span>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-build">
+                <svg viewBox="0 0 340 200" role="img" aria-label="Two of your systems connected through a custom agent">
+                  <rect x="14" y="74" width="92" height="52" rx="11" class="node" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.13)"/>
+                  <text x="60" y="104" class="node-lbl" fill="#c9c7da" font-family="var(--mono)" font-size="11" text-anchor="middle">System A</text>
+                  <rect x="234" y="74" width="92" height="52" rx="11" class="node" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.13)"/>
+                  <text x="280" y="104" class="node-lbl" fill="#c9c7da" font-family="var(--mono)" font-size="11" text-anchor="middle">System B</text>
+                  <rect x="135" y="64" width="70" height="72" rx="14" fill="rgba(124,77,255,.16)" stroke="rgba(124,77,255,.6)" stroke-width="1.6"/>
+                  <text x="170" y="96" fill="#fff" font-weight="700" font-size="12" text-anchor="middle">custom</text>
+                  <text x="170" y="112" fill="#fff" font-weight="700" font-size="12" text-anchor="middle">agent</text>
+                  <path id="svcpathL" d="M106 100 H135" stroke="rgba(124,77,255,.34)" stroke-width="1.6" fill="none"/>
+                  <path id="svcpathR" d="M205 100 H234" stroke="rgba(124,77,255,.34)" stroke-width="1.6" fill="none"/>
+                  <circle r="3.5" cx="120" cy="100" class="flow-dot" style="offset-path:path('M106 100 H135')"/>
+                  <circle r="3.5" cx="219" cy="100" class="flow-dot fd2" style="offset-path:path('M205 100 H234')"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow rv">// pillar 01 &middot; the roster</div>
-      <h2 class="rv d1">A full roster of AI teams.</h2>
-    </div>
-    <div class="split rv d1">
-      <div>
-        <p class="lede">Buy a single team, a department, or your whole operation. Each owns a function end-to-end — learning your voice, your tools, your customers, and your rules.</p>
-        <ul class="flist">
-          <li><b>Buy what you need</b> — one team, a department, or all of it</li>
-          <li>Configured to your business on the audit call</li>
-          <li>Runs <b>24/7</b> — never sleeps, never quits, never asks for PTO</li>
-          <li>Some ready to deploy now; the rest built in <b>7 days</b> from intake</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 9v12"/></svg></div>
-        <h3>The math</h3>
-        <p>Staffing all seven roles in-house runs <b>$315K&ndash;$490K/yr</b> in salaries. With us it's <b>$997&ndash;$3,500/mo</b> total.</p>
-        <p style="margin-top:14px;opacity:.8">Example: a growing operation runs its whole Growth department — Sales, Marketing, and Retention — at the AI Team tier for $2,500/mo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow rv">// pillar 02 &middot; the cockpit</div>
-      <h2 class="rv d1">One screen. Everything happening in your business.</h2>
-    </div>
-    <div class="split rev rv d1">
-      <div>
-        <p class="lede">Same architecture for every customer, white-labeled to your business. You operate from one screen, not four tools.</p>
-        <ul class="flist">
-          <li>Universal cockpit shape — every customer gets the same spine</li>
-          <li>Wired to your real data via <b>OAuth</b> (Stripe, QuickBooks, your CRM, Google)</li>
-          <li>Every team's activity logged in <b>plain English</b></li>
-          <li>Live in your stack by <b>Day 5</b> of onboarding</li>
-        </ul>
-      </div>
-      <div class="card imagine">
-        <span class="tag">live feed</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 12h4l2 5 4-12 2 7h4"/></svg></div>
-        <h3>Receipts, not jargon</h3>
-        <p>&ldquo;AI Receptionist just booked a Thursday 10am from a missed call.&rdquo; The activity feed reads like a colleague reporting in — refreshed every 5 minutes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow rv">// pillar 03 &middot; bespoke</div>
-      <h2 class="rv d1">When you need something nobody else has.</h2>
-    </div>
-    <div class="split rv d1">
-      <div>
-        <p class="lede">A custom voice agent, document AI tuned to your forms, an internal tool, an integration between two systems you already run — we build it, and it lives in the same dashboard.</p>
-        <ul class="flist">
-          <li>Scoped on the audit call &middot; <b>case by case</b></li>
-          <li>Built into your existing stack, <b>not separate software</b></li>
-          <li>We pick the technology — you see the work, not the wiring</li>
-          <li>AI Team &amp; AI Department tiers include a <b>continuous build cadence</b></li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
-        <h3>Example build</h3>
-        <p>A property-management firm needed a tenant-intake portal that reads lease applications, runs background checks, and books showings. <b>Custom-built in 18 days</b> — lives in their cockpit.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ── Plugs into your stack · hub-and-spoke ────────────────────── -->
 <section class="band">
   <div class="wrap">
-    <div class="band-lbl">// plugs into the tools you already use</div>
-    <div class="chips">
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg>Inbox<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5h18v16H3zM3 9h18M8 3v4M16 3v4"/></svg>Calendar<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM9 4v6h6"/></svg>CRM<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg>Phone<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18"/></svg>Payments<span class="cdot"></span></span>
-      <span class="chip"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM14 3v4h4"/></svg>Docs<span class="cdot"></span></span>
+    <div class="band-lbl">// no rip-and-replace &middot; connected through MCP + API</div>
+    <div class="svc-hub rv">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Your AI workforce connects to the tools you already use: inbox, calendar, CRM, phone, payments, documents">
+        <g class="spokes">
+          <path class="spoke" d="M380 150 L150 70"/><path class="spoke" d="M380 150 L610 70"/>
+          <path class="spoke" d="M380 150 L96 150"/><path class="spoke" d="M380 150 L664 150"/>
+          <path class="spoke" d="M380 150 L150 230"/><path class="spoke" d="M380 150 L610 230"/>
+        </g>
+        <g>
+          <path class="pulse"  d="M380 150 L150 70"/><path class="pulse p2" d="M380 150 L610 70"/>
+          <path class="pulse p3" d="M380 150 L96 150"/><path class="pulse p4" d="M380 150 L664 150"/>
+          <path class="pulse p5" d="M380 150 L150 230"/><path class="pulse p2" d="M380 150 L610 230"/>
+        </g>
+        <g font-family="var(--mono)">
+          <circle class="node" cx="150" cy="70"  r="34"/><text class="node-lbl" x="150" y="74">Inbox</text>
+          <circle class="node" cx="610" cy="70"  r="34"/><text class="node-lbl" x="610" y="74">Calendar</text>
+          <circle class="node" cx="96"  cy="150" r="34"/><text class="node-lbl" x="96"  y="154">CRM</text>
+          <circle class="node" cx="664" cy="150" r="34"/><text class="node-lbl" x="664" y="154">Payments</text>
+          <circle class="node" cx="150" cy="230" r="34"/><text class="node-lbl" x="150" y="234">Phone</text>
+          <circle class="node" cx="610" cy="230" r="34"/><text class="node-lbl" x="610" y="234">Docs</text>
+          <circle class="hub-core" cx="380" cy="150" r="52"/>
+          <text class="hub-lbl" x="380" y="146">AI</text><text class="hub-lbl" x="380" y="164">workforce</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
 
-<section class="sec" id="implement" style="padding-top:clamp(30px,4vh,50px)">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow rv">// how we implement</div>
-      <h2 class="rv d1">It plugs into the tools you already use.</h2>
-      <p class="lede rv d1">No rip-and-replace. We connect your existing stack to a workforce of AI agents through MCP and direct APIs — running on Claude. The agents read and act across your tools in real time, with your guardrails.</p>
-    </div>
-    <div class="cards rv d1">
-      <div class="card">
-        <span class="tag">&#x7B;&#x7D;/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></div>
-        <h3>MCP + APIs, not rip-and-replace</h3>
-        <p>The workforce reads and acts inside the tools you already run — CRM, inbox, calendar, phone, payments. Access is scoped, logged, and revocable at any time.</p>
-      </div>
-      <div class="card">
-        <span class="tag">&#x25C8;/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></svg></div>
-        <h3>Built on Anthropic's Claude</h3>
-        <p>The agents reason and take action on Claude — provisioned in your own Claude Teams account, configured by us. Frontier intelligence, with humans in the loop where it matters.</p>
-      </div>
-      <div class="card">
-        <span class="tag">&#x29BF;/</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
-        <h3>Acts across your whole stack</h3>
-        <p>Agents book the slot, log the deal, send the quote, chase the invoice. One coordinated workforce moving work across every tool — every action landing on your live dashboard.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
+<!-- ── By bottleneck · visual tiles ─────────────────────────────── -->
+<section class="sec" style="padding-top:clamp(20px,3vh,40px)">
   <div class="wrap">
     <div class="center">
       <div class="eyebrow rv">// by bottleneck</div>
-      <h2 class="rv d1">What we ship for your kind of business.</h2>
-      <p class="lede rv d1">Three example deployments that work across any service business. Yours will look different — we map to your bottlenecks, not a template.</p>
+      <h2 class="rv d1">Where it pays off first.</h2>
+      <p class="lede rv d1">We map to your bottleneck, not a template.</p>
     </div>
     <div class="cards rv d1">
       <a href="/find-your-tier.html" class="card">
         <span class="tag">after-hours/</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg></div>
         <h3>AI Receptionist</h3>
-        <p>Calls after-hours = lost business. Takes intake 24/7, pre-screens by your rules, and books the call into the right calendar — tagged and ready.</p>
-        <span class="go">24/7 reception + smart routing &rarr;</span>
+        <p>Missed calls = lost jobs. Answers 24/7, screens by your rules, books into the calendar.</p>
+        <span class="go">24/7 reception &rarr;</span>
       </a>
       <a href="/find-your-tier.html" class="card">
         <span class="tag">back-office/</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
         <h3>AI Office Manager</h3>
-        <p>Owner stuck 2 hrs/day in the inbox. Triages every message by intent, drafts replies in your voice, files documents, surfaces what needs you. Morning firehose &rarr; six-line briefing.</p>
-        <span class="go">inbox + document chaos cleared &rarr;</span>
+        <p>Owner stuck in the inbox. Triages, drafts in your voice, files docs. Firehose &rarr; 6-line brief.</p>
+        <span class="go">inbox cleared &rarr;</span>
       </a>
       <a href="/find-your-tier.html" class="card">
         <span class="tag">accounting/</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 11h6M9 15h3"/></svg></div>
         <h3>AI Bookkeeper</h3>
-        <p>Manual AR chase, month-end drift. Reconciles daily, drafts AR follow-ups, categorizes expenses, preps your books for close two weeks earlier. Your accountant gets a clean handoff.</p>
-        <span class="go">books closed by the 3rd, not the 15th &rarr;</span>
+        <p>Manual AR chase, month-end drift. Reconciles daily, chases AR, closes books by the 3rd.</p>
+        <span class="go">books closed early &rarr;</span>
       </a>
     </div>
     <p class="pnote rv">See the full roster on the <a href="/agents.html">AI teams</a> page, or compare tiers on <a href="/pricing.html">pricing</a>.</p>
@@ -296,6 +367,37 @@
     </div>
   </div>
 </div>
+<script>
+/* Services — accessible tabs (arrow keys, Home/End, Enter/Space) + reveal safety net */
+(function(){
+  var tablist=document.querySelector('.svc-tabs[role="tablist"]'); if(!tablist) return;
+  var tabs=Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  function panelOf(t){return document.getElementById(t.getAttribute('aria-controls'));}
+  function select(t,focus){
+    tabs.forEach(function(x){
+      var on=x===t, p=panelOf(x);
+      x.setAttribute('aria-selected',on?'true':'false');
+      x.tabIndex=on?0:-1;
+      if(p){ p.classList.toggle('on',on); if(on){p.removeAttribute('hidden');} else {p.setAttribute('hidden','');} }
+    });
+    if(focus) t.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t,false);});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowRight'||k==='ArrowDown'){n=tabs[(i+1)%tabs.length];}
+      else if(k==='ArrowLeft'||k==='ArrowUp'){n=tabs[(i-1+tabs.length)%tabs.length];}
+      else if(k==='Home'){n=tabs[0];}
+      else if(k==='End'){n=tabs[tabs.length-1];}
+      else if(k==='Enter'||k===' '){e.preventDefault();select(t,false);return;}
+      if(n){e.preventDefault();select(n,true);}
+    });
+  });
+  /* reveal safety net (these pages don't load transitions.js) */
+  setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1000);
+})();
+</script>
 <script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>

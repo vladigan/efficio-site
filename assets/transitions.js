@@ -64,7 +64,7 @@
   // Mobile-only via CSS (display:none above 720px). One tap away from booking.
   try {
     if (!document.getElementById('efficio-sticky-cta')) {
-      var stickyHref = 'https://go.efficio.tech/';
+      var stickyHref = '/find-your-tier.html';
       var stickyLabel = 'Get started';
       var sticky = document.createElement('a');
       sticky.id = 'efficio-sticky-cta';

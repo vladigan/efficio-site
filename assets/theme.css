@@ -213,6 +213,8 @@ footer{background:var(--bg);border-top:1px solid var(--bd);padding:64px 0 32px;c
   letter-spacing:.16em;margin-bottom:14px;font-weight:800}
 .foot-col a{display:block;font-size:13.5px;padding:5px 0;color:var(--text);transition:color .15s}
 .foot-col a:hover{color:var(--white)}
+/* mobile tap targets >=44px (touch guideline); desktop rhythm unchanged */
+@media(max-width:720px){.foot-col a{min-height:44px;display:flex;align-items:center}}
 .foot-bottom{max-width:1440px;margin:0 auto;padding:22px 32px 0;
   border-top:1px solid var(--bd3);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;

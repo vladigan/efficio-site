@@ -2,35 +2,43 @@
    Efficio — conversion tracking (shared across the funnel)
    Drop-in:  <script src="/assets/pixels.js"></script>  (in <head>)
 
-   ONE place to manage tracking. Replace the placeholder IDs below
-   with real values from each ad platform. The script is gated:
-   any value containing "_PLACEHOLDER", "REPLACE_ME", or "XXXX"
-   stays fully dormant — no network requests, no console errors.
+   ONE place to manage tracking. The whole script is GATED: any ID
+   left empty — or still holding a "_PLACEHOLDER" / "REPLACE_ME" /
+   "XXXX" value — stays fully dormant. No network requests, no fbq,
+   no gtag config, no console errors. Fill an ID in and only that
+   platform activates. Safe to ship with everything blank.
 
+   ============================================================
+   META PIXEL — THE ONE SPOT TO PASTE BRADY'S ID
+   ============================================================
+   Create the Pixel in Meta Events Manager, copy the 15-16 digit ID,
+   and drop it into META_PIXEL_ID below. That single edit activates:
+     • PageView   — every page load, site-wide
+     • Lead       — find-your-tier quiz reaches a tier result
+     • Schedule   — booking confirmed (thank-you.html / GHL widget)
+   Leave it "" and the Meta Pixel never loads or fires.
+   ============================================================ */
+
+// Paste your Meta Pixel ID here (from Meta Events Manager) to activate tracking.
+var META_PIXEL_ID = "";
+
+/* ===========================================================
+   OTHER AD PLATFORMS — placeholder swap list (find/replace once)
    ===========================================================
-   PLACEHOLDER SWAP LIST  (find/replace these 7 strings once)
-   ===========================================================
-     META_PIXEL_ID_PLACEHOLDER          (Meta Events Manager -> 15-16 digits)
-     GA4_MEASUREMENT_ID_PLACEHOLDER     (GA4 -> Data Streams -> "G-..." )    [already LIVE - see note]
+     GA4_MEASUREMENT_ID                 (already LIVE as "G-62FVTS6S1Z" — see note)
      GADS_CONVERSION_ID_PLACEHOLDER     (Google Ads -> Goals -> Conversions -> "AW-...")
      GADS_CONVERSION_LABEL_PLACEHOLDER  (Google Ads -> same screen -> per-action label)
      LI_PARTNER_ID_PLACEHOLDER          (LinkedIn Campaign Manager -> Insight Tag -> partner ID)
-     LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER  (LinkedIn -> Conversions -> ID for qualifier-completed)
-     LI_BOOKING_CONVERSION_ID_PLACEHOLDER    (LinkedIn -> Conversions -> ID for calendly-booked)
-   ===========================================================
+     LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER  (LinkedIn -> Conversions -> qualifier-completed)
+     LI_BOOKING_CONVERSION_ID_PLACEHOLDER    (LinkedIn -> Conversions -> booking-completed)
 
-   NOTE: ga4 was already LIVE on this site as "G-62FVTS6S1Z"
-   before phase-2 wiring. Preserved here so existing measurement
-   stays intact. If you want to swap GA4 to the placeholder gate
-   too, replace the live value with GA4_MEASUREMENT_ID_PLACEHOLDER.
+   NOTE: ga4 was already LIVE on this site as "G-62FVTS6S1Z" before
+   phase-2 wiring. Preserved here so existing measurement stays intact.
 
-   Fire conversions from page code:
-     window.efficioTrackQualifierStart({...})    // qualifier opened/first option click
-     window.efficioTrackQualifierComplete({...}) // qualifier finished (last step)
-     window.efficioTrackBooking({...})           // call booked on Calendly
-
-   A Calendly inline embed auto-fires efficioTrackBooking on
-   `calendly.event_scheduled` — no per-page wiring needed.
+   Fire conversions from page code (all no-ops until the ID is set):
+     window.efficioTrackQuizLead({...})    // find-your-tier result -> Meta "Lead"
+     window.efficioTrackBooking({...})     // booking confirmed      -> Meta "Schedule"
+   A page-load Meta "PageView" fires automatically once META_PIXEL_ID is set.
 
    Legacy aliases retained for backward compatibility:
      window.sendConversion()        = efficioTrackQualifierComplete
@@ -40,17 +48,17 @@ window.EFFICIO_PIXELS = {
   ga4:             "G-62FVTS6S1Z",                        /* LIVE - keep unless intentionally swapping */
   googleAds:       "GADS_CONVERSION_ID_PLACEHOLDER",      /* "AW-1234567890"  */
   googleAdsLabel:  "GADS_CONVERSION_LABEL_PLACEHOLDER",   /* per-action label */
-  metaPixel:       "META_PIXEL_ID_PLACEHOLDER",           /* 15-16 digit Meta Pixel ID */
+  metaPixel:       META_PIXEL_ID,                         /* <-- set META_PIXEL_ID above; "" = dormant */
   linkedinPartner: "LI_PARTNER_ID_PLACEHOLDER",
   linkedinConv:    "LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER",  /* fired on qualifier complete */
-  linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on Calendly booking  */
+  linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on booking            */
   tiktokPixel:     "REPLACE_ME_TIKTOK_PIXEL_ID",
   snapPixel:       "REPLACE_ME_SNAP_PIXEL_ID"
 };
 (function () {
   var P = window.EFFICIO_PIXELS;
   function ok(v) {
-    if (!v || typeof v !== "string") return false;
+    if (!v || typeof v !== "string") return false;          /* "" / undefined -> dormant */
     if (v.indexOf("_PLACEHOLDER") !== -1) return false;
     if (v.indexOf("REPLACE_ME")  !== -1) return false;
     if (v.indexOf("XXXX")        !== -1) return false;
@@ -95,7 +103,7 @@ window.EFFICIO_PIXELS = {
     if (ok(P.googleAds)) gtag("config", P.googleAds);
   }
 
-  /* ---- Meta Pixel ---- */
+  /* ---- Meta Pixel ---- gated by META_PIXEL_ID; "" -> never loads, fires PageView when set */
   if (ok(P.metaPixel)) {
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
@@ -146,20 +154,58 @@ window.EFFICIO_PIXELS = {
 
 /* ============================================================
    UNIFIED CONVERSION HELPERS — fire only to pixels that loaded
+   (every call is wrapped in try/catch and guarded by window.<sdk>,
+    so all of these are no-ops while META_PIXEL_ID and the other
+    IDs are blank — nothing throws, nothing fires.)
+
+   FUTURE — server-side Conversions API (CAPI) — NOT built this pass.
+   Because every conversion funnels through these helpers, a server
+   relay can be bolted on in ONE place later: POST { event, event_id,
+   ...params } to the Cloudflare Worker `efficio-chat`, which would
+   call Meta's Graph API with the CAPI access token and dedupe against
+   the browser pixel via a shared event_id. Client pixel only for now.
    ============================================================ */
 
-/* === STAGE 1: qualifier STARTED (first option click on audit-quiz) === */
+/* === find-your-tier QUIZ RESULT — a recommended tier is on screen ===
+   This is the funnel's lead-capture moment. Fires Meta standard "Lead"
+   (the event the quiz should optimize toward) plus the matching lead
+   signal on every other live platform. Once-guarded so a quiz retake in
+   the same session does not double-count. No PII in params — only the
+   non-identifying tier key (e.g. "team"). */
+window.efficioTrackQuizLead = function (meta) {
+  if (window.__efQuizLead) return; window.__efQuizLead = true;
+  meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
+  var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
+  try { if (window.fbq)  fbq('track', 'Lead', meta); } catch (e) {}                  /* <-- Meta standard Lead */
+  try { if (window.gtag) gtag('event', 'generate_lead',      meta); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'qualifier_completed', meta); } catch (e) {}
+  try {
+    if (window.gtag && ok(P.googleAds) && ok(P.googleAdsLabel))
+      gtag('event', 'conversion', { send_to: P.googleAds + '/' + P.googleAdsLabel });
+  } catch (e) {}
+  try { if (window.lintrk && ok(P.linkedinConv)) lintrk('track', { conversion_id: P.linkedinConv }); } catch (e) {}
+  try { if (window.ttq) ttq.track('SubmitForm', meta); } catch (e) {}
+  try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
+};
+
+/* === STAGE 1 (optional, not currently wired): qualifier STARTED ===
+   NOTE: Meta "Lead" intentionally does NOT fire here. On this funnel a
+   Lead = a completed quiz result (see efficioTrackQuizLead above), so
+   Meta stays out of the "started" stage to avoid double-counting. Other
+   platforms keep their top-of-funnel signal. */
 window.efficioTrackQualifierStart = function (meta) {
   meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
   if (window.__efQualifierStarted) return; window.__efQualifierStarted = true;
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
   try { if (window.gtag) gtag('event', 'qualifier_started', meta); } catch (e) {}
-  try { if (window.fbq)  fbq('track', 'Lead', meta); } catch (e) {}
   try { if (window.ttq)  ttq.track('ClickButton', meta); } catch (e) {}
   try { if (window.snaptr) snaptr('track', 'START_TRIAL', meta); } catch (e) {}
 };
 
-/* === STAGE 2: qualifier COMPLETED (last step / email captured) === */
+/* === STAGE 2: qualifier COMPLETED (e.g. onboarding form submitted) ===
+   Kept on Meta "CompleteRegistration" for the post-booking onboarding
+   form (onboarding.html). The public fit-quiz uses efficioTrackQuizLead
+   above; this stays as-is so existing onboarding tracking is unchanged. */
 window.efficioTrackQualifierComplete = function (meta) {
   meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
@@ -175,8 +221,12 @@ window.efficioTrackQualifierComplete = function (meta) {
   try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
 };
 
-/* === STAGE 3: Calendly call BOOKED === */
+/* === Booking CONFIRMED — Meta "Schedule" ===
+   Fires on the post-booking redirect (thank-you.html) and, best-effort,
+   on a GHL widget "booked" postMessage. Deduped via __efBooked so the two
+   paths can never double-count within a page. */
 window.efficioTrackBooking = function (meta) {
+  if (window.__efBooked) return; window.__efBooked = true;
   meta = Object.assign({}, window._pxUtms ? window._pxUtms() : {}, meta || {});
   var P = window.EFFICIO_PIXELS, ok = window._pxOk || function () { return false; };
   try { if (window.gtag) gtag('event', 'calendly_booking_completed', meta); } catch (e) {}
@@ -191,16 +241,46 @@ window.efficioTrackBooking = function (meta) {
   try { if (window.snaptr) snaptr('track', 'SIGN_UP', meta); } catch (e) {}
 };
 
-/* Legacy aliases — keep existing audit-quiz.html / qualify.html calls working */
+/* Legacy aliases — keep existing onboarding.html / qualify.html calls working */
 window.efficioTrackLead = window.efficioTrackQualifierComplete;
 window.sendConversion   = window.efficioTrackQualifierComplete;
 
-/* Calendly inline embed -> booking conversion (auto-wired everywhere pixels.js loads) */
+/* ---- Booking widget -> Schedule (auto-wired everywhere pixels.js loads) ----
+
+   The on-site booking (book.html) is a GoHighLevel / LeadConnector calendar
+   iframe (api.leadconnectorhq.com/widget/booking/..., loaded via
+   link.msgsndr.com/js/form_embed.js).
+
+   RELIABLE hook (recommended): set the GHL calendar's post-booking redirect
+   to https://efficio.tech/thank-you.html — that page loads pixels.js and
+   fires efficioTrackBooking() on load. This is the source of truth for
+   Schedule. (efficioTrackBooking is deduped, so it can't double-fire.)
+
+   BEST-EFFORT hook (below): GHL does not expose a stable, documented
+   "appointment booked" postMessage, so this listener is intentionally
+   conservative — it only acts on messages from the GHL widget origins and
+   only when the payload clearly signals a completed booking. If GHL never
+   posts such a message, nothing fires here and the redirect above carries it.
+
+   The legacy Calendly listener is retained harmlessly for any old embed. */
 window.addEventListener('message', function (e) {
   try {
     var d = e && e.data;
     if (typeof d === 'string') { try { d = JSON.parse(d); } catch (_) {} }
     if (d && d.event === 'calendly.event_scheduled')
-      window.efficioTrackBooking({ source: (location.pathname || 'site') });
+      window.efficioTrackBooking({ source: 'calendly' });
+  } catch (err) {}
+});
+window.addEventListener('message', function (e) {
+  try {
+    var o = (e && e.origin) || '';
+    if (o.indexOf('leadconnectorhq.com') === -1 && o.indexOf('msgsndr.com') === -1) return;
+    var d = e && e.data;
+    if (typeof d === 'string') { try { d = JSON.parse(d); } catch (_) {} }
+    var blob = (typeof d === 'string') ? d : JSON.stringify(d || {});
+    blob = blob.toLowerCase();
+    var booked = /(appoint|booking|schedul)/.test(blob) &&
+                 /(booked|scheduled|confirm|success|complete|created)/.test(blob);
+    if (booked) window.efficioTrackBooking({ source: 'ghl_widget' });
   } catch (err) {}
 });

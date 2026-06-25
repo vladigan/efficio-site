@@ -48,7 +48,7 @@ a:focus-visible,button:focus-visible,.btn-primary:focus-visible,.btn-outline:foc
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,20px) scale(1.1)}}
 .bgfx .noise{position:absolute;inset:0;opacity:.035;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body>*:not(.bgfx):not(.scrollbar){position:relative;z-index:1}
+body>*:not(.bgfx):not(.scrollbar),main>*{position:relative;z-index:1}
 
 /* floating glass pill nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:120;width:min(1000px,calc(100% - 24px))}
@@ -536,3 +536,11 @@ footer{padding-bottom:96px}
   .nav.menu-open .nav-menu{transition:none}
   .nav-burger .nb-lines i{transition:none}
 }
+
+/* --- polish-pass-2: dark native UI, mobile tap polish, skip-link, main landmark --- */
+:root{color-scheme:dark;accent-color:var(--violet)}
+body{-webkit-tap-highlight-color:transparent}
+.skip-link{position:fixed;top:-80px;left:10px;z-index:300;padding:11px 18px;border-radius:12px;background:var(--violet);color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 12px 32px -10px rgba(124,77,255,.85);transition:top .22s var(--ease)}
+.skip-link:focus{top:10px;outline:2px solid #fff;outline-offset:2px}
+main:focus{outline:none}
+@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}

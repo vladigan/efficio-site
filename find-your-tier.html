@@ -548,6 +548,14 @@
     });
 
     resultEl.classList.add('show');
+
+    /* conversion: the visitor completed the fit quiz and a recommended tier is
+       on screen — fire Meta "Lead" (+ GA4/Ads/LinkedIn lead signals) via the
+       shared pixel layer in /assets/pixels.js. No-op until META_PIXEL_ID is set,
+       and once-guarded there so a retake can't double-count. Only the tier key
+       (non-PII) is passed. */
+    try { if (window.efficioTrackQuizLead) window.efficioTrackQuizLead({ tier: res.key }); } catch (e) {}
+
     live.textContent = 'Done. Your recommended tier is '+t.name+', '+t.price+' per month.';
     if(focusReady){ resultEl.focus(); }
     if(!reduce && resultEl.scrollIntoView){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }

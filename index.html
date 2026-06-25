@@ -633,49 +633,186 @@ footer{padding-bottom:96px}
 #build .icat:hover .blogo{transform:translateY(-1px) scale(1.04)}
 #build .icat .blogo svg{width:19px;height:19px;display:block}
 
-/* ════ How it works · step-through (scoped .hiw-*) ════ */
-.hiw{margin-top:clamp(40px,5vh,64px);max-width:980px;margin-left:auto;margin-right:auto}
-.hiw-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:26px}
-.hiw-rail::before{content:"";position:absolute;top:21px;left:12%;right:12%;height:2px;background:var(--line2);z-index:0}
-.hiw-rail .hiw-prog{position:absolute;top:21px;left:12%;height:2px;z-index:0;
-  background:linear-gradient(90deg,var(--violet-d),var(--violet-l));transition:width .5s var(--ease2);box-shadow:0 0 10px rgba(124,77,255,.6)}
-.hiw-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;
-  background:none;border:0;padding:6px 4px;color:var(--muted);font-family:inherit;transition:color .25s}
-.hiw-dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--panel2);
-  border:1px solid var(--line2);color:var(--muted);font-family:var(--mono);font-size:13px;font-weight:600;
-  transition:transform .3s var(--ease2),border-color .3s,background .3s,color .3s}
-.hiw-step:hover .hiw-dot{border-color:rgba(124,77,255,.5);color:#fff}
-.hiw-step .hiw-lbl{font-size:12.5px;font-weight:600}
+/* ════ How it works · cinematic step-through (scoped .hiw-*) ════ */
+.hiw{--sac:#9a7bff;margin-top:clamp(40px,5vh,66px);max-width:1060px;margin-left:auto;margin-right:auto}
+
+/* ── stepper rail ── */
+.hiw-rail{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:clamp(20px,3vw,30px)}
+.hiw-rail::before{content:"";position:absolute;top:30px;left:12.5%;right:12.5%;height:2px;border-radius:2px;background:var(--line2);z-index:0}
+.hiw-prog{position:absolute;top:30px;left:12.5%;width:0;height:2px;border-radius:2px;z-index:1;
+  background:linear-gradient(90deg,var(--violet-d),var(--sac));box-shadow:0 0 12px color-mix(in srgb,var(--sac) 80%,transparent);
+  transition:width .55s var(--ease2),background .5s var(--ease2)}
+.hiw-prog::after{content:"";position:absolute;right:-3px;top:50%;width:9px;height:9px;border-radius:50%;transform:translateY(-50%);
+  background:var(--sac);box-shadow:0 0 14px 2px color-mix(in srgb,var(--sac) 85%,transparent)}
+.hiw-step{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;
+  background:none;border:0;padding:6px 4px 2px;color:var(--muted);font-family:inherit;transition:color .25s var(--ease)}
+.hiw-dotwrap{position:relative;width:60px;height:60px;display:grid;place-items:center}
+.hiw-ring{position:absolute;inset:0;width:60px;height:60px;transform:rotate(-90deg)}
+.hiw-ring circle{fill:none;stroke-width:3}
+.hiw-ring .rf{stroke:var(--ac);stroke-linecap:round;stroke-dasharray:163;stroke-dashoffset:163;opacity:0;
+  filter:drop-shadow(0 0 4px color-mix(in srgb,var(--ac) 85%,transparent))}
+.hiw-dot{position:relative;z-index:1;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--panel2);
+  border:1px solid var(--line2);color:var(--muted);font-family:var(--mono);font-size:14px;font-weight:600;
+  transition:transform .35s var(--ease2),border-color .3s,background .3s,color .3s,box-shadow .3s}
+.hiw-step:hover .hiw-dot{border-color:color-mix(in srgb,var(--ac) 55%,transparent);color:#fff;transform:translateY(-2px)}
+.hiw-lbl{font-size:13px;font-weight:700;letter-spacing:-.01em;transition:color .25s}
+.hiw-cap{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.02em;color:var(--muted2);opacity:.9}
 .hiw-step[aria-selected="true"]{color:#fff}
-.hiw-step[aria-selected="true"] .hiw-dot{background:rgba(124,77,255,.18);border-color:var(--ac,var(--violet-l));
-  color:#fff;transform:scale(1.12);box-shadow:0 0 0 4px rgba(124,77,255,.12)}
+.hiw-step[aria-selected="true"] .hiw-dot{background:color-mix(in srgb,var(--ac) 22%,var(--panel2));border-color:var(--ac);color:#fff;
+  transform:scale(1.05);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 13%,transparent),0 14px 32px -14px color-mix(in srgb,var(--ac) 95%,transparent)}
+.hiw-step[aria-selected="true"] .hiw-cap{color:color-mix(in srgb,var(--ac) 65%,#fff)}
 .hiw-step:focus-visible{outline:none}
-.hiw-step:focus-visible .hiw-dot{outline:2px solid var(--violet-l);outline-offset:3px}
+.hiw-step:focus-visible .hiw-dot{outline:2px solid var(--ac);outline-offset:3px}
+.hiw.is-playing .hiw-step[aria-selected="true"] .hiw-ring .rf{opacity:1;animation:hiwCharge 4s linear}
+.hiw.is-playing.is-hover .hiw-step[aria-selected="true"] .hiw-ring .rf{animation-play-state:paused}
+@keyframes hiwCharge{from{stroke-dashoffset:163}to{stroke-dashoffset:0}}
+
+/* ── stage ── */
 .hiw-stage{position:relative;border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;
-  background:linear-gradient(165deg,rgba(124,77,255,.07),rgba(13,13,23,.5));box-shadow:var(--soft);min-height:230px}
-.hiw-panel{display:none;grid-template-columns:1fr 1fr;gap:26px;align-items:center;padding:clamp(22px,3vw,36px);animation:svcfade .5s var(--ease2)}
+  background:linear-gradient(168deg,color-mix(in srgb,var(--sac) 9%,#0c0c16),#08080f 72%);
+  box-shadow:var(--soft),0 0 0 1px color-mix(in srgb,var(--sac) 13%,transparent),0 44px 96px -54px color-mix(in srgb,var(--sac) 75%,transparent);
+  transition:box-shadow .55s var(--ease2)}
+.hiw-stage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.85;
+  background:radial-gradient(58% 64% at 80% 16%,color-mix(in srgb,var(--sac) 24%,transparent),transparent 70%);transition:background .6s var(--ease2)}
+.hiw-stage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(color-mix(in srgb,var(--sac) 6%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--sac) 6%,transparent) 1px,transparent 1px);
+  background-size:36px 36px;-webkit-mask-image:radial-gradient(82% 78% at 50% 26%,#000,transparent 80%);mask-image:radial-gradient(82% 78% at 50% 26%,#000,transparent 80%)}
+.hiw-chrome{position:relative;z-index:2;display:flex;align-items:center;gap:9px;padding:12px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.025),transparent)}
+.hiw-chrome .cdots{display:flex;gap:6px}
+.hiw-chrome .cdots i{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.hiw-chrome .cdots i:nth-child(1){background:rgba(255,111,111,.55)}.hiw-chrome .cdots i:nth-child(2){background:rgba(236,192,106,.55)}.hiw-chrome .cdots i:nth-child(3){background:rgba(86,216,160,.55)}
+.hiw-ctitle{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:5px}
+.hiw-ctitle b{color:var(--ink2);font-weight:600}
+.hiw-clive{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--sac);transition:color .5s var(--ease2)}
+.hiw-clive i{width:7px;height:7px;border-radius:50%;background:var(--sac);box-shadow:0 0 8px var(--sac)}
+.hiw-body{position:relative;z-index:2}
+.hiw-panel{display:none;grid-template-columns:1.04fr 1fr;gap:clamp(20px,3vw,40px);align-items:center;padding:clamp(22px,3.2vw,40px);min-height:clamp(264px,32vw,320px)}
 .hiw-panel.on{display:grid}
-@media(max-width:760px){.hiw-panel.on{grid-template-columns:1fr;gap:18px}}
-.hiw-panel .hiw-copy h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin:0 0 8px}
-.hiw-panel .hiw-copy p{font-size:14px;color:var(--ink2);line-height:1.55;margin:0;max-width:38ch}
-.hiw-panel .hiw-copy .hiw-badge{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:6px 12px;border-radius:999px;
+.hiw-panel.is-run{grid-template-columns:1fr;align-items:stretch;gap:18px}
+@media(max-width:760px){.hiw-panel.on{grid-template-columns:1fr;gap:22px}}
+.hiw-kick{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.03em;color:var(--ac);margin:0 0 12px}
+.hiw-kick .kdot{width:6px;height:6px;border-radius:50%;background:var(--ac);box-shadow:0 0 8px var(--ac)}
+.hiw-copy h3{font-size:clamp(1.5rem,3vw,2.05rem);font-weight:800;letter-spacing:-.035em;color:#fff;margin:0 0 12px;line-height:1.04}
+.hiw-copy p{font-size:clamp(14px,1.35vw,15.5px);color:var(--ink2);line-height:1.6;margin:0;max-width:44ch}
+.hiw-copy p b{color:#fff;font-weight:700}
+.hiw-badge{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:7px 14px;border-radius:999px;
   font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--green);background:rgba(86,216,160,.1);border:1px solid rgba(86,216,160,.3)}
-.hiw-art{display:grid;place-items:center;min-height:150px}
-.hiw-art svg{width:100%;max-width:260px;height:auto}
-.hiw-art .dash{stroke-dasharray:4 6}
-@media(prefers-reduced-motion:no-preference){
-  .hiw-art .spin{transform-box:fill-box;transform-origin:center;animation:hiwspin 14s linear infinite}
-  .hiw-art .scan{animation:hiwscan 2.6s var(--ease2) infinite}
-  .hiw-art .rise{animation:hiwrise 2.2s var(--ease2) infinite}
-  .hiw-art .blip{animation:hiwblip 1.8s ease-in-out infinite}
+.hiw-badge .bd{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.hiw-art{position:relative;min-height:200px;display:grid;place-items:center}
+.hiw-art svg{width:100%;max-width:340px;height:auto;display:block;overflow:visible}
+.hiw-art svg text,.hiw-art svg tspan{font-family:var(--mono)}
+.hiw-kick{color:var(--ac,var(--violet-l))}.hiw-kick .kdot{background:var(--ac,var(--violet-l))}
+
+/* ── art element bases (final/static states; animations layer on top) ── */
+.hiw-art .c-tile,.hiw-art .c-hub,.hiw-art .c-hubring,.hiw-art .d-bot,.hiw-art .d-online,.hiw-art .a-hit{transform-box:fill-box;transform-origin:center}
+.hiw-art .a-bar{transform-box:fill-box;transform-origin:bottom}
+.hiw-art .d-fill{transform-box:fill-box;transform-origin:left}
+.hiw-art .c-line,.hiw-art .c-check,.hiw-art .hd-line,.hiw-art .d-check{stroke-dasharray:var(--dl);stroke-dashoffset:0}
+.hiw-art .c-flow{stroke-dasharray:2 9;stroke-linecap:round}
+.hiw-art .a-band{opacity:0}
+
+/* ── Run · live dashboard ── */
+.hiw-dash{width:100%;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(10,10,18,.72),rgba(8,8,14,.55));padding:clamp(12px,1.6vw,16px);display:grid;gap:12px}
+.hd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hd-stat{position:relative;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);overflow:hidden}
+.hd-stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc,var(--sac))}
+.hd-k{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.01em}
+.hd-v{display:block;font-size:clamp(1.5rem,2.4vw,1.95rem);font-weight:800;letter-spacing:-.035em;color:#fff;line-height:1.05;margin-top:4px}
+.hd-v b{font-weight:800}
+.hd-d{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;color:var(--sc,var(--green));margin-top:2px}
+.hd-main{display:grid;grid-template-columns:1.45fr 1fr;gap:12px}
+.hd-chart,.hd-feed{border:1px solid var(--line);border-radius:12px;padding:12px;background:rgba(255,255,255,.02)}
+.hd-chart{display:flex;flex-direction:column;gap:9px}
+.hd-chrow{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:10.5px}
+.hd-chrow .ck{color:var(--ink2);font-weight:600}.hd-chrow .cw{color:var(--muted)}
+.hd-chart svg{width:100%;height:auto;display:block;overflow:visible}
+.hd-feed{display:flex;flex-direction:column;gap:10px}
+.hd-now{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--green)}
+.hd-pdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
+.hd-row{display:flex;gap:9px;align-items:baseline;font-size:12px;color:var(--ink2);line-height:1.4}
+.hd-row time{font-family:var(--mono);font-size:10.5px;color:var(--muted);flex-shrink:0;min-width:34px}
+@media(max-width:680px){.hd-main{grid-template-columns:1fr}}
+@media(max-width:430px){.hd-stats{grid-template-columns:1fr 1fr}.hd-stat:last-child{grid-column:1/-1}}
+
+/* ── auto-play controls ── */
+.hiw-auto{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.hiw-auto .ai{display:inline-flex;align-items:center;gap:7px}
+.hiw-auto .ai i{width:6px;height:6px;border-radius:50%;background:var(--sac);box-shadow:0 0 8px var(--sac);transition:background .5s var(--ease2)}
+.hiw-auto button{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line2);color:var(--ink2);border-radius:999px;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:11px;transition:border-color .25s,color .25s,background .25s}
+.hiw-auto button:hover{border-color:color-mix(in srgb,var(--sac) 55%,transparent);color:#fff;background:color-mix(in srgb,var(--sac) 10%,transparent)}
+
+/* ── responsive rail ── */
+@media(max-width:560px){
+  .hiw-dotwrap,.hiw-ring{width:54px;height:54px}
+  .hiw-dot{width:42px;height:42px;font-size:13px}
+  .hiw-rail::before,.hiw-prog{top:27px}
+  .hiw-lbl{font-size:12px}.hiw-cap{display:none}
 }
-@keyframes hiwspin{to{transform:rotate(360deg)}}
-@keyframes hiwscan{0%,100%{transform:translateY(0)}50%{transform:translateY(34px)}}
-@keyframes hiwrise{0%,100%{transform:translateY(2px);opacity:.7}50%{transform:translateY(-3px);opacity:1}}
-@keyframes hiwblip{0%,100%{opacity:.35}50%{opacity:1}}
-.hiw-auto{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--muted)}
-.hiw-auto button{background:none;border:1px solid var(--line2);color:var(--ink2);border-radius:999px;padding:5px 13px;cursor:pointer;font-family:inherit;font-size:11px;transition:border-color .25s,color .25s}
-.hiw-auto button:hover{border-color:rgba(124,77,255,.5);color:#fff}
+
+/* ── motion (all gated; base states above are the reduced-motion fallback) ── */
+@media(prefers-reduced-motion:no-preference){
+  .hiw-panel.on .hiw-copy>*{animation:hiwUp .55s var(--ease2) backwards}
+  .hiw-panel.on .hiw-copy>*:nth-child(2){animation-delay:.06s}
+  .hiw-panel.on .hiw-copy>*:nth-child(3){animation-delay:.12s}
+  .hiw-panel.on .hiw-copy>*:nth-child(4){animation-delay:.18s}
+  /* connect */
+  .hiw-panel.on .c-tile{animation:hiwPop .5s var(--ease2) backwards}
+  .hiw-panel.on .c-tile:nth-of-type(1){animation-delay:.10s}
+  .hiw-panel.on .c-tile:nth-of-type(2){animation-delay:.16s}
+  .hiw-panel.on .c-tile:nth-of-type(3){animation-delay:.22s}
+  .hiw-panel.on .c-tile:nth-of-type(4){animation-delay:.28s}
+  .hiw-panel.on .c-tile:nth-of-type(5){animation-delay:.34s}
+  .hiw-panel.on .c-tile:nth-of-type(6){animation-delay:.40s}
+  .hiw-panel.on .c-line{animation:hiwDraw .6s var(--ease2) .30s backwards}
+  .hiw-panel.on .c-check{animation:hiwDraw .5s var(--ease) 1s backwards}
+  .hiw-art .c-flow{animation:hiwFlow 1.5s linear infinite}
+  .hiw-art .c-hubring{animation:hiwHub 2.8s var(--ease2) infinite}
+  /* audit */
+  .hiw-art .a-scan{animation:hiwScanY 3s var(--ease2) infinite}
+  .hiw-art .a-band{animation:hiwScanY 3s var(--ease2) infinite}
+  .hiw-art .a-mag{animation:hiwScanY 3s var(--ease2) infinite}
+  .hiw-panel.on .a-bar{animation:hiwBar .7s var(--ease2) backwards}
+  .hiw-panel.on .a-bar:nth-of-type(1){animation-delay:.5s}
+  .hiw-panel.on .a-bar:nth-of-type(2){animation-delay:.62s}
+  .hiw-panel.on .a-bar:nth-of-type(3){animation-delay:.74s}
+  .hiw-panel.on .a-bar:nth-of-type(4){animation-delay:.86s}
+  .hiw-panel.on .a-hit{animation:hiwPop .45s var(--ease2) backwards}
+  .hiw-panel.on .a-hit:nth-of-type(1){animation-delay:.7s}
+  .hiw-panel.on .a-hit:nth-of-type(2){animation-delay:.95s}
+  .hiw-panel.on .a-hit:nth-of-type(3){animation-delay:1.2s}
+  /* deploy */
+  .hiw-panel.on .d-line{animation:hiwUp .45s var(--ease2) backwards}
+  .hiw-panel.on .d-line:nth-of-type(2){animation-delay:.12s}
+  .hiw-panel.on .d-line:nth-of-type(3){animation-delay:.2s}
+  .hiw-panel.on .d-row:nth-of-type(1) .d-fill{animation:hiwFill 1s var(--ease2) .4s backwards}
+  .hiw-panel.on .d-row:nth-of-type(2) .d-fill{animation:hiwFill 1s var(--ease2) .55s backwards}
+  .hiw-panel.on .d-row:nth-of-type(3) .d-fill{animation:hiwFill 1s var(--ease2) .7s backwards}
+  .hiw-panel.on .d-bot{animation:hiwPop .6s var(--ease2) .8s backwards}
+  .hiw-panel.on .d-check{animation:hiwDraw .5s var(--ease) 1.15s backwards}
+  .hiw-art .d-online{animation:hiwHub 2.2s var(--ease2) infinite}
+  /* run */
+  .hiw-panel.on .hd-stat{animation:hiwUp .55s var(--ease2) backwards}
+  .hiw-panel.on .hd-stat:nth-of-type(2){animation-delay:.08s}
+  .hiw-panel.on .hd-stat:nth-of-type(3){animation-delay:.16s}
+  .hiw-panel.on .hd-chart{animation:hiwUp .55s var(--ease2) .12s backwards}
+  .hiw-panel.on .hd-feed{animation:hiwUp .55s var(--ease2) .2s backwards}
+  .hiw-panel.on .hd-area{animation:hiwFade .9s var(--ease2) .45s backwards}
+  .hiw-panel.on .hd-line{animation:hiwDraw 1.2s var(--ease2) .3s backwards}
+  .hiw-panel.on .hd-row{animation:hiwUp .5s var(--ease2) backwards}
+  .hiw-panel.on .hd-row:nth-of-type(2){animation-delay:.36s}
+  .hiw-panel.on .hd-row:nth-of-type(3){animation-delay:.46s}
+  .hiw-art .hd-end,.hiw-art .hd-pulse{animation:hiwBlip 1.7s ease-in-out infinite}
+}
+@keyframes hiwUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes hiwPop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+@keyframes hiwDraw{from{stroke-dashoffset:var(--dl)}to{stroke-dashoffset:0}}
+@keyframes hiwFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes hiwBar{from{opacity:.25;transform:scaleY(.04)}to{opacity:1;transform:scaleY(1)}}
+@keyframes hiwFlow{to{stroke-dashoffset:-44}}
+@keyframes hiwHub{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+@keyframes hiwScanY{0%{transform:translateY(0);opacity:0}8%{opacity:1}48%{transform:translateY(108px);opacity:1}58%{opacity:0}100%{transform:translateY(0);opacity:0}}
+@keyframes hiwFade{from{opacity:0}to{opacity:1}}
+@keyframes hiwBlip{0%,100%{opacity:.4}50%{opacity:1}}
 
 /* ════ Pricing · interactive tier selector (scoped .ptc-*) ════ */
 .ptc{margin-top:clamp(36px,5vh,56px);display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start;text-align:left}
@@ -848,91 +985,185 @@ footer{padding-bottom:96px}
     <p class="lede rv d1">From the tools you already use to a working AI team &mdash; powered by <b>Claude</b>. Tap a step.</p>
 
     <div class="hiw rv d2">
-      <div class="hiw-rail" role="tablist" aria-label="How we deploy">
-        <span class="hiw-prog" id="hiwProg" aria-hidden="true" style="width:0"></span>
-        <button class="hiw-step" role="tab" id="hiwt-0" aria-controls="hiwp-0" aria-selected="true"  tabindex="0"  style="--ac:#9a7bff"><span class="hiw-dot">01</span><span class="hiw-lbl">Connect</span></button>
-        <button class="hiw-step" role="tab" id="hiwt-1" aria-controls="hiwp-1" aria-selected="false" tabindex="-1" style="--ac:#45d3c9"><span class="hiw-dot">02</span><span class="hiw-lbl">Audit</span></button>
-        <button class="hiw-step" role="tab" id="hiwt-2" aria-controls="hiwp-2" aria-selected="false" tabindex="-1" style="--ac:#ecc06a"><span class="hiw-dot">03</span><span class="hiw-lbl">Deploy</span></button>
-        <button class="hiw-step" role="tab" id="hiwt-3" aria-controls="hiwp-3" aria-selected="false" tabindex="-1" style="--ac:#56d8a0"><span class="hiw-dot">04</span><span class="hiw-lbl">Run</span></button>
+      <div class="hiw-rail" role="tablist" aria-label="How we deploy in four steps">
+        <span class="hiw-prog" id="hiwProg" aria-hidden="true"></span>
+        <button class="hiw-step" role="tab" id="hiwt-0" aria-controls="hiwp-0" aria-selected="true"  tabindex="0"  data-ac="#9a7bff" data-title="connect" style="--ac:#9a7bff">
+          <span class="hiw-dotwrap"><svg class="hiw-ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="rf" cx="30" cy="30" r="26"/></svg><span class="hiw-dot">01</span></span>
+          <span class="hiw-lbl">Connect</span><span class="hiw-cap">plug in</span>
+        </button>
+        <button class="hiw-step" role="tab" id="hiwt-1" aria-controls="hiwp-1" aria-selected="false" tabindex="-1" data-ac="#45d3c9" data-title="audit" style="--ac:#45d3c9">
+          <span class="hiw-dotwrap"><svg class="hiw-ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="rf" cx="30" cy="30" r="26"/></svg><span class="hiw-dot">02</span></span>
+          <span class="hiw-lbl">Audit</span><span class="hiw-cap">find leaks</span>
+        </button>
+        <button class="hiw-step" role="tab" id="hiwt-2" aria-controls="hiwp-2" aria-selected="false" tabindex="-1" data-ac="#ecc06a" data-title="deploy" style="--ac:#ecc06a">
+          <span class="hiw-dotwrap"><svg class="hiw-ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="rf" cx="30" cy="30" r="26"/></svg><span class="hiw-dot">03</span></span>
+          <span class="hiw-lbl">Deploy</span><span class="hiw-cap">go live</span>
+        </button>
+        <button class="hiw-step" role="tab" id="hiwt-3" aria-controls="hiwp-3" aria-selected="false" tabindex="-1" data-ac="#56d8a0" data-title="run" style="--ac:#56d8a0">
+          <span class="hiw-dotwrap"><svg class="hiw-ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="rf" cx="30" cy="30" r="26"/></svg><span class="hiw-dot">04</span></span>
+          <span class="hiw-lbl">Run</span><span class="hiw-cap">watch it work</span>
+        </button>
       </div>
 
       <div class="hiw-stage">
-        <div class="hiw-panel on" id="hiwp-0" role="tabpanel" aria-labelledby="hiwt-0" tabindex="0">
+        <div class="hiw-chrome" aria-hidden="true">
+          <span class="cdots"><i></i><i></i><i></i></span>
+          <span class="hiw-ctitle">efficio<b id="hiwCt">/connect</b></span>
+          <span class="hiw-clive"><i></i><span id="hiwCl">step 1 / 4</span></span>
+        </div>
+        <div class="hiw-body">
+
+        <div class="hiw-panel on" id="hiwp-0" role="tabpanel" aria-labelledby="hiwt-0" tabindex="0" style="--ac:#9a7bff">
           <div class="hiw-copy">
-            <h3>Connect</h3>
-            <p>We plug into the apps you already run on, secured through <b style="color:#fff">MCP + API</b>. Nothing to migrate, no new app to learn.</p>
+            <span class="hiw-kick"><span class="kdot"></span>step 01 &middot; connect</span>
+            <h3>Connect your stack</h3>
+            <p>We plug into the apps you already run on &mdash; secured through <b>MCP&nbsp;+&nbsp;API</b>. Nothing to migrate, no new app to learn.</p>
           </div>
           <div class="hiw-art">
-            <svg viewBox="0 0 220 150" aria-hidden="true">
-              <circle cx="110" cy="75" r="22" fill="rgba(124,77,255,.16)" stroke="#9a7bff" stroke-width="1.6"/>
-              <text x="110" y="79" fill="#fff" font-size="11" font-family="monospace" text-anchor="middle">core</text>
-              <g stroke="rgba(124,77,255,.4)" stroke-width="1.5" class="dash" fill="none">
-                <line x1="110" y1="75" x2="40" y2="30"/><line x1="110" y1="75" x2="180" y2="30"/>
-                <line x1="110" y1="75" x2="40" y2="120"/><line x1="110" y1="75" x2="180" y2="120"/>
+            <svg viewBox="0 0 300 210" aria-hidden="true">
+              <defs><radialGradient id="cHubG" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#9a7bff" stop-opacity=".34"/><stop offset="100%" stop-color="#9a7bff" stop-opacity="0"/>
+              </radialGradient></defs>
+              <g fill="none" stroke="#9a7bff" stroke-opacity=".4" stroke-width="1.5">
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="46" y2="42"/>
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="254" y2="42"/>
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="30" y2="105"/>
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="270" y2="105"/>
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="66" y2="176"/>
+                <line class="c-line" style="--dl:150" x1="150" y1="105" x2="234" y2="176"/>
               </g>
-              <g fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)" stroke-width="1.1">
-                <rect x="18" y="18" width="44" height="24" rx="7"/><rect x="158" y="18" width="44" height="24" rx="7"/>
-                <rect x="18" y="108" width="44" height="24" rx="7"/><rect x="158" y="108" width="44" height="24" rx="7"/>
+              <g fill="none" stroke="#9a7bff" stroke-width="1.6">
+                <line class="c-flow" x1="46" y1="42" x2="150" y2="105"/><line class="c-flow" x1="254" y1="42" x2="150" y2="105"/>
+                <line class="c-flow" x1="30" y1="105" x2="150" y2="105"/><line class="c-flow" x1="270" y1="105" x2="150" y2="105"/>
+                <line class="c-flow" x1="66" y1="176" x2="150" y2="105"/><line class="c-flow" x1="234" y1="176" x2="150" y2="105"/>
               </g>
-              <g class="blip" fill="#56d8a0"><circle cx="40" cy="30" r="3"/><circle cx="180" cy="30" r="3"/><circle cx="40" cy="120" r="3"/><circle cx="180" cy="120" r="3"/></g>
+              <g class="c-tiles" stroke-linecap="round" stroke-linejoin="round">
+                <g class="c-tile"><rect x="23" y="19" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><rect x="35" y="33" width="22" height="16" rx="3"/><path d="M35 36l11 7 11-7"/></g></g>
+                <g class="c-tile"><rect x="231" y="19" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><rect x="243" y="33" width="22" height="18" rx="3"/><path d="M243 39h22M249 31v4M259 31v4"/></g></g>
+                <g class="c-tile"><rect x="7" y="82" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><path d="M19 96h22v12a3 3 0 0 1-3 3H22a3 3 0 0 1-3-3z"/><path d="M23 111l-2 6 6-3"/></g></g>
+                <g class="c-tile"><rect x="247" y="82" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><rect x="259" y="94" width="18" height="22" rx="3"/><path d="M263 100h10M263 105h10M263 110h6"/></g></g>
+                <g class="c-tile"><rect x="43" y="153" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><rect x="58" y="165" width="16" height="22" rx="4"/><path d="M64 183h4"/></g></g>
+                <g class="c-tile"><rect x="211" y="153" width="46" height="46" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.16)"/><g fill="none" stroke="#d7d5e6" stroke-width="2"><rect x="223" y="167" width="22" height="16" rx="3"/><path d="M223 172h22"/></g></g>
+              </g>
+              <circle class="c-hubring" cx="150" cy="105" r="40" fill="none" stroke="#9a7bff" stroke-width="1.4"/>
+              <circle cx="150" cy="105" r="34" fill="url(#cHubG)"/>
+              <circle class="c-hub" cx="150" cy="105" r="26" fill="rgba(154,123,255,.17)" stroke="#9a7bff" stroke-width="1.7"/>
+              <text x="150" y="109" fill="#fff" font-size="11" font-weight="600" text-anchor="middle">core</text>
+              <g transform="translate(171,84)"><circle r="9.5" fill="#0b0b13" stroke="#56d8a0" stroke-width="1.3"/><path class="c-check" style="--dl:18" d="M-4 0l3 3 5.5-6.5" fill="none" stroke="#56d8a0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></g>
             </svg>
           </div>
         </div>
 
-        <div class="hiw-panel" id="hiwp-1" role="tabpanel" aria-labelledby="hiwt-1" tabindex="0" hidden>
+        <div class="hiw-panel" id="hiwp-1" role="tabpanel" aria-labelledby="hiwt-1" tabindex="0" hidden style="--ac:#45d3c9">
           <div class="hiw-copy">
-            <h3>Audit</h3>
-            <p>We read your workflow, documents, and records to pinpoint exactly where time and money leak.</p>
+            <span class="hiw-kick"><span class="kdot"></span>step 02 &middot; audit</span>
+            <h3>Audit the busywork</h3>
+            <p>We read your workflows, documents, and records to pinpoint exactly where time and money leak.</p>
           </div>
           <div class="hiw-art">
-            <svg viewBox="0 0 220 150" aria-hidden="true">
-              <rect x="36" y="26" width="148" height="98" rx="10" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.14)"/>
-              <g stroke="rgba(255,255,255,.16)" stroke-width="6" stroke-linecap="round">
-                <line x1="54" y1="48" x2="150" y2="48"/><line x1="54" y1="68" x2="132" y2="68"/>
-                <line x1="54" y1="88" x2="158" y2="88"/><line x1="54" y1="108" x2="120" y2="108"/>
+            <svg viewBox="0 0 300 210" aria-hidden="true">
+              <defs><linearGradient id="aBandG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#45d3c9" stop-opacity="0"/><stop offset="55%" stop-color="#45d3c9" stop-opacity=".26"/><stop offset="100%" stop-color="#45d3c9" stop-opacity="0"/>
+              </linearGradient></defs>
+              <rect x="34" y="20" width="232" height="162" rx="13" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.14)"/>
+              <g stroke="rgba(255,255,255,.15)" stroke-width="7" stroke-linecap="round">
+                <line x1="54" y1="48" x2="168" y2="48"/><line x1="54" y1="72" x2="146" y2="72"/>
+                <line x1="54" y1="96" x2="170" y2="96"/><line x1="54" y1="120" x2="138" y2="120"/><line x1="54" y1="144" x2="160" y2="144"/>
               </g>
-              <g class="scan"><line x1="40" y1="40" x2="180" y2="40" stroke="#45d3c9" stroke-width="2"/>
-                <circle cx="150" cy="58" r="16" fill="none" stroke="#45d3c9" stroke-width="2.4"/><line x1="161" y1="69" x2="172" y2="80" stroke="#45d3c9" stroke-width="2.4" stroke-linecap="round"/></g>
+              <line x1="186" y1="40" x2="186" y2="162" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+              <g class="a-bars">
+                <rect class="a-bar" x="198" y="132" width="12" height="30" rx="3" fill="#45d3c9" fill-opacity=".55"/>
+                <rect class="a-bar" x="216" y="110" width="12" height="52" rx="3" fill="#45d3c9" fill-opacity=".7"/>
+                <rect class="a-bar" x="234" y="122" width="12" height="40" rx="3" fill="#45d3c9" fill-opacity=".6"/>
+                <rect class="a-bar" x="252" y="98"  width="12" height="64" rx="3" fill="#45d3c9" fill-opacity=".88"/>
+              </g>
+              <g class="a-hits" fill="#45d3c9">
+                <circle class="a-hit" cx="178" cy="48" r="3.4"/><circle class="a-hit" cx="178" cy="96" r="3.4"/><circle class="a-hit" cx="178" cy="144" r="3.4"/>
+              </g>
+              <rect class="a-band" x="34" y="28" width="232" height="26" fill="url(#aBandG)"/>
+              <line class="a-scan" x1="34" y1="54" x2="266" y2="54" stroke="#45d3c9" stroke-width="2"/>
+              <g class="a-mag" fill="none" stroke="#45d3c9" stroke-width="2.4" stroke-linecap="round">
+                <circle cx="228" cy="42" r="14"/><line x1="238" y1="52" x2="248" y2="62"/>
+              </g>
             </svg>
           </div>
         </div>
 
-        <div class="hiw-panel" id="hiwp-2" role="tabpanel" aria-labelledby="hiwt-2" tabindex="0" hidden>
+        <div class="hiw-panel" id="hiwp-2" role="tabpanel" aria-labelledby="hiwt-2" tabindex="0" hidden style="--ac:#ecc06a">
           <div class="hiw-copy">
-            <h3>Deploy</h3>
-            <p>Your AI agent team is built, tested, and deployed &mdash; done for you.</p>
-            <span class="hiw-badge"><span style="width:6px;height:6px;border-radius:50%;background:#56d8a0;box-shadow:0 0 8px #56d8a0;display:inline-block"></span>Live in 7 days</span>
+            <span class="hiw-kick"><span class="kdot"></span>step 03 &middot; deploy</span>
+            <h3>Deploy your AI team</h3>
+            <p>Your agents are built, tested, and switched on &mdash; <b>done for you</b>. No hiring, no setup.</p>
+            <span class="hiw-badge"><span class="bd"></span>Live in 7 days</span>
           </div>
           <div class="hiw-art">
-            <svg viewBox="0 0 220 150" aria-hidden="true">
-              <rect x="30" y="30" width="160" height="90" rx="10" fill="rgba(6,6,11,.6)" stroke="rgba(255,255,255,.14)"/>
-              <g font-family="monospace" font-size="9" fill="#76768e"><text x="44" y="52">$ efficio deploy</text></g>
-              <g stroke-linecap="round" stroke-width="5">
-                <line x1="44" y1="66" x2="120" y2="66" stroke="#9a7bff"/><line x1="44" y1="80" x2="100" y2="80" stroke="#5cc8ff"/>
-                <line x1="44" y1="94" x2="150" y2="94" stroke="#56d8a0"/></g>
-              <g class="rise"><circle cx="168" cy="80" r="13" fill="rgba(86,216,160,.16)" stroke="#56d8a0" stroke-width="1.8"/>
-                <path d="M162 80l4 4 8-9" fill="none" stroke="#56d8a0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <svg viewBox="0 0 300 210" aria-hidden="true">
+              <rect x="34" y="16" width="232" height="124" rx="12" fill="rgba(6,6,11,.72)" stroke="rgba(255,255,255,.14)"/>
+              <g class="d-head" font-family="var(--mono)" font-size="10">
+                <text class="d-line" x="48" y="40" fill="#c9c7da"><tspan fill="#ecc06a">$</tspan> efficio deploy --team</text>
+                <text class="d-line" x="48" y="58" fill="#76768e">provisioning your agents&hellip;</text>
+                <text class="d-line" x="48" y="76" fill="#76768e">running checks</text>
+              </g>
+              <g class="d-rows" font-family="var(--mono)" font-size="9" fill="#85849e">
+                <g class="d-row"><text x="48" y="96">agents</text><rect class="d-trk" x="96" y="88" width="150" height="8" rx="4" fill="rgba(255,255,255,.07)"/><rect class="d-fill" x="96" y="88" width="150" height="8" rx="4" fill="#9a7bff"/></g>
+                <g class="d-row"><text x="48" y="114">tools</text><rect class="d-trk" x="96" y="106" width="150" height="8" rx="4" fill="rgba(255,255,255,.07)"/><rect class="d-fill" x="96" y="106" width="150" height="8" rx="4" fill="#5cc8ff"/></g>
+                <g class="d-row"><text x="48" y="132">tests</text><rect class="d-trk" x="96" y="124" width="150" height="8" rx="4" fill="rgba(255,255,255,.07)"/><rect class="d-fill" x="96" y="124" width="150" height="8" rx="4" fill="#56d8a0"/></g>
+              </g>
+              <circle class="d-online" cx="150" cy="176" r="30" fill="none" stroke="#56d8a0" stroke-width="1.4"/>
+              <g class="d-bot">
+                <line x1="150" y1="150" x2="150" y2="156" stroke="#ecc06a" stroke-width="2" stroke-linecap="round"/><circle cx="150" cy="148" r="2.4" fill="#ecc06a"/>
+                <rect x="130" y="156" width="40" height="34" rx="11" fill="#11111d" stroke="#ecc06a" stroke-width="1.6"/>
+                <rect x="136" y="163" width="28" height="18" rx="8" fill="rgba(236,192,106,.16)" stroke="#ecc06a" stroke-width="1.2"/>
+                <circle cx="144" cy="172" r="3" fill="#fff"/><circle cx="156" cy="172" r="3" fill="#fff"/>
+              </g>
+              <g transform="translate(184,170)"><circle r="9.5" fill="#0b0b13" stroke="#56d8a0" stroke-width="1.3"/><path class="d-check" style="--dl:18" d="M-4 0l3 3 5.5-6.5" fill="none" stroke="#56d8a0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></g>
+              <text x="200" y="174" font-size="9.5" fill="#56d8a0">online</text>
             </svg>
           </div>
         </div>
 
-        <div class="hiw-panel" id="hiwp-3" role="tabpanel" aria-labelledby="hiwt-3" tabindex="0" hidden>
+        <div class="hiw-panel is-run" id="hiwp-3" role="tabpanel" aria-labelledby="hiwt-3" tabindex="0" hidden style="--ac:#56d8a0">
           <div class="hiw-copy">
-            <h3>Run</h3>
-            <p>State-of-the-art agents plus your live dashboard, running in your <b style="color:#fff">Claude Teams</b> workspace &mdash; done for you.</p>
+            <span class="hiw-kick"><span class="kdot"></span>step 04 &middot; run</span>
+            <h3>Watch it run</h3>
+            <p>State-of-the-art agents plus your live dashboard, running inside your <b>Claude&nbsp;Teams</b> workspace &mdash; every task lands in real time.</p>
           </div>
           <div class="hiw-art">
-            <svg viewBox="0 0 220 150" aria-hidden="true">
-              <rect x="30" y="28" width="160" height="94" rx="10" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.14)"/>
-              <polyline class="rise" points="44,104 74,86 104,92 134,60 176,44" fill="none" stroke="#56d8a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <g class="blip" fill="#56d8a0"><circle cx="176" cy="44" r="3.4"/></g>
-              <g stroke="rgba(255,255,255,.1)" stroke-width="1"><line x1="44" y1="112" x2="176" y2="112"/></g>
-              <circle class="spin" cx="55" cy="44" r="7" fill="none" stroke="#9a7bff" stroke-width="2" stroke-dasharray="22 10"/>
-            </svg>
+            <div class="hiw-dash" aria-hidden="true">
+              <div class="hd-stats">
+                <div class="hd-stat" style="--sc:#9a7bff"><span class="hd-k">emails triaged</span><span class="hd-v"><b data-to="64">64</b></span><span class="hd-d">today</span></div>
+                <div class="hd-stat" style="--sc:#5cc8ff"><span class="hd-k">leads worked</span><span class="hd-v"><b data-to="21">21</b></span><span class="hd-d">today</span></div>
+                <div class="hd-stat" style="--sc:#56d8a0"><span class="hd-k">reviews requested</span><span class="hd-v"><b data-to="17">17</b></span><span class="hd-d">this week</span></div>
+              </div>
+              <div class="hd-main">
+                <div class="hd-chart">
+                  <div class="hd-chrow"><span class="ck">tasks handled</span><span class="cw">this week</span></div>
+                  <svg viewBox="0 0 300 92" preserveAspectRatio="none">
+                    <defs><linearGradient id="hdArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#56d8a0" stop-opacity=".34"/><stop offset="100%" stop-color="#56d8a0" stop-opacity="0"/>
+                    </linearGradient></defs>
+                    <g stroke="rgba(255,255,255,.06)" stroke-width="1"><line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="60" x2="300" y2="60"/></g>
+                    <path class="hd-area" d="M8 70 L48 58 L88 64 L128 44 L168 50 L208 32 L248 38 L292 16 L292 88 L8 88 Z" fill="url(#hdArea)"/>
+                    <path class="hd-line" style="--dl:340" d="M8 70 L48 58 L88 64 L128 44 L168 50 L208 32 L248 38 L292 16" fill="none" stroke="#56d8a0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle class="hd-end" cx="292" cy="16" r="4" fill="#56d8a0"/>
+                  </svg>
+                </div>
+                <div class="hd-feed">
+                  <div class="hd-now"><span class="hd-pdot hd-pulse"></span>now handling &middot; 4 agents live</div>
+                  <div class="hd-log">
+                    <div class="hd-row"><time>09:15</time><span>Replied to a new lead in 38s</span></div>
+                    <div class="hd-row"><time>09:08</time><span>Sorted 12 emails &middot; 3 flagged for you</span></div>
+                    <div class="hd-row"><time>08:52</time><span>Follow-up sent on a $4,200 quote</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
         </div>
       </div>
-      <div class="hiw-auto"><span id="hiwLabel">auto-playing</span><button type="button" id="hiwToggle" aria-label="Pause auto-play">pause</button></div>
+      <div class="hiw-auto"><span class="ai"><i></i><span id="hiwLabel">auto-playing</span></span><button type="button" id="hiwToggle" aria-label="Pause auto-play">pause</button></div>
     </div>
   </div>
 </section>
@@ -1665,27 +1896,46 @@ footer{padding-bottom:96px}
     return {tabs:tabs,select:select,index:function(){return tabs.findIndex(function(x){return x.getAttribute('aria-selected')==='true';});}};
   }
 
-  /* How it works — stepper w/ auto-advance + progress bar */
+  /* How it works — cinematic stepper: auto-advance, charging ring, accent shift + live dashboard */
   var prog=document.getElementById('hiwProg'), toggle=document.getElementById('hiwToggle'), label=document.getElementById('hiwLabel');
+  var hiwEl=document.querySelector('.hiw'), ctEl=document.getElementById('hiwCt'), clEl=document.getElementById('hiwCl');
+  var runPanel=document.getElementById('hiwp-3');
+  function hiwRunDash(){
+    if(!runPanel) return;
+    Array.prototype.forEach.call(runPanel.querySelectorAll('b[data-to]'),function(b){
+      var to=parseInt(b.getAttribute('data-to'),10)||0;
+      if(reduce){ b.textContent=to; return; }
+      b.textContent='0'; var s=null,dur=750;
+      requestAnimationFrame(function st(ts){ if(s===null)s=ts; var p=Math.min((ts-s)/dur,1);
+        b.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(st); });
+    });
+  }
   var hiw=wireTabs('.hiw-rail[role="tablist"]',{onSelect:function(i){
-    if(prog){ var pct=hiw&&hiw.tabs.length>1?(i/(hiw.tabs.length-1)):0; prog.style.width=(76*pct)+'%'; }
+    var t=hiw&&hiw.tabs[i];
+    if(prog){ var pct=hiw&&hiw.tabs.length>1?(i/(hiw.tabs.length-1)):0; prog.style.width=(75*pct)+'%'; }
+    if(t&&hiwEl){ var ac=t.getAttribute('data-ac'); if(ac)hiwEl.style.setProperty('--sac',ac); }
+    if(t){ var ti=t.getAttribute('data-title')||''; if(ctEl)ctEl.textContent='/'+ti;
+      if(clEl)clEl.textContent='step '+(i+1)+' / '+(hiw?hiw.tabs.length:4); }
+    if(i===3) hiwRunDash();
   }});
   if(hiw){
     var timer=null, playing=!reduce;
+    function syncPlay(){ if(hiwEl)hiwEl.classList.toggle('is-playing', playing&&!reduce); }
     function step(){ var i=(hiw.index()+1)%hiw.tabs.length; hiw.select(hiw.tabs[i],false); }
     function start(){ if(timer||reduce)return; timer=setInterval(step,4000); }
     function stop(){ if(timer){clearInterval(timer);timer=null;} }
     function setPlay(p){ playing=p; if(label)label.textContent=p?'auto-playing':'paused';
       if(toggle){toggle.textContent=p?'pause':'play';toggle.setAttribute('aria-label',p?'Pause auto-play':'Resume auto-play');}
-      if(p)start(); else stop(); }
+      syncPlay(); if(p)start(); else stop(); }
     hiw.select(hiw.tabs[0],false);
     if(reduce){ if(label)label.textContent='paused'; if(toggle)toggle.textContent='play'; }
+    syncPlay();
     if(toggle)toggle.addEventListener('click',function(){setPlay(!playing);});
-    var rail=document.querySelector('.hiw'); if(rail){
-      rail.addEventListener('mouseenter',stop);
-      rail.addEventListener('mouseleave',function(){if(playing)start();});
-      rail.addEventListener('focusin',stop);
-      rail.addEventListener('focusout',function(){if(playing)start();});
+    if(hiwEl){
+      hiwEl.addEventListener('mouseenter',function(){hiwEl.classList.add('is-hover');stop();});
+      hiwEl.addEventListener('mouseleave',function(){hiwEl.classList.remove('is-hover');if(playing)start();});
+      hiwEl.addEventListener('focusin',function(){hiwEl.classList.add('is-hover');stop();});
+      hiwEl.addEventListener('focusout',function(){hiwEl.classList.remove('is-hover');if(playing)start();});
     }
     /* stop auto-play once the user picks a step */
     hiw.tabs.forEach(function(t){t.addEventListener('click',function(){setPlay(false);});});

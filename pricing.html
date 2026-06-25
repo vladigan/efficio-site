@@ -22,6 +22,26 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
+<style id="pricing-x">
+/* ── pricing polish (scoped) — builds on v6 tokens ─────────────────── */
+/* "Most popular" badge: gentle attention pulse, reduced-motion safe */
+@media(prefers-reduced-motion:no-preference){
+  .price.feat .badge{animation:pbadge 3.4s var(--ease) infinite}
+  @keyframes pbadge{0%,100%{box-shadow:0 6px 18px -6px rgba(124,77,255,.9)}
+    50%{box-shadow:0 6px 26px -4px rgba(124,77,255,1)}}
+}
+/* comparison table — swipe affordance on narrow screens */
+.ptable{position:relative}
+.ptable-hint{display:none;font-family:var(--mono);font-size:11.5px;color:var(--violet-l);
+  text-align:right;margin-bottom:8px}
+.ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ptable::after{content:"";position:absolute;top:0;right:0;bottom:0;width:34px;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(6,6,11,.92));transition:opacity .25s var(--ease);border-radius:0 var(--r) var(--r) 0}
+@media(max-width:620px){
+  .ptable-hint{display:block}
+  .ptable.has-scroll::after{opacity:1}
+}
+</style>
 <script>document.documentElement.className='js';</script>
 </head>
 <body>
@@ -81,8 +101,8 @@
     <div class="eyebrow rv">// start anywhere</div>
     <h2 class="rv d1">Pick where you're hurting most.</h2>
     <p class="lede rv d1">Month-to-month. No contracts. Cancel anytime.</p>
-    <div class="prices rv d2">
-      <div class="price">
+    <div class="prices">
+      <div class="price rv">
         <div class="pn">Starter</div><div class="pp">$497<span> /mo</span></div>
         <div class="pd">A low-risk first step into AI.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
@@ -93,7 +113,7 @@
         </ul>
         <a href="https://buy.stripe.com/9B66oJffT1Dq2l43p4dQQ0i" class="pb" target="_blank" rel="noopener">Start with Starter &rarr;</a>
       </div>
-      <div class="price">
+      <div class="price rv d1">
         <div class="pn">AI Specialist</div><div class="pp">$997<span> /mo</span></div>
         <div class="pd">One AI team, end-to-end.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
@@ -104,7 +124,7 @@
         </ul>
         <a href="https://buy.stripe.com/28E14p3xb5TG9Nw8JodQQ0b" class="pb" target="_blank" rel="noopener">Start with Specialist &rarr;</a>
       </div>
-      <div class="price feat">
+      <div class="price feat rv d2">
         <div class="badge">Most popular</div>
         <div class="pn">AI Team</div><div class="pp">$2,500<span> /mo</span></div>
         <div class="pd">A full department in parallel.</div>
@@ -116,7 +136,7 @@
         </ul>
         <a href="https://buy.stripe.com/28E28taZD1Dqe3MbVAdQQ0c" class="pb" target="_blank" rel="noopener">Start with Team &rarr;</a>
       </div>
-      <div class="price">
+      <div class="price rv d3">
         <div class="pn">AI Department</div><div class="pp">$3,500<span> /mo</span></div>
         <div class="pd">Your whole operation, run.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
@@ -159,7 +179,9 @@
   <div class="wrap center">
     <div class="eyebrow rv">// what runs at each tier</div>
     <h2 class="rv d1">The same core functions every business runs.</h2>
-    <div class="rv d1" style="overflow-x:auto;margin-top:clamp(34px,5vh,52px)">
+    <div class="rv d1 ptable" style="margin-top:clamp(34px,5vh,52px)">
+    <div class="ptable-hint">// swipe to compare &rarr;</div>
+    <div class="ptable-scroll">
     <table class="vtable">
       <thead><tr><th>What you get</th><th>Starter</th><th>Specialist</th><th class="hot">Team</th><th>Dept.</th></tr></thead>
       <tbody>
@@ -173,6 +195,37 @@
       </tbody>
     </table>
     </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// before you commit</div>
+    <h2 class="rv d1">Pricing questions, answered.</h2>
+    <div class="faq rv d2">
+      <details>
+        <summary>Is there a contract or setup fee?</summary>
+        <p>No. Every tier is <b>month-to-month</b> with <b>$0 upfront</b> and no build fee. Cancel anytime — you're never locked in.</p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for my business?</summary>
+        <p>You only start paying once your first build is <b>live and doing the work</b>, and you get <b>measurable proof in the first 30 days or your money back</b>. The risk sits with us, not you.</p>
+      </details>
+      <details>
+        <summary>Can I start small and move up later?</summary>
+        <p>Yes — start where you're hurting most. Many owners begin on <b>Starter ($497/mo)</b> or a single team, prove it out, then scale up a tier when they're ready. No penalty for changing.</p>
+      </details>
+      <details>
+        <summary>What am I actually paying for each month?</summary>
+        <p>We <b>build and run the AI workforce for you</b> — not another tool you have to operate. Every tier includes your live dashboard; the number of AI teams, custom builds, and strategy-call cadence step up as you go higher.</p>
+      </details>
+      <details>
+        <summary>How fast until something is live?</summary>
+        <p>Your dashboard goes live around <b>day 5</b> and your first agent or tool around <b>day 7</b> — not a months-long implementation.</p>
+      </details>
+    </div>
+    <p class="pnote rv">Not sure where you land? <a href="/find-your-tier.html">Find your tier in 60 seconds</a> &middot; or <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T">book a 15-minute call</a>.</p>
   </div>
 </section>
 
@@ -230,6 +283,17 @@
     </div>
   </div>
 </div>
+<script>
+/* comparison table: show the swipe edge-fade only when it actually overflows */
+(function(){
+  var t=document.querySelector('.ptable'),s=t&&t.querySelector('.ptable-scroll');
+  if(!t||!s) return;
+  function sync(){ t.classList.toggle('has-scroll', s.scrollWidth>s.clientWidth+2); }
+  sync(); window.addEventListener('resize',sync,{passive:true});
+})();
+/* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
+setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
+</script>
 <script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>

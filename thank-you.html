@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js"></script>
 <script>try{gtag('event','conversion_thank_you',{event_category:'funnel'});efficioTrackBooking&&efficioTrackBooking({source:'thank_you'});}catch(e){}</script>
 <title>You're booked — Efficio</title>
@@ -57,6 +58,8 @@
 </style>
 </head>
 <body>
+<style>.skip-link{position:fixed;top:-60px;left:12px;z-index:1000;padding:10px 18px;border-radius:10px;background:#7c3aed;color:#fff;font:600 14px/1 'Inter',sans-serif;text-decoration:none;transition:top .2s}.skip-link:focus{top:12px;outline:2px solid #fff;outline-offset:2px}@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}</style>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav"><div class="nav-inner">
   <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
@@ -70,7 +73,7 @@
   </div>
 </div></nav>
 
-<div class="ty-shell">
+<main class="ty-shell" id="main" tabindex="-1">
   <span class="ty-pill"><span class="pill-dot"></span>Booked · See you on the call</span>
   <div class="ty-icon">
     <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -120,7 +123,7 @@
     <a href="/vsl.html" class="btn-primary">Watch the 7-min walkthrough <span class="btn-arrow">→</span></a>
     <a href="/" class="btn-outline">Back to home</a>
   </div>
-</div>
+</main>
 
 <footer>
   <div class="foot-grid">

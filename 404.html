@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#06060b"/>
 <title>Page not found — Efficio</title>
 <meta name="description" content="That page doesn't exist. Here's where you probably wanted to go."/>
 <meta name="robots" content="noindex, nofollow"/>
@@ -44,6 +45,8 @@
 </style>
 </head>
 <body>
+<style>.skip-link{position:fixed;top:-60px;left:12px;z-index:1000;padding:10px 18px;border-radius:10px;background:#7c3aed;color:#fff;font:600 14px/1 'Inter',sans-serif;text-decoration:none;transition:top .2s}.skip-link:focus{top:12px;outline:2px solid #fff;outline-offset:2px}@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}</style>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav"><div class="nav-inner">
   <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
@@ -56,7 +59,7 @@
   </div>
 </div></nav>
 
-<div class="err-shell">
+<main class="err-shell" id="main" tabindex="-1">
   <div class="err-code">404</div>
   <h1 class="err-h1">That page <em>doesn't exist</em>.</h1>
   <p class="err-sub">Either it was moved, deleted, or never existed. Here's where you probably meant to go:</p>
@@ -87,7 +90,7 @@
       <div class="opt-text"><h4>Just book the call</h4><p>15 min with our team · skip the rest</p></div>
     </a>
   </div>
-</div>
+</main>
 
 <footer>
   <div class="foot-grid">

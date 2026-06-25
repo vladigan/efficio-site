@@ -22,6 +22,39 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
+<style id="hiw-x">
+/* ── onboarding timeline polish (scoped) — builds on v6 tokens ─────── */
+/* milestone rail: Day 0 → Day 7 → ongoing, lines draw in on reveal */
+.hiw-rail{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:nowrap;
+  margin:clamp(30px,4.5vh,48px) auto 0;max-width:600px;font-family:var(--mono)}
+.hiw-rail .hr-pt{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--violet-l);white-space:nowrap}
+.hiw-rail .hr-pt::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--violet-l);box-shadow:0 0 10px var(--violet-l)}
+.hiw-rail .hr-line{position:relative;flex:1;min-width:20px;height:2px;border-radius:2px;background:rgba(255,255,255,.09);overflow:hidden}
+.hiw-rail .hr-line::after{content:"";position:absolute;inset:0;border-radius:2px;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--violet-d),var(--violet-l),var(--cyan))}
+@media(prefers-reduced-motion:no-preference){
+  .hiw-rail.vis .hr-line::after{animation:hrfill 1s var(--ease2) forwards}
+  .hiw-rail.vis .hr-line.l2::after{animation-delay:.45s}
+}
+@media(prefers-reduced-motion:reduce){.hiw-rail .hr-line::after{transform:scaleX(1)}}
+@keyframes hrfill{to{transform:scaleX(1)}}
+/* balance 6 steps into 3+3 (was an uneven 4+2) and add subtle node + accent life */
+.hiw-steps{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.hiw-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.hiw-steps{grid-template-columns:1fr}}
+.hiw-steps .step::after{content:"";position:absolute;left:0;top:0;height:2px;width:48px;border-radius:0 0 2px 0;
+  background:linear-gradient(90deg,var(--violet-l),transparent);opacity:0;transition:opacity .3s var(--ease)}
+.hiw-steps .step:hover::after{opacity:.9}
+@media(prefers-reduced-motion:no-preference){
+  .hiw-steps.vis .sn{animation:snpop .5s var(--ease2) both}
+  .hiw-steps.vis .step:nth-child(2) .sn{animation-delay:.07s}
+  .hiw-steps.vis .step:nth-child(3) .sn{animation-delay:.14s}
+  .hiw-steps.vis .step:nth-child(4) .sn{animation-delay:.21s}
+  .hiw-steps.vis .step:nth-child(5) .sn{animation-delay:.28s}
+  .hiw-steps.vis .step:nth-child(6) .sn{animation-delay:.35s}
+}
+@keyframes snpop{from{transform:scale(.55);opacity:0}to{transform:scale(1);opacity:1}}
+</style>
 <script>document.documentElement.className='js';</script>
 </head>
 <body>
@@ -113,7 +146,14 @@
     <div class="eyebrow rv">// the onboarding</div>
     <h2 class="rv d1">The cockpit is consistent. The AI is custom.</h2>
     <p class="lede rv d1">We don't sell you a fixed bot to operate. We build and run your AI workforce on Claude, plug it into your tools via MCP and APIs, and put it on one dashboard. Here's the onboarding — about 25 minutes of your time, total.</p>
-    <div class="steps rv d2">
+    <div class="hiw-rail rv d1" aria-hidden="true">
+      <span class="hr-pt">Day 0</span>
+      <span class="hr-line"></span>
+      <span class="hr-pt">Day 7</span>
+      <span class="hr-line l2"></span>
+      <span class="hr-pt">Ongoing</span>
+    </div>
+    <div class="steps hiw-steps rv d2">
       <div class="step"><span class="sn">1</span><h3>Qualify <span class="tag" style="float:none;margin-left:8px">Day 0 &middot; 60 sec</span></h3><p>8-question screen on our site. We route you to the right tier and book your free audit call.</p></div>
       <div class="step"><span class="sn">2</span><h3>Audit call <span class="tag" style="float:none;margin-left:8px">Day 1 &middot; 30 min</span></h3><p>30-min Zoom. You walk us through your operation. We name the metric we'll move by day 30 and the first agent or tool we'll ship.</p></div>
       <div class="step"><span class="sn">3</span><h3>We set you up <span class="tag" style="float:none;margin-left:8px">Day 2 &middot; we handle it</span></h3><p>We provision the whole stack — your Claude account, CRM, phone line, and website if you need one. No OAuth screens, no prompts to write. You tell us how work flows; we wire it up.</p></div>
@@ -130,9 +170,9 @@
     <h2 class="rv d1">The day-7 promise.</h2>
     <p class="lede rv d1">If the first agent or tool isn't live in your business inside seven calendar days of the kickoff call, your first month is refunded in full. The dashboard ships day 5. The build ships day 7. We bet our income on it.</p>
     <div class="stats rv d2">
-      <div class="stat"><div class="n">5</div><div class="l">dashboard ships</div></div>
-      <div class="stat"><div class="n">7</div><div class="l">build ships, or it's free</div></div>
-      <div class="stat"><div class="n">30</div><div class="l">measurable proof or refund</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="5">0</span></div><div class="l">dashboard ships</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="7">0</span></div><div class="l">build ships, or it's free</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="30">0</span></div><div class="l">measurable proof or refund</div></div>
     </div>
   </div>
 </section>
@@ -253,6 +293,29 @@
     </div>
   </div>
 </div>
+<script>
+/* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
+setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
+/* count-up on the day-7 promise stats — mirrors v6 pattern, reduced-motion safe */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function run(el){
+    var to=parseInt(el.getAttribute('data-to'),10)||0, dur=1100, t0=null;
+    if(reduce){el.textContent=to.toLocaleString();return;}
+    function step(ts){t0=t0||ts;var p=Math.min((ts-t0)/dur,1);
+      el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString();
+      if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var els=document.querySelectorAll('.count');
+  if(!('IntersectionObserver' in window)){els.forEach(run);return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:.6});
+  els.forEach(function(el){io.observe(el);});
+  /* fallback: if IO never fires, fill values after a beat */
+  setTimeout(function(){els.forEach(function(el){ if(el.textContent==='0') run(el); });},1300);
+})();
+</script>
 <script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>
 </body>

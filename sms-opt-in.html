@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#06060b"/>
+<script src="/assets/pixels.js"></script>
+<title>Text updates from Efficio — SMS opt-in</title>
+<meta name="description" content="Opt in to text updates from Efficio — account updates, appointment reminders, and customer-care messages. Message frequency varies, message &amp; data rates may apply, reply STOP anytime."/>
+<link rel="canonical" href="https://efficio.tech/sms-opt-in.html"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Text updates from Efficio — SMS opt-in"/>
+<meta property="og:description" content="Opt in to account updates, appointment reminders, and customer-care texts from Efficio. Reply STOP anytime."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/sms-opt-in.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<style>
+/* ── SMS opt-in — page-scoped styles (build on v6 tokens) ── */
+.smswrap{max-width:560px;margin:clamp(20px,4vh,40px) auto 0}
+.smscard{position:relative;background:linear-gradient(180deg,var(--panel),#09090f);border:1px solid var(--line2);
+  border-radius:var(--r2);box-shadow:var(--glow),var(--soft);overflow:hidden;padding:clamp(24px,4.5vw,38px)}
+.smscard::after{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(195,176,255,.55),transparent)}
+
+/* fields */
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.03em;
+  color:var(--violet-l);text-transform:uppercase;margin-bottom:7px}
+.field label .req{color:var(--violet-l);margin-left:2px}
+.field input{width:100%;padding:13px 15px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;
+  color:var(--ink);font-family:inherit;font-size:15px;font-weight:500;line-height:1.4;
+  transition:border-color .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+.field input::placeholder{color:var(--muted2)}
+.field input:focus{outline:none;border-color:rgba(124,77,255,.6);background:rgba(124,77,255,.05);
+  box-shadow:0 0 0 3px rgba(124,77,255,.16)}
+.field input:user-invalid{border-color:rgba(255,122,133,.55)}
+
+/* consent */
+.consent{display:flex;gap:13px;align-items:flex-start;margin:22px 0 6px;padding:16px 17px;
+  border:1px solid var(--line2);border-radius:14px;background:rgba(124,77,255,.05)}
+.consent input[type="checkbox"]{flex-shrink:0;width:20px;height:20px;margin:2px 0 0;accent-color:var(--violet);cursor:pointer}
+.consent label{font-size:12.75px;font-weight:500;color:var(--ink2);line-height:1.6;cursor:pointer}
+
+/* submit */
+.smscard .btn-primary{width:100%;justify-content:center;margin-top:18px}
+.smslegal{font-size:12px;color:var(--muted);text-align:center;margin:16px 0 0;line-height:1.65}
+.smslegal a{color:var(--violet-l);font-weight:600}
+
+/* trust row */
+.smstrust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:9px 18px;margin:20px 0 0;padding:0}
+.smstrust li{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--ink2)}
+.smstrust svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:var(--violet-l);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* success state */
+.smsdone{display:none;text-align:center;padding:18px 6px 6px}
+.smsdone.show{display:block;animation:smsin .5s var(--ease2)}
+@keyframes smsin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.smsdone .dck{width:58px;height:58px;margin:0 auto 18px;border-radius:16px;display:grid;place-items:center;
+  background:rgba(86,216,160,.12);border:1px solid rgba(86,216,160,.4)}
+.smsdone .dck svg{width:30px;height:30px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.smsdone h2{font-size:clamp(1.4rem,3.6vw,1.9rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin:0 0 8px}
+.smsdone p{font-size:14.5px;font-weight:500;color:var(--ink2);line-height:1.6;max-width:38ch;margin:0 auto}
+.smsdone .dmono{display:inline-block;font-family:var(--mono);font-size:12.5px;color:var(--violet-l);margin-top:16px}
+
+.formnote{font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.6;margin:14px 0 0;text-align:center}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+@media(prefers-reduced-motion:reduce){.smsdone.show{animation:none}}
+</style>
+<script>document.documentElement.className='js';</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
+    <a href="/services.html">Services</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/agents.html">AI teams</a>
+    <a href="/why-efficio.html">Why Efficio</a>
+  </div>
+  <a href="/pricing.html" class="btn-primary">See pricing <span class="arr">&rarr;</span></a>
+</div></nav>
+
+<main id="main" tabindex="-1">
+<header class="phero" style="padding-bottom:8px">
+  <div class="wrap">
+    <div class="eyebrow rv">// text updates &middot; opt-in</div>
+    <h1 class="rv d1">Get <span class="grad">text updates</span> from Efficio</h1>
+    <p class="sub rv d1">Opt in to get the things that are easy to miss in email &mdash; account updates, appointment reminders, and customer-care messages &mdash; as a quick text. No marketing blasts. Reply <b>STOP</b> any time and you're out.</p>
+  </div>
+</header>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="smswrap rv d1">
+      <p class="visually-hidden" aria-live="polite" id="smsLive"></p>
+
+      <div class="smscard" id="smsCard">
+        <form id="smsForm" novalidate>
+          <div class="field">
+            <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="full_name" type="text" autocomplete="name" required placeholder="Jordan Reyes"/>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@business.com"/>
+          </div>
+          <div class="field">
+            <label for="f-phone">Mobile phone number <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(555) 123-4567"/>
+          </div>
+
+          <div class="consent">
+            <input id="f-consent" name="sms_consent" type="checkbox" required aria-describedby="consentText"/>
+            <label for="f-consent" id="consentText">By checking this box, I agree to receive text messages from Efficio at the phone number provided. These may include account updates, appointment reminders, and customer-care messages. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help.</label>
+          </div>
+
+          <button type="submit" class="btn-primary lg" id="smsSubmit">Sign me up <span class="arr">&rarr;</span></button>
+
+          <p class="smslegal">
+            By subscribing you agree to our <a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.
+            We never sell or share your mobile opt-in data.
+          </p>
+          <p class="formnote" id="smsError" hidden>Something didn't go through &mdash; please try again, or email <a href="mailto:contact@efficio.tech" style="color:var(--violet-l);font-weight:600">contact@efficio.tech</a>.</p>
+        </form>
+
+        <ul class="smstrust" aria-label="What to expect">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Reply STOP anytime</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>We never sell your info</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No marketing spam</li>
+        </ul>
+      </div>
+
+      <!-- success state -->
+      <div class="smsdone" id="smsDone" role="status" tabindex="-1">
+        <div class="dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
+        <h2>You're subscribed.</h2>
+        <p>You'll start getting account updates, reminders, and customer-care texts from Efficio. Reply <b>STOP</b> any time to unsubscribe, or <b>HELP</b> for help.</p>
+        <span class="dmono">// message &amp; data rates may apply</span>
+      </div>
+
+      <p class="pnote rv" style="margin-top:22px">This list is for updates and reminders only. For how we handle your number, see our <a href="/privacy.html#sms">SMS &amp; messaging policy &rarr;</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Product</h5>
+        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
+        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
+      </div>
+      <div class="fcol"><h5>Company</h5>
+        <a href="/why-us.html">Why us</a><a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your tier</a>
+        <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/sms-opt-in.html">Text updates</a><a href="/unsubscribe.html">Unsubscribe</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================================
+   SMS OPT-IN — capture name/email/phone + explicit consent, post to the same
+   lead endpoint the site already uses (Cloudflare worker /quiz). Records the
+   exact disclosure text shown + a consent timestamp so there is a consent
+   record. Degrades gracefully (no console errors) if the endpoint is down:
+   the request uses keepalive and the success state is shown regardless.
+   ========================================================================= */
+(function(){
+  /* belt-and-suspenders: ensure scroll-reveal content is never left invisible
+     even if v6.js / IntersectionObserver is slow or blocked */
+  try {
+    requestAnimationFrame(function(){
+      document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('vis'); });
+    });
+  } catch(e){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('vis'); }); }
+
+  var ENDPOINT = 'https://efficio-chat.bgay3500.workers.dev/quiz';
+  var form = document.getElementById('smsForm');
+  if(!form) return;
+  var btn   = document.getElementById('smsSubmit');
+  var card  = document.getElementById('smsCard');
+  var done  = document.getElementById('smsDone');
+  var live  = document.getElementById('smsLive');
+  var errEl = document.getElementById('smsError');
+
+  function showSuccess(){
+    if(card) card.style.display = 'none';
+    if(done){ done.style.display = 'block'; done.classList.add('show'); }
+    if(live) live.textContent = "You're subscribed. Reply STOP anytime to unsubscribe.";
+    try { if(done && done.focus) done.focus(); } catch(e){}
+    try { if(window.scrollTo && done && done.scrollIntoView) done.scrollIntoView({behavior:'smooth', block:'center'}); } catch(e){}
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if(errEl) errEl.hidden = true;
+
+    /* native HTML5 validation — required fields + email format + consent box */
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+
+    if(btn){ btn.disabled = true; btn.dataset.label = btn.innerHTML; btn.textContent = 'Signing you up…'; }
+
+    var nowIso = new Date().toISOString();
+    var disclosureEl = document.getElementById('consentText');
+    var disclosure = (disclosureEl ? (disclosureEl.textContent || '') : '').replace(/\s+/g,' ').trim();
+    var fullName = (form.full_name.value || '').trim();
+    var email    = (form.email.value || '').trim();
+    var phone    = (form.phone.value || '').trim();
+
+    var payload = {
+      kind: 'sms_opt_in',
+      ts: nowIso,
+      sms_opt_in: true,
+      /* mirror common fields to top level for easy CRM / alert reading */
+      firstName: (fullName.split(' ')[0] || fullName),
+      name: fullName,
+      email: email,
+      phone: phone,
+      /* explicit, auditable consent record */
+      consent: {
+        sms_opt_in: true,
+        granted: true,
+        timestamp: nowIso,
+        method: 'web_form_checkbox',
+        disclosure_text: disclosure,
+        source_url: (window.location && window.location.href) || 'https://efficio.tech/sms-opt-in.html',
+        user_agent: (window.navigator && navigator.userAgent) || ''
+      },
+      answers: {
+        full_name: fullName,
+        email: email,
+        phone: phone,
+        sms_consent: 'true',
+        consent_timestamp: nowIso,
+        consent_text: disclosure
+      }
+    };
+
+    var settled = false;
+    function finish(){ if(settled) return; settled = true; showSuccess(); }
+
+    try {
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).then(function(){ finish(); }, function(){ finish(); });
+    } catch(e){ finish(); }
+
+    /* never hang the UI if the network stalls; keepalive lets the POST finish */
+    setTimeout(finish, 2500);
+
+    /* optional conversion signal — guarded, no-op if not wired */
+    try { if(window.sendConversion) window.sendConversion({ kind: 'sms_opt_in_submitted' }); } catch(e){}
+  });
+})();
+</script>
+<script src="/assets/v6.js" defer></script>
+</body>
+</html>

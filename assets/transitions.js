@@ -42,23 +42,9 @@
     } catch (e) {}
   }, 800);
 
-  // COOKIE CONSENT — first-visit only, minimal disclosure with localStorage memory.
-  try {
-    if (!window.localStorage.getItem('efficio_cookie_ack') && !document.getElementById('efficio-cookie')) {
-      var ck = document.createElement('div');
-      ck.id = 'efficio-cookie';
-      ck.innerHTML = '<div class="ck-msg">We use cookies to measure how the site performs and improve it. See our <a href="/privacy.html">privacy policy</a>.</div><div class="ck-row"><button type="button" data-action="reject">Decline</button><button type="button" data-action="accept" class="primary">Got it</button></div>';
-      body.appendChild(ck);
-      window.setTimeout(function(){ ck.classList.add('in'); }, 1100);
-      ck.addEventListener('click', function(e){
-        var btn = e.target.closest('button[data-action]');
-        if (!btn) return;
-        try { window.localStorage.setItem('efficio_cookie_ack', btn.dataset.action); } catch(err){}
-        ck.classList.remove('in');
-        window.setTimeout(function(){ if (ck.parentNode) ck.parentNode.removeChild(ck); }, 400);
-      });
-    }
-  } catch (e) {}
+  // COOKIE CONSENT — now owned by the shared, self-styled /assets/consent.js
+  // (one consistent banner on every page, regardless of which stylesheet loads).
+  // Removed from here to avoid a duplicate, unstyled banner on v6 pages.
 
   // STICKY MOBILE CTA — auto-inject on every page that loads transitions.js.
   // Mobile-only via CSS (display:none above 720px). One tap away from booking.

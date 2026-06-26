@@ -14,17 +14,25 @@
 /book.html                     /book.html             200
 /watch                         /vsl.html              301
 /video                         /vsl.html              301
-# NOTE: bare /demo serves the VSL video; /demo/ serves the dashboard. Divergence flagged for Brady.
-/demo                          /vsl.html              301
+# Live demo is canonicalized to /demo.html (shared nav, indexed, interactive).
+# The older /demo/ command-center app is retained in the repo but routed to the canonical.
+/demo                          /demo.html             301
+/demo/*                        /demo.html             301!
 
 # Pretty URLs for marketing pages
 /services                      /services.html     200
 /how-it-works                  /how-it-works.html 200
 /agents                        /agents.html       200
 /pricing                       /pricing.html      200
-/why-us                        /why-us.html       200
+/why-efficio                   /why-efficio.html  200
 /vsl                           /vsl.html          200
 /qualify                       /find-your-tier.html   301
+
+# "Why Efficio" consolidation — why-us + compare merged into why-efficio.html
+/why-us                        /why-efficio.html  301
+/why-us.html                   /why-efficio.html  301
+/compare                       /why-efficio.html  301
+/compare.html                  /why-efficio.html  301
 
 # Post-checkout
 /onboard                       /onboarding.html   301

@@ -544,3 +544,40 @@ body{-webkit-tap-highlight-color:transparent}
 .skip-link:focus{top:10px;outline:2px solid #fff;outline-offset:2px}
 main:focus{outline:none}
 @media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
+
+/* ═══════════════════════ v6.2 — ELEVATION & POLISH PASS ═══════════════════════
+   Additive only. Adds the missing button :active press state, gives cards a soft
+   resting elevation (border + shadow, lift on hover), tightens focus rings and
+   ~390px mobile. Built entirely on existing tokens — nothing above is rewritten. */
+:root{
+  --shadow-card:0 1px 0 rgba(255,255,255,.03) inset,0 14px 34px -24px rgba(0,0,0,.92);
+}
+
+/* Buttons — the missing :active press feedback (primary + secondary + tier CTA) */
+.btn-primary:active{transform:translateY(0) scale(.985);filter:brightness(.96);
+  box-shadow:0 6px 16px -9px rgba(124,77,255,.85),inset 0 1px 0 rgba(255,255,255,.16);transition-duration:.07s}
+.btn-outline:active{transform:translateY(0) scale(.985);background:rgba(124,77,255,.15);
+  border-color:rgba(124,77,255,.5);transition-duration:.07s}
+.price .pb:active{transform:translateY(0) scale(.99);transition-duration:.07s}
+.nav-mid a:active{background:rgba(124,77,255,.2);color:#fff}
+.chip:active{transform:translateY(-1px)}
+/* keyboard parity for the additive mobile menu controls */
+.nav-burger:focus-visible,.nav-menu .nm-link:focus-visible,.faq summary:focus-visible{outline:2px solid var(--violet-l);outline-offset:3px;border-radius:12px}
+
+/* Cards — soft resting elevation so they read as raised, not flat fills.
+   The hover lift + spotlight defined above still win on :hover. */
+.card,.price,.step{box-shadow:var(--shadow-card)}
+.vs .col,.faq details{box-shadow:0 12px 30px -26px rgba(0,0,0,.82)}
+.price.feat{box-shadow:0 0 0 1px rgba(124,77,255,.25),0 26px 60px -26px rgba(124,77,255,.62),var(--shadow-card)}
+.chip{box-shadow:0 8px 20px -18px rgba(0,0,0,.9)}
+
+/* ~390px refinements — the most common modern phone width */
+@media(max-width:400px){
+  .wrap{padding:0 18px}
+  .hero .hero-cta>.btn-primary,.hero .hero-cta>.btn-outline,
+  .phero .hero-cta>.btn-primary,.phero .hero-cta>.btn-outline{width:100%;justify-content:center}
+  .cta{margin-left:16px;margin-right:16px;border-radius:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn-primary:active,.btn-outline:active,.price .pb:active,.chip:active{transform:none}
+}

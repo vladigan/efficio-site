@@ -20,7 +20,7 @@
    ============================================================ */
 
 // Paste your Meta Pixel ID here (from Meta Events Manager) to activate tracking.
-var META_PIXEL_ID = "";
+var META_PIXEL_ID = "2869849396696487";
 
 /* ===========================================================
    OTHER AD PLATFORMS — placeholder swap list (find/replace once)

@@ -150,6 +150,34 @@
   background:rgba(124,77,255,.14);border:1px solid rgba(124,77,255,.3)}
 .roncall-steps .rcs-t{font-size:14px;font-weight:500;color:var(--ink2);line-height:1.5}
 .roncall-steps .rcs-t b{color:#fff;font-weight:700}
+
+/* ── optional post-result lead capture — strictly secondary to the Book CTA ── */
+.rcap{margin-top:26px;background:linear-gradient(165deg,rgba(124,77,255,.06),rgba(13,13,23,.4));
+  border:1px solid var(--line2);border-radius:var(--r2);padding:20px 22px;text-align:left}
+.rcap-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px}
+.rcap-h{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);text-transform:uppercase}
+.rcap-skip{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;
+  transition:color .2s var(--ease)}
+.rcap-skip:hover{color:var(--ink2)}
+.rcap-lead{font-size:13.5px;font-weight:500;color:var(--ink2);line-height:1.55;margin:0 0 14px}
+.rcap-lead b{color:#fff;font-weight:700}
+.rcap-row{display:flex;flex-wrap:wrap;gap:10px}
+.rcap-row input{flex:1 1 180px;min-width:0;padding:12px 14px;background:var(--panel2);border:1px solid var(--line);border-radius:11px;
+  color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;line-height:1.4;
+  transition:border-color .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+.rcap-row input::placeholder{color:var(--muted2)}
+.rcap-row input:focus{outline:none;border-color:rgba(124,77,255,.6);background:rgba(124,77,255,.05);box-shadow:0 0 0 3px rgba(124,77,255,.16)}
+.rcap-row input:user-invalid{border-color:rgba(255,122,133,.55)}
+.rcap-row .btn-outline{flex:0 0 auto}
+.rcap-fine{font-size:11.5px;font-weight:500;color:var(--muted);line-height:1.55;margin:12px 0 0}
+.rcap-err{font-size:12px;font-weight:500;color:var(--muted);line-height:1.55;margin:10px 0 0}
+.rcap-err a{color:var(--violet-l);font-weight:600}
+.rcap-done{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--ink2);line-height:1.5}
+.rcap-done b{color:#fff;font-weight:700}
+.rcap-dck{flex-shrink:0;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(86,216,160,.12);border:1px solid rgba(86,216,160,.4)}
+.rcap-dck svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:520px){.rcap-row input,.rcap-row .btn-outline{flex:1 1 100%;width:100%;justify-content:center}}
 </style>
 <script>document.documentElement.className='js';</script>
 </head>
@@ -249,6 +277,30 @@
             <a href="/pricing.html" class="btn-outline lg">See all tiers</a>
           </div>
           <p class="rnote">This is a <b>recommendation, not a quote.</b> On your call we confirm the right fit and agree on the one metric we'll prove in the first 30 days.</p>
+
+          <!-- OPTIONAL, skippable lead capture — appears AFTER the result is shown.
+               It never gates the tier above and is strictly secondary to the
+               "Book your strategy call" CTA. Email-only required; phone optional. -->
+          <div class="rcap" id="rCap" aria-label="Optional — email me my results">
+            <form id="rCapForm" novalidate>
+              <div class="rcap-top">
+                <div class="rcap-h">// optional &middot; want it in writing?</div>
+                <button type="button" class="rcap-skip" id="rCapSkip">Maybe later</button>
+              </div>
+              <p class="rcap-lead">Want your results <b>+ a tailored next-step plan</b> emailed to you? Totally optional &mdash; your tier is already shown above.</p>
+              <div class="rcap-row">
+                <input id="rCapEmail" name="email" type="email" autocomplete="email" required placeholder="you@business.com" aria-label="Your email"/>
+                <input id="rCapPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Your phone, optional"/>
+                <button type="submit" class="btn-outline" id="rCapSubmit">Email my plan <span class="arr">&rarr;</span></button>
+              </div>
+              <p class="rcap-fine">No spam &mdash; just your result and the next step. Unsubscribe anytime.</p>
+              <p class="rcap-err" id="rCapErr" hidden>Couldn't send just now &mdash; you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+            </form>
+            <div class="rcap-done" id="rCapDone" role="status" hidden>
+              <span class="rcap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+              <div><b>On its way.</b> Check your inbox for your results and tailored next-step plan.</div>
+            </div>
+          </div>
 
           <div class="rother">
             <div class="rother-h">// not sure? compare the other tiers</div>
@@ -518,6 +570,7 @@
   function finish(){
     var res = score();
     var t = TIERS[res.key];
+    lastResultKey = res.key; // remember the shown tier for the optional capture POST
 
     // hide quiz chrome, show result
     progZone.style.display='none';
@@ -548,6 +601,7 @@
     });
 
     resultEl.classList.add('show');
+    resetCapture(); // fresh, un-submitted optional capture form for this result
 
     /* conversion: the visitor completed the fit quiz and a recommended tier is
        on screen — fire Meta "Lead" (+ GA4/Ads/LinkedIn lead signals) via the
@@ -560,6 +614,96 @@
     if(focusReady){ resultEl.focus(); }
     if(!reduce && resultEl.scrollIntoView){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
+
+  /* ---- optional post-result lead capture (email required, phone optional) ----
+     Mirrors sms-opt-in.html's POST discipline exactly: fetch keepalive + a
+     "settled" guard so success shows once + a ~2.5s fallback timer so the UI
+     never hangs + try/catch so nothing throws to the console. It is purely
+     additive — the visitor has already seen their tier and the primary
+     "Book your strategy call" CTA above is untouched. */
+  var CAP_ENDPOINT = 'https://efficio-chat.bgay3500.workers.dev/quiz';
+  var lastResultKey = null;
+
+  function answersReadable(){
+    var out = {};
+    Q.forEach(function(item, qi){
+      var oi = answers[qi];
+      out[strip(item.q)] = (oi!=null && item.opts[oi]) ? strip(item.opts[oi].label) : '';
+    });
+    return out;
+  }
+
+  function resetCapture(){
+    var f = document.getElementById('rCapForm'),
+        d = document.getElementById('rCapDone'),
+        w = document.getElementById('rCap'),
+        b = document.getElementById('rCapSubmit'),
+        e = document.getElementById('rCapErr');
+    if(w) w.style.display='';
+    if(f){ f.style.display=''; f.reset(); }
+    if(d) d.hidden = true;
+    if(e) e.hidden = true;
+    if(b){ b.disabled=false; if(b.dataset.label){ b.innerHTML=b.dataset.label; } }
+  }
+
+  (function setupCapture(){
+    var capForm = document.getElementById('rCapForm');
+    if(!capForm) return;
+    var capBtn   = document.getElementById('rCapSubmit'),
+        capErr   = document.getElementById('rCapErr'),
+        capDone  = document.getElementById('rCapDone'),
+        capWrap  = document.getElementById('rCap'),
+        capSkip  = document.getElementById('rCapSkip'),
+        capEmail = document.getElementById('rCapEmail'),
+        capPhone = document.getElementById('rCapPhone');
+
+    if(capSkip){ capSkip.addEventListener('click', function(){ if(capWrap) capWrap.style.display='none'; }); }
+
+    capForm.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if(capErr) capErr.hidden = true;
+      /* native validation: email required + format; phone is optional */
+      if(!capForm.checkValidity()){ capForm.reportValidity(); return; }
+
+      if(capBtn){ capBtn.disabled = true; capBtn.dataset.label = capBtn.innerHTML; capBtn.textContent = 'Sending…'; }
+
+      var nowIso = new Date().toISOString();
+      var email  = (capEmail.value || '').trim();
+      var phone  = (capPhone.value || '').trim();
+      var key    = lastResultKey || score().key;
+      var tier   = TIERS[key] || {};
+
+      var payload = {
+        kind: 'quiz_lead',
+        ts: nowIso,
+        tier: key,                 /* non-PII tier key, e.g. "team" */
+        tier_name: tier.name || '',
+        email: email,
+        phone: phone,              /* '' when left blank */
+        source_url: (window.location && window.location.href) || 'https://efficio.tech/find-your-tier.html',
+        answers: answersReadable()
+      };
+
+      var settled = false;
+      function done(){
+        if(settled) return; settled = true;
+        if(capForm) capForm.style.display = 'none';
+        if(capDone) capDone.hidden = false;
+      }
+
+      try {
+        fetch(CAP_ENDPOINT, {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).then(function(){ done(); }, function(){ done(); });
+      } catch(e){ done(); }
+
+      /* never hang the UI if the network stalls; keepalive lets the POST finish */
+      setTimeout(done, 2500);
+    });
+  })();
 
   document.getElementById('qRetake').addEventListener('click', function(){
     answers = new Array(Q.length).fill(null);

@@ -4,7 +4,28 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js"></script>
-<script>try{gtag('event','conversion_thank_you',{event_category:'funnel'});efficioTrackBooking&&efficioTrackBooking({source:'thank_you'});}catch(e){}</script>
+<script>
+/* Booking confirmed. efficioTrackBooking() fires Meta "Schedule" (+ Google Ads /
+   GA4 booking conversions). Its internal __efBooked guard only dedupes within a
+   single page load, so a refresh or a return-visit to this page would re-fire and
+   double-count the SAME booking. Add a persistent per-booking guard — matching the
+   site's boolean-flag guard convention (e.g. __efQuizLead in pixels.js) but stored
+   in sessionStorage so it survives a reload. If the GHL post-booking redirect
+   carries a unique booking id, key off that so a genuinely new booking still
+   fires exactly once. */
+try{
+  gtag('event','conversion_thank_you',{event_category:'funnel'});
+  var _bkid='';
+  try{var _q=new URLSearchParams(location.search);_bkid=_q.get('event_id')||_q.get('booking_id')||_q.get('appointment_id')||_q.get('uuid')||'';}catch(e){}
+  var _bkey='ef_booked_'+(_bkid||'thank_you');
+  var _fired=false;
+  try{_fired=sessionStorage.getItem(_bkey)==='1';}catch(e){}
+  if(!_fired){
+    try{sessionStorage.setItem(_bkey,'1');}catch(e){}
+    efficioTrackBooking&&efficioTrackBooking({source:'thank_you'});
+  }
+}catch(e){}
+</script>
 <title>You're booked — Efficio</title>
 <meta name="description" content="Your strategy call is on the calendar. Here's what to expect."/>
 <meta name="robots" content="noindex, nofollow"/>

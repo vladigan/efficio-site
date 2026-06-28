@@ -1,4 +1,26 @@
 # =============================================================================
+#  ⚠️  HOSTING NOTE — THIS FILE IS NOT HONORED IN PRODUCTION  ⚠️
+# -----------------------------------------------------------------------------
+#  The live site (efficio.tech) is served by GitHub Pages (custom domain via the
+#  CNAME file), fronted by Cloudflare. GitHub Pages does NOT read Netlify's
+#  _redirects or netlify.toml — so EVERY rule in this file is INERT on the live
+#  deploy.
+#
+#  Redirects that must work in production are implemented as HTML stub pages
+#  (instant meta-refresh + <link rel=canonical> + JS replace), e.g.:
+#     why-us.html  compare.html  qualify.html  watch.html  apply.html
+#     demo/index.html
+#  GitHub Pages serves a stub like why-us.html at BOTH /why-us and /why-us.html.
+#
+#  Do NOT add a "real" redirect here expecting it to fire on GitHub Pages —
+#  create a stub .html page instead. This file is kept only as a reference for a
+#  possible future migration to Netlify.
+#
+#  (Root cause of the /why-us + /compare 404s reported 2026-06-27: PR #40 added
+#   the rules here instead of leaving stub pages, so they never fired.)
+# =============================================================================
+
+# =============================================================================
 # Efficio — Netlify _redirects
 # =============================================================================
 

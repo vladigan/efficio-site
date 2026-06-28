@@ -1,3 +1,16 @@
+# =============================================================================
+#  ⚠️  HOSTING NOTE — THIS FILE IS NOT HONORED IN PRODUCTION  ⚠️
+# -----------------------------------------------------------------------------
+#  The live site (efficio.tech) is served by GitHub Pages (custom domain via the
+#  CNAME file), fronted by Cloudflare — NOT Netlify. GitHub Pages ignores this
+#  file entirely: the [[redirects]] rules, [[headers]], and [functions] config
+#  below DO NOT take effect on the live deploy.
+#
+#  Production redirects are implemented as HTML stub pages (meta-refresh +
+#  canonical), e.g. why-us.html / compare.html / demo/index.html. See _redirects
+#  for the full note. Kept only as reference for a possible Netlify migration.
+# =============================================================================
+
 # Efficio.tech — Netlify Deployment Config
 # Deploy: Netlify Dashboard → Sites → "Add new site" → drag-and-drop website/ folder
 # OR connect via GitHub and set publish directory to "website"

@@ -1,3 +1,19 @@
+# ---------------------------------------------------------------------------
+# AI-search crawlers (GPTBot, ClaudeBot, anthropic-ai, Google-Extended, CCBot,
+# PerplexityBot) are INTENTIONALLY ALLOWED here -- we want Efficio to be citable
+# in AI search. They are permitted by the "User-agent: *" policy below; this repo
+# file contains no bot-specific Disallow.
+#
+# CLOUDFLARE CAVEAT (site audit SUB-14): the LIVE https://efficio.tech/robots.txt
+# is Cloudflare-managed and PREPENDS a "Cloudflare Managed content" block that sets
+# Disallow: / for GPTBot, ClaudeBot, Google-Extended, CCBot, Amazonbot, Bytespider,
+# Applebot-Extended, meta-externalagent, and Content-Signal ai-train=no on *.
+# That block is NOT in this repo and CANNOT be overridden by editing this file --
+# to actually unblock AI crawlers, disable it in the Cloudflare dashboard
+# (Manage AI bots / robots.txt content-signals). Keep Content-Signal ai-train=no
+# if you want citation-in-AI-search but not model training.
+# ---------------------------------------------------------------------------
+
 User-agent: *
 Allow: /
 Disallow: /onboarding.html

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#06060b"/>
+<!-- Paid-ad landing page. Kept OUT of organic search on purpose. -->
+<meta name="robots" content="noindex, nofollow"/>
+<script src="/assets/pixels.js"></script>
+<title>Any AI Workflow, Built Into Your Business in 7 Days — Efficio</title>
+<meta name="description" content="We build and run an AI team inside the tools you already use — answering calls, chasing leads, booking appointments. Live in about 7 days. $0 upfront. If it doesn't work, you don't pay."/>
+<meta property="og:title" content="Any AI Workflow, Built Into Your Business in 7 Days — Efficio"/>
+<meta property="og:description" content="Real engineers build an always-on AI team inside the tools you already use. Live in about a week. $0 upfront — pay only when it works."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/go"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta property="og:site_name" content="Efficio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Any AI Workflow, Built Into Your Business in 7 Days — Efficio"/>
+<meta name="twitter:description" content="Real engineers build an always-on AI team inside the tools you already use. Live in about a week. $0 upfront — pay only when it works."/>
+<meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<style>
+/* ── /go — paid-ad landing page, page-scoped styles (build on v6 tokens) ── */
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+
+/* keep section headings from wrapping too narrow for the longer LP copy */
+.sec h2{max-width:26ch}
+.lp-eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11.5px}
+.sec-head{text-align:center;max-width:760px;margin:0 auto}
+.sec-head .lede{margin-left:auto;margin-right:auto}
+
+/* trust line — dot separated, muted */
+.trustline{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;
+  margin:20px 0 0;padding:0;font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--muted)}
+.trustline li{display:inline-flex;align-items:center;gap:12px}
+.trustline li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--violet-l);opacity:.7}
+.trustline li:first-child::before{display:none}
+.trustline b{color:var(--ink2);font-weight:600}
+
+/* ── shared low-friction capture card (hero / midpage / exit) ── */
+.capwrap{max-width:600px;margin:26px auto 0;text-align:left}
+.capcard{background:linear-gradient(165deg,rgba(124,77,255,.07),rgba(13,13,23,.5));
+  border:1px solid var(--line2);border-radius:var(--r2);padding:20px 22px}
+.cap-h{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);
+  text-transform:uppercase;margin-bottom:9px}
+.cap-lead{font-size:14px;font-weight:500;color:var(--ink2);line-height:1.55;margin:0 0 14px}
+.cap-lead b{color:#fff;font-weight:700}
+.cap-row{display:flex;flex-wrap:wrap;gap:10px}
+.cap-row input{flex:1 1 180px;min-width:0;padding:12px 14px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:11px;color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:500;line-height:1.4;
+  transition:border-color .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease)}
+.cap-row input::placeholder{color:var(--muted2)}
+.cap-row input:focus{outline:none;border-color:rgba(124,77,255,.6);background:rgba(124,77,255,.05);box-shadow:0 0 0 3px rgba(124,77,255,.16)}
+.cap-row input:user-invalid{border-color:rgba(255,122,133,.55)}
+.cap-row button{flex:0 0 auto}
+.cap-fine{font-size:11.5px;font-weight:500;color:var(--muted);line-height:1.55;margin:12px 0 0}
+.cap-err{font-size:12px;font-weight:500;color:var(--muted);line-height:1.55;margin:10px 0 0}
+.cap-err a{color:var(--violet-l);font-weight:600}
+.cap-done{display:flex;align-items:flex-start;gap:12px;font-size:14px;font-weight:500;color:var(--ink2);line-height:1.5}
+/* the display:flex above outranks the UA [hidden]{display:none}; restore it so the
+   success block stays hidden until a successful POST reveals it (hidden=false). */
+.cap-done[hidden]{display:none}
+.cap-done b{color:#fff;font-weight:700}
+.cap-done a{color:var(--violet-l);font-weight:600}
+.cap-dck{flex-shrink:0;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(86,216,160,.12);border:1px solid rgba(86,216,160,.4);margin-top:1px}
+.cap-dck svg{width:18px;height:18px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:520px){.cap-row input,.cap-row button{flex:1 1 100%;width:100%;justify-content:center}}
+
+/* ── mid-page capture strip (quiet full-width band) ── */
+.midcap{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.midcap .wrap{padding-top:clamp(30px,5vh,54px);padding-bottom:clamp(30px,5vh,54px)}
+.midcap-in{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;justify-content:space-between}
+.midcap-copy{flex:1 1 320px;min-width:0}
+.midcap-copy h3{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 4px}
+.midcap-copy p{font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.5;margin:0}
+.midcap .capwrap{margin:0;flex:1 1 340px;max-width:440px}
+.midcap .capcard{background:rgba(255,255,255,.02)}
+
+/* ── process timeline ── */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(40px,6vh,64px)}
+@media(max-width:820px){.timeline{grid-template-columns:1fr}}
+.tstep{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:24px 22px;text-align:left}
+.tstep .tbadge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:700;
+  letter-spacing:.03em;color:var(--violet-l);background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);
+  padding:5px 11px;border-radius:999px;margin-bottom:14px}
+.tstep h3{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 8px}
+.tstep p{font-size:13.5px;font-weight:500;color:var(--ink2);line-height:1.6;margin:0}
+.tstep .tnum{position:absolute;top:20px;right:22px;font-family:var(--mono);font-size:12px;color:var(--muted2)}
+
+/* ── why-us differentiator rows ── */
+.whyrows{max-width:820px;margin:clamp(40px,6vh,60px) auto 0;display:flex;flex-direction:column;gap:14px}
+.whyrow{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--r2);padding:22px 24px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.whyrow:hover{border-color:rgba(124,77,255,.35);box-shadow:0 22px 50px -34px rgba(124,77,255,.6)}
+.whyrow .wck{flex-shrink:0;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(124,77,255,.12);border:1px solid rgba(124,77,255,.28);color:var(--violet-l)}
+.whyrow .wck svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.whyrow h3{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 5px}
+.whyrow p{font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.6;margin:0}
+.whyrow p b{color:var(--ink2);font-weight:700}
+
+/* ── FAQ — reuse v6.css's built-in .faq/<details> accordion (it supplies the
+   panel styling and the +/× summary::after marker). Only nudge the answer copy
+   a touch brighter than v6's default muted, and keep bold emphasis legible. ── */
+.faq p{color:var(--ink2)}
+.faq p b{color:#fff;font-weight:700}
+
+/* ── booking embed ── */
+.calwrap{margin:clamp(32px,5vh,44px) auto 0;max-width:820px;border-radius:var(--r2);overflow:hidden;
+  border:1px solid var(--line2);box-shadow:var(--soft);background:var(--panel)}
+.ghl-booking{min-width:320px;width:100%;height:720px;border:0;display:block}
+@media(max-width:560px){.ghl-booking{height:1000px}}
+.book-fallback{text-align:center;margin-top:18px;font-size:13px;color:var(--muted)}
+.book-fallback a{color:var(--violet-l);font-weight:600}
+.book-lastcap{text-align:center;margin-top:16px;font-size:13.5px;color:var(--muted)}
+.book-lastcap a{color:var(--violet-l);font-weight:600}
+
+/* ── exit-intent modal (desktop only, injected once/session) ── */
+.exit-modal{position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;padding:22px;
+  background:rgba(4,4,9,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+/* ID override: v6.css's `body>*{position:relative;z-index:1}` (line 51) outranks the
+   .exit-modal class and would force the overlay into flow — an ID wins it back, the
+   same way v6's own fixed overlays (#liveops, #efchat-root) do. */
+#exitModal{position:fixed;z-index:400}
+.exit-modal.open{display:flex;animation:exitin .28s var(--ease2)}
+@keyframes exitin{from{opacity:0}to{opacity:1}}
+.exit-card{position:relative;width:min(480px,100%);background:linear-gradient(180deg,var(--panel),#09090f);
+  border:1px solid var(--line2);border-radius:var(--r2);box-shadow:var(--glow),var(--soft);padding:28px 26px}
+.exit-card .exit-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:9px;border:1px solid var(--line2);
+  background:rgba(255,255,255,.02);color:var(--muted);display:grid;place-items:center;cursor:pointer;
+  font-size:16px;line-height:1;transition:color .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
+.exit-card .exit-x:hover{color:#fff;border-color:rgba(124,77,255,.45);background:rgba(124,77,255,.08)}
+.exit-card h3{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;color:#fff;margin:0 0 8px;max-width:22ch}
+.exit-card .exit-sub{font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.55;margin:0 0 16px}
+.exit-card .capwrap{margin:0;max-width:none}
+.exit-card .capcard{background:transparent;border:0;padding:0}
+@media(prefers-reduced-motion:reduce){.exit-modal.open{animation:none}}
+
+/* hero secondary link under capture */
+.hero-cta{margin-bottom:2px}
+.phero .sub{max-width:52ch}
+</style>
+<script>document.documentElement.className='js';</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
+</div>
+
+<!-- NAV — logo + single conversion CTA only. Every other exit path removed on purpose. -->
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo" aria-label="Efficio home"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <a href="#book" class="btn-primary">Book my 7-day deploy <span class="arr">&rarr;</span></a>
+</div></nav>
+
+<main id="main" tabindex="-1">
+
+<!-- ══ SECTION 1 — Above the fold ══ -->
+<header class="phero">
+  <div class="wrap">
+    <div class="eyebrow lp-eyebrow rv">For SMB owner-operators ready to offload busywork to AI</div>
+    <h1 class="rv d1">We'll build any AI workflow or agent you need into your business in <span class="grad">7 days</span>. If it doesn't work, you don't pay.</h1>
+    <p class="sub rv d1">Real engineers — a US team, not a template — build an always-on AI team inside the tools you already use. It answers your calls and texts, follows up on every lead, and books appointments while you run the business. Live in about a week. Nothing due upfront.</p>
+    <div class="hero-cta rv d2">
+      <a href="#book" class="btn-primary lg">Book my 7-day deploy <span class="arr">&rarr;</span></a>
+    </div>
+    <ul class="trustline rv d2" aria-label="How it works at a glance">
+      <li><b>$0 upfront</b></li>
+      <li><b>Pay only when it works</b></li>
+      <li><b>Live in ~7 days</b></li>
+    </ul>
+
+    <!-- Low-friction capture (the leak fix) — secondary to the button above -->
+    <div class="capwrap rv d3" id="capture">
+      <div class="capcard">
+        <form class="capform" data-placement="hero" novalidate>
+          <div class="cap-h">// not ready to book?</div>
+          <p class="cap-lead">Get the <b>7-Day Deploy plan</b> by email — what we build, how pay-if-it-works actually works, and what week one looks like.</p>
+          <div class="cap-row">
+            <input type="email" name="email" autocomplete="email" required placeholder="Email address" aria-label="Email address"/>
+            <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Phone, optional"/>
+            <button type="submit" class="btn-primary">Send it <span class="arr">&rarr;</span></button>
+          </div>
+          <p class="cap-fine">No spam. One email, then we leave you alone unless you reply.</p>
+          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+        </form>
+        <div class="cap-done" hidden role="status">
+          <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+          <div><b>Done — check your inbox in the next few minutes.</b> If you'd rather just talk it through, <a href="#book">book a 15-minute call</a>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ SECTION 2 — Problem / Agitation ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">The problem</div>
+      <h2>You're not losing to competitors. You're losing to your own missed calls.</h2>
+    </div>
+    <div class="sec-head rv d1" style="margin-top:22px">
+      <p class="lede" style="max-width:60ch">Every small business leaks the same way. A call goes to voicemail during a job. A web lead sits until tomorrow and books with whoever answered first. A quote goes out and nobody follows up a second time. None of it is dramatic — it's just quiet, daily loss that never shows up on a report.</p>
+      <p class="lede" style="max-width:60ch;margin-top:14px">Hiring more admin help doesn't fix it. People go home at 5, take weekends, and cost more every year. And the "AI tools" pitched at this problem mostly hand you software and a login, then leave you to figure it out — which is exactly why most of them end up unused.</p>
+      <p class="lede" style="max-width:60ch;margin-top:14px"><b>The fix isn't another tool. It's someone who builds the automation into your business, runs it for you, and stands behind it.</b></p>
+    </div>
+
+    <div class="cards rv d1">
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M15.5 3.5a5 5 0 0 1 5 5M14.5 7a2 2 0 0 1 2 2"/><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 4 6a2 2 0 0 1 1-2z"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
+        <h3>Missed calls</h3>
+        <p>After-hours and mid-job calls go to voicemail. Most callers don't leave one — they call the next listing.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Slow follow-up</h3>
+        <p>Leads cool off in hours, not days. If nobody replies fast, the inquiry was a donation to your competitor.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <h3>Owner as bottleneck</h3>
+        <p>Scheduling, reminders, chasing reviews, re-typing the same answers. It's all on you, and it doesn't scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3 — Mid-page capture strip ══ -->
+<section class="midcap">
+  <div class="wrap">
+    <div class="midcap-in rv">
+      <div class="midcap-copy">
+        <h3>Want the plan in writing?</h3>
+        <p>We'll send the 7-Day Deploy breakdown — what gets built, what it costs, and how "don't pay if it doesn't work" is enforced.</p>
+      </div>
+      <div class="capwrap">
+        <div class="capcard">
+          <form class="capform" data-placement="midpage" novalidate>
+            <div class="cap-row">
+              <input type="email" name="email" autocomplete="email" required placeholder="Email address" aria-label="Email address"/>
+              <button type="submit" class="btn-primary">Send <span class="arr">&rarr;</span></button>
+            </div>
+            <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+          </form>
+          <div class="cap-done" hidden role="status">
+            <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+            <div><b>On its way</b> — check your inbox for the 7-Day Deploy plan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 4 — How the 7-Day Deploy works ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">The process</div>
+      <h2>How the 7-Day Deploy works</h2>
+      <p class="lede" style="max-width:56ch">No discovery phase that drags for a month. No "implementation roadmap" PDF. One week, three stages, and you approve everything before it goes live.</p>
+    </div>
+
+    <div class="timeline rv d1">
+      <div class="tstep">
+        <span class="tbadge">Days 1–2</span>
+        <span class="tnum">01</span>
+        <h3>Map it</h3>
+        <p>A short call, then we get into your actual setup — phone system, calendar, CRM, inbox, whatever you run on. We find where leads and hours are leaking and agree on exactly what we're building. You'll know the scope and the price before anything starts.</p>
+      </div>
+      <div class="tstep">
+        <span class="tbadge">Days 3–6</span>
+        <span class="tnum">02</span>
+        <h3>Build it</h3>
+        <p>Our engineers build your AI team inside the tools you already use — no rip-and-replace, no new software to learn. Call answering, lead follow-up, appointment booking, reminders: whatever we scoped. You see it working on real scenarios before launch day.</p>
+      </div>
+      <div class="tstep">
+        <span class="tbadge">Day 7</span>
+        <span class="tnum">03</span>
+        <h3>Go live</h3>
+        <p>Your AI team switches on and starts handling the busywork. We monitor it, tune it, and stay accountable for it. If it isn't doing the job we agreed on, you don't pay — that's the deal, not a slogan.</p>
+      </div>
+    </div>
+
+    <div class="center rv d2" style="margin-top:clamp(38px,5vh,54px)">
+      <a href="#book" class="btn-primary lg">Book my 7-day deploy <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 5 — What your AI team actually does ══ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">The work</div>
+      <h2>What your AI team handles from day one</h2>
+      <p class="lede" style="max-width:56ch">Not a chatbot bolted to your website. A set of agents wired into your phone, calendar, and inbox — doing the jobs you'd otherwise hire for.</p>
+    </div>
+
+    <div class="cards rv d1">
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <h3>Answers every call and text</h3>
+        <p>24/7, in your business's voice. Takes the details, answers common questions, and never sends a customer to voicemail.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6H21l-5 3.8 1.9 6.2L12 15.5 6.1 19 8 12.8 3 9h6.5z"/></svg></div>
+        <h3>Follows up on every lead</h3>
+        <p>New inquiry from your site, ads, or Google profile gets a reply in minutes, then polite, persistent follow-up until they book or say no.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M9 14l2 2 4-4"/></svg></div>
+        <h3>Books appointments</h3>
+        <p>Directly onto your real calendar, with confirmations and reminders that cut no-shows.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3>Chases quotes and estimates</h3>
+        <p>The second, third, and fourth follow-up you never have time to send.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5L12 21l-5 -2.9 1-5.5-4-3.9L9.5 8z"/></svg></div>
+        <h3>Requests reviews</h3>
+        <p>Asks happy customers at the right moment and routes them to Google.</p>
+      </div>
+      <div class="card">
+        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></div>
+        <h3>Reports to you</h3>
+        <p>A plain-English recap of what it handled, so you're never guessing what the machine did.</p>
+      </div>
+    </div>
+
+    <p class="pnote rv d2" style="max-width:60ch;margin-left:auto;margin-right:auto">All of it runs inside your existing stack. <b style="color:var(--ink2)">If you use it today, we build on it — we don't replace it.</b></p>
+  </div>
+</section>
+
+<!-- ══ SECTION 6 — Why Efficio ══ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">Why us</div>
+      <h2>Why owners pick us over tools and other agencies</h2>
+    </div>
+
+    <div class="whyrows">
+      <div class="whyrow rv">
+        <span class="wck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 7L10 17l-6-6"/></svg></span>
+        <div><h3>Done for you, not do-it-yourself.</h3>
+        <p>Software companies sell you a login. We sell you an outcome. Our team builds it, launches it, and keeps running it — <b>you never touch a workflow builder.</b></p></div>
+      </div>
+      <div class="whyrow rv">
+        <span class="wck" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0M16 4a3 3 0 0 1 0 6M18 20a5.5 5.5 0 0 0-3-4.9"/></svg></span>
+        <div><h3>Real people, AI grunt work.</h3>
+        <p>A US-based team designs and oversees everything. The AI does the repetitive work at 3am; <b>humans stay accountable for the result.</b></p></div>
+      </div>
+      <div class="whyrow rv">
+        <span class="wck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <div><h3>Built into your tools, live in a week.</h3>
+        <p>No migration, no six-week onboarding, no new system your staff has to learn. We work inside what you already use, and <b>the build takes about seven days — not a quarter.</b></p></div>
+      </div>
+      <div class="whyrow rv">
+        <span class="wck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <div><h3>Zero-risk pricing.</h3>
+        <p>$0 upfront. You pay when it's live and doing the job we scoped together. If it doesn't work, you don't pay — <b>the risk is ours, which is exactly why we scope carefully on the first call.</b></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 7 — FAQ ══ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">Questions</div>
+      <h2>Fair questions, straight answers</h2>
+    </div>
+
+    <div class="faq rv d1">
+      <details>
+        <summary>How does "pay only if it works" actually work?</summary>
+        <p>On the first call we agree, in writing, on what the build has to do — the specific jobs your AI team will handle. You pay nothing upfront. Once it's live and doing that job, billing starts. If it isn't doing what we agreed, you don't pay and we either fix it or part ways. <b>No contracts holding you hostage.</b></p>
+      </details>
+      <details>
+        <summary>Is this just a chatbot?</summary>
+        <p>No. Chatbots wait on your website for someone to type at them. Your AI team is wired into your phone line, calendar, CRM, and inbox — it answers calls, sends texts, books real appointments, and follows up on its own. And it's <b>built and supervised by human engineers, not spun up from a template.</b></p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for my business?</summary>
+        <p>Then you don't pay — that's the whole arrangement. In practice, we protect against this by scoping honestly: if we don't think we can automate something well for your business, <b>we'll say so on the first call</b> instead of taking the deal.</p>
+      </details>
+      <details>
+        <summary>Will customers know they're talking to AI?</summary>
+        <p>If they ask, it's honest — we don't build anything that pretends to be a person when asked directly. But it's trained on your business, your services, and your tone, and its job is to be genuinely useful: answer the question, take the details, book the time. <b>Anything complex or sensitive gets handed to you or your staff.</b></p>
+      </details>
+      <details>
+        <summary>Do I need to switch software or learn anything new?</summary>
+        <p>No. We build inside the tools you already run — your phone system, your calendar, your CRM. If something's missing, we add the smallest possible piece, and we manage it. <b>Your day-to-day doesn't change, except the busywork stops landing on you.</b></p>
+      </details>
+      <details>
+        <summary>What does it cost after it's live?</summary>
+        <p>A flat monthly rate, set during scoping based on what we build — you'll know the exact number before we start, and it's a fraction of a part-time hire. <b>No usage surprises, no per-minute metering.</b></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 8 — Closing CTA + booking embed ══ -->
+<section class="sec" style="padding-top:0" id="book">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow lp-eyebrow">Book your call</div>
+      <h2>One week from now, this is handled.</h2>
+      <p class="lede" style="max-width:58ch">The call takes about 15 minutes. We look at where your business leaks time and leads, tell you exactly what we'd build, and give you the price. If it's not a fit, we'll say so — we only take builds we're willing to be paid on results for.</p>
+    </div>
+
+    <div class="center rv d1" style="margin-top:26px">
+      <a href="#book" class="btn-primary lg" onclick="var f=document.getElementById('ghl_booking_t1K5RJCd9s1qoFbcPPtu');if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}">Book my 7-day deploy <span class="arr">&rarr;</span></a>
+      <ul class="trustline" aria-label="How it works at a glance" style="margin-top:18px">
+        <li><b>$0 upfront</b></li>
+        <li><b>Pay only when it works</b></li>
+        <li><b>Live in ~7 days</b></li>
+      </ul>
+    </div>
+
+    <!-- BOOKING WIDGET — Efficio Demo calendar (GHL / LeadConnector), mirroring the
+         proven book.html embed: src set in HTML at load so form_embed.js processes it
+         correctly, id prefixed "ghl_booking_". The calendar id is defined ONCE in
+         BOOKING_CAL_ID in the page script below; on load the script re-asserts this
+         iframe's src from that constant and appends UTMs. Post-migration to Brady's own
+         GHL, change BOOKING_CAL_ID (and this literal src to match) — one calendar id. -->
+    <div class="calwrap rv d1">
+      <iframe id="ghl_booking_t1K5RJCd9s1qoFbcPPtu" src="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" class="ghl-booking" scrolling="no" title="Book your 7-day deploy — Efficio Demo calendar"></iframe>
+      <noscript>
+        <div style="padding:22px;text-align:center;color:var(--muted);font-size:14px">
+          Enable JavaScript to load the calendar, or
+          <a href="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" target="_blank" rel="noopener" style="color:var(--violet-l);font-weight:600">book in a new tab &rarr;</a>
+        </div>
+      </noscript>
+    </div>
+    <p class="book-fallback">Calendar not loading? <a id="bookFallback" href="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" target="_blank" rel="noopener">Open it in a new tab &rarr;</a></p>
+    <p class="book-lastcap">Not ready to pick a time? <a href="#capture">Get the 7-Day Deploy plan by email instead.</a></p>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER — minimal: logo, one line, legal only. -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/sms-opt-in.html">SMS opt-in</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+      <div>Built on Anthropic's Claude.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Exit-intent modal (desktop only; injected once per session by the script) -->
+<div class="exit-modal" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitTitle" aria-hidden="true">
+  <div class="exit-card">
+    <button type="button" class="exit-x" data-close aria-label="Close">&times;</button>
+    <h3 id="exitTitle">Before you go — want the 7-Day Deploy plan in your inbox?</h3>
+    <p class="exit-sub">One email, no drip campaign.</p>
+    <div class="capwrap">
+      <div class="capcard">
+        <form class="capform" data-placement="exit_intent" novalidate>
+          <div class="cap-row">
+            <input type="email" name="email" autocomplete="email" required placeholder="Email address" aria-label="Email address"/>
+            <button type="submit" class="btn-primary">Send it <span class="arr">&rarr;</span></button>
+          </div>
+          <p class="cap-fine">No spam. One email, then we leave you alone unless you reply.</p>
+          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+        </form>
+        <div class="cap-done" hidden role="status">
+          <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
+          <div><b>On its way</b> — check your inbox for the 7-Day Deploy plan.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =============================================================================
+   /go — paid-ad landing page. The ONLY page JS: booking-URL assembly, the
+   low-friction capture POST, exit-intent, and the (dormant) Pixel Lead fire.
+   Mirrors the capture discipline proven in find-your-tier.html.
+   ========================================================================== */
+(function(){
+  'use strict';
+
+  /* ── ONE place to swap the booking calendar ──────────────────────────────
+     Currently the Efficio DEMO calendar (t1K5RJ) under the Modrn-hosted GHL.
+     Post-migration to Brady's own GHL: change BOOKING_CAL_ID and nothing else. */
+  var BOOKING_CAL_ID = 't1K5RJCd9s1qoFbcPPtu';
+  var BOOKING_BASE   = 'https://api.leadconnectorhq.com/widget/booking/' + BOOKING_CAL_ID;
+
+  /* Worker lead loop — same endpoint find-your-tier.html / sms-opt-in.html use. */
+  var CAP_ENDPOINT = 'https://efficio-chat.bgay3500.workers.dev/quiz';
+
+  /* ── UTM passthrough: keep ad attribution on both the lead POST and booking ── */
+  function utmQuery(){
+    try{
+      var q = new URLSearchParams(window.location.search);
+      var keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','eff_variant','gclid','fbclid','li_fat_id'];
+      var out = new URLSearchParams();
+      keep.forEach(function(k){ var v = q.get(k); if(v) out.set(k, v); });
+      return out.toString();
+    }catch(e){ return ''; }
+  }
+
+  /* ── Booking iframe: the HTML already carries the base src (so form_embed.js
+     processes a real booking iframe on load). Here we re-assert the URL from the
+     single constant and append UTMs — but only rewrite src when it actually differs,
+     so a no-UTM visit doesn't needlessly reload the already-processed iframe. ── */
+  (function initBooking(){
+    var uq = utmQuery();
+    var url = BOOKING_BASE + (uq ? ('?' + uq) : '');
+    var frame = document.getElementById('ghl_booking_' + BOOKING_CAL_ID);
+    if(frame && frame.getAttribute('src') !== url) frame.src = url;
+    var fb = document.getElementById('bookFallback');
+    if(fb) fb.href = url;
+  })();
+
+  /* ── shared capture POST (keepalive + settled guard + 2.5s fallback + try/catch) ── */
+  function wireForm(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var placement = form.getAttribute('data-placement') || 'hero';
+      var wrap   = form.parentNode;               /* the .capcard */
+      var errEl  = form.querySelector('.cap-err');
+      var doneEl = wrap.querySelector('.cap-done');
+      var btn    = form.querySelector('button[type="submit"]');
+      var emailEl= form.querySelector('input[name="email"]');
+      var phoneEl= form.querySelector('input[name="phone"]');
+
+      if(errEl) errEl.hidden = true;
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      if(btn && !btn.dataset.label){ btn.dataset.label = btn.innerHTML; }
+      if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      var payload = {
+        kind: 'quiz_lead',
+        ts: new Date().toISOString(),
+        tier: 'ad_lp',
+        tier_name: 'Ad LP — 7-Day Deploy plan request',
+        email: ((emailEl && emailEl.value) || '').trim(),
+        phone: ((phoneEl && phoneEl.value) || '').trim(),   /* '' when absent/blank */
+        source_url: (window.location && window.location.href) || 'https://efficio.tech/go.html',
+        answers: { placement: placement }
+      };
+
+      var settled = false;
+      function done(){
+        if(settled) return; settled = true;
+        if(form)   form.style.display = 'none';
+        if(doneEl) doneEl.hidden = false;
+        /* conversion: a lead was captured — fire Meta "Lead" (+ other live pixels)
+           via the shared layer in /assets/pixels.js. No-op until META_PIXEL_ID is
+           set; once-guarded there so the three surfaces can't double-count.
+           UTMs are auto-merged by the pixel layer. */
+        try{ if(window.efficioTrackQuizLead) window.efficioTrackQuizLead({ tier: 'ad_lp', placement: placement }); }catch(e){}
+      }
+
+      try{
+        fetch(CAP_ENDPOINT, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).then(function(){ done(); }, function(){ done(); });
+      }catch(e){ done(); }
+
+      /* never hang the UI if the network stalls; keepalive lets the POST finish */
+      setTimeout(done, 2500);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.capform'), wireForm);
+
+  /* ── exit-intent (desktop only, once per session; mobile intentionally skipped) ── */
+  (function exitIntent(){
+    var modal = document.getElementById('exitModal');
+    if(!modal) return;
+    var eligible = window.matchMedia && window.matchMedia('(pointer:fine)').matches && window.innerWidth >= 820;
+    var used = false;
+    try{ used = sessionStorage.getItem('eff_go_exit') === '1'; }catch(e){}
+
+    function open(){
+      if(used || !eligible || modal.classList.contains('open')) return;
+      used = true;
+      try{ sessionStorage.setItem('eff_go_exit','1'); }catch(e){}
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      var f = modal.querySelector('input[name="email"]');
+      if(f){ try{ f.focus(); }catch(e){} }
+    }
+    function close(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    if(eligible){
+      document.addEventListener('mouseout', function(e){
+        /* pointer left the viewport toward the top chrome (tab/close/address bar) */
+        if(!e.relatedTarget && !e.toElement && e.clientY <= 4){ open(); }
+      });
+    }
+    modal.addEventListener('click', function(e){
+      if(e.target === modal || (e.target.closest && e.target.closest('[data-close]'))) close();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && modal.classList.contains('open')) close();
+    });
+  })();
+})();
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" async></script>
+<script src="/assets/v6.js" defer></script>
+<script src="/assets/consent.js" defer></script>
+</body>
+</html>

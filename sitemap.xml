@@ -47,7 +47,7 @@
   <url><loc>https://efficio.tech/blog/ai-for-cleaning-services.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-any-service-business.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
-  <!-- Resources hub + 13 SEO guides (hub + first 6 added 2026-07-02; +7 added 2026-07-03) -->
+  <!-- Resources hub + 19 SEO guides (hub + first 6 added 2026-07-02; +7 added 2026-07-03; +6 added 2026-07-07) -->
   <url><loc>https://efficio.tech/resources/</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://efficio.tech/resources/stop-missing-customer-calls.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/resources/slow-lead-follow-up.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -62,6 +62,12 @@
   <url><loc>https://efficio.tech/resources/ai-vs-answering-service.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/resources/after-hours-leads.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/resources/signs-you-need-automation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/respond-to-leads-in-5-minutes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/ai-receptionist-for-dental-offices.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/small-business-admin-time.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/automate-customer-follow-up.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/ai-phone-answering-vs-voicemail.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/resources/ai-receptionist-for-law-firms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Industry hub pages (grouped — sit above the per-vertical landing pages) -->
   <url><loc>https://efficio.tech/for/home-services.html</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>

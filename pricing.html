@@ -30,6 +30,18 @@
   @keyframes pbadge{0%,100%{box-shadow:0 6px 18px -6px rgba(124,77,255,.9)}
     50%{box-shadow:0 6px 26px -4px rgba(124,77,255,1)}}
 }
+/* Guarantee callout — the risk-reversal, built on existing tokens */
+.gtag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.03em;color:var(--green);text-transform:uppercase}
+.gtag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.gquote{max-width:720px;margin:clamp(22px,3.5vh,36px) auto 0;padding:clamp(24px,4vw,34px) clamp(24px,4vw,38px);
+  border-radius:var(--r2);text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,rgba(124,77,255,.12),rgba(124,77,255,.03));border:1px solid rgba(124,77,255,.42)}
+.gquote::after{content:"";position:absolute;top:-1px;left:16%;right:16%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--violet-l),transparent)}
+.gquote p{font-size:clamp(1.05rem,2.3vw,1.4rem);font-weight:800;letter-spacing:-.025em;color:#fff;line-height:1.4;margin:0}
+.gquote b{color:var(--violet-l)}
+.gsubline{max-width:560px;margin:18px auto 0;font-size:14.5px;font-weight:500;color:var(--muted);line-height:1.55;text-align:center}
 /* comparison table — swipe affordance on narrow screens */
 .ptable{position:relative}
 .ptable-hint{display:none;font-family:var(--mono);font-size:11.5px;color:var(--violet-l);
@@ -117,7 +129,7 @@
         <div class="pn">AI Specialist</div><div class="pp">$997<span> /mo</span></div>
         <div class="pd">One AI team, end-to-end.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li><b>One AI team</b> — front or back office</li>
+          <li><b>One AI team</b> — front <em>or</em> back office</li>
           <li>Custom dashboard for your ops</li>
           <li>Monthly strategy call</li>
           <li>Shared chat channel</li>
@@ -154,24 +166,12 @@
 
 <section class="sec" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// beyond the tiers</div>
-    <h2 class="rv d1">Buy a module, or build something new.</h2>
-    <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto">
-      <a href="https://buy.stripe.com/aFa4gB2t795S3p88JodQQ0h" class="card imagine rv" target="_blank" rel="noopener">
-        <span class="tag">$497/mo</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
-        <h3>Inbox Manager</h3>
-        <p>Reads your inbox, triages by urgency, drafts replies to a queue you approve. Buy it today.</p>
-        <span class="go">get it now &rarr;</span>
-      </a>
-      <a href="/find-your-tier.html" class="card rv d1">
-        <span class="tag">per scope</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
-        <h3>Custom Build</h3>
-        <p>Bespoke engineering off-the-shelf can't do — scoped, quoted, built, and run on your dashboard.</p>
-        <span class="go">scope a build &rarr;</span>
-      </a>
+    <div class="rv"><span class="gtag">30-day money-back guarantee</span></div>
+    <h2 class="rv d1" style="margin-top:14px">Measurable savings in 30 days &mdash; or your money back.</h2>
+    <div class="gquote rv d1">
+      <p>$0 upfront and no build fee. You only start paying once your first build is <b>live and doing the work</b> &mdash; and you get <b>measurable proof in your first 30 days, or your money back</b>.</p>
     </div>
+    <p class="gsubline rv d2">The risk sits with us, not you. Every tier is month-to-month &mdash; cancel anytime.</p>
   </div>
 </section>
 

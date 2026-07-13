@@ -156,9 +156,6 @@
   border:1px solid var(--line2);border-radius:var(--r2);padding:20px 22px;text-align:left}
 .rcap-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px}
 .rcap-h{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);text-transform:uppercase}
-.rcap-skip{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;
-  transition:color .2s var(--ease)}
-.rcap-skip:hover{color:var(--ink2)}
 .rcap-lead{font-size:13.5px;font-weight:500;color:var(--ink2);line-height:1.55;margin:0 0 14px}
 .rcap-lead b{color:#fff;font-weight:700}
 .rcap-row{display:flex;flex-wrap:wrap;gap:10px}
@@ -278,22 +275,24 @@
           </div>
           <p class="rnote">This is a <b>recommendation, not a quote.</b> On your call we confirm the right fit and agree on the one metric we'll prove in the first 30 days.</p>
 
-          <!-- OPTIONAL, skippable lead capture — appears AFTER the result is shown.
-               It never gates the tier above and is strictly secondary to the
-               "Book your strategy call" CTA. Email-only required; phone optional. -->
-          <div class="rcap" id="rCap" aria-label="Optional — email me my results">
+          <!-- Secondary lead capture — appears AFTER the result is shown. It never
+               gates the tier above, and the "Book your strategy call" CTA remains the
+               primary action. This is the fallback path for the visitor who isn't
+               ready to book: it is the ONLY thing on this page that records who they
+               were, so it has to give them a real reason to answer.
+               Email required; phone optional. -->
+          <div class="rcap" id="rCap" aria-label="Get your tier breakdown by email">
             <form id="rCapForm" novalidate>
               <div class="rcap-top">
-                <div class="rcap-h">// optional &middot; want it in writing?</div>
-                <button type="button" class="rcap-skip" id="rCapSkip">Maybe later</button>
+                <div class="rcap-h">// not ready to book?</div>
               </div>
-              <p class="rcap-lead">Want your results <b>+ a tailored next-step plan</b> emailed to you? Totally optional &mdash; your tier is already shown above.</p>
+              <p class="rcap-lead">Get the written version: <b>why you scored <span id="rCapTier">this tier</span></b>, the <b>first agent we'd ship you</b>, and the one number we'd move in 30 days. One email &mdash; not a sequence.</p>
               <div class="rcap-row">
                 <input id="rCapEmail" name="email" type="email" autocomplete="email" required placeholder="you@business.com" aria-label="Your email"/>
                 <input id="rCapPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Your phone, optional"/>
-                <button type="submit" class="btn-outline" id="rCapSubmit">Email my plan <span class="arr">&rarr;</span></button>
+                <button type="submit" class="btn-outline" id="rCapSubmit">Send it to me <span class="arr">&rarr;</span></button>
               </div>
-              <p class="rcap-fine">No spam &mdash; just your result and the next step. Unsubscribe anytime.</p>
+              <p class="rcap-fine">No spam, no drip. Your breakdown and nothing else. Unsubscribe anytime.</p>
               <p class="rcap-err" id="rCapErr" hidden>Couldn't send just now &mdash; you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
             </form>
             <div class="rcap-done" id="rCapDone" role="status" hidden>
@@ -600,8 +599,13 @@
       mini.appendChild(btn);
     });
 
+    // The capture pitch names the tier the visitor just scored, so it has to be
+    // refreshed on every result — including a retake that lands somewhere else.
+    var capTier = document.getElementById('rCapTier');
+    if(capTier){ capTier.innerHTML = t.name; }
+
     resultEl.classList.add('show');
-    resetCapture(); // fresh, un-submitted optional capture form for this result
+    resetCapture(); // fresh, un-submitted capture form for this result
 
     /* conversion: the visitor completed the fit quiz and a recommended tier is
        on screen — fire Meta "Lead" (+ GA4/Ads/LinkedIn lead signals) via the
@@ -652,12 +656,8 @@
     var capBtn   = document.getElementById('rCapSubmit'),
         capErr   = document.getElementById('rCapErr'),
         capDone  = document.getElementById('rCapDone'),
-        capWrap  = document.getElementById('rCap'),
-        capSkip  = document.getElementById('rCapSkip'),
         capEmail = document.getElementById('rCapEmail'),
         capPhone = document.getElementById('rCapPhone');
-
-    if(capSkip){ capSkip.addEventListener('click', function(){ if(capWrap) capWrap.style.display='none'; }); }
 
     capForm.addEventListener('submit', function(ev){
       ev.preventDefault();

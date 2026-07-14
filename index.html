@@ -1882,6 +1882,180 @@ footer{padding-bottom:96px}
   </div>
 </section>
 
+<!-- ============================================================================
+     RESULTS WALL — "Real results, or you don't pay"  (social proof)
+     ----------------------------------------------------------------------------
+     STATUS: SHIPS HIDDEN. This entire <section> carries the `hidden` attribute,
+     so it renders NOTHING on the live site. It is staged scaffolding — the moment
+     Efficio closes its first client, a real result drops straight in here.
+
+     !!  DO NOT REMOVE `hidden` UNTIL EVERY CARD HOLDS A REAL, CLIENT-PERMISSIONED
+         OUTCOME. Every [[PLACEHOLDER]] below is a fill-in token — never real data.
+           - No fabricated names, companies, quotes, or numbers. Ever.
+           - Each result must be a genuine outcome Efficio actually delivered.
+           - Get the client's explicit permission to use their name / quote / metric.
+           - [[XX]] = the person's initials, for the avatar square.
+           - Delete any cards you don't yet have a real result for. The grid reflows
+             at 3 / 2 / 1 columns on its own, so 2, 3, 4, 5, or 6 cards all look right.
+
+     TO GO LIVE:  fill the cards with real results, then delete the single word
+         `hidden` from the <section ... hidden> tag below. That is the ONLY toggle —
+         nothing else changes. `#results[hidden]{display:none!important}` is a safety
+         belt that force-hides the section while `hidden` is present and turns into a
+         no-op the instant you remove it. Styling is self-contained (scoped to
+         #results) and built entirely on the site's existing design tokens.
+     ============================================================================ -->
+<style>
+/* results wall — self-contained, scoped to #results, built on existing tokens */
+#results[hidden]{display:none!important}          /* safety belt: force-hidden while `hidden` present; no-op once removed */
+#results .rw-grad{background:linear-gradient(110deg,#fff 6%,var(--violet-xl) 44%,var(--violet-l) 68%,var(--violet) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+#results .rw-band{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:720px;margin:clamp(28px,4vh,44px) auto 0}
+#results .rw-chip{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;
+  border:1px solid rgba(86,216,160,.28);background:rgba(86,216,160,.06);
+  font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.01em;color:#cfeede}
+#results .rw-chip svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:var(--green);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+#results .rw-chip b{color:#fff;font-weight:700}
+#results .rw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:clamp(44px,6vh,68px) auto 0}
+@media(max-width:900px){#results .rw-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){#results .rw-grid{grid-template-columns:1fr}}
+#results .rw-card{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);
+  padding:26px 24px;text-align:left;transition:transform .26s var(--ease2),border-color .26s,box-shadow .26s,background .26s}
+#results .rw-card:hover{transform:translateY(-6px);border-color:rgba(124,77,255,.42);background:rgba(124,77,255,.05);
+  box-shadow:0 30px 64px -30px rgba(124,77,255,.55),var(--soft)}
+#results .rw-tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--violet-l);opacity:.85;text-transform:uppercase;margin-bottom:14px}
+#results .rw-metric{font-size:clamp(2.4rem,5.2vw,3.3rem);font-weight:800;letter-spacing:-.05em;line-height:.9;
+  background:linear-gradient(180deg,#fff,var(--violet-l));-webkit-background-clip:text;background-clip:text;color:transparent}
+#results .rw-mlabel{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:9px}
+#results .rw-quote{font-size:15px;font-weight:600;color:var(--ink);line-height:1.5;letter-spacing:-.01em;margin:18px 0 0}
+#results .rw-sep{height:1px;background:var(--line);margin:20px 0 0}
+#results .rw-attr{display:flex;align-items:center;gap:12px;margin-top:16px}
+#results .rw-ava{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
+  font-family:var(--mono);font-size:12.5px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--violet),var(--violet-l));box-shadow:0 0 16px -4px rgba(124,77,255,.8)}
+#results .rw-who{display:flex;flex-direction:column;gap:2px;min-width:0}
+#results .rw-name{font-size:13.5px;font-weight:700;color:#fff;letter-spacing:-.01em}
+#results .rw-role{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--muted);line-height:1.35}
+#results .rw-foot{margin:clamp(30px,4.4vh,46px) auto 0;font-size:1.02rem;font-weight:500;color:var(--ink2)}
+#results .rw-foot a{color:var(--violet-l);font-weight:700;border-bottom:1px solid rgba(124,77,255,.4);transition:color .2s var(--ease),border-color .2s var(--ease)}
+#results .rw-foot a:hover{color:var(--violet-xl);border-color:var(--violet-xl)}
+</style>
+<section class="sec" id="results" hidden>
+  <div class="wrap center">
+    <div class="eyebrow rv">// proof</div>
+    <h2 class="rv d1">Real results, <span class="rw-grad">or you don&rsquo;t pay.</span></h2>
+    <p class="lede rv d1">We build your first agent for <b>$0 upfront</b> &mdash; you only start paying once it&rsquo;s live and doing the work. Every result below is a real, client-permissioned outcome. No stock photos, no invented numbers.</p>
+
+    <div class="rw-band rv d2">
+      <span class="rw-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg><b>Real</b> clients, real numbers</span>
+      <span class="rw-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg>Used with <b>permission</b></span>
+      <span class="rw-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg>Pay only if it <b>works</b></span>
+    </div>
+
+    <div class="rw-grid rv d2">
+
+      <!-- RESULT CARD (1 of 6) — duplicate or delete as needed. Replace every [[TOKEN]] with a real, permissioned value. -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- RESULT CARD (2 of 6) -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- RESULT CARD (3 of 6) -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- RESULT CARD (4 of 6) -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- RESULT CARD (5 of 6) -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+      <!-- RESULT CARD (6 of 6) -->
+      <article class="rw-card">
+        <div class="rw-tag">[[WHAT THE AGENT DID]]</div>
+        <div class="rw-metric">[[METRIC]]</div>
+        <div class="rw-mlabel">[[WHAT THE METRIC MEASURES]]</div>
+        <p class="rw-quote">&ldquo;[[QUOTE]]&rdquo;</p>
+        <div class="rw-sep"></div>
+        <div class="rw-attr">
+          <span class="rw-ava" aria-hidden="true">[[XX]]</span>
+          <span class="rw-who">
+            <span class="rw-name">[[NAME]]</span>
+            <span class="rw-role">[[ROLE]], [[COMPANY]]</span>
+          </span>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="rw-foot rv">Your result belongs here next. <a href="/find-your-tier.html">Find your tier</a> &mdash; live in 7 days, $0 upfront.</p>
+  </div>
+</section>
+
 <!-- OBJECTIONS / RISK-REVERSAL / FAQ -->
 <style>
 /* objection-handling + FAQ — self-contained, scoped to #faq, built on existing tokens */

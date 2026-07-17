@@ -428,7 +428,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
     </div>
 
     <div class="center rv d1" style="margin-top:26px">
-      <a href="#book" class="btn-primary lg" onclick="var f=document.getElementById('ghl_booking_t1K5RJCd9s1qoFbcPPtu');if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}">Book my 7-day deploy <span class="arr">&rarr;</span></a>
+      <a href="#book" class="btn-primary lg" onclick="var f=document.getElementById('ghl_booking_HS90f7YhCSn6J6nB6j9T');if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}">Book my 7-day deploy <span class="arr">&rarr;</span></a>
       <ul class="trustline" aria-label="How it works at a glance" style="margin-top:18px">
         <li><b>$0 upfront</b></li>
         <li><b>Pay only when it works</b></li>
@@ -436,22 +436,22 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
       </ul>
     </div>
 
-    <!-- BOOKING WIDGET — Efficio Demo calendar (GHL / LeadConnector), mirroring the
+    <!-- BOOKING WIDGET — Efficio 15-min AI Strategy call (GHL / LeadConnector), mirroring the
          proven book.html embed: src set in HTML at load so form_embed.js processes it
          correctly, id prefixed "ghl_booking_". The calendar id is defined ONCE in
          BOOKING_CAL_ID in the page script below; on load the script re-asserts this
          iframe's src from that constant and appends UTMs. Post-migration to Brady's own
          GHL, change BOOKING_CAL_ID (and this literal src to match) — one calendar id. -->
     <div class="calwrap rv d1">
-      <iframe id="ghl_booking_t1K5RJCd9s1qoFbcPPtu" src="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" class="ghl-booking" scrolling="no" title="Book your 7-day deploy — Efficio Demo calendar"></iframe>
+      <iframe id="ghl_booking_HS90f7YhCSn6J6nB6j9T" src="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" class="ghl-booking" scrolling="no" title="Book your 7-day deploy — Efficio 15-min AI Strategy call"></iframe>
       <noscript>
         <div style="padding:22px;text-align:center;color:var(--muted);font-size:14px">
           Enable JavaScript to load the calendar, or
-          <a href="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" target="_blank" rel="noopener" style="color:var(--violet-l);font-weight:600">book in a new tab &rarr;</a>
+          <a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" target="_blank" rel="noopener" style="color:var(--violet-l);font-weight:600">book in a new tab &rarr;</a>
         </div>
       </noscript>
     </div>
-    <p class="book-fallback">Calendar not loading? <a id="bookFallback" href="https://api.leadconnectorhq.com/widget/booking/t1K5RJCd9s1qoFbcPPtu" target="_blank" rel="noopener">Open it in a new tab &rarr;</a></p>
+    <p class="book-fallback">Calendar not loading? <a id="bookFallback" href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" target="_blank" rel="noopener">Open it in a new tab &rarr;</a></p>
     <p class="book-lastcap">Not ready to pick a time? <a href="#capture">Get the 7-Day Deploy plan by email instead.</a></p>
   </div>
 </section>
@@ -513,7 +513,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   /* ── ONE place to swap the booking calendar ──────────────────────────────
      Currently the Efficio DEMO calendar (t1K5RJ) under the Modrn-hosted GHL.
      Post-migration to Brady's own GHL: change BOOKING_CAL_ID and nothing else. */
-  var BOOKING_CAL_ID = 't1K5RJCd9s1qoFbcPPtu';
+  var BOOKING_CAL_ID = 'HS90f7YhCSn6J6nB6j9T';
   var BOOKING_BASE   = 'https://api.leadconnectorhq.com/widget/booking/' + BOOKING_CAL_ID;
 
   /* Worker lead loop — same endpoint find-your-tier.html / sms-opt-in.html use. */

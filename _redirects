@@ -50,11 +50,14 @@
 /vsl                           /vsl.html          200
 /qualify                       /find-your-tier.html   301
 
+# 2026-07-21 hardening: why-us.html/compare.html still exist as files, so these use
+# Netlify FORCE flag (301!). A plain 301 is ignored when the file exists, which is the
+# "Redirecting..." stub flash the audit caught. (Assumes Netlify hosting.)
 # "Why Efficio" consolidation — why-us + compare merged into why-efficio.html
-/why-us                        /why-efficio.html  301
-/why-us.html                   /why-efficio.html  301
-/compare                       /why-efficio.html  301
-/compare.html                  /why-efficio.html  301
+/why-us                        /why-efficio.html  301!
+/why-us.html                   /why-efficio.html  301!
+/compare                       /why-efficio.html  301!
+/compare.html                  /why-efficio.html  301!
 
 # Post-checkout
 /onboard                       /onboarding.html   301

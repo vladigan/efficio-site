@@ -195,7 +195,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
             <button type="submit" class="btn-primary">Send it <span class="arr">&rarr;</span></button>
           </div>
           <p class="cap-fine">No spam. One email, then we leave you alone unless you reply.</p>
-          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>.</p>
         </form>
         <div class="cap-done" hidden role="status">
           <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
@@ -254,7 +254,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
               <input type="email" name="email" autocomplete="email" required placeholder="Email address" aria-label="Email address"/>
               <button type="submit" class="btn-primary">Send <span class="arr">&rarr;</span></button>
             </div>
-            <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+            <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>.</p>
           </form>
           <div class="cap-done" hidden role="status">
             <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
@@ -490,7 +490,7 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
             <button type="submit" class="btn-primary">Send it <span class="arr">&rarr;</span></button>
           </div>
           <p class="cap-fine">No spam. One email, then we leave you alone unless you reply.</p>
-          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
+          <p class="cap-err" hidden>Couldn't send just now — you can also email <a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>.</p>
         </form>
         <div class="cap-done" hidden role="status">
           <span class="cap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
@@ -511,8 +511,15 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
   'use strict';
 
   /* ── ONE place to swap the booking calendar ──────────────────────────────
-     Currently the Efficio DEMO calendar (t1K5RJ) under the Modrn-hosted GHL.
-     Post-migration to Brady's own GHL: change BOOKING_CAL_ID and nothing else. */
+     Currently the Efficio "AI Strategy Call" calendar (HS90f7YhCSn6J6nB6j9T) under the
+     Modrn-hosted GHL. Post-migration to Brady's own GHL: change BOOKING_CAL_ID, nothing else.
+
+     ⚠ GHL ACTION — root fix for the 15-vs-30-min mismatch (2026-07-21 audit):
+       This page's copy promises a "15-minute call", but calendar HS90f7YhCSn6J6nB6j9T
+       was set to 30-minute slots in GHL, so leads booked a 30-min hold. Set that
+       calendar's slot duration to 15 min (GHL → Calendars → "AI Strategy Call" → 15 min)
+       so the booked hold matches the copy. The SITE is already consistent at 15 min;
+       do NOT change the copy to 30 unless you deliberately want a 30-minute call. */
   var BOOKING_CAL_ID = 'HS90f7YhCSn6J6nB6j9T';
   var BOOKING_BASE   = 'https://api.leadconnectorhq.com/widget/booking/' + BOOKING_CAL_ID;
 

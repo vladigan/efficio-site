@@ -1022,46 +1022,51 @@ footer{padding-bottom:96px}
 
 <!-- WORKS WITH -->
 <style id="ww-css">
-#works-with .ww-strip{list-style:none;padding:0;margin:28px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:672px}
-#works-with .ww-item{display:flex;flex-direction:column;align-items:center;gap:9px;width:152px;padding:20px 14px 16px;border-radius:16px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);
-  transition:transform .24s var(--ease),background .24s var(--ease),border-color .24s var(--ease)}
-#works-with .ww-item:hover{transform:translateY(-3px);background:rgba(255,255,255,.055);border-color:rgba(124,77,255,.38)}
-/* logo slot and monogram slot are the same 30px box, so mixed rows stay aligned */
-#works-with .ww-logo,#works-with .ww-mark{display:flex;align-items:center;justify-content:center;height:30px}
-#works-with .ww-logo{width:30px}
-#works-with .ww-mark{font-weight:800;font-size:17px;letter-spacing:-.02em;color:rgba(245,241,234,.58);transition:color .24s var(--ease)}
-#works-with .ww-item:hover .ww-mark{color:var(--brand,#fff)}
-/* the SVG is a mask, not an image: background-color drives muted -> brand colour.
-   Gated on @supports so unsupported browsers get an empty slot, never a solid block. */
-@supports ((-webkit-mask-image:url("a.svg")) or (mask-image:url("a.svg"))){
-  #works-with .ww-logo{background-color:rgba(245,241,234,.58);transition:background-color .24s var(--ease);
-    -webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat}
-  #works-with .ww-item:hover .ww-logo{background-color:var(--brand,#fff)}
+/* ===== works-with: full-colour brand marquee -- seamless infinite auto-scroll ===== */
+#works-with .ww-marquee{position:relative;margin-top:38px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+/* the track holds two identical groups; translating it -50% lands group 2 exactly
+   where group 1 began, so the loop is seamless with no visible jump or gap */
+#works-with .ww-track{display:flex;width:max-content;will-change:transform;
+  animation:ww-scroll 60s linear infinite}
+#works-with .ww-marquee:hover .ww-track{animation-play-state:paused}
+#works-with .ww-group{display:flex;flex:0 0 auto;align-items:center}
+#works-with .ww-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  height:66px;padding:0 27px}
+/* every logo is normalised to the same optical height, full-colour, on the dark band */
+#works-with .ww-item img{height:30px;width:auto;max-width:none;display:block;opacity:.9;
+  transition:opacity .22s var(--ease),transform .22s var(--ease)}
+#works-with .ww-item:hover img{opacity:1;transform:translateY(-2px)}
+@keyframes ww-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#works-with .ww-disc{font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--muted2);
+  margin:26px auto 0;max-width:70ch}
+@media(max-width:560px){
+  #works-with .ww-item{height:56px;padding:0 19px}
+  #works-with .ww-item img{height:26px}
 }
-/* two lines are reserved so a wrapping name ("Google Workspace") cannot make its
-   row taller than the others -- every tile ends up the same height */
-#works-with .ww-name{font-weight:700;font-size:14.5px;letter-spacing:-.01em;color:#fff;text-align:center;
-  display:flex;align-items:center;justify-content:center;min-height:2.5em;line-height:1.25}
-#works-with .ww-role{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center}
-#works-with .ww-disc{font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--muted2);margin:20px auto 0;max-width:66ch}
-@media(max-width:560px){#works-with .ww-strip{max-width:332px;gap:10px}#works-with .ww-item{width:calc(50% - 5px)}}
-@media(prefers-reduced-motion:reduce){#works-with .ww-item{transition:none}#works-with .ww-item:hover{transform:none}}
+/* accessibility: no motion -> static, wrapped, centred grid of the logos (shown once) */
+@media(prefers-reduced-motion:reduce){
+  #works-with .ww-marquee{overflow:visible;-webkit-mask-image:none;mask-image:none}
+  #works-with .ww-track{animation:none;width:auto;max-width:1180px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  #works-with .ww-group{flex-wrap:wrap;justify-content:center}
+  #works-with .ww-group[aria-hidden="true"]{display:none}
+  #works-with .ww-item:hover img{transform:none}
+}
 </style>
 <section class="sec" id="works-with">
   <div class="wrap center">
     <div class="eyebrow rv">// works with</div>
     <h2 class="rv d1">We build inside the tools <span class="grad">you already run.</span></h2>
     <p class="lede rv d1">Your account, your keys. Efficio's agents run on the platforms you already pay for &mdash; which is why your data never leaves your system.</p>
-    <ul class="ww-strip rv d2" aria-label="Platforms Efficio builds on">
-      <li class="ww-item"><span class="ww-mark" aria-hidden="true">HL</span><span class="ww-name">GoHighLevel</span><span class="ww-role">CRM &amp; pipeline</span></li>
-      <li class="ww-item" style="--src:url('/assets/logos/claude.svg');--brand:#D97757"><span class="ww-logo" aria-hidden="true"></span><span class="ww-name">Claude</span><span class="ww-role">by Anthropic</span></li>
-      <li class="ww-item"><span class="ww-mark" aria-hidden="true">SF</span><span class="ww-name">Salesforce</span><span class="ww-role">CRM &amp; service</span></li>
-      <li class="ww-item"><span class="ww-mark" aria-hidden="true">TW</span><span class="ww-name">Twilio</span><span class="ww-role">phone &amp; SMS</span></li>
-      <li class="ww-item" style="--src:url('/assets/logos/google.svg');--brand:#4285F4"><span class="ww-logo" aria-hidden="true"></span><span class="ww-name">Google Workspace</span><span class="ww-role">mail &amp; calendar</span></li>
-      <li class="ww-item" style="--src:url('/assets/logos/mcp.svg');--brand:#FFFFFF"><span class="ww-logo" aria-hidden="true"></span><span class="ww-name">MCP</span><span class="ww-role">tool connection</span></li>
-      <li class="ww-item"><span class="ww-mark" aria-hidden="true">{&nbsp;}</span><span class="ww-name">API</span><span class="ww-role">everything else</span></li>
-    </ul>
+  </div>
+  <div class="ww-marquee rv d2">
+    <div class="ww-track">
+      <div class="ww-group"><span class="ww-item"><img src="/assets/logos/brands/google.svg" alt="Google" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/slack.svg" alt="Slack" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/quickbooks.svg" alt="QuickBooks" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/hubspot.svg" alt="HubSpot" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zoom.svg" alt="Zoom" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/salesforce.svg" alt="Salesforce" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/notion.svg" alt="Notion" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/stripe.svg" alt="Stripe" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/shopify.svg" alt="Shopify" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/calendly.svg" alt="Calendly" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/microsoft.svg" alt="Microsoft 365" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/mailchimp.svg" alt="Mailchimp" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/twilio.svg" alt="Twilio" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gmail.svg" alt="Gmail" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/airtable.svg" alt="Airtable" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/xero.svg" alt="Xero" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/meta.svg" alt="Meta" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/docusign.svg" alt="DocuSign" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zapier.svg" alt="Zapier" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gcal.svg" alt="Google Calendar" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/intercom.svg" alt="Intercom" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/whatsapp.svg" alt="WhatsApp" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/paypal.svg" alt="PayPal" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/teams.svg" alt="Microsoft Teams" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/square.svg" alt="Square" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/instagram.svg" alt="Instagram" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/ringcentral.svg" alt="RingCentral" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/meet.svg" alt="Google Meet" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/openai.svg" alt="OpenAI" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/outlook.svg" alt="Outlook" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/facebook.svg" alt="Facebook" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gohighlevel.svg" alt="GoHighLevel" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zendesk.svg" alt="Zendesk" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/claude.svg" alt="Claude" width="30" height="30" loading="lazy" decoding="async"></span></div>
+      <div class="ww-group" aria-hidden="true"><span class="ww-item"><img src="/assets/logos/brands/google.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/slack.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/quickbooks.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/hubspot.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zoom.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/salesforce.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/notion.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/stripe.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/shopify.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/calendly.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/microsoft.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/mailchimp.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/twilio.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gmail.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/airtable.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/xero.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/meta.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/docusign.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zapier.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gcal.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/intercom.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/whatsapp.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/paypal.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/teams.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/square.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/instagram.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/ringcentral.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/meet.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/openai.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/outlook.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/facebook.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/gohighlevel.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/zendesk.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><span class="ww-item"><img src="/assets/logos/brands/claude.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span></div>
+    </div>
+  </div>
+  <div class="wrap center">
     <p class="ww-disc rv d2">Works with &middot; built on. Product names and logos are trademarks of their respective owners; their use here does not imply any partnership, affiliation, or endorsement.</p>
   </div>
 </section>

@@ -77,7 +77,10 @@ a:focus-visible,button:focus-visible,.btn-primary:focus-visible,.btn-outline:foc
 @keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,20px) scale(1.1)}}
 .bgfx .noise{position:absolute;inset:0;opacity:.035;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body>*:not(.bgfx):not(.scrollbar),main>*{position:relative;z-index:1}
+/* .nav is excluded: it must keep its own position:fixed;z-index:120 -- this catch-all
+   (specificity 0,2,1) otherwise beat .nav (0,1,0), forcing the header into flow at z-index:1,
+   which trapped the mobile dropdown below the hero and made its links untappable. */
+body>*:not(.bgfx):not(.scrollbar):not(.nav),main>*{position:relative;z-index:1}
 /* --- polish-pass-2: dark native UI, mobile tap polish, skip-link, main landmark --- */
 :root{color-scheme:dark;accent-color:var(--violet)}
 body{-webkit-tap-highlight-color:transparent}

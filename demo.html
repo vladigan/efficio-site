@@ -83,7 +83,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--violet-l);outline-o
 /* Overlays (drawer + deploy modal) must stay position:fixed/high z-index.
    Excluded here so this stacking rule can't override them to position:relative,
    which previously dropped the drawer in-flow far below the viewport. */
-body>*:not(.bgfx):not(.scrollbar):not(.drawer):not(.modal){position:relative;z-index:1}
+/* .nav is excluded: it must keep its own position:fixed;z-index:120 -- this catch-all
+   (specificity 0,2,1) otherwise beat .nav (0,1,0), forcing the header into flow at z-index:1,
+   which trapped the mobile dropdown below the hero and made its links untappable. */
+body>*:not(.bgfx):not(.scrollbar):not(.nav):not(.drawer):not(.modal){position:relative;z-index:1}
 
 /* nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:120;width:min(1000px,calc(100% - 24px))}

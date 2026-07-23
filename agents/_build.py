@@ -320,7 +320,9 @@ TEAMS = [
     },
 ]
 
-STRIPE_INBOX = "https://buy.stripe.com/aFa4gB2t795S3p88JodQQ0h"
+# No self-serve checkout: every tier starts with the free build, so the CTA
+# routes to the fit quiz rather than a payment link.
+INBOX_CTA = "/find-your-tier.html"
 
 # ----------------------------------------------------------------------------
 # Shared markup
@@ -637,8 +639,8 @@ def cta_html(t):
     if t.get("live"):
         return (
             '<div class="cta-bar"><h3>' + t["name"] + ' is live — start today.</h3>'
-            '<p>The one module you can buy right now. It reads your inbox, triages by intent, and drafts every reply to a queue you approve — $497/mo. We never send for you.</p>'
-            '<div class="cta-row"><a href="' + STRIPE_INBOX + '" target="_blank" rel="noopener">Get ' + t["name"] + ' — $497/mo &rarr;</a>'
+            '<p>It reads your inbox, triages by intent, and drafts every reply to a queue you approve. We never send for you. $0 upfront — we build it free, and you only pay once it works.</p>'
+            '<div class="cta-row"><a href="' + INBOX_CTA + '">Start your free build with ' + t["name"] + ' &rarr;</a>'
             '<a class="ghost" href="/qualify.html">Not sure yet? Take the 60-sec qualifier &rarr;</a></div></div>'
         )
     if t["status"] == "built":

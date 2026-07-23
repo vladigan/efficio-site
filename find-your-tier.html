@@ -5,7 +5,7 @@
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js"></script>
 <title>Find your tier — a 60-second fit quiz | Efficio</title>
-<meta name="description" content="Answer six quick questions and we'll point you to the right Efficio tier — Starter, AI Specialist, AI Team, or AI Department. $0 upfront, pay only if it works, month-to-month."/>
+<meta name="description" content="Answer six quick questions and we'll point you to the right Efficio tier — AI Operator, Founding CTO or Full Custom CTO. $0 upfront, pay only when it works." />
 <link rel="canonical" href="https://efficio.tech/find-your-tier.html"/>
 <meta property="og:title" content="Find your tier — a 60-second fit quiz | Efficio"/>
 <meta property="og:description" content="Six quick questions to find the right AI workforce tier for your business. $0 upfront, pay only if it works, month-to-month. Built on Claude."/>
@@ -106,12 +106,17 @@
 
 .rnote{font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.6;margin:16px 0 0;text-align:center}
 .rnote b{color:var(--ink2)}
+/* the "a single one-off build may fit a lower tier" aside, appended inside .rwhy */
+.rwhy-alt{display:block;margin-top:12px;font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.55}
+.rwhy-alt b{color:var(--ink2)}
 
 /* other tiers / retake */
 .rother{margin-top:30px}
 .rother-h{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:14px}
-.rmini{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-@media(max-width:620px){.rmini{grid-template-columns:repeat(2,1fr)}}
+/* three tiers, so three columns -- at 4 the last cell sat empty. Stacks on mobile
+   rather than 2+1, which orphans the third tile. */
+.rmini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:620px){.rmini{grid-template-columns:1fr}}
 .minit{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 14px;text-align:left;
   cursor:pointer;transition:transform .2s var(--ease2),border-color .2s,box-shadow .2s;color:inherit;font-family:inherit}
 .minit:hover{transform:translateY(-4px);border-color:rgba(124,77,255,.42);box-shadow:0 22px 50px -30px rgba(124,77,255,.6)}
@@ -244,7 +249,7 @@
         <div class="qresult" id="qResult" role="region" aria-label="Your recommended tier" tabindex="-1">
           <div class="rtop">
             <div class="rmatch">Your best-fit tier</div>
-            <div class="rname"><span class="grad" id="rName">AI Team</span></div>
+            <div class="rname"><span class="grad" id="rName">Founding CTO</span></div>
             <div class="rprice"><b id="rPrice">$2,500</b> /mo<span class="rpop" id="rPop" hidden>Most popular</span></div>
           </div>
 
@@ -313,7 +318,7 @@
         </div>
       </div>
 
-      <p class="pnote rv" style="margin-top:22px">Prefer to skip ahead? <a href="/pricing.html">See all four tiers &amp; what runs at each &rarr;</a></p>
+      <p class="pnote rv" style="margin-top:22px">Prefer to skip ahead? <a href="/pricing.html">See all three tiers &amp; what runs at each &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -348,87 +353,88 @@
 <script>
 /* ===========================================================================
    FIND YOUR TIER — self-contained quiz engine (vanilla, no deps)
-   Tiers: starter | specialist | team | department
-   Scoring: each chosen option adds a weighted point vector to the tiers.
-   Recommendation = argmax(total). Tie-break = lower-priced (more conservative)
-   tier, so we never oversell. Deterministic — no randomness.
+   Tiers: operator | founding | custom
+   Scoring: each chosen option adds a weighted point vector to the tiers, and the
+   recommendation is argmax(total) between operator and founding. Tie-break =
+   lower-priced (more conservative) tier, so we never oversell.
+   Full Custom is NOT reachable on points — Q5 (does anything need building?)
+   gates it directly, because custom engineering sets the price regardless of
+   headcount or revenue. See TIER-DEFINITIONS.md. Deterministic — no randomness.
    ========================================================================= */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---- tier reference data (pulled from pricing.html) ---- */
   var TIERS = {
-    starter:    {name:'Starter',        price:'$497',   popular:false, tag:'A low-risk first step into AI.',
-      get:['Your own <b>Claude account</b>, set up for you','Free website build or conversion tune-up','AI-direction session + roadmap','Your first automation, live']},
-    specialist: {name:'AI Specialist',  price:'$997',   popular:false, tag:'One AI team, end-to-end.',
-      get:['<b>One AI team</b> — front <em>or</em> back office','Custom dashboard for your ops','Monthly strategy call','Shared chat channel']},
-    team:       {name:'AI Team',        price:'$2,500', popular:true,  tag:'A full department in parallel.',
-      get:['<b>Two AI teams</b> + 1 custom build','Everything in AI Specialist','Biweekly strategy call','Priority response &middot; quarterly review']},
-    department: {name:'AI Department',   price:'$3,500', popular:false, tag:'Your whole operation, run.',
-      get:['<b>Every team</b> + continuous custom builds','Weekly strategy call &middot; 45 min','24-hour response SLA','90-day written roadmap']}
+    operator: {name:'AI Operator',    price:'$1,500', popular:false, tag:'We turn on and run the AI already in your tools.',
+      get:['Runs <b>inside your own platform</b> — your data never leaves','Up to 4 standard workflows + 1 AI agent','Monthly optimization + report','Standard config — no custom builds']},
+    founding: {name:'Founding CTO',   price:'$2,500', popular:true,  tag:'We run it as your fractional AI CTO. Founding rate.',
+      get:['<b>Everything in AI Operator</b>','Fractional CTO — weekly call + shared Slack','Up to 8 workflows + up to 3 agents (front + back office)','Light in-platform customization']},
+    custom:   {name:'Full Custom CTO',price:'$3,500', popular:false, tag:'Ongoing custom engineering, built for you.',
+      get:['<b>Everything in Founding CTO</b>','Ongoing custom builds — integrations, bots, new systems','Unlimited standard workflows','Priority support &middot; dedicated CTO capacity']}
   };
-  var ORDER = ['starter','specialist','team','department']; // also low→high price for tie-break
+  var ORDER = ['operator','founding','custom']; // also low→high price for tie-break
 
-  /* ---- questions. each option carries a point vector [starter,specialist,team,department] ---- */
+  /* ---- questions. each option carries a point vector [operator,founding,custom] ---- */
   var Q = [
     {
       q:'How big is your team right now?',
       hint:"Headcount is the fastest signal of how much an AI workforce can take off your plate.",
       opts:[
-        {label:"It's just me",              sub:'Solo owner-operator',           v:[3,1,0,0]},
-        {label:'2&ndash;5 people',          sub:'Small team, wearing many hats',  v:[1,3,0,0]},
-        {label:'6&ndash;20 people',         sub:'Growing, departments forming',   v:[0,1,3,0]},
-        {label:'20+ people',                sub:'Multiple functions to run',      v:[0,0,1,3]}
+        {label:"It's just me",              sub:'Solo owner-operator',            v:[3,1,0]},
+        {label:'2&ndash;5 people',          sub:'Small team, wearing many hats',  v:[2,3,0]},
+        {label:'6&ndash;20 people',         sub:'Growing, departments forming',   v:[0,3,1]},
+        {label:'20+ people',                sub:'Multiple functions to run',      v:[0,2,3]}
       ]
     },
     {
       q:"What's your monthly revenue, roughly?",
       hint:'Be honest — this only sets the scale of what makes sense to invest.',
       opts:[
-        {label:'Under $25k / month',        sub:'Early or lean',                  v:[3,1,0,0]},
-        {label:'$25k&ndash;$75k / month',   sub:'Established, steady',            v:[1,3,1,0]},
-        {label:'$75k&ndash;$250k / month',  sub:'Scaling fast',                  v:[0,1,3,1]},
-        {label:'$250k+ / month',            sub:'Serious operation',             v:[0,0,1,3]}
+        {label:'Under $25k / month',        sub:'Early or lean',                  v:[3,1,0]},
+        {label:'$25k&ndash;$75k / month',   sub:'Established, steady',            v:[2,3,0]},
+        {label:'$75k&ndash;$250k / month',  sub:'Scaling fast',                   v:[0,3,1]},
+        {label:'$250k+ / month',            sub:'Serious operation',              v:[0,1,3]}
       ]
     },
     {
       q:'Which side of the business needs the most help?',
       hint:'Front office = customer-facing. Back office = the admin behind it.',
       opts:[
-        {label:'Front office',  sub:'Calls, booking, sales follow-up, reviews',  v:[1,4,0,0]},
-        {label:'Back office',   sub:'Admin, scheduling, bookkeeping, inbox',     v:[1,4,0,0]},
-        {label:'Both, equally', sub:'Front and back are both stretched',         v:[0,0,5,0]},
-        {label:'Everything',    sub:'I want my whole operation run for me',      v:[0,0,1,5]}
+        {label:'Front office',  sub:'Calls, booking, sales follow-up, reviews',   v:[2,3,0]},
+        {label:'Back office',   sub:'Admin, scheduling, bookkeeping, inbox',      v:[2,3,0]},
+        {label:'Both, equally', sub:'Front and back are both stretched',          v:[0,3,1]},
+        {label:'Everything',    sub:'I want my whole operation run for me',       v:[0,2,3]}
       ]
     },
     {
       q:'How much admin and ops do you still do yourself?',
       hint:'The owner-time you spend on busywork is exactly what we aim to give back.',
       opts:[
-        {label:'Just a little',         sub:'Mostly delegated already',          v:[3,1,0,0]},
-        {label:'A few hours a week',    sub:'Manageable, but it adds up',        v:[1,3,0,0]},
-        {label:"A big chunk of my week",sub:'It pulls me off real work',         v:[0,1,3,1]},
-        {label:"I'm drowning in it",    sub:"It's basically my whole job",       v:[0,0,1,3]}
+        {label:'Just a little',          sub:'Mostly delegated already',          v:[3,1,0]},
+        {label:'A few hours a week',     sub:'Manageable, but it adds up',        v:[2,3,0]},
+        {label:'A big chunk of my week', sub:'It pulls me off real work',         v:[0,3,1]},
+        {label:"I'm drowning in it",     sub:"It's basically my whole job",       v:[0,2,3]}
       ]
     },
     {
-      q:'How hands-on and custom do you want it?',
-      hint:'From one simple automation to a fully bespoke operation.',
+      q:'Does anything need to be <em>built</em>, or just switched on?',
+      hint:'This is the line between running the AI already in your tools and real engineering — it decides the tier more than size does.',
       opts:[
-        {label:'Keep it simple',            sub:'One automation to start',           v:[4,1,0,0]},
-        {label:'One solid system, set up for me', sub:'A team that just runs',        v:[1,3,1,0]},
-        {label:'A custom build for my workflow',  sub:'Tailored to how I actually work', v:[0,1,3,1]},
-        {label:'Continuous builds + high touch',  sub:'Always improving, hands-on support', v:[0,0,1,4]}
+        {label:'Just switch on what I pay for', sub:'Standard workflows and agents',                    v:[6,1,0]},
+        {label:'Mostly standard, one tweak',    sub:'Light in-platform changes — no outside code',  v:[1,6,0]},
+        {label:'Connect an outside system',     sub:'External API or integration (DOT SAFER, QuickBooks…)', v:[0,1,7]},
+        {label:'Ongoing custom builds',         sub:'Custom bots, new data sources, bespoke systems',    v:[0,0,8]}
       ]
     },
     {
       q:"What's your comfort level on monthly investment?",
       hint:'$0 upfront on every tier — you only ever pay if it works.',
       opts:[
-        {label:'Start small, prove it first', sub:'~$500 / month',                v:[3,1,0,0]},
-        {label:'Ready to fund one team',      sub:'~$1,000 / month',              v:[1,3,0,0]},
-        {label:'Want real horsepower',        sub:'~$2,500 / month',              v:[0,1,3,1]},
-        {label:'Whatever offloads the most',  sub:'$3,500+ / month',              v:[0,0,1,3]}
+        {label:'Start lean, prove it first',  sub:'~$1,500 / month',              v:[3,1,0]},
+        {label:'Fund a fractional CTO',       sub:'~$2,500 / month',              v:[1,3,1]},
+        {label:'Invest for ongoing builds',   sub:'~$3,500 / month',              v:[0,1,3]},
+        {label:'Not sure yet',                sub:'$0 upfront either way',        v:[1,1,1]}
       ]
     }
   ];
@@ -530,18 +536,25 @@
 
   /* ---- scoring ---- */
   function score(){
-    var totals = {starter:0, specialist:0, team:0, department:0};
+    var totals = {operator:0, founding:0, custom:0};
     answers.forEach(function(oi, qi){
       if(oi===null) return;
       var v = Q[qi].opts[oi].v;
-      totals.starter   += v[0];
-      totals.specialist+= v[1];
-      totals.team      += v[2];
-      totals.department+= v[3];
+      totals.operator += v[0];
+      totals.founding += v[1];
+      totals.custom   += v[2];
     });
+    // Hard gate, not a weighted term: genuine custom engineering is gated to Full
+    // Custom CTO whatever the headcount or budget says. On points alone the five
+    // size/revenue questions outvote the one question that actually sets the price
+    // — a solo shop needing a DOT SAFER integration scored Operator 14 / Custom 7.
+    if(answers[4] === 2 || answers[4] === 3){
+      return {key:'custom', totals:totals};
+    }
+    // so 'custom' is unreachable on points; only the gate above selects it.
     // argmax with conservative (lower-price) tie-break via ORDER iteration
     var best = ORDER[0], bestScore = -1;
-    ORDER.forEach(function(k){
+    ['operator','founding'].forEach(function(k){
       if(totals[k] > bestScore){ bestScore = totals[k]; best = k; }
     });
     return {key:best, totals:totals};
@@ -552,15 +565,19 @@
     var scope = answers[2]; // 0 front, 1 back, 2 both, 3 everything
     var sideWord = scope===0 ? 'your front office' : scope===1 ? 'your back office'
                  : scope===2 ? 'both your front and back office' : 'your entire operation';
+    var build = answers[4]; // 0 switch-on, 1 light tweak, 2 external integration, 3 ongoing custom
+    var buildWord = build===2 ? ' — an outside system wired into your stack'
+                  : build===3 ? ' — custom bots, new data sources and bespoke systems, on an ongoing basis' : '';
     var map = {
-      starter:'You told us you’re early and lean, and you’d rather <b>prove it before you scale</b>. '+
-              'Starter is the low-risk way in: your own Claude account, a website or conversion tune-up, and your <b>first automation live</b> — so you see real value before committing to a full team.',
-      specialist:'Your answers point to <b>one clear pressure point</b> rather than the whole business. '+
-              'AI Specialist puts a single end-to-end AI team on '+sideWord+', plus a live dashboard and a monthly strategy call — enough to take a real function off your plate without over-buying.',
-      team:'You’re stretched on <b>more than one front</b> and ready for real horsepower. '+
-              'AI Team runs '+sideWord+' as two AI teams working in parallel, adds a custom build for your specific workflow, and steps up the cadence to biweekly — a full department’s output without the headcount.',
-      department:'You’re effectively asking us to <b>run the operation</b>, not just patch one gap. '+
-              'AI Department covers every team with continuous custom builds, weekly strategy calls, and a 24-hour response SLA — the highest-touch tier, built for owners who want '+sideWord+' handled end-to-end.'
+      operator:'You want to <b>prove it before you scale</b>, and nothing you need has to be built from scratch. '+
+              'AI Operator turns on the AI you already pay for and runs it inside your own platform — up to four standard workflows and your first agent on '+sideWord+', optimised and reported on every month. Standard config, so you aren\u2019t paying for engineering you don\u2019t need.',
+      founding:'You\u2019ve got real pressure on '+sideWord+', and you\u2019d rather someone <b>owned the system</b> than handed it to you. '+
+              'Founding CTO is everything in AI Operator plus a fractional AI CTO — weekly call, shared channel, up to eight workflows and three agents across front and back office, and light in-platform customisation. It\u2019s where most owners land, at a locked founding rate.',
+      custom:'You need work that <b>doesn\u2019t exist yet</b>'+buildWord+'. '+
+              'That\u2019s genuine engineering rather than configuration, so it belongs in Full Custom CTO: everything in Founding, plus ongoing custom builds, unlimited standard workflows, and dedicated CTO capacity pointed at '+sideWord+'.'+
+              /* a single one-off build doesn't have to mean the top tier -- say so rather
+                 than quoting up, but never quietly hand custom work to a config tier */
+              (build===2 ? ' <span class="rwhy-alt">If it really is a <b>single</b> one-off build, Founding CTO plus a one-time build can also work \u2014 worth five minutes on the call to size it.</span>' : '')
     };
     return map[key];
   }
@@ -579,7 +596,7 @@
 
     document.getElementById('rName').innerHTML = t.name;
     document.getElementById('rPrice').textContent = t.price;
-    var pop = document.getElementById('rPop'); var isTeam = (res.key === 'team'); pop.hidden = !isTeam; pop.style.display = isTeam ? '' : 'none';
+    var pop = document.getElementById('rPop'); var isRec = (res.key === 'founding'); pop.hidden = !isRec; pop.style.display = isRec ? '' : 'none';
     document.getElementById('rWhy').innerHTML = whyText(res.key);
 
     var getUl = document.getElementById('rGet');

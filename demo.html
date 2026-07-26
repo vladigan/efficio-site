@@ -537,11 +537,6 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
       tasksToday:21,saved:165,recovered:3180,
       pool:['Drafting an itemized quote for the Johnson job','Following up on a 2-day-old estimate','Qualifying a new website inquiry','Sending a proposal recap email','Scheduling a site visit'],
       logseed:[[51,'Sent a <b>$3,180</b> itemized quote to Johnson'],[39,'Followed up on the Alvarez estimate'],[22,'Qualified 3 new inbound inquiries'],[8,'Booked a site visit for Friday 2 PM']]}),
-    agent({id:'inbox',name:'AI Inbox Manager',role:'office/',status:'active',
-      task:'Drafting 4 inbox replies, flagged 1 urgent',
-      tasksToday:54,saved:295,recovered:0,
-      pool:['Drafting 4 inbox replies, flagged 1 urgent','Sorting 22 overnight emails','Flagging an urgent supplier message','Snoozing 6 newsletters, archiving 9','Summarizing the morning inbox for you'],
-      logseed:[[63,'Sorted 41 overnight emails into 5 folders'],[47,'Drafted 14 replies for your approval'],[28,'Flagged 2 urgent threads to the top'],[9,'Unsubscribed you from 3 spam senders']]}),
     agent({id:'books',name:'AI Bookkeeper',role:'books/',status:'active',
       task:'Chasing a $3,180 overdue invoice',
       tasksToday:12,saved:140,recovered:5420,
@@ -554,17 +549,9 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
       logseed:[[66,'Updated 9 job statuses in the CRM'],[40,'Reordered low-stock supplies'],[19,'Prepped tomorrow’s crew schedule']]})
   ];
 
-  /* deployable templates (not yet online) */
-  var DEPLOYABLE = [
-    {id:'review',name:'AI Review Engine',role:'reviews/',
-      task:'Requesting a review from a happy customer',
-      pool:['Requesting a review from a happy customer','Replying to a new 5-star review','Flagging a 2-star review to you','Sending review links to 4 completed jobs'],
-      logseed:[[2,'Sent review requests to 4 completed jobs']]},
-    {id:'winback',name:'AI Win-Back',role:'retention/',
-      task:'Re-engaging a customer quiet for 90 days',
-      pool:['Re-engaging a customer quiet for 90 days','Sending a “we miss you” offer','Reactivating a lapsed maintenance plan','Following up on a stalled quote'],
-      logseed:[[2,'Queued win-back offers for 18 lapsed clients']]}
-  ];
+  /* deployable templates (not yet online) — all 4 canonical hires are already
+     online in AGENTS above, so there are none left to deploy right now. */
+  var DEPLOYABLE = [];
 
   /* global stats */
   var stats = {online:0, tasks:734, recovered:18940, hours:62};

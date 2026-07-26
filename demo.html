@@ -706,6 +706,10 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
   /* ---- deploy modal ---- */
   var modal=document.getElementById('deployModal'),mdList=document.getElementById('mdList'),
       mdScrim=document.getElementById('mdScrim'),mdX=document.getElementById('mdX');
+  /* Nothing is deployable while all 4 canonical hires are already online, so the
+     "Deploy agent" button would open an empty modal — hide it when DEPLOYABLE is
+     empty. Auto-reappears if a deployable hire is ever added back. */
+  (function(){ var db=document.getElementById('deployBtn'); if(db) db.style.display=DEPLOYABLE.length?'':'none'; })();
   function renderModal(){
     mdList.innerHTML='';
     DEPLOYABLE.forEach(function(t){

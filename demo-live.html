@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Efficio — Command Center (live demo)</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07070b;color:#f4f4f8;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.app{width:100%;max-width:1500px;border:1px solid #1c1c28;border-radius:20px;background:radial-gradient(120% 100% at 85% 0%,#111120 0%,#07070b 60%);padding:24px 28px}
+h1,h2,h3,.bd{font-family:'Space Grotesk','Inter',sans-serif}
+.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid #1e1e2a}
+.bd{font-size:23px;font-weight:700}.bd span{color:#56d8a0}
+.cc{font-size:14px;color:#76768e;margin-left:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.who{display:flex;align-items:center;gap:12px;font-size:14px;color:#9a9ab0}
+.live{display:inline-flex;align-items:center;gap:8px;background:rgba(86,216,160,.12);border:1px solid rgba(86,216,160,.4);color:#56d8a0;font-weight:600;font-size:13px;padding:6px 13px;border-radius:20px}
+.dot{width:9px;height:9px;border-radius:50%;background:#56d8a0;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(86,216,160,.5)}70%{box-shadow:0 0 0 7px rgba(86,216,160,0)}100%{box-shadow:0 0 0 0 rgba(86,216,160,0)}}
+.clock{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#76768e}
+.body{display:flex;gap:20px;padding-top:20px}
+@media(max-width:900px){.body{flex-direction:column}}
+.col{display:flex;flex-direction:column;gap:16px}
+.left{width:460px;flex:none}@media(max-width:900px){.left{width:100%}}
+.right{flex:1;min-width:0}
+.panel{background:#0f0f16;border:1px solid #20202c;border-radius:15px;padding:18px 20px}
+.ph{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c3b0ff;margin-bottom:14px}
+.agent{display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.agent:last-child{border-bottom:0}
+.agent .ic{width:36px;height:36px;border-radius:9px;background:rgba(86,216,160,.10);border:1px solid rgba(86,216,160,.3);flex:none}
+.agent.p .ic{background:rgba(154,123,255,.10);border-color:rgba(154,123,255,.35)}.agent.g .ic{background:rgba(236,192,106,.10);border-color:rgba(236,192,106,.35)}.agent.t .ic{background:rgba(69,211,201,.10);border-color:rgba(69,211,201,.3)}
+.agent .mid{flex:1;min-width:0}.agent .nm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px}.agent .ds{font-size:12.5px;color:#8a8a9e}
+.agent .st{display:flex;align-items:center;gap:6px;font-size:12px;color:#56d8a0;font-weight:600}
+.own{background:linear-gradient(180deg,rgba(86,216,160,.06),rgba(15,15,22,.5));border-color:rgba(86,216,160,.28)}.own .ph{color:#56d8a0}.own p{font-size:13.5px;color:#dcdce6;line-height:1.5}.own p b{color:#fff}
+.kpis{display:flex;gap:14px}@media(max-width:620px){.kpis{flex-wrap:wrap}.kpi{min-width:46%}}
+.kpi{flex:1;background:#0f0f16;border:1px solid #20202c;border-radius:15px;padding:15px 18px}
+.kpi .k{font-size:12px;color:#8a8a9e;font-weight:600}.kpi .n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;margin-top:3px}
+.kpi .n.mint{color:#56d8a0}.kpi .n.gold{color:#ecc06a}.kpi .sub{font-size:11.5px;color:#56d8a0;margin-top:2px}
+.cto{background:linear-gradient(180deg,rgba(154,123,255,.07),rgba(15,15,22,.5));border:1px solid rgba(154,123,255,.28)}
+.cto .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}.cto .who2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px}
+.cto .note{font-size:13.5px;color:#dcdce6;line-height:1.5;margin-bottom:14px}
+.road{display:flex;gap:11px}@media(max-width:620px){.road{flex-direction:column}}
+.rc{flex:1;background:#12121c;border-radius:11px;padding:11px 14px;border-top:3px solid #56d8a0}.rc.b{border-top-color:#9a7bff}.rc.n{border-top-color:#ecc06a}
+.rc .rl{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#8a8a9e}.rc .rt{font-size:13px;color:#f4f4f8;margin-top:4px;line-height:1.3}
+.feed .fr{display:flex;gap:13px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);align-items:baseline;animation:fadein .5s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.feed .fr:last-child{border-bottom:0}.feed .tm{font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:#76768e;width:52px;flex:none}
+.feed .ag{font-size:12.5px;font-weight:700;color:#c3b0ff;width:120px;flex:none}.feed .tx{font-size:13px;color:#dcdce6}.feed .tx b{color:#56d8a0}
+.foot{margin-top:16px;padding-top:14px;border-top:1px solid #1e1e2a;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:15.5px;color:#9a9ab0}
+.foot b{color:#f4f4f8}.foot span{color:#56d8a0}
+</style></head><body><div class="app">
+  <div class="top">
+    <div style="display:flex;align-items:center"><div class="bd">Effici<span>o</span></div><div class="cc">Command Center</div></div>
+    <div class="who">Ridgeline Plumbing &amp; HVAC <span class="clock" id="clock"></span> <span class="live"><span class="dot"></span>All agents live</span></div>
+  </div>
+  <div class="body">
+    <div class="col left">
+      <div class="panel">
+        <div class="ph">Agents at work</div>
+        <div class="agent"><div class="ic"></div><div class="mid"><div class="nm">AI Receptionist</div><div class="ds" id="a1">Answered 12 calls today · 0 missed</div></div><div class="st"><span class="dot"></span>Active</div></div>
+        <div class="agent t"><div class="ic"></div><div class="mid"><div class="nm">Speed-to-Lead</div><div class="ds" id="a2">Replied to 8 new leads · avg 41s</div></div><div class="st"><span class="dot"></span>Active</div></div>
+        <div class="agent g"><div class="ic"></div><div class="mid"><div class="nm">AI Booking</div><div class="ds" id="a3">3 jobs booked onto your calendar</div></div><div class="st"><span class="dot"></span>Active</div></div>
+        <div class="agent p"><div class="ic"></div><div class="mid"><div class="nm">Lead Reactivation</div><div class="ds" id="a4">Working 40 cold leads · 5 re-opened</div></div><div class="st"><span class="dot"></span>Active</div></div>
+        <div class="agent"><div class="ic"></div><div class="mid"><div class="nm">Follow-up &amp; Nurture</div><div class="ds">Chasing 22 open leads</div></div><div class="st"><span class="dot"></span>Active</div></div>
+        <div class="agent g"><div class="ic"></div><div class="mid"><div class="nm">Review Engine</div><div class="ds" id="a6">Requested 6 · 2 new 5-star today</div></div><div class="st"><span class="dot"></span>Active</div></div>
+      </div>
+      <div class="panel own">
+        <div class="ph">Your data, your tools</div>
+        <p>Every agent runs <b>inside your own GoHighLevel</b>. Your leads and customer data never leave your system — and you own all of it.</p>
+      </div>
+    </div>
+    <div class="col right">
+      <div class="kpis">
+        <div class="kpi"><div class="k">Leads captured · 24h</div><div class="n" id="kLeads">17</div><div class="sub">+5 vs yesterday</div></div>
+        <div class="kpi"><div class="k">Calls answered</div><div class="n mint">100%</div><div class="sub">0 missed this week</div></div>
+        <div class="kpi"><div class="k">Jobs booked · wk</div><div class="n" id="kJobs">9</div><div class="sub">+3 vs last week</div></div>
+        <div class="kpi"><div class="k">Revenue recovered · mo</div><div class="n gold" id="kRev">$6,400</div><div class="sub">est. from booked work</div></div>
+      </div>
+      <div class="panel cto">
+        <div class="row"><div class="who2">Your fractional CTO</div><div class="st" style="color:#9a7bff;font-size:12.5px;font-weight:600">Updated 2h ago</div></div>
+        <div class="note">"Front office is clean — zero missed calls this week and reactivation is already pulling old leads back. This week I'm wiring after-hours SMS so nights convert like days. Next up: a win-back campaign on the 40 dormant leads."</div>
+        <div class="road">
+          <div class="rc"><div class="rl">Shipped</div><div class="rt">Review engine · missed-call text-back</div></div>
+          <div class="rc b"><div class="rl">Building</div><div class="rt">After-hours SMS booking</div></div>
+          <div class="rc n"><div class="rl">Next</div><div class="rt">Dormant-lead win-back campaign</div></div>
+        </div>
+      </div>
+      <div class="panel feed"><div class="ph">Live activity</div><div id="feed">
+        <div class="fr"><div class="tm">now</div><div class="ag">AI Receptionist</div><div class="tx">Missed call caught → texted back in 58s → <b>job booked</b></div></div>
+        <div class="fr"><div class="tm">2m</div><div class="ag">Speed-to-Lead</div><div class="tx">New lead "Sarah M." answered in <b>38 seconds</b></div></div>
+        <div class="fr"><div class="tm">14m</div><div class="ag">Lead Reactivation</div><div class="tx">Re-opened a dormant lead from March → <b>quote requested</b></div></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="foot">Your whole AI department <b>+ a fractional CTO + this live command center</b> — for <span>a fraction of one hire.</span><div style="margin-top:16px"><a href="https://api.leadconnectorhq.com/widget/booking/HS90f7YhCSn6J6nB6j9T" style="display:inline-block;background:#56d8a0;color:#04120c;font-weight:700;font-family:Space Grotesk,Inter,sans-serif;padding:13px 30px;border-radius:11px;text-decoration:none;font-size:16px">See it built for your business &rarr;</a></div></div>
+</div>
+<script>
+function pad(n){return n<10?'0'+n:n}
+function tick(){var d=new Date();document.getElementById('clock').textContent=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());}
+setInterval(tick,1000);tick();
+var leads=17,jobs=9,rev=6400,calls=12,replies=8,reopened=5,reviews=2;
+var events=[
+ ['AI Receptionist','Answered an inbound call → <b>booked an estimate</b>',function(){calls++;document.getElementById('a1').innerHTML='Answered '+calls+' calls today · 0 missed';}],
+ ['Speed-to-Lead','Replied to a new web lead in <b>34 seconds</b>',function(){replies++;leads++;document.getElementById('a2').innerHTML='Replied to '+replies+' new leads · avg 40s';}],
+ ['AI Booking','New job dropped onto your calendar → <b>Fri 2:00pm</b>',function(){jobs++;rev+=Math.floor(400+Math.random()*600);}],
+ ['Lead Reactivation','Pulled back a dead lead from February → <b>quote sent</b>',function(){reopened++;document.getElementById('a4').innerHTML='Working 40 cold leads · '+reopened+' re-opened';}],
+ ['Review Engine','Review request → <b>new 5-star</b> just landed',function(){reviews++;document.getElementById('a6').innerHTML='Requested 7 · '+reviews+' new 5-star today';}],
+ ['Follow-up &amp; Nurture','Nudged a "maybe" lead → <b>they replied</b>',function(){leads++;}]
+];
+function commas(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function refresh(){document.getElementById('kLeads').textContent=leads;document.getElementById('kJobs').textContent=jobs;document.getElementById('kRev').textContent='$'+commas(rev);}
+var i=0;
+setInterval(function(){
+  var e=events[Math.floor(Math.random()*events.length)];
+  e[2]();refresh();
+  var feed=document.getElementById('feed');
+  var row=document.createElement('div');row.className='fr';
+  row.innerHTML='<div class="tm">now</div><div class="ag">'+e[0]+'</div><div class="tx">'+e[1]+'</div>';
+  // age existing timestamps
+  var tms=feed.querySelectorAll('.tm');for(var k=0;k<tms.length;k++){if(tms[k].textContent=='now')tms[k].textContent='1m';}
+  feed.insertBefore(row,feed.firstChild);
+  while(feed.children.length>6)feed.removeChild(feed.lastChild);
+},4200);
+</script>
+</body></html>

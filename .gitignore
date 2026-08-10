@@ -1,1 +1,17 @@
 index.html.bak
+
+# --- Cowork/Claude local workspace (never commit) ---
+.claude-comms/
+.claude/artifacts/
+CLAUDE.md
+
+# --- One-shot push helpers (do not commit) ---
+PUSH_*.bat
+PUSH_*.log
+
+# --- Test / scratch artifacts ---
+test_write
+*.tmp
+
+# --- Per-customer scratch directories (staging only) ---
+c/acme-*/

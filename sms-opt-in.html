@@ -128,8 +128,8 @@
           </div>
 
           <div class="consent">
-            <input id="f-consent" name="sms_consent" type="checkbox" required aria-describedby="consentText"/>
-            <label for="f-consent" id="consentText">By checking this box, I agree to receive text messages from Efficio at the phone number provided. These may include account updates, appointment reminders, and customer-care messages. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help.</label>
+            <input id="f-consent" name="sms_consent" type="checkbox" aria-describedby="consentText"/>
+            <label for="f-consent" id="consentText">By checking this box, I agree to receive recurring automated text messages from Efficio (BNG Contracting Enterprise LLC) at the phone number provided. These messages include appointment reminders, booking confirmations, account updates, and customer-care replies. Consent is not a condition of any purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help.</label>
           </div>
 
           <button type="submit" class="btn-primary lg" id="smsSubmit">Sign me up <span class="arr">&rarr;</span></button>
@@ -234,6 +234,7 @@
     var nowIso = new Date().toISOString();
     var disclosureEl = document.getElementById('consentText');
     var disclosure = (disclosureEl ? (disclosureEl.textContent || '') : '').replace(/\s+/g,' ').trim();
+    var consentGiven = !!(form.sms_consent && form.sms_consent.checked);
     var fullName = (form.full_name.value || '').trim();
     var email    = (form.email.value || '').trim();
     var phone    = (form.phone.value || '').trim();
@@ -241,7 +242,7 @@
     var payload = {
       kind: 'sms_opt_in',
       ts: nowIso,
-      sms_opt_in: true,
+      sms_opt_in: consentGiven,
       /* mirror common fields to top level for easy CRM / alert reading */
       firstName: (fullName.split(' ')[0] || fullName),
       name: fullName,
@@ -249,8 +250,8 @@
       phone: phone,
       /* explicit, auditable consent record */
       consent: {
-        sms_opt_in: true,
-        granted: true,
+        sms_opt_in: consentGiven,
+        granted: consentGiven,
         timestamp: nowIso,
         method: 'web_form_checkbox',
         disclosure_text: disclosure,
@@ -261,7 +262,7 @@
         full_name: fullName,
         email: email,
         phone: phone,
-        sms_consent: 'true',
+        sms_consent: String(consentGiven),
         consent_timestamp: nowIso,
         consent_text: disclosure
       }

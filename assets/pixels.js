@@ -50,7 +50,7 @@ window.EFFICIO_PIXELS = {
   googleAdsLabel:  "GADS_CONVERSION_LABEL_PLACEHOLDER",   /* per-action label */
   metaPixel:       META_PIXEL_ID,                         /* <-- set META_PIXEL_ID above; "" = dormant */
   linkedinPartner: "9123490",
-  linkedinConv:    "LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER",  /* fired on qualifier complete */
+  linkedinConv:    "29838514",  /* fired on qualifier complete */
   linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on booking            */
   tiktokPixel:     "REPLACE_ME_TIKTOK_PIXEL_ID",
   snapPixel:       "REPLACE_ME_SNAP_PIXEL_ID"

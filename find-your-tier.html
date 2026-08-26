@@ -294,6 +294,8 @@
               </div>
               <p class="rcap-lead">Want your results <b>+ a tailored next-step plan</b> emailed to you? Totally optional &mdash; your tier is already shown above.</p>
               <div class="rcap-row">
+                <input id="rCapName" name="name" type="text" autocomplete="name" required placeholder="Your name" aria-label="Your name"/>
+                <input id="rCapCompany" name="company" type="text" autocomplete="organization" required placeholder="Company name" aria-label="Your company"/>
                 <input id="rCapEmail" name="email" type="email" autocomplete="email" required placeholder="you@business.com" aria-label="Your email"/>
                 <input id="rCapPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone (optional)" aria-label="Your phone, optional"/>
                 <button type="submit" class="btn-outline" id="rCapSubmit">Email my plan <span class="arr">&rarr;</span></button>
@@ -672,7 +674,9 @@
         capWrap  = document.getElementById('rCap'),
         capSkip  = document.getElementById('rCapSkip'),
         capEmail = document.getElementById('rCapEmail'),
-        capPhone = document.getElementById('rCapPhone');
+        capPhone = document.getElementById('rCapPhone'),
+        capName  = document.getElementById('rCapName'),
+        capCompany = document.getElementById('rCapCompany');
 
     if(capSkip){ capSkip.addEventListener('click', function(){ if(capWrap) capWrap.style.display='none'; }); }
 
@@ -687,6 +691,17 @@
       var nowIso = new Date().toISOString();
       var email  = (capEmail.value || '').trim();
       var phone  = (capPhone.value || '').trim();
+      var name   = (capName && capName.value || '').trim();
+      var company = (capCompany && capCompany.value || '').trim();
+      var qs = new URLSearchParams(window.location.search);
+      var utm_source = qs.get('utm_source') || '';
+      var utm_medium = qs.get('utm_medium') || '';
+      var utm_campaign = qs.get('utm_campaign') || '';
+      var utm_content = qs.get('utm_content') || '';
+      var utm_term = qs.get('utm_term') || '';
+      var gclid = qs.get('gclid') || '';
+      var fbclid = qs.get('fbclid') || '';
+      var li_fat_id = qs.get('li_fat_id') || '';
       var key    = lastResultKey || score().key;
       var tier   = TIERS[key] || {};
 
@@ -697,6 +712,16 @@
         tier_name: tier.name || '',
         email: email,
         phone: phone,              /* '' when left blank */
+        name: name,
+        company: company,
+        utm_source: utm_source,
+        utm_medium: utm_medium,
+        utm_campaign: utm_campaign,
+        utm_content: utm_content,
+        utm_term: utm_term,
+        gclid: gclid,
+        fbclid: fbclid,
+        li_fat_id: li_fat_id,
         source_url: (window.location && window.location.href) || 'https://efficio.tech/find-your-tier.html',
         answers: answersReadable()
       };

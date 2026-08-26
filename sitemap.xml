@@ -80,4 +80,9 @@
   <url><loc>https://efficio.tech/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://efficio.tech/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://efficio.tech/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <!-- Wave 138 SEO push 2026-08-26 -->
+  <url><loc>https://efficio.tech/blog/why-smbs-shouldnt-buy-another-ai-tool.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/blog/7-day-custom-ai-team-build.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://efficio.tech/blog/fractional-cto-vs-ai-operator.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
 </urlset>

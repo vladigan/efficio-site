@@ -735,6 +735,9 @@
         if(capForm) capForm.style.display = 'none';
         if(capDone) capDone.hidden = false;
       }
+            /* W119 analytics: fire lead events on quiz submit (safe if pixels not loaded) */
+            try { if (window.gtag) window.gtag('event','generate_lead',{form:'find_your_tier_quiz'}); } catch(_){ }
+            try { if (window.fbq) window.fbq('track','Lead',{source:'quiz'}); } catch(_){ }
 
       try {
         fetch(CAP_ENDPOINT, {

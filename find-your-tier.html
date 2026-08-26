@@ -4,6 +4,14 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js"></script>
+<!-- W140: Google Ads conversion tracking base tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18158098714"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18158098714');
+</script>
 <title>Find your tier — a 60-second fit quiz | Efficio</title>
 <meta name="description" content="Answer six quick questions and we'll point you to the right Efficio tier — AI Operator, Founding CTO or Full Custom CTO. $0 upfront, pay only when it works." />
 <link rel="canonical" href="https://efficio.tech/find-your-tier.html"/>
@@ -631,6 +639,8 @@
        and once-guarded there so a retake can't double-count. Only the tier key
        (non-PII) is passed. */
     try { if (window.efficioTrackQuizLead) window.efficioTrackQuizLead({ tier: res.key }); } catch (e) {}
+    /* W140: Google Ads conversion — fires when quiz shows result */
+    try { if (window.gtag) window.gtag('event', 'conversion', {'send_to': 'AW-18158098714/W8arCPCTr-gcEJqyutJD'}); } catch(_) {}
 
     live.textContent = 'Done. Your recommended tier is '+t.name+', '+t.price+' per month.';
     if(focusReady){ resultEl.focus(); }

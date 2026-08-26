@@ -49,7 +49,7 @@ window.EFFICIO_PIXELS = {
   googleAds:       "GADS_CONVERSION_ID_PLACEHOLDER",      /* "AW-1234567890"  */
   googleAdsLabel:  "GADS_CONVERSION_LABEL_PLACEHOLDER",   /* per-action label */
   metaPixel:       META_PIXEL_ID,                         /* <-- set META_PIXEL_ID above; "" = dormant */
-  linkedinPartner: "LI_PARTNER_ID_PLACEHOLDER",
+  linkedinPartner: "9123490",
   linkedinConv:    "LI_QUALIFIER_CONVERSION_ID_PLACEHOLDER",  /* fired on qualifier complete */
   linkedinBookConv:"LI_BOOKING_CONVERSION_ID_PLACEHOLDER",    /* fired on booking            */
   tiktokPixel:     "REPLACE_ME_TIKTOK_PIXEL_ID",

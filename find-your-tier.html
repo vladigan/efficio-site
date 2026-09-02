@@ -634,12 +634,12 @@
     resultEl.classList.add('show');
     resetCapture(); // fresh, un-submitted optional capture form for this result
 
-    /* conversion: the visitor completed the fit quiz and a recommended tier is
-       on screen — fire Meta "Lead" (+ GA4/Ads/LinkedIn lead signals) via the
-       shared pixel layer in /assets/pixels.js. No-op until META_PIXEL_ID is set,
-       and once-guarded there so a retake can't double-count. Only the tier key
-       (non-PII) is passed. */
-    try { if (window.efficioTrackQuizLead) window.efficioTrackQuizLead({ tier: res.key }); } catch (e) {}
+    /* TIGHTENED (Meta CAPI, 2026-09-02): a "Lead" must be a real qualified EMAIL
+       capture, not a quiz-result view — firing it here trained Meta on junk (every
+       quiz completer, incl. non-US bot traffic, counted as a Lead). The lead-pixel
+       suite (Meta "Lead" + GA4/LinkedIn/TikTok/Snap) now fires from the capture
+       form's submit handler below, on a real email. Nothing fires on result render. */
+    // (intentionally no efficioTrackQuizLead() here — moved to real email capture)
     /* W140: Google Ads conversion — fires when quiz shows result */
     try { if (window.gtag) window.gtag('event', 'conversion', {'send_to': 'AW-18158098714/W8arCPCTr-gcEJqyutJD'}); } catch(_) {}
 
@@ -747,9 +747,11 @@
         if(capForm) capForm.style.display = 'none';
         if(capDone) capDone.hidden = false;
       }
-            /* W119 analytics: fire lead events on quiz submit (safe if pixels not loaded) */
-            try { if (window.gtag) window.gtag('event','generate_lead',{form:'find_your_tier_quiz'}); } catch(_){ }
-            try { if (window.fbq) window.fbq('track','Lead',{source:'quiz'}); } catch(_){ }
+            /* Lead conversion fires HERE — on a real qualified email capture (form is
+               validated: email required + format-checked above) — via the shared,
+               once-guarded pixel layer: Meta "Lead" + GA4 generate_lead + LinkedIn/
+               TikTok/Snap. Tightened 2026-09-02 so Meta stops learning on junk. */
+            try { if (window.efficioTrackQuizLead) window.efficioTrackQuizLead({ tier: key, source: 'quiz' }); } catch(_){ }
 
       try {
         fetch(CAP_ENDPOINT, {

@@ -1,0 +1,11 @@
+{
+  "updated_at": null,
+  "site": "https://efficio.tech",
+  "data_on_disk": {
+    "gsc_days": "data/gsc/<day>.json, one file per complete day (today-3 and older)",
+    "ga4_days": "data/ga4/<day>.json, organic sessions + generate_lead/book_call per landing page"
+  },
+  "current_bet": null,
+  "active_change": null,
+  "pages": {}
+}

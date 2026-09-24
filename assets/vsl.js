@@ -25,7 +25,7 @@
     { text: 'We run an audit, find where you\'re leaking money or time, and build the AI agents that fix it. You watch the work happen in your live dashboard.' },
     { text: 'Front-desk agent answering calls before they hit voicemail. Quote agent turning hours into minutes. Workflow optimizer owning your handoffs. Inbox triage clearing your owner inbox.' },
     { text: 'You don\'t learn AI. You don\'t pick tools. You don\'t manage anything. <em>We do it. You operate.</em>' },
-    { text: '<em>First agent live by day 7 after your access checklist is done.</em> If we miss it for reasons within our control, month 1 is on us.', cls: 'close' },
+    { text: "<em>AI Operator day-7 promise:</em> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.", cls: 'close' },
     { text: 'Book your free audit call below. 30 minutes. No pitch — just a real look at what\'s eating your time and how we\'d fix it.', cls: 'close' }
   ];
   var DURATION = 10000;

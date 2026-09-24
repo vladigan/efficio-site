@@ -173,7 +173,7 @@
           <li>Weekly brief email, 1 workflow change a month, 30-minute monthly review</li>
           <li>Measured from day 1: speed-to-lead, contact rate, and cost per quoted appointment by vendor</li>
         </ul>
-        <p class="fine">Bind data lives in your agency management system, so we report it from a monthly AMS export you upload. <b>First automation live by day 7 after you complete the access checklist, or month 1 is free.</b> That covers email speed-to-lead, the dashboard and routing. Anything waiting on carrier or A2P 10DLC texting approval is outside our control and isn't part of the day-7 promise.</p>
+        <p class="fine">Bind data lives in your agency management system, so we report it from a monthly AMS export you upload. <b>AI Operator day-7 promise:</b> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.</p>
         <a href="#book" class="pb">Talk it through first &rarr;</a>
       </div>
     </div>
@@ -379,7 +379,7 @@
       <span class="skipq">Rather skip this? <a href="#" id="qSkip">Show the calendar</a></span>
     </form>
     <div class="bookwrap" id="bookWrap">
-      <iframe data-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book a call with Efficio"></iframe>
+      <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl data-consent-lazy class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book a call with Efficio"></iframe>
     </div>
     <p class="bookalt rv">Calendar not loading? <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" target="_blank" rel="noopener">Open it in a new tab &rarr;</a> &middot; or email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a></p>
   </div>
@@ -403,7 +403,7 @@
         <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
       </div>
     </div>
     <div class="fbot">
@@ -449,11 +449,9 @@
   /* ---------- fit check + booking ---------- */
   var q=document.getElementById('qualForm'), wrap=document.getElementById('bookWrap'), started=false;
   function showCal(){
+    /* the calendar loads Meta's script inside its iframe, so consent.js gates it */
     var fr=document.getElementById('ghl_booking_WvKpojD06GrturZhmjBv');
-    if(fr && !fr.getAttribute('src')){
-      fr.setAttribute('src', fr.getAttribute('data-src'));
-      var s=document.createElement('script'); s.src='https://link.msgsndr.com/js/form_embed.js'; s.async=true; document.body.appendChild(s);
-    }
+    try{ if(fr && window.EfficioConsent) window.EfficioConsent.showEmbed(fr); }catch(e){}
     wrap.classList.add('show');
   }
   if(q){

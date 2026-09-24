@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#06060b"/>
-<script src="/assets/pixels.js"></script>
 <title>Text updates from Efficio — SMS opt-in</title>
-<meta name="description" content="Opt in to text updates from Efficio — account updates, appointment reminders, and customer-care messages. Message frequency varies, message &amp; data rates may apply, reply STOP anytime."/>
+<meta name="description" content="Opt in to text updates from Efficio: account updates, appointment reminders and replies to your questions. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to stop, HELP for help."/>
 <link rel="canonical" href="https://efficio.tech/sms-opt-in.html"/>
 <meta name="robots" content="index,follow"/>
 <meta property="og:title" content="Text updates from Efficio — SMS opt-in"/>
-<meta property="og:description" content="Opt in to account updates, appointment reminders, and customer-care texts from Efficio. Reply STOP anytime."/>
+<meta property="og:description" content="Opt in to account updates, appointment reminders and replies to your questions from Efficio by text. Reply STOP to stop."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/sms-opt-in.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
@@ -100,7 +99,7 @@
   <div class="wrap">
     <div class="eyebrow rv">// text updates &middot; opt-in</div>
     <h1 class="rv d1">Get <span class="grad">text updates</span> from Efficio</h1>
-    <p class="sub rv d1">Opt in to get the things that are easy to miss in email &mdash; account updates, appointment reminders, and customer-care messages &mdash; as a quick text. No marketing blasts. Reply <b>STOP</b> any time and you're out.</p>
+    <p class="sub rv d1">Opt in to get account updates, appointment reminders and replies to your questions from Efficio as texts. We don't send marketing texts to numbers from this form. Reply <b>STOP</b> any time to stop, or <b>HELP</b> for help.</p>
   </div>
 </header>
 
@@ -125,35 +124,39 @@
           </div>
 
           <div class="consent">
-            <input id="f-consent" name="sms_consent" type="checkbox" aria-describedby="consentText"/>
-            <label for="f-consent" id="consentText">By checking this box, I agree to receive recurring automated text messages from Efficio (BNG Contracting Enterprise LLC) at the phone number provided. These messages include appointment reminders, booking confirmations, account updates, and customer-care replies. Consent is not a condition of any purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help.</label>
+            <input id="f-consent" name="sms_consent" type="checkbox" required aria-describedby="consentText"/>
+            <label for="f-consent" id="consentText">By checking this box, I agree to receive recurring automated text messages from Efficio (BNG Contracting Enterprise LLC) at the phone number provided. These messages are appointment reminders, booking confirmations, account updates and replies to my questions. Consent is not a condition of any purchase. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help.</label>
           </div>
 
           <button type="submit" class="btn-primary lg" id="smsSubmit">Sign me up <span class="arr">&rarr;</span></button>
 
           <p class="smslegal">
             By subscribing you agree to our <a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.
-            We never sell or share your mobile opt-in data.
+            Your number and consent are stored in Efficio's CRM (GoHighLevel) and shared only with the messaging providers that deliver our texts. They are never sent to advertising platforms and never sold.
           </p>
-          <p class="formnote" id="smsError" hidden>Something didn't go through &mdash; please try again, or email <a href="mailto:contact@efficio.tech" style="color:var(--violet-l);font-weight:600">contact@efficio.tech</a>.</p>
+          <p class="formnote" id="smsError" role="alert" hidden>Your opt-in wasn't recorded. Please try again, or email <a href="mailto:contact@efficio.tech" style="color:var(--violet-l);font-weight:600">contact@efficio.tech</a>.</p>
         </form>
 
         <ul class="smstrust" aria-label="What to expect">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Reply STOP anytime</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>We never sell your info</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No marketing spam</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Never sent to ad platforms</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No marketing texts</li>
         </ul>
       </div>
 
       <!-- success state -->
       <div class="smsdone" id="smsDone" role="status" tabindex="-1">
         <div class="dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
-        <h2>You're subscribed.</h2>
-        <p>You'll start getting account updates, reminders, and customer-care texts from Efficio. Reply <b>STOP</b> any time to unsubscribe, or <b>HELP</b> for help.</p>
+        <h2>You're opted in.</h2>
+        <p>We've recorded your consent. Texts from Efficio to this number will be account updates, appointment reminders and replies to your questions. Reply <b>STOP</b> any time to unsubscribe, or <b>HELP</b> for help.</p>
         <span class="dmono">// message &amp; data rates may apply</span>
       </div>
 
-      <p class="pnote rv" style="margin-top:22px">This list is for updates and reminders only. For how we handle your number, see our <a href="/privacy.html#sms">SMS &amp; messaging policy &rarr;</a></p>
+      <div class="pnote rv" style="margin-top:22px;text-align:left">
+        <p><b>How we handle your number.</b> Your name, email, mobile number and a record of your consent (the time, this page and the exact wording above) are stored in Efficio's CRM, GoHighLevel, and in the form log on our website host, Cloudflare, which keeps proof of your consent. Your number is shared only with the messaging providers that deliver our texts, and only to deliver them. It is used only for the messages described on this page. It is never sent to advertising platforms such as Meta, Google or LinkedIn, and never sold. This page loads no analytics or advertising tags.</p>
+        <p style="margin-top:10px"><b>Frequency and costs.</b> Message frequency varies with your bookings and account activity. Msg &amp; data rates may apply.</p>
+        <p style="margin-top:10px"><b>STOP and HELP.</b> Reply <b>STOP</b> to any message to stop; you'll get one confirmation and no further texts. Reply <b>HELP</b> for help, or email <a href="mailto:contact@efficio.tech">contact@efficio.tech</a>. Full details: <a href="/privacy.html#sms">SMS &amp; messaging policy &rarr;</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -170,7 +173,7 @@
         <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
       </div>
     </div>
     <div class="fbot">
@@ -184,8 +187,9 @@
    SMS OPT-IN — capture name/email/phone + explicit consent, post to the same
    lead endpoint the site already uses (Cloudflare worker /quiz). Records the
    exact disclosure text shown + a consent timestamp so there is a consent
-   record. Degrades gracefully (no console errors) if the endpoint is down:
-   the request uses keepalive and the success state is shown regardless.
+   record. The success state is shown ONLY when the endpoint confirms it
+   stored the record; otherwise an error asks the visitor to retry. No
+   analytics or advertising event is fired from this page.
    ========================================================================= */
 (function(){
   /* belt-and-suspenders: ensure scroll-reveal content is never left invisible
@@ -259,23 +263,26 @@
       }
     };
 
-    var settled = false;
-    function finish(){ if(settled) return; settled = true; showSuccess(); }
+    function fail(){
+      if(btn){ btn.disabled = false; if(btn.dataset.label) btn.innerHTML = btn.dataset.label; }
+      if(errEl) errEl.hidden = false;
+      if(live) live.textContent = "Your opt-in wasn't recorded. Please try again.";
+    }
 
+    var ctrl = null, timer = null;
+    try { ctrl = new AbortController(); timer = setTimeout(function(){ try{ ctrl.abort(); }catch(e){} }, 15000); } catch(e){}
     try {
       fetch(ENDPOINT, {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(payload),
-        keepalive: true
-      }).then(function(){ finish(); }, function(){ finish(); });
-    } catch(e){ finish(); }
-
-    /* never hang the UI if the network stalls; keepalive lets the POST finish */
-    setTimeout(finish, 2500);
-
-    /* optional conversion signal — guarded, no-op if not wired */
-    try { if(window.sendConversion) window.sendConversion({ kind: 'sms_opt_in_submitted' }); } catch(e){}
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function(r){
+        if(timer) clearTimeout(timer);
+        if(!r.ok) return fail();
+        return r.json().then(function(j){ (j && j.ok === false) ? fail() : showSuccess(); }, function(){ showSuccess(); });
+      }, function(){ if(timer) clearTimeout(timer); fail(); });
+    } catch(e){ fail(); }
   });
 })();
 </script>

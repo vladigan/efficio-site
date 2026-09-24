@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <base target="_parent" />
 <meta name="theme-color" content="#06060b" />
+<meta name="robots" content="noindex"/>
 <title>Efficio command center — simulated demo, sample data</title>
 <meta name="description" content="Simulated demo, sample data: an interactive mock-up of the Efficio command center. Deploy example AI agents, see each one's status, and watch sample work play out. Not a live customer account." />
 <link rel="canonical" href="https://efficio.tech/demo.html" />
@@ -341,7 +342,7 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
       <div class="statsbar" id="statsbar">
         <div class="stat"><div class="sl"><span class="live"></span>agents online</div><div class="sn g" id="kOnline">0</div></div>
         <div class="stat"><div class="sl">tasks handled today</div><div class="sn" id="kTasks">0</div></div>
-        <div class="stat"><div class="sl">revenue recovered</div><div class="sn c" id="kRecovered">$0</div></div>
+        <div class="stat"><div class="sl">revenue (sample)</div><div class="sn c" id="kRecovered">$0</div></div>
         <div class="stat"><div class="sl">hours saved this week</div><div class="sn v" id="kHours">0</div></div>
       </div>
 
@@ -361,7 +362,7 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
       </div>
 
       <div class="ticker">
-        <div class="tk-h"><span class="live"></span> live activity</div>
+        <div class="tk-h"><span class="live"></span> simulated activity</div>
         <div class="tk-feed" id="tkFeed"></div>
       </div>
     </div>
@@ -560,7 +561,7 @@ body.efc-embed .wrap{padding:0 16px;max-width:1100px}
       '</div>'+
       '<div class="dr-logh"><span class="live" style="width:6px;height:6px"></span> activity log</div>'+
       '<div class="dr-log" id="drLog">'+rows+'</div>'+
-      '<div class="dr-cta"><a href="/find-your-tier.html" class="btn-primary">Deploy this for real <span class="arr">&rarr;</span></a></div>';
+      '<div class="dr-cta"><a href="/insurance.html" class="btn-primary" target="_top">See the real offer <span class="arr">&rarr;</span></a></div>';
   }
   function openDrawer(id){
     var a=AGENTS.filter(function(x){return x.id===id;})[0]; if(!a) return;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#06060b"/>
+<meta name="theme-color" content="#020817"/>
 <script src="/assets/pixels.js" defer></script>
 <title>Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio</title>
 <meta name="description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
@@ -27,6 +27,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
+<link rel="stylesheet" href="/assets/insurance.css"/>
 <style id="pricing-x">
 /* ── pricing polish (scoped) — builds on v6 tokens ────────────────── */
 /* "Most popular" badge: gentle attention pulse, reduced-motion safe */
@@ -53,7 +54,7 @@
   {"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png"},
   {"@type":"WebPage","@id":"https://efficio.tech/pricing.html#page","url":"https://efficio.tech/pricing.html","name":"Pricing — Lead Rescue Sprint and AI Operator","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},
   {"@type":"Service","@id":"https://efficio.tech/pricing.html#service","serviceType":"Done-for-you AI lead rescue and AI operations","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"US","description":"Start with a Lead Rescue Sprint, then keep going on AI Operator. Founding CTO and Full Custom CTO are custom quote.","offers":[
-    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the client's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/pricing.html"},
+    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint starting on the later of the setup payment and the completed access checklist. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the client's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/pricing.html"},
     {"@type":"Offer","name":"AI Operator","price":"1500","priceCurrency":"USD","description":"Ongoing AI lead operations. Billed monthly, 90-day minimum, then month-to-month with 30 days' notice.","url":"https://efficio.tech/pricing.html"}
   ]}
 ]}
@@ -70,14 +71,10 @@
 <nav class="nav" id="nav"><div class="nav-in">
   <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
   <div class="nav-mid">
-    <a href="/insurance.html">Insurance</a>
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">AI teams</a>
-    <a href="/why-efficio.html">Why Efficio</a>
+    <a href="/insurance.html">Insurance agencies</a>
+    <a href="/pricing.html" aria-current="page">Pricing</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <main id="main" tabindex="-1">
@@ -85,9 +82,9 @@
   <div class="wrap">
     <div class="eyebrow rv">// pricing &middot; two offers</div>
     <h1 class="rv d1">Start with a Sprint. <span class="grad">Keep going if it works.</span></h1>
-    <p class="sub rv d1">Two published offers. A 14-day Lead Rescue Sprint where half the fee is paid on results, then AI Operator if you want it to keep running. Bigger builds are custom quote.</p>
+    <p class="sub rv d1">Two published offers for trucking and commercial-auto insurance agencies. A 14-day Lead Rescue Sprint where half the fee is paid on results, then AI Operator if you want it to keep running. Bigger builds are custom quote.</p>
     <div class="hero-cta rv d2">
-      <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+      <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
       <a href="#tiers" class="btn-outline lg">See the offers</a>
     </div>
     <div class="guarantee">
@@ -105,7 +102,7 @@
     <div class="eyebrow rv">// the offer</div>
     <h2 class="rv d1">Clear terms. Shared risk.</h2>
     <div class="stats rv d2">
-      <div class="stat"><div class="n">$500</div><div class="l">setup &middot; due at kickoff</div></div>
+      <div class="stat"><div class="n">$500</div><div class="l">setup &middot; due at signing</div></div>
       <div class="stat"><div class="n">5</div><div class="l">qualifying appointments before the other $500</div></div>
       <div class="stat"><div class="n">7</div><div class="l">days from your completed access checklist to AI Operator's first automation, or month 1 free</div></div>
     </div>
@@ -121,12 +118,13 @@
       <div class="price feat rv">
         <div class="badge">Start here</div>
         <div class="pn">Lead Rescue Sprint &middot; 14 days</div><div class="pp">$1,000<span> one time</span></div>
-        <div class="pd">$500 non-refundable setup, due at kickoff. $500 performance portion, due only after 5 qualifying appointments are booked onto your producers' calendars (<a href="/insurance.html#what-counts">what counts</a>).</div>
+        <div class="pd">$500 setup, due at signing and non-refundable once the Sprint starts. $500 performance portion, due only after 5 qualifying appointments are booked onto your producers' calendars (<a href="/insurance.html#what-counts">what counts</a>).</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
           <li>Aged leads and renewals enriched and ranked</li>
           <li>Email reactivation (AI-assisted where your GHL plan includes AI) that books onto your calendars</li>
-          <li>Every reachable lead touched within 48 hours</li>
-          <li>Dashboard live by day 3; day-14 review</li>
+          <li>Every reachable lead touched within 48 hours of the Start Date</li>
+          <li>Renewal list and dashboard by day 3; day-14 review</li>
+          <li><span><b>Start Date</b> = the later of your setup payment and your completed access checklist</span></li>
           <li><span><b>50% of the Sprint fee you paid</b> credited to AI Operator month 1 if you sign within 7 days of the Sprint ending</span></li>
         </ul>
         <a href="/insurance.html#book" class="pb">Check fit &amp; book &rarr;</a>
@@ -141,20 +139,21 @@
           <li>Weekly brief, 1 workflow change a month, monthly review</li>
           <li><span><b>First automation live by day 7 after you complete the access checklist, or month 1 is free</b> (carrier and A2P approvals excluded)</span></li>
         </ul>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="pb">Book a call &rarr;</a>
+        <a href="/book.html" class="pb">Book a call &rarr;</a>
       </div>
       <div class="price rv d2">
         <div class="pn">Founding CTO &middot; Full Custom CTO</div><div class="pp">Custom<span> quote</span></div>
         <div class="pd">Multi-workflow builds and ongoing custom engineering, scoped on a call.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li>Everything in AI Operator</li>
-          <li>More workflows and agents across the business</li>
+          <li>Scope agreed in writing before any work</li>
+          <li>More workflows beyond the AI Operator scope</li>
           <li>Custom integrations, quoted per build</li>
           <li>AMS integrations quoted separately, once a real API path is confirmed</li>
         </ul>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="pb">Ask for a quote &rarr;</a>
+        <a href="/book.html" class="pb">Ask for a quote &rarr;</a>
       </div>
     </div>
+    <div class="clock rv"><p><b>When the Sprint clock starts:</b> Day 1 is the Start Date, which is the later of (a) the day your $500 setup fee is paid and (b) the day you complete the access checklist (GoHighLevel access, an authenticated sending domain, your lead and renewal list loaded, producer calendars connected, and a named sponsor). Every Sprint deadline counts from that day.</p></div>
     <p class="pnote rv">The Sprint credit and any service credit never stack &mdash; one applies, once. Already scoped with us? <a href="https://buy.stripe.com/3cIaEZgjXdm8f7Qf7MdQQ0l" rel="noopener">Start AI Operator</a>.</p>
   </div>
 </section>
@@ -163,19 +162,19 @@
   <div class="wrap center">
     <div class="eyebrow rv">// standard vs custom</div>
     <h2 class="rv d1">What's standard &mdash; and what's custom.</h2>
-    <p class="lede rv d1">Running the AI already in your platform is standard in the Sprint and AI Operator. Genuine custom engineering is quoted separately &mdash; so the price always matches the work.</p>
+    <p class="lede rv d1">Building inside your own GoHighLevel is standard in the Sprint and AI Operator. Genuine custom engineering is quoted separately &mdash; so the price always matches the work.</p>
     <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto">
       <div class="card rv">
         <span class="tag">Sprint &amp; AI Operator</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
         <h3>Standard config</h3>
-        <p>Turning on and running the AI already in your tools — lead follow-up, a 24/7 receptionist, booking, reactivation, and your live dashboard. Configured, not coded.</p>
+        <p>Workflows built inside your own GoHighLevel: public FMCSA enrichment by DOT number, email reactivation, booking onto producer calendars, renewal campaigns and your dashboard. Configured, not coded.</p>
       </div>
       <div class="card rv d1">
         <span class="tag">custom quote</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
         <h3>Custom engineering</h3>
-        <p>External integrations (like DOT SAFER), custom bots, new data sources, and bespoke systems — real engineering, so it's quoted per build.</p>
+        <p>AMS integrations (only once a real API path is confirmed), additional data sources and bespoke systems. Real engineering, so it's quoted per build.</p>
       </div>
     </div>
   </div>
@@ -193,11 +192,11 @@
       <tbody>
         <tr><td>Price</td><td class="y">$1,000 once</td><td class="y">$1,500/mo</td><td class="y">quote</td></tr>
         <tr><td>Paid on results</td><td class="y">$500 of $1,000</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>Runs inside your own GoHighLevel</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
-        <tr><td>Aged-lead reactivation</td><td class="y">14 days</td><td class="y">ongoing</td><td class="y">ongoing</td></tr>
-        <tr><td>Renewal / X-date campaigns</td><td class="y">list + first wave</td><td class="y">ongoing</td><td class="y">ongoing</td></tr>
-        <tr><td>Speed-to-lead on new leads</td><td>&mdash;</td><td class="y">under 5 min</td><td class="y">under 5 min</td></tr>
-        <tr><td>Dashboard</td><td class="y">by day 3</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Runs inside your own GoHighLevel</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">scoped</td></tr>
+        <tr><td>Aged-lead reactivation</td><td class="y">14 days</td><td class="y">ongoing</td><td class="y">scoped</td></tr>
+        <tr><td>Renewal / X-date campaigns</td><td class="y">list + first wave</td><td class="y">ongoing</td><td class="y">scoped</td></tr>
+        <tr><td>Speed-to-lead on new leads</td><td>&mdash;</td><td class="y">under 5 min</td><td class="y">scoped</td></tr>
+        <tr><td>Dashboard</td><td class="y">by day 3 of the Sprint</td><td class="y">&#x25CF;</td><td class="y">scoped</td></tr>
         <tr><td>Workflow changes</td><td>&mdash;</td><td class="y">1 a month</td><td class="y">scoped</td></tr>
         <tr><td>Minimum term</td><td class="y">14 days</td><td class="y">90 days, then monthly (30 days' notice)</td><td class="y">scoped</td></tr>
       </tbody>
@@ -214,7 +213,11 @@
     <div class="faq rv d2">
       <details>
         <summary>Is there a setup fee or a contract?</summary>
-        <p>The Lead Rescue Sprint has a <b>$500 non-refundable setup fee</b>, due at kickoff; it pays for the build, which stays in your account. The other <b>$500 is due only after 5 qualifying appointments</b>. AI Operator is <b>$1,500/mo with a 90-day minimum</b>, then month-to-month with 30 days' notice, billed by card on file.</p>
+        <p>The Lead Rescue Sprint has a <b>$500 setup fee</b>, due at signing and non-refundable once the Sprint starts; it pays for the build, which stays in your account. The other <b>$500 is due only after 5 qualifying appointments</b>. AI Operator is <b>$1,500/mo with a 90-day minimum</b>, then month-to-month with 30 days' notice, billed by card on file.</p>
+      </details>
+      <details>
+        <summary>When does the Sprint clock start?</summary>
+        <p>Day 1 is the Start Date: the later of the day your $500 setup fee is paid and the day you complete the access checklist (<a href="/insurance.html#clock">what's on it</a>). The 48-hour first touch, the day-3 deliverables and the 14-day window all count from that day.</p>
       </details>
       <details>
         <summary>What if the Sprint doesn't book 5 appointments?</summary>
@@ -237,15 +240,14 @@
         <p>Both are custom quote. We scope them on a call once we know what you need built, so the price matches the work.</p>
       </details>
     </div>
-    <p class="pnote rv">Insurance agency? <a href="/insurance.html">See the Sprint for agencies</a> &middot; or <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">book a 15-minute call</a>.</p>
+    <p class="pnote rv"><a href="/insurance.html">See the full Sprint details</a> &middot; or <a href="/book.html">book a 15-minute call</a>.</p>
   </div>
 </section>
 
 <section class="cta rv">
-  <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
   <h2>Start with a Sprint.</h2>
-  <p>We agree on the numbers on call one. Half the Sprint is paid on results.</p>
-  <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+  <p>We look at your real numbers on the first call. Half the Sprint is paid on results.</p>
+  <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
 </section>
 
 </main>
@@ -254,23 +256,17 @@
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel. Founder-led by Brady Gay, PE, in Miami.</p>
       </div>
-      <div class="fcol"><h5>Product</h5><a href="/insurance.html">For insurance agencies</a>
-        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your tier</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      <div class="fcol"><h5>Work with us</h5>
+        <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a>
       </div>
     </div>
     <div class="fbot">
       <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
     </div>
   </div>
 </footer>

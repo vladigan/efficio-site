@@ -27,140 +27,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
-<style id="insurance-x">
-/* Insurance vertical: shared v6 structure, brand palette (navy / cream / gold / midnight) scoped to this page */
-:root{
-  --violet:#D4A574;--violet-l:#E2BD92;--violet-xl:#F1DDBF;--violet-d:#B8864F;
-  --bg:#020817;--bg2:#06102a;--panel:#0B1736;--panel2:#0f1e42;
-  --ink:#F7F2EA;--ink2:#E4DDD0;--muted:#A7AEC0;--muted2:#8E96AA;
-  --line:rgba(247,242,234,.08);--line2:rgba(247,242,234,.15);
-  --gold:#D4A574;--navy:#0B1736;--cream:#F7F2EA;--midnight:#020817;
-  --glow:0 0 0 1px rgba(212,165,116,.18),0 24px 70px -24px rgba(212,165,116,.38);
-}
-::selection{background:var(--gold);color:var(--midnight)}
-.scrollbar{background:linear-gradient(90deg,var(--violet-d),var(--gold),var(--violet-xl));box-shadow:0 0 12px rgba(212,165,116,.6)}
-.bgfx .g1{background:radial-gradient(closest-side,rgba(212,165,116,.30),transparent)}
-.bgfx .g2{background:radial-gradient(closest-side,rgba(29,58,122,.55),transparent)}
-.bgfx .g3{background:radial-gradient(closest-side,rgba(212,165,116,.14),transparent)}
-.bgfx .g4{background:radial-gradient(closest-side,rgba(29,58,122,.45),transparent)}
-.nav-in{background:rgba(11,23,54,.62)}
-.nav.scrolled .nav-in{background:rgba(6,16,42,.88);box-shadow:0 18px 50px -16px rgba(0,0,0,.92),0 0 0 1px rgba(212,165,116,.14)}
-.nav-mid a:hover,.nav-mid a[aria-current="page"]{background:rgba(212,165,116,.14);color:#fff}
-.btn-primary{color:var(--midnight);border-color:rgba(212,165,116,.7);background:linear-gradient(180deg,#E6C49C,#C8955F);
-  box-shadow:0 8px 22px -8px rgba(212,165,116,.7),inset 0 1px 0 rgba(255,255,255,.35)}
-.btn-primary:hover{box-shadow:0 16px 34px -10px rgba(212,165,116,.85),inset 0 1px 0 rgba(255,255,255,.4)}
-.btn-outline:hover{border-color:rgba(212,165,116,.55);background:rgba(212,165,116,.09);box-shadow:0 12px 30px -16px rgba(212,165,116,.6)}
-.phero h1 .grad{background:linear-gradient(110deg,#fff 8%,var(--violet-xl) 40%,var(--gold) 70%,var(--violet-d) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
-.phero h1{max-width:19ch}
-.phero .sub{max-width:46ch}
-.card:hover,.step:hover{border-color:rgba(212,165,116,.42);box-shadow:0 30px 64px -30px rgba(212,165,116,.35),var(--soft)}
-.card .ci,.step .sn{background:rgba(212,165,116,.12);border-color:rgba(212,165,116,.28);color:var(--gold)}
-.card:hover .ci{background:rgba(212,165,116,.2)}
-.price::before{background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(212,165,116,.12),transparent 60%)}
-.price.feat{border-color:rgba(212,165,116,.6);box-shadow:0 0 0 1px rgba(212,165,116,.22),0 26px 60px -26px rgba(212,165,116,.45)}
-.price.feat .pb{background:linear-gradient(180deg,#E6C49C,#C8955F);color:var(--midnight)}
-.price .pb:hover{border-color:var(--gold);background:rgba(212,165,116,.14)}
-.price .badge{background:var(--gold);color:var(--midnight)}
-.faq details[open]{border-color:rgba(212,165,116,.42)}
-.cta{border-color:rgba(212,165,116,.34);background:radial-gradient(120% 130% at 50% 0%,rgba(212,165,116,.18),rgba(2,8,23,.4) 60%),var(--panel)}
-.cta::before{background:conic-gradient(from 0deg at 50% 50%,transparent,rgba(212,165,116,.14),transparent 30%)}
-footer{background:#010611}
-.pnote a,.eyebrow{color:var(--gold)}
-.sec .lede{max-width:52ch}
-
-/* .flist li is display:flex in v6.css, which splits inline <b> runs into columns; keep text flowing */
-.flist li{display:block;position:relative;padding-left:34px}
-.flist li::before{position:absolute;left:0;top:1px;margin-top:0}
-.flist.no li::before{background-color:rgba(167,174,192,.08);border-color:rgba(167,174,192,.28);background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A7AEC0' stroke-width='3' stroke-linecap='round'><path d='M7 7l10 10M17 7L7 17'/></svg>")}
-
-/* page components */
-.pillrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 26px}
-.pillrow span{font-family:var(--mono);font-size:11.5px;color:var(--ink2);padding:6px 12px;border-radius:999px;border:1px solid var(--line2);background:rgba(11,23,54,.55)}
-.terms-strip{display:inline-flex;flex-direction:column;gap:4px;margin-top:28px;padding:14px 22px;border-radius:16px;text-align:left;
-  border:1px solid rgba(212,165,116,.34);background:linear-gradient(180deg,rgba(212,165,116,.10),rgba(212,165,116,.02))}
-.terms-strip b{font-size:15px;color:#fff;letter-spacing:-.02em}
-.terms-strip span{font-family:var(--mono);font-size:11.5px;color:var(--gold)}
-.phase{max-width:760px;margin:0 auto;padding:22px 24px;border-radius:var(--r2);border:1px dashed rgba(212,165,116,.4);background:rgba(11,23,54,.5);text-align:left}
-.phase h3{font-size:1.05rem;color:#fff;margin:0 0 6px;font-weight:800;letter-spacing:-.02em}
-.phase p{font-size:14px;color:var(--ink2);line-height:1.6;margin:0}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(36px,5vh,56px);text-align:left}
-@media(max-width:820px){.twocol{grid-template-columns:1fr}}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:26px 24px}
-.box h3{font-size:1.08rem;font-weight:800;color:#fff;margin:0 0 14px;letter-spacing:-.02em}
-.box .flist li{font-size:14px}
-.offers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,5vh,60px);text-align:left;max-width:980px;margin-left:auto;margin-right:auto}
-@media(max-width:820px){.offers{grid-template-columns:1fr}}
-.offers .price{padding:30px 26px}
-.offers .price .pd{min-height:0}
-.offers .flist{margin-bottom:18px}
-.offers .flist li{font-size:13.5px}
-.fine{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0 0 18px}
-.fine b{color:var(--ink2)}
-.quote-row{max-width:980px;margin:16px auto 0;padding:18px 22px;border-radius:var(--r);border:1px solid var(--line);background:rgba(11,23,54,.45);
-  display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;text-align:left}
-.quote-row p{font-size:13.5px;color:var(--ink2);margin:0}
-.quote-row a{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold)}
-.gtee{max-width:980px;margin:16px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
-@media(max-width:820px){.gtee{grid-template-columns:1fr}}
-.gtee div{padding:16px 18px;border-radius:var(--r);border:1px solid rgba(86,216,160,.25);background:rgba(86,216,160,.05)}
-.gtee b{display:block;color:#fff;font-size:13.5px;margin-bottom:4px}
-.gtee span{font-size:12.5px;color:var(--muted);line-height:1.5}
-.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(36px,5vh,56px);text-align:left}
-@media(max-width:900px){.comp{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.comp{grid-template-columns:1fr}}
-.comp div{background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:22px 20px}
-.comp h3{font-size:1rem;font-weight:800;color:#fff;margin:0 0 6px;letter-spacing:-.02em}
-.comp p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
-
-/* ROI calculator */
-.roi{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:clamp(36px,5vh,56px);text-align:left;max-width:1040px;margin-left:auto;margin-right:auto}
-@media(max-width:900px){.roi{grid-template-columns:1fr}}
-.roi-in,.roi-out{background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:24px}
-.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
-@media(max-width:520px){.roi-grid{grid-template-columns:1fr}}
-.fld label{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:6px}
-.fld small{display:block;font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.4}
-.inwrap{position:relative;display:flex;align-items:center}
-.inwrap .pre,.inwrap .suf{position:absolute;font-family:var(--mono);font-size:13px;color:var(--muted);pointer-events:none}
-.inwrap .pre{left:12px}.inwrap .suf{right:12px}
-.fld input,.fld select{width:100%;min-height:44px;padding:10px 12px;border-radius:12px;border:1px solid var(--line2);background:#06102a;color:var(--cream);
-  font:600 15px/1.2 'Plus Jakarta Sans',sans-serif;-moz-appearance:textfield}
-.fld input::-webkit-outer-spin-button,.fld input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.inwrap.has-pre input{padding-left:26px}.inwrap.has-suf input{padding-right:30px}
-.fld input:focus,.fld select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
-.roi-out h3{font-size:.95rem;font-weight:700;color:var(--muted);margin:0 0 14px;font-family:var(--mono);letter-spacing:.01em}
-.kpi{padding:14px 0;border-bottom:1px solid var(--line)}
-.kpi:last-of-type{border-bottom:0}
-.kpi .k{font-size:12.5px;color:var(--muted);font-weight:600}
-.kpi .v{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.15;margin-top:2px}
-.kpi.big .v{font-size:2.3rem}
-.kpi .v.pos{color:#7fe3b5}.kpi .v.neg{color:#ff9aa3}
-.kpi .n{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
-.assume{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(2,8,23,.55);border:1px solid var(--line)}
-.assume h4{font-family:var(--mono);font-size:11.5px;color:var(--gold);font-weight:600;margin:0 0 8px;letter-spacing:.02em}
-.assume ul{margin:0;padding-left:18px}
-.assume li{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:4px}
-
-/* qualifier + booking */
-.qual{max-width:760px;margin:clamp(34px,5vh,52px) auto 0;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2);padding:26px 24px}
-.qual .roi-grid{margin-bottom:18px}
-.qual button{cursor:pointer;border:0;font:inherit}
-.qresult{display:none;margin-top:18px;padding:16px 18px;border-radius:14px;border:1px solid var(--line2);background:rgba(2,8,23,.55)}
-.qresult.show{display:block}
-.qresult b{color:#fff}
-.qresult p{font-size:14px;color:var(--ink2);line-height:1.6;margin:0}
-.qresult.fit{border-color:rgba(86,216,160,.4)}
-.qresult.maybe{border-color:rgba(212,165,116,.45)}
-.qerr{display:none;font-size:13px;color:#ff9aa3;margin-top:10px}
-.bookwrap{display:none;max-width:900px;margin:22px auto 0;background:#fff;border-radius:var(--r2);overflow:hidden;box-shadow:var(--soft)}
-.bookwrap.show{display:block}
-.ghl-booking{min-width:320px;width:100%;height:720px;border:0;display:block}
-@media (max-width:560px){.ghl-booking{height:1000px}}
-.bookalt{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
-.bookalt a{color:var(--gold);font-weight:600}
-.skipq{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--muted)}
-.skipq a{color:var(--gold);font-weight:600}
-</style>
+<link rel="stylesheet" href="/assets/insurance.css"/>
 <script>document.documentElement.className='js';</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -170,7 +37,7 @@ footer{background:#010611}
     {"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},
     {"@type":"ListItem","position":2,"name":"Insurance agencies","item":"https://efficio.tech/insurance.html"}]},
   {"@type":"Service","@id":"https://efficio.tech/insurance.html#service","serviceType":"AI lead rescue for trucking and commercial-auto insurance agencies","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"US","audience":{"@type":"BusinessAudience","audienceType":"Independent trucking and commercial-auto insurance agencies"},"offers":[
-    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the agency's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/insurance.html#offers"},
+    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint starting on the later of the setup payment and the completed access checklist. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the agency's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/insurance.html#offers"},
     {"@type":"Offer","name":"AI Operator","price":"1500","priceCurrency":"USD","description":"Ongoing AI lead and renewal operations inside your GoHighLevel. Billed monthly, 90-day minimum, then month-to-month with 30 days' notice.","url":"https://efficio.tech/insurance.html#offers"}]}
 ]}
 </script>
@@ -186,12 +53,8 @@ footer{background:#010611}
 <nav class="nav" id="nav"><div class="nav-in">
   <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
   <div class="nav-mid">
-    <a href="/insurance.html" aria-current="page">Insurance</a>
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
+    <a href="/insurance.html" aria-current="page">Insurance agencies</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">AI teams</a>
-    <a href="/why-efficio.html">Why Efficio</a>
   </div>
   <a href="#book" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
@@ -225,7 +88,7 @@ footer{background:#010611}
     <h2 class="rv d1">You pay for leads. Most never get a second touch.</h2>
     <p class="lede rv d1">Producers call the fresh ones, then the pile ages. Truckers who said "call me at renewal" never hear back at renewal. The data you need to know <b>who renews next month</b> is public, but nobody has time to pull it.</p>
     <div class="comp">
-      <div class="rv"><h3>Aged leads sit untouched</h3><p>Leads you bought months ago are still in the CRM with one or two attempts on them. Many of those carriers are still shopping.</p></div>
+      <div class="rv"><h3>Aged leads sit untouched</h3><p>Leads you bought months ago are still in the CRM with one or two attempts on them. Some of those carriers may still be shopping.</p></div>
       <div class="rv d1"><h3>Renewals get missed</h3><p>A carrier's current insurer and policy effective date show up in public FMCSA filings. That gives you an estimated renewal date, if someone looks it up and follows up in time.</p></div>
       <div class="rv d2"><h3>Producers should be quoting</h3><p>Chasing no-answers and re-sending emails isn't a producer's best hour. Booked conversations with people who replied are.</p></div>
     </div>
@@ -237,11 +100,12 @@ footer{background:#010611}
   <div class="wrap center">
     <div class="eyebrow rv">// how the lead rescue sprint works</div>
     <h2 class="rv d1">Set up and sending in the first week.</h2>
-    <p class="lede rv d1">The Sprint runs 14 days. Setup and the first reactivation wave happen in week one. Week two is replies, bookings and the numbers review.</p>
+    <p class="lede rv d1">The Sprint runs 14 days from its Start Date. Setup and the first reactivation wave happen in week one. Week two is replies, bookings and the numbers review.</p>
+    <div class="clock rv"><p><b>When the Sprint clock starts:</b> Day 1 is the Start Date, which is the later of (a) the day your $500 setup fee is paid and (b) the day you complete the access checklist (GoHighLevel access, an authenticated sending domain, your lead and renewal list loaded, producer calendars connected, and a named sponsor). Every Sprint deadline on this page counts from that day.</p></div>
     <div class="steps">
       <div class="step rv"><div class="sn">01</div><h3>Connect (days 1&ndash;2)</h3><p>You give us limited access to your GoHighLevel with a token you control and can revoke. We connect your producers' calendars and import your lead and renewal lists. We build in your account, not ours.</p></div>
       <div class="step rv d1"><div class="sn">02</div><h3>Enrich &amp; rank (days 1&ndash;3)</h3><p>Each lead and renewal is matched by DOT number to public FMCSA insurance filings: current insurer and effective date, giving an estimated X-date. Then we rank everyone by who renews soonest.</p></div>
-      <div class="step rv d2"><div class="sn">03</div><h3>Reactivate (days 2&ndash;7)</h3><p>Personal, reviewed email follow-up to every reachable lead within 48 hours of launch. Replies that want to talk book straight onto a producer's calendar.</p></div>
+      <div class="step rv d2"><div class="sn">03</div><h3>Reactivate (days 2&ndash;7)</h3><p>Email follow-up you approve, sent to every reachable lead within 48 hours of the Start Date. Replies that want to talk book straight onto a producer's calendar.</p></div>
       <div class="step rv d3"><div class="sn">04</div><h3>Book &amp; review (days 8&ndash;14)</h3><p>We keep working replies and booking. On day 14 we go through the dashboard with you: who was touched, who replied, who booked, and cost per quoted appointment by lead vendor.</p></div>
     </div>
     <div class="twocol">
@@ -287,15 +151,15 @@ footer{background:#010611}
         <div class="badge">Start here</div>
         <div class="pn">Lead Rescue Sprint &middot; 14 days</div>
         <div class="pp">$1,000<span> one time</span></div>
-        <div class="pd"><b>$500 setup</b>, non-refundable, due at kickoff. <b>$500 performance</b>, due only after 5 qualifying appointments are booked onto your producers' calendars.</div>
+        <div class="pd"><b>$500 setup</b>, due at signing, non-refundable once the Sprint starts. <b>$500 performance</b>, due only after 5 qualifying appointments are booked onto your producers' calendars.</div>
         <ul class="flist">
           <li>Leads and renewals enriched by DOT number and ranked by estimated renewal window</li>
           <li>Email reactivation (AI-assisted where your GHL plan includes AI) that books straight onto producer calendars</li>
-          <li>Every reachable lead touched within 48 hours of launch</li>
-          <li>Dashboard live by day 3; day-14 numbers review with you</li>
+          <li>Every reachable lead touched within 48 hours of the Start Date</li>
+          <li>Renewal list and dashboard by day 3; day-14 numbers review with you</li>
           <li>No AI texting or AI calling of aged or purchased leads</li>
         </ul>
-        <p class="fine">An appointment counts when it's booked through our email outreach onto a producer's calendar during the Sprint, with a unique contact from your list, and your producer takes it. Your producers take each booked appointment within 1 business day (confirm it, call the prospect at the booked time, or reschedule it); one that isn't taken within that window still counts. <a href="#what-counts">Full definition</a>. <b>If you start AI Operator within 7 days of the Sprint ending, 50% of the Sprint fee you paid ($500 on the full $1,000) is credited to your first month.</b></p>
+        <p class="fine">An appointment counts when it's booked through our email outreach onto a producer's calendar during the Sprint, with a unique contact from your list, and your producer takes it. Your producers take each booked appointment within 1 business day (confirm it, call the prospect at the booked time, or reschedule it); one that isn't taken within that window still counts. <a href="#what-counts">Full definition</a>. Day 1 is the later of your setup payment and your completed access checklist (<a href="#clock">details</a>). <b>If you start AI Operator within 7 days of the Sprint ending, 50% of the Sprint fee you paid ($500 on the full $1,000) is credited to your first month.</b></p>
         <a href="#book" class="pb">Check fit &amp; book a call &rarr;</a>
       </div>
       <div class="price rv d1">
@@ -314,8 +178,8 @@ footer{background:#010611}
       </div>
     </div>
     <div class="gtee">
-      <div class="rv"><b>What we guarantee in the Sprint</b><span>Every reachable lead touched within 48 hours, the renewal-window list delivered, and the dashboard live by day 3.</span></div>
-      <div class="rv d1"><b>The results line</b><span>5 qualifying appointments in 14 days. Fewer than 5, and the $500 performance portion isn't due.</span></div>
+      <div class="rv"><b>What we guarantee in the Sprint</b><span>Every reachable lead touched within 48 hours, and the renewal-window list and dashboard delivered by day 3, all counted from the Start Date.</span></div>
+      <div class="rv d1"><b>The results line</b><span>5 qualifying appointments in the 14-day Sprint Window. Fewer than 5, and the $500 performance portion isn't due.</span></div>
       <div class="rv d2"><b>No stacking</b><span>The Sprint credit and any service credit never stack. One applies, once.</span></div>
     </div>
     <div class="quote-row rv">
@@ -330,7 +194,7 @@ footer{background:#010611}
   <div class="wrap center">
     <div class="eyebrow rv">// roi calculator &middot; your numbers</div>
     <h2 class="rv d1">What would working your unworked leads be worth?</h2>
-    <p class="lede rv d1">Conservative defaults. Every number is editable, and the result is shown <b>net of the $1,500/mo fee</b> and your added costs.</p>
+    <p class="lede rv d1">Illustrative defaults, not benchmarks. Every number is editable, and the result is shown <b>net of the $1,500/mo fee</b> and your added costs.</p>
     <div class="roi rv d1">
       <form class="roi-in" id="roiForm" onsubmit="return false" aria-label="ROI calculator inputs">
         <div class="roi-grid">
@@ -439,6 +303,10 @@ footer{background:#010611}
         <summary>Will you text or call our aged leads with AI?</summary>
         <p>No. Purchased and aged leads usually don't carry the consent needed for texts or AI calls, so the Sprint uses email plus your producers' own calls. Texts go only to contacts who opted in. AI voice is inbound-only unless a contact gave prior express written consent.</p>
       </details>
+      <details id="clock">
+        <summary>When does the Sprint clock start?</summary>
+        <p>Day 1 is the Start Date: the later of (a) the day your $500 setup fee is paid and (b) the day you complete the access checklist. The checklist is an active GoHighLevel account in your agency's name, a revocable least-privilege token for us, an authenticated sending domain in your name, your lead and renewal list loaded, lead cost by vendor, producer calendars connected, and a named sponsor. The 48-hour first touch, the day-3 deliverables and the 14-day window all count from the Start Date. If we miss an input deadline, the Sprint Window is extended day for day at no charge.</p>
+      </details>
       <details id="what-counts">
         <summary>What counts as one of the 5 appointments?</summary>
         <p>An appointment counts toward the 5 (a &ldquo;qualifying appointment&rdquo;) when all three are true: (1) it's booked through the Sprint's email outreach onto one of your producers' calendars during the 14-day Sprint; (2) it's with a unique contact from your own list &mdash; duplicates, test records, your staff, and anyone already in an active quote with you in the 14 days before the Sprint started don't count; and (3) your producer takes it. Your producers take each booked appointment within 1 business day of it being booked: they confirm it, call the prospect at the booked time, or reschedule it with the prospect. An appointment your team doesn't take within that 1 business day still counts, because the booking was delivered and the miss was on your side. Once 5 qualifying appointments happen, the $500 performance portion is due.</p>
@@ -453,7 +321,7 @@ footer{background:#010611}
       </details>
       <details>
         <summary>Does the AI give coverage advice or bind policies?</summary>
-        <p>Never. It qualifies, books and follows up. Quoting and advice stay with your licensed producers, and we keep a review log of every prompt and script we put in front of your leads.</p>
+        <p>Never. It qualifies, books and follows up. Quoting and advice stay with your licensed producers, and you approve every template before it is used.</p>
       </details>
       <details>
         <summary>Who's behind Efficio?</summary>
@@ -518,7 +386,6 @@ footer{background:#010611}
 </section>
 
 <section class="cta rv">
-  <div class="prompt">$ efficio rescue --leads aged --renewals 60d<span class="cur"></span></div>
   <h2>Your leads are already paid for.</h2>
   <p>Let's find out what they're worth. Half the Sprint is due only on results.</p>
   <a href="#book" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
@@ -530,23 +397,17 @@ footer{background:#010611}
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel.</p>
+        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel. Founder-led by Brady Gay, PE, in Miami.</p>
       </div>
-      <div class="fcol"><h5>Product</h5>
-        <a href="/insurance.html">For insurance agencies</a><a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      <div class="fcol"><h5>Work with us</h5>
+        <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/sms-opt-in.html">SMS terms</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a>
       </div>
     </div>
     <div class="fbot">
       <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
     </div>
   </div>
 </footer>

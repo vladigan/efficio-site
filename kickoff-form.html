@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#f8fafc" />
 <title>Kickoff intake · Efficio</title>
-<meta name="description" content="Ten questions so your AI team can start work before we even meet." />
+<meta name="description" content="Kickoff intake for Efficio clients: ten questions about your agency, lead sources and goals." />
 <meta name="robots" content="noindex" />
 <link rel="canonical" href="https://efficio.tech/kickoff-form.html" />
 
@@ -135,7 +135,7 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 <main class="shell">
   <div class="eyebrow">Step 3 of 3 · ~7 minutes</div>
   <h1>Tell us how <em>you</em> work.</h1>
-  <p class="lede">Ten questions. Your answers go straight to our team so your AI agents can start the real work before we even meet for kickoff.</p>
+  <p class="lede">Ten questions. Your answers go to Brady so the kickoff call starts with your numbers. Nothing is sent to your leads until you have approved the templates and completed the access checklist.</p>
 
   <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
 
@@ -143,29 +143,17 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 
     <div class="field">
       <label><span class="num">01.</span> Business name <span class="req">*</span></label>
-      <input class="input" type="text" name="business_name" required autocomplete="organization" placeholder="e.g. Bright Now Dental Tampa">
+      <input class="input" type="text" name="business_name" required autocomplete="organization" placeholder="e.g. Coastal Truck Insurance Agency">
     </div>
 
     <div class="field">
-      <label><span class="num">02.</span> Your industry / vertical <span class="req">*</span></label>
+      <label><span class="num">02.</span> Agency focus <span class="req">*</span></label>
       <select class="select" name="vertical" required>
         <option value="">Select one…</option>
-        <option>Accounting</option>
-        <option>Auto / Automotive</option>
-        <option>Cleaning</option>
-        <option>Construction</option>
-        <option>Dental</option>
-        <option>Electrical</option>
-        <option>HVAC</option>
-        <option>Insurance</option>
-        <option>Landscaping</option>
-        <option>Legal</option>
-        <option>Medical</option>
-        <option>Pest control</option>
-        <option>Plumbing</option>
-        <option>Real estate</option>
-        <option>Roofing</option>
-        <option>Other / generic</option>
+        <option>Trucking / commercial-auto insurance agency</option>
+        <option>Commercial lines agency (mixed)</option>
+        <option>Personal lines agency</option>
+        <option>Other</option>
       </select>
     </div>
 
@@ -182,16 +170,14 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 
     <div class="field">
       <label><span class="num">04.</span> Tools you use today (select all that apply) <span class="req">*</span></label>
-      <p class="hint">We use this to wire the AI team into where the work already happens. No tool? Pick the closest.</p>
+      <p class="hint">The work runs inside your own GoHighLevel. This tells us where your leads and bind data live today.</p>
       <div class="chips" id="toolsChips" data-name="current_tools" aria-label="Current tools">
         <button type="button" class="chip" data-val="GoHighLevel">GoHighLevel</button>
-        <button type="button" class="chip" data-val="HubSpot">HubSpot</button>
-        <button type="button" class="chip" data-val="Salesforce">Salesforce</button>
-        <button type="button" class="chip" data-val="Zoho">Zoho</button>
-        <button type="button" class="chip" data-val="Pipedrive">Pipedrive</button>
+        <button type="button" class="chip" data-val="AgencyZoom">AgencyZoom</button>
+        <button type="button" class="chip" data-val="EZLynx">EZLynx</button>
+        <button type="button" class="chip" data-val="HawkSoft">HawkSoft</button>
+        <button type="button" class="chip" data-val="Applied Epic">Applied Epic</button>
         <button type="button" class="chip" data-val="Google Sheets">Google Sheets</button>
-        <button type="button" class="chip" data-val="Notion">Notion</button>
-        <button type="button" class="chip" data-val="ClickUp">ClickUp</button>
         <button type="button" class="chip" data-val="Other">Other</button>
       </div>
       <input type="hidden" name="current_tools" id="currentToolsInput">
@@ -200,7 +186,7 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
     <div class="field">
       <label><span class="num">05.</span> Your top 3 pain points right now <span class="req">*</span></label>
       <p class="hint">Where is time leaking? What keeps you up at night? Be specific — the more concrete, the faster we move.</p>
-      <textarea class="textarea" name="top_pain_points" rows="4" required placeholder="e.g. 1) Missing 30% of inbound leads after hours.  2) Front desk drowning in scheduling.  3) Can't keep up with reviews on GBP."></textarea>
+      <textarea class="textarea" name="top_pain_points" rows="4" required placeholder="e.g. 1) Hundreds of bought leads with one attempt on them.  2) Renewals 60 days out that nobody calls.  3) No idea which lead vendor pays off."></textarea>
     </div>
 
     <div class="field">
@@ -232,8 +218,8 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 
     <div class="field">
       <label><span class="num">08.</span> Your three goals for the first 90 days <span class="req">*</span></label>
-      <p class="hint">Outcomes, not features. "Cut response time to 5 min" beats "have AI replies."</p>
-      <textarea class="textarea" name="ninety_day_goals" rows="4" required placeholder="e.g. 1) Book 30+ qualified discovery calls/mo from inbound.  2) Free up 12 hours/week from admin.  3) Get review count from 47 → 120 on GBP."></textarea>
+      <p class="hint">Outcomes, not features. "Every renewal 60 days out gets a touch" beats "have AI replies."</p>
+      <textarea class="textarea" name="ninety_day_goals" rows="4" required placeholder="e.g. 1) Every aged lead touched once.  2) Renewals 30–90 days out booked with producers.  3) Cost per quoted appointment by vendor."></textarea>
     </div>
 
     <div class="field">
@@ -264,23 +250,24 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
 
     <div class="submit-row">
       <button type="submit" class="btn-primary" id="submitBtn">
-        <span id="submitLabel">Send to our team</span>
+        <span id="submitLabel">Send to Brady</span>
         <span aria-hidden="true">→</span>
       </button>
-      <span class="privacy">Encrypted in transit. Only your account lead sees this — never sold, never shared.</span>
+      <span class="privacy">Encrypted in transit. Only Brady sees this. Never sold, never shared.</span>
     </div>
   </form>
 
   <div class="success-card" id="successCard" role="status" aria-live="polite">
-    <h2>Got it. Your team's been pinged.</h2>
-    <p>Your AI team starts work today. Expect your kickoff prep email within 24 hours — it'll have your agenda, expected deliverables, and what to bring.</p>
+    <h2>Got it. Thanks.</h2>
+    <p>Brady will review your answers before the kickoff call. If anything is unclear, he'll email you.</p>
     <a href="/onboarding-start.html">← Back to your welcome page</a>
   </div>
 </main>
 
 <footer class="foot">
-  Efficio · Your AI team for the next era of business operations<br>
-  <a href="mailto:brady@efficio.tech">brady@efficio.tech</a> · <a href="https://efficio.tech">efficio.tech</a>
+  Efficio · AI lead rescue for trucking &amp; commercial-auto insurance agencies<br>
+  <a href="mailto:brady@efficio.tech">brady@efficio.tech</a> · <a href="/">efficio.tech</a><br>
+  <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refund</a> · <a href="/unsubscribe.html">Unsubscribe</a>
 </footer>
 
 <script>
@@ -361,10 +348,12 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
     data.user_agent = navigator.userAgent;
 
     try{
-      const resp = await fetch('/api/kickoff-submit', {
+      /* Stored by the Efficio Worker (the site is static GitHub Pages). A
+         non-lead kind is recorded only: no automated email is triggered. */
+      const resp = await fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(data)
+        body: JSON.stringify({ kind: 'kickoff_intake', ts: data.submitted_at, email: data.email || '', company: data.business_name || '', vertical: data.vertical || '', answers: data })
       });
       if(resp.ok){
         try{ gtag && gtag('event','kickoff_form_submit_ok'); }catch(e){}
@@ -382,9 +371,9 @@ h1 em,h2 em{font-style:normal !important;color:var(--gold-300) !important}
       const subject = encodeURIComponent('Kickoff intake — ' + (data.business_name || 'new customer'));
       const mailto = 'mailto:brady@efficio.tech?subject=' + subject + '&body=' + encodeURIComponent(body);
       status.className = 'status err';
-      status.innerHTML = 'Our server didn\'t respond. <a href="'+mailto+'" style="text-decoration:underline">Click here to email it to us directly</a> — same result, takes 2 seconds.';
+      status.innerHTML = 'That didn\'t go through. <a href="'+mailto+'" style="text-decoration:underline">Click here to email your answers to Brady instead</a>.';
       btn.disabled = false;
-      label.textContent = 'Send to our team';
+      label.textContent = 'Send to Brady';
     }
   });
 })();

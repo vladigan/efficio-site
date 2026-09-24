@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#06060b"/>
+<meta name="theme-color" content="#020817"/>
 <script src="/assets/pixels.js" defer></script>
-<title>Pricing â Fractional CTO plans from $1,500/mo | Efficio</title>
-<meta name="description" content="Month-to-month AI team. AI Operator $1,500, Founding CTO $2,500, Full Custom CTO $3,500. Live in 7 days. Pay only if it works."/>
+<title>Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio</title>
+<meta name="description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
 <link rel="canonical" href="https://efficio.tech/pricing.html"/>
-<meta property="og:title" content="Pricing â Fractional CTO plans from $1,500/mo | Efficio"/>
-<meta property="og:description" content="Month-to-month AI team. AI Operator $1,500, Founding CTO $2,500, Full Custom CTO $3,500. Live in 7 days. Pay only if it works."/>
+<meta property="og:title" content="Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio"/>
+<meta property="og:description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/pricing.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Pricing â Fractional CTO plans from $1,500/mo | Efficio"/>
-<meta name="twitter:description" content="Month-to-month AI team. AI Operator $1,500, Founding CTO $2,500, Full Custom CTO $3,500. Live in 7 days. Pay only if it works."/>
+<meta name="twitter:title" content="Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio"/>
+<meta name="twitter:description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -27,15 +27,16 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
+<link rel="stylesheet" href="/assets/insurance.css"/>
 <style id="pricing-x">
-/* ââ pricing polish (scoped) â builds on v6 tokens ââââââââââââââââââ */
+/* ── pricing polish (scoped) — builds on v6 tokens ────────────────── */
 /* "Most popular" badge: gentle attention pulse, reduced-motion safe */
 @media(prefers-reduced-motion:no-preference){
   .price.feat .badge{animation:pbadge 3.4s var(--ease) infinite}
   @keyframes pbadge{0%,100%{box-shadow:0 6px 18px -6px rgba(124,77,255,.9)}
     50%{box-shadow:0 6px 26px -4px rgba(124,77,255,1)}}
 }
-/* comparison table â swipe affordance on narrow screens */
+/* comparison table — swipe affordance on narrow screens */
 .ptable{position:relative}
 .ptable-hint{display:none;font-family:var(--mono);font-size:11.5px;color:var(--violet-l);
   text-align:right;margin-bottom:8px}
@@ -51,11 +52,10 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
   {"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png"},
-  {"@type":"WebPage","@id":"https://efficio.tech/pricing.html#page","url":"https://efficio.tech/pricing.html","name":"Pricing â Fractional CTO plans from $1,500/mo","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},
-  {"@type":"Service","@id":"https://efficio.tech/pricing.html#service","serviceType":"Fractional CTO + custom AI ops for SMBs","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"North America","description":"Month-to-month fractional CTO plans. We plug into the apps your SMB already uses and ship an AI teammate in 7 days.","offers":[
-    {"@type":"Offer","name":"AI Operator","price":"1500","priceCurrency":"USD","description":"Entry tier â AI teammate live in 7 days, month-to-month.","url":"https://efficio.tech/pricing.html"},
-    {"@type":"Offer","name":"Founding CTO","price":"2500","priceCurrency":"USD","description":"Multi-workflow AI team, embedded fractional CTO.","url":"https://efficio.tech/pricing.html"},
-    {"@type":"Offer","name":"Full Custom CTO","price":"3500","priceCurrency":"USD","description":"Full custom build across the ops stack.","url":"https://efficio.tech/pricing.html"}
+  {"@type":"WebPage","@id":"https://efficio.tech/pricing.html#page","url":"https://efficio.tech/pricing.html","name":"Pricing — Lead Rescue Sprint and AI Operator","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},
+  {"@type":"Service","@id":"https://efficio.tech/pricing.html#service","serviceType":"Done-for-you AI lead rescue and AI operations","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"US","description":"Start with a Lead Rescue Sprint, then keep going on AI Operator. Founding CTO and Full Custom CTO are custom quote.","offers":[
+    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint starting on the later of the setup payment and the completed access checklist. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the client's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/pricing.html"},
+    {"@type":"Offer","name":"AI Operator","price":"1500","priceCurrency":"USD","description":"Ongoing AI lead operations. Billed monthly, 90-day minimum, then month-to-month with 30 days' notice.","url":"https://efficio.tech/pricing.html"}
   ]}
 ]}
 </script>
@@ -71,30 +71,27 @@
 <nav class="nav" id="nav"><div class="nav-in">
   <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
   <div class="nav-mid">
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">AI teams</a>
-    <a href="/why-efficio.html">Why Efficio</a>
+    <a href="/insurance.html">Insurance agencies</a>
+    <a href="/pricing.html" aria-current="page">Pricing</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <main id="main" tabindex="-1">
 <header class="phero">
   <div class="wrap">
-    <div class="eyebrow rv">// pricing &middot; month-to-month</div>
-    <h1 class="rv d1">Every Efficio build starts with a <span class="grad">Fractional CTO scoping call</span>.</h1>
-    <p class="sub rv d1">No product. No template. We build what your SMB needs â connected via MCP into your existing tools. Every build starts with a scoping call.</p>
+    <div class="eyebrow rv">// pricing &middot; two offers</div>
+    <h1 class="rv d1">Start with a Sprint. <span class="grad">Keep going if it works.</span></h1>
+    <p class="sub rv d1">Two published offers for trucking and commercial-auto insurance agencies. A 14-day Lead Rescue Sprint where half the fee is paid on results, then AI Operator if you want it to keep running. Bigger builds are custom quote.</p>
     <div class="hero-cta rv d2">
-      <a href="/find-your-tier.html" class="btn-primary lg">Find my tier &middot; 60s quiz <span class="arr">&rarr;</span></a>
-      <a href="#tiers" class="btn-outline lg">See the tiers</a>
+      <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+      <a href="#tiers" class="btn-outline lg">See the offers</a>
     </div>
     <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
         <span class="gtxt">
-          <span class="gt">Pay only if it works.</span>
-          <span class="gm">$0 upfront &middot; live in 7 days &middot; cancel anytime</span>
+          <span class="gt">Half the Sprint is paid on results.</span>
+          <span class="gm">$500 setup &middot; $500 due only after 5 qualifying appointments</span>
         </span>
       </div>
   </div>
@@ -102,58 +99,63 @@
 
 <section class="sec" style="padding-top:clamp(20px,3vh,40px)">
   <div class="wrap center">
-    <div class="eyebrow rv">// the offer &middot; every tier</div>
-    <h2 class="rv d1">Built fast. Risk on us.</h2>
+    <div class="eyebrow rv">// the offer</div>
+    <h2 class="rv d1">Clear terms. Shared risk.</h2>
     <div class="stats rv d2">
-      <div class="stat"><div class="n">~7</div><div class="l">days to first build</div></div>
-      <div class="stat"><div class="n">$0</div><div class="l">upfront &middot; no build fee</div></div>
-      <div class="stat"><div class="n">30</div><div class="l">day measurable proof</div></div>
+      <div class="stat"><div class="n">$500</div><div class="l">setup &middot; due at signing</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">qualifying appointments before the other $500</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">day promise on AI Operator &middot; exact terms below</div></div>
     </div>
+    <p class="fine rv d2" style="max-width:62ch;margin:18px auto 0"><b>AI Operator day-7 promise:</b> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.</p>
   </div>
 </section>
 
 <section class="sec" id="tiers" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// start anywhere</div>
-    <h2 class="rv d1">Pick where you're hurting most.</h2>
-    <p class="lede rv d1">Month-to-month. No contracts. Cancel anytime.</p>
-    <div class="prices">
-      <div class="price rv">
-        <div class="pn">AI Operator</div><div class="pp">$1,500<span> /mo</span></div>
-        <div class="pd">We turn on and run the AI already in your tools.</div>
+    <div class="eyebrow rv">// published offers</div>
+    <h2 class="rv d1">Two ways to start.</h2>
+    <p class="lede rv d1">The Sprint is available now for <a href="/insurance.html" style="color:var(--violet-l);font-weight:700">trucking &amp; commercial-auto insurance agencies</a>. Everything runs inside your own GoHighLevel.</p>
+    <div class="prices" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+      <div class="price feat rv">
+        <div class="badge">Start here</div>
+        <div class="pn">Lead Rescue Sprint &middot; 14 days</div><div class="pp">$1,000<span> one time</span></div>
+        <div class="pd">$500 setup, due at signing and non-refundable once the Sprint starts. $500 performance portion, due only after 5 qualifying appointments are booked onto your producers' calendars (<a href="/insurance.html#what-counts">what counts</a>).</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li>Runs <b>inside your own platform</b> â your data never leaves</li>
-          <li>Up to 4 standard workflows + 1 AI agent</li>
-          <li>Monthly optimization + report</li>
-          <li>Standard config â no custom builds</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
+          <li>Aged leads and renewals enriched and ranked</li>
+          <li>Email reactivation (AI-assisted where your GHL plan includes AI) that books onto your calendars</li>
+          <li>Every reachable lead touched within 48 hours of the Start Date</li>
+          <li>Renewal list and dashboard by day 3; day-14 review</li>
+          <li><span><b>Start Date</b> = the later of your setup payment and your completed access checklist</span></li>
+          <li><span><b>50% of the Sprint fee you paid</b> credited to AI Operator month 1 if you sign within 7 days of the Sprint ending</span></li>
+        </ul>
+        <a href="/insurance.html#book" class="pb">Check fit &amp; book &rarr;</a>
       </div>
-      <div class="price feat rv d1">
-        <div class="badge">Recommended</div>
-        <div class="pn">Founding CTO</div><div class="pp">$2,500<span> /mo</span></div>
-        <div class="pd">We run it as your fractional AI CTO. Founding rate.</div>
+      <div class="price rv d1">
+        <div class="pn">AI Operator</div><div class="pp">$1,500<span> /mo</span></div>
+        <div class="pd">Billed monthly by card on file. 90-day minimum, then month-to-month with 30 days' notice. Usage billed at cost.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li><b>Everything in AI Operator</b></li>
-          <li>Fractional CTO â weekly call + shared Slack</li>
-          <li>Up to 8 workflows + up to 3 agents (front + back office)</li>
-          <li>Light in-platform customization</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
+          <li>New leads answered in under 5 minutes</li>
+          <li>Ongoing reactivation and renewal campaigns</li>
+          <li>Approval-gated AI: you sign off before anything new goes out</li>
+          <li>Weekly brief, 1 workflow change a month, monthly review</li>
+          <li><span><b>Day-7 promise:</b> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.</span></li>
+        </ul>
+        <a href="/book.html" class="pb">Book a call &rarr;</a>
       </div>
       <div class="price rv d2">
-        <div class="pn">Full Custom CTO</div><div class="pp">$3,500<span> /mo</span></div>
-        <div class="pd">Ongoing custom engineering, built for you.</div>
+        <div class="pn">Founding CTO &middot; Full Custom CTO</div><div class="pp">Custom<span> quote</span></div>
+        <div class="pd">Multi-workflow builds and ongoing custom engineering, scoped on a call.</div>
         <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li><b>Everything in Founding CTO</b></li>
-          <li>Ongoing custom builds â integrations, bots, new systems</li>
-          <li>Unlimited standard workflows</li>
-          <li>Priority support &middot; dedicated CTO capacity</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
+          <li>Scope agreed in writing before any work</li>
+          <li>More workflows beyond the AI Operator scope</li>
+          <li>Custom integrations, quoted per build</li>
+          <li>AMS integrations quoted separately, once a real API path is confirmed</li>
+        </ul>
+        <a href="/book.html" class="pb">Ask for a quote &rarr;</a>
       </div>
     </div>
-    <p class="pnote rv">Not sure where to start? <a href="/find-your-tier.html">Find your tier</a> and we'll point you to the right tier &mdash; or first <a href="/savings.html">estimate your savings</a>.</p>
+    <div class="clock rv"><p><b>When the Sprint clock starts:</b> Day 1 is the Start Date, which is the later of (a) the day your $500 setup fee is paid and (b) the day you complete the access checklist (GoHighLevel access, an authenticated sending domain, your lead and renewal list loaded, producer calendars connected, and a named sponsor). Every Sprint deadline counts from that day.</p></div>
+    <p class="pnote rv">The Sprint credit and any service credit never stack &mdash; one applies, once. Already scoped with us? <a href="https://buy.stripe.com/3cIaEZgjXdm8f7Qf7MdQQ0l" rel="noopener">Start AI Operator</a>.</p>
   </div>
 </section>
 
@@ -161,19 +163,19 @@
   <div class="wrap center">
     <div class="eyebrow rv">// standard vs custom</div>
     <h2 class="rv d1">What's standard &mdash; and what's custom.</h2>
-    <p class="lede rv d1">Running the powerful AI already in your platform is standard, at every tier. Genuine custom engineering is gated to Full Custom CTO &mdash; so the price always matches the work.</p>
+    <p class="lede rv d1">Building inside your own GoHighLevel is standard in the Sprint and AI Operator. Genuine custom engineering is quoted separately &mdash; so the price always matches the work.</p>
     <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto">
       <div class="card rv">
-        <span class="tag">every tier</span>
+        <span class="tag">Sprint &amp; AI Operator</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
         <h3>Standard config</h3>
-        <p>Turning on and running the AI already in your tools â lead follow-up, a 24/7 receptionist, booking, reactivation, and your live dashboard. Configured, not coded.</p>
+        <p>Workflows built inside your own GoHighLevel: public FMCSA enrichment by DOT number, email reactivation, booking onto producer calendars, renewal campaigns and your dashboard. Configured, not coded.</p>
       </div>
       <div class="card rv d1">
-        <span class="tag">Full Custom CTO</span>
+        <span class="tag">custom quote</span>
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
         <h3>Custom engineering</h3>
-        <p>External integrations (like DOT SAFER), custom bots, new data sources, and bespoke systems â real engineering, so it lives in Full Custom.</p>
+        <p>AMS integrations (only once a real API path is confirmed), additional data sources and bespoke systems. Real engineering, so it's quoted per build.</p>
       </div>
     </div>
   </div>
@@ -181,21 +183,23 @@
 
 <section class="sec" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// what runs at each tier</div>
-    <h2 class="rv d1">The same core functions every business runs.</h2>
+    <div class="eyebrow rv">// side by side</div>
+    <h2 class="rv d1">What you get with each.</h2>
     <div class="rv d1 ptable" style="margin-top:clamp(34px,5vh,52px)">
     <div class="ptable-hint">// swipe to compare &rarr;</div>
     <div class="ptable-scroll">
     <table class="vtable">
-      <thead><tr><th>What you get</th><th>AI Operator</th><th class="hot">Founding CTO</th><th>Full Custom</th></tr></thead>
+      <thead><tr><th>What you get</th><th class="hot">Lead Rescue Sprint</th><th>AI Operator</th><th>Custom</th></tr></thead>
       <tbody>
-        <tr><td>Runs inside your own platform</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
-        <tr><td>Standard workflows</td><td class="y">up to 4</td><td class="y">up to 8</td><td class="y">unlimited</td></tr>
-        <tr><td>AI agents</td><td class="y">1</td><td class="y">up to 3</td><td class="y">3+</td></tr>
-        <tr><td>Fractional AI CTO</td><td>&mdash;</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
-        <tr><td>Custom engineering</td><td>&mdash;</td><td>&mdash;</td><td class="y">ongoing</td></tr>
-        <tr><td>Support</td><td class="y">async</td><td class="y">Slack + weekly</td><td class="y">priority</td></tr>
-        <tr><td>Live dashboard</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Price</td><td class="y">$1,000 once</td><td class="y">$1,500/mo</td><td class="y">quote</td></tr>
+        <tr><td>Paid on results</td><td class="y">$500 of $1,000</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Runs inside your own GoHighLevel</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">scoped</td></tr>
+        <tr><td>Aged-lead reactivation</td><td class="y">14 days</td><td class="y">ongoing</td><td class="y">scoped</td></tr>
+        <tr><td>Renewal / X-date campaigns</td><td class="y">list + first wave</td><td class="y">ongoing</td><td class="y">scoped</td></tr>
+        <tr><td>Speed-to-lead on new leads</td><td>&mdash;</td><td class="y">under 5 min</td><td class="y">scoped</td></tr>
+        <tr><td>Dashboard</td><td class="y">by day 3 of the Sprint</td><td class="y">&#x25CF;</td><td class="y">scoped</td></tr>
+        <tr><td>Workflow changes</td><td>&mdash;</td><td class="y">1 a month</td><td class="y">scoped</td></tr>
+        <tr><td>Minimum term</td><td class="y">14 days</td><td class="y">90 days, then monthly (30 days' notice)</td><td class="y">scoped</td></tr>
       </tbody>
     </table>
     </div>
@@ -209,35 +213,42 @@
     <h2 class="rv d1">Pricing questions, answered.</h2>
     <div class="faq rv d2">
       <details>
-        <summary>Is there a contract or setup fee?</summary>
-        <p>No. Every tier is <b>month-to-month</b> with <b>$0 upfront</b> and no build fee. Cancel anytime â you're never locked in.</p>
+        <summary>Is there a setup fee or a contract?</summary>
+        <p>The Lead Rescue Sprint has a <b>$500 setup fee</b>, due at signing and non-refundable once the Sprint starts; it pays for the build, which stays in your account. The other <b>$500 is due only after 5 qualifying appointments</b>. AI Operator is <b>$1,500/mo with a 90-day minimum</b>, then month-to-month with 30 days' notice, billed by card on file.</p>
       </details>
       <details>
-        <summary>What if it doesn't work for my business?</summary>
-        <p>You only start paying once your first build is <b>live and doing the work</b>, and you get <b>measurable proof in the first 30 days or your money back</b>. The risk sits with us, not you.</p>
+        <summary>When does the Sprint clock start?</summary>
+        <p>Day 1 is the Start Date: the later of the day your $500 setup fee is paid and the day you complete the access checklist (<a href="/insurance.html#clock">what's on it</a>). The 48-hour first touch, the day-3 deliverables and the 14-day window all count from that day.</p>
       </details>
       <details>
-        <summary>Can I start small and move up later?</summary>
-        <p>Yes â start where you're hurting most. Many owners begin on <b>AI Operator ($1,500/mo)</b>, prove it out, then move up to Founding CTO when they want us running and expanding it. No penalty for changing.</p>
+        <summary>What if the Sprint doesn't book 5 appointments?</summary>
+        <p>Then the $500 performance portion isn't charged (or is refunded if you prepaid it). The $500 setup is non-refundable; you keep the enriched lists, the workflows and the dashboard we built in your GoHighLevel.</p>
       </details>
       <details>
-        <summary>What am I actually paying for each month?</summary>
-        <p>We <b>build and run the AI workforce for you</b> â not another tool you have to operate. Every tier includes your live dashboard; the number of AI teams, custom builds, and strategy-call cadence step up as you go higher.</p>
+        <summary>What counts as one of the 5 appointments?</summary>
+        <p>An appointment counts toward the 5 (a &ldquo;qualifying appointment&rdquo;) when all three are true: (1) it's booked through the Sprint's email outreach onto one of your producers' calendars during the 14-day Sprint; (2) it's with a unique contact from your own list &mdash; duplicates, test records, your staff, and anyone already in an active quote with you in the 14 days before the Sprint started don't count; and (3) your producer takes it. Your producers take each booked appointment within 1 business day of it being booked: they confirm it, call the prospect at the booked time, or reschedule it with the prospect. An appointment your team doesn't take within that 1 business day still counts, because the booking was delivered and the miss was on your side.</p>
       </details>
       <details>
-        <summary>How fast until something is live?</summary>
-        <p>Your dashboard goes live around <b>day 5</b> and your first agent or tool around <b>day 7</b> â not a months-long implementation.</p>
+        <summary>What's the day-7 promise on AI Operator?</summary>
+        <p>If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded. The access checklist is the logins, permissions and details we need to start. Credits never stack.</p>
+      </details>
+      <details>
+        <summary>Do I get credit for the Sprint if I keep going?</summary>
+        <p>Yes. If you sign AI Operator within 7 days of the Sprint ending, <b>50% of the Sprint fee you paid ($500 on the full $1,000)</b> is credited to your first month. The Sprint credit and any service credit never stack.</p>
+      </details>
+      <details>
+        <summary>What about Founding CTO and Full Custom CTO?</summary>
+        <p>Both are custom quote. We scope them on a call once we know what you need built, so the price matches the work.</p>
       </details>
     </div>
-    <p class="pnote rv">Not sure where you land? <a href="/find-your-tier.html">Find your tier in 60 seconds</a> &middot; or <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">book a 15-minute call</a>.</p>
+    <p class="pnote rv"><a href="/insurance.html">See the full Sprint details</a> &middot; or <a href="/book.html">book a 15-minute call</a>.</p>
   </div>
 </section>
 
 <section class="cta rv">
-  <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Find your starting tier.</h2>
-  <p>Sixty seconds to see where it fits. We agree on the metric on call one.</p>
-  <a href="/find-your-tier.html" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+  <h2>Start with a Sprint.</h2>
+  <p>We look at your real numbers on the first call. Half the Sprint is paid on results.</p>
+  <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
 </section>
 
 </main>
@@ -246,47 +257,20 @@
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude â living inside your tools via MCP and APIs â so you operate while we handle the AI.</p>
+        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel. Founder-led by Brady Gay, PE, in Miami.</p>
       </div>
-      <div class="fcol"><h5>Product</h5>
-        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your tier</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      <div class="fcol"><h5>Work with us</h5>
+        <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
       </div>
     </div>
     <div class="fbot">
       <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
     </div>
   </div>
 </footer>
-<!-- LIVE AGENTS â bottom-docked popup -->
-<div id="liveops" aria-label="Live agent activity">
-  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
-    <span class="pdot" aria-hidden="true"></span>
-    <span class="vlabel">Live agents &middot; <b id="loCount">6</b> online</span>
-    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
-    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
-  </button>
-  <div class="lo-panel" id="loPanel">
-    <div class="lo-inner">
-      <div class="lo-h">
-        <span class="pdot" aria-hidden="true"></span>
-        <b>Agents working now</b>
-        <span class="cnt">live &middot; demo</span>
-        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="lo-feed" id="loFeed"></div>
-      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
-    </div>
-  </div>
-</div>
 <script>
 /* comparison table: show the swipe edge-fade only when it actually overflows */
 (function(){
@@ -295,10 +279,10 @@
   function sync(){ t.classList.toggle('has-scroll', s.scrollWidth>s.clientWidth+2); }
   sync(); window.addEventListener('resize',sync,{passive:true});
 })();
-/* reveal safety net â never leave .rv content invisible if IntersectionObserver doesn't fire */
+/* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
 setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
 </script>
 <script src="/assets/v6.js" defer></script>
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script><script src="/assets/consent.js" defer></script>
+<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script><script src="/assets/consent.js" defer></script>
 </body>
 </html>

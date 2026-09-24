@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="New client setup for Efficio. Tell us about your business so we can configure your AI teams for week one — takes about 5 minutes." />
+  <meta name="description" content="New client setup for Efficio. Tell us about your agency before the kickoff call. About 5 minutes." />
 <link rel="canonical" href="https://efficio.tech/onboarding.html" />
 <meta property="og:title" content="Client Onboarding — Efficio.tech" />
-<meta property="og:description" content="New client setup for Efficio. Tell us about your business so we can configure your AI teams for week one — takes about 5 minutes." />
+<meta property="og:description" content="New client setup for Efficio. Tell us about your agency before the kickoff call. About 5 minutes." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://efficio.tech/onboarding.html" />
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
 <meta name="twitter:card" content="summary_large_image" />
   <!-- Google Analytics 4 — Replace G-62FVTS6S1Z with your Measurement ID from analytics.google.com -->
   <script src="/assets/pixels.js"></script>
-  <title>Client Onboarding — Efficio.tech</title>
+  <meta name="robots" content="noindex, nofollow"/>
+<title>Client Onboarding — Efficio.tech</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -53,6 +54,14 @@
     .checkbox-item { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
     .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; accent-color: #a855f7; flex-shrink: 0; cursor: pointer; }
     .checkbox-item span { font-size: 14px; color: #ccc; }
+    /* Contact consent: two separate, optional, unchecked boxes (A = texts, B = AI-voice calls) */
+    fieldset.consents { border: 0; min-width: 0; margin: 0 0 20px; padding: 0; }
+    fieldset.consents legend { font-size: 13px; font-weight: 500; color: #bbb; margin-bottom: 8px; padding: 0; }
+    .consent-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; margin-bottom: 8px; border: 1px solid #2a2a2a; border-radius: 8px; }
+    .consent-item input[type="checkbox"] { width: 16px; height: 16px; margin-top: 3px; accent-color: #a855f7; flex-shrink: 0; cursor: pointer; }
+    .consent-item label { font-size: 12.5px; color: #bbb; line-height: 1.6; cursor: pointer; }
+    .consent-item label b { color: #fff; }
+    .consent-item label a { color: #c4b5fd; text-decoration: underline; }
     .submit-btn { width: 100%; padding: 16px; background: #a855f7; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 8px; }
     .submit-btn:hover { background: #7c3aed; }
     .form-note { font-size: 12px; color: #555; text-align: center; margin-top: 12px; }
@@ -70,15 +79,15 @@
 <body>
 
 <div class="nav-logo">
-  <a href="index.html"><span>E</span>fficio</a>
+  <a href="/"><span>E</span>fficio</a>
 </div>
 
 <div class="onboard-wrap">
 
   <div class="onboard-header">
     <div class="badge">New Client Setup · Day 1 intake</div>
-    <h1>Welcome to your AI team.</h1>
-    <p>Tell us about your business so we can configure your AI teams for week one. About 5 minutes. <a href="/audit-intake.html" style="color:var(--purple3,#b794f6);text-decoration:underline">Here's exactly what we collect</a> if you want to know in advance.</p>
+    <h1>Welcome aboard.</h1>
+    <p>Tell us about your agency so the kickoff call starts with your numbers. About 5 minutes. Nothing is sent to your leads until you have approved the templates and completed the access checklist.</p>
   </div>
 
   <!-- Progress indicator -->
@@ -107,20 +116,9 @@
           <label>Industry <span class="req">*</span></label>
           <select name="industry" required>
             <option value="">Select...</option>
-            <option>Roofing</option>
-            <option>HVAC</option>
-            <option>Plumbing</option>
-            <option>Electrical</option>
-            <option>General Contractor</option>
-            <option>Landscaping</option>
-            <option>Pest Control</option>
-            <option>Painting</option>
-            <option>Cleaning Services</option>
-            <option>Auto Repair</option>
-            <option>Dental / Medical</option>
-            <option>Real Estate</option>
-            <option>Legal</option>
-            <option>Pool Service</option>
+            <option>Trucking / commercial-auto insurance agency</option>
+            <option>Commercial lines agency (mixed)</option>
+            <option>Personal lines agency</option>
             <option>Other</option>
           </select>
         </div>
@@ -207,6 +205,18 @@
         </div>
       </div>
 
+      <fieldset class="consents">
+        <legend>Texts and calls from Efficio (optional; leave both unticked for email only)</legend>
+        <div class="consent-item">
+          <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" />
+          <label for="sms_consent" data-consent-version="sms_v2_2026-09"><b>Text me.</b> I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms">SMS Terms</a> &middot; <a href="/privacy.html#sms">Privacy Policy</a></label>
+        </div>
+        <div class="consent-item">
+          <input type="checkbox" id="ai_voice_consent" name="ai_voice_consent" value="yes" />
+          <label for="ai_voice_consent" data-consent-version="aivoice_v1_2026-09"><b>Call me with Efficio's AI assistant.</b> I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech.</label>
+        </div>
+      </fieldset>
+
       <div class="form-group">
         <label>Preferred contact method</label>
         <select name="preferred_contact">
@@ -225,14 +235,13 @@
       <div class="form-group">
         <label>Which tools do you currently use? (check all that apply)</label>
         <div class="checkbox-group" style="margin-top: 10px;">
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="jobber" /><span>Jobber</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="servicetitan" /><span>ServiceTitan</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="housecall_pro" /><span>Housecall Pro</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="quickbooks" /><span>QuickBooks</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="gohighlevel" /><span>GoHighLevel</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="agencyzoom" /><span>AgencyZoom</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="ezlynx" /><span>EZLynx</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="hawksoft" /><span>HawkSoft</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="applied_epic" /><span>Applied Epic</span></label>
           <label class="checkbox-item"><input type="checkbox" name="tools" value="google_calendar" /><span>Google Calendar</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="calendly" /><span>Calendly</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="crm" /><span>A CRM (HubSpot, Salesforce, etc.)</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="tools" value="none" /><span>None of the above — we do it manually</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="tools" value="other_crm_ams" /><span>Another CRM or AMS</span></label>
         </div>
       </div>
 
@@ -240,13 +249,11 @@
         <label>How do most of your new leads currently reach you?</label>
         <select name="lead_source">
           <option value="">Select...</option>
-          <option>Phone calls</option>
-          <option>Website contact form</option>
-          <option>Google / SEO</option>
-          <option>Word of mouth / referrals</option>
-          <option>HomeAdvisor / Angi / Thumbtack</option>
-          <option>Google Ads</option>
-          <option>Social media</option>
+          <option>Purchased leads (lead vendors)</option>
+          <option>Website / inbound forms</option>
+          <option>Referrals</option>
+          <option>Renewals / existing book</option>
+          <option>Google or Meta ads</option>
           <option>Mix of the above</option>
         </select>
       </div>
@@ -273,22 +280,22 @@
         <select name="plan_purchased" required>
           <option value="">Select your plan...</option>
 
+          <option>Lead Rescue Sprint ($1,000)</option>
           <option>AI Operator ($1,500/mo)</option>
-          <option>Founding CTO ($2,500/mo)</option>
-          <option>Full Custom CTO ($3,500/mo)</option>
-          <option>Dashboard Maintenance Retainer ($2,000–$5,000/mo)</option>
+          <option>Founding CTO (custom quote)</option>
+          <option>Full Custom CTO (custom quote)</option>
           <option>Custom (discussed separately)</option>
         </select>
       </div>
 
       <div class="form-group">
         <label>What's the single biggest time-waster in your business right now? <span class="req">*</span></label>
-        <textarea name="biggest_pain" rows="3" placeholder="e.g. We spend 2 hours every day answering the same questions by phone. Evenings and weekends we miss calls completely." required></textarea>
+        <textarea name="biggest_pain" rows="3" placeholder="e.g. We buy about 300 leads a month and most get one call. Renewals 60 days out never get a follow-up." required></textarea>
       </div>
 
       <div class="form-group">
         <label>Ideal outcome — what does success look like to you in 60 days?</label>
-        <textarea name="success_definition" rows="3" placeholder="e.g. I want to stop answering the phone for basic questions and have leads booking themselves while I'm on job sites."></textarea>
+        <textarea name="success_definition" rows="3" placeholder="e.g. Every aged lead touched, renewals on producers' calendars, and a clear cost per quoted appointment by vendor."></textarea>
       </div>
 
       <div class="form-group">
@@ -310,15 +317,16 @@
     </div>
 
     <button type="submit" class="submit-btn" id="onboardSubmit">Submit My Onboarding Info →</button>
-    <p class="form-note">We'll review this before your kick-off call and build a custom action plan. Usually back to you within 2 hours.</p>
+    <p class="form-note">Brady reviews this before your kickoff call and replies within 1 business day.</p>
 
-    <div id="onboardThanks" style="display:none;padding:24px;text-align:center;border:1px solid #4ade80;border-radius:10px;background:rgba(74,222,128,.08);margin-top:20px">
-      <strong style="color:#fff;display:block;font-size:18px;margin-bottom:6px">Got it — you're in.</strong>
-      <span style="color:#a1a1aa;font-size:14px">Your intake landed. We'll review and reach out within 2 hours.</span>
-    </div>
-    <p id="onboardError" style="display:none;color:#f87171;font-size:13.5px;margin-top:12px;text-align:center">Something didn't go through. Try once more or email brady@efficio.tech.</p>
+    <p id="onboardError" role="alert" style="display:none;color:#f87171;font-size:13.5px;margin-top:12px;text-align:center">Something didn't go through. Try once more or email brady@efficio.tech.</p>
 
   </form>
+  <!-- outside the form: the form is hidden on success, and this has to stay visible -->
+  <div id="onboardThanks" role="status" style="display:none;padding:24px;text-align:center;border:1px solid #4ade80;border-radius:10px;background:rgba(74,222,128,.08);margin-top:20px">
+    <strong style="color:#fff;display:block;font-size:18px;margin-bottom:6px">Got it — you're in.</strong>
+    <span style="color:#a1a1aa;font-size:14px">Your intake landed. Brady will review it and reply within 1 business day.</span>
+  </div>
 </div>
 
 <script>
@@ -328,12 +336,33 @@ window.submitOnboarding = function(ev) {
   var btn = document.getElementById('onboardSubmit');
   var err = document.getElementById('onboardError');
   var ok = document.getElementById('onboardThanks');
-  if (err) err.style.display = 'none';
+  if (err) {
+    /* reset to the default failure text (a consent problem may have replaced it) */
+    if (!err.hasAttribute('data-default')) err.setAttribute('data-default', err.textContent);
+    err.textContent = err.getAttribute('data-default');
+    err.style.display = 'none';
+  }
+
+  /* Optional text / AI-call consent (assets/contact-consent.js). A ticked box
+     needs a usable mobile number; nothing is sent until it has one. */
+  var CC = window.EfficioContactConsent;
+  var phoneEl = form.querySelector('input[name="contact_phone"]');
+  var phone = phoneEl ? phoneEl.value : '';
+  var ticked = form.querySelector('input[name="sms_consent"]:checked, input[name="ai_voice_consent"]:checked');
+  var problem = CC ? CC.problem(form, { phone: phone })
+    : (ticked ? 'Part of this page didn\'t load. Refresh the page and try again, or untick the text and call boxes.' : null);
+  if (problem) {
+    if (err) { err.textContent = problem; err.style.display = 'block'; }
+    return false;
+  }
+  var consent = CC ? CC.collect(form, { source: 'efficio_client_onboarding', phone: phone }) : null;
+
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
 
   var data = new FormData(form);
   var payload = { kind: 'client_onboarding', ts: new Date().toISOString(), answers: {} };
   for (var pair of data.entries()) { payload.answers[pair[0]] = pair[1]; }
+  if (consent) { payload.consent = consent; CC.mirror(payload, consent); }
   // mirror common fields to top level for easier Telegram alert read
   payload.firstName = payload.answers.first_name || payload.answers.contact_name || '';
   payload.company = payload.answers.business_name || '';
@@ -360,7 +389,9 @@ window.submitOnboarding = function(ev) {
   return false;
 };
 </script>
+<p style="text-align:center;font-size:12.5px;color:#777;padding:0 24px 40px"><a style="color:#aaa" href="/terms.html">Terms</a> · <a style="color:#aaa" href="/privacy.html">Privacy</a> · <a style="color:#aaa" href="/refund.html">Refund</a> · <a style="color:#aaa" href="/unsubscribe.html">Unsubscribe</a> · <a style="color:#aaa" href="#cookie-settings" data-cookie-settings>Cookie settings</a></p>
 <script src="/assets/chat.js" defer></script>
+<script src="/assets/contact-consent.js" defer></script>
 <script src="/assets/consent.js" defer></script>
 </body>
 </html>

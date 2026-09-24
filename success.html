@@ -1,174 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Payment confirmed — welcome to Efficio. Your AI team is getting to work. Here's your onboarding roadmap and what happens in the first 7 days.">
-<link rel="canonical" href="https://efficio.tech/success.html">
-<meta property="og:title" content="Welcome to Efficio — You're In">
-<meta property="og:description" content="Payment confirmed — welcome to Efficio. Your AI team is getting to work. Here's your onboarding roadmap and what happens in the first 7 days.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://efficio.tech/success.html">
-<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png">
-<meta name="twitter:card" content="summary_large_image">
-<title>Welcome to Efficio — You're In</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c3aed">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg:    #050a16;
-    --surf:  #0f1e33;
-    --bd:    rgba(255,255,255,.08);
-    --white: #f0f4ff;
-    --text:  #94a3b8;
-    --blue:  #7c3aed;
-    --cyan:  #a855f7;
-    --green: #10b981;
-    --glow:  rgba(124,58,237,.35);
-    --r:     10px;
-  }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
-  .card {
-    background: var(--surf);
-    border: 1px solid rgba(124,58,237,.3);
-    border-radius: 20px;
-    padding: 56px 48px;
-    max-width: 520px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 0 80px rgba(124,58,237,.12), 0 0 0 1px rgba(124,58,237,.1);
-  }
-  .icon {
-    width: 72px; height: 72px;
-    background: linear-gradient(135deg, rgba(16,185,129,.2), rgba(168,85,247,.1));
-    border: 1px solid rgba(16,185,129,.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 28px;
-  }
-  .icon svg { color: var(--green); }
-  .label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: .75rem; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--green); margin-bottom: 14px;
-  }
-  h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    font-weight: 800; color: var(--white);
-    line-height: 1.2; margin-bottom: 16px;
-  }
-  p {
-    font-size: .95rem; line-height: 1.7;
-    color: var(--text); margin-bottom: 32px;
-  }
-  .steps {
-    text-align: left;
-    background: rgba(255,255,255,.03);
-    border: 1px solid var(--bd);
-    border-radius: var(--r);
-    padding: 24px 28px;
-    margin-bottom: 32px;
-  }
-  .steps h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: .8rem; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase;
-    color: var(--text); margin-bottom: 16px;
-  }
-  .step {
-    display: flex; gap: 14px; align-items: flex-start;
-    margin-bottom: 14px;
-  }
-  .step:last-child { margin-bottom: 0; }
-  .step-num {
-    width: 24px; height: 24px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--blue), #1d4ed8);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .7rem; font-weight: 700; color: #fff;
-  }
-  .step-text { font-size: .88rem; line-height: 1.5; padding-top: 3px; }
-  .step-text strong { color: var(--white); }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 32px; border-radius: var(--r);
-    font-size: 15px; font-weight: 600; text-decoration: none;
-    background: linear-gradient(135deg, var(--blue), #1d4ed8);
-    color: #fff; border: 1px solid rgba(59,130,246,.4);
-    box-shadow: 0 0 40px var(--glow); transition: all .2s;
-  }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 0 60px var(--glow); }
-  .footer-note {
-    margin-top: 24px; font-size: .8rem; color: var(--text);
-  }
-  .footer-note a { color: var(--blue); text-decoration: none; }
-  .footer-note a:hover { text-decoration: underline; }
-</style>
-<link rel="stylesheet" href="/assets/theme.css" />
-<style>html,body{background:#0a0612 !important}body{position:relative;isolation:isolate}</style>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#020817"/>
+<title>Payment received | Efficio</title>
+<meta name="description" content="Payment received. Next steps for your Lead Rescue Sprint or AI Operator onboarding: book your kickoff and complete the access checklist."/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="canonical" href="https://efficio.tech/success.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#D4A574">
+<link rel="stylesheet" href="/assets/v6.css"/>
+<link rel="stylesheet" href="/assets/insurance.css"/>
+<script>document.documentElement.className='js';</script>
 </head>
 <body>
-<div class="card">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-  </div>
-  <div class="label">Payment Confirmed</div>
-  <h1>Welcome to Efficio.</h1>
-  <p>Your subscription is active. Here's what happens next — your AI team is getting to work.</p>
-
-  <div class="steps">
-    <h3>Your onboarding roadmap</h3>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text"><strong>Book your strategy call</strong> — we'll map out your first campaign, define target markets, and set KPIs.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text"><strong>Campaign goes live within 7 days</strong> — AI-personalized outreach to your ideal clients consistently.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-text"><strong>Weekly performance reports</strong> — open rates, replies, meetings booked, and pipeline value.</div>
-    </div>
-  </div>
-
-  <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <rect x="3" y="4" width="18" height="18" rx="2"/>
-      <line x1="16" y1="2" x2="16" y2="6"/>
-      <line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="3" y1="10" x2="21" y2="10"/>
-    </svg>
-    Book Your Strategy Call
-  </a>
-
-  <div class="footer-note">
-    Questions? Email us at <a href="mailto:contact@efficio.tech">contact@efficio.tech</a>
-  </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scrollbar" id="scrollbar"></div>
+<div class="bgfx" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="noise"></div>
 </div>
-<script src="/assets/chat.js" defer></script>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
+  <div class="nav-mid">
+    <a href="/insurance.html">Insurance agencies</a>
+    <a href="/pricing.html">Pricing</a>
+  </div>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
+</div></nav>
+
+<main id="main" tabindex="-1">
+<header class="phero simple-hero">
+  <div class="wrap">
+    <div class="eyebrow rv">// payment received</div>
+    <h1 class="rv d1">Thanks. <span class="grad">Here's what happens next.</span></h1>
+    <p class="sub rv d1">Stripe will email your receipt. Whether you started a Lead Rescue Sprint or AI Operator, onboarding is the same two things from you: a kickoff call and the access checklist.</p>
+  </div>
+</header>
+<section class="sec" style="padding-top:0">
+  <div class="wrap center">
+    <ol class="nsteps">
+      <li><span class="n">1</span><div><h3>Book your kickoff call (30 minutes)</h3><p>We confirm scope, walk the access checklist together and review the email templates you'll approve before anything is sent. <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" target="_blank" rel="noopener">Book kickoff &rarr;</a></p></div></li>
+      <li><span class="n">2</span><div><h3>Complete the access checklist</h3><p>These are the things we need before work can start:</p><ul>
+          <li>An active GoHighLevel account in your agency's name (you pay for it directly).</li>
+          <li>A least-privilege GHL user or private-integration token for Efficio, which you can revoke at any time.</li>
+          <li>A sending domain or sender identity in your agency's name, authenticated for email (SPF, DKIM and DMARC), or permission for us to set that up.</li>
+          <li>Your lead and renewal list loaded into GHL (or an AMS export for you to import), with lead source, date acquired and DOT or MC number where known.</li>
+          <li>Approximate lead cost by vendor, for the cost-per-appointment view.</li>
+          <li>Producer calendars connected in GHL, with real availability, time zone and business hours.</li>
+          <li>A named sponsor (owner or sales manager) who can direct producers, plus your existing do-not-contact and unsubscribe lists.</li>
+        </ul></div></li>
+      <li><span class="n">3</span><div><h3>Fill in the kickoff form</h3><p>Ten questions about your agency, lead sources and goals. <a href="/kickoff-form.html">Open the kickoff form &rarr;</a></p></div></li>
+      <li><span class="n">4</span><div><h3>When the clock starts</h3><p><b>Lead Rescue Sprint:</b> Day 1 is the later of the day your setup fee was paid and the day you complete the access checklist. First touch to every reachable lead within 48 hours of that day; renewal list and dashboard by day 3; day-14 review.</p><p><b>AI Operator day-7 promise:</b> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.</p></div></li>
+    </ol>
+    <p class="pnote" style="margin-top:24px">Questions? Email Brady at <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>. Refunds and credits: <a href="/refund.html">refund policy</a>.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
+        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel. Founder-led by Brady Gay, PE, in Miami.</p>
+      </div>
+      <div class="fcol"><h5>Work with us</h5>
+        <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      </div>
+      <div class="fcol"><h5>Legal</h5>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+    </div>
+  </div>
+</footer>
+<script>/* reveal safety net: never leave .rv content invisible if IntersectionObserver doesn't fire */
+setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);</script>
+<script src="/assets/v6.js" defer></script>
+<script src="/assets/consent.js" defer></script>
 </body>
 </html>

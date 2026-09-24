@@ -1,4 +1,4 @@
-/* Efficio v6 interactions — shared. scroll-progress, nav state, reveals, spotlight, live agents. All element lookups guarded. */
+/* Efficio v6 interactions — shared. scroll-progress, nav state, reveals, spotlight, mobile nav. All element lookups guarded. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -165,47 +165,6 @@
     }
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ play(); obs.disconnect(); }});},{threshold:.3});
     obs.observe(body);
-  })();
-
-  /* LIVE AGENTS popup */
-  (function(){
-    var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
-        feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
-        preview=document.getElementById('loPreview'),wrap=document.getElementById('liveops');
-    if(!tab||!feed||!wrap) return;
-    function setOpen(o){ wrap.classList.toggle('open',o); tab.setAttribute('aria-expanded',o?'true':'false');
-      try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){} }
-    tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
-    close.addEventListener('click',function(e){e.stopPropagation();setOpen(false);});
-
-    var POOL=[
-     {ag:'AI Receptionist',    txt:'answered 3 inbound calls before staff arrived', meta:'calls captured'},
-     {ag:'AI Sales Navigator', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
-     {ag:'AI Office Manager',  txt:'sorted 41 messages, drafted 14, flagged 2 urgent', meta:'owner inbox time'},
-     {ag:'AI Bookkeeper',      txt:'cleared $2,400 of overdue AR — 4 invoices paid', meta:'close-the-books speed'},
-     {ag:'AI Receptionist',    txt:'filled a cancellation in 14 min',               meta:'calendar gap time'},
-     {ag:'AI Office Manager',  txt:'sent a review request after a 5-star job',       meta:'review rate'},
-     {ag:'AI Sales Navigator', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
-     {ag:'AI Office Manager',  txt:'compiled tomorrow’s briefing in 6 lines',   meta:'morning prep time'},
-     {ag:'AI Bookkeeper',      txt:'reconciled today’s Stripe + bank — $0 drift', meta:'reconciliation accuracy'},
-     {ag:'AI Receptionist',    txt:'drafted a "running late" text — sent in 0.4s', meta:'comms latency'},
-     {ag:'AI Marketing',       txt:'shipped a 3-email win-back campaign',            meta:'pipeline revived'},
-     {ag:'AI Office Manager',  txt:'chased 4 outstanding documents — 3 came back', meta:'docs-returned rate'}
-    ];
-    var pi=0;
-    function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-    function push(){
-      var x=POOL[pi%POOL.length];pi++;
-      var n=document.createElement('div');n.className='lo-item';
-      n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time><span class="ag">'+x.ag+'</span> '+x.txt;
-      feed.insertBefore(n,feed.firstChild);
-      while(feed.children.length>14) feed.removeChild(feed.lastChild);
-      if(preview){ preview.style.opacity='0';
-        setTimeout(function(){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; preview.style.opacity='1'; }, reduce?0:200); }
-    }
-    for(var i=0;i<4;i++) push();
-    if(!reduce){ setInterval(push,8000); }
-    try{ setOpen(localStorage.getItem('efficio_liveops_open')==='1'); }catch(e){ setOpen(false); }
   })();
 
   /* mobile nav menu — additive hamburger (<=820px). Clones the page's own nav

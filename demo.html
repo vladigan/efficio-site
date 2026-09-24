@@ -4,14 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#06060b" />
-<title>The live demo · Efficio command center</title>
-<meta name="description" content="An interactive, live demo of the Efficio command center. Deploy AI agents, see each one's status, and watch what they're working on in real time. Built on Claude. Live in 7 days." />
+<meta name="robots" content="noindex"/>
+<title>Simulated demo · Efficio command center</title>
+<meta name="description" content="Simulated demo, sample data: an interactive mock-up of the Efficio command center. Deploy example AI agents, see each one's status, and watch sample work play out. Not a live customer account." />
 <link rel="canonical" href="https://efficio.tech/demo.html" />
 <meta property="og:url" content="https://efficio.tech/demo.html" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<meta property="og:title" content="The live demo · Efficio command center" />
-<meta property="og:description" content="An interactive command center: deploy agents, see their status, and watch the work happen. Poke at anything." />
+<meta property="og:title" content="Simulated demo, sample data · Efficio command center" />
+<meta property="og:description" content="Simulated demo, sample data: an interactive mock-up of the command center we build. Poke at anything." />
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png" />
 <meta property="og:type" content="website" />
 
@@ -371,35 +372,32 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
 <nav class="nav" id="nav"><div class="nav-in">
   <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
   <div class="nav-mid">
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
+    <a href="/insurance.html">Insurance agencies</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">AI teams</a>
-    <a href="/why-efficio.html">Why Efficio</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <main id="main" tabindex="-1">
 <header class="dhero">
   <div class="wrap">
     <div class="dhead">
-      <div class="eyebrow">// the live demo</div>
-      <h1>Your workforce, <span class="grad">on the clock.</span><span class="demotag">Demo</span></h1>
-      <p class="dsub">This is the Efficio command center — interactive and running live. Deploy an agent, open one up, and watch the work happen. Poke at anything.</p>
+      <div class="eyebrow">// simulated demo &middot; sample data</div>
+      <h1>A simulated AI <span class="grad">operations dashboard.</span><span class="demotag">Demo</span></h1>
+      <p class="dsub">This is a simulation with made-up sample data. It is not a client account, nothing on it is running for a real business, and none of the numbers are results. It shows the kind of visibility an automated workflow can give you. Click around.</p>
     </div>
 
     <div class="console" id="console">
       <div class="con-bar">
         <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-        <span class="con-title">efficio · command center</span>
-        <span class="con-stat"><span class="pulse"></span>live</span>
+        <span class="con-title">efficio · command center · simulated demo</span>
+        <span class="con-stat"><span class="pulse"></span>sample data</span>
       </div>
 
       <div class="statsbar" id="statsbar">
         <div class="stat"><div class="sl"><span class="live"></span>agents online</div><div class="sn g" id="kOnline">0</div></div>
         <div class="stat"><div class="sl">tasks handled today</div><div class="sn" id="kTasks">0</div></div>
-        <div class="stat"><div class="sl">revenue recovered</div><div class="sn c" id="kRecovered">$0</div></div>
+        <div class="stat"><div class="sl">revenue (sample)</div><div class="sn c" id="kRecovered">$0</div></div>
         <div class="stat"><div class="sl">hours saved this week</div><div class="sn v" id="kHours">0</div></div>
       </div>
 
@@ -419,11 +417,11 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
       </div>
 
       <div class="ticker">
-        <div class="tk-h"><span class="live"></span> live activity</div>
+        <div class="tk-h"><span class="live"></span> simulated activity</div>
         <div class="tk-feed" id="tkFeed"></div>
       </div>
     </div>
-    <p class="dhint">↑ Click any agent to open it · deploy a new one · everything updates live</p>
+    <p class="dhint">↑ Click any agent to open it · deploy a new one · everything here is simulated</p>
   </div>
 </header>
 
@@ -432,12 +430,12 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
   <div class="wrap">
     <div class="eyebrow center">// behind the dashboard</div>
     <h2>What you just watched, in four steps.</h2>
-    <p class="lede">Every agent above runs the same loop — on your real tools, connected by MCP + API, powered by Claude.</p>
+    <p class="lede">The simulation follows the same loop a real workflow does. For an insurance agency, the real work runs inside your own GoHighLevel, and nothing new goes out until you approve it.</p>
     <div class="flow">
       <div class="fstep"><div class="num">01 / trigger</div><h4>Something comes in</h4><p>A call, an email, a form, an overdue invoice. The right agent picks it up instantly — day or night.</p></div>
-      <div class="fstep"><div class="num">02 / act</div><h4>It does the work</h4><p>Books the job, drafts the reply, sends the quote, chases the payment — inside the apps you already use.</p></div>
+      <div class="fstep"><div class="num">02 / act</div><h4>It does the work</h4><p>Drafts the reply, books the appointment, updates the record, inside the apps you already use. In insurance, quoting and advice stay with licensed producers.</p></div>
       <div class="fstep"><div class="num">03 / log</div><h4>You see everything</h4><p>Each action lands in the activity feed with a timestamp. Open any agent to read its full history.</p></div>
-      <div class="fstep"><div class="num">04 / compound</div><h4>It adds up</h4><p>Hours saved, revenue recovered, work handled — tracked across the whole team, every single day.</p></div>
+      <div class="fstep"><div class="num">04 / compound</div><h4>It adds up</h4><p>Activity is counted and reported, so you can check the numbers yourself instead of taking our word for it.</p></div>
     </div>
   </div>
 </section>
@@ -446,11 +444,11 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
 <section class="cta">
   <div class="wrap">
     <div class="cta-card">
-      <h2>Deploy this for your business.</h2>
-      <p>Live in 7 days. $0 upfront. You only pay if it works. The demo is a simulation — the real thing runs on your tools.</p>
+      <h2>What we actually sell.</h2>
+      <p>This demo is a simulation with sample data. The real offers are the Lead Rescue Sprint and AI Operator for trucking and commercial-auto insurance agencies. <a href="/pricing.html">See pricing</a>.</p>
       <div class="row">
-        <a href="/find-your-tier.html" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
-        <a href="/agents.html" class="btn-outline">Browse the AI teams</a>
+        <a href="/insurance.html" class="btn-primary lg">See the Sprint <span class="arr">&rarr;</span></a>
+        <a href="/book.html" class="btn-outline">Book a call</a>
       </div>
     </div>
   </div>
@@ -462,23 +460,17 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude — living inside your tools via MCP and APIs — so you operate while we handle the AI.</p>
+        <p>Done-for-you AI lead rescue for trucking and commercial-auto insurance agencies, built and run inside your own GoHighLevel. Founder-led by Brady Gay, PE, in Miami.</p>
       </div>
-      <div class="fcol"><h5>Product</h5>
-        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your tier</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+      <div class="fcol"><h5>Work with us</h5>
+        <a href="/insurance.html">Insurance agencies</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
       </div>
     </div>
     <div class="fbot">
-      <div>© 2026 Efficio · BNG Contracting Enterprise LLC · Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
+      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
     </div>
   </div>
 </footer>
@@ -675,7 +667,7 @@ footer{background:#07070d;border-top:1px solid var(--line);color:#8b8aa1;padding
       '</div>'+
       '<div class="dr-logh"><span class="live" style="width:6px;height:6px"></span> activity log</div>'+
       '<div class="dr-log" id="drLog">'+rows+'</div>'+
-      '<div class="dr-cta"><a href="/find-your-tier.html" class="btn-primary">Deploy this for real <span class="arr">&rarr;</span></a></div>';
+      '<div class="dr-cta"><a href="/insurance.html" class="btn-primary">See the real offer <span class="arr">&rarr;</span></a></div>';
   }
   function openDrawer(id){
     var a=AGENTS.filter(function(x){return x.id===id;})[0]; if(!a) return;

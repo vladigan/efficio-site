@@ -18,10 +18,10 @@ Bottom-right purple bubble. Click → chat panel slides up. Backed by Claude via
 Files added:
 - `assets/chat.css` — widget styles
 - `assets/chat.js` — UI + fetch logic
-- `netlify/functions/chat.js` — Claude proxy
+- `netlify/functions/chat.js` — Claude proxy **(deleted 2026-09: inert on GitHub Pages and carried retired pricing; the live widget posts to the Cloudflare Worker `efficio-chat`)**
 - `netlify.toml` — `[functions]` directory registered
 
-System prompt grounds the bot as Efficio's AI assistant: knows pricing (AI Specialist $997 / AI Team $2,500 / AI Department $3,500), day-7 promise, day-30 refund, steers toward audit-quiz or Calendly. Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
+(Historical) The original Netlify system prompt used retired pricing and a retired day-30 refund; current offers are the Lead Rescue Sprint ($1,000) and AI Operator ($1,500/mo), with Founding CTO / Full Custom CTO by custom quote. It steers toward audit-quiz or Calendly. Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
 
 ---
 

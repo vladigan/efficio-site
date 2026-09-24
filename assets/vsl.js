@@ -19,13 +19,13 @@
 
   var SLIDES = [
     { text: 'If you\'re running a <em>$500K–$5M service business</em> and spending 15 hours a week on admin work you hate, watch this.', cls: 'lead' },
-    { text: 'Most agencies sell you software you have to learn. Or AI tools you have to figure out. Or "training" that ends up being <em>your problem</em> to implement.' },
+    { text: 'A lot of what&rsquo;s sold as AI is software you have to learn. Or AI tools you have to figure out. Or "training" that ends up being <em>your problem</em> to implement.' },
     { text: 'Efficio is different. We\'re your <em>AI team.</em> Not your AI software vendor.', cls: 'lead' },
     { text: 'You give us read-only access to your existing tools — Stripe, QuickBooks, your CRM, your ad accounts. We do the rest.' },
     { text: 'We run an audit, find where you\'re leaking money or time, and build the AI agents that fix it. You watch the work happen in your live dashboard.' },
     { text: 'Front-desk agent answering calls before they hit voicemail. Quote agent turning hours into minutes. Workflow optimizer owning your handoffs. Inbox triage clearing your owner inbox.' },
     { text: 'You don\'t learn AI. You don\'t pick tools. You don\'t manage anything. <em>We do it. You operate.</em>' },
-    { text: '<em>First agent live in 7 days.</em> If we miss day 7, the month is on us.', cls: 'close' },
+    { text: '<em>First agent live by day 7 after your access checklist is done.</em> If we miss it for reasons within our control, month 1 is on us.', cls: 'close' },
     { text: 'Book your free audit call below. 30 minutes. No pitch — just a real look at what\'s eating your time and how we\'d fix it.', cls: 'close' }
   ];
   var DURATION = 10000;

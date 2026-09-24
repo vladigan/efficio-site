@@ -1,7 +1,7 @@
 /* ============================================================================
    Efficio — floating AI chat widget loader
    - Injects HTML + chat.css on every page that loads this script
-   - POSTs to /.netlify/functions/chat for live AI replies
+   - POSTs to the Efficio Cloudflare Worker (CHAT_ENDPOINT below) for live AI replies
    - Falls back to email-capture if the function is unreachable
    ============================================================================ */
 (function () {

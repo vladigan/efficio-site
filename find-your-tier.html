@@ -224,7 +224,7 @@
   <div class="wrap">
     <div class="eyebrow rv">// find your fit &middot; ~60 seconds</div>
     <h1 class="rv d1">60 seconds. <span class="grad">Get your custom Fractional CTO plan.</span></h1>
-    <p class="sub rv d1">Quiz reveals which build path fits your SMB. AI Operator ($1.5K) → Founding CTO ($2.5K) → Full Custom CTO ($3.5K). All connect through MCP into your existing tools.</p>
+    <p class="sub rv d1">Quiz reveals which path fits your SMB: AI Operator ($1,500/mo), or a custom-quoted Founding CTO / Full Custom CTO build. Insurance agency? The Lead Rescue Sprint ($1,000) is the place to start. All connect through MCP into your existing tools.</p>
     <ul class="qtrust rv d2" aria-label="What to expect">
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>~60 seconds, 6 questions</li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>No email to see your result</li>
@@ -261,9 +261,9 @@
         <!-- result -->
         <div class="qresult" id="qResult" role="region" aria-label="Your recommended tier" tabindex="-1">
           <div class="rtop">
-            <div class="rmatch">Your best-fit tier</div>
-            <div class="rname"><span class="grad" id="rName">Founding CTO</span></div>
-            <div class="rprice"><b id="rPrice">$2,500</b> /mo<span class="rpop" id="rPop" hidden>Recommended</span></div>
+            <div class="rmatch">Your best-fit starting point</div>
+            <div class="rname"><span class="grad" id="rName">AI Operator</span></div>
+            <div class="rprice"><b id="rPrice">$1,500</b><span id="rUnit"> /mo</span><span class="rpop" id="rPop" hidden>Published price</span></div>
           </div>
 
           <div class="rpanel">
@@ -271,13 +271,14 @@
             <p class="rwhy" id="rWhy"></p>
             <div class="rget-h">What you get at this tier</div>
             <ul class="flist" id="rGet" style="font-size:14px"></ul>
+            <p class="rwhy" style="margin-top:14px"><b>Insurance agency with aged leads or upcoming renewals?</b> Start with the <a href="/insurance.html" style="color:var(--violet-l);font-weight:700">Lead Rescue Sprint</a> &mdash; $1,000, with $500 of it due only after 5 qualifying appointments.</p>
           </div>
 
           <div class="guarantee" style="margin-top:22px;width:100%;box-sizing:border-box">
             <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
             <span class="gtxt">
               <span class="gt">Pricing is published.</span>
-              <span class="gm">AI Operator $1,500/mo &middot; 90-day minimum, then month-to-month</span>
+              <span class="gm">AI Operator $1,500/mo &middot; 90-day minimum, then month-to-month with 30 days&rsquo; notice &middot; custom builds quoted</span>
             </span>
           </div>
 
@@ -285,8 +286,8 @@
             <div class="roncall-h">// what happens on your 15-minute call</div>
             <ol class="roncall-steps">
               <li><span class="rcs-n">1</span><span class="rcs-t"><b>You walk us through your day.</b> No deck, no homework — just how the work flows now.</span></li>
-              <li><span class="rcs-n">2</span><span class="rcs-t"><b>We name the one metric</b> we'll move in your first 30 days, and the first agent we'd ship.</span></li>
-              <li><span class="rcs-n">3</span><span class="rcs-t"><b>You decide.</b> AI Operator is $1,500/mo with a 90-day minimum, then month-to-month. No pressure.</span></li>
+              <li><span class="rcs-n">2</span><span class="rcs-t"><b>We name the first workflow</b> we'd automate, and how you'd see whether it's working.</span></li>
+              <li><span class="rcs-n">3</span><span class="rcs-t"><b>You decide.</b> AI Operator is $1,500/mo with a 90-day minimum, then month-to-month with 30 days&rsquo; notice. Custom work gets a written quote. No pressure.</span></li>
             </ol>
           </div>
 
@@ -294,7 +295,7 @@
             <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="btn-primary lg" id="rBook" target="_blank" rel="noopener">Book your strategy call <span class="arr">&rarr;</span></a>
             <a href="/pricing.html" class="btn-outline lg">See all tiers</a>
           </div>
-          <p class="rnote">This is a <b>recommendation, not a quote.</b> On your call we confirm the right fit and agree on the one metric we'll prove in the first 30 days.</p>
+          <p class="rnote">This is a <b>recommendation, not a quote.</b> On your call we confirm the right fit and agree on what the first automation should do.</p>
 
           <!-- OPTIONAL, skippable lead capture — appears AFTER the result is shown.
                It never gates the tier above and is strictly secondary to the
@@ -324,7 +325,7 @@
           </div>
 
           <div class="rother">
-            <div class="rother-h">// not sure? compare the other tiers</div>
+            <div class="rother-h">// not sure? compare the options</div>
             <div class="rmini" id="rMini"></div>
           </div>
 
@@ -382,11 +383,11 @@
 
   /* ---- tier reference data (pulled from pricing.html) ---- */
   var TIERS = {
-    operator: {name:'AI Operator',    price:'$1,500', popular:false, tag:'We turn on and run the AI already in your tools.',
+    operator: {name:'AI Operator',    price:'$1,500', unit:' /mo', popular:true,  tag:'We turn on and run the AI already in your tools.',
       get:['Runs <b>inside your own platform</b> — your data never leaves','Up to 4 standard workflows + 1 AI agent','Monthly optimization + report','Standard config — no custom builds']},
-    founding: {name:'Founding CTO',   price:'$2,500', popular:true,  tag:'We run it as your fractional AI CTO. Founding rate.',
+    founding: {name:'Founding CTO',   price:'Custom quote', unit:'', popular:false, tag:'We run it as your fractional AI CTO. Talk to us for a quote.',
       get:['<b>Everything in AI Operator</b>','Fractional CTO — weekly call + shared Slack','Up to 8 workflows + up to 3 agents (front + back office)','Light in-platform customization']},
-    custom:   {name:'Full Custom CTO',price:'$3,500', popular:false, tag:'Ongoing custom engineering, built for you.',
+    custom:   {name:'Full Custom CTO',price:'Custom quote', unit:'', popular:false, tag:'Ongoing custom engineering. Talk to us for a quote.',
       get:['<b>Everything in Founding CTO</b>','Ongoing custom builds — integrations, bots, new systems','Unlimited standard workflows','Priority support &middot; dedicated CTO capacity']}
   };
   var ORDER = ['operator','founding','custom']; // also low→high price for tie-break
@@ -448,8 +449,8 @@
       hint:'AI Operator is $1,500/mo with a 90-day minimum. Bigger builds are quoted.',
       opts:[
         {label:'Start lean, prove it first',  sub:'~$1,500 / month',              v:[3,1,0]},
-        {label:'Fund a fractional CTO',       sub:'~$2,500 / month',              v:[1,3,1]},
-        {label:'Invest for ongoing builds',   sub:'~$3,500 / month',              v:[0,1,3]},
+        {label:'Fund a fractional CTO',       sub:'More than $1,500 / month &mdash; custom quote', v:[1,3,1]},
+        {label:'Invest for ongoing builds',   sub:'Ongoing engineering &mdash; custom quote',       v:[0,1,3]},
         {label:'Not sure yet',                sub:'We\'ll help you pick on the call',        v:[1,1,1]}
       ]
     }
@@ -588,9 +589,9 @@
       operator:'You want to <b>prove it before you scale</b>, and nothing you need has to be built from scratch. '+
               'AI Operator turns on the AI you already pay for and runs it inside your own platform — up to four standard workflows and your first agent on '+sideWord+', optimised and reported on every month. Standard config, so you aren\u2019t paying for engineering you don\u2019t need.',
       founding:'You\u2019ve got real pressure on '+sideWord+', and you\u2019d rather someone <b>owned the system</b> than handed it to you. '+
-              'Founding CTO is everything in AI Operator plus a fractional AI CTO — weekly call, shared channel, up to eight workflows and three agents across front and back office, and light in-platform customisation. It\u2019s where most owners land, at a locked founding rate.',
+              'Founding CTO is everything in AI Operator plus a fractional AI CTO — weekly call, shared channel, up to eight workflows and three agents across front and back office, and light in-platform customisation. It\u2019s scoped and quoted on the call \u2014 or you can start with AI Operator and grow into it.',
       custom:'You need work that <b>doesn\u2019t exist yet</b>'+buildWord+'. '+
-              'That\u2019s genuine engineering rather than configuration, so it belongs in Full Custom CTO: everything in Founding, plus ongoing custom builds, unlimited standard workflows, and dedicated CTO capacity pointed at '+sideWord+'.'+
+              'That\u2019s genuine engineering rather than configuration, so it belongs in a custom-quoted Full Custom CTO build: everything in Founding, plus ongoing custom builds, unlimited standard workflows, and dedicated CTO capacity pointed at '+sideWord+'. Talk to us and we\u2019ll scope it and send a written quote.'+
               /* a single one-off build doesn't have to mean the top tier -- say so rather
                  than quoting up, but never quietly hand custom work to a config tier */
               (build===2 ? ' <span class="rwhy-alt">If it really is a <b>single</b> one-off build, Founding CTO plus a one-time build can also work \u2014 worth five minutes on the call to size it.</span>' : '')
@@ -610,9 +611,10 @@
     stepsEl.style.display='none';
     navRow.style.display='none';
 
-    document.getElementById('rName').innerHTML = t.name;
+    document.getElementById('rName').innerHTML = t.unit ? t.name : 'Talk to us &middot; '+t.name;
     document.getElementById('rPrice').textContent = t.price;
-    var pop = document.getElementById('rPop'); var isRec = (res.key === 'founding'); pop.hidden = !isRec; pop.style.display = isRec ? '' : 'none';
+    document.getElementById('rUnit').textContent = t.unit;
+    var pop = document.getElementById('rPop'); var isRec = (res.key === 'operator'); pop.hidden = !isRec; pop.style.display = isRec ? '' : 'none';
     document.getElementById('rWhy').innerHTML = whyText(res.key);
 
     var getUl = document.getElementById('rGet');
@@ -627,7 +629,7 @@
       btn.className='minit'+(k===res.key?' is-rec':'');
       if(k!==res.key){ btn.href='/pricing.html'; }
       btn.innerHTML='<div class="mn">'+d.name+'</div>'+
-        '<div class="mp">'+d.price+'<span> /mo</span></div>'+
+        '<div class="mp">'+d.price+'<span>'+d.unit+'</span></div>'+
         '<div class="md">'+d.tag+'</div>'+
         (k===res.key?'<span class="mrec">✓ your match</span>':'');
       mini.appendChild(btn);
@@ -645,7 +647,7 @@
     /* W140: Google Ads conversion — fires when quiz shows result */
     try { if (window.gtag) window.gtag('event', 'conversion', {'send_to': 'AW-18158098714/W8arCPCTr-gcEJqyutJD'}); } catch(_) {}
 
-    live.textContent = 'Done. Your recommended tier is '+t.name+', '+t.price+' per month.';
+    live.textContent = 'Done. Your recommended starting point is '+t.name+', '+(t.unit ? t.price+' per month.' : 'custom quote \u2014 talk to us.');
     if(focusReady){ resultEl.focus(); }
     if(!reduce && resultEl.scrollIntoView){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }
   }

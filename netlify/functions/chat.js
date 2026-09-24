@@ -21,9 +21,9 @@ One-time builds (if they want infrastructure first):
 - System Build $15,000 (8–10 weeks, full pipeline)
 
 Promises:
-- Day-7 promise: first agent live in 7 days of kickoff. Miss it → the month is on us.
-- Day-30 refund: agreed metric must move by day 30. If not → full first-month refund.
-- Month-to-month. Cancel anytime.
+- Day-7 promise: first automation live in 7 days of kickoff. Miss it for reasons within our control -> month 1 is free (carrier/A2P approvals excluded; credits never stack).
+- AI Operator: $1,500/mo, 90-day minimum, then month-to-month with 30 days' notice. No measurable-savings refund.
+- Lead Rescue Sprint (insurance agencies only): $1,000 = $500 non-refundable setup + $500 due only after 5 qualifying appointments. 50% of the Sprint fee paid is credited to AI Operator month 1 if signed within 7 days. Credits never stack.
 
 Tone:
 - Direct, premium, conversational. Short sentences. No "synergy", "leverage", "unlock", "transform".

@@ -6,17 +6,17 @@
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js" defer></script>
 <title>Efficio — Your Fractional CTO. Custom ops for SMBs in 7 days.</title>
-<meta name="description" content="Your fractional CTO. We plug into the apps your SMB already uses and ship custom ops in 7 days. Start with a $1,000 Lead Rescue Sprint: half is due only after 5 booked appointments." />
+<meta name="description" content="Your fractional CTO. We plug into the apps your SMB already uses and ship custom ops in 7 days." />
 <link rel="canonical" href="https://efficio.tech/"/>
 <meta property="og:title" content="Efficio — Your Fractional CTO. Custom ops for SMBs in 7 days."/>
-<meta property="og:description" content="Your fractional CTO. We plug into the apps your SMB already uses and ship custom ops in 7 days. Start with a $1,000 Lead Rescue Sprint: half is due only after 5 booked appointments."/>
+<meta property="og:description" content="Your fractional CTO. We plug into the apps your SMB already uses and ship custom ops in 7 days."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Efficio — Not a hire. An AI team."/>
-<meta name="twitter:description" content="Your always-on AI team - answers calls, books jobs, and chases every lead inside your own stack. Start with a $1,000 Lead Rescue Sprint: half is due only after 5 booked appointments."/>
+<meta name="twitter:description" content="Your always-on AI team - answers calls, books jobs, and chases every lead inside your own stack."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -46,7 +46,7 @@ body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--b
 a{color:inherit;text-decoration:none}
 img,svg{max-width:100%;display:block}
 ::selection{background:var(--violet);color:#fff}
-a:focus-visible,button:focus-visible,.btn-primary:focus-visible,.btn-outline:focus-visible,.nav-mid a:focus-visible,.price .pb:focus-visible,.card:focus-visible,.chip:focus-visible,#liveops .lo-tab:focus-visible{outline:2px solid var(--violet-l);outline-offset:3px;border-radius:10px}
+a:focus-visible,button:focus-visible,.btn-primary:focus-visible,.btn-outline:focus-visible,.nav-mid a:focus-visible,.price .pb:focus-visible,.card:focus-visible,.chip:focus-visible{outline:2px solid var(--violet-l);outline-offset:3px;border-radius:10px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 .center{text-align:center}
 .mono{font-family:var(--mono)}
@@ -464,52 +464,6 @@ html.js .rv.vis{opacity:1;transform:none}
 
 
 
-/* LIVE AGENTS — bottom-docked popup (v6) */
-#liveops{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;flex-direction:column;font-family:'Plus Jakarta Sans',sans-serif}
-#liveops .lo-tab{order:2;display:flex;align-items:center;gap:12px;width:100%;cursor:pointer;text-align:left;
-  background:rgba(11,11,19,.82);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);
-  color:var(--ink2);border:0;border-top:1px solid var(--line2);
-  padding:0 96px 0 22px;height:46px;box-sizing:border-box;
-  box-shadow:0 -10px 30px rgba(0,0,0,.5);transition:background .25s var(--ease)}
-#liveops .lo-tab:hover{background:rgba(18,18,30,.9)}
-#liveops .lo-tab .pdot{position:relative;width:8px;height:8px;border-radius:50%;background:var(--green);
-  box-shadow:0 0 10px var(--green);flex-shrink:0}
-#liveops .lo-tab .pdot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--green);opacity:.6;animation:ping 2.4s ease-out infinite}
-#liveops .lo-tab .vlabel{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#fff;flex-shrink:0}
-#liveops .lo-tab .vlabel b{color:var(--violet-l);font-weight:700}
-#liveops .lo-tab .lo-preview{flex:1;min-width:0;font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s var(--ease)}
-#liveops .lo-tab .lo-preview .ag{color:var(--violet-l);font-weight:700}
-#liveops .lo-tab .lo-chev{flex-shrink:0;color:var(--violet-l);font-size:11px;transition:transform .3s var(--ease)}
-#liveops.open .lo-tab .lo-chev{transform:rotate(180deg)}
-#liveops .lo-panel{order:1;width:100%;max-height:0;overflow:hidden;
-  background:linear-gradient(180deg,rgba(13,13,23,.94),rgba(9,9,16,.96));
-  -webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);
-  border-top:1px solid var(--line2);box-sizing:border-box;
-  transition:max-height .36s var(--ease2);box-shadow:0 -28px 70px rgba(0,0,0,.5)}
-#liveops.open .lo-panel{max-height:min(48vh,380px)}
-#liveops .lo-inner{max-width:1120px;margin:0 auto;padding:18px 22px 14px;display:flex;flex-direction:column;max-height:min(48vh,380px);box-sizing:border-box}
-#liveops .lo-h{display:flex;align-items:center;gap:9px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:11px;flex-shrink:0}
-#liveops .lo-h .pdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-#liveops .lo-h b{font-size:13px;font-weight:800;color:#fff;letter-spacing:-.01em;flex:1}
-#liveops .lo-h .cnt{font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600}
-#liveops .lo-x{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;transition:color .2s var(--ease)}
-#liveops .lo-x:hover{color:#fff}
-#liveops .lo-feed{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:0 28px;align-content:start}
-#liveops .lo-feed::-webkit-scrollbar{width:5px}
-#liveops .lo-feed::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px}
-#liveops .lo-item{padding:11px 4px;border-bottom:1px dashed var(--line);font-size:12.5px;line-height:1.5;color:var(--ink2);animation:loIn .45s var(--ease2)}
-#liveops .lo-item time{display:block;font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--violet-l);font-variant-numeric:tabular-nums;margin-bottom:3px;letter-spacing:.04em}
-#liveops .lo-item .ag{color:#fff;font-weight:700}
-#liveops .lo-foot{padding-top:11px;margin-top:8px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:center;flex-shrink:0;letter-spacing:.04em}
-@keyframes loIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media(max-width:780px){
-  #liveops .lo-tab{height:44px;padding:0 72px 0 14px;gap:9px}
-  #liveops .lo-tab .vlabel{letter-spacing:.1em}
-  #liveops .lo-tab .lo-preview{display:none}
-  #liveops.open .lo-panel{max-height:58vh}
-  #liveops .lo-inner{max-height:58vh;padding:14px 14px 12px}
-  #liveops .lo-feed{grid-template-columns:1fr;gap:0}
-}
 footer{padding-bottom:96px}
 
 /* ── mobile refinements (v6.1 polish) ── */
@@ -533,7 +487,7 @@ footer{padding-bottom:96px}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.001ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
   html.js .flow .fstep{opacity:1;transform:none}
-  .live::after,#liveops .lo-tab .pdot::after{display:none}
+  .live::after{display:none}
 }
 /* ===== SEE IT IN ACTION — demo showcase ===== */
 .showcase .sc-wrap{max-width:1040px;margin:0 auto}
@@ -989,8 +943,8 @@ footer{padding-bottom:96px}
       <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
         <span class="gtxt">
-          <span class="gt">Half the Sprint is paid on results.</span>
-          <span class="gm">$500 setup &middot; $500 due only after 5 AI-booked appointments</span>
+          <span class="gt">Pricing is published.</span>
+          <span class="gm">AI Operator $1,500/mo &middot; 90-day minimum, then month-to-month</span>
         </span>
       </div>
     </div>
@@ -1371,7 +1325,7 @@ footer{padding-bottom:96px}
                     </svg>
                   </div>
                   <div class="hd-feed">
-                    <div class="hd-now"><span class="hd-pdot hd-pulse"></span>now handling &middot; 4 agents live</div>
+                    <div class="hd-now"><span class="hd-pdot hd-pulse"></span>sample view &middot; illustrative data</div>
                     <div class="hd-log">
                       <div class="hd-row"><time>09:15</time><span>Replied to a new lead in 38s</span></div>
                       <div class="hd-row"><time>09:08</time><span>Sorted 12 emails &middot; 3 flagged for you</span></div>
@@ -1673,12 +1627,12 @@ footer{padding-bottom:96px}
         <h3>AI Receptionist</h3><p>Picks up every call, text &amp; web form in seconds &mdash; and books the job, 24/7.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
         <div class="cdetail" id="ag-front-0" role="region" aria-label="AI Receptionist &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-msg" aria-hidden="true"><i class="m1"></i><i class="m2"></i></div>
-          <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Answering inbound calls &amp; texts and booking jobs straight into your calendar.</span></div>
+          <div class="cd-now"><span class="lbl"><span class="pdot"></span>example</span><span class="txt">Answering inbound calls &amp; texts and booking jobs straight into your calendar.</span></div>
           <div class="cd-log">
             <div class="logrow"><time>09:14</time>Booked a roof repair for Tue 9am &mdash; added to calendar</div>
             <div class="logrow"><time>09:11</time>Missed call captured &rarr; texted back, quote requested</div>
           </div>
-          <div class="cd-foot"><span class="cd-count"><b data-to="38">38</b> calls &amp; texts handled today</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
+          <div class="cd-foot"><span class="cd-count"><b data-to="38">38</b> calls &amp; texts in a sample day</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
         </div></div></div>
       </div>
       <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-front-2" style="--ac:#56d8a0"><span class="tag">sales/</span>
@@ -1686,12 +1640,12 @@ footer{padding-bottom:96px}
         <h3>AI Sales Navigator</h3><p>Answers new leads in seconds, sends the quote, and follows up until they decide.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
         <div class="cdetail" id="ag-front-2" role="region" aria-label="AI Sales Navigator &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-msg" aria-hidden="true"><i class="m1"></i><i class="m2"></i></div>
-          <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Responding to new leads and chasing open quotes until they decide.</span></div>
+          <div class="cd-now"><span class="lbl"><span class="pdot"></span>example</span><span class="txt">Responding to new leads and chasing open quotes until they decide.</span></div>
           <div class="cd-log">
             <div class="logrow"><time>09:15</time>New website lead &rarr; replied in 38s with a quote</div>
             <div class="logrow"><time>08:52</time>Follow-up #2 sent on a $4,200 estimate</div>
           </div>
-          <div class="cd-foot"><span class="cd-count"><b data-to="21">21</b> leads worked today</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
+          <div class="cd-foot"><span class="cd-count"><b data-to="21">21</b> leads worked in a sample day</span><a class="cd-link" href="/agents.html#front">learn more &rarr;</a></div>
         </div></div></div>
       </div>
     </div>
@@ -1717,12 +1671,12 @@ footer{padding-bottom:96px}
         <h3>AI Office Manager</h3><p>Runs scheduling, inbox triage, reviews &amp; win-backs, and the daily brief &mdash; the back office in one seat.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
         <div class="cdetail" id="ag-back-0" role="region" aria-label="AI Office Manager &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-chart" aria-hidden="true"><i style="--bh:55%"></i><i style="--bh:80%"></i><i style="--bh:45%"></i><i style="--bh:95%"></i></div>
-          <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Running scheduling, handoffs, inbox triage, review requests, win-back nudges, KPIs, and your daily owner brief.</span></div>
+          <div class="cd-now"><span class="lbl"><span class="pdot"></span>example</span><span class="txt">Running scheduling, handoffs, inbox triage, review requests, win-back nudges, KPIs, and your daily owner brief.</span></div>
           <div class="cd-log">
             <div class="logrow"><time>09:10</time>Rescheduled 2 jobs around a cancellation</div>
             <div class="logrow"><time>08:15</time>Owner brief sent &mdash; 3 items need you</div>
           </div>
-          <div class="cd-foot"><span class="cd-count"><b data-to="28">0</b> tasks coordinated today</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
+          <div class="cd-foot"><span class="cd-count"><b data-to="28">0</b> tasks coordinated in a sample day</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
         </div></div></div>
       </div>
       <div class="card agc rv d1" role="button" tabindex="0" aria-expanded="false" aria-controls="ag-back-1" style="--ac:#3fd0c9"><span class="tag">books/</span>
@@ -1730,12 +1684,12 @@ footer{padding-bottom:96px}
         <h3>AI Bookkeeper</h3><p>Sends invoices on time and chases overdue accounts &mdash; draft-only, never moves your money.</p><span class="go"><span class="go-i">click into it &#9662;</span><span class="go-x">close &#9652;</span></span>
         <div class="cdetail" id="ag-back-1" role="region" aria-label="AI Bookkeeper &mdash; what it handles" inert><div class="cdwrap"><div class="cdin">
           <div class="ws ws-check" aria-hidden="true"><div class="rl"><span></span><span></span></div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <div class="cd-now"><span class="lbl"><span class="pdot"></span>now handling</span><span class="txt">Drafting invoices and AR follow-ups &mdash; draft-only, no money moved.</span></div>
+          <div class="cd-now"><span class="lbl"><span class="pdot"></span>example</span><span class="txt">Drafting invoices and AR follow-ups &mdash; draft-only, no money moved.</span></div>
           <div class="cd-log">
             <div class="logrow"><time>09:07</time>Invoice #1043 drafted for your approval</div>
             <div class="logrow"><time>08:20</time>AR reminder queued on 2 overdue accounts</div>
           </div>
-          <div class="cd-foot"><span class="cd-count"><b data-to="11">0</b> invoices &amp; reminders drafted today</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
+          <div class="cd-foot"><span class="cd-count"><b data-to="11">0</b> invoices &amp; reminders drafted in a sample day</span><a class="cd-link" href="/agents.html#back">learn more &rarr;</a></div>
         </div></div></div>
       </div>
     </div>
@@ -1761,7 +1715,7 @@ footer{padding-bottom:96px}
         <div class="pn">AI Operator &middot; $1,500/mo</div>
         <h3>Start with one agent</h3>
         <p>Pick the one agent on your biggest leak. Your own Claude account set up for you, a live dashboard, and your first automation &mdash; live in 7 days.</p>
-        <span class="guar"><span class="gdot"></span>$500 setup &middot; $500 only after 5 booked appointments</span>
+        <span class="guar"><span class="gdot"></span>90-day minimum, then month-to-month</span>
       </div>
       <a href="/find-your-tier.html" class="card imagine">
         <span class="tag">custom/</span>
@@ -1841,7 +1795,7 @@ footer{padding-bottom:96px}
       <div class="card rv">
         <span class="tag">vs hiring/</span>
         <h3>vs. a new hire</h3>
-        <p>Costs $80&ndash;150K/yr, takes 30&ndash;90 days to ramp, needs benefits and management &mdash; and quits. We ship in 7 days, run $1.5&ndash;3.5K/mo, no management, no lock-in.</p>
+        <p>Costs $80&ndash;150K/yr, takes 30&ndash;90 days to ramp, needs benefits and management &mdash; and quits. We ship in 7 days, run $1.5&ndash;3.5K/mo, no management, 90-day minimum then month-to-month.</p>
       </div>
       <div class="card rv d1">
         <span class="tag">vs agencies/</span>
@@ -1900,7 +1854,7 @@ footer{padding-bottom:96px}
       </div>
     </div>
     <div class="tt-cta rv d2"><a href="/pricing.html" class="btn-primary lg">See full pricing <span class="arr">&rarr;</span></a></div>
-    <p class="tt-note rv">Lead Rescue Sprint $1,000 &middot; AI Operator $1,500/mo &middot; built inside the tools you already run</p>
+    <p class="tt-note rv">AI Operator $1,500/mo &middot; 90-day minimum, then month-to-month with 30 days&rsquo; notice &middot; built inside the tools you already run</p>
     <p class="pnote rv">Not sure? <a href="/find-your-tier.html">Find your tier</a>.</p>
   </div>
 </section>
@@ -1943,19 +1897,19 @@ footer{padding-bottom:96px}
   <div class="wrap center">
     <div class="eyebrow rv">// before you ask</div>
     <h2 class="rv d1">The honest answers.</h2>
-    <p class="lede rv d1">No pressure, no lock-in. Here's exactly what you're signing up for.</p>
+    <p class="lede rv d1">No pressure. Here's exactly what you're signing up for.</p>
 
     <div class="rr-band rv d2">
-      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg><b>$500</b> setup</span>
+      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg><b>$1,500</b>/mo AI Operator</span>
       <span class="rr-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2.5h6"/></svg>Live in <b>7 days</b></span>
-      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg>$500 more only after <b>5 bookings</b></span>
-      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg><b>Cancel</b> anytime</span>
+      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg><b>90-day</b> minimum</span>
+      <span class="rr-chip"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>Then <b>month-to-month</b></span>
     </div>
 
     <div class="faq-list rv d2">
       <details class="faq-item">
         <summary class="faq-q">What if it doesn't work for my business?<span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
-        <div class="faq-a">Then you don't pay the second half. The Lead Rescue Sprint is <b>$500 setup</b> plus <b>$500 due only after 5 AI-booked appointments</b> your team takes. If it isn't a fit after the Sprint, you walk away and keep what we built in your account.</div>
+        <div class="faq-a">We scope honestly on the first call and tell you if we don't think we can automate it well. AI Operator is <b>$1,500/mo with a 90-day minimum</b>, then month-to-month with 30 days' notice. There's no measurable-savings refund. If your first automation isn't live by day 7 for reasons within our control, month 1 is free (carrier and A2P texting approvals excluded).</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Will my customers know they're talking to AI?<span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
@@ -2007,11 +1961,11 @@ footer{padding-bottom:96px}
 <!-- FINAL CTA -->
 <section class="cta rv">
   <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Nothing to lose.</h2>
+  <h2>See if it fits.</h2>
   <div class="stats cta-stats">
     <div class="stat"><div class="n">7</div><div class="l">days to live</div></div>
-    <div class="stat"><div class="n">$500</div><div class="l">setup</div></div>
-    <div class="stat"><div class="n">5</div><div class="l">booked appointments before the rest</div></div>
+    <div class="stat"><div class="n">$1,500</div><div class="l">a month, AI Operator</div></div>
+    <div class="stat"><div class="n">90</div><div class="l">day minimum, then month-to-month</div></div>
   </div>
   <h3 class="cta-sub">Hire your AI team.</h3>
   <p>Sixty seconds to see where it fits. No deck, no homework.</p>
@@ -2045,27 +1999,6 @@ footer{padding-bottom:96px}
   </div>
 </footer>
 
-<!-- LIVE AGENTS — bottom-docked popup -->
-<div id="liveops" aria-label="Live agent activity">
-  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
-    <span class="pdot" aria-hidden="true"></span>
-    <span class="vlabel">Live agents · <b id="loCount">6</b> online</span>
-    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
-    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
-  </button>
-  <div class="lo-panel" id="loPanel">
-    <div class="lo-inner">
-      <div class="lo-h">
-        <span class="pdot" aria-hidden="true"></span>
-        <b>Agents working now</b>
-        <span class="cnt">live · demo</span>
-        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="lo-feed" id="loFeed"></div>
-      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -2199,45 +2132,6 @@ footer{padding-bottom:96px}
     obs.observe(body);
   })();
 
-  /* LIVE AGENTS popup */
-  (function(){
-    var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
-        feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
-        preview=document.getElementById('loPreview'),wrap=document.getElementById('liveops');
-    if(!tab||!feed||!wrap) return;
-    function setOpen(o){ wrap.classList.toggle('open',o); tab.setAttribute('aria-expanded',o?'true':'false');
-      try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){} }
-    tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
-    close.addEventListener('click',function(e){e.stopPropagation();setOpen(false);});
-
-    var POOL=[
-     {ag:'AI Receptionist',    txt:'answered 3 inbound calls before staff arrived', meta:'calls captured'},
-     {ag:'AI Sales Navigator', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
-     {ag:'AI Office Manager',  txt:'sorted 41 messages, drafted 14, flagged 2 urgent', meta:'owner inbox time'},
-     {ag:'AI Bookkeeper',      txt:'cleared $2,400 of overdue AR — 4 invoices paid', meta:'close-the-books speed'},
-     {ag:'AI Receptionist',    txt:'filled a cancellation in 14 min',               meta:'calendar gap time'},
-     {ag:'AI Office Manager',  txt:'sent a review request after a 5-star job',       meta:'review rate'},
-     {ag:'AI Sales Navigator', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
-     {ag:'AI Office Manager',  txt:'compiled tomorrow’s briefing in 6 lines',   meta:'morning prep time'},
-     {ag:'AI Bookkeeper',      txt:'reconciled today’s Stripe + bank — $0 drift', meta:'reconciliation accuracy'},
-     {ag:'AI Receptionist',    txt:'drafted a "running late" text — sent in 0.4s', meta:'comms latency'},
-     {ag:'AI Office Manager',  txt:'chased 4 outstanding documents — 3 came back', meta:'docs-returned rate'}
-    ];
-    var pi=0;
-    function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-    function push(){
-      var x=POOL[pi%POOL.length];pi++;
-      var n=document.createElement('div');n.className='lo-item';
-      n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time><span class="ag">'+x.ag+'</span> '+x.txt;
-      feed.insertBefore(n,feed.firstChild);
-      while(feed.children.length>14) feed.removeChild(feed.lastChild);
-      if(preview){ preview.style.opacity='0';
-        setTimeout(function(){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; preview.style.opacity='1'; }, reduce?0:200); }
-    }
-    for(var i=0;i<4;i++) push();
-    if(!reduce){ setInterval(push,8000); }
-    try{ setOpen(localStorage.getItem('efficio_liveops_open')==='1'); }catch(e){ setOpen(false); }
-  })();
 })();
 </script>
 <script>

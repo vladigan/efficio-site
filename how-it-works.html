@@ -91,8 +91,8 @@
     <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
         <span class="gtxt">
-          <span class="gt">Half the Sprint is paid on results.</span>
-          <span class="gm">$500 setup &middot; $500 due only after 5 AI-booked appointments</span>
+          <span class="gt">Pricing is published.</span>
+          <span class="gm">AI Operator $1,500/mo &middot; 90-day minimum, then month-to-month</span>
         </span>
       </div>
   </div>
@@ -167,13 +167,13 @@
 
 <section class="sec" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// 7 days &middot; or it's free</div>
+    <div class="eyebrow rv">// 7 days &middot; or month 1 is free</div>
     <h2 class="rv d1">The day-7 promise.</h2>
-    <p class="lede rv d1">If the first agent or tool isn't live in your business inside seven calendar days of the kickoff call, your first month is refunded in full. The dashboard ships day 5. The build ships day 7. We bet our income on it.</p>
+    <p class="lede rv d1">If the first agent or tool isn't live in your business inside seven calendar days of the kickoff call for reasons within our control, month 1 of AI Operator is free (carrier and A2P texting approvals excluded; credits never stack). The dashboard ships day 5. The build ships day 7. We bet our income on it.</p>
     <div class="stats rv d2">
       <div class="stat"><div class="n"><span class="count" data-to="5">0</span></div><div class="l">dashboard ships</div></div>
-      <div class="stat"><div class="n"><span class="count" data-to="7">0</span></div><div class="l">build ships, or it's free</div></div>
-      <div class="stat"><div class="n"><span class="count" data-to="30">0</span></div><div class="l">measurable proof or refund</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="7">0</span></div><div class="l">build ships, or month 1 is free</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="90">0</span></div><div class="l">day minimum, then month-to-month</div></div>
     </div>
   </div>
 </section>
@@ -215,7 +215,7 @@
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM10 18h4"/></svg></div>
         <h3>AI Receptionist</h3>
         <p>Every inbound call, text, and web form — answered, qualified, booked. The role you'd hire a $30&ndash;50K/yr front desk for.</p>
-        <span class="go">most common starter &middot; 5-day setup &rarr;</span>
+        <span class="go">5-day setup &rarr;</span>
       </a>
       <a href="/agents.html" class="card">
         <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 6 9-6"/></svg></div>
@@ -273,27 +273,6 @@
     </div>
   </div>
 </footer>
-<!-- LIVE AGENTS — bottom-docked popup -->
-<div id="liveops" aria-label="Live agent activity">
-  <button class="lo-tab" id="loTab" type="button" aria-expanded="false" aria-controls="loPanel">
-    <span class="pdot" aria-hidden="true"></span>
-    <span class="vlabel">Live agents &middot; <b id="loCount">6</b> online</span>
-    <span class="lo-preview" id="loPreview" aria-hidden="true"></span>
-    <span class="lo-chev" aria-hidden="true">&#x25B4;</span>
-  </button>
-  <div class="lo-panel" id="loPanel">
-    <div class="lo-inner">
-      <div class="lo-h">
-        <span class="pdot" aria-hidden="true"></span>
-        <b>Agents working now</b>
-        <span class="cnt">live &middot; demo</span>
-        <button class="lo-x" id="loClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="lo-feed" id="loFeed"></div>
-      <div class="lo-foot">Anonymized live activity &middot; refreshing every few seconds</div>
-    </div>
-  </div>
-</div>
 <script>
 /* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
 setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);

@@ -154,6 +154,25 @@
       cursor: pointer;
     }
 
+    /* Contact consent: two separate, optional, unchecked boxes (A = texts, B = AI-voice calls) */
+    fieldset.consents { border: 0; min-width: 0; margin: 0 0 24px; }
+    fieldset.consents legend { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+    .consent-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 14px; margin-bottom: 8px;
+      border: 1px solid var(--bd); border-radius: var(--r);
+    }
+    .consent-item input[type="checkbox"] {
+      width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0;
+      accent-color: var(--purple); cursor: pointer;
+    }
+    .consent-item label {
+      font-size: 12.5px; font-weight: 400; color: var(--text); line-height: 1.6;
+      margin: 0; letter-spacing: 0; cursor: pointer;
+    }
+    .consent-item label b { color: var(--white); font-weight: 700; }
+    .consent-item label a { color: var(--purple3); text-decoration: underline; }
+
     /* Submit */
     .submit-btn {
       display: block;
@@ -294,6 +313,18 @@
           <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
         </div>
 
+        <fieldset class="consents">
+          <legend>Texts and calls <span class="label-note">(optional; leave both unticked if you prefer email)</span></legend>
+          <div class="consent-item">
+            <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" />
+            <label for="sms_consent" data-consent-version="sms_v2_2026-09"><b>Text me.</b> I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms">SMS Terms</a> &middot; <a href="/privacy.html#sms">Privacy Policy</a></label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="ai_voice_consent" name="ai_voice_consent" value="yes" />
+            <label for="ai_voice_consent" data-consent-version="aivoice_v1_2026-09"><b>Call me with Efficio's AI assistant.</b> I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech.</label>
+          </div>
+        </fieldset>
+
         <div class="field">
           <label for="notes">Anything Else You'd Like Us to Know?</label>
           <textarea id="notes" name="notes" placeholder="Optional: your CRM or AMS, monthly lead spend, anything else"></textarea>
@@ -319,6 +350,23 @@
       var form = e.target, btn = form.querySelector('.submit-btn');
       var answers = {};
       new FormData(form).forEach(function(v, k) { answers[k] = answers[k] ? answers[k] + ', ' + v : v; });
+
+      /* Optional text / AI-call consent (assets/contact-consent.js). A ticked box
+         needs a usable mobile number; nothing is sent until it has one. */
+      var CC = window.EfficioContactConsent;
+      var note = document.getElementById('consentNote');
+      if (!note) {
+        note = document.createElement('p'); note.id = 'consentNote'; note.className = 'consent-error';
+        note.setAttribute('role', 'alert'); note.hidden = true;
+        form.insertBefore(note, btn);
+      }
+      note.hidden = true;
+      var ticked = form.querySelector('input[name="sms_consent"]:checked, input[name="ai_voice_consent"]:checked');
+      var problem = CC ? CC.problem(form, { phone: answers.phone || '' })
+        : (ticked ? 'Part of this page didn\'t load. Refresh the page and try again, or untick the text and call boxes.' : null);
+      if (problem) { note.textContent = problem; note.hidden = false; return; }
+      var consent = CC ? CC.collect(form, { source: 'efficio_precall_intake', phone: answers.phone || '' }) : null;
+
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       function fail() {
         if (btn) { btn.disabled = false; btn.textContent = 'Submit Questionnaire'; }
@@ -328,10 +376,12 @@
         if (!n) { n = document.createElement('p'); n.id = 'intakeFail'; n.style.cssText = 'color:#f87171;font-size:14px;margin-top:12px'; form.appendChild(n); }
         n.innerHTML = 'That didn\'t go through. <a href="' + mailto + '" style="text-decoration:underline;color:inherit">Email your answers to Brady instead</a>.';
       }
+      var payload = { kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers };
+      if (consent) { payload.consent = consent; CC.mirror(payload, consent); }
       fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers })
+        body: JSON.stringify(payload)
       }).then(function(r) {
         if (!r.ok) throw new Error('http ' + r.status);
         document.getElementById('formCard').style.display = 'none';
@@ -342,6 +392,7 @@
   </script>
 <p style="text-align:center;font-size:12.5px;padding:24px 16px 40px"><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refund</a> · <a href="/unsubscribe.html">Unsubscribe</a> · <a href="#cookie-settings" data-cookie-settings>Cookie settings</a></p>
 <script src="/assets/chat.js" defer></script>
+<script src="/assets/contact-consent.js" defer></script>
 <script src="/assets/consent.js" defer></script>
 </body>
 </html>

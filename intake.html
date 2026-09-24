@@ -230,6 +230,11 @@
         </div>
 
         <div class="field">
+          <label for="email">Email <span style="font-weight:400;opacity:.7">(optional, so Brady can reply)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@youragency.com" />
+        </div>
+
+        <div class="field">
           <label for="industry">Agency focus</label>
           <select id="industry" name="industry" required>
             <option value="" disabled selected>Select one</option>
@@ -326,7 +331,7 @@
       fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers })
+        body: JSON.stringify({ kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers })
       }).then(function(r) {
         if (!r.ok) throw new Error('http ' + r.status);
         document.getElementById('formCard').style.display = 'none';

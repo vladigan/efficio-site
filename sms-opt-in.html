@@ -147,8 +147,8 @@
       <!-- success state -->
       <div class="smsdone" id="smsDone" role="status" tabindex="-1">
         <div class="dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
-        <h2>You're opted in.</h2>
-        <p>We've recorded your consent. Texts from Efficio to this number will be account updates, appointment reminders and replies to your questions. Reply <b>STOP</b> any time to unsubscribe, or <b>HELP</b> for help.</p>
+        <h2 id="smsDoneTitle">You're opted in.</h2>
+        <p id="smsDoneBody">We've recorded your consent. Texts from Efficio to this number will be account updates, appointment reminders and replies to your questions. Reply <b>STOP</b> any time to unsubscribe, or <b>HELP</b> for help.</p>
         <span class="dmono">// message &amp; data rates may apply</span>
       </div>
 
@@ -209,10 +209,20 @@
   var live  = document.getElementById('smsLive');
   var errEl = document.getElementById('smsError');
 
-  function showSuccess(){
+  /* confirmed=true only when the Worker says it accepted the opt-in.
+     Otherwise show a neutral receipt: never claim an opt-in that wasn't taken. */
+  function showSuccess(confirmed){
     if(card) card.style.display = 'none';
+    if(!confirmed){
+      var t = document.getElementById('smsDoneTitle'), b = document.getElementById('smsDoneBody');
+      if(t) t.textContent = "Thanks \u2014 we'll confirm by text if your number is eligible.";
+      if(b) b.textContent = "We received your request. If your number is eligible, you'll get one text confirming your opt-in. Reply STOP to that text any time to unsubscribe.";
+      var ck = done && done.querySelector('.dck'); if(ck) ck.style.display = 'none';
+    }
     if(done){ done.style.display = 'block'; done.classList.add('show'); }
-    if(live) live.textContent = "You're subscribed. Reply STOP anytime to unsubscribe.";
+    if(live) live.textContent = confirmed
+      ? "You're subscribed. Reply STOP anytime to unsubscribe."
+      : "Thanks. We'll confirm by text if your number is eligible.";
     try { if(done && done.focus) done.focus(); } catch(e){}
     try { if(window.scrollTo && done && done.scrollIntoView) done.scrollIntoView({behavior:'smooth', block:'center'}); } catch(e){}
   }
@@ -280,7 +290,11 @@
       }).then(function(r){
         if(timer) clearTimeout(timer);
         if(!r.ok) return fail();
-        return r.json().then(function(j){ (j && j.ok === false) ? fail() : showSuccess(); }, function(){ showSuccess(); });
+        /* non-JSON or ok !== true is an error; accepted === false is a neutral receipt */
+        return r.json().then(function(j){
+          if(!j || typeof j !== 'object' || j.ok !== true) return fail();
+          showSuccess(j.accepted !== false);
+        }, function(){ fail(); });
       }, function(){ if(timer) clearTimeout(timer); fail(); });
     } catch(e){ fail(); }
   });

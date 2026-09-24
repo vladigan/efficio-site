@@ -10,6 +10,9 @@
  * (every access wrapped in try/catch; if storage is blocked the choice lasts for
  * this page view only and the banner shows again next time).
  *
+ * The same Accept also gates the GoHighLevel chat widget (script[data-consent-chat])
+ * and the GoHighLevel booking calendar (iframe[data-consent-src]).
+ *
  * Any element with [data-cookie-settings] (the "Cookie settings" footer link)
  * reopens the banner so the visitor can change their choice. Switching from
  * Accept to Decline clears the tags' first-party cookies and reloads the page so
@@ -119,6 +122,8 @@
       '<p class="ck-msg"><b>Analytics and advertising cookies.</b> If you accept, we load Google Analytics, ' +
       'the Meta Pixel and the LinkedIn Insight Tag to measure visits and whether our ads on Meta, Google and LinkedIn ' +
       'lead to booked calls. They set cookies and collect device, browsing and IP-derived data. ' +
+      'Accepting also loads the GoHighLevel chat widget and booking calendar, which store their own identifiers ' +
+      '(the calendar loads Meta&rsquo;s tracking script inside it). ' +
       'If you decline, none of them load. <a href="/privacy.html#cookies">Privacy policy</a></p>' +
       (current ? '<p class="ck-now">Your current choice: ' + (current === 'granted' ? 'Accepted' : 'Declined') + '.</p>' : '') +
       '<div class="ck-row">' +
@@ -150,6 +155,7 @@
     clearTrackingCookies();
     announce('denied');
     /* tags that already ran on this page can't be unloaded; reload so they're gone */
+    clearChatStorage();
     if (was === 'granted' && (window.__efficioTagsLoaded || embedsLoaded)) {
       window.setTimeout(function () { try { window.location.reload(); } catch (e) {} }, 150);
     }
@@ -225,6 +231,118 @@
   }
   window.addEventListener('efficio:consent', function (e) { if (e.detail === 'granted') syncEmbeds(); });
 
+  /* ---- consent-gated GoHighLevel chat widget ----
+     The GHL chat loader writes visitor and attribution identifiers to this
+     site's localStorage and pulls GoHighLevel's scripts, so it is gated too.
+     Pages carry an inert tag instead of the real loader:
+       <script type="text/plain" data-consent-chat
+               data-src="https://widgets.leadconnectorhq.com/loader.js"
+               data-resources-url="..." data-widget-id="..."></script>
+     Until the visitor accepts, a small "Chat (requires cookies)" button stands
+     in for the bubble; clicking it explains why and offers Accept or email. */
+  var chatLoaded = false, chatWanted = false;
+  /* keys the GHL loader/widget write (seen 2026-09-24), plus LinkedIn's li_adsId */
+  var CHAT_STORAGE = /^(lastExternalReferrer|v\d+_(contact_session|first_session_event|history|session_history)_|li_adsId$)|lead-conn?ec?ter|leadconnector|msgsndr/i;
+  function clearChatStorage() {
+    try {
+      var ls = window.localStorage, kill = [];
+      for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (k && CHAT_STORAGE.test(k)) kill.push(k); }
+      kill.forEach(function (k) { ls.removeItem(k); });
+    } catch (e) {}
+  }
+  function chatTags() { return document.querySelectorAll('script[data-consent-chat]'); }
+  function chatStyles() {
+    if (document.getElementById('efficio-chatgate-css')) return;
+    var st = document.createElement('style');
+    st.id = 'efficio-chatgate-css';
+    st.textContent =
+      '#efficio-chatgate{position:fixed;right:18px;bottom:18px;z-index:120;' +
+      "font-family:'Plus Jakarta Sans',-apple-system,Inter,system-ui,sans-serif}" +
+      '#efficio-chatgate .cg-btn{cursor:pointer;font:inherit;font-size:13px;font-weight:700;color:#fff;' +
+      'display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:999px;' +
+      'border:1px solid rgba(124,77,255,.6);background:linear-gradient(180deg,#8a66ff,#5e2ee0);' +
+      'box-shadow:0 10px 26px -12px rgba(124,77,255,.9)}' +
+      '#efficio-chatgate .cg-btn svg{width:16px;height:16px;flex:none}' +
+      '#efficio-chatgate button:focus-visible{outline:2px solid #b9a3ff;outline-offset:2px}' +
+      '#efficio-chatgate .cg-pop{position:absolute;right:0;bottom:56px;width:min(320px,calc(100vw - 24px));' +
+      'padding:16px;border-radius:14px;background:rgba(13,13,23,.97);border:1px solid rgba(255,255,255,.13);' +
+      'box-shadow:0 24px 60px -22px rgba(0,0,0,.85);color:#c9c7da;font-size:13px;line-height:1.5}' +
+      '#efficio-chatgate .cg-pop[hidden]{display:none}' +
+      '#efficio-chatgate .cg-pop p{margin:0 0 12px}' +
+      '#efficio-chatgate .cg-pop a{color:#b9a3ff;font-weight:600;text-decoration:underline}' +
+      '#efficio-chatgate .cg-pop button{cursor:pointer;font:inherit;font-size:13px;font-weight:700;color:#fff;width:100%;' +
+      'min-height:44px;border-radius:999px;border:1px solid rgba(124,77,255,.6);background:linear-gradient(180deg,#8a66ff,#5e2ee0)}' +
+      '@media(max-width:520px){#efficio-chatgate{right:12px;bottom:12px}}';
+    document.head.appendChild(st);
+  }
+  function removeChatGate() {
+    var g = document.getElementById('efficio-chatgate');
+    if (g && g.parentNode) g.parentNode.removeChild(g);
+  }
+  function showChatGate() {
+    if (document.getElementById('efficio-chatgate')) return;
+    chatStyles();
+    var g = document.createElement('div');
+    g.id = 'efficio-chatgate';
+    g.innerHTML =
+      '<div class="cg-pop" id="efficio-chatgate-pop" role="dialog" aria-label="Chat needs cookies" hidden>' +
+        '<p>Our chat is run by GoHighLevel. It loads their scripts and stores visitor and attribution identifiers ' +
+        'in your browser, so it only loads after you accept cookies. <a href="/privacy.html#cookies">Privacy policy</a></p>' +
+        '<button type="button" data-cg="accept">Accept cookies and open chat</button>' +
+        '<p style="margin:10px 0 0">Or email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>' +
+      '</div>' +
+      '<button type="button" class="cg-btn" aria-expanded="false" aria-controls="efficio-chatgate-pop">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+        'Chat (requires cookies)</button>';
+    document.body.appendChild(g);
+    var btn = g.querySelector('.cg-btn'), pop = g.querySelector('.cg-pop');
+    btn.addEventListener('click', function () {
+      var opening = pop.hasAttribute('hidden');
+      if (opening) pop.removeAttribute('hidden'); else pop.setAttribute('hidden', '');
+      btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      if (opening) { try { pop.querySelector('button').focus(); } catch (e) {} }
+    });
+    pop.querySelector('[data-cg="accept"]').addEventListener('click', function () {
+      var b = document.getElementById('efficio-cookie');
+      chatWanted = true;
+      grant();
+      if (b) close(b);
+    });
+  }
+  function openChatWhenReady(tries) {
+    try {
+      var w = window.leadConnector && window.leadConnector.chatWidget;
+      if (w && typeof w.openWidget === 'function') { w.openWidget(); return; }
+    } catch (e) {}
+    if (tries > 0) window.setTimeout(function () { openChatWhenReady(tries - 1); }, 500);
+  }
+  function loadChat() {
+    var tags = chatTags();
+    if (!tags.length) return;
+    removeChatGate();
+    if (!chatLoaded) {
+      chatLoaded = true;
+      embedsLoaded = true;
+      for (var i = 0; i < tags.length; i++) {
+        var t = tags[i], s = document.createElement('script');
+        for (var j = 0; j < t.attributes.length; j++) {
+          var a = t.attributes[j];
+          if (a.name === 'type' || a.name === 'data-src' || a.name === 'data-consent-chat') continue;
+          s.setAttribute(a.name, a.value);
+        }
+        s.src = t.getAttribute('data-src');
+        t.parentNode.insertBefore(s, t.nextSibling);
+      }
+    }
+    if (chatWanted) openChatWhenReady(20);
+  }
+  function syncChat() {
+    if (!chatTags().length) return;
+    if (get() === 'granted') loadChat(); else if (!chatLoaded) showChatGate();
+  }
+  window.addEventListener('efficio:consent', function (e) { if (e.detail === 'granted') loadChat(); });
+
   window.EfficioConsent = {
     get: get,
     grant: grant,
@@ -248,7 +366,9 @@
   function init() {
     /* tags can rewrite a cookie while the page unloads, so clear again on every declined page view */
     if (get() === 'denied') clearTrackingCookies();
+    if (get() === 'denied') clearChatStorage();
     syncEmbeds();
+    syncChat();
     if (!get()) show();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

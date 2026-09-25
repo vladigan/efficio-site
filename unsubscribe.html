@@ -133,7 +133,13 @@
   </div>
 
   <h1>Unsubscribe from Efficio email</h1>
-  <p>This page doesn't unsubscribe you by itself. To stop email from Efficio, send us a short email with the subject &ldquo;Unsubscribe&rdquo; from the address you want removed. Brady reads every one and removes the address, usually the same day and never later than 10 business days.</p>
+  <p>Enter the address you want removed and press the button. You won't get marketing email from Efficio at that address again. If the button doesn't work, email us instead (below) and Brady removes the address by hand, usually the same day and never later than 10 business days.</p>
+  <form id="unsub-form" novalidate style="margin:18px 0 6px">
+    <label for="unsub-email" style="display:block;margin-bottom:6px">Email address</label>
+    <input id="unsub-email" name="email" type="email" autocomplete="email" required maxlength="254" style="width:100%;max-width:360px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;font:inherit">
+    <br><button id="unsub-btn" type="submit" class="btn-unsub" style="margin-top:12px">Unsubscribe me</button>
+  </form>
+  <p id="unsub-status" role="status" aria-live="polite" class="hidden"></p>
   <p id="unsub-for" class="hidden">Address to remove: <span class="email-display" id="email-display"></span></p>
   <br>
   <a id="unsub-mailto" href="mailto:brady@efficio.tech?subject=Unsubscribe" class="btn-unsub" style="text-decoration:none;">
@@ -141,7 +147,7 @@
       <rect x="2" y="4" width="20" height="16" rx="2"/>
       <path d="M22 4 12 13 2 4"/>
     </svg>
-    Email brady@efficio.tech to unsubscribe
+    Or email brady@efficio.tech to unsubscribe
   </a>
   <p style="margin-top:18px">If the button doesn't open your email app, write to <a href="mailto:brady@efficio.tech?subject=Unsubscribe">brady@efficio.tech</a> with the subject &ldquo;Unsubscribe&rdquo;. Got a text from us? Reply STOP to that text.</p>
   <p>If you got an email from a business that uses Efficio, use the unsubscribe link in that email or contact that business; you can also email us and we'll pass the request on.</p>
@@ -152,12 +158,32 @@
 </main>
 
 <script>
-/* If the email link carried ?email=, show it and put it in the email body so
-   Brady knows which address to remove. Nothing is sent from this page. */
+/* ?email= from the email link pre-fills the form and the mailto fallback. The form POSTs to the
+   efficio-chat Worker (/unsubscribe: records the opt-out and sets GHL Email DND). If that fails,
+   the mailto link stays as the fallback. */
 (function () {
   try {
     var email = (new URLSearchParams(window.location.search).get('email') || '').trim();
+    var form = document.getElementById('unsub-form'), input = document.getElementById('unsub-email'),
+        btn = document.getElementById('unsub-btn'), status = document.getElementById('unsub-status');
+    function say(msg) { status.textContent = msg; status.classList.remove('hidden'); }
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var e = (input.value || '').trim();
+      if (!e || e.indexOf('@') === -1 || e.length > 254) { say('Please enter a valid email address.'); return; }
+      btn.disabled = true; say('Removing ' + e + '…');
+      fetch('https://efficio-chat.bgay3500.workers.dev/unsubscribe', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: e })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        say('Done. ' + e + ' is unsubscribed from Efficio marketing email.');
+      }).catch(function () {
+        btn.disabled = false;
+        say("That didn't go through. Please use the email link below and we'll remove " + e + ' by hand.');
+      });
+    });
     if (!email || email.indexOf('@') === -1 || email.length > 254) return;
+    input.value = email;
     document.getElementById('email-display').textContent = email;
     document.getElementById('unsub-for').classList.remove('hidden');
     document.getElementById('unsub-mailto').setAttribute('href',

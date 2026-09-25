@@ -12,7 +12,7 @@
   <text x="88" y="320" fill="#ffffff" font-size="118" font-weight="900" letter-spacing="-5">We're your <tspan fill="#9b6cf6">AI team.</tspan></text>
   <!-- sub -->
   <text x="90" y="400" fill="#a1a1aa" font-size="32" font-weight="500">We build and run the AI inside your business —</text>
-  <text x="90" y="444" fill="#a1a1aa" font-size="32" font-weight="500">agents, automations, a live dashboard. From $997/mo.</text>
+  <text x="90" y="444" fill="#a1a1aa" font-size="32" font-weight="500">agents, automations, a live dashboard. From $1,500/mo.</text>
   <!-- brand mark + wordmark -->
   <g transform="translate(90,520)">
     <rect width="48" height="48" rx="11" fill="#7c3aed"/>

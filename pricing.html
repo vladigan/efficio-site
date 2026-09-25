@@ -4,17 +4,17 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js" defer></script>
-<title>Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio</title>
-<meta name="description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
+<title>Pricing — AI front office from $497/mo | Efficio</title>
+<meta name="description" content="Two plans. Front Office Core $497/mo and Front Office Managed $1,500/mo, each plus a $500 setup. Month-to-month with 30 days' notice. Setup refunded if we're not live in 7 business days."/>
 <link rel="canonical" href="https://efficio.tech/pricing.html"/>
-<meta property="og:title" content="Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio"/>
-<meta property="og:description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
+<meta property="og:title" content="Pricing — AI front office from $497/mo | Efficio"/>
+<meta property="og:description" content="Front Office Core $497/mo or Front Office Managed $1,500/mo, each plus a $500 setup. Month-to-month with 30 days' notice. Built on HighLevel."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/pricing.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Pricing — Lead Rescue Sprint $1,000 · AI Operator $1,500/mo | Efficio"/>
-<meta name="twitter:description" content="Two published offers: the Lead Rescue Sprint ($1,000, half due only after 5 qualifying appointments) and AI Operator ($1,500/mo). Founding CTO and Full Custom CTO are custom quote."/>
+<meta name="twitter:title" content="Pricing — AI front office from $497/mo | Efficio"/>
+<meta name="twitter:description" content="Front Office Core $497/mo or Front Office Managed $1,500/mo, each plus a $500 setup. Month-to-month with 30 days' notice. Built on HighLevel."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -28,33 +28,32 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
 <link rel="stylesheet" href="/assets/v6.css"/>
 <style id="pricing-x">
-/* ââ pricing polish (scoped) â builds on v6 tokens ââââââââââââââââââ */
-/* "Most popular" badge: gentle attention pulse, reduced-motion safe */
-@media(prefers-reduced-motion:no-preference){
-  .price.feat .badge{animation:pbadge 3.4s var(--ease) infinite}
-  @keyframes pbadge{0%,100%{box-shadow:0 6px 18px -6px rgba(124,77,255,.9)}
-    50%{box-shadow:0 6px 26px -4px rgba(124,77,255,1)}}
-}
-/* comparison table â swipe affordance on narrow screens */
+/* pricing (scoped) — builds on v6 tokens */
+.prices.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px;margin-left:auto;margin-right:auto}
+@media(max-width:720px){.prices.two{grid-template-columns:1fr}}
+.price .setup{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
+.price .flist{margin-bottom:22px}
+.price .flist li{font-size:13.5px}
+.terms-box{max-width:760px;margin:clamp(30px,4vh,44px) auto 0;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.terms-box h3{font-size:1rem;font-weight:800;color:#fff;margin:0 0 10px}
+.terms-box ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.terms-box li{font-size:14px;font-weight:500;color:var(--muted);line-height:1.55}
+.terms-box li b{color:#fff}
+.terms-box a{color:var(--violet-l);font-weight:600}
 .ptable{position:relative}
-.ptable-hint{display:none;font-family:var(--mono);font-size:11.5px;color:var(--violet-l);
-  text-align:right;margin-bottom:8px}
+.ptable-hint{display:none;font-family:var(--mono);font-size:11.5px;color:var(--violet-l);text-align:right;margin-bottom:8px}
 .ptable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.ptable::after{content:"";position:absolute;top:0;right:0;bottom:0;width:34px;pointer-events:none;opacity:0;
-  background:linear-gradient(90deg,transparent,rgba(6,6,11,.92));transition:opacity .25s var(--ease);border-radius:0 var(--r) var(--r) 0}
-@media(max-width:620px){
-  .ptable-hint{display:block}
-  .ptable.has-scroll::after{opacity:1}
-}
+@media(max-width:620px){.ptable-hint{display:block}}
 </style>
 <script>document.documentElement.className='js';</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
   {"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png"},
-  {"@type":"WebPage","@id":"https://efficio.tech/pricing.html#page","url":"https://efficio.tech/pricing.html","name":"Pricing — Lead Rescue Sprint and AI Operator","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},
-  {"@type":"Service","@id":"https://efficio.tech/pricing.html#service","serviceType":"Done-for-you AI lead rescue and AI operations","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"US","description":"Start with a Lead Rescue Sprint, then keep going on AI Operator. Founding CTO and Full Custom CTO are custom quote.","offers":[
-    {"@type":"Offer","name":"Lead Rescue Sprint","price":"1000","priceCurrency":"USD","description":"14-day sprint. $500 non-refundable setup plus $500 performance portion, due only after 5 qualifying appointments are booked onto the client's producers' calendars (definition: efficio.tech/insurance.html#what-counts).","url":"https://efficio.tech/pricing.html"},
-    {"@type":"Offer","name":"AI Operator","price":"1500","priceCurrency":"USD","description":"Ongoing AI lead operations. Billed monthly, 90-day minimum, then month-to-month with 30 days' notice.","url":"https://efficio.tech/pricing.html"}
+  {"@type":"WebPage","@id":"https://efficio.tech/pricing.html#page","url":"https://efficio.tech/pricing.html","name":"Pricing — AI front office from $497/mo","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},
+  {"@type":"Service","@id":"https://efficio.tech/pricing.html#service","serviceType":"AI front office for small businesses (AI voice receptionist, booking, follow-up and live dashboard), built on HighLevel","provider":{"@id":"https://efficio.tech/#org"},"areaServed":"US","offers":[
+    {"@type":"Offer","name":"Front Office Core","price":"497","priceCurrency":"USD","description":"Monthly, plus a $500 one-time setup. Month-to-month with 30 days' notice.","url":"https://efficio.tech/pricing.html"},
+    {"@type":"Offer","name":"Front Office Managed","price":"1500","priceCurrency":"USD","description":"Monthly, plus a $500 one-time setup. Month-to-month with 30 days' notice.","url":"https://efficio.tech/pricing.html"},
+    {"@type":"Offer","name":"Efficio Setup","price":"500","priceCurrency":"USD","description":"One-time setup fee for either plan, refunded if the receptionist, booking and dashboard aren't live within 7 business days of kickoff (conditions on efficio.tech/refund.html).","url":"https://efficio.tech/pricing.html"}
   ]}
 ]}
 </script>
@@ -73,144 +72,131 @@
     <a href="/services.html">Services</a>
     <a href="/how-it-works.html">How it works</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">AI teams</a>
+    <a href="/agents.html">What's included</a>
     <a href="/why-efficio.html">Why Efficio</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <main id="main" tabindex="-1">
 <header class="phero">
   <div class="wrap">
     <div class="eyebrow rv">// pricing &middot; month-to-month</div>
-    <h1 class="rv d1">Every Efficio build starts with a <span class="grad">Fractional CTO scoping call</span>.</h1>
-    <p class="sub rv d1">No product. No template. We build what your SMB needs â connected via MCP into your existing tools. Every build starts with a scoping call.</p>
+    <h1 class="rv d1">Two plans. <span class="grad">One setup fee.</span></h1>
+    <p class="sub rv d1">An AI front office for your small business: it answers the calls you miss, books them, follows up, and shows the results on a live dashboard in your own Efficio account. Built on HighLevel. Installed and run by a licensed engineer.</p>
     <div class="hero-cta rv d2">
-      <a href="/find-your-tier.html" class="btn-primary lg">Find my tier &middot; 60s quiz <span class="arr">&rarr;</span></a>
-      <a href="#tiers" class="btn-outline lg">See the tiers</a>
+      <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+      <a href="#plans" class="btn-outline lg">See the plans</a>
     </div>
     <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
         <span class="gtxt">
-          <span class="gt">Half the Sprint is paid on results.</span>
-          <span class="gm">$500 setup &middot; $500 due only after 5 qualifying appointments</span>
+          <span class="gt">Live in 7 business days, or your setup fee back.</span>
+          <span class="gm">$500 setup &middot; month-to-month &middot; 30 days' notice to cancel &middot; <a href="/refund.html" style="color:inherit;text-decoration:underline">conditions</a></span>
         </span>
       </div>
   </div>
 </header>
 
-<section class="sec" style="padding-top:clamp(20px,3vh,40px)">
+<section class="sec" id="plans" style="padding-top:clamp(20px,3vh,40px)">
   <div class="wrap center">
-    <div class="eyebrow rv">// the offer &middot; every tier</div>
-    <h2 class="rv d1">Built fast. Risk on us.</h2>
-    <div class="stats rv d2">
-      <div class="stat"><div class="n">$500</div><div class="l">setup &middot; due at kickoff</div></div>
-      <div class="stat"><div class="n">5</div><div class="l">qualifying appointments before the other $500</div></div>
-      <div class="stat"><div class="n">7</div><div class="l">days to AI Operator's first automation, or month 1 free</div></div>
-    </div>
-    <p class="fine rv d2" style="max-width:62ch;margin:18px auto 0"><b>AI Operator day-7 promise:</b> If the first automation that needs no carrier or A2P approval (email speed-to-lead, dashboard or routing) isn't live by day 7 after you complete the access checklist, month 1's fee is waived; anything that depends on carrier, A2P 10DLC or other third-party approval is excluded.</p>
-  </div>
-</section>
-
-<section class="sec" id="tiers" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// published offers</div>
-    <h2 class="rv d1">Two ways to start.</h2>
-    <p class="lede rv d1">The Sprint is available now for <a href="/insurance.html" style="color:var(--violet-l);font-weight:700">trucking &amp; commercial-auto insurance agencies</a>. Everything runs inside your own GoHighLevel.</p>
-    <div class="prices" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
-      <div class="price feat rv">
-        <div class="badge">Start here</div>
-        <div class="pn">Lead Rescue Sprint &middot; 14 days</div><div class="pp">$1,000<span> one time</span></div>
-        <div class="pd">$500 non-refundable setup, due at kickoff. $500 performance portion, due only after 5 qualifying appointments are booked onto your producers' calendars (<a href="/insurance.html#what-counts">what counts</a>).</div>
-        <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li>Aged leads and renewals enriched and ranked</li>
-          <li>AI email reactivation that books onto your calendars</li>
-          <li>Every reachable lead touched within 48 hours</li>
-          <li>Dashboard live by day 3; day-14 review</li>
-          <li><span><b>50% of the Sprint fee you paid</b> credited to AI Operator month 1 if you sign within 7 days of the Sprint ending</span></li>
+    <div class="eyebrow rv">// the plans</div>
+    <h2 class="rv d1">Pick the level of help you want.</h2>
+    <p class="lede rv d1">Both plans run inside your own Efficio account at app.efficio.tech, built on HighLevel. We pick the plan with you on the call, based on your call volume and average job size.</p>
+    <div class="prices two">
+      <div class="price rv">
+        <div class="pn">Front Office Core</div><div class="pp">$497<span> /mo</span></div>
+        <div class="setup">+ $500 one-time setup</div>
+        <div class="pd">For owners who want every call answered and booked, and a clear weekly read on the results.</div>
+        <ul class="flist">
+          <li><span><b>Your own Efficio account</b> (a HighLevel sub-account): CRM, unified inbox, pipeline, calendar, reviews and the mobile app.</span></li>
+          <li><span><b>AI voice receptionist for inbound calls</b> on a new local number. You forward missed and after-hours calls to it. It says it's an AI and that the call is recorded, answers from your FAQs, books into your Google or Outlook calendar, takes messages and transfers urgent calls to your cell. 300 voice minutes a month included.</span></li>
+          <li><span><b>AI website chat</b>: suggests replies for your first 14 days, then answers on its own once you sign off.</span></li>
+          <li><span><b>Booking confirmations</b>, 24-hour and 1-hour reminders, and a no-show rebook email.</span></li>
+          <li><span><b>Missed-call text-back</b>, switched on once your business's texting registration (A2P 10DLC) is approved. Carrier fees and text usage are billed at cost.</span></li>
+          <li><span><b>Review requests</b> after completed appointments.</span></li>
+          <li><span><b>Consent and opt-out handling</b>: separate text and AI-call consent boxes on your forms, one opt-out stops every channel, and quiet hours of 8 AM to 8 PM in the contact's time zone.</span></li>
+          <li><span><b>Live dashboard</b>: calls answered, after-hours calls caught, bookings, no-shows, reviews and speed-to-lead.</span></li>
+          <li><span><b>Weekly results email</b> built from your real numbers.</span></li>
+          <li><span><b>30-minute monthly check-in</b> and one change a month (FAQs, hours or script).</span></li>
         </ul>
-        <a href="/insurance.html#book" class="pb">Check fit &amp; book &rarr;</a>
-      </div>
-      <div class="price rv d1">
-        <div class="pn">AI Operator</div><div class="pp">$1,500<span> /mo</span></div>
-        <div class="pd">Billed monthly by card on file. 90-day minimum, then month-to-month with 30 days' notice. Usage billed at cost.</div>
-        <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li>Runs <b>inside your own platform</b> â your data never leaves</li>
-          <li>Up to 4 standard workflows + 1 AI agent</li>
-          <li>Monthly optimization + report</li>
-          <li>Standard config â no custom builds</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
+        <a href="/book.html" class="pb">Book a call &rarr;</a>
       </div>
       <div class="price feat rv d1">
-        <div class="badge">Recommended</div>
-        <div class="pn">Founding CTO</div><div class="pp">$2,500<span> /mo</span></div>
-        <div class="pd">We run it as your fractional AI CTO. Founding rate.</div>
-        <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li><b>Everything in AI Operator</b></li>
-          <li>Fractional CTO â weekly call + shared Slack</li>
-          <li>Up to 8 workflows + up to 3 agents (front + back office)</li>
-          <li>Light in-platform customization</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
-      </div>
-      <div class="price rv d2">
-        <div class="pn">Full Custom CTO</div><div class="pp">$3,500<span> /mo</span></div>
-        <div class="pd">Ongoing custom engineering, built for you.</div>
-        <ul class="flist" style="margin-bottom:18px;font-size:13px">
-          <li><b>Everything in Founding CTO</b></li>
-          <li>Ongoing custom builds â integrations, bots, new systems</li>
-          <li>Unlimited standard workflows</li>
-          <li>Priority support &middot; dedicated CTO capacity</li>
-        <li>MCP integrations: unlimited</li><li>You keep everything we build</li></ul>
-        <a href="/find-your-tier.html" class="pb">Start your free build &rarr;</a>
+        <div class="pn">Front Office Managed</div><div class="pp">$1,500<span> /mo</span></div>
+        <div class="setup">+ $500 one-time setup</div>
+        <div class="pd">For busier businesses with bigger jobs, where hands-on tuning and extra automations pay for themselves.</div>
+        <ul class="flist">
+          <li><span><b>Everything in Core</b>, with 1,000 voice minutes a month.</span></li>
+          <li><span><b>2 hours a month of hands-on optimization</b> by Brady: call review, FAQ and script tuning, workflow fixes.</span></li>
+          <li><span><b>One new automation a month</b> from a set menu: web-form speed-to-lead reply, estimate or quote follow-up, email reactivation of past customers who agreed to hear from you, or an intake form.</span></li>
+          <li><span><b>&ldquo;Ask Efficio&rdquo;</b>: ask plain-English questions about your own live data (for example, &ldquo;which leads this week have no follow-up?&rdquo;) through a read-only connection. It never sends anything.</span></li>
+          <li><span><b>Custom live dashboard</b> from about day 45 that adds your Stripe or QuickBooks revenue to your calls, bookings and pipeline, read-only.</span></li>
+          <li><span><b>60-minute monthly review call.</b></span></li>
+        </ul>
+        <a href="/book.html" class="pb">Book a call &rarr;</a>
       </div>
     </div>
-    <p class="pnote rv">Not sure where to start? <a href="/find-your-tier.html">Find your tier</a> and we'll point you to the right tier &mdash; or first <a href="/savings.html">estimate your savings</a>.</p>
+    <p class="pnote rv">Voice minutes over your plan's allowance are billed at $0.25 a minute. We take the card on the call; there is no self-serve checkout.</p>
+  </div>
+</section>
+
+<section class="sec" id="terms" style="padding-top:0">
+  <div class="wrap center">
+    <div class="eyebrow rv">// the terms, in plain English</div>
+    <h2 class="rv d1">What you're agreeing to.</h2>
+    <div class="terms-box rv d1">
+      <h3>Setup, billing and cancelling</h3>
+      <ul>
+        <li><b>Setup ($500)</b> is paid on the sales call, by card.</li>
+        <li><b>Monthly billing starts on go-live day</b>, the day your receptionist starts answering real calls.</li>
+        <li><b>Month-to-month.</b> Cancel with 30 days' notice. No partial-month refunds.</li>
+        <li><b>Your data is yours.</b> If you leave, you get a CSV export of your contacts and a 30-day wind-down.</li>
+      </ul>
+    </div>
+    <div class="terms-box rv d1">
+      <h3>The 7-business-day promise</h3>
+      <ul>
+        <li>If your AI receptionist, booking and live dashboard aren't live within <b>7 business days of kickoff</b>, we refund the $500 setup fee.</li>
+        <li>It applies when kickoff is held within 2 business days of payment and you give us call forwarding and calendar access by day 5.</li>
+        <li>Texting (A2P 10DLC registration and missed-call text-back) depends on carrier approval and is not covered.</li>
+        <li>That's the only guarantee. Full wording in our <a href="/refund.html">refund policy</a> and <a href="/terms.html">terms</a>.</li>
+      </ul>
+    </div>
+    <div class="terms-box rv d1">
+      <h3>Founding clients</h3>
+      <ul>
+        <li>We're signing our first clients now. For our first three, the monthly price is locked for 12 months in exchange for a 20-minute results review at day 30 and, only with your written approval, permission to publish your real numbers.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <section class="sec" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// standard vs custom</div>
-    <h2 class="rv d1">What's standard &mdash; and what's custom.</h2>
-    <p class="lede rv d1">Running the powerful AI already in your platform is standard, at every tier. Genuine custom engineering is gated to Full Custom CTO &mdash; so the price always matches the work.</p>
-    <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin-left:auto;margin-right:auto">
-      <div class="card rv">
-        <span class="tag">every tier</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
-        <h3>Standard config</h3>
-        <p>Turning on and running the AI already in your tools â lead follow-up, a 24/7 receptionist, booking, reactivation, and your live dashboard. Configured, not coded.</p>
-      </div>
-      <div class="card rv d1">
-        <span class="tag">Full Custom CTO</span>
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
-        <h3>Custom engineering</h3>
-        <p>External integrations (like DOT SAFER), custom bots, new data sources, and bespoke systems â real engineering, so it lives in Full Custom.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// what runs at each tier</div>
-    <h2 class="rv d1">The same core functions every business runs.</h2>
+    <div class="eyebrow rv">// side by side</div>
+    <h2 class="rv d1">Core vs. Managed.</h2>
     <div class="rv d1 ptable" style="margin-top:clamp(34px,5vh,52px)">
     <div class="ptable-hint">// swipe to compare &rarr;</div>
     <div class="ptable-scroll">
     <table class="vtable">
-      <thead><tr><th>What you get</th><th>AI Operator</th><th class="hot">Founding CTO</th><th>Full Custom</th></tr></thead>
+      <thead><tr><th>What you get</th><th>Core</th><th class="hot">Managed</th></tr></thead>
       <tbody>
-        <tr><td>Price</td><td class="y">$1,000 once</td><td class="y">$1,500/mo</td><td class="y">quote</td></tr>
-        <tr><td>Paid on results</td><td class="y">$500 of $1,000</td><td>&mdash;</td><td>&mdash;</td></tr>
-        <tr><td>Runs inside your own GoHighLevel</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
-        <tr><td>Aged-lead reactivation</td><td class="y">14 days</td><td class="y">ongoing</td><td class="y">ongoing</td></tr>
-        <tr><td>Renewal / X-date campaigns</td><td class="y">list + first wave</td><td class="y">ongoing</td><td class="y">ongoing</td></tr>
-        <tr><td>Speed-to-lead on new leads</td><td>&mdash;</td><td class="y">under 5 min</td><td class="y">under 5 min</td></tr>
-        <tr><td>Dashboard</td><td class="y">by day 3</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
-        <tr><td>Workflow changes</td><td>&mdash;</td><td class="y">1 a month</td><td class="y">scoped</td></tr>
-        <tr><td>Minimum term</td><td class="y">14 days</td><td class="y">90 days, then monthly (30 days' notice)</td><td class="y">scoped</td></tr>
+        <tr><td>Monthly price</td><td class="y">$497</td><td class="y">$1,500</td></tr>
+        <tr><td>One-time setup</td><td class="y">$500</td><td class="y">$500</td></tr>
+        <tr><td>Your own Efficio account (built on HighLevel)</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>AI voice receptionist (inbound)</td><td class="y">300 min/mo</td><td class="y">1,000 min/mo</td></tr>
+        <tr><td>AI website chat</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Booking, reminders, no-show rebook</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Missed-call text-back (after A2P approval)</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Review requests</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Live dashboard + weekly results email</td><td class="y">&#x25CF;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Hands-on optimization</td><td>&mdash;</td><td class="y">2 h/mo</td></tr>
+        <tr><td>New automation each month</td><td>&mdash;</td><td class="y">1 a month</td></tr>
+        <tr><td>&ldquo;Ask Efficio&rdquo; over your live data</td><td>&mdash;</td><td class="y">&#x25CF;</td></tr>
+        <tr><td>Custom revenue dashboard</td><td>&mdash;</td><td class="y">from ~day 45</td></tr>
+        <tr><td>Monthly call</td><td class="y">30 min</td><td class="y">60 min</td></tr>
+        <tr><td>Term</td><td class="y">month-to-month, 30 days' notice</td><td class="y">month-to-month, 30 days' notice</td></tr>
       </tbody>
     </table>
     </div>
@@ -220,43 +206,47 @@
 
 <section class="sec" style="padding-top:0">
   <div class="wrap center">
-    <div class="eyebrow rv">// before you commit</div>
+    <div class="eyebrow rv">// before you book</div>
     <h2 class="rv d1">Pricing questions, answered.</h2>
     <div class="faq rv d2">
       <details>
-        <summary>Is there a setup fee or a contract?</summary>
-        <p>The Lead Rescue Sprint has a <b>$500 non-refundable setup fee</b>, due at kickoff; it pays for the build, which stays in your account. The other <b>$500 is due only after 5 qualifying appointments</b>. AI Operator is <b>$1,500/mo with a 90-day minimum</b>, then month-to-month with 30 days' notice, billed by card on file.</p>
+        <summary>Which plan is right for me?</summary>
+        <p>We decide it with you before or on the call. If you get at least 50 calls or leads a month (or spend $2,000+ a month on ads or leads) and your average job is $1,000 or more, Managed usually pays for itself. Otherwise, start on Core. If your average job is under $500, we'll tell you honestly that this probably isn't worth it for you yet.</p>
       </details>
       <details>
-        <summary>What if the Sprint doesn't book 5 appointments?</summary>
-        <p>Then the $500 performance portion isn't charged (or is refunded if you prepaid it). The $500 setup is non-refundable; you keep the enriched lists, the workflows and the dashboard we built in your GoHighLevel.</p>
+        <summary>Is there a contract?</summary>
+        <p>You sign a short order form on the call. Both plans are month-to-month after go-live, and you can cancel with 30 days' notice. There are no partial-month refunds.</p>
       </details>
       <details>
-        <summary>What counts as one of the 5 appointments?</summary>
-        <p>An appointment counts toward the 5 (a &ldquo;qualifying appointment&rdquo;) when all three are true: (1) it's booked through the Sprint's email outreach onto one of your producers' calendars during the 14-day Sprint; (2) it's with a unique contact from your own list &mdash; duplicates, test records, your staff, and anyone already in an active quote with you in the 14 days before the Sprint started don't count; and (3) your producer takes it. Your producers take each booked appointment within 1 business day of it being booked: they confirm it, call the prospect at the booked time, or reschedule it with the prospect. An appointment your team doesn't take within that 1 business day still counts, because the booking was delivered and the miss was on your side.</p>
+        <summary>What does the $500 setup cover, and when is it refunded?</summary>
+        <p>It covers building your account: the receptionist's script and FAQs, your calendar and reminders, website chat, the consent and opt-out setup, and your dashboard. If your receptionist, booking and dashboard aren't live within 7 business days of kickoff, we refund it, as long as kickoff happened within 2 business days of payment and you gave us call forwarding and calendar access by day 5. Texting approval (A2P 10DLC) isn't covered because the carriers control it.</p>
       </details>
       <details>
-        <summary>Can I start small and move up later?</summary>
-        <p>Yes â start where you're hurting most. Many owners begin on <b>AI Operator ($1,500/mo)</b>, prove it out, then move up to Founding CTO when they want us running and expanding it. No penalty for changing.</p>
+        <summary>Why do I need a new phone number?</summary>
+        <p>You keep your main number. The receptionist gets its own local number, and you forward calls you don't answer (and after-hours calls) to it. We send you the forwarding steps for your carrier.</p>
       </details>
       <details>
-        <summary>Do I get credit for the Sprint if I keep going?</summary>
-        <p>Yes. If you sign AI Operator within 7 days of the Sprint ending, <b>50% of the Sprint fee you paid ($500 on the full $1,000)</b> is credited to your first month. The Sprint credit and any service credit never stack.</p>
+        <summary>What is HighLevel, and why do you say you're built on it?</summary>
+        <p>HighLevel (also called LeadConnector) is the CRM and messaging platform your Efficio account runs on. We set it up, run it and brand it as Efficio, but we don't claim it as our own software. Your contacts and conversations stay in your account.</p>
       </details>
       <details>
-        <summary>How fast until something is live?</summary>
-        <p>Your dashboard goes live around <b>day 5</b> and your first agent or tool around <b>day 7</b> â not a months-long implementation.</p>
+        <summary>Can the AI call or text my leads for me?</summary>
+        <p>Not cold. The receptionist answers inbound calls only. Texts go only to people who gave consent, and every opt-out is honored on every channel. We don't do outbound robocalls, cold texting or purchased-list dialing.</p>
+      </details>
+      <details>
+        <summary>Can I pay online?</summary>
+        <p>Not yet. We take the card on the call once we both agree it's a fit, so nobody pays for a plan that doesn't suit their business.</p>
       </details>
     </div>
-    <p class="pnote rv">Not sure where you land? <a href="/find-your-tier.html">Find your tier in 60 seconds</a> &middot; or <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">book a 15-minute call</a>.</p>
+    <p class="pnote rv">Still unsure? <a href="/book.html">Book a call</a> or email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
   </div>
 </section>
 
 <section class="cta rv">
-  <div class="prompt">$ efficio hire --team<span class="cur"></span></div>
-  <h2>Find your starting tier.</h2>
-  <p>Sixty seconds to see where it fits. We agree on the metric on call one.</p>
-  <a href="/find-your-tier.html" class="btn-primary lg">Get started <span class="arr">&rarr;</span></a>
+  <div class="prompt">$ efficio front-office --live<span class="cur"></span></div>
+  <h2>Stop losing the calls you miss.</h2>
+  <p>One short call. We look at your call volume and job size, and tell you honestly whether this is worth it for you.</p>
+  <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
 </section>
 
 </main>
@@ -265,38 +255,32 @@
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Your business's AI workforce. We engineer, deploy, and run AI agents on Anthropic's Claude â living inside your tools via MCP and APIs â so you operate while we handle the AI.</p>
+        <p>An AI front office for small businesses: it answers missed calls, books them, follows up and reports on a live dashboard. Built on HighLevel. Installed and run by a licensed engineer.</p>
       </div>
       <div class="fcol"><h5>Product</h5>
         <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">AI teams</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
+        <a href="/agents.html">What's included</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
       </div>
       <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your tier</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+        <a href="/why-efficio.html">Why Efficio</a>
+        <a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
+        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
       </div>
     </div>
     <div class="fbot">
       <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
-      <div>Built on Anthropic's Claude.</div>
+      <div>Built on HighLevel.</div>
     </div>
   </div>
 </footer>
 <script>
-/* comparison table: show the swipe edge-fade only when it actually overflows */
-(function(){
-  var t=document.querySelector('.ptable'),s=t&&t.querySelector('.ptable-scroll');
-  if(!t||!s) return;
-  function sync(){ t.classList.toggle('has-scroll', s.scrollWidth>s.clientWidth+2); }
-  sync(); window.addEventListener('resize',sync,{passive:true});
-})();
-/* reveal safety net â never leave .rv content invisible if IntersectionObserver doesn't fire */
+/* reveal safety net: never leave .rv content invisible if IntersectionObserver doesn't fire */
 setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
 </script>
 <script src="/assets/v6.js" defer></script>
-<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script><script src="/assets/consent.js" defer></script>
+<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
+<script src="/assets/consent.js" defer></script>
 </body>
 </html>

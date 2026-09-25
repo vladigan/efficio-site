@@ -72,23 +72,22 @@
   function prog(p){ if(heroProg) heroProg.style.width=p+'%'; }
 
   var heroFrames=[
-    {t:'p', s:'efficio build --agent receptionist', do:function(){setStat(heroStat,'building','var(--violet-l)');prog(8);}},
-    {t:'o', c:'cm',  s:'# provisioning Claude agent...', after:260},
-    {t:'o', c:'ok',  s:'✓ workspace authenticated', do:function(){prog(22);}},
-    {t:'o', c:'dim', s:'connecting servers...', do:function(){setStat(heroStat,'deploying','var(--cyan)');}},
-    {t:'o', c:'ar',  s:'→ gmail        connected', do:function(){prog(38);}},
-    {t:'o', c:'ar',  s:'→ calendar     connected', do:function(){prog(52);}},
-    {t:'o', c:'ar',  s:'→ crm          connected', do:function(){prog(66);}},
-    {t:'o', c:'ar',  s:'→ stripe       connected', do:function(){prog(80);}},
-    {t:'o', c:'ok',  s:'✓ Claude agents online · 6', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
+    {t:'p', s:'efficio setup --front-office', do:function(){setStat(heroStat,'setting up','var(--violet-l)');prog(8);}},
+    {t:'o', c:'cm',  s:'# kickoff: hours, services, FAQs, transfer number', after:260},
+    {t:'o', c:'ok',  s:'✓ Efficio account created (built on HighLevel)', do:function(){prog(22);}},
+    {t:'o', c:'dim', s:'connecting...', do:function(){setStat(heroStat,'connecting','var(--cyan)');}},
+    {t:'o', c:'ar',  s:'→ local number     ready', do:function(){prog(38);}},
+    {t:'o', c:'ar',  s:'→ call forwarding  on', do:function(){prog(52);}},
+    {t:'o', c:'ar',  s:'→ google calendar  connected', do:function(){prog(66);}},
+    {t:'o', c:'ar',  s:'→ website chat     installed', do:function(){prog(80);}},
+    {t:'o', c:'ok',  s:'✓ receptionist live · AI + recording disclosure on', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
     {t:'sp'},
     {t:'p', s:'# after-hours call · (305) 555-0148'},
-    {t:'o', c:'ar',  s:'→ booking job · Thu 10:00 AM'},
-    {t:'o', c:'ok',  s:'✓ confirmation texted · logged to CRM'},
-    {t:'o', c:'ar',  s:'→ quote · Johnson · $3,180 sent'},
-    {t:'o', c:'ok',  s:'✓ follow-up scheduled +2d', after:480},
+    {t:'o', c:'ar',  s:'→ "Hi, you’ve reached our AI assistant..."'},
+    {t:'o', c:'ar',  s:'→ booked · Thu 10:00 AM · on your calendar'},
+    {t:'o', c:'ok',  s:'✓ confirmation sent · logged to your dashboard', after:480},
     {t:'sp'},
-    {t:'o', c:'lv',  s:'● all systems operational'}
+    {t:'o', c:'lv',  s:'● sample session · illustration'}
   ];
 
   /* build section: watch a handler being written line-by-line, then deployed */
@@ -126,11 +125,11 @@
   /* Seed the hero terminal with visible lines immediately, so it is NEVER blank
      (even before the animation starts or if IntersectionObserver never fires). */
   function seedTerm(el){
-    el.innerHTML='<div class="ln pr">efficio build --agent receptionist</div>'+
-      '<div class="ln cm"># provisioning Claude agent...</div>'+
-      '<div class="ln ok">\u2713 workspace authenticated</div>'+
-      '<div class="ln ar">\u2192 gmail        connected</div>'+
-      '<div class="ln ar">\u2192 calendar     connected</div>';
+    el.innerHTML='<div class="ln pr">efficio setup --front-office</div>'+
+      '<div class="ln cm"># kickoff: hours, services, FAQs, transfer number</div>'+
+      '<div class="ln ok">\u2713 Efficio account created (built on HighLevel)</div>'+
+      '<div class="ln ar">\u2192 local number     ready</div>'+
+      '<div class="ln ar">\u2192 call forwarding  on</div>';
   }
   /* Seed the code-generator panel with the full handler immediately, so it is never blank. */
   function seedCodegen(el){

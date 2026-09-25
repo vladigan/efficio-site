@@ -21,7 +21,7 @@ Files added:
 - `netlify/functions/chat.js` — Claude proxy
 - `netlify.toml` — `[functions]` directory registered
 
-System prompt grounds the bot as Efficio's AI assistant: knows pricing (AI Specialist $997 / AI Team $2,500 / AI Department $3,500), day-7 promise, day-30 refund, steers toward audit-quiz or Calendly. Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
+System prompt grounds the bot as Efficio's AI assistant: knows pricing (Front Office Core $497/mo and Front Office Managed $1,500/mo, each + $500 setup) and the one go-live promise from refund.html, steers toward the plan quiz or book.html. (Prompt updated in the 2026-09-25 truth pass; the live Worker prompt must be updated separately.) Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
 
 ---
 

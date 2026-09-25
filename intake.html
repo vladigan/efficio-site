@@ -382,6 +382,8 @@
       }
       var payload = { kind: 'pre_call_intake', ts: new Date().toISOString(), source: 'efficio_precall_intake', company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers };
       if (consent) payload.consent = consent;   /* `phone` above is the number the consent covers */
+      /* cookie-banner choice (true only after Accept), assets/contact-consent.js */
+      payload.marketing_consent = typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true;
       fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -328,6 +328,9 @@
       phone: phone,
       /* explicit, auditable consent record (shape: efficioConsent, assets/contact-consent.js) */
       consent: consent,
+      /* cookie-banner choice (true only after Accept). The Worker never sends an
+         opt-in to Meta whatever its value; every /quiz body carries it anyway. */
+      marketing_consent: typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true,
       answers: {
         full_name: fullName,
         email: email,

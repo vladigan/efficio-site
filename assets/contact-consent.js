@@ -37,9 +37,28 @@
  *
  * If this file fails to load, pages must refuse to submit a form with a ticked box
  * (they check for #efConsentSms:checked / #efConsentVoice:checked themselves).
+ *
+ * window.efficioMarketingConsent() returns the cookie-banner choice for ad measurement,
+ * sent as the top-level boolean payload.marketing_consent on every POST to the Worker's
+ * /quiz: true ONLY when the visitor clicked Accept (assets/consent.js,
+ * EfficioConsent.get() === 'granted', stored in localStorage "efficio_consent"); false
+ * for Decline, no choice yet, or unreadable storage. The Worker sends its server-side
+ * Meta Conversions API Lead only when it is true (privacy.html: conversion events go to
+ * Meta only after Accept). It is not the text/call consent above. If this file fails to
+ * load, pages send false.
  */
 (function () {
   'use strict';
+  if (typeof window.efficioMarketingConsent !== 'function') {
+    window.efficioMarketingConsent = function () {
+      try {
+        if (window.EfficioConsent && typeof window.EfficioConsent.get === 'function') {
+          return window.EfficioConsent.get() === 'granted';
+        }
+      } catch (e) {}
+      try { return window.localStorage.getItem('efficio_consent') === 'granted'; } catch (e) { return false; }
+    };
+  }
   if (typeof window.efficioConsent === 'function') return;
 
   /* A number the Worker can turn into E.164 (+1 and 10 digits). Anything else would be

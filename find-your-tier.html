@@ -749,6 +749,8 @@
         fbclid: qs.get('fbclid') || '',
         li_fat_id: qs.get('li_fat_id') || '',
         source_url: (window.location && window.location.href) || 'https://efficio.tech/find-your-tier.html',
+        /* cookie banner: true only after Accept; the Worker sends its Meta Lead only then */
+        marketing_consent: typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true,
         answers: answersReadable()
       };
       if(consent) payload.consent = consent;   /* nothing is sent when neither box is ticked */

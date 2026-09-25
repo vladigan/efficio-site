@@ -385,6 +385,8 @@ window.submitOnboarding = function(ev) {
   var payload = { kind: 'client_onboarding', ts: new Date().toISOString(), source: 'efficio_client_onboarding', answers: {} };
   for (var pair of data.entries()) { payload.answers[pair[0]] = pair[1]; }
   if (consent) payload.consent = consent;
+  /* cookie-banner choice (true only after Accept), assets/contact-consent.js */
+  payload.marketing_consent = typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true;
   // mirror common fields to top level for easier Telegram alert read
   payload.firstName = payload.answers.first_name || payload.answers.contact_name || '';
   payload.company = payload.answers.business_name || '';

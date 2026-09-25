@@ -83,6 +83,15 @@ and the `consent_sms` / `consent_ai_voice` tags only for `quiz_lead` and `sms_op
 repaired Worker, `repair-2026-09-23`); `pre_call_intake` and `client_onboarding` are
 record-only, so their consent is kept as evidence in the Worker's form log.
 
+Every `/quiz` body also carries the top-level boolean `marketing_consent`, from
+`window.efficioMarketingConsent()` in `assets/contact-consent.js`: `true` only when the visitor
+clicked Accept in the cookie banner (`EfficioConsent.get() === 'granted'`, localStorage
+`efficio_consent`), `false` for Decline, no choice yet, or if the helper didn't load. It is not
+the text/call consent. The repaired Worker sends its server-side Meta Conversions API `Lead`
+(hashed email/name) for a `quiz_lead` only when it is `true`, matching privacy.html (conversion
+events go to Meta only after Accept); other kinds never reach Meta. Any new form that posts to
+`/quiz` must send it too.
+
 ### Consent text versions
 
 | Version | Where | Text |

@@ -26,7 +26,7 @@
     { text: 'A live dashboard shows every call, booking and review, and a results email lands every week.' },
     { text: 'You don\'t configure anything. <em>A licensed engineer installs it, tests it and runs it.</em>' },
     { text: '<em>Live within 7 business days of kickoff</em>, or your $500 setup fee back.', cls: 'close' },
-    { text: 'From $497 a month. On the call we look at your numbers and tell you honestly whether it fits.', cls: 'close' }
+    { text: 'From $1,500 a month, plus a one-time $500 setup. On the call we look at your numbers and tell you honestly whether it fits.', cls: 'close' }
   ];
   var DURATION = 10000;
 

@@ -53,6 +53,14 @@
     .checkbox-item { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
     .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; accent-color: #a855f7; flex-shrink: 0; cursor: pointer; }
     .checkbox-item span { font-size: 14px; color: #ccc; }
+    /* Contact consent: two separate, optional, unchecked boxes (A = texts, B = AI-voice calls) */
+    fieldset.consents { border: 0; min-width: 0; margin: 0 0 20px; padding: 0; }
+    fieldset.consents legend { font-size: 13px; font-weight: 500; color: #bbb; margin-bottom: 8px; padding: 0; }
+    .consent-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; margin-bottom: 8px; border: 1px solid #2a2a2a; border-radius: 8px; }
+    .consent-item input[type="checkbox"] { width: 16px; height: 16px; margin-top: 3px; accent-color: #a855f7; flex-shrink: 0; cursor: pointer; }
+    .consent-item label { font-size: 12.5px; color: #bbb; line-height: 1.6; cursor: pointer; }
+    .consent-item label b { color: #fff; }
+    .consent-item label a { color: #c4b5fd; text-decoration: underline; }
     .submit-btn { width: 100%; padding: 16px; background: #a855f7; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 8px; }
     .submit-btn:hover { background: #7c3aed; }
     .form-note { font-size: 12px; color: #555; text-align: center; margin-top: 12px; }
@@ -207,6 +215,18 @@
         </div>
       </div>
 
+      <fieldset class="consents">
+        <legend>Texts and calls from Efficio (optional; leave both unticked for email only)</legend>
+        <div class="consent-item">
+          <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" />
+          <label for="sms_consent" data-consent-version="sms_v2_2026-09"><b>Text me.</b> I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms">SMS Terms</a> &middot; <a href="/privacy.html#sms">Privacy Policy</a></label>
+        </div>
+        <div class="consent-item">
+          <input type="checkbox" id="ai_voice_consent" name="ai_voice_consent" value="yes" />
+          <label for="ai_voice_consent" data-consent-version="aivoice_v1_2026-09"><b>Call me with Efficio's AI assistant.</b> I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech.</label>
+        </div>
+      </fieldset>
+
       <div class="form-group">
         <label>Preferred contact method</label>
         <select name="preferred_contact">
@@ -310,15 +330,16 @@
     </div>
 
     <button type="submit" class="submit-btn" id="onboardSubmit">Submit My Onboarding Info →</button>
-    <p class="form-note">We'll review this before your kick-off call and build a custom action plan. Usually back to you within 2 hours.</p>
+    <p class="form-note">Brady reviews this before your kickoff call and replies within 1 business day.</p>
 
-    <div id="onboardThanks" style="display:none;padding:24px;text-align:center;border:1px solid #4ade80;border-radius:10px;background:rgba(74,222,128,.08);margin-top:20px">
-      <strong style="color:#fff;display:block;font-size:18px;margin-bottom:6px">Got it — you're in.</strong>
-      <span style="color:#a1a1aa;font-size:14px">Your intake landed. We'll review and reach out within 2 hours.</span>
-    </div>
-    <p id="onboardError" style="display:none;color:#f87171;font-size:13.5px;margin-top:12px;text-align:center">Something didn't go through. Try once more or email brady@efficio.tech.</p>
+    <p id="onboardError" role="alert" style="display:none;color:#f87171;font-size:13.5px;margin-top:12px;text-align:center">Something didn't go through. Try once more or email brady@efficio.tech.</p>
 
   </form>
+  <!-- outside the form: the form is hidden on success, and this has to stay visible -->
+  <div id="onboardThanks" role="status" style="display:none;padding:24px;text-align:center;border:1px solid #4ade80;border-radius:10px;background:rgba(74,222,128,.08);margin-top:20px">
+    <strong style="color:#fff;display:block;font-size:18px;margin-bottom:6px">Got it — you're in.</strong>
+    <span style="color:#a1a1aa;font-size:14px">Your intake landed. Brady will review it and reply within 1 business day.</span>
+  </div>
 </div>
 
 <script>
@@ -328,12 +349,33 @@ window.submitOnboarding = function(ev) {
   var btn = document.getElementById('onboardSubmit');
   var err = document.getElementById('onboardError');
   var ok = document.getElementById('onboardThanks');
-  if (err) err.style.display = 'none';
+  if (err) {
+    /* reset to the default failure text (a consent problem may have replaced it) */
+    if (!err.hasAttribute('data-default')) err.setAttribute('data-default', err.textContent);
+    err.textContent = err.getAttribute('data-default');
+    err.style.display = 'none';
+  }
+
+  /* Optional text / AI-call consent (assets/contact-consent.js). A ticked box
+     needs a usable mobile number; nothing is sent until it has one. */
+  var CC = window.EfficioContactConsent;
+  var phoneEl = form.querySelector('input[name="contact_phone"]');
+  var phone = phoneEl ? phoneEl.value : '';
+  var ticked = form.querySelector('input[name="sms_consent"]:checked, input[name="ai_voice_consent"]:checked');
+  var problem = CC ? CC.problem(form, { phone: phone })
+    : (ticked ? 'Part of this page didn\'t load. Refresh the page and try again, or untick the text and call boxes.' : null);
+  if (problem) {
+    if (err) { err.textContent = problem; err.style.display = 'block'; }
+    return false;
+  }
+  var consent = CC ? CC.collect(form, { source: 'efficio_client_onboarding', phone: phone }) : null;
+
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
 
   var data = new FormData(form);
   var payload = { kind: 'client_onboarding', ts: new Date().toISOString(), answers: {} };
   for (var pair of data.entries()) { payload.answers[pair[0]] = pair[1]; }
+  if (consent) { payload.consent = consent; CC.mirror(payload, consent); }
   // mirror common fields to top level for easier Telegram alert read
   payload.firstName = payload.answers.first_name || payload.answers.contact_name || '';
   payload.company = payload.answers.business_name || '';
@@ -362,6 +404,7 @@ window.submitOnboarding = function(ev) {
 </script>
 <p style="text-align:center;font-size:12.5px;color:#777;padding:0 24px 40px"><a style="color:#aaa" href="/terms.html">Terms</a> · <a style="color:#aaa" href="/privacy.html">Privacy</a> · <a style="color:#aaa" href="/refund.html">Refund</a> · <a style="color:#aaa" href="/unsubscribe.html">Unsubscribe</a> · <a style="color:#aaa" href="#cookie-settings" data-cookie-settings>Cookie settings</a></p>
 <script src="/assets/chat.js" defer></script>
+<script src="/assets/contact-consent.js" defer></script>
 <script src="/assets/consent.js" defer></script>
 </body>
 </html>

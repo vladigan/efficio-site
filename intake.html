@@ -216,7 +216,7 @@
     <p class="subtitle">Thanks for booking a meeting with us. This helps us prepare for our meeting so we can make the most of your time.</p>
 
     <div class="form-card" id="formCard">
-      <form name="intake" method="POST" data-netlify="true" id="intakeForm">
+      <form name="intake" method="POST" id="intakeForm">
         <input type="hidden" name="form-name" value="intake" />
 
         <div class="field">
@@ -227,6 +227,11 @@
         <div class="field">
           <label for="name">Your Name and Title</label>
           <input type="text" id="name" name="name" required placeholder="e.g. John Smith, Owner" />
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span style="font-weight:400;opacity:.7">(optional, so Brady can reply)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" />
         </div>
 
         <div class="field">
@@ -305,28 +310,39 @@
     <div class="thank-you" id="thankYou">
       <div class="check-icon">&#10003;</div>
       <h2>Thank You</h2>
-      <p>Your responses have been submitted. We will review everything before our meeting so we can hit the ground running. See you soon.</p>
+      <p>Your answers are in. Brady will read them before your call.</p>
     </div>
   </div>
 
   <script>
+    /* Stored by the Efficio Worker (the site is static GitHub Pages, so a plain
+       form POST would be lost). A non-lead kind is recorded only: no automated
+       email is triggered. Success is shown only after the Worker acknowledges. */
     document.getElementById('intakeForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      fetch('/', {
+      var form = e.target, btn = form.querySelector('.submit-btn');
+      var answers = {};
+      new FormData(form).forEach(function(v, k) { answers[k] = answers[k] ? answers[k] + ', ' + v : v; });
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      function fail() {
+        if (btn) { btn.disabled = false; btn.textContent = 'Submit Questionnaire'; }
+        var lines = Object.keys(answers).map(function(k){ return k + ': ' + answers[k]; }).join('
+');
+        var mailto = 'mailto:brady@efficio.tech?subject=' + encodeURIComponent('Pre-call questionnaire: ' + (answers.company || '')) + '&body=' + encodeURIComponent(lines);
+        var n = document.getElementById('intakeFail');
+        if (!n) { n = document.createElement('p'); n.id = 'intakeFail'; n.style.cssText = 'color:#f87171;font-size:14px;margin-top:12px'; form.appendChild(n); }
+        n.innerHTML = 'That didn't go through. <a href="' + mailto + '" style="text-decoration:underline;color:inherit">Email your answers to Brady instead</a>.';
+      }
+      fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
-      }).then(function() {
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers })
+      }).then(function(r) {
+        if (!r.ok) throw new Error('http ' + r.status);
         document.getElementById('formCard').style.display = 'none';
         document.getElementById('thankYou').classList.add('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }).catch(function() {
-        document.getElementById('formCard').style.display = 'none';
-        document.getElementById('thankYou').classList.add('visible');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      }).catch(fail);
     });
   </script>
 <p style="text-align:center;font-size:12.5px;padding:24px 16px 40px"><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refund</a> · <a href="/unsubscribe.html">Unsubscribe</a> · <a href="#cookie-settings" data-cookie-settings>Cookie settings</a></p>

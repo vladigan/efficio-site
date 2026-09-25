@@ -22,58 +22,75 @@ the consent setup intact:
 If you add a tag, widget or embed, gate it the same way. Then update `privacy.html` §6 and the
 banner text in `consent.js` so they still name everything that loads.
 
-## Contact consent capture (texts and AI-voice calls)
+## Contact consent capture (texts and calls, including an AI voice)
 
-Every site form that asks for a phone number shows two **separate** checkboxes next to it:
-`sms-opt-in.html`, `intake.html` (pre-call questionnaire) and `onboarding.html` (client
-onboarding). The GoHighLevel booking calendar is an iframe, so its consent is set in GHL
+Every site form that asks for a phone number shows two **separate** checkboxes directly under
+it: `find-your-tier.html` (the optional follow-up form after the plan quiz), `sms-opt-in.html`,
+`intake.html` (pre-call questionnaire) and `onboarding.html` (client onboarding). `go.html` is a
+redirect stub. The GoHighLevel booking calendar is an iframe, so its consent is set in GHL
 (calendar consent label, plus a GHL form attached to the calendar), not here.
+
+Source of truth (Efficio ops folder, not in this repo): `ops/CONSENT_CAPTURE_PLAN.md` §2.0-§2.3,
+the paste-ready block `ops/consent_capture/site_consent_block.html`, and the dated texts in
+`ops/consent_texts/` (`sms_v2_2026-09.txt`, `aivoice_v1_2026-09.txt`).
 
 Rules:
 
-- **Box A (texts)** and **box B (calls from Efficio's AI assistant, the prior express written
-  consent for artificial/AI-voice calls)** are separate, never pre-checked, and never
-  required. Neither is a condition of purchase. `sms-opt-in.html` needs at least one of the
-  two ticked (that page does nothing else); the other forms submit fine with neither.
-- A ticked box needs a 10-digit US mobile number, or the form isn't sent.
-- The label text **is** the disclosure. `assets/contact-consent.js` sends it exactly as shown
-  (whitespace collapsed), with the version from the label's `data-consent-version`.
-- To change a single word: give the text a new version, update it on **all three** pages,
-  and add it to the table below. Never edit the text of a version that has been published.
-- `sms-opt-in.html` shows "recorded" for a box only when the Worker confirms it: texts when
-  `accepted !== false`; AI-voice calls when `ai_voice_accepted === true`, or, if the Worker
-  doesn't send that field, when `accepted === true` (the consent-aware Worker's answer for
-  an opt-in it stored). Anything else gets a neutral receipt, and a failed request gets an
-  error.
+- **Box A (texts, `sms_v2_2026-09`)** and **box B (calls, including an artificial or
+  AI-generated voice, `aivoice_v1_2026-09`)** are separate, never pre-checked, and never
+  required. Neither is a condition of purchase. The seller is named as "Efficio (BNG
+  Contracting Enterprise LLC)". `sms-opt-in.html` needs at least one of the two ticked (that
+  page does nothing else); the other forms submit fine with neither.
+- The markup is the block from `site_consent_block.html`, pasted **verbatim** (ids
+  `efConsentSms`, `efConsentVoice`, `efConsentSmsText`, `efConsentVoiceText`, `efConsentErr`;
+  one block per page). Page CSS may restyle it but never changes its text.
+- `window.efficioConsent(form)` in `assets/contact-consent.js` returns `null` (no box ticked:
+  send no consent), `false` (a box is ticked but the form's `input[type="tel"]` is empty or
+  not a 10-digit US number: the message under the boxes is shown and nothing is sent), or the
+  consent object for `payload.consent`. If that script fails to load, a page with a ticked
+  box refuses to submit.
+- The span text **is** the disclosure: it is sent exactly as shown (whitespace collapsed),
+  with the version from the span's `data-version`.
+- To change a single word: add a new version file in `ops/consent_texts/`, give the text a new
+  `data-version`, update it on **all four** pages, and add it to the table below. Never edit
+  the text of a version that has been published.
+- `sms-opt-in.html` says "You're subscribed." only when box A was ticked **and** the POST
+  returned ok (HTTP 2xx, `ok: true`, and not `accepted: false`, which the Worker sends for a
+  held or spam-filed submission). A box's line says "recorded" only when the Worker confirms
+  it: texts when `accepted !== false`; calls when `ai_voice_accepted === true`, or, if the
+  Worker doesn't send that field, when `accepted === true`. Anything else gets a neutral
+  receipt, and a failed request gets an error.
 
 ### Payload sent to the Worker (`POST https://efficio-chat.bgay3500.workers.dev/quiz`)
 
-`kind` is unchanged per page: `sms_opt_in`, `pre_call_intake` or `client_onboarding`. The
-consent is in `payload.consent`. Its first four fields are also mirrored at the top level of
-the payload.
+`kind` is unchanged per page: `quiz_lead` (find-your-tier), `sms_opt_in`, `pre_call_intake` or
+`client_onboarding`. The number the consent covers is the payload's top-level `phone` (on
+find-your-tier it is sent only when a box is ticked). `payload.consent` is present only when a
+box is ticked, in exactly the shape the Worker's `clipConsent()` reads:
 
 | Field | Value |
 |---|---|
-| `contract` | `efficio_consent_v1` |
-| `sms_consent` | `true` / `false`: box A ticked |
-| `ai_voice_consent` | `true` / `false`: box B ticked |
-| `consent_text_version` | versions of the **ticked** boxes, comma-joined like the GHL field the Worker writes: `sms_v2_2026-09`, `aivoice_v1_2026-09`, `sms_v2_2026-09,aivoice_v1_2026-09`, or `""` |
-| `source` | `efficio_sms_optin_page` · `efficio_precall_intake` · `efficio_client_onboarding` |
-| `sms_opt_in` (+ legacy alias `granted`), `ai_voice` | the Worker's names for box A and box B (same values as above) |
-| `text_version` / `ai_voice_text_version` | version of each box **shown**, ticked or not (`sms_text_version` = alias) |
-| `disclosure_text` / `ai_voice_disclosure_text` | exact text of each box shown (`sms_disclosure_text` = alias) |
-| `consent_phone` | the phone typed on the form when a box is ticked, else `""` |
-| `timestamp`, `source_url`, `user_agent`, `method` | ISO time (client clock), page URL, UA, `web_form_checkbox` |
+| `sms_opt_in` | `true` / `false`: box A ticked |
+| `ai_voice` | `true` / `false`: box B ticked |
+| `text_version` / `disclosure_text` | version and exact text of box A when ticked, else `null` |
+| `ai_voice_text_version` / `ai_voice_disclosure_text` | version and exact text of box B when ticked, else `null` |
+| `method` | `web_form_checkbox` |
+| `timestamp`, `source_url`, `user_agent` | ISO time (client clock), page URL, UA |
 
-The Worker adds the server-side evidence (full IP, server receipt time) itself and never
-trusts the client clock. On `sms-opt-in.html`, `answers` also carries `sms_consent_text` /
-`ai_voice_consent_text` (the text of each ticked box) so a Worker that predates
-`efficio_consent_v1` still keeps the evidence in its form log.
+The Worker adds the server-side evidence (server receipt time, full IP when a box is ticked,
+SHA-256 of each text) itself and never trusts the client clock. It writes GHL consent fields
+and the `consent_sms` / `consent_ai_voice` tags only for `quiz_lead` and `sms_opt_in` (the
+repaired Worker, `repair-2026-09-23`); `pre_call_intake` and `client_onboarding` are
+record-only, so their consent is kept as evidence in the Worker's form log.
 
 ### Consent text versions
 
 | Version | Where | Text |
 |---|---|---|
-| `sms_v2_2026-09` | box A, all three forms | **Text me.** I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg & data rates may apply. Reply STOP to opt out, HELP for help. SMS Terms · Privacy Policy |
-| `aivoice_v1_2026-09` | box B, all three forms | **Call me with Efficio's AI assistant.** I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech. |
+| `sms_v2_2026-09` | box A, all four forms | **Yes, text me.** I agree that Efficio (BNG Contracting Enterprise LLC) may send me recurring marketing and account text messages at the mobile number I entered, including texts sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. SMS Terms · Privacy |
+| `aivoice_v1_2026-09` | box B, all four forms | **Yes, call me.** I agree that Efficio (BNG Contracting Enterprise LLC) may call me at the number I entered, including marketing calls and voicemails, using automated technology (including an automated system to select and dial numbers), prerecorded messages, and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. Call frequency varies. Msg & data rates may apply. To opt out, say "stop calling" on any call, reply STOP to any text from us, or email brady@efficio.tech. Reply HELP for help. |
 | (unversioned, retired 2026-09) | the single box on `sms-opt-in.html` before this change | By checking this box, I agree to receive recurring automated text messages from Efficio (BNG Contracting Enterprise LLC) at the phone number provided. These messages include appointment reminders, booking confirmations, account updates, and customer-care replies. Consent is not a condition of any purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at any time, or HELP for help. |
+
+An earlier draft wording ("Text me." / "Call me with Efficio's AI assistant.") carried these two
+version ids on the unmerged truth-pass branch. It was never published and was replaced with the
+registered texts above before merge.

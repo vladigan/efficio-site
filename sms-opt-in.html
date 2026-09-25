@@ -43,16 +43,22 @@
   box-shadow:0 0 0 3px rgba(124,77,255,.16)}
 .field input:user-invalid{border-color:rgba(255,122,133,.55)}
 
-/* consent: two separate, optional, unchecked boxes (A = texts, B = AI-voice calls) */
-.consents{border:0;margin:22px 0 0;padding:0;min-width:0}
+/* consent: two separate, optional, unchecked boxes (A = texts, B = calls incl. AI voice).
+   Markup + base CSS: Efficio ops/consent_capture/site_consent_block.html */
 .consent-help{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--violet-l);
-  text-transform:uppercase;margin:0 0 9px}
-.consent{display:flex;gap:13px;align-items:flex-start;margin:0 0 10px;padding:16px 17px;
-  border:1px solid var(--line2);border-radius:14px;background:rgba(124,77,255,.05)}
-.consent input[type="checkbox"]{flex-shrink:0;width:20px;height:20px;margin:2px 0 0;accent-color:var(--violet);cursor:pointer}
-.consent label{font-size:12.75px;font-weight:500;color:var(--ink2);line-height:1.6;cursor:pointer}
-.consent label b{color:#fff;font-weight:700}
-.consent label a{color:var(--violet-l);font-weight:600}
+  text-transform:uppercase;margin:22px 0 0}
+.ef-consent{margin:14px 0 4px;display:grid;gap:10px}
+.ef-consent label{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55;cursor:pointer}
+.ef-consent input[type="checkbox"]{flex-shrink:0;width:18px;height:18px;margin:2px 0 0;cursor:pointer}
+.ef-consent a{text-decoration:underline}
+.ef-consent-err{font-size:12.5px;color:#b3261e;margin:4px 0 0}
+.smscard .ef-consent{margin-top:9px}
+.smscard .ef-consent label{gap:13px;padding:16px 17px;border:1px solid var(--line2);border-radius:14px;background:rgba(124,77,255,.05);
+  font-size:12.75px;font-weight:500;color:var(--ink2);line-height:1.6}
+.smscard .ef-consent input[type="checkbox"]{width:20px;height:20px;accent-color:var(--violet)}
+.smscard .ef-consent label b{color:#fff;font-weight:700}
+.smscard .ef-consent a{color:var(--violet-l);font-weight:600}
+.smscard .ef-consent-err{color:#ff8a94}
 
 /* submit */
 .smscard .btn-primary{width:100%;justify-content:center;margin-top:18px}
@@ -134,17 +140,18 @@
             <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(555) 123-4567"/>
           </div>
 
-          <fieldset class="consents">
-            <legend class="consent-help">Optional: tick one or both</legend>
-            <div class="consent">
-              <input id="f-sms" name="sms_consent" type="checkbox" value="yes"/>
-              <label for="f-sms" id="smsConsentText" data-consent-version="sms_v2_2026-09"><b>Text me.</b> I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms">SMS Terms</a> &middot; <a href="/privacy.html#sms">Privacy Policy</a></label>
-            </div>
-            <div class="consent">
-              <input id="f-voice" name="ai_voice_consent" type="checkbox" value="yes"/>
-              <label for="f-voice" id="voiceConsentText" data-consent-version="aivoice_v1_2026-09"><b>Call me with Efficio's AI assistant.</b> I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech.</label>
-            </div>
-          </fieldset>
+          <p class="consent-help" aria-hidden="true">Optional: tick one or both</p>
+          <div class="ef-consent" role="group" aria-label="Optional: texts and calls from Efficio">
+            <label for="efConsentSms">
+              <input id="efConsentSms" name="consent_sms" type="checkbox"/>
+              <span id="efConsentSmsText" data-version="sms_v2_2026-09"><b>Yes, text me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may send me recurring marketing and account text messages at the mobile number I entered, including texts sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms" target="_blank" rel="noopener">SMS Terms</a> · <a href="/privacy.html#sms" target="_blank" rel="noopener">Privacy</a></span>
+            </label>
+            <label for="efConsentVoice">
+              <input id="efConsentVoice" name="consent_ai_voice" type="checkbox"/>
+              <span id="efConsentVoiceText" data-version="aivoice_v1_2026-09"><b>Yes, call me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may call me at the number I entered, including marketing calls and voicemails, using automated technology (including an automated system to select and dial numbers), prerecorded messages, and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. Call frequency varies. Msg &amp; data rates may apply. To opt out, say "stop calling" on any call, reply STOP to any text from us, or email brady@efficio.tech. Reply HELP for help.</span>
+            </label>
+            <p class="ef-consent-err" id="efConsentErr" hidden>Add your mobile number above so we know where you want texts or calls.</p>
+          </div>
 
           <button type="submit" class="btn-primary lg" id="smsSubmit">Submit <span class="arr">&rarr;</span></button>
 
@@ -163,15 +170,16 @@
       </div>
 
       <!-- success state: each line is shown only for a box that was ticked, and says
-           "recorded" only when the Worker confirms it stored that consent -->
+           "recorded" only when the Worker confirms it stored that consent. The title says
+           "You're subscribed." only when box A (texts) was ticked AND the POST returned ok. -->
       <div class="smsdone" id="smsDone" role="status" tabindex="-1">
         <div class="dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></div>
-        <h2 id="smsDoneTitle">You're opted in.</h2>
+        <h2 id="smsDoneTitle">Thanks &mdash; we received your request.</h2>
         <ul id="smsDoneList">
           <li id="doneSmsOk" hidden><b>Texts:</b> we've recorded your consent. Expect up to 4 texts a week from Efficio. Reply <b>STOP</b> to any text to opt out, or <b>HELP</b> for help. Msg &amp; data rates may apply.</li>
-          <li id="doneSmsPending" hidden><b>Texts:</b> we received your request. If your number is eligible, you'll get one text confirming your opt-in. Reply <b>STOP</b> to it any time to opt out.</li>
-          <li id="doneVoiceOk" hidden><b>Calls from Efficio's AI assistant:</b> we've recorded your consent. Calls may be recorded. Say "stop calling" on any call, reply <b>STOP</b> to a text, or email brady@efficio.tech to revoke it.</li>
-          <li id="doneVoicePending" hidden><b>Calls from Efficio's AI assistant:</b> we couldn't confirm this yet, so we won't place AI calls to this number unless your consent is on file. If you'd like those calls, email brady@efficio.tech.</li>
+          <li id="doneSmsPending" hidden><b>Texts:</b> we couldn't confirm this yet, so we won't send marketing texts to this number unless your consent is on file. If you'd like texts, email brady@efficio.tech.</li>
+          <li id="doneVoiceOk" hidden><b>Calls, including from Efficio's AI assistant:</b> we've recorded your consent. Calls may be recorded. Say "stop calling" on any call, reply <b>STOP</b> to a text, or email brady@efficio.tech to revoke it.</li>
+          <li id="doneVoicePending" hidden><b>Calls, including from Efficio's AI assistant:</b> we couldn't confirm this yet, so we won't place automated or AI calls to this number unless your consent is on file. If you'd like those calls, email brady@efficio.tech.</li>
         </ul>
       </div>
 
@@ -215,13 +223,15 @@
 <script>
 /* ===========================================================================
    OPT-IN: name/email/phone plus two separate, optional consent boxes
-   (A = texts, B = calls from Efficio's AI assistant), posted to the Worker
-   (/quiz, kind=sms_opt_in). assets/contact-consent.js builds the consent
-   object: which boxes were ticked, the exact text of each box, its version
-   string (consent_text_version) and the source. A line of the success state
-   says "recorded" only for a box the Worker confirms it stored; otherwise the
-   visitor sees a neutral receipt or an error. No analytics or advertising
-   event is fired from this page.
+   (A = texts sms_v2_2026-09, B = calls incl. an AI voice aivoice_v1_2026-09),
+   posted to the Worker (/quiz, kind=sms_opt_in). efficioConsent(form) in
+   assets/contact-consent.js builds payload.consent (which boxes were ticked,
+   the exact text and version of each ticked box, time, page, UA). This page
+   does nothing else, so at least one box must be ticked before it posts.
+   "You're subscribed." shows only when box A was ticked AND the POST returned
+   ok (and the Worker didn't file it as held/spam); each line says "recorded"
+   only for a box the Worker confirms. Otherwise the visitor sees a neutral
+   receipt or an error. No analytics or advertising event fires from this page.
    ========================================================================= */
 (function(){
   /* belt-and-suspenders: ensure scroll-reveal content is never left invisible
@@ -250,6 +260,22 @@
     if(live) live.textContent = msg || "Your opt-in wasn't recorded. Please try again.";
   }
 
+  /* Per box: 'confirmed' | 'pending' | 'none'. Called only after an ok POST
+     (HTTP 2xx and j.ok === true).
+       texts: confirmed when box A was ticked and the Worker didn't answer
+              accepted:false (held / spam-filed; older Workers omit `accepted`).
+       calls: confirmed when box B was ticked and the Worker sends
+              ai_voice_accepted:true, or (without that field) accepted:true.
+              A missing `accepted` never confirms call consent. */
+  function outcome(consent, j){
+    j = j || {};
+    var voiceOk = typeof j.ai_voice_accepted === 'boolean' ? j.ai_voice_accepted : j.accepted === true;
+    return {
+      sms:   !consent.sms_opt_in ? 'none' : (j.accepted !== false ? 'confirmed' : 'pending'),
+      voice: !consent.ai_voice   ? 'none' : (voiceOk ? 'confirmed' : 'pending')
+    };
+  }
+
   function showResult(res){
     if(card) card.style.display = 'none';
     var show = function(id, on){ var el = document.getElementById(id); if(el) el.hidden = !on; };
@@ -257,12 +283,13 @@
     show('doneSmsPending',   res.sms === 'pending');
     show('doneVoiceOk',      res.voice === 'confirmed');
     show('doneVoicePending', res.voice === 'pending');
-    var anyOk = res.sms === 'confirmed' || res.voice === 'confirmed';
+    var subscribed = res.sms === 'confirmed';          /* box A ticked AND the POST returned ok */
+    var anyOk = subscribed || res.voice === 'confirmed';
     var t = document.getElementById('smsDoneTitle');
-    if(t) t.textContent = anyOk ? "You're opted in." : "Thanks — we received your request.";
+    if(t) t.textContent = subscribed ? "You're subscribed." : (anyOk ? "Thanks — your choice is recorded." : "Thanks — we received your request.");
     if(!anyOk){ var ck = done && done.querySelector('.dck'); if(ck) ck.style.display = 'none'; }
     if(done){ done.style.display = 'block'; done.classList.add('show'); }
-    if(live) live.textContent = anyOk ? "You're opted in. Reply STOP to any text to opt out." : "Thanks. We received your request.";
+    if(live) live.textContent = subscribed ? "You're subscribed. Reply STOP to any text to opt out." : (anyOk ? "Thanks. Your choice is recorded." : "Thanks. We received your request.");
     try { if(done && done.focus) done.focus(); } catch(e){}
     try { if(window.scrollTo && done && done.scrollIntoView) done.scrollIntoView({behavior:'smooth', block:'center'}); } catch(e){}
   }
@@ -274,46 +301,41 @@
     /* native HTML5 validation: required name/email/phone + email format */
     if(!form.checkValidity()){ form.reportValidity(); return; }
 
-    var CC = window.EfficioContactConsent;
-    if(!CC){ showError(); return; }   /* helper script blocked: never post a half-built consent record */
+    /* helper script blocked: never post a half-built consent record */
+    if(typeof window.efficioConsent !== 'function'){ showError(); return; }
 
     var fullName = (form.full_name.value || '').trim();
     var email    = (form.email.value || '').trim();
     var phone    = (form.phone.value || '').trim();
 
-    /* at least one box, and a usable US mobile number for it */
-    var problem = CC.problem(form, { phone: phone, requireOne: true });
-    if(problem){ showError(problem); return; }
+    /* null = no box ticked; false = a box is ticked but the number isn't usable
+       (message shown under the boxes); else the consent object */
+    var consent = window.efficioConsent(form);
+    if(consent === false) return;
+    if(consent === null){ showError('Tick at least one box above to opt in. Nothing was sent.'); return; }
 
     if(btn){ btn.disabled = true; btn.dataset.label = btn.innerHTML; btn.textContent = 'Submitting…'; }
 
-    var consent = CC.collect(form, { source: SOURCE, phone: phone });
-
-    var payload = CC.mirror({
+    var payload = {
       kind: 'sms_opt_in',
       ts: consent.timestamp,
-      sms_opt_in: consent.sms_consent,
-      /* mirror common fields to top level for easy CRM / alert reading */
+      source: SOURCE,                  /* the Worker's GHL contact source */
+      /* common fields at the top level for easy CRM / alert reading;
+         `phone` is the number the consent covers */
       firstName: (fullName.split(' ')[0] || fullName),
       name: fullName,
       email: email,
       phone: phone,
-      /* explicit, auditable consent record (shape: assets/contact-consent.js) */
+      /* explicit, auditable consent record (shape: efficioConsent, assets/contact-consent.js) */
       consent: consent,
       answers: {
         full_name: fullName,
         email: email,
         phone: phone,
-        sms_consent: String(consent.sms_consent),
-        ai_voice_consent: String(consent.ai_voice_consent),
-        consent_text_version: consent.consent_text_version,
-        consent_source: SOURCE,
-        consent_timestamp: consent.timestamp,
-        /* the exact text of each TICKED box (each under the Worker's 500-char answer cap) */
-        sms_consent_text: consent.sms_consent ? consent.disclosure_text : '',
-        ai_voice_consent_text: consent.ai_voice_consent ? consent.ai_voice_disclosure_text : ''
+        sms_consent: String(consent.sms_opt_in),
+        ai_voice_consent: String(consent.ai_voice)
       }
-    }, consent);
+    };
 
     function fail(){
       if(btn){ btn.disabled = false; if(btn.dataset.label) btn.innerHTML = btn.dataset.label; }
@@ -335,7 +357,7 @@
            Worker confirms it (accepted for texts, ai_voice_accepted for calls) */
         return r.json().then(function(j){
           if(!j || typeof j !== 'object' || j.ok !== true) return fail();
-          showResult(CC.outcome(consent, j));
+          showResult(outcome(consent, j));
         }, function(){ fail(); });
       }, function(){ if(timer) clearTimeout(timer); fail(); });
     } catch(e){ fail(); }

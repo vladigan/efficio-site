@@ -176,16 +176,28 @@
 .rcap-row input::placeholder{color:var(--muted2)}
 .rcap-row input:focus{outline:none;border-color:rgba(124,77,255,.6);background:rgba(124,77,255,.05);box-shadow:0 0 0 3px rgba(124,77,255,.16)}
 .rcap-row input:user-invalid{border-color:rgba(255,122,133,.55)}
-.rcap-row .btn-outline{flex:0 0 auto}
+.rcap-send{margin-top:12px}
+/* consent boxes A (texts) + B (calls): ops/consent_capture/site_consent_block.html */
+.ef-consent{margin:14px 0 4px;display:grid;gap:10px}
+.ef-consent label{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55;cursor:pointer}
+.ef-consent input[type="checkbox"]{flex-shrink:0;width:18px;height:18px;margin:2px 0 0;cursor:pointer}
+.ef-consent a{text-decoration:underline}
+.ef-consent-err{font-size:12.5px;color:#b3261e;margin:4px 0 0}
+.rcap .ef-consent label{font-weight:500;color:var(--ink2);padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:rgba(124,77,255,.04)}
+.rcap .ef-consent label b{color:#fff;font-weight:700}
+.rcap .ef-consent a{color:var(--violet-l);font-weight:600}
+.rcap .ef-consent input[type="checkbox"]{accent-color:var(--violet)}
+.rcap .ef-consent-err{color:#ff8a94}
 .rcap-fine{font-size:11.5px;font-weight:500;color:var(--muted);line-height:1.55;margin:12px 0 0}
 .rcap-err{font-size:12px;font-weight:500;color:var(--muted);line-height:1.55;margin:10px 0 0}
 .rcap-err a{color:var(--violet-l);font-weight:600}
 .rcap-done{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--ink2);line-height:1.5}
 .rcap-done b{color:#fff;font-weight:700}
+.rcap-done[hidden]{display:none}  /* display:flex above would otherwise override the hidden attribute */
 .rcap-dck{flex-shrink:0;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
   background:rgba(86,216,160,.12);border:1px solid rgba(86,216,160,.4)}
 .rcap-dck svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:520px){.rcap-row input,.rcap-row .btn-outline{flex:1 1 100%;width:100%;justify-content:center}}
+@media(max-width:520px){.rcap-row input,.rcap-send .btn-outline{flex:1 1 100%;width:100%;justify-content:center}}
 </style>
 <script>document.documentElement.className='js';</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png"},{"@type":"WebPage","@id":"https://efficio.tech/find-your-tier.html#page","url":"https://efficio.tech/find-your-tier.html","name":"Find your Efficio plan","description":"Answer seven quick questions and we'll point you to the right Efficio plan.","isPartOf":{"@id":"https://efficio.tech/#website"},"about":{"@id":"https://efficio.tech/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://efficio.tech/"},{"@type":"ListItem","position":2,"name":"Find your plan","item":"https://efficio.tech/find-your-tier.html"}]}]}</script>
@@ -287,7 +299,7 @@
           </div>
           <p class="rnote">This is a <b>recommendation, not a quote.</b> On the call we confirm which plan fits, or tell you honestly if neither does.</p>
 
-          <!-- OPTIONAL, skippable follow-up request, shown AFTER the result. Email only. -->
+          <!-- OPTIONAL, skippable follow-up request, shown AFTER the result. Email required; mobile and the two consent boxes optional. -->
           <div class="rcap" id="rCap" aria-label="Optional: ask Brady to follow up">
             <form id="rCapForm" novalidate>
               <div class="rcap-top">
@@ -299,10 +311,24 @@
                 <input id="rCapName" name="name" type="text" autocomplete="name" required placeholder="Your name" aria-label="Your name"/>
                 <input id="rCapCompany" name="company" type="text" autocomplete="organization" required placeholder="Company name" aria-label="Your company"/>
                 <input id="rCapEmail" name="email" type="email" autocomplete="email" required placeholder="you@business.com" aria-label="Your email"/>
+                <input id="rCapPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Mobile (optional)" aria-label="Your mobile number, optional; used only if you tick a box below"/>
                 <input id="rCapHp" name="company_url" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none"/>
+              </div>
+              <div class="ef-consent" role="group" aria-label="Optional: texts and calls from Efficio">
+                <label for="efConsentSms">
+                  <input id="efConsentSms" name="consent_sms" type="checkbox"/>
+                  <span id="efConsentSmsText" data-version="sms_v2_2026-09"><b>Yes, text me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may send me recurring marketing and account text messages at the mobile number I entered, including texts sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms" target="_blank" rel="noopener">SMS Terms</a> · <a href="/privacy.html#sms" target="_blank" rel="noopener">Privacy</a></span>
+                </label>
+                <label for="efConsentVoice">
+                  <input id="efConsentVoice" name="consent_ai_voice" type="checkbox"/>
+                  <span id="efConsentVoiceText" data-version="aivoice_v1_2026-09"><b>Yes, call me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may call me at the number I entered, including marketing calls and voicemails, using automated technology (including an automated system to select and dial numbers), prerecorded messages, and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. Call frequency varies. Msg &amp; data rates may apply. To opt out, say "stop calling" on any call, reply STOP to any text from us, or email brady@efficio.tech. Reply HELP for help.</span>
+                </label>
+                <p class="ef-consent-err" id="efConsentErr" hidden>Add your mobile number above so we know where you want texts or calls.</p>
+              </div>
+              <div class="rcap-send">
                 <button type="submit" class="btn-outline" id="rCapSubmit">Send <span class="arr">&rarr;</span></button>
               </div>
-              <p class="rcap-fine">Brady replies by email. This form doesn&rsquo;t sign you up for texts or calls. <a href="/privacy.html">Privacy</a>.</p>
+              <p class="rcap-fine">Brady replies by email. Your mobile number is used only for the texts or calls in a box you tick above; both boxes are optional. <a href="/privacy.html#sms">Privacy</a>.</p>
               <p class="rcap-err" id="rCapErr" hidden>Couldn't send just now &mdash; you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
             </form>
             <div class="rcap-done" id="rCapDone" role="status" hidden>
@@ -631,7 +657,7 @@
     if(!reduce && resultEl.scrollIntoView){ resultEl.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
 
-  /* ---- optional post-result follow-up request (email only) ----
+  /* ---- optional post-result follow-up request (email; optional mobile + consent boxes A/B) ----
      Sent to the efficio-chat Worker. Success is shown only when the Worker
      answers 2xx; otherwise the visitor sees the error line with Brady's email. */
   var CAP_ENDPOINT = 'https://efficio-chat.bgay3500.workers.dev/quiz';
@@ -656,6 +682,8 @@
     if(f){ f.style.display=''; f.reset(); }
     if(d) d.hidden = true;
     if(e) e.hidden = true;
+    var ce = document.getElementById('efConsentErr');
+    if(ce) ce.hidden = true;
     if(b){ b.disabled=false; if(b.dataset.label){ b.innerHTML=b.dataset.label; } }
   }
 
@@ -668,6 +696,7 @@
         capWrap  = document.getElementById('rCap'),
         capSkip  = document.getElementById('rCapSkip'),
         capEmail = document.getElementById('rCapEmail'),
+        capPhone = document.getElementById('rCapPhone'),
         capName  = document.getElementById('rCapName'),
         capCompany = document.getElementById('rCapCompany');
 
@@ -677,6 +706,19 @@
       ev.preventDefault();
       if(capErr) capErr.hidden = true;
       if(!capForm.checkValidity()){ capForm.reportValidity(); return; }
+
+      /* Optional consent boxes A (texts) + B (calls), assets/contact-consent.js.
+         null = no box ticked (no consent sent); false = a box is ticked but the
+         mobile number is missing or not a US number (message shown, nothing sent). */
+      var consent = null;
+      if(typeof window.efficioConsent === 'function'){
+        consent = window.efficioConsent(capForm);
+        if(consent === false) return;
+      } else if(capForm.querySelector('#efConsentSms:checked, #efConsentVoice:checked')){
+        var ce = document.getElementById('efConsentErr');
+        if(ce){ ce.textContent = 'Part of this page didn’t load. Refresh the page and try again, or untick the text and call boxes.'; ce.hidden = false; }
+        return;
+      }
 
       if(capBtn){ capBtn.disabled = true; capBtn.dataset.label = capBtn.innerHTML; capBtn.textContent = 'Sending…'; }
 
@@ -690,7 +732,11 @@
         tier: key,
         tier_name: tier.name || '',
         email: (capEmail.value || '').trim(),
-        phone: '',
+        /* The number a ticked box covers. Sent ONLY with a ticked box: the Worker
+           keeps a consented number out of its Meta Conversions API event, but would
+           hash an unconsented one into it, and privacy.html section 4 says numbers
+           are never sent to Meta. */
+        phone: consent ? (capPhone && capPhone.value || '').trim() : '',
         company_url: (function(){var h=document.getElementById('rCapHp');return h?((h.value||'').trim()):'';})(), /* honeypot: worker drops if non-empty */
         name: (capName && capName.value || '').trim(),
         company: (capCompany && capCompany.value || '').trim(),
@@ -703,8 +749,11 @@
         fbclid: qs.get('fbclid') || '',
         li_fat_id: qs.get('li_fat_id') || '',
         source_url: (window.location && window.location.href) || 'https://efficio.tech/find-your-tier.html',
+        /* cookie banner: true only after Accept; the Worker sends its Meta Lead only then */
+        marketing_consent: typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true,
         answers: answersReadable()
       };
+      if(consent) payload.consent = consent;   /* nothing is sent when neither box is ticked */
 
       var settled = false;
       function done(){
@@ -750,6 +799,9 @@
   showStep(0);
 })();
 </script>
+<script src="/assets/contact-consent.js" defer></script>
 <script src="/assets/v6.js" defer></script>
 <script src="/assets/consent.js" defer></script>
 <script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
+</body>
+</html>

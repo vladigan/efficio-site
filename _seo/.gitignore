@@ -1,0 +1,8 @@
+# Secrets and bulky raw pulls stay local. state.json, LOG.md and reports/ are committed.
+.env
+data/
+.claude/settings.local.json
+__pycache__/
+# Root .gitignore ignores CLAUDE.md everywhere; this folder's CLAUDE.md is the agent's
+# standing instructions and must be committed.
+!CLAUDE.md

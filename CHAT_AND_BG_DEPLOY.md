@@ -21,7 +21,7 @@ Files added:
 - `netlify/functions/chat.js` — Claude proxy
 - `netlify.toml` — `[functions]` directory registered
 
-System prompt grounds the bot as Efficio's AI assistant: knows pricing (AI Specialist $997 / AI Team $2,500 / AI Department $3,500), day-7 promise, day-30 refund, steers toward audit-quiz or Calendly. Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
+System prompt grounds the bot as Efficio's AI assistant: knows pricing (AI Operator $1,500/mo, Founding CTO $2,500/mo and Full Custom CTO $3,500/mo, each + a one-time $500 setup) and the one go-live promise from refund.html, steers toward the plan quiz or book.html. (Prompt updated in the 2026-09-25 truth pass; the live Worker prompt must be updated separately.) Tone rules baked in (no "synergy/leverage/transform", never call Efficio a tool/software/SaaS).
 
 ---
 
@@ -80,10 +80,10 @@ If you want to cap: add `CHAT_DAILY_BUDGET_USD` logic in `chat.js` (function) la
 
 ## What the bot will NOT do
 
-- Won't quote prices it doesn't know (system prompt locks to AI Specialist/Team/Department only)
+- Won't quote prices it doesn't know (system prompt locks to AI Operator $1,500 / Founding CTO $2,500 / Full Custom CTO $3,500 per month, each + $500 setup)
 - Won't pretend to be Brady — says "I'm Efficio's AI assistant"
 - Won't give legal/medical/financial advice — redirects politely
 - Won't make promises about specific integrations — says "the discovery call is where we map exactly what we'd build"
-- Won't auto-book a call — just shares the Calendly link
+- Won't auto-book a call — just points to efficio.tech/book.html
 
 If you want it to do more (e.g., capture lead email mid-conversation, push to your CRM), add a `tools` array to the Anthropic call and define them.

@@ -18,15 +18,15 @@
   }
 
   var SLIDES = [
-    { text: 'If you\'re running a <em>$500K–$5M service business</em> and spending 15 hours a week on admin work you hate, watch this.', cls: 'lead' },
-    { text: 'Most agencies sell you software you have to learn. Or AI tools you have to figure out. Or "training" that ends up being <em>your problem</em> to implement.' },
-    { text: 'Efficio is different. We\'re your <em>AI team.</em> Not your AI software vendor.', cls: 'lead' },
-    { text: 'You give us read-only access to your existing tools — Stripe, QuickBooks, your CRM, your ad accounts. We do the rest.' },
-    { text: 'We run an audit, find where you\'re leaking money or time, and build the AI agents that fix it. You watch the work happen in your live dashboard.' },
-    { text: 'Front-desk agent answering calls before they hit voicemail. Quote agent turning hours into minutes. Workflow optimizer owning your handoffs. Inbox triage clearing your owner inbox.' },
-    { text: 'You don\'t learn AI. You don\'t pick tools. You don\'t manage anything. <em>We do it. You operate.</em>' },
-    { text: '<em>First agent live in 7 days.</em> If we miss day 7, the month is on us.', cls: 'close' },
-    { text: 'Book your free audit call below. 30 minutes. No pitch — just a real look at what\'s eating your time and how we\'d fix it.', cls: 'close' }
+    { text: 'If you run a small business and <em>calls go unanswered</em> while you\'re busy with a customer, this is for you.', cls: 'lead' },
+    { text: 'Most AI tools hand you software to set up yourself. Answering services take a message. Neither books the job.' },
+    { text: 'Efficio installs and runs an <em>AI front office</em> for you, built on HighLevel.', cls: 'lead' },
+    { text: 'An AI receptionist answers the calls you forward to it. It says it\'s an AI, answers from your FAQs and books into your calendar.' },
+    { text: 'Website chat, booking reminders, review requests, and missed-call text-back once your texting registration is approved.' },
+    { text: 'A live dashboard shows every call, booking and review, and a results email lands every week.' },
+    { text: 'You don\'t configure anything. <em>A licensed engineer installs it, tests it and runs it.</em>' },
+    { text: '<em>Live within 7 business days of kickoff</em>, or your $500 setup fee back.', cls: 'close' },
+    { text: 'From $1,500 a month, plus a one-time $500 setup. On the call we look at your numbers and tell you honestly whether it fits.', cls: 'close' }
   ];
   var DURATION = 10000;
 

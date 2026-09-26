@@ -1,4 +1,4 @@
-/* Efficio v6 interactions — shared. scroll-progress, nav state, reveals, spotlight, live agents. All element lookups guarded. */
+/* Efficio v6 interactions — shared. scroll-progress, nav state, reveals, spotlight, mobile nav. All element lookups guarded. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -72,23 +72,22 @@
   function prog(p){ if(heroProg) heroProg.style.width=p+'%'; }
 
   var heroFrames=[
-    {t:'p', s:'efficio build --agent receptionist', do:function(){setStat(heroStat,'building','var(--violet-l)');prog(8);}},
-    {t:'o', c:'cm',  s:'# provisioning Claude agent...', after:260},
-    {t:'o', c:'ok',  s:'✓ workspace authenticated', do:function(){prog(22);}},
-    {t:'o', c:'dim', s:'connecting servers...', do:function(){setStat(heroStat,'deploying','var(--cyan)');}},
-    {t:'o', c:'ar',  s:'→ gmail        connected', do:function(){prog(38);}},
-    {t:'o', c:'ar',  s:'→ calendar     connected', do:function(){prog(52);}},
-    {t:'o', c:'ar',  s:'→ crm          connected', do:function(){prog(66);}},
-    {t:'o', c:'ar',  s:'→ stripe       connected', do:function(){prog(80);}},
-    {t:'o', c:'ok',  s:'✓ Claude agents online · 6', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
+    {t:'p', s:'efficio setup --front-office', do:function(){setStat(heroStat,'setting up','var(--violet-l)');prog(8);}},
+    {t:'o', c:'cm',  s:'# kickoff: hours, services, FAQs, transfer number', after:260},
+    {t:'o', c:'ok',  s:'✓ Efficio account created (built on HighLevel)', do:function(){prog(22);}},
+    {t:'o', c:'dim', s:'connecting...', do:function(){setStat(heroStat,'connecting','var(--cyan)');}},
+    {t:'o', c:'ar',  s:'→ local number     ready', do:function(){prog(38);}},
+    {t:'o', c:'ar',  s:'→ call forwarding  on', do:function(){prog(52);}},
+    {t:'o', c:'ar',  s:'→ google calendar  connected', do:function(){prog(66);}},
+    {t:'o', c:'ar',  s:'→ website chat     installed', do:function(){prog(80);}},
+    {t:'o', c:'ok',  s:'✓ receptionist live · AI + recording disclosure on', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
     {t:'sp'},
     {t:'p', s:'# after-hours call · (305) 555-0148'},
-    {t:'o', c:'ar',  s:'→ booking job · Thu 10:00 AM'},
-    {t:'o', c:'ok',  s:'✓ confirmation texted · logged to CRM'},
-    {t:'o', c:'ar',  s:'→ quote · Johnson · $3,180 sent'},
-    {t:'o', c:'ok',  s:'✓ follow-up scheduled +2d', after:480},
+    {t:'o', c:'ar',  s:'→ "Hi, you’ve reached our AI assistant..."'},
+    {t:'o', c:'ar',  s:'→ booked · Thu 10:00 AM · on your calendar'},
+    {t:'o', c:'ok',  s:'✓ confirmation sent · logged to your dashboard', after:480},
     {t:'sp'},
-    {t:'o', c:'lv',  s:'● all systems operational'}
+    {t:'o', c:'lv',  s:'● sample session · illustration'}
   ];
 
   /* build section: watch a handler being written line-by-line, then deployed */
@@ -126,11 +125,11 @@
   /* Seed the hero terminal with visible lines immediately, so it is NEVER blank
      (even before the animation starts or if IntersectionObserver never fires). */
   function seedTerm(el){
-    el.innerHTML='<div class="ln pr">efficio build --agent receptionist</div>'+
-      '<div class="ln cm"># provisioning Claude agent...</div>'+
-      '<div class="ln ok">\u2713 workspace authenticated</div>'+
-      '<div class="ln ar">\u2192 gmail        connected</div>'+
-      '<div class="ln ar">\u2192 calendar     connected</div>';
+    el.innerHTML='<div class="ln pr">efficio setup --front-office</div>'+
+      '<div class="ln cm"># kickoff: hours, services, FAQs, transfer number</div>'+
+      '<div class="ln ok">\u2713 Efficio account created (built on HighLevel)</div>'+
+      '<div class="ln ar">\u2192 local number     ready</div>'+
+      '<div class="ln ar">\u2192 call forwarding  on</div>';
   }
   /* Seed the code-generator panel with the full handler immediately, so it is never blank. */
   function seedCodegen(el){
@@ -165,47 +164,6 @@
     }
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ play(); obs.disconnect(); }});},{threshold:.3});
     obs.observe(body);
-  })();
-
-  /* LIVE AGENTS popup */
-  (function(){
-    var tab=document.getElementById('loTab'),panel=document.getElementById('loPanel'),
-        feed=document.getElementById('loFeed'),close=document.getElementById('loClose'),
-        preview=document.getElementById('loPreview'),wrap=document.getElementById('liveops');
-    if(!tab||!feed||!wrap) return;
-    function setOpen(o){ wrap.classList.toggle('open',o); tab.setAttribute('aria-expanded',o?'true':'false');
-      try{localStorage.setItem('efficio_liveops_open',o?'1':'0');}catch(e){} }
-    tab.addEventListener('click',function(){setOpen(!wrap.classList.contains('open'));});
-    close.addEventListener('click',function(e){e.stopPropagation();setOpen(false);});
-
-    var POOL=[
-     {ag:'AI Receptionist',    txt:'answered 3 inbound calls before staff arrived', meta:'calls captured'},
-     {ag:'AI Sales Navigator', txt:'sent an itemized estimate in 11 sec',           meta:'time-to-quote'},
-     {ag:'AI Office Manager',  txt:'sorted 41 messages, drafted 14, flagged 2 urgent', meta:'owner inbox time'},
-     {ag:'AI Bookkeeper',      txt:'cleared $2,400 of overdue AR — 4 invoices paid', meta:'close-the-books speed'},
-     {ag:'AI Receptionist',    txt:'filled a cancellation in 14 min',               meta:'calendar gap time'},
-     {ag:'AI Office Manager',  txt:'sent a review request after a 5-star job',       meta:'review rate'},
-     {ag:'AI Sales Navigator', txt:'rebooked an overdue customer worth $480',        meta:'reactivations / mo'},
-     {ag:'AI Office Manager',  txt:'compiled tomorrow’s briefing in 6 lines',   meta:'morning prep time'},
-     {ag:'AI Bookkeeper',      txt:'reconciled today’s Stripe + bank — $0 drift', meta:'reconciliation accuracy'},
-     {ag:'AI Receptionist',    txt:'drafted a "running late" text — sent in 0.4s', meta:'comms latency'},
-     {ag:'AI Marketing',       txt:'shipped a 3-email win-back campaign',            meta:'pipeline revived'},
-     {ag:'AI Office Manager',  txt:'chased 4 outstanding documents — 3 came back', meta:'docs-returned rate'}
-    ];
-    var pi=0;
-    function nowTime(){var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-    function push(){
-      var x=POOL[pi%POOL.length];pi++;
-      var n=document.createElement('div');n.className='lo-item';
-      n.innerHTML='<time>'+nowTime()+' &middot; '+x.meta+'</time><span class="ag">'+x.ag+'</span> '+x.txt;
-      feed.insertBefore(n,feed.firstChild);
-      while(feed.children.length>14) feed.removeChild(feed.lastChild);
-      if(preview){ preview.style.opacity='0';
-        setTimeout(function(){ preview.innerHTML='<span class="ag">'+x.ag+'</span> '+x.txt; preview.style.opacity='1'; }, reduce?0:200); }
-    }
-    for(var i=0;i<4;i++) push();
-    if(!reduce){ setInterval(push,8000); }
-    try{ setOpen(localStorage.getItem('efficio_liveops_open')==='1'); }catch(e){ setOpen(false); }
   })();
 
   /* mobile nav menu — additive hamburger (<=820px). Clones the page's own nav

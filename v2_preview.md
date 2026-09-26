@@ -1,6 +1,8 @@
 # v2.html — preview homepage rebuild
 
-**Status:** preview only. Live homepage is still `index.html`. Nothing about your routing or live deploy has been touched.
+**Status:** RETIRED 2026-09-25 (truth pass). `v2.html` now redirects to `/`. Historical note only.
+
+**Old status:** preview only. Live homepage is still `index.html`. Nothing about your routing or live deploy has been touched.
 
 ## How to preview
 
@@ -28,7 +30,7 @@ One file. ~1,200 lines. All assets via CDN (Three.js r128, GSAP 3.12, Google Fon
 3. **How it works** — 300vh sticky-scroll section. As you scroll, the right side cycles through 3 Three.js scenes (particles → CRM grid → rising dashboard bars) while the left side cross-fades through 3 frames of copy.
 4. **Agents grid** — 6 glass cards. SVG icons wobble on hover. Magnetic tilt.
 5. **Live demo** — embedded `demos/hvac/index.html` in a Mac-chrome iframe with a "Click to interact" overlay that fades on click.
-6. **Pricing** — 3 tiers ($997 Pilot / $2,500 Growth / $3,500 Operator). Middle tier has the conic-gradient border. Scale + orange glow on hover.
+6. **Pricing** — 3 tiers (old pricing, retired). Middle tier has the conic-gradient border. Scale + orange glow on hover.
 7. **Final CTA** — full-bleed restate with the same 2 CTAs.
 
 ## What's still placeholder

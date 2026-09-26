@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "additionalDirectories": [".."],
+    "allow": [
+      "Bash(python3 scripts/gsc_pull.py:*)",
+      "Bash(python3 scripts/ga4_conversions.py:*)",
+      "Bash(python3 scripts/candidates.py:*)",
+      "Bash(python3 scripts/inspect_url.py:*)",
+      "Bash(python3 scripts/pagespeed.py:*)",
+      "Bash(python3 scripts/dataforseo.py:*)",
+      "Bash(python3 scripts/firecrawl.py:*)",
+      "Bash(python3 scripts/parallel_search.py:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Edit(LOG.md)",
+      "Edit(state.json)",
+      "Write(reports/**)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Bash(cat .env:*)",
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|NotebookEdit|mcp__.*",
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/hooks/guard_publish.py\"" }
+        ]
+      }
+    ]
+  }
+}

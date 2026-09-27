@@ -324,7 +324,7 @@ a:hover .arr{transform:translateX(4px)}
   background:conic-gradient(from 0deg at 50% 50%,transparent,rgba(124,77,255,.18),transparent 30%);animation:spin 14s linear infinite;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
 .cta>*{position:relative}
-.cta .prompt{font-family:var(--mono);font-size:13px;color:var(--violet-l);margin-bottom:18px}
+.cta .prompt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-l);margin-bottom:18px}
 .cta h2{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:0 0 14px;color:#fff}
 .cta p{font-size:1.05rem;font-weight:500;color:var(--ink2);margin:0 auto 32px;max-width:32ch}
 

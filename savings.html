@@ -5,17 +5,17 @@
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js"></script>
 <title>What missed calls cost you — savings calculator | Efficio</title>
-<meta name="description" content="Estimate the hours and revenue an AI front office could reclaim for your business, using your own numbers. Plug in your admin hours, weekly leads and follow-up gaps and see your estimate."/>
+<meta name="description" content="Estimate what missed calls may be costing your business, from your own numbers: missed calls a week, the share that would have booked, and your average job value."/>
 <link rel="canonical" href="https://efficio.tech/savings.html"/>
 <meta property="og:title" content="What missed calls cost you — savings calculator | Efficio"/>
-<meta property="og:description" content="A transparent savings calculator: estimate reclaimed hours and recovered revenue from your own numbers."/>
+<meta property="og:description" content="A simple missed-calls calculator: your own estimate of what unanswered calls may be costing you, from your own numbers."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/savings.html"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="What missed calls cost you — savings calculator | Efficio"/>
-<meta name="twitter:description" content="Estimate reclaimed hours and recovered revenue from your own numbers. A clear, honest calculator — no black box."/>
+<meta name="twitter:description" content="Your own estimate of what missed calls may be costing you, from three numbers you enter. The math is shown in full."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -69,6 +69,11 @@
   background:linear-gradient(180deg,var(--violet-l),var(--violet-d));border:2px solid #0b0b14;
   box-shadow:0 0 0 1px rgba(124,77,255,.5),0 6px 16px -4px rgba(124,77,255,.9);cursor:pointer}
 .field .frange{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--muted2);margin-top:8px}
+.cnum input:first-child{padding-left:14px}
+.cnum .csfx{padding:0 14px 0 2px;font-family:var(--mono);font-size:15px;font-weight:600;color:var(--violet-l)}
+.rempty{font-size:14px;font-weight:500;color:var(--ink2);line-height:1.55;margin:16px 0 0;padding:16px 18px;border-radius:14px;border:1px dashed var(--line2)}
+.results[data-state="empty"] .rgrid,.results[data-state="empty"] .rtotal{display:none}
+.results[data-state="ready"] .rempty{display:none}
 
 /* number (currency) input */
 .cnum{position:relative;display:flex;align-items:center;max-width:220px;
@@ -178,112 +183,89 @@
 <main id="main" tabindex="-1">
 <!-- ── page hero ── -->
 <header class="phero">
-  <div class="eyebrow rv">ROI &amp; savings calculator</div>
-  <h1 class="rv d1">What an AI front office could <span class="grad">save you</span></h1>
-  <p class="sub rv d2">Plug in a few numbers about your own business and see the hours and revenue an AI front office could reclaim. It&rsquo;s an estimate, built from <em>your</em> inputs &mdash; the math is right here in the open.</p>
+  <div class="eyebrow rv">Missed-calls calculator</div>
+  <h1 class="rv d1">What missed calls could be <span class="grad">costing you</span></h1>
+  <p class="sub rv d2">Enter three numbers about your own business: missed calls a week, how many of them would have booked, and what a job is worth. You get your own estimate, with the math shown in full.</p>
 </header>
 
 <!-- ── calculator ── -->
-<section class="sec" style="padding-top:0" aria-label="Savings calculator">
+<section class="sec" style="padding-top:0" aria-label="Missed-calls calculator">
   <div class="wrap">
     <div class="calcwrap rv">
       <div class="calc">
 
         <!-- inputs -->
         <form class="cpanel" id="calcForm" autocomplete="off" novalidate>
-          <h2>Your business, today</h2>
-          <p class="phint">Drag the sliders or type your own numbers. Nothing is sent anywhere &mdash; it all runs in your browser.</p>
+          <h2>Your numbers</h2>
+          <p class="phint">Type your own numbers. Nothing is sent anywhere &mdash; it all runs in your browser.</p>
 
           <div class="field">
             <div class="flab">
-              <label for="hours">Hours a week you or your team spend on admin, scheduling &amp; follow-up
-                <span class="fsub">Inbox, booking, quotes, chasing replies &mdash; the repetitive stuff.</span>
-              </label>
-              <span class="fval" id="hoursVal">12 hrs</span>
-            </div>
-            <input type="range" id="hours" name="hours" min="0" max="60" step="1" value="12"
-              aria-describedby="hoursVal" aria-valuetext="12 hours per week"/>
-            <div class="frange" aria-hidden="true"><span>0</span><span>60 hrs/wk</span></div>
-          </div>
-
-          <div class="field">
-            <div class="flab">
-              <label for="leads">New inquiries / leads per week
-                <span class="fsub">Calls, forms, DMs, walk-ins &mdash; anyone who reaches out.</span>
-              </label>
-              <span class="fval" id="leadsVal">25</span>
-            </div>
-            <input type="range" id="leads" name="leads" min="0" max="200" step="1" value="25"
-              aria-describedby="leadsVal" aria-valuetext="25 leads per week"/>
-            <div class="frange" aria-hidden="true"><span>0</span><span>200/wk</span></div>
-          </div>
-
-          <div class="field">
-            <div class="flab">
-              <label for="slip">Roughly what % slip through or never get a follow-up
-                <span class="fsub">Missed calls, leads that go cold, replies that never happen.</span>
-              </label>
-              <span class="fval" id="slipVal">30%</span>
-            </div>
-            <input type="range" id="slip" name="slip" min="0" max="100" step="1" value="30"
-              aria-describedby="slipVal" aria-valuetext="30 percent"/>
-            <div class="frange" aria-hidden="true"><span>0%</span><span>100%</span></div>
-          </div>
-
-          <div class="field">
-            <div class="flab">
-              <label for="value">Average revenue per customer or job</label>
-            </div>
-            <div class="cnum">
-              <span class="cpfx" aria-hidden="true">$</span>
-              <input type="number" id="value" name="value" min="0" step="50" value="500"
-                inputmode="numeric" aria-label="Average revenue per customer or job, in dollars"/>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="flab">
-              <label for="rate">What an hour of your time is worth <span class="opt">optional</span>
-                <span class="fsub">Used only to put a dollar value on reclaimed hours. Change it to whatever feels right.</span>
+              <label for="missed">Missed calls per week
+                <span class="fsub">Calls that ring out or go to voicemail, including after hours.</span>
               </label>
             </div>
             <div class="cnum">
+              <input type="number" id="missed" name="missed" min="0" max="1000" step="1"
+                inputmode="numeric" placeholder="e.g. 10" aria-label="Missed calls per week"/>
+              <span class="csfx" aria-hidden="true">/wk</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="bookpct">Share of those that would have booked
+                <span class="fsub">Your own guess: out of every 100 missed calls, how many were real jobs?</span>
+              </label>
+            </div>
+            <div class="cnum">
+              <input type="number" id="bookpct" name="bookpct" min="0" max="100" step="1"
+                inputmode="numeric" placeholder="e.g. 20" aria-label="Percent of missed calls that would have booked"/>
+              <span class="csfx" aria-hidden="true">%</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="flab">
+              <label for="value">Average job value</label>
+            </div>
+            <div class="cnum">
               <span class="cpfx" aria-hidden="true">$</span>
-              <input type="number" id="rate" name="rate" min="0" step="5" value="50"
-                inputmode="numeric" aria-label="Hourly value of your time, in dollars per hour"/>
+              <input type="number" id="value" name="value" min="0" step="50"
+                inputmode="numeric" placeholder="e.g. 500" aria-label="Average job value, in dollars"/>
             </div>
           </div>
         </form>
 
         <!-- results -->
-        <div class="cpanel results" aria-live="polite">
-          <div class="reyebrow">Your estimate</div>
-          <div class="rtitle">Here&rsquo;s what that could look like</div>
-          <p class="rsub">Based on the numbers you entered &mdash; per month.</p>
+        <div class="cpanel results" id="results" data-state="empty" aria-live="polite">
+          <div class="reyebrow">Your own estimate</div>
+          <div class="rtitle">What missed calls may be costing you</div>
+          <p class="rempty" id="rEmpty">Enter your three numbers to see your estimate.</p>
 
           <div class="rgrid">
             <div class="rstat">
-              <span class="rk">Hours reclaimed</span>
-              <div class="rv" id="outHours">31</div>
-              <div class="rvu" id="outHoursU">hours / month back</div>
+              <span class="rk">Missed calls</span>
+              <div class="rv" id="outCalls">&mdash;</div>
+              <div class="rvu">a month</div>
             </div>
             <div class="rstat lead">
-              <span class="rk">Revenue recovered</span>
-              <div class="rv" id="outRev">$8,119</div>
-              <div class="rvu">per month, est.</div>
+              <span class="rk">Would have booked</span>
+              <div class="rv" id="outJobs">&mdash;</div>
+              <div class="rvu">jobs a month</div>
             </div>
           </div>
 
           <div class="rtotal">
-            <span class="rk">Estimated monthly upside</span>
-            <div class="rbig" id="outTotal">$9,678
-              <span class="yr">about <b id="outYear">$116,131</b> a year &mdash; recovered revenue plus the value of reclaimed time</span>
+            <span class="rk">Missed-call revenue, per month</span>
+            <div class="rbig" id="outTotal">&mdash;
+              <span class="yr">about <b id="outYear">&mdash;</b> a year, from your numbers</span>
             </div>
           </div>
 
           <div class="rstamp">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12.5l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <p><b>This is your estimate, based on the numbers you entered.</b> Not a guarantee or an average of other clients &mdash; just your inputs run through the assumptions spelled out below.</p>
+            <p><b>This is your own estimate, not a promise.</b> It comes only from the numbers you entered. It is not what Efficio will recover for you, and it is not an average of other businesses.</p>
           </div>
         </div>
 
@@ -293,21 +275,17 @@
     <!-- assumptions -->
     <div class="assume rv">
       <details>
-        <summary>Show the math &amp; assumptions <span class="smini">no black box</span></summary>
+        <summary>Show the math <span class="smini">no hidden assumptions</span></summary>
         <div class="abody">
-          <p>Every number above comes straight from what you typed, multiplied by a few clearly stated planning assumptions. Here&rsquo;s exactly how it&rsquo;s calculated:</p>
+          <p>The estimate uses only your three numbers and one conversion from weeks to months:</p>
 
-          <div class="arow"><span class="an">1</span><span class="at">We convert weeks to months at <code>4.33 weeks</code> per month (52 &divide; 12).</span></div>
+          <div class="arow"><span class="an">1</span><span class="at"><b>Missed calls a month</b> = your missed calls per week &times; <code>4.33</code> (52 weeks &divide; 12 months).</span></div>
 
-          <div class="arow"><span class="an">2</span><span class="at"><b>Hours reclaimed</b> assumes an AI front office takes <code>60%</code> of your routine admin, scheduling &amp; follow-up off your plate &mdash; not all of it. The rest still needs a human. <br>So: <code>your hours/week &times; 4.33 &times; 60%</code>.</span></div>
+          <div class="arow"><span class="an">2</span><span class="at"><b>Would have booked</b> = missed calls a month &times; the share you said would have booked.</span></div>
 
-          <div class="arow"><span class="an">3</span><span class="at"><b>Leads slipping through</b> = your weekly leads &times; the % you entered. We assume half (<code>50%</code>) of those are recovered &mdash; the rest were never reachable. That&rsquo;s an assumption, not a promise.</span></div>
+          <div class="arow"><span class="an">3</span><span class="at"><b>Missed-call revenue per month</b> = jobs that would have booked &times; your average job value. The yearly figure is &times; 12.</span></div>
 
-          <div class="arow"><span class="an">4</span><span class="at"><b>Revenue recovered</b> = recovered leads/week &times; <code>4.33</code> &times; your average revenue per customer. We don&rsquo;t assume every recovered lead becomes a sale beyond that 50% capture rate &mdash; no extra close-rate magic layered on top.</span></div>
-
-          <div class="arow"><span class="an">5</span><span class="at"><b>Value of reclaimed time</b> = reclaimed hours &times; the hourly value you entered. The <b>monthly upside</b> simply adds recovered revenue + that time value. Annual figure is &times; 12.</span></div>
-
-          <p class="anote">These percentages are our own planning assumptions, not measured benchmarks or claims about typical results &mdash; your real numbers depend on your business, your tools, and how much you hand over. The point isn&rsquo;t a precise promise; it&rsquo;s a defensible, in-the-open ballpark you can sanity-check yourself.</p>
+          <p class="anote">It uses job value, not profit, and it doesn&rsquo;t account for callers who call back later. Treat it as a rough ballpark to sanity-check, not a forecast.</p>
         </div>
       </details>
     </div>
@@ -318,11 +296,11 @@
 <section class="rv">
   <div class="scta">
     <div class="prompt">From $1,500/mo + $500 setup &middot; month-to-month</div>
-    <h2>Want this handled? See which plan fits.</h2>
-    <p>The calculator shows the opportunity. A 60-second fit quiz shows where to start &mdash; or talk to us directly.</p>
+    <h2>Want the calls you miss answered?</h2>
+    <p>Book a short call. We look at your numbers and tell you honestly whether it&rsquo;s worth it for you.</p>
     <div class="scta-cta">
-      <a href="/find-your-tier.html" class="btn-primary lg">Find your plan <span class="arr">&rarr;</span></a>
-      <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" class="btn-outline">Book a call</a>
+      <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+      <a href="/find-your-tier.html" class="btn-outline">Find your plan</a>
     </div>
   </div>
 </section>
@@ -341,7 +319,7 @@
       </div>
       <div class="fcol"><h5>Company</h5>
         <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your plan</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+        <a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
         <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
@@ -356,110 +334,54 @@
 
 <script>
 (function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ── assumptions (single source of truth; mirrored in the on-page "Show the math") ── */
+  /* Missed-calls estimate: calls/week x 4.33 x share that would have booked x job value.
+     Nothing is shown until all three numbers are entered. Mirrored in "Show the math". */
   var WEEKS_PER_MONTH = 4.33;   // 52 / 12
-  var ADMIN_AUTOMATION = 0.60;  // planning assumption: share of routine admin/follow-up handled
-  var LEAD_CAPTURE = 0.50;      // planning assumption: share of slipping leads recovered
 
   var $ = function(id){ return document.getElementById(id); };
-  var hours = $('hours'), leads = $('leads'), slip = $('slip'), value = $('value'), rate = $('rate');
-  if(!hours || !leads || !slip || !value || !rate) return;
+  var missed = $('missed'), pct = $('bookpct'), value = $('value'), box = $('results');
+  if(!missed || !pct || !value || !box) return;
 
   var usd0 = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
   var num0 = new Intl.NumberFormat('en-US', {maximumFractionDigits:0});
+  var num1 = new Intl.NumberFormat('en-US', {maximumFractionDigits:1});
 
-  function clampNum(el){
+  /* a number, or null if the field is empty or invalid */
+  function read(el){
+    if(String(el.value).trim() === '') return null;
     var v = parseFloat(el.value);
-    if(isNaN(v) || v < 0) v = 0;
+    if(isNaN(v) || v < 0) return null;
     var max = el.getAttribute('max');
     if(max !== null && v > parseFloat(max)) v = parseFloat(max);
     return v;
   }
 
-  function paintRange(el){
-    var min = parseFloat(el.min)||0, max = parseFloat(el.max)||100, v = parseFloat(el.value)||0;
-    var pct = max>min ? ((v-min)/(max-min)*100) : 0;
-    el.style.setProperty('--fill', pct.toFixed(2)+'%');
-  }
-
-  /* lightweight count-up that respects reduced-motion */
-  function setText(el, target, fmt){
-    if(!el) return;
-    var to = target;
-    if(reduce){ el.textContent = fmt(to); return; }
-    var from = (typeof el.__v === 'number') ? el.__v : to;
-    el.__v = to;
-    if(from === to){ el.textContent = fmt(to); return; }
-    var start = null, dur = 420;
-    function frame(ts){
-      if(start === null) start = ts;
-      var p = Math.min(1, (ts - start)/dur);
-      var eased = 1 - Math.pow(1-p, 3);
-      var cur = from + (to - from) * eased;
-      el.textContent = fmt(cur);
-      if(p < 1) requestAnimationFrame(frame);
-      else el.textContent = fmt(to);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  /* outTotal contains a nested .yr line — update it without clobbering the span */
-  function computeTotals(){
-    var h = clampNum(hours), l = clampNum(leads), s = clampNum(slip)/100, rev = clampNum(value), hr = clampNum(rate);
-    var hoursReclaimed = h * WEEKS_PER_MONTH * ADMIN_AUTOMATION;
-    var leadsRecovered = l * s * LEAD_CAPTURE;
-    var revRecovered   = leadsRecovered * WEEKS_PER_MONTH * rev;
-    var timeValue      = hoursReclaimed * hr;
-    var monthlyUpside  = revRecovered + timeValue;
-    var yearlyUpside   = monthlyUpside * 12;
-
-    var totalEl = $('outTotal'), yearEl = $('outYear');
-    if(totalEl){
-      var node = totalEl.firstChild; // the text node before the .yr span
-      var fmt = usd0.format(monthlyUpside);
-      if(node && node.nodeType === 3){ node.nodeValue = fmt; }
-      else { totalEl.insertBefore(document.createTextNode(fmt), totalEl.firstChild); }
-    }
-    if(yearEl){ yearEl.textContent = usd0.format(yearlyUpside); }
+  function setTotal(text){
+    var totalEl = $('outTotal'); if(!totalEl) return;
+    var node = totalEl.firstChild; // the text node before the .yr span
+    if(node && node.nodeType === 3){ node.nodeValue = text; }
+    else { totalEl.insertBefore(document.createTextNode(text), totalEl.firstChild); }
   }
 
   function update(){
-    paintRange(hours); paintRange(leads); paintRange(slip);
-
-    var h = clampNum(hours), l = clampNum(leads), sRaw = clampNum(slip), s = sRaw/100,
-        rev = clampNum(value), hr = clampNum(rate);
-
-    var hoursReclaimed = h * WEEKS_PER_MONTH * ADMIN_AUTOMATION;
-    var leadsRecovered = l * s * LEAD_CAPTURE;
-    var revRecovered   = leadsRecovered * WEEKS_PER_MONTH * rev;
-    var timeValue      = hoursReclaimed * hr;
-    var monthlyUpside  = revRecovered + timeValue;
-
-    /* badges */
-    $('hoursVal').textContent = num0.format(h) + ' hr' + (h===1?'':'s');
-    $('leadsVal').textContent = num0.format(l);
-    $('slipVal').textContent  = num0.format(sRaw) + '%';
-    hours.setAttribute('aria-valuetext', num0.format(h)+' hours per week');
-    leads.setAttribute('aria-valuetext', num0.format(l)+' leads per week');
-    slip.setAttribute('aria-valuetext', num0.format(sRaw)+' percent');
-
-    /* outputs */
-    setText($('outHours'), hoursReclaimed, function(v){ return num0.format(Math.round(v)); });
-    var oh = $('outHoursU'); if(oh) oh.textContent = (Math.round(hoursReclaimed)===1?'hour':'hours') + ' / month back';
-    setText($('outRev'), revRecovered, function(v){ return usd0.format(v); });
-    computeTotals();
+    var m = read(missed), p = read(pct), v = read(value);
+    if(m === null || p === null || v === null){
+      box.setAttribute('data-state', 'empty');
+      return;
+    }
+    var callsMonth = m * WEEKS_PER_MONTH;
+    var jobsMonth  = callsMonth * (p / 100);
+    var revMonth   = jobsMonth * v;
+    $('outCalls').textContent = num0.format(Math.round(callsMonth));
+    $('outJobs').textContent  = num1.format(jobsMonth);
+    setTotal(usd0.format(revMonth));
+    $('outYear').textContent  = usd0.format(revMonth * 12);
+    box.setAttribute('data-state', 'ready');
   }
 
   ['input','change'].forEach(function(ev){
-    [hours,leads,slip,value,rate].forEach(function(el){ el.addEventListener(ev, update); });
+    [missed, pct, value].forEach(function(el){ el.addEventListener(ev, update); });
   });
-  /* normalize number fields on blur so empty/garbage becomes a clean value */
-  [value, rate].forEach(function(el){
-    el.addEventListener('blur', function(){ el.value = String(clampNum(el)); update(); });
-  });
-
   update();
 })();
 </script>

@@ -64,7 +64,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: { ...corsHeaders(), 'content-type': 'application/json' },
       body: JSON.stringify({
-        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book 15 min at https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv. He'll answer anything I can't."
+        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book 15 min at https://efficio.tech/book.html. He'll answer anything I can't."
       })
     };
   }
@@ -100,7 +100,7 @@ exports.handler = async (event) => {
         statusCode: 200,
         headers: { ...corsHeaders(), 'content-type': 'application/json' },
         body: JSON.stringify({
-          reply: "I hit a snag reaching my brain. Email brady@efficio.tech or book at https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv — he answers personally."
+          reply: "I hit a snag reaching my brain. Email brady@efficio.tech or book at https://efficio.tech/book.html — he answers personally."
         })
       };
     }
@@ -133,7 +133,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: { ...corsHeaders(), 'content-type': 'application/json' },
       body: JSON.stringify({
-        reply: "Something broke on my end. Quickest path: email brady@efficio.tech or book at https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv."
+        reply: "Something broke on my end. Quickest path: email brady@efficio.tech or book at https://efficio.tech/book.html."
       })
     };
   }

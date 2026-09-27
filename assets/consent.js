@@ -10,8 +10,11 @@
  * (every access wrapped in try/catch; if storage is blocked the choice lasts for
  * this page view only and the banner shows again next time).
  *
- * The same Accept also gates the GoHighLevel chat widget (script[data-consent-chat])
- * and the GoHighLevel booking calendar (iframe[data-consent-src]).
+ * The same Accept also gates the GoHighLevel chat widget (script[data-consent-chat]).
+ * The GoHighLevel booking calendar (iframe[data-consent-src]) loads on its own
+ * after Accept; without Accept the visitor can still load it (and only it) with
+ * one explicit "Show available times" click, which does NOT grant consent and
+ * never loads Google, Meta or LinkedIn tags on this site.
  *
  * Any element with [data-cookie-settings] (the "Cookie settings" footer link)
  * reopens the banner so the visitor can change their choice. Switching from
@@ -97,7 +100,8 @@
       '#efficio-cookie button[data-action="grant"]:hover{filter:brightness(1.07)}' +
       '#efficio-cookie button:active{transform:scale(.97)}' +
       '#efficio-cookie button:focus-visible{outline:2px solid #b9a3ff;outline-offset:2px}' +
-      '@media(max-width:520px){#efficio-cookie{left:12px;bottom:12px;width:calc(100vw - 24px)}}' +
+      '@media(max-width:520px){#efficio-cookie{left:12px;bottom:12px;width:calc(100vw - 24px);gap:8px;padding:12px 14px}' +
+      '#efficio-cookie .ck-row{flex-wrap:nowrap}#efficio-cookie button{flex:1 1 0;min-width:0}}' +
       (reduce ? '#efficio-cookie{transition:none}' : '');
     document.head.appendChild(st);
   }
@@ -119,12 +123,8 @@
     ck.setAttribute('role', 'region');
     ck.setAttribute('aria-label', 'Cookie settings');
     ck.innerHTML =
-      '<p class="ck-msg"><b>Analytics and advertising cookies.</b> If you accept, we load Google Analytics, ' +
-      'the Meta Pixel and the LinkedIn Insight Tag to measure visits and whether our ads on Meta, Google and LinkedIn ' +
-      'lead to booked calls. They set cookies and collect device, browsing and IP-derived data. ' +
-      'Accepting also loads the GoHighLevel chat widget and booking calendar, which store their own identifiers ' +
-      '(the calendar loads Meta&rsquo;s tracking script inside it). ' +
-      'If you decline, none of them load. <a href="/privacy.html#cookies">Privacy policy</a></p>' +
+      '<p class="ck-msg"><b>Cookies:</b> we use analytics and ad cookies to measure visits. ' +
+      '<a href="/privacy.html#cookies">Details</a></p>' +
       (current ? '<p class="ck-now">Your current choice: ' + (current === 'granted' ? 'Accepted' : 'Declined') + '.</p>' : '') +
       '<div class="ck-row">' +
         '<button type="button" data-action="deny">Decline</button>' +
@@ -162,12 +162,15 @@
   }
 
   /* ---- consent-gated embeds ----
-     The GoHighLevel booking calendar loads Meta's tracking script inside its
-     own iframe, so it is gated like our own tags:
+     The GoHighLevel booking calendar sets its own cookies and loads Meta's
+     tracking script inside its own iframe, so it never loads silently:
        <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/..."
                data-consent-ghl [data-consent-lazy] ...></iframe>
-     Until the visitor accepts, a placeholder explains why and offers Accept or
-     email. data-consent-lazy = don't load until the page calls
+     After Accept it loads on its own (plus GHL's form_embed.js resizer).
+     Otherwise a placeholder says who hosts it and offers a "Show available
+     times" button. That click loads ONLY the iframe: it does not grant
+     consent, and loads no Google/Meta/LinkedIn tag or GHL script on this page.
+     data-consent-lazy = don't load until the page calls
      EfficioConsent.showEmbed(iframe) (e.g. after a form step). */
   var embedsLoaded = false, ghlScript = false;
   function embedStyles() {
@@ -177,6 +180,7 @@
     st.textContent =
       '.ck-embed{max-width:560px;margin:0 auto;padding:26px 20px;border-radius:14px;background:#fff;color:#1b1b29;' +
       'text-align:center;font-size:14px;line-height:1.55;border:1px solid rgba(0,0,0,.12)}' +
+      '.ck-embed h3{margin:0 0 8px;font-size:18px;font-weight:800;color:#1b1b29;letter-spacing:-.01em}' +
       '.ck-embed p{margin:0 0 14px;color:#1b1b29}' +
       '.ck-embed button{cursor:pointer;font:inherit;font-weight:700;font-size:14px;color:#fff;background:#5e2ee0;' +
       'border:0;border-radius:999px;padding:12px 20px;min-height:44px}' +
@@ -192,22 +196,28 @@
     ph = document.createElement('div');
     ph.className = 'ck-embed';
     ph.innerHTML =
-      '<p>The booking calendar is hosted by GoHighLevel and loads Meta&rsquo;s tracking script inside it, ' +
-      'so it only loads after you accept analytics and advertising cookies.</p>' +
-      '<button type="button">Accept cookies and show the calendar</button>' +
+      '<h3>Pick a time with Brady</h3>' +
+      '<p>The scheduler is hosted by HighLevel and sets its own cookies, which may include advertising cookies. ' +
+      '<a href="/privacy.html#cookies">Details</a></p>' +
+      '<button type="button">Show available times</button>' +
       '<span class="ck-alt">Or email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time.</span>';
     ph.querySelector('button').addEventListener('click', function () {
-      var b = document.getElementById('efficio-cookie');
-      grant();
-      if (b) close(b);
+      /* explicit request for the calendar only: no consent change, no tags */
+      loadEmbed(fr, { calendarOnly: true });
+      try { fr.focus(); } catch (e) {}
     });
     fr.parentNode.insertBefore(ph, fr);
     return ph;
   }
-  function loadEmbed(fr) {
+  function loadEmbed(fr, opts) {
+    var calendarOnly = !!(opts && opts.calendarOnly);
     if (!fr.getAttribute('src')) {
+      /* without GHL's resizer script the iframe keeps its CSS height, so let it scroll */
+      if (calendarOnly) fr.setAttribute('scrolling', 'auto');
       fr.setAttribute('src', fr.getAttribute('data-consent-src'));
       embedsLoaded = true;
+    }
+    if (!calendarOnly) {
       if (fr.hasAttribute('data-consent-ghl') && !ghlScript) {
         ghlScript = true;
         var s = document.createElement('script');

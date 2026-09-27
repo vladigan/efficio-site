@@ -49,9 +49,9 @@
   // STICKY MOBILE CTA — auto-inject on every page that loads transitions.js.
   // Mobile-only via CSS (display:none above 720px). One tap away from booking.
   try {
-    if (!document.getElementById('efficio-sticky-cta')) {
-      var stickyHref = '/find-your-tier.html';
-      var stickyLabel = 'Get started';
+    if (!document.getElementById('efficio-sticky-cta') && !/^\/book(\.html)?$/.test(window.location.pathname)) {
+      var stickyHref = '/book.html';
+      var stickyLabel = 'Book a call';
       var sticky = document.createElement('a');
       sticky.id = 'efficio-sticky-cta';
       sticky.href = stickyHref;

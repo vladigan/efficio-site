@@ -74,7 +74,7 @@
     <a href="/agents.html">What&rsquo;s included</a>
     <a href="/why-efficio.html">Why Efficio</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 
 <main id="main" tabindex="-1">
@@ -127,9 +127,9 @@
     <h2 class="rv d1">7 business days, or your setup fee back.</h2>
     <p class="lede rv d1">If your AI receptionist, booking and live dashboard aren&rsquo;t live within 7 business days of kickoff, we refund the $500 setup fee. It applies when kickoff is held within 2 business days of payment and you give us call forwarding and calendar access by day 5. Texting (A2P 10DLC approval) is excluded. <a href="/refund.html" style="color:var(--violet-l);font-weight:700">Refund policy</a>.</p>
     <div class="stats rv d2">
-      <div class="stat"><div class="n"><span class="count" data-to="7">0</span></div><div class="l">business days to live</div></div>
-      <div class="stat"><div class="n"><span class="count" data-to="30">0</span></div><div class="l">days&rsquo; notice to cancel, month-to-month</div></div>
-      <div class="stat"><div class="n">$<span class="count" data-to="500">0</span></div><div class="l">setup, refunded if we miss it</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">business days to live</div></div>
+      <div class="stat"><div class="n">30</div><div class="l">days&rsquo; notice to cancel, month-to-month</div></div>
+      <div class="stat"><div class="n">$500</div><div class="l">setup, refunded if we miss it</div></div>
     </div>
   </div>
 </section>
@@ -161,7 +161,7 @@
 </section>
 
 <section class="cta rv">
-  <div class="prompt">$ efficio front-office --live<span class="cur"></span></div>
+  <div class="prompt">Talk to Brady</div>
   <h2>Live in 7 business days.</h2>
   <p>Start with a short call. We&rsquo;ll tell you honestly whether it fits your business.</p>
   <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
@@ -181,7 +181,7 @@
       </div>
       <div class="fcol"><h5>Company</h5>
         <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your plan</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
+        <a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
         <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
@@ -196,25 +196,6 @@
 <script>
 /* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
 setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
-/* count-up on the day-7 promise stats — mirrors v6 pattern, reduced-motion safe */
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function run(el){
-    var to=parseInt(el.getAttribute('data-to'),10)||0, dur=1100, t0=null;
-    if(reduce){el.textContent=to.toLocaleString();return;}
-    function step(ts){t0=t0||ts;var p=Math.min((ts-t0)/dur,1);
-      el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString();
-      if(p<1)requestAnimationFrame(step);}
-    requestAnimationFrame(step);
-  }
-  var els=document.querySelectorAll('.count');
-  if(!('IntersectionObserver' in window)){els.forEach(run);return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:.6});
-  els.forEach(function(el){io.observe(el);});
-  /* fallback: if IO never fires, fill values after a beat */
-  setTimeout(function(){els.forEach(function(el){ if(el.textContent==='0') run(el); });},1300);
-})();
 </script>
 <script src="/assets/v6.js" defer></script>
 <script src="/assets/chat.js" defer></script>

@@ -17,10 +17,10 @@
     || 'https://efficio-chat.bgay3500.workers.dev';
 
   // --- inject CSS ---------------------------------------------------------
-  if (!document.querySelector('link[href="/assets/chat.css"]')) {
+  if (!document.querySelector('link[href^="/assets/chat.css"]')) {
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/assets/chat.css';
+    link.href = '/assets/chat.css?v=20260927';
     document.head.appendChild(link);
   }
 

@@ -13,7 +13,7 @@
   if (!document.querySelector('link[href="/assets/vsl.css"]')) {
     var l = document.createElement('link');
     l.rel = 'stylesheet';
-    l.href = '/assets/vsl.css';
+    l.href = '/assets/vsl.css?v=20260927';
     document.head.appendChild(l);
   }
 

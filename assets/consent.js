@@ -93,15 +93,18 @@
       '#efficio-cookie .ck-row{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}' +
       '#efficio-cookie button{cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;letter-spacing:-.01em;' +
       'padding:9px 16px;border-radius:999px;min-height:44px;min-width:96px;transition:transform .12s ease,filter .2s ease,background .2s ease,border-color .2s ease}' +
-      '#efficio-cookie button[data-action="deny"]{background:rgba(255,255,255,.06);color:#e6e4f2;border:1px solid rgba(255,255,255,.28)}' +
-      '#efficio-cookie button[data-action="deny"]:hover{background:rgba(255,255,255,.12)}' +
-      '#efficio-cookie button[data-action="grant"]{color:#fff;border:1px solid rgba(124,77,255,.6);' +
+      /* Decline and Accept get the same visual weight */
+      '#efficio-cookie button[data-action]{color:#fff;border:1px solid rgba(124,77,255,.6);' +
       'background:linear-gradient(180deg,#8a66ff,#5e2ee0);box-shadow:0 8px 20px -10px rgba(124,77,255,.85),inset 0 1px 0 rgba(255,255,255,.22)}' +
-      '#efficio-cookie button[data-action="grant"]:hover{filter:brightness(1.07)}' +
+      '#efficio-cookie button[data-action]:hover{filter:brightness(1.07)}' +
       '#efficio-cookie button:active{transform:scale(.97)}' +
       '#efficio-cookie button:focus-visible{outline:2px solid #b9a3ff;outline-offset:2px}' +
       '@media(max-width:520px){#efficio-cookie{left:12px;bottom:12px;width:calc(100vw - 24px);gap:8px;padding:12px 14px}' +
-      '#efficio-cookie .ck-row{flex-wrap:nowrap}#efficio-cookie button{flex:1 1 0;min-width:0}}' +
+      '#efficio-cookie .ck-row{flex-wrap:nowrap}#efficio-cookie button{flex:1 1 0;min-width:0}' +
+      /* on a page with a booking calendar, keep the phone banner off the booking card */
+      '#efficio-cookie.ck-top{top:12px;bottom:auto}}' +
+      /* desktop: bottom-right, above the chat buttons, clear of the left-hand hero CTA */
+      '@media(min-width:521px){#efficio-cookie{left:auto;right:18px;bottom:96px}}' +
       (reduce ? '#efficio-cookie{transition:none}' : '');
     document.head.appendChild(st);
   }
@@ -120,6 +123,7 @@
     var current = get();
     var ck = document.createElement('div');
     ck.id = 'efficio-cookie';
+    if (document.querySelector('iframe[data-consent-src]')) ck.className = 'ck-top';
     ck.setAttribute('role', 'region');
     ck.setAttribute('aria-label', 'Cookie settings');
     ck.innerHTML =
@@ -180,8 +184,9 @@
     st.textContent =
       '.ck-embed{max-width:560px;margin:0 auto;padding:26px 20px;border-radius:14px;background:#fff;color:#1b1b29;' +
       'text-align:center;font-size:14px;line-height:1.55;border:1px solid rgba(0,0,0,.12)}' +
-      '.ck-embed h3{margin:0 0 8px;font-size:18px;font-weight:800;color:#1b1b29;letter-spacing:-.01em}' +
+      '.ck-embed h2{margin:0 0 8px;font-size:18px;font-weight:800;color:#1b1b29;letter-spacing:-.01em}' +
       '.ck-embed p{margin:0 0 14px;color:#1b1b29}' +
+      '.ck-embed p a{color:#4a22c4;font-weight:600;text-decoration:underline}' +
       '.ck-embed button{cursor:pointer;font:inherit;font-weight:700;font-size:14px;color:#fff;background:#5e2ee0;' +
       'border:0;border-radius:999px;padding:12px 20px;min-height:44px}' +
       '.ck-embed button:focus-visible{outline:2px solid #5e2ee0;outline-offset:3px}' +
@@ -196,7 +201,7 @@
     ph = document.createElement('div');
     ph.className = 'ck-embed';
     ph.innerHTML =
-      '<h3>Pick a time with Brady</h3>' +
+      '<h2>Pick a time with Brady</h2>' +
       '<p>The scheduler is hosted by HighLevel and sets its own cookies, which may include advertising cookies. ' +
       '<a href="/privacy.html#cookies">Details</a></p>' +
       '<button type="button">Show available times</button>' +
@@ -213,7 +218,10 @@
     var calendarOnly = !!(opts && opts.calendarOnly);
     if (!fr.getAttribute('src')) {
       /* without GHL's resizer script the iframe keeps its CSS height, so let it scroll */
-      if (calendarOnly) fr.setAttribute('scrolling', 'auto');
+      if (calendarOnly) {
+        fr.setAttribute('scrolling', 'auto');
+        try { if (window.matchMedia('(min-width: 561px)').matches) fr.style.height = '900px'; } catch (e) {}
+      }
       fr.setAttribute('src', fr.getAttribute('data-consent-src'));
       embedsLoaded = true;
     }

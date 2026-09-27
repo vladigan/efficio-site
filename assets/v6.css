@@ -135,8 +135,6 @@ a:hover .arr{transform:translateX(4px)}
   background:linear-gradient(120deg,rgba(124,77,255,.12),transparent 42%)}
 .term::after{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;pointer-events:none;
   background:linear-gradient(90deg,transparent,rgba(195,176,255,.55),transparent)}
-#heroTerm{animation:floatTerm 8s ease-in-out infinite}
-@keyframes floatTerm{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .term-bar{position:relative;display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);
   background:rgba(255,255,255,.018)}
 .tdot{width:11px;height:11px;border-radius:50%;display:block}
@@ -365,7 +363,6 @@ footer{padding-bottom:96px}
 
 /* ── mobile refinements (v6.1 polish) ── */
 @media(max-width:560px){
-  #heroTerm{animation:none}                 /* steadier centerpiece on phones */
   .hero{padding-top:118px;padding-bottom:60px}
   .sec{padding:62px 0}                       /* tighter vertical rhythm */
   .band{padding-top:26px}

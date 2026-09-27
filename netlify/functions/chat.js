@@ -64,7 +64,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: { ...corsHeaders(), 'content-type': 'application/json' },
       body: JSON.stringify({
-        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book 15 min at https://efficio.tech/book.html. He'll answer anything I can't."
+        reply: "I'm not fully wired yet — quickest path is to email brady@efficio.tech or book a short call at https://efficio.tech/book.html. He'll answer anything I can't."
       })
     };
   }

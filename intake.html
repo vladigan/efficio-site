@@ -154,24 +154,23 @@
       cursor: pointer;
     }
 
-    /* Contact consent: two separate, optional, unchecked boxes (A = texts, B = AI-voice calls) */
-    fieldset.consents { border: 0; min-width: 0; margin: 0 0 24px; }
-    fieldset.consents legend { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
-    .consent-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 12px 14px; margin-bottom: 8px;
-      border: 1px solid var(--bd); border-radius: var(--r);
+    /* Contact consent: two separate, optional, unchecked boxes (A = texts, B = calls incl. AI voice).
+       Markup + base CSS: Efficio ops/consent_capture/site_consent_block.html */
+    .consents { margin: -8px 0 24px; }
+    .consents-h { font-size: 13px; font-weight: 600; color: var(--white); margin: 0; }
+    .ef-consent{margin:14px 0 4px;display:grid;gap:10px}
+    .ef-consent label{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55;cursor:pointer}
+    .ef-consent input[type="checkbox"]{flex-shrink:0;width:18px;height:18px;margin:2px 0 0;cursor:pointer}
+    .ef-consent a{text-decoration:underline}
+    .ef-consent-err{font-size:12.5px;color:#b3261e;margin:4px 0 0}
+    .consents .ef-consent label {
+      font-weight: 400; color: var(--text); margin: 0; letter-spacing: 0;
+      padding: 12px 14px; border: 1px solid var(--bd); border-radius: var(--r);
     }
-    .consent-item input[type="checkbox"] {
-      width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0;
-      accent-color: var(--purple); cursor: pointer;
-    }
-    .consent-item label {
-      font-size: 12.5px; font-weight: 400; color: var(--text); line-height: 1.6;
-      margin: 0; letter-spacing: 0; cursor: pointer;
-    }
-    .consent-item label b { color: var(--white); font-weight: 700; }
-    .consent-item label a { color: var(--purple3); text-decoration: underline; }
+    .consents .ef-consent input[type="checkbox"] { accent-color: var(--purple); }
+    .consents .ef-consent label b { color: var(--white); font-weight: 700; }
+    .consents .ef-consent a { color: var(--purple3); }
+    .consents .ef-consent-err { color: #f87171; }
 
     /* Submit */
     .submit-btn {
@@ -317,17 +316,20 @@
           <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
         </div>
 
-        <fieldset class="consents">
-          <legend>Texts and calls <span class="label-note">(optional; leave both unticked if you prefer email)</span></legend>
-          <div class="consent-item">
-            <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" />
-            <label for="sms_consent" data-consent-version="sms_v2_2026-09"><b>Text me.</b> I agree to receive recurring marketing and account text messages from Efficio (BNG Contracting Enterprise LLC) at the mobile number above, including messages sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies (up to 4/week). Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms">SMS Terms</a> &middot; <a href="/privacy.html#sms">Privacy Policy</a></label>
+        <div class="consents">
+          <p class="consents-h" aria-hidden="true">Texts and calls <span class="label-note">(optional; leave both unticked if you prefer email)</span></p>
+          <div class="ef-consent" role="group" aria-label="Optional: texts and calls from Efficio">
+            <label for="efConsentSms">
+              <input id="efConsentSms" name="consent_sms" type="checkbox"/>
+              <span id="efConsentSmsText" data-version="sms_v2_2026-09"><b>Yes, text me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may send me recurring marketing and account text messages at the mobile number I entered, including texts sent using automated technology. Consent is not a condition of any purchase. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. <a href="/terms.html#sms" target="_blank" rel="noopener">SMS Terms</a> · <a href="/privacy.html#sms" target="_blank" rel="noopener">Privacy</a></span>
+            </label>
+            <label for="efConsentVoice">
+              <input id="efConsentVoice" name="consent_ai_voice" type="checkbox"/>
+              <span id="efConsentVoiceText" data-version="aivoice_v1_2026-09"><b>Yes, call me.</b> I agree that Efficio (BNG Contracting Enterprise LLC) may call me at the number I entered, including marketing calls and voicemails, using automated technology (including an automated system to select and dial numbers), prerecorded messages, and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. Call frequency varies. Msg &amp; data rates may apply. To opt out, say "stop calling" on any call, reply STOP to any text from us, or email brady@efficio.tech. Reply HELP for help.</span>
+            </label>
+            <p class="ef-consent-err" id="efConsentErr" hidden>Add your mobile number above so we know where you want texts or calls.</p>
           </div>
-          <div class="consent-item">
-            <input type="checkbox" id="ai_voice_consent" name="ai_voice_consent" value="yes" />
-            <label for="ai_voice_consent" data-consent-version="aivoice_v1_2026-09"><b>Call me with Efficio's AI assistant.</b> I agree that BNG Contracting Enterprise LLC, doing business as Efficio, may call me at the number above, including marketing calls, using an automated system and an artificial or AI-generated voice. Calls may be recorded. Consent is not a condition of any purchase. I can revoke this consent at any time in any reasonable way, for example by saying "stop calling" on a call, replying STOP to a text, or emailing brady@efficio.tech.</label>
-          </div>
-        </fieldset>
+        </div>
 
         <div class="field">
           <label for="notes">Anything Else You'd Like Us to Know?</label>
@@ -355,21 +357,19 @@
       var answers = {};
       new FormData(form).forEach(function(v, k) { answers[k] = answers[k] ? answers[k] + ', ' + v : v; });
 
-      /* Optional text / AI-call consent (assets/contact-consent.js). A ticked box
-         needs a usable mobile number; nothing is sent until it has one. */
-      var CC = window.EfficioContactConsent;
-      var note = document.getElementById('consentNote');
-      if (!note) {
-        note = document.createElement('p'); note.id = 'consentNote'; note.className = 'consent-error';
-        note.setAttribute('role', 'alert'); note.hidden = true;
-        form.insertBefore(note, btn);
+      /* Optional consent boxes A (texts) + B (calls), efficioConsent() in
+         assets/contact-consent.js: null = no box ticked (no consent sent);
+         false = a box is ticked but the mobile number is missing or not a US
+         number (message shown under the boxes; nothing is sent). */
+      var consent = null;
+      if (typeof window.efficioConsent === 'function') {
+        consent = window.efficioConsent(form);
+        if (consent === false) return;
+      } else if (form.querySelector('#efConsentSms:checked, #efConsentVoice:checked')) {
+        var ce = document.getElementById('efConsentErr');
+        if (ce) { ce.textContent = 'Part of this page didn\'t load. Refresh the page and try again, or untick the text and call boxes.'; ce.hidden = false; }
+        return;
       }
-      note.hidden = true;
-      var ticked = form.querySelector('input[name="sms_consent"]:checked, input[name="ai_voice_consent"]:checked');
-      var problem = CC ? CC.problem(form, { phone: answers.phone || '' })
-        : (ticked ? 'Part of this page didn\'t load. Refresh the page and try again, or untick the text and call boxes.' : null);
-      if (problem) { note.textContent = problem; note.hidden = false; return; }
-      var consent = CC ? CC.collect(form, { source: 'efficio_precall_intake', phone: answers.phone || '' }) : null;
 
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       function fail() {
@@ -380,8 +380,10 @@
         if (!n) { n = document.createElement('p'); n.id = 'intakeFail'; n.style.cssText = 'color:#f87171;font-size:14px;margin-top:12px'; form.appendChild(n); }
         n.innerHTML = 'That didn\'t go through. <a href="' + mailto + '" style="text-decoration:underline;color:inherit">Email your answers to Brady instead</a>.';
       }
-      var payload = { kind: 'pre_call_intake', ts: new Date().toISOString(), company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers };
-      if (consent) { payload.consent = consent; CC.mirror(payload, consent); }
+      var payload = { kind: 'pre_call_intake', ts: new Date().toISOString(), source: 'efficio_precall_intake', company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers };
+      if (consent) payload.consent = consent;   /* `phone` above is the number the consent covers */
+      /* cookie-banner choice (true only after Accept), assets/contact-consent.js */
+      payload.marketing_consent = typeof window.efficioMarketingConsent === 'function' && window.efficioMarketingConsent() === true;
       fetch('https://efficio-chat.bgay3500.workers.dev/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

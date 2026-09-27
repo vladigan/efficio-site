@@ -5,29 +5,26 @@ what the page is supposed to sell. **Edit this file whenever the offer, pricing 
 
 ## The business
 
-Efficio (efficio.tech) is a **fractional CTO for small and mid-sized service businesses**. We plug into
-the apps the business already uses (CRM, phone, inbox, booking) and build and run a coordinated
-team of AI agents: front office (answering, lead routing, missed-call text-back, booking), growth
-(follow-up cadences, reactivation), back office (onboarding, invoicing reminders, status updates).
-We build it, we run it. The customer does no technical setup.
+Efficio (efficio.tech) is an **AI front office / AI team for any small business**. It answers the calls
+a business misses, books them, follows up, and shows results on a live dashboard, all inside the
+client's own account (built on HighLevel). It is installed and run by Brady, a licensed engineer.
+The customer does no technical setup.
 
 ## The offer (keep in sync with pricing.html)
 
 | Tier | Price | Who it's for |
 |---|---|---|
-| AI Operator | $1,500/mo | Entry tier, most common start. First AI team live in 7 days. Free website build included. |
-| Founding CTO | $2,500/mo | Several workflows, embedded fractional CTO. |
-| Full Custom CTO | $3,500/mo | Full custom build across the ops stack. |
+| AI Operator | $1,500/mo + $500 setup | The AI front office: receptionist, booking, follow-up, live dashboard. |
+| Founding CTO | $2,500/mo + $500 setup | Several workflows, embedded fractional CTO. |
+| Full Custom CTO | $3,500/mo + $500 setup | Full custom build across the ops stack. |
 
-Month-to-month, no contract. **30-day measurable-savings refund**: one agreed metric, refunded if it hasn't moved by day 30.
-"First team live within 7 days of kickoff."
+Month-to-month, 30 days' notice. Only guarantee: receptionist, booking and dashboard live within 7 business days of kickoff or the $500 setup is refunded (kickoff within 2 business days of payment; forwarding + calendar access by day 5; texting not covered). First three clients: monthly price locked 12 months in exchange for a 20-minute results review at day 30. No clients, case studies or results exist; never invent them.
 
 ## Who buys
 
-Owner-operators of US service businesses, usually 3–50 staff, where the owner is still the
-bottleneck on phones, inbound and follow-up. Verticals with dedicated pages: home & field
-services (HVAC, plumbing, electrical, roofing, landscaping, cleaning, pest), health practices
-(dental, medical, wellness), professional services (law, accounting, insurance, real estate), agencies.
+Owners of any US small business where the owner is still the bottleneck on phones, inbound and
+follow-up. The offer is the same for every business; the `/for/*` and industry articles are examples
+of the same any-small-business offer, never an industry-only pitch.
 
 They search when something is actively costing them money: missed calls, slow lead follow-up,
 no-shows, after-hours leads, drowning in admin. Those **"ready to act" queries** are the target.
@@ -54,9 +51,6 @@ the session's **landing page**. A page that ranks but never starts a session tha
   `privacy`, `terms`, `refund`, `audit.html`, `demo-live`, `demo-embed`. None of them is a money page, but an organic
   session that lands there and books later is attributed to "(not set)".
   Re-check with `grep -L pixels.js` on any new page.
-- Several CTAs link **straight to the GoHighLevel booking widget** (`api.leadconnectorhq.com/widget/booking/...`)
-  instead of `/book.html`. Those bookings only count if the GHL calendar's post-booking redirect points to
-  `https://efficio.tech/thank-you.html`. If `book_call` is ~0 sitewide while GHL shows bookings, that redirect is the cause.
 - Search Console property: set in `.env` as `GSC_SITE`. Canonicals are extensionless (`/for/agencies`),
   the sitemap uses `.html`; scripts normalise both to one key.
 
@@ -74,7 +68,7 @@ the session's **landing page**. A page that ranks but never starts a session tha
 - Plain, direct, owner-to-owner. "We build it and run it." No hype words ("revolutionary", "cutting-edge").
 - Never invent customer results, testimonials, logos or numbers. Illustrative scenarios are labelled "hypothetical".
 - Never promise rankings, revenue, or a specific number of leads.
-- Prices, the 7-day claim and the 30-day refund must match pricing.html exactly.
+- Prices, the $500 setup and the 7-business-day setup guarantee must match pricing.html exactly. Every booking CTA links to `/book.html`, never straight to the HighLevel widget.
 - Business details (name "Efficio", domain efficio.tech, pricing) must be identical everywhere, on-site and off.
 
 ## Current bet

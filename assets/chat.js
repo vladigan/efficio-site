@@ -70,9 +70,12 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+  // Booking links always go through /book.html (it shows the calendar's
+  // cookie notice), even if a reply names the HighLevel scheduler directly.
+  var BOOKING_WIDGET_RE = /https?:\/\/(?:api\.leadconnectorhq\.com|link\.msgsndr\.com)\/widget\/booking\/[\w-]+(?:\?[^\s)]*[^\s).,;:!?])?/g;
   function linkify(s) {
-    return escapeHTML(s)
-      .replace(/(https?:\/\/[^\s)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+    return escapeHTML(String(s).replace(BOOKING_WIDGET_RE, 'https://efficio.tech/book.html'))
+      .replace(/(https?:\/\/[^\s)]*[^\s).,;:!?])/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
       .replace(/\n/g, '<br>');
   }
   function appendMsg(role, text) {
@@ -166,7 +169,7 @@
         appendMsg('bot',
           "I can't reach my brain right now. Two ways forward:\n\n" +
           "1. Email brady@efficio.tech with your question — he answers personally.\n" +
-          "2. Book a 15-min call: https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv");
+          "2. Book a short call: https://efficio.tech/book.html");
       })
       .finally(function () {
         sending = false;

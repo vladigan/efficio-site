@@ -158,16 +158,12 @@ a:hover .arr{transform:translateX(4px)}
   .nav-burger .nb-lines i{transition:none}
 }
 
-/* live status dot */
-.live{position:relative;width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;box-shadow:0 0 8px rgba(86,216,160,.8)}
-.live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--green);opacity:.7;animation:ping 2.4s ease-out infinite}
-@keyframes ping{0%{transform:scale(.6);opacity:.8}80%,100%{transform:scale(1.9);opacity:0}}
 
 /* HERO */
 .hero{padding:170px 24px 78px;overflow:visible}
 .hero-grid{display:grid;grid-template-columns:1.02fr 1.06fr;gap:56px;align-items:center}
 @media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:42px}.hero{padding-top:130px;text-align:center}}
-.status-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 12px;border-radius:999px;
+.status-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
   background:rgba(124,77,255,.10);border:1px solid rgba(124,77,255,.28);font-family:var(--mono);font-size:12px;font-weight:500;
   color:var(--ink2);margin-bottom:26px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px -16px rgba(124,77,255,.8)}
@@ -206,8 +202,16 @@ a:hover .arr{transform:translateX(4px)}
   background:linear-gradient(120deg,rgba(124,77,255,.12),transparent 42%)}
 .term::after{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;pointer-events:none;
   background:linear-gradient(90deg,transparent,rgba(195,176,255,.55),transparent)}
-#heroTerm{animation:floatTerm 8s ease-in-out infinite}
-@keyframes floatTerm{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cflow{margin:0;padding:22px 22px 24px}
+.cflow-cap{font-size:14px;font-weight:700;color:#fff;margin:0 0 16px;letter-spacing:-.01em}
+.cflow-cap span{font-weight:500;color:var(--muted)}
+.cflow-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.cflow-step{position:relative;display:flex;flex-direction:column;gap:3px;padding:12px 14px 12px 18px;border-radius:12px;
+  background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.cflow-step::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;background:var(--sc)}
+.cflow-step+.cflow-step::after{content:"";position:absolute;left:24px;top:-13px;height:12px;width:1px;background:var(--line2)}
+.cflow-k{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sc)}
+.cflow-v{font-size:15px;line-height:1.45;color:var(--ink2)}
 .term-bar{position:relative;display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);
   background:rgba(255,255,255,.018)}
 .tdot{width:11px;height:11px;border-radius:50%;display:block}
@@ -436,7 +440,7 @@ html.js .flow.vis .fstep{opacity:1;transform:none;transition-delay:calc(var(--i)
   background:conic-gradient(from 0deg at 50% 50%,transparent,rgba(124,77,255,.18),transparent 30%);animation:spin 14s linear infinite;opacity:.7}
 @keyframes spin{to{transform:rotate(360deg)}}
 .cta>*{position:relative}
-.cta .prompt{font-family:var(--mono);font-size:13px;color:var(--violet-l);margin-bottom:18px}
+.cta .prompt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-l);margin-bottom:18px}
 .cta h2{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:0 0 14px;color:#fff}
 .cta p{font-size:1.05rem;font-weight:500;color:var(--ink2);margin:0 auto 32px;max-width:32ch}
 .cta .stats{margin:clamp(34px,5vh,54px) auto clamp(28px,4vh,44px)}
@@ -468,7 +472,6 @@ footer{padding-bottom:96px}
 
 /* ── mobile refinements (v6.1 polish) ── */
 @media(max-width:560px){
-  #heroTerm{animation:none}                 /* steadier centerpiece on phones */
   .hero{padding-top:118px;padding-bottom:60px}
   .sec{padding:62px 0}                       /* tighter vertical rhythm */
   .band{padding-top:26px}
@@ -482,12 +485,18 @@ footer{padding-bottom:96px}
   .hero h1{font-size:clamp(2.7rem,11.5vw,3.2rem)}
   .hero .sub{font-size:1.04rem}
 }
+/* short phones: keep the hero "Book a call" clear of the cookie banner */
+@media(max-width:520px) and (max-height:700px){
+  .hero{padding-top:84px}
+  .status-pill{margin-bottom:14px}
+  .hero h1{font-size:2.2rem;margin-bottom:12px}
+  .hero .sub{font-size:.94rem;margin-bottom:16px}
+}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.001ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
   html.js .rv{opacity:1;transform:none}
   html.js .flow .fstep{opacity:1;transform:none}
-  .live::after{display:none}
 }
 /* ===== SEE IT IN ACTION — demo showcase ===== */
 .showcase .sc-wrap{max-width:1040px;margin:0 auto}
@@ -862,7 +871,7 @@ footer{padding-bottom:96px}
     <a href="/agents.html">What&rsquo;s included</a>
     <a href="/why-efficio.html">Why Efficio</a>
   </div>
-  <a href="/find-your-tier.html" class="btn-primary">Get started <span class="arr">&rarr;</span></a>
+  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 <script>
   /* mobile nav menu — additive hamburger (<=820px). Clones the page's own nav
@@ -935,29 +944,48 @@ footer{padding-bottom:96px}
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="status-pill"><span class="live"></span>AI front office &middot; for any small business</div>
+      <div class="status-pill">AI front office &middot; for any small business</div>
       <h1>Every call answered. <span class="grad">More jobs booked.</span></h1>
-      <p class="sub">Efficio installs and runs an AI front office for your small business. It answers the calls you miss, books them into your calendar, follows up, and shows the results on a live dashboard in your own Efficio account. Built on HighLevel. Installed and run by a licensed engineer.</p>
+      <p class="sub">An AI receptionist that answers the calls you miss, books them into your calendar, follows up, and shows every result on a live dashboard. Installed and run by Brady, a licensed engineer.</p>
       <div class="hero-cta"><a class="btn-primary lg" href="/book.html"><span>Book a call</span><span class="arr">→</span></a><a class="btn-outline lg" href="/pricing.html"><span>See pricing</span><span class="arr">→</span></a></div>
       <div class="guarantee">
         <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
         <span class="gtxt">
-          <span class="gt">Live in 7 business days, or your setup fee back.</span>
-          <span class="gm">From $1,500/mo + $500 setup &middot; month-to-month &middot; <a href="/refund.html" style="color:inherit;text-decoration:underline">conditions</a></span>
+          <span class="gt">Live in 7 business days or your $500 setup back &middot; From $1,500/mo &middot; month-to-month</span>
+          <span class="gm"><a href="/refund.html" style="color:inherit;text-decoration:underline">Conditions</a> &middot; <a href="/pricing.html" style="color:inherit;text-decoration:underline">all plans</a></span>
         </span>
       </div>
     </div>
-    <div class="term" id="heroTerm">
-      <div class="term-bar">
-        <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-        <span class="term-title">efficio — sample setup (illustration)</span>
-        <span class="term-stat" id="heroStat"><span class="pulse"></span>setting up</span>
-      </div>
-      <div class="term-prog"><i id="heroProg"></i></div>
-      <div class="term-body" id="termBody"></div>
-    </div>
+    <figure class="term cflow" id="heroFlow">
+      <figcaption class="cflow-cap">What happens to a call you miss <span>(example)</span></figcaption>
+      <ol class="cflow-list">
+        <li class="cflow-step" style="--sc:var(--amber)"><span class="cflow-k">Missed call</span><span class="cflow-v">7:42 PM</span></li>
+        <li class="cflow-step" style="--sc:var(--violet-l)"><span class="cflow-k">AI answers</span><span class="cflow-v">&ldquo;Hi, you&rsquo;ve reached [Business]&rsquo;s AI assistant. This call is recorded.&rdquo;</span></li>
+        <li class="cflow-step" style="--sc:var(--cyan)"><span class="cflow-k">Booked</span><span class="cflow-v">Thu 10:00 AM, on your calendar</span></li>
+        <li class="cflow-step" style="--sc:var(--green)"><span class="cflow-k">On your dashboard</span><span class="cflow-v">The call, the booking and the follow-up</span></li>
+      </ol>
+    </figure>
   </div>
 </header>
+<!-- FIRST-THREE OFFER (directly below the hero) -->
+<style id="early-x">
+#early{padding:clamp(40px,6vh,72px) 0;position:relative}
+#early .early-card{max-width:640px;margin:0 auto;text-align:center;padding:clamp(26px,3.8vw,40px);border-radius:var(--r2);
+  background:linear-gradient(165deg,rgba(124,77,255,.06),rgba(13,13,23,.55));border:1px solid rgba(124,77,255,.28);box-shadow:var(--soft)}
+#early .early-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+#early .early-eyebrow .pip{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
+#early h2{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.2;margin:0 0 12px}
+#early p{font-size:15px;color:var(--ink2);line-height:1.6;margin:0 auto;max-width:46ch}
+#early p b{color:#fff;font-weight:700}
+</style>
+<section id="early" class="rv">
+  <div class="wrap">
+    <div class="early-card">
+      <div class="early-eyebrow"><span class="pip"></span>Our first three clients</div>
+      <p>Our first three clients get their monthly price <b>locked for 12 months</b> in exchange for a 20-minute results review at day 30.</p>
+    </div>
+  </div>
+</section>
 <section id="how-it-connects" class="mcp-section" style="padding:80px 0;background:linear-gradient(180deg,rgba(124,77,255,0.03),transparent)">
   <div class="wrap">
     <h2 style="font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 16px">Keep your number. Forward the calls you miss.</h2>
@@ -1273,7 +1301,7 @@ footer{padding-bottom:96px}
               <svg viewBox="0 0 360 240" aria-hidden="true">
                 <rect x="24" y="18" width="312" height="128" rx="12" fill="rgba(6,6,11,.74)" stroke="rgba(255,255,255,.14)"/>
                 <g font-size="10.5">
-                  <text class="d-line" x="42" y="44" fill="#c9c7da"><tspan fill="#ecc06a">$</tspan> efficio qa --front-office</text>
+                  <text class="d-line" x="42" y="44" fill="#c9c7da">Front office test checklist</text>
                   <text class="d-line" x="42" y="64" fill="#76768e">test calls: after-hours &middot; booking &middot; transfer</text>
                   <text class="d-line" x="42" y="84" fill="#76768e">chat &middot; opt-out (STOP) test</text>
                 </g>
@@ -1292,7 +1320,7 @@ footer{padding-bottom:96px}
                 <g transform="translate(170,184)">
                   <rect x="0" y="0" width="142" height="26" rx="13" fill="rgba(86,216,160,.12)" stroke="#56d8a0" stroke-width="1"/>
                   <g transform="translate(17,13)"><circle r="8.5" fill="#0b0b13" stroke="#56d8a0" stroke-width="1.2"/><path class="d-check" style="--dl:16" d="M-3.5 0l2.5 2.5 5-6" fill="none" stroke="#56d8a0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
-                  <text x="38" y="17" fill="#56d8a0" font-size="11" font-weight="700">LIVE &middot; online</text>
+                  <text x="38" y="17" fill="#56d8a0" font-size="11" font-weight="700">EXAMPLE &middot; live</text>
                 </g>
               </svg>
             </div>
@@ -1308,13 +1336,13 @@ footer{padding-bottom:96px}
             <div class="hiw-art">
               <div class="hiw-dash" aria-hidden="true">
                 <div class="hd-stats">
-                  <div class="hd-stat" style="--sc:#9a7bff"><span class="hd-k">calls answered</span><span class="hd-v"><b data-to="38">38</b></span><span class="hd-d">this week</span></div>
-                  <div class="hd-stat" style="--sc:#5cc8ff"><span class="hd-k">bookings</span><span class="hd-v"><b data-to="9">9</b></span><span class="hd-d">this week</span></div>
-                  <div class="hd-stat" style="--sc:#56d8a0"><span class="hd-k">reviews requested</span><span class="hd-v"><b data-to="6">6</b></span><span class="hd-d">this week</span></div>
+                  <div class="hd-stat" style="--sc:#9a7bff"><span class="hd-k">calls answered</span><span class="hd-v"><b data-to="38">38</b></span><span class="hd-d">sample week</span></div>
+                  <div class="hd-stat" style="--sc:#5cc8ff"><span class="hd-k">bookings</span><span class="hd-v"><b data-to="9">9</b></span><span class="hd-d">sample week</span></div>
+                  <div class="hd-stat" style="--sc:#56d8a0"><span class="hd-k">reviews requested</span><span class="hd-v"><b data-to="6">6</b></span><span class="hd-d">sample week</span></div>
                 </div>
                 <div class="hd-main">
                   <div class="hd-chart">
-                    <div class="hd-chrow"><span class="ck">calls answered</span><span class="cw">this week</span></div>
+                    <div class="hd-chrow"><span class="ck">calls answered</span><span class="cw">sample data</span></div>
                     <svg viewBox="0 0 300 92" preserveAspectRatio="none">
                       <defs><linearGradient id="hdArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#56d8a0" stop-opacity=".34"/><stop offset="100%" stop-color="#56d8a0" stop-opacity="0"/></linearGradient></defs>
                       <g stroke="rgba(255,255,255,.06)" stroke-width="1"><line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="60" x2="300" y2="60"/></g>
@@ -1818,34 +1846,13 @@ footer{padding-bottom:96px}
       </details>
     </div>
 
-    <p class="faq-foot rv">Still have a question? <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a> &mdash; or <a href="/find-your-tier.html">find your plan</a> in 60 seconds.</p>
-  </div>
-</section>
-
-<!-- HONEST SCARCITY: first-5-customers phase (in lieu of testimonials) -->
-<style id="early-x">
-#early{padding:clamp(40px,6vh,72px) 0;position:relative}
-#early .early-card{max-width:640px;margin:0 auto;text-align:center;padding:clamp(26px,3.8vw,40px);border-radius:var(--r2);
-  background:linear-gradient(165deg,rgba(124,77,255,.06),rgba(13,13,23,.55));border:1px solid rgba(124,77,255,.28);box-shadow:var(--soft)}
-#early .early-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
-#early .early-eyebrow .pip{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
-#early h2{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.2;margin:0 0 12px}
-#early p{font-size:15px;color:var(--ink2);line-height:1.6;margin:0 auto;max-width:46ch}
-#early p b{color:#fff;font-weight:700}
-</style>
-<section id="early" class="rv">
-  <div class="wrap">
-    <div class="early-card">
-      <div class="early-eyebrow"><span class="pip"></span>Testimonials &mdash; coming soon</div>
-      <h2>We&rsquo;re signing our first clients.</h2>
-      <p>No client quotes or results on this page yet; we&rsquo;d rather earn them than write them. Our first three clients get the monthly price <b>locked for 12 months</b> in exchange for a day-30 results review and, only with written approval, permission to publish their real numbers.</p>
-    </div>
+    <p class="faq-foot rv">Still have a question? <a href="/book.html">Book a call</a> &mdash; or <a href="/find-your-tier.html">find your plan</a> in 60 seconds.</p>
   </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="cta rv">
-  <div class="prompt">$ efficio front-office --live<span class="cur"></span></div>
+  <div class="prompt">Talk to Brady</div>
   <h2>See if it fits.</h2>
   <div class="stats cta-stats">
     <div class="stat"><div class="n">7</div><div class="l">business days to live</div></div>
@@ -1867,11 +1874,11 @@ footer{padding-bottom:96px}
       </div>
       <div class="fcol"><h5>Product</h5>
         <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">What&rsquo;s included</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Savings calculator</a>
+        <a href="/agents.html">What&rsquo;s included</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Missed-calls calculator</a>
       </div>
       <div class="fcol"><h5>Company</h5>
         <a href="/why-efficio.html">Why Efficio</a><a href="/resources/">Resources</a><a href="/find-your-tier.html">Find your plan</a>
-        <a href="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv">Book a call</a><a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>
+        <a href="/book.html">Book a call</a><a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
         <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/sms-opt-in.html">Text updates</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
@@ -1917,93 +1924,6 @@ footer{padding-bottom:96px}
     });
   }
 
-  /* terminal engine (supports raw-HTML highlighted lines) */
-  function Terminal(el, frames, opt){
-    opt = opt || {};
-    var loop = opt.loop !== false, pauseEnd = opt.pauseEnd || 2800, speed = opt.speed || 22;
-    function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-    function addLine(cls, html){var d=document.createElement('div');d.className='ln'+(cls?(' '+cls):'');d.innerHTML=html;el.appendChild(d);el.scrollTop=el.scrollHeight;return d;}
-    function cursor(node){var c=document.createElement('span');c.className='cur';node.appendChild(c);return c;}
-    function run(){
-      el.innerHTML=''; var i=0;
-      function next(){
-        if(i>=frames.length){ if(loop){ setTimeout(run, pauseEnd); } return; }
-        var f=frames[i++];
-        if(f.do){ f.do(); }
-        if(f.t==='sp'){ addLine('','&nbsp;'); setTimeout(next, 110); return; }
-        if(f.t==='p'){
-          var line=addLine('pr',''); var cur=cursor(line); var txt=f.s, k=0;
-          (function tick(){
-            if(k<=txt.length){ line.textContent=txt.slice(0,k); line.appendChild(cur); k++; setTimeout(tick, speed); }
-            else { line.appendChild(cur); setTimeout(function(){ if(cur.parentNode)cur.parentNode.removeChild(cur); next(); }, f.after||320); }
-          })();
-          return;
-        }
-        addLine(f.c||'', f.html ? f.s : esc(f.s));
-        setTimeout(next, f.after||(reduce?50:200));
-      }
-      next();
-    }
-    return {run:run};
-  }
-
-  /* hero session: provision -> connect -> operate, with status + progress */
-  var heroStat=document.getElementById('heroStat'), heroProg=document.getElementById('heroProg');
-  function setStat(el,txt,color){ if(!el) return;
-    var lbl=el.querySelector('.lbl');
-    if(!lbl){ el.innerHTML='<span class="pulse"></span><span class="lbl">'+txt+'</span>'; if(color) el.style.color=color; return; }
-    if(reduce){ lbl.textContent=txt; if(color) el.style.color=color; return; }
-    lbl.style.opacity='0';
-    setTimeout(function(){ lbl.textContent=txt; if(color) el.style.color=color; lbl.style.opacity='1'; }, 190);
-  }
-  function prog(p){ if(heroProg) heroProg.style.width=p+'%'; }
-
-  var heroFrames=[
-    {t:'p', s:'efficio setup --front-office', do:function(){setStat(heroStat,'setting up','var(--violet-l)');prog(8);}},
-    {t:'o', c:'cm',  s:'# kickoff: hours, services, FAQs, transfer number', after:260},
-    {t:'o', c:'ok',  s:'✓ Efficio account created (built on HighLevel)', do:function(){prog(22);}},
-    {t:'o', c:'dim', s:'connecting...', do:function(){setStat(heroStat,'connecting','var(--cyan)');}},
-    {t:'o', c:'ar',  s:'→ local number     ready', do:function(){prog(38);}},
-    {t:'o', c:'ar',  s:'→ call forwarding  on', do:function(){prog(52);}},
-    {t:'o', c:'ar',  s:'→ google calendar  connected', do:function(){prog(66);}},
-    {t:'o', c:'ar',  s:'→ website chat     installed', do:function(){prog(80);}},
-    {t:'o', c:'ok',  s:'✓ receptionist live · AI + recording disclosure on', after:480, do:function(){prog(100);setStat(heroStat,'live','var(--green)');}},
-    {t:'sp'},
-    {t:'p', s:'# after-hours call · (305) 555-0148'},
-    {t:'o', c:'ar',  s:'→ "Hi, you\u2019ve reached our AI assistant..."'},
-    {t:'o', c:'ar',  s:'→ booked · Thu 10:00 AM · on your calendar'},
-    {t:'o', c:'ok',  s:'✓ confirmation sent · logged to your dashboard', after:480},
-    {t:'sp'},
-    {t:'o', c:'lv',  s:'● sample session · illustration'}
-  ];
-
-
-  /* Reveal a panel's scroll-reveal (.rv) ancestor so the container is never left invisible. */
-  function revealPanel(el){ var r=el.closest('.rv'); if(r) r.classList.add('vis'); }
-  /* Seed the hero terminal with visible lines immediately, so it is NEVER blank
-     (even before the animation starts or if IntersectionObserver never fires). */
-  function seedTerm(el){
-    el.innerHTML='<div class="ln pr">efficio setup --front-office</div>'+
-      '<div class="ln cm"># kickoff: hours, services, FAQs, transfer number</div>'+
-      '<div class="ln ok">\u2713 Efficio account created (built on HighLevel)</div>'+
-      '<div class="ln ar">\u2192 local number     ready</div>'+
-      '<div class="ln ar">\u2192 call forwarding  on</div>';
-  }
-  function startOnView(elId, maker, seed){
-    var el=document.getElementById(elId); if(!el) return;
-    revealPanel(el);                 /* container visible right away */
-    if(seed){ seed(el); }            /* paint visible content right away — never blank */
-    var term=maker(el), started=false;
-    function go(){ if(started) return; started=true; revealPanel(el); term.run(); }
-    if(reduce){ go(); return; }
-    /* Start when the panel scrolls into view (nice effect)... */
-    var obs=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ go(); obs.disconnect(); }});},{threshold:.12, rootMargin:'0px 0px -6% 0px'});
-    obs.observe(el.closest('.term')||el);
-    /* ...but NEVER depend on it alone: a load fallback guarantees the animation runs
-       (fixes blank above-the-fold / mobile panels where IO may not fire). */
-    setTimeout(go, 900);
-  }
-  startOnView('termBody', function(el){ return Terminal(el, heroFrames, {loop:true, pauseEnd:3600, speed:20}); }, seedTerm);
 
   /* chat sequential reveal */
   (function(){

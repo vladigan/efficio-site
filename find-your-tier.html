@@ -298,13 +298,13 @@
           <p class="rnote">This is a <b>recommendation, not a quote.</b> On the call we confirm which plan fits, or tell you honestly if none does.</p>
 
           <!-- OPTIONAL, skippable follow-up request, shown AFTER the result. Email required; mobile and the two consent boxes optional. -->
-          <div class="rcap" id="rCap" aria-label="Optional: ask Brady to follow up">
+          <div class="rcap" id="rCap" aria-label="Optional: ask us to follow up">
             <form id="rCapForm" novalidate>
               <div class="rcap-top">
-                <div class="rcap-h">// optional &middot; want Brady to follow up?</div>
+                <div class="rcap-h">// optional &middot; want us to follow up?</div>
                 <button type="button" class="rcap-skip" id="rCapSkip">Maybe later</button>
               </div>
-              <p class="rcap-lead">Leave your email and Brady will follow up personally about your result. Totally optional; your result is already shown above.</p>
+              <p class="rcap-lead">Leave your email and we will follow up personally about your result. Totally optional; your result is already shown above.</p>
               <div class="rcap-row">
                 <input id="rCapName" name="name" type="text" autocomplete="name" required placeholder="Your name" aria-label="Your name"/>
                 <input id="rCapCompany" name="company" type="text" autocomplete="organization" required placeholder="Company name" aria-label="Your company"/>
@@ -326,12 +326,12 @@
               <div class="rcap-send">
                 <button type="submit" class="btn-outline" id="rCapSubmit">Send <span class="arr">&rarr;</span></button>
               </div>
-              <p class="rcap-fine">Brady replies by email. Your mobile number is used only for the texts or calls in a box you tick above; both boxes are optional. <a href="/privacy.html#sms">Privacy</a>.</p>
+              <p class="rcap-fine">We reply by email. Your mobile number is used only for the texts or calls in a box you tick above; both boxes are optional. <a href="/privacy.html#sms">Privacy</a>.</p>
               <p class="rcap-err" id="rCapErr" hidden>Couldn't send just now &mdash; you can also email <a href="mailto:brady@efficio.tech">brady@efficio.tech</a>.</p>
             </form>
             <div class="rcap-done" id="rCapDone" role="status" hidden>
               <span class="rcap-dck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
-              <div><b>Got it.</b> Brady will follow up by email.</div>
+              <div><b>Got it.</b> We will follow up by email.</div>
             </div>
           </div>
 
@@ -357,7 +357,7 @@
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Every app, every AI agent, one CEO dashboard for small businesses. Built on HighLevel. Designed, built and run by Brady Gay.</p>
+        <p>Every app, every AI agent, one CEO dashboard for small businesses. Built on HighLevel. Run by your own fractional CTO.</p>
       </div>
       <div class="fcol"><h5>Efficio</h5><a href="/#demo">Live demo</a><a href="/#cto">Your CTO</a><a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a></div>
       <div class="fcol"><h5>More</h5><a href="/blog/">Blog</a><a href="/resources/">Resources</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a></div>
@@ -391,7 +391,7 @@
   /* ---- plan reference data (matches pricing.html) ---- */
   var TIERS = {
     operator: {name:'AI Operator', price:'$1,500', per:' /mo', setup:'+ $500 one-time setup &middot; month-to-month', tag:'The AI front office, installed and tuned every month.',
-      get:['<b>AI voice receptionist</b> for inbound calls, 1,000 minutes a month','AI website chat','Booking confirmations, reminders and a no-show rebook email','Missed-call text-back once your texting registration is approved','Review requests after completed appointments','Live dashboard and a weekly results email','2 hours a month of hands-on tuning by Brady','One new automation a month from a set menu','Monthly review call']},
+      get:['<b>AI voice receptionist</b> for inbound calls, 1,000 minutes a month','AI website chat','Booking confirmations, reminders and a no-show rebook email','Missed-call text-back once your texting registration is approved','Review requests after completed appointments','Live dashboard and a weekly results email','2 hours a month of hands-on tuning by your CTO','One new automation a month from a set menu','Monthly review call']},
     founding: {name:'Founding CTO', price:'$2,500', per:' /mo', setup:'+ $500 one-time setup &middot; month-to-month', tag:'Everything in AI Operator, plus custom AI built for you.',
       get:['<b>Everything in AI Operator</b>','A custom AI agent built for your business, for example quote, intake or triage','A custom dashboard over your live data, with read-only &ldquo;Ask Efficio&rdquo;','A call every two weeks']},
     custom: {name:'Full Custom CTO', price:'$3,500', per:' /mo', setup:'+ $500 one-time setup &middot; month-to-month', tag:'Everything in Founding CTO, plus ongoing engineering.',
@@ -651,7 +651,7 @@
 
   /* ---- optional post-result follow-up request (email; optional mobile + consent boxes A/B) ----
      Sent to the efficio-chat Worker. Success is shown only when the Worker
-     answers 2xx; otherwise the visitor sees the error line with Brady's email. */
+     answers 2xx; otherwise the visitor sees the error line with the contact email. */
   var CAP_ENDPOINT = 'https://efficio-chat.bgay3500.workers.dev/quiz';
   var lastResultKey = null;
 
@@ -793,7 +793,7 @@
 </script>
 <script src="/assets/contact-consent.js?v=20260927" defer></script>
 <script src="/assets/v6.js?v=20260927" defer></script>
-<script src="/assets/consent.js?v=20260927" defer></script>
+<script src="/assets/consent.js?v=20260929" defer></script>
 <script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
 </body>
 </html>

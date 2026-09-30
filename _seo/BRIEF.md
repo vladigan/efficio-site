@@ -7,7 +7,7 @@ what the page is supposed to sell. **Edit this file whenever the offer, pricing 
 
 Efficio (efficio.tech) is an **AI front office / AI team for any small business**. It answers the calls
 a business misses, books them, follows up, and shows results on a live dashboard, all inside the
-client's own account (built on HighLevel). It is installed and run by Brady, a licensed engineer.
+client's own account (built on HighLevel). It is installed and run by Efficio.
 The customer does no technical setup.
 
 ## The offer (keep in sync with pricing.html)

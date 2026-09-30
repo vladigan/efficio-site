@@ -51,7 +51,7 @@ One file. ~1,200 lines. All assets via CDN (Three.js r128, GSAP 3.12, Google Fon
 Open `v2.html` and `index.html` in two tabs. Decide:
 
 - Does v2 feel more "Apple product page / Linear / Stripe Sessions"?
-- Does the headline still read as Brady (operator voice) vs. AI-slop?
+- Does the headline still read as the operator (operator voice) vs. AI-slop?
 - Does the live demo embed answer "is this real?" the way you wanted?
 - Does the pricing strip read the same way it did on the audit landing?
 

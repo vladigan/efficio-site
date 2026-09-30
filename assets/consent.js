@@ -201,7 +201,7 @@
     ph = document.createElement('div');
     ph.className = 'ck-embed';
     ph.innerHTML =
-      '<h2>Pick a time with Brady</h2>' +
+      '<h2>Pick a time</h2>' +
       '<p>The scheduler is hosted by HighLevel and sets its own cookies, which may include advertising cookies. ' +
       '<a href="/privacy.html#cookies">Details</a></p>' +
       '<button type="button">Show available times</button>' +

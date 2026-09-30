@@ -81,7 +81,7 @@ If you want to cap: add `CHAT_DAILY_BUDGET_USD` logic in `chat.js` (function) la
 ## What the bot will NOT do
 
 - Won't quote prices it doesn't know (system prompt locks to AI Operator $1,500 / Founding CTO $2,500 / Full Custom CTO $3,500 per month, each + $500 setup)
-- Won't pretend to be Brady — says "I'm Efficio's AI assistant"
+- Won't pretend to be a person — says "I'm Efficio's AI assistant"
 - Won't give legal/medical/financial advice — redirects politely
 - Won't make promises about specific integrations — says "the discovery call is where we map exactly what we'd build"
 - Won't auto-book a call — just points to efficio.tech/book.html

@@ -11,7 +11,7 @@ It is delivered as a **patch + activation steps** rather than a live edit becaus
    repo, **not** under git), and its `wrangler.toml` says *"DO NOT `wrangler deploy`
    without explicit approval — this is LIVE infra."*
 2. **The required GHL credential is not present anywhere in the repo, `.env`, or the
-   Worker secrets.** Per the build rules, secrets are never hardcoded and Brady is
+   Worker secrets.** Per the build rules, secrets are never hardcoded and the owner is
    never asked to paste keys into code — so Part B stops here, fully specified, and
    the website half (Part A) shipped independently.
 
@@ -49,7 +49,7 @@ and have the Zap do Contact + Opportunity create in GHL. Same `GHL_WEBHOOK_URL`.
 ```bash
 cd Efficio/cloudflare-chat
 npx wrangler secret put GHL_WEBHOOK_URL      # paste the URL from above
-npx wrangler deploy                          # LIVE infra — deploy only with Brady's OK
+npx wrangler deploy                          # LIVE infra — deploy only with the owner's OK
 ```
 Until `GHL_WEBHOOK_URL` is set, the new code is **completely dormant** (no-op,
 exactly like the gated pixels in `assets/pixels.js`) — KV persistence is unchanged.

@@ -6,17 +6,17 @@
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js?v=20260927" defer></script>
 <title>Efficio — Every app, every agent, one CEO dashboard</title>
-<meta name="description" content="Every app, every AI agent, one CEO dashboard. Efficio plugs everything a small business uses into one dashboard on HighLevel, builds the agents and automations it needs, and runs it all as your fractional CTO. Try the live demo. From $1,500/mo + $500 setup." />
+<meta name="description" content="Every app, every AI agent, one CEO dashboard, for any small business. Efficio plugs everything you use into one dashboard on HighLevel, builds the agents and automations you need, and runs it all as your fractional CTO. Try the live demo. From $1,500/mo + $500 setup." />
 <link rel="canonical" href="https://efficio.tech/"/>
 <meta property="og:title" content="Efficio — Every app, every agent, one CEO dashboard"/>
-<meta property="og:description" content="Every app you use and every AI agent, live on one CEO dashboard. Built on HighLevel, run by your own CTO."/>
+<meta property="og:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any small business. Built on HighLevel, run by your own CTO."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Efficio — Every app, every agent, one CEO dashboard"/>
-<meta name="twitter:description" content="Every app you use and every AI agent, live on one CEO dashboard. Built on HighLevel, run by your own CTO."/>
+<meta name="twitter:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any small business. Built on HighLevel, run by your own CTO."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -869,7 +869,7 @@ footer{padding-bottom:96px}
     <a href="#cto">Your CTO</a>
     <a href="#pricing">Pricing</a>
   </div>
-  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
+  <a href="#book" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
 </div></nav>
 <script>
   /* mobile nav menu — additive hamburger (<=820px). Clones the page's own nav
@@ -1333,6 +1333,169 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 }
 @media(prefers-reduced-motion:reduce){.x5-dot,.x5-st.working::before,.e6-m .cur{animation:none}.e6-feed li,.e6-rec li,.e6-view,.e6-m{animation:none}.e6-rpath{stroke-dashoffset:0;transition:none}}
 </style>
+<style id="e7">
+/* ═══ 2026-09-29 v7: rolling app strip, any-industry demo, robot agents, live terminals, calendar on the page ═══ */
+@property --e7a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes e7spin{to{--e7a:360deg}}
+.e7-ring{position:relative}
+.e7-ring::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:40;
+  background:conic-gradient(from var(--e7a),transparent 0 60%,rgba(154,123,255,.95) 72%,rgba(92,200,255,.95) 82%,rgba(86,216,160,.85) 89%,transparent 96%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:e7spin 7s linear infinite}
+.e7-cur{display:inline-block;width:7px;height:1.05em;background:var(--violet-l);vertical-align:-2px;margin-left:1px;animation:x5blink 1s steps(1) infinite}
+@keyframes e7live{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* hero: shimmering headline, data flowing into the terminal, a deploy script on loop */
+.e6-hero{position:relative;overflow:hidden}
+.e7-flow{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.e6-hero .e6-hg{position:relative;z-index:1}
+.e6-hero h1 .grad{background-image:linear-gradient(100deg,#fff 0%,var(--violet-xl) 20%,var(--violet-l) 38%,var(--cyan) 54%,var(--violet-xl) 72%,#fff 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:e7shine 8s linear infinite}
+@keyframes e7shine{to{background-position:-220% center}}
+.e6-boot .x4-code{min-height:268px;transition:opacity .4s var(--ease2)}
+.e6-boot .x4-code.e7-fade{opacity:.25}
+@media(max-width:560px){.e6-boot .x4-code{min-height:214px}}
+
+/* rolling strip of the apps we connect */
+.e7-apps{position:relative;padding:10px 0 4px}
+.e7-apps .cap{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center;margin:0 auto 14px;padding:0 20px}
+.e7-apps .cap b{color:#fff;font-weight:500}
+.e7-row{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.e7-row+.e7-row{margin-top:10px}
+.e7-track{display:flex;width:max-content;animation:e7m var(--dur,80s) linear infinite}
+.e7-row.rev .e7-track{animation-direction:reverse}
+.e7-row:hover .e7-track{animation-play-state:paused}
+.e7-grp{display:flex;gap:10px;padding-right:10px;flex:none}
+@keyframes e7m{to{transform:translateX(-50%)}}
+.e7-app{display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 6px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.028);font-size:13px;font-weight:600;color:var(--ink2);white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+.e7-app:hover{border-color:color-mix(in srgb,var(--k) 60%,transparent);color:#fff;background:color-mix(in srgb,var(--k) 10%,transparent)}
+.e7-app .lv{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:e7live 2.4s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.e7-app.more{border-style:dashed;border-color:rgba(154,123,255,.55);color:var(--violet-xl)}
+.e7-ic{--k:var(--violet-l);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#0a0a12;flex:none;
+  background:linear-gradient(145deg,var(--k),color-mix(in srgb,var(--k) 52%,#000));box-shadow:0 6px 16px -8px var(--k),inset 0 1px 0 rgba(255,255,255,.35)}
+.e7-ic svg.i{width:14px;height:14px;stroke-width:2.1}
+.e7-ic.sm{width:18px;height:18px;border-radius:6px}
+.e7-ic.sm svg.i{width:10px;height:10px;stroke-width:2.4}
+.e7-apps .tm{font-family:var(--mono);font-size:10px;color:var(--muted2);text-align:center;margin:12px 0 0;padding:0 20px}
+
+/* pipes: every app flows into one dashboard */
+.e7-pipes{position:relative;max-width:1100px;margin:14px auto -4px;padding:0 20px}
+.e7-pl{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;position:relative;z-index:1}
+.e7-pl span{justify-self:center;font-family:var(--mono);font-size:10.5px;color:var(--ink2);padding:3px 9px;border:1px solid var(--line2);border-radius:999px;background:rgba(10,10,18,.9);white-space:nowrap;transition:border-color .3s,color .3s,box-shadow .3s,background .3s}
+.e7-pl span.on{border-color:rgba(86,216,160,.75);color:#fff;background:rgba(86,216,160,.12);box-shadow:0 0 18px -4px rgba(86,216,160,.85)}
+.e7-pipes svg{display:block;width:100%;height:auto;overflow:visible;margin-top:-2px}
+.e7-pipes path{fill:none;stroke-width:1.5}
+.e7-pipes .base path{stroke:rgba(154,123,255,.16)}
+.e7-pipes .flow path{stroke:url(#e7pg);stroke-dasharray:3 11;animation:e7dash 1.1s linear infinite}
+.e7-pipes .flow path.on{stroke:#56d8a0;stroke-width:2.6;stroke-dasharray:6 8}
+.e7-pipes .hub{fill:#56d8a0;filter:drop-shadow(0 0 6px rgba(86,216,160,.9));transform-box:fill-box;transform-origin:center;animation:e7dot 1.6s ease-in-out infinite}
+@keyframes e7dash{to{stroke-dashoffset:-14}}
+@media(max-width:760px){.e7-pl span:nth-child(even){visibility:hidden}}
+@media(max-width:560px){.e7-pl{display:none}.e7-pipes{margin-top:6px}}
+
+/* try it as: any kind of business */
+.e7-ind{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:16px auto 0;max-width:720px}
+.e7-ind .lb{flex-basis:100%;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 2px;white-space:nowrap}
+.e7-ind button{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink2);padding:6px 12px;border:1px solid var(--line2);border-radius:999px;background:rgba(255,255,255,.03);transition:color .2s,border-color .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.e7-ind button:hover{color:#fff;border-color:rgba(154,123,255,.6)}
+.e7-ind button[aria-pressed="true"]{color:#fff;border-color:var(--violet-l);background:rgba(124,77,255,.25);box-shadow:0 0 22px -6px rgba(124,77,255,.9)}
+.e7-ind button:focus-visible{outline:2px solid var(--violet-l);outline-offset:2px}
+@media(max-width:700px){.e7-ind .lb{flex-basis:auto;margin:0 4px 0 0}.e7-ind{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:2px 16px 6px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}.e7-ind::-webkit-scrollbar{display:none}}
+
+/* robot agents */
+.e7-bw{--s:28px;position:relative;display:inline-block;width:var(--s);height:var(--s);flex:none;color:var(--ac)}
+.e7-bw.lg{--s:46px}
+.e7-bw.e7-xs{--s:15px;vertical-align:-3px;margin-right:5px}
+.e7-bot{display:block;width:100%;height:100%;overflow:visible}
+.e7-bot .bw{stroke:var(--ac);stroke-width:2.4;stroke-linecap:round;opacity:.65}
+.e7-bot .bear{fill:var(--ac);opacity:.45}
+.e7-bot .bhead{fill:var(--ac);fill-opacity:.24;stroke:var(--ac);stroke-opacity:.9;stroke-width:1.8}
+.e7-bw:not(.e7-xs) .e7-bot{filter:drop-shadow(0 0 5px color-mix(in srgb,var(--ac) 55%,transparent))}
+.e7-bot .bvisor{fill:#0a0a12;stroke:var(--ac);stroke-opacity:.25;stroke-width:1}
+.e7-bot .bdot{fill:var(--ac);transform-box:fill-box;transform-origin:center;animation:e7dot 2.6s ease-in-out infinite}
+.e7-bot .beye{fill:var(--ac);transform-box:fill-box;transform-origin:center;animation:e7blink 4.4s infinite;animation-delay:var(--bd,0s)}
+.e7-bot .beyes{animation:e7look 7s ease-in-out infinite;animation-delay:var(--bd,0s)}
+.e7-bot .bsmile{fill:none;stroke:var(--ac);stroke-width:2;stroke-linecap:round;opacity:.8}
+.e7-bot .bb{transform-origin:50% 90%}
+.is-working .e7-bot .bb{animation:e7bob .9s ease-in-out infinite}
+.is-working .e7-bot .bdot{animation-duration:.7s}
+.is-paused .e7-bot{filter:grayscale(1);opacity:.55}
+.is-paused .e7-bot .beye{animation:none;transform:scaleY(.15)}
+.is-paused .e7-bot .beyes,.is-paused .e7-bot .bdot{animation:none}
+@keyframes e7blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+@keyframes e7dot{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes e7look{0%,38%,100%{transform:translateX(0)}46%,56%{transform:translateX(-2.6px)}64%,74%{transform:translateX(2.6px)}}
+@keyframes e7bob{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-1.6px) rotate(-3deg)}70%{transform:translateY(-.6px) rotate(3deg)}}
+.e7-bw .bdg{position:absolute;right:-5px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:var(--ac);display:grid;place-items:center;box-shadow:0 0 0 3px #0c0c16}
+.e7-bw .bdg svg.i{width:11px;height:11px;color:#0a0a12;stroke-width:2.4}
+.e7-mv{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:5px;font-family:var(--mono);font-size:8.5px;font-weight:800;color:#0a0a12;background:var(--ac);vertical-align:-2px;margin-right:5px}
+.e6-uses span{padding:3px 10px 3px 4px}
+
+/* app tiles look like apps */
+.e6-tile .ic{color:#0a0a12;background:linear-gradient(145deg,var(--k,var(--violet-l)),color-mix(in srgb,var(--k,var(--violet-l)) 50%,#000));box-shadow:0 8px 20px -10px var(--k,var(--violet-l)),inset 0 1px 0 rgba(255,255,255,.35)}
+.e6-tile .ic svg.i{stroke-width:2.1}
+.e6-tile.off .ic{color:var(--muted);background:rgba(255,255,255,.05);box-shadow:none}
+.e6-tile.hit .ic{animation:e7pop .6s var(--ease2)}
+@keyframes e7pop{40%{transform:scale(1.15) rotate(-5deg)}}
+.e6-tile .st .on::before{animation:e7live 2s ease-in-out infinite}
+.e7-pulse{transform-box:fill-box;transform-origin:center;animation:e7dot 1.8s ease-in-out infinite}
+
+/* CEO view: one line of the live event stream */
+.e7-tick{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);background:#040408;font-family:var(--mono);font-size:11px;color:var(--muted);padding:7px 14px;white-space:nowrap;overflow:hidden}
+.e7-tick .tx{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.e7-tick .m{color:var(--cyan)}.e7-tick .p{color:var(--violet-xl)}.e7-tick .ok{color:var(--green)}.e7-tick .t{color:var(--muted2)}
+.e6-app[data-mode="eng"] .e7-tick{display:none}
+
+/* your CTO: a log that keeps shipping */
+#x4Log .x4-code{height:calc(7 * 1.85em + 38px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 34px);mask-image:linear-gradient(180deg,transparent 0,#000 34px)}
+#x4Log .x4-code .ln{flex:none}
+@media(max-width:560px){#x4Log .x4-code{height:calc(7 * 1.85em + 28px)}}
+.x4-person .av{font-family:var(--mono);font-size:13px}
+
+/* book: the calendar, right on the page */
+.e7-book{position:relative;padding:clamp(56px,8vh,100px) 0 clamp(70px,10vh,120px)}
+.e7-bh{text-align:center;max-width:760px;margin:0 auto}
+.e7-bh h2{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;color:#fff;margin:0 auto;max-width:none}
+.e7-bh .grad{background:linear-gradient(110deg,#fff 5%,var(--violet-xl) 38%,var(--violet-l) 68%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em}
+.e7-bh p{color:var(--ink2);font-size:clamp(1rem,1.6vw,1.12rem);line-height:1.6;margin:14px auto 0;max-width:52ch}
+.e7-cal{max-width:1000px;margin:30px auto 0;border:1px solid rgba(154,123,255,.35);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,rgba(17,17,29,.97),rgba(8,8,14,.99));box-shadow:var(--glow),0 60px 140px -60px rgba(124,77,255,.55)}
+.e7-cbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.e7-cbar .dots{display:flex;gap:7px;flex:none}
+.e7-cbar .dots i{width:10px;height:10px;border-radius:50%;background:#2a2a38}
+.e7-cbar .dots i:nth-child(1){background:#ff6b6b}.e7-cbar .dots i:nth-child(2){background:#f5c26b}.e7-cbar .dots i:nth-child(3){background:#56d8a0}
+.e7-cbar .t b{color:#fff;font-weight:500}
+.e7-cbar .s{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--green);white-space:nowrap}
+.e7-cal .ghl-booking{display:block;width:100%;min-width:320px;height:760px;border:0;background:#fff}
+@media(max-width:560px){.e7-cal .ghl-booking{height:1000px}.e7-cbar .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}}
+.e7-ph{display:grid;grid-template-columns:310px 1fr;gap:clamp(24px,4vw,44px);align-items:center;padding:clamp(24px,4vw,40px) clamp(20px,4vw,48px)}
+.e7-mini{border:1px solid var(--line2);border-radius:14px;padding:14px;background:rgba(255,255,255,.02)}
+.e7-mini .mh{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#fff;font-weight:700;margin-bottom:10px}
+.e7-mini .mh span{font-family:var(--mono);color:var(--muted);font-weight:400;letter-spacing:.2em}
+.e7-mg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-family:var(--mono);font-size:11px}
+.e7-mg b{color:var(--muted2);font-weight:500;font-size:9.5px;padding-bottom:4px}
+.e7-mg i{font-style:normal;padding:6px 0;border-radius:8px;color:var(--ink2)}
+.e7-mg i.x{color:var(--muted2);opacity:.45}
+.e7-mg i.t{background:rgba(124,77,255,.3);color:#fff;box-shadow:inset 0 0 0 1px var(--violet-l)}
+.e7-mg i.sw{animation:e7sweep 4.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes e7sweep{0%,100%{background:transparent;color:var(--ink2)}6%{background:rgba(154,123,255,.16);color:#fff}12%{background:transparent;color:var(--ink2)}}
+.e7-slots{display:flex;gap:6px;margin-top:12px}
+.e7-slots i{flex:1;height:26px;border-radius:8px;border:1px solid var(--line2);background:linear-gradient(90deg,rgba(255,255,255,.02),rgba(154,123,255,.16),rgba(255,255,255,.02));background-size:200% 100%;animation:e7shim 1.8s linear infinite}
+.e7-slots i:nth-child(2){animation-delay:.3s}.e7-slots i:nth-child(3){animation-delay:.6s}
+@keyframes e7shim{from{background-position:200% 0}to{background-position:-200% 0}}
+.e7-phx{text-align:left}
+.e7-phx>b{display:block;font-size:clamp(1.25rem,2.2vw,1.55rem);color:#fff;letter-spacing:-.02em;line-height:1.2}
+.e7-phx p{color:var(--ink2);font-size:14px;line-height:1.6;margin:8px 0 18px;max-width:46ch}
+.e7-phx p a{color:var(--violet-xl);text-decoration:underline}
+.e7-phx .or{display:block;margin-top:12px;font-size:13px;color:var(--muted)}
+.e7-phx .or a{color:var(--violet-xl);font-weight:600}
+.e7-alt{text-align:center;font-size:13px;color:var(--muted);margin:18px 0 0}
+.e7-alt a{color:var(--violet-xl);font-weight:600}
+@media(max-width:760px){.e7-ph{grid-template-columns:1fr}.e7-phx{text-align:center}.e7-mini{max-width:320px;margin:0 auto;width:100%}.e7-phx p{margin-left:auto;margin-right:auto}}
+
+@media(prefers-reduced-motion:reduce){
+  .e7-track{animation:none;width:auto}.e7-grp{flex-wrap:wrap;justify-content:center;padding:0 16px}.e7-grp+.e7-grp{display:none}
+  .e7-row{-webkit-mask-image:none;mask-image:none}.e7-pipes .dots{display:none}
+  .e7-ring::after,.e6-hero h1 .grad,.e7-bot .bb,.e7-bot .beye,.e7-bot .beyes,.e7-bot .bdot,.e7-mg i.sw,.e7-slots i,.e7-app .lv,.e7-pipes .flow path,.e7-cur{animation:none}
+}
+</style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <symbol id="e6-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></symbol>
@@ -1362,41 +1525,61 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 <symbol id="e6-wrench" viewBox="0 0 24 24"><path d="M14.5 5.5a4 4 0 0 0 4.9 4.9L20 11l-9 9a2.1 2.1 0 0 1-3-3l9-9-.6-.6a4 4 0 0 0-4.9-4.9l2.5 2.5-1.5 1.5z"/></symbol>
 <symbol id="e6-api" viewBox="0 0 24 24"><path d="M9 4H8a3 3 0 0 0-3 3v2a3 3 0 0 1-2 3 3 3 0 0 1 2 3v2a3 3 0 0 0 3 3h1M15 4h1a3 3 0 0 1 3 3v2a3 3 0 0 0 2 3 3 3 0 0 0-2 3v2a3 3 0 0 1-3 3h-1"/></symbol>
 <symbol id="e6-ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="e6-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.3.2 4.1 1.8 4.7 4.8"/></symbol>
+<symbol id="e6-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2.5"/><path d="m15 10.5 6-3.5v10l-6-3.5z"/></symbol>
+<symbol id="e6-cloud" viewBox="0 0 24 24"><path d="M7 18h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.4 9.54 4.5 4.5 0 0 0 7 18z"/></symbol>
+<symbol id="e6-sign" viewBox="0 0 24 24"><path d="M4 20h16M14.5 4.5l5 5L9 20H4v-5z"/></symbol>
+<symbol id="e6-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+<symbol id="e6-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></symbol>
+<symbol id="e6-send" viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+<symbol id="e6-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/></symbol>
+<symbol id="e6-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.7 7 9 4-1.3 7-4.6 7-9V6z"/></symbol>
+<symbol id="e6-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12.5 3 3 5-6"/></symbol>
 </defs></svg>
 
 <header class="hero e6-hero">
+  <canvas class="e7-flow" id="e7flow" aria-hidden="true"></canvas>
   <div class="wrap e6-hg">
     <div class="e6-hc">
-      <div class="status-pill">// fractional AI CTO &middot; AI agents &middot; CEO dashboard</div>
+      <div class="status-pill">// fractional AI CTO for any small business</div>
       <h1><span class="ln">Every app.</span> <span class="ln">Every agent.</span> <span class="ln grad">One CEO dashboard.</span></h1>
-      <p class="sub">Stop logging into every app. We plug everything into one dashboard, put AI agents to work across it, and build whatever else you need. Built on HighLevel, run by your own CTO.</p>
+      <p class="sub">Stop logging into every app. We plug them all into one dashboard, put AI agents to work across it, and build anything else your business needs. Built on HighLevel, run by your own CTO.</p>
       <form class="e6-try" id="e6try" autocomplete="off">
         <span class="p" aria-hidden="true">$</span>
         <label class="sr" for="e6biz">Your business name</label>
         <input id="e6biz" name="biz" maxlength="32" placeholder="your business name" spellcheck="false">
         <button type="submit" class="btn-primary">Run the demo <span class="arr">&rarr;</span></button>
       </form>
-      <p class="e6-meta">sample data &middot; runs in your browser &middot; <a href="/book.html">or book a call</a><br>front office live in 7 business days or your $500 setup back &middot; from $1,500/mo &middot; <a href="/refund.html">conditions</a></p>
+      <p class="e6-meta">sample data &middot; runs in your browser &middot; <a href="#book">or book a call</a><br>front office live in 7 business days or your $500 setup back &middot; from $1,500/mo &middot; <a href="/refund.html">conditions</a></p>
     </div>
-    <div class="x4-win e6-boot" role="img" aria-label="Illustration: a terminal deploying an Efficio workspace with connectors, a file drop folder, six agents, an AI assistant and a live dashboard">
-      <div class="x4-bar"><i></i><i></i><i></i><span class="t">~/efficio &mdash; <b data-slug>acme-home-services</b></span><span class="s">illustration</span></div>
-<pre class="x4-code" id="e6boot"><span class="ln on"><span class="p">$</span> <span class="w">efficio deploy</span> <span class="k">--business</span> <span class="a">acme-home-services</span></span><span class="ln on"><span class="c">&rarr; workspace app.efficio.tech/acme-home-services</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">highlevel</span>      <span class="c">white-label account ready</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">connectors</span>     <span class="c">11 apps &middot; oauth, api keys, mcp</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">files</span>          <span class="c">drop folder live &middot; auto-sort on</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">agents</span>         <span class="c">6 deployed</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">ask-ai</span>         <span class="c">read-only over live data</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">dashboard</span>      <span class="k">live</span> <span class="c">&darr; scroll to open it</span></span><span class="ln on"><span class="p">$</span> <span class="x4-caret" aria-hidden="true"></span></span></pre>
+    <div class="x4-win e6-boot" role="img" aria-label="Illustration: a terminal deploying Efficio workspaces for different kinds of businesses, with connectors, a file drop folder, six agents, an AI assistant and a live dashboard">
+      <div class="x4-bar"><i></i><i></i><i></i><span class="t">~/efficio &mdash; <b data-bslug>acme-co</b></span><span class="s">illustration</span></div>
+<pre class="x4-code" id="e6boot"><span class="ln on"><span class="p">$</span> <span class="w">efficio deploy</span> <span class="k">--business</span> <span class="a">acme-co</span></span><span class="ln on"><span class="c">&rarr; workspace app.efficio.tech/acme-co</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">highlevel</span>      <span class="c">white-label account ready</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">connectors</span>     <span class="c">12 apps &middot; hubspot +11</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">files</span>          <span class="c">drop folder live &middot; auto-sort on</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">agents</span>         <span class="c">6 deployed &middot; quote follow-up</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">ask-ai</span>         <span class="c">read-only over live data</span></span><span class="ln on"><span class="g">&#10003;</span> <span class="w">dashboard</span>      <span class="k">live</span> <span class="c">&darr; scroll to open it</span></span><span class="ln on"><span class="p">$</span> <span class="x4-caret" aria-hidden="true"></span></span></pre>
     </div>
   </div>
 </header>
+
+<section class="e7-apps" aria-label="Apps we connect">
+  <p class="cap">// plugs into the apps you already run on &middot; <b>if it has an API, we connect it</b></p>
+  <div class="e7-row" style="--dur:80s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Google Calendar<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-cloud"/></svg></span>Google Drive<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:1.12s"></span></span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Google Calendar<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-cloud"/></svg></span>Google Drive<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:1.12s"></span></span></div></div></div>
+  <div class="e7-row rev" style="--dur:100s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-brief"/></svg></span>Clio<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-brief"/></svg></span>Procore<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>Shopmonkey<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-shield"/></svg></span>AgencyZoom<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Karbon<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-grid"/></svg></span>monday.com<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>SharePoint<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Mailchimp<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google reviews<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-brief"/></svg></span>Clio<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-brief"/></svg></span>Procore<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>Shopmonkey<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-shield"/></svg></span>AgencyZoom<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Karbon<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-grid"/></svg></span>monday.com<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>SharePoint<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Mailchimp<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google reviews<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div></div></div>
+  <p class="tm">// app names belong to their owners &middot; listed to show what we connect to, not an endorsement</p>
+</section>
 
 <section class="e6-demo" id="demo">
   <span class="e6-anchor" id="dashboard"></span><span class="e6-anchor" id="build"></span><span class="e6-anchor" id="connect"></span>
   <div class="e6-dh">
     <div class="eyebrow">// live demo &middot; sample data</div>
     <h2>Click anything. <span class="grad">This is what you get.</span></h2>
-    <div class="e6-dbtns"><button type="button" class="e6-chip" id="e6tourbtn">&#9654; Take the 60-second tour</button><a class="e6-chip ghost" href="/book.html">Book a call &rarr;</a></div>
+    <div class="e7-ind" id="e7ind" role="group" aria-label="Show the demo for a type of business"><span class="lb">// try it as</span><button type="button" data-ind="any" aria-pressed="true">Any business</button><button type="button" data-ind="law" aria-pressed="false">Law firm</button><button type="button" data-ind="re" aria-pressed="false">Real estate</button><button type="button" data-ind="acct" aria-pressed="false">Accounting</button><button type="button" data-ind="agency" aria-pressed="false">Agency</button><button type="button" data-ind="ins" aria-pressed="false">Insurance</button><button type="button" data-ind="pm" aria-pressed="false">Property mgmt</button><button type="button" data-ind="home" aria-pressed="false">Home services</button><button type="button" data-ind="cons" aria-pressed="false">Construction</button><button type="button" data-ind="auto" aria-pressed="false">Auto shop</button></div>
+    <div class="e6-dbtns"><button type="button" class="e6-chip" id="e6tourbtn">&#9654; Take the 60-second tour</button><a class="e6-chip ghost" href="#book">Book a call &rarr;</a></div>
   </div>
   <div class="e6-stage">
-    <div class="e6-app" id="e6app" data-mode="ceo" role="region" aria-label="Interactive demo of the Efficio CEO dashboard, with sample data">
+    <div class="e7-pipes" aria-hidden="true"><div class="e7-pl"><span data-pipe="gmail">Gmail</span><span data-pipe="gcal">Calendar</span><span data-pipe="phone">Phone</span><span data-pipe="stripe">Stripe</span><span data-pipe="ghl">HighLevel</span><span data-pipe="qbo">QuickBooks</span><span data-pipe="slack">Slack</span><span data-pipe="files">Drive</span><span data-pipe="ind" id="e7pind">HubSpot</span></div><svg viewBox="0 0 1200 118" aria-hidden="true" focusable="false"><defs><linearGradient id="e7pg" x1="0" y1="0" x2="0" y2="112" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a7bff" stop-opacity=".25"/><stop offset=".55" stop-color="#9a7bff"/><stop offset="1" stop-color="#56d8a0"/></linearGradient></defs><g class="base"><path d="M66.7 0 C66.7 64 600 46 600 112"/><path d="M200.0 0 C200.0 64 600 46 600 112"/><path d="M333.3 0 C333.3 64 600 46 600 112"/><path d="M466.7 0 C466.7 64 600 46 600 112"/><path d="M600.0 0 C600.0 64 600 46 600 112"/><path d="M733.3 0 C733.3 64 600 46 600 112"/><path d="M866.7 0 C866.7 64 600 46 600 112"/><path d="M1000.0 0 C1000.0 64 600 46 600 112"/><path d="M1133.3 0 C1133.3 64 600 46 600 112"/></g><g class="flow"><path id="e7p0" data-pipe="gmail" d="M66.7 0 C66.7 64 600 46 600 112"/><path id="e7p1" data-pipe="gcal" d="M200.0 0 C200.0 64 600 46 600 112"/><path id="e7p2" data-pipe="phone" d="M333.3 0 C333.3 64 600 46 600 112"/><path id="e7p3" data-pipe="stripe" d="M466.7 0 C466.7 64 600 46 600 112"/><path id="e7p4" data-pipe="ghl" d="M600.0 0 C600.0 64 600 46 600 112"/><path id="e7p5" data-pipe="qbo" d="M733.3 0 C733.3 64 600 46 600 112"/><path id="e7p6" data-pipe="slack" d="M866.7 0 C866.7 64 600 46 600 112"/><path id="e7p7" data-pipe="files" d="M1000.0 0 C1000.0 64 600 46 600 112"/><path id="e7p8" data-pipe="ind" d="M1133.3 0 C1133.3 64 600 46 600 112"/></g><g class="dots"><circle r="2.6" fill="#c3b0ff"><animateMotion dur="2.20s" repeatCount="indefinite" begin="-0.00s"><mpath xlink:href="#e7p0"/></animateMotion></circle><circle r="2.6" fill="#5cc8ff"><animateMotion dur="2.55s" repeatCount="indefinite" begin="-0.43s"><mpath xlink:href="#e7p1"/></animateMotion></circle><circle r="2.6" fill="#56d8a0"><animateMotion dur="2.90s" repeatCount="indefinite" begin="-0.86s"><mpath xlink:href="#e7p2"/></animateMotion></circle><circle r="2.6" fill="#c3b0ff"><animateMotion dur="2.20s" repeatCount="indefinite" begin="-1.29s"><mpath xlink:href="#e7p3"/></animateMotion></circle><circle r="2.6" fill="#5cc8ff"><animateMotion dur="2.55s" repeatCount="indefinite" begin="-1.72s"><mpath xlink:href="#e7p4"/></animateMotion></circle><circle r="2.6" fill="#56d8a0"><animateMotion dur="2.90s" repeatCount="indefinite" begin="-2.15s"><mpath xlink:href="#e7p5"/></animateMotion></circle><circle r="2.6" fill="#c3b0ff"><animateMotion dur="2.20s" repeatCount="indefinite" begin="-0.38s"><mpath xlink:href="#e7p6"/></animateMotion></circle><circle r="2.6" fill="#5cc8ff"><animateMotion dur="2.55s" repeatCount="indefinite" begin="-0.81s"><mpath xlink:href="#e7p7"/></animateMotion></circle><circle r="2.6" fill="#56d8a0"><animateMotion dur="2.90s" repeatCount="indefinite" begin="-1.24s"><mpath xlink:href="#e7p8"/></animateMotion></circle></g><circle class="hub" cx="600" cy="112" r="4.5"/></svg></div>
+    <div class="e6-app e7-ring" id="e6app" data-mode="ceo" role="region" aria-label="Interactive demo of the Efficio CEO dashboard, with sample data">
       <div class="e6-top">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="e6-url"><svg class="i"><use href="#e6-lock"/></svg>app.efficio.tech/<b data-slug>acme-home-services</b></span>
+        <span class="e6-url"><svg class="i"><use href="#e6-lock"/></svg>app.efficio.tech/<b data-slug>acme-co</b></span>
         <button type="button" class="e6-cmdk" id="e6cmdk" aria-haspopup="dialog"><svg class="i"><use href="#e6-search"/></svg><span class="tx">Search or jump to&hellip;</span><kbd>&#8984;K</kbd></button>
         <div class="e6-seg" role="group" aria-label="View"><button type="button" data-mode="ceo" aria-pressed="true">CEO</button><button type="button" data-mode="eng" aria-pressed="false">Engineer</button></div>
         <span class="e6-live"><span class="x5-dot"></span>live</span>
@@ -1407,11 +1590,11 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
           <span class="lbl">workspace</span>
           <button type="button" class="e6-nav" data-v="overview" aria-current="true"><svg class="i"><use href="#e6-home"/></svg>Overview</button>
           <button type="button" class="e6-nav" data-v="agents" aria-current="false"><svg class="i"><use href="#e6-bot"/></svg>Agents<span class="n">6</span></button>
-          <button type="button" class="e6-nav" data-v="apps" aria-current="false"><svg class="i"><use href="#e6-plug"/></svg>Apps<span class="n" id="e6nApps">11</span></button>
+          <button type="button" class="e6-nav" data-v="apps" aria-current="false"><svg class="i"><use href="#e6-plug"/></svg>Apps<span class="n" id="e6nApps">12</span></button>
           <button type="button" class="e6-nav" data-v="files" aria-current="false"><svg class="i"><use href="#e6-folder"/></svg>Files<span class="n" id="e6nFiles">1,284</span></button>
           <button type="button" class="e6-nav" data-v="ask" aria-current="false"><svg class="i"><use href="#e6-spark"/></svg>Ask AI</button>
           <button type="button" class="e6-nav" data-v="flows" aria-current="false"><svg class="i"><use href="#e6-flow"/></svg>Workflows<span class="n">7</span></button>
-          <div class="e6-cto"><span class="av">BG</span><span><b>Brady &middot; your CTO</b><small><span class="x5-dot"></span>shipping</small></span></div>
+          <div class="e6-cto"><span class="av">&lt;/&gt;</span><span><b>Your CTO</b><small><span class="x5-dot"></span>shipping</small></span></div>
         </nav>
         <div class="e6-main" id="e6main">
           <div class="e6-tour" id="e6tour" hidden><span class="n" id="e6tn">1/6</span><span id="e6tt"></span><span class="ctl" id="e6tc"><button type="button" id="e6tskip">skip</button></span><span class="bar" id="e6tb" style="width:0"></span></div>
@@ -1424,6 +1607,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
         </div>
       </div>
       <div class="e6-con" id="e6con" aria-hidden="true"></div>
+      <div class="e7-tick" aria-hidden="true"><span class="x5-dot"></span><span class="tx" id="e7ttx"># event stream &middot; live</span></div>
       <div class="e6-pal" id="e6pal" role="dialog" aria-label="Command menu"><div class="e6-pbox"><input id="e6pin" placeholder="Type a command or search&hellip;" autocomplete="off" aria-label="Command"><div class="e6-plist" id="e6plist" role="listbox"></div></div></div>
       <div class="e6-toast" id="e6toast" role="status" aria-live="polite"></div>
     </div>
@@ -1438,7 +1622,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
         <div class="eyebrow rv">// your CTO</div>
         <h2 class="rv d1">An engineer who <span class="grad">keeps shipping.</span></h2>
         <p class="lede rv d1" style="margin:16px 0 0;max-width:34ch">Anything you want built, we build and run. You ask, it ships, it shows up on your dashboard.</p>
-        <div class="x4-person rv d2"><span class="av">BG</span><span><span class="n">Brady Gay</span><br><span class="r">founder &middot; designs, builds and runs every system</span></span></div>
+        <div class="x4-person rv d2"><span class="av">&lt;/&gt;</span><span><span class="n">Your fractional CTO</span><br><span class="r">designs, builds and runs every system</span></span></div>
       </div>
       <div class="x4-win rv d1" id="x4Log" role="img" aria-label="Illustration of a month of shipped work">
         <div class="x4-bar"><i></i><i></i><i></i><span class="t">git log &mdash; your-business</span><span class="s">illustration</span></div>
@@ -1458,32 +1642,54 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
         <div class="pr">$1,500<small>/mo</small></div>
         <p class="ds">Your front office agents.</p>
         <ul><li>receptionist + chat</li><li>booking + reviews</li><li>live dashboard</li><li>monthly call</li></ul>
-        <a class="btn-outline" href="/book.html">Book a call</a>
+        <a class="btn-outline" href="#book">Book a call</a>
       </div>
-      <div class="x4-plan mid rv d1">
+      <div class="x4-plan mid e7-ring rv d1">
         <div class="nm">Founding CTO</div>
         <div class="pr">$2,500<small>/mo</small></div>
         <p class="ds">AI built around you.</p>
         <ul><li>everything in AI Operator</li><li>custom AI agent</li><li>custom dashboard + ask efficio</li><li>call every 2 weeks</li></ul>
-        <a class="btn-primary" href="/book.html">Book a call <span class="arr">&rarr;</span></a>
+        <a class="btn-primary" href="#book">Book a call <span class="arr">&rarr;</span></a>
       </div>
       <div class="x4-plan rv d2">
         <div class="nm">Full Custom CTO</div>
         <div class="pr">$3,500<small>/mo</small></div>
         <p class="ds">An engineer on call.</p>
         <ul><li>everything in Founding CTO</li><li>ongoing custom engineering</li><li>weekly call</li><li>24-hour response</li></ul>
-        <a class="btn-outline" href="/book.html">Book a call</a>
+        <a class="btn-outline" href="#book">Book a call</a>
       </div>
     </div>
     <p class="x4-fine rv">+ $500 one-time setup &middot; month-to-month, 30 days&rsquo; notice &middot; first three clients: price locked 12 months for a day-30 results review &middot; <a href="/pricing.html">full details</a></p>
   </div>
 </section>
 
-<section class="cta rv">
-  <div class="prompt">Talk to Brady</div>
-  <h2>Liked the demo? Let&rsquo;s build yours.</h2>
-  <p>A short call. We look at the apps you use and tell you honestly what we&rsquo;d automate first.</p>
-  <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
+<section class="e7-book" id="book" aria-labelledby="e7bookh">
+  <div class="wrap">
+    <div class="e7-bh">
+      <div class="eyebrow rv">// book a call</div>
+      <h2 class="rv d1" id="e7bookh">Liked the demo? <span class="grad">Let&rsquo;s build yours.</span></h2>
+      <p class="rv d1">Pick a time. We look at the apps you use and tell you honestly what we&rsquo;d automate first.</p>
+    </div>
+    <div class="e7-cal e7-ring rv d2">
+      <div class="e7-cbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="t">book a call &middot; <b>30 min</b> &middot; video</span><span class="s"><span class="x5-dot"></span>live calendar</span></div>
+      <!-- The GoHighLevel calendar. assets/consent.js loads it straight away for visitors who accepted cookies.
+           Everyone else sees the card below, and "Show available times" loads only the calendar (no consent
+           change, no tags), the same as the booking page. The card is the iframe's previous sibling on purpose:
+           consent.js uses it as the placeholder and hides it once the calendar is showing. -->
+      <div class="ck-embed e7-ph">
+        <div class="e7-mini" aria-hidden="true"><div class="mh"><b id="e7month">This month</b><span>&lsaquo; &rsaquo;</span></div><div class="e7-mg" id="e7grid"></div><div class="e7-slots"><i></i><i></i><i></i></div></div>
+        <div class="e7-phx">
+          <b>Pick a time that works for you.</b>
+          <p>A 30-minute video call. The calendar is hosted by HighLevel and sets its own cookies. <a href="/privacy.html#cookies">Details</a></p>
+          <button type="button" class="btn-primary" id="e7show">Show available times <span class="arr">&rarr;</span></button>
+          <span class="or">or email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time</span>
+        </div>
+      </div>
+      <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book your Efficio call" style="display:none"></iframe>
+    </div>
+    <noscript><p class="e7-alt">The calendar needs JavaScript. Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
+    <p class="e7-alt">Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book it for you.</p>
+  </div>
 </section>
 
 </main>
@@ -1492,10 +1698,10 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Every app, every AI agent, one CEO dashboard for small businesses. Built on HighLevel. Designed, built and run by Brady Gay.</p>
+        <p>Every app, every AI agent, one CEO dashboard for small businesses. Built on HighLevel. Run by your own fractional CTO.</p>
       </div>
       <div class="fcol"><h5>Efficio</h5>
-        <a href="/pricing.html">Pricing</a><a href="/book.html">Book a call</a><a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>
+        <a href="/pricing.html">Pricing</a><a href="#book">Book a call</a><a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>
       </div>
       <div class="fcol"><h5>Legal</h5>
         <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/sms-opt-in.html">Text updates</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
@@ -1803,10 +2009,10 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   });
 })();
 </script>
-<script src="/assets/consent.js?v=20260927" defer></script>
+<script src="/assets/consent.js?v=20260929" defer></script>
   <!-- W136: GHL Voice AI widget (Efficio Voice - Missed-Call Capture) -->
 <script>
-/* v6 homepage: a live, clickable demo of the Efficio CEO dashboard.
+/* v7 homepage: a live, clickable demo of the Efficio CEO dashboard for any kind of business.
    Everything runs in the browser with sample data. Files a visitor drops are only read for their
    name, type and size, and never leave the page. */
 (function(){
@@ -1821,131 +2027,231 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
   function money(n){ return '$'+fmt(n); }
   function icon(id){ return '<svg class="i"><use href="#e6-'+id+'"/></svg>'; }
-  function slugify(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,32)||'acme-home-services'; }
+  function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
   function bump(el){ if(!el) return; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
   function watch(el,fn,th){
     if(!el) return;
     if(!('IntersectionObserver' in window)){ fn(true); return; }
     new IntersectionObserver(function(es){ es.forEach(function(e){ fn(e.isIntersecting); }); },{threshold:th||0.12}).observe(el);
   }
+  function later(fn,ms,bag){ var t=setTimeout(fn,ms); if(bag) bag.push(t); return t; }
 
-  /* git log in the CTO section */
-  var log=$('#x4Log');
-  if(log){
-    var gl=$$('.x4-code .ln',log), gdone=false;
-    if(reduce) gl.forEach(function(l){ l.classList.add('on'); });
-    else watch(log,function(v){ if(v && !gdone){ gdone=true; gl.forEach(function(l,i){ setTimeout(function(){ l.classList.add('on'); },150+i*380); }); } },0.3);
+  /* ---------- any kind of business: the same product in each industry's words ---------- */
+  var IKS=['any','law','re','acct','agency','ins','pm','home','cons','auto'];
+  var IND={
+    any:{l:'Any business',desc:'any kind of business',nm:'Acme Co.',sl:'acme-co',cust:'customer',appt:'appointment',job:'deal',jk:'deal',Jobs:'Customers',quote:'quote',quotes:'Quotes',qk:'quote',qa:'Quote follow-up',qi:'QF',qev:'quote.sent',qamt:'$4,200',qv:'$9.2k',won:'won',wk:'won',onyes:'invoice.create',Done:'Work done',dk:'work.completed',photos:'Photos',ur:'needs an answer today',words:'[urgent, today, asap, emergency]',kw:'today',reqq:'"we need this sorted out today"',leadq:'"can I get a quote this week?"',ask:'[details, deadline, urgency]',asktxt:'details and a deadline',app:['HubSpot','users','oauth','crm, deals','hubspot','#e8c275']},
+    law:{l:'Law firm',desc:'a law firm',nm:'Acme Law',sl:'acme-law',cust:'client',appt:'consult',job:'matter',jk:'matter',Jobs:'Matters',quote:'fee agreement',quotes:'Fee agreements',qk:'fee_agreement',qa:'Retainer follow-up',qi:'RF',qev:'fee_agreement.sent',qamt:'$3,500',qv:'$10.5k',won:'retained',wk:'retained',onyes:'matter.open',Done:'Matter closed',dk:'matter.closed',photos:'Case files',ur:'court date Friday',words:'[court date, served, deadline, emergency]',kw:'court date',reqq:'"I was just served, court date is Friday"',leadq:'"I need help with a contract dispute"',ask:'[matter type, deadlines, other parties]',asktxt:'the matter type and deadlines',app:['Clio','brief','oauth','matters, time','clio','#5cc8ff']},
+    re:{l:'Real estate',desc:'a real estate team',nm:'Acme Realty',sl:'acme-realty',cust:'client',appt:'showing',job:'deal',jk:'deal',Jobs:'Deals',quote:'offer',quotes:'Offers',qk:'offer',qa:'Offer follow-up',qi:'OF',qev:'offer.sent',qamt:'$485,000',qv:'$1.4M',won:'under contract',wk:'under_contract',onyes:'transaction.open',Done:'Deal closed',dk:'deal.closed',photos:'Listing photos',ur:'wants to see 14 Oak St today',words:'[offer, closing, showing, today]',kw:'offer',reqq:'"we want to make an offer today"',leadq:'"is 14 Oak St still available?"',ask:'[budget, area, timeline]',asktxt:'budget, area and timeline',app:['Follow Up Boss','home','api key','leads, deals','follow_up_boss','#56d8a0']},
+    acct:{l:'Accounting',desc:'an accounting firm',nm:'Acme CPA',sl:'acme-cpa',cust:'client',appt:'meeting',job:'engagement',jk:'engagement',Jobs:'Clients',quote:'engagement letter',quotes:'Engagement letters',qk:'engagement_letter',qa:'Engagement follow-up',qi:'EL',qev:'engagement_letter.sent',qamt:'$2,400',qv:'$7.2k',won:'signed',wk:'signed',onyes:'engagement.start',Done:'Return filed',dk:'return.filed',photos:'Client docs',ur:'IRS notice, 10 days to reply',words:'[irs notice, deadline, audit, payroll]',kw:'irs notice',reqq:'"got an IRS notice, 10 days to reply"',leadq:'"we need a new CPA for the business"',ask:'[entity type, deadline, documents]',asktxt:'entity type and documents',app:['Karbon','brief','api key','work, clients','karbon','#ff86c8']},
+    agency:{l:'Agency',desc:'an agency',nm:'Acme Agency',sl:'acme-agency',cust:'client',appt:'call',job:'project',jk:'project',Jobs:'Projects',quote:'proposal',quotes:'Proposals',qk:'proposal',qa:'Proposal follow-up',qi:'PF',qev:'proposal.sent',qamt:'$12,000',qv:'$31k',won:'signed',wk:'signed',onyes:'project.kickoff',Done:'Project delivered',dk:'project.delivered',photos:'Creative',ur:'client site is down',words:'[site down, launch, broken, urgent]',kw:'site down',reqq:'"site down since 6am, launch is Friday"',leadq:'"we need a new website by March"',ask:'[scope, budget, deadline]',asktxt:'scope, budget and deadline',app:['Asana','check','oauth','projects, tasks','asana','#ff86c8']},
+    ins:{l:'Insurance',desc:'an insurance agency',nm:'Acme Insurance',sl:'acme-insurance',cust:'client',appt:'call',job:'policy',jk:'policy',Jobs:'Policies',quote:'quote',quotes:'Quotes',qk:'quote',qa:'Quote follow-up',qi:'QF',qev:'policy_quote.sent',qamt:'$2,800',qv:'$8.4k',won:'bound',wk:'bound',onyes:'policy.issue',Done:'Policy bound',dk:'policy.bound',photos:'Claim photos',ur:'needs proof of insurance today',words:'[claim, accident, proof of insurance, cancel]',kw:'accident',reqq:'"accident this morning, need to file a claim"',leadq:'"quote for my business auto policy"',ask:'[policy number, date, photos]',asktxt:'policy number and photos',app:['AgencyZoom','shield','api key','policies, leads','agencyzoom','#9a7bff']},
+    pm:{l:'Property mgmt',desc:'a property manager',nm:'Acme Property',sl:'acme-property',cust:'tenant',appt:'showing',job:'work order',jk:'work_order',Jobs:'Units',quote:'renewal',quotes:'Renewals',qk:'renewal',qa:'Renewal follow-up',qi:'RN',qev:'renewal.sent',qamt:'$1,950/mo',qv:'$5.9k/mo',won:'renewed',wk:'renewed',onyes:'lease.send',Done:'Work order closed',dk:'work_order.closed',photos:'Unit photos',ur:'no heat in unit 4B',words:'[no heat, leak, lockout, emergency]',kw:'no heat',reqq:'"no heat in unit 4B since last night"',leadq:'"is the 2-bed on Elm St still open?"',ask:'[unit, photos, access]',asktxt:'the unit, photos and access',app:['Buildium','home','api key','units, work orders','buildium','#e8c275']},
+    home:{l:'Home services',desc:'a home services company',nm:'Acme Home Services',sl:'acme-home-services',cust:'customer',appt:'job',job:'job',jk:'job',Jobs:'Jobs',quote:'estimate',quotes:'Estimates',qk:'estimate',qa:'Estimate follow-up',qi:'ES',qev:'estimate.sent',qamt:'$4,200',qv:'$9.2k',won:'won',wk:'won',onyes:'job.schedule',Done:'Job done',dk:'job.completed',photos:'Job photos',ur:'burst pipe',words:'[leak, flood, no heat, emergency]',kw:'leak',reqq:'"leak in the ceiling, water everywhere"',leadq:'"need a quote for a water heater"',ask:'[photos, address, urgency]',asktxt:'photos and the address',app:['Jobber','wrench','oauth','jobs, visits','jobber','#56d8a0']},
+    cons:{l:'Construction',desc:'a construction company',nm:'Acme Builders',sl:'acme-builders',cust:'client',appt:'site visit',job:'project',jk:'project',Jobs:'Projects',quote:'bid',quotes:'Bids',qk:'bid',qa:'Bid follow-up',qi:'BF',qev:'bid.sent',qamt:'$38,000',qv:'$96k',won:'awarded',wk:'awarded',onyes:'contract.send',Done:'Project done',dk:'project.completed',photos:'Site photos',ur:'inspection moved to tomorrow',words:'[inspection, delay, safety, change order]',kw:'inspection',reqq:'"inspection moved to tomorrow 8am"',leadq:'"quote for a kitchen remodel"',ask:'[plans, address, timeline]',asktxt:'plans, address and timeline',app:['Procore','brief','oauth','projects, RFIs','procore','#e8c275']},
+    auto:{l:'Auto shop',desc:'an auto shop',nm:'Acme Auto',sl:'acme-auto',cust:'customer',appt:'repair',job:'repair order',jk:'repair_order',Jobs:'Vehicles',quote:'estimate',quotes:'Estimates',qk:'estimate',qa:'Estimate follow-up',qi:'ES',qev:'estimate.sent',qamt:'$1,280',qv:'$3.9k',won:'approved',wk:'approved',onyes:'repair.schedule',Done:'Repair done',dk:'repair.completed',photos:'Vehicle photos',ur:'car won&rsquo;t start',words:'[no start, brakes, tow, stranded]',kw:'no start',reqq:'"car is a no start, stuck at work"',leadq:'"check engine light is on"',ask:'[year, make, model, symptoms]',asktxt:'the car and the symptoms',app:['Shopmonkey','wrench','api key','repair orders','shopmonkey','#5cc8ff']}
+  };
+  var IK='any', I=IND.any;
+  function tk(s){
+    if(typeof s!=='string' || s.indexOf('%')<0) return s;
+    return s.replace(/%([A-Za-z]+)%/g,function(m,k){
+      switch(k){
+        case 'custs': return I.cust+'s';
+        case 'appts': return I.appt+'s';
+        case 'Appt': return cap(I.appt);
+        case 'Quote': return cap(I.quote);
+        case 'quotesl': return I.quotes.toLowerCase();
+        case 'Won': return cap(I.won);
+        case 'Job': return cap(I.job);
+        case 'app': return I.app[0];
+        case 'appk': return I.app[4];
+      }
+      return (Object.prototype.hasOwnProperty.call(I,k) && typeof I[k]==='string') ? I[k] : m;
+    });
   }
+  function L(o){
+    if(typeof o==='string') return tk(o);
+    if(Array.isArray(o)) return o.map(L);
+    if(o && typeof o==='object'){ var r={}; for(var k in o) if(Object.prototype.hasOwnProperty.call(o,k)) r[k]=L(o[k]); return r; }
+    return o;
+  }
+  function slugify(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,32)||I.sl; }
+  var GUESS=[[/property management|propert(y|ies) mgmt|rentals?|apartments?|leasing/,'pm'],[/\blaw\b|legal|attorneys?|lawyers?|\besq/,'law'],[/\bcpas?\b|accounting|accountants?|bookkeep|\btax\b/,'acct'],[/insurance|insurers?|underwrit/,'ins'],[/realty|real estate|realtors?|\bhomes? (group|team)\b|properties/,'re'],[/\bauto\b|autos|motors|garage|tires?|collision|body shop|automotive|mechanic/,'auto'],[/plumb|hvac|heating|cooling|electric|roofing|cleaning|landscap|\blawn|pest|pools?\b|handyman|painting|home services/,'home'],[/construction|builders?|building|contract(ing|ors?)|remodel|renovat/,'cons'],[/agency|marketing|media|creative|studio|digital/,'agency']];
+  function guessInd(name){ var n=(name||'').toLowerCase(); for(var i=0;i<GUESS.length;i++){ if(GUESS[i][0].test(n)) return GUESS[i][1]; } return null; }
+
+  /* git log in the CTO section: keeps shipping, one commit at a time */
+  var COMMITS=[['feat','receptionist live, after hours'],['feat','quote follow-up agent, 3 steps'],['feat','stripe + quickbooks on dashboard'],['feat','file drop folder, auto-sort'],['feat','custom intake agent'],['tune','faq answers from last week’s calls'],['feat','clio matters on the dashboard'],['fix','calendar sync: 2 min → 20 s'],['feat','slack alert for urgent calls'],['feat','owner report, mondays 7am'],['tune','reply voice: shorter, friendlier'],['feat','invoice chaser, 3-step cadence'],['feat','ask-ai over quickbooks'],['feat','review request after every job'],['perf','dashboard loads in 0.4 s'],['feat','docusign → contracts folder'],['feat','missed-call text-back'],['feat','web leads scored + routed'],['fix','no more duplicate reminders'],['feat','outlook + teams connected'],['feat','new-hire onboarding workflow'],['feat','procore rfis on the dashboard'],['feat','follow up boss → speed-to-lead'],['tune','intake questions per service'],['ship','dashboard v2 for the owner']];
+  (function gitLoop(){
+    var win=$('#x4Log'), pre=win && $('.x4-code',win); if(!pre) return;
+    var lines=$$('.ln',pre);
+    if(reduce){ lines.forEach(function(l){ l.classList.add('on'); }); return; }
+    var G={vis:false,run:false,started:false,i:lines.length};
+    var CLS={feat:'g',fix:'pk',tune:'k',perf:'k',ship:'g'};
+    function hash(){ var s=''; for(var i=0;i<7;i++) s+='0123456789abcdef'.charAt(Math.random()*16|0); return s; }
+    function next(){
+      if(!G.vis || document.hidden){ G.run=false; return; }
+      G.run=true;
+      var c=COMMITS[G.i++%COMMITS.length], ln=document.createElement('span');
+      ln.className='ln';
+      ln.innerHTML='<span class="a">'+hash()+'</span>  <span class="'+(CLS[c[0]]||'g')+'">'+c[0]+':</span> <span class="w"></span><span class="x4-caret" aria-hidden="true"></span>';
+      pre.appendChild(ln); void ln.offsetWidth; ln.classList.add('on');
+      var w=$('.w',ln), j=0, txt=c[1];
+      var iv=setInterval(function(){
+        j++; w.textContent=txt.slice(0,j);
+        if(j<txt.length) return;
+        clearInterval(iv); var cr=$('.x4-caret',ln); if(cr) cr.parentNode.removeChild(cr);
+        var all=$$('.ln',pre); while(all.length>9){ var old=all.shift(); old.parentNode.removeChild(old); }
+        setTimeout(next,1000+Math.random()*900);
+      },28);
+    }
+    watch(win,function(v){
+      G.vis=v; if(!v || G.run) return;
+      if(!G.started){ G.started=true; G.run=true; lines.forEach(function(l,i){ setTimeout(function(){ l.classList.add('on'); },150+i*300); }); setTimeout(next,150+lines.length*300+700); }
+      else next();
+    },0.25);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden && G.vis && !G.run && G.started) next(); });
+  })();
 
   var app=$('#e6app');
   if(!app) return;
 
-  var S={slug:'acme-home-services',name:'',mode:'ceo',view:'overview',tasks:312,booked:14,rev:38400,files:1284,apps:11,
+  var S={slug:I.sl,name:'',mode:'ceo',view:'overview',tasks:312,booked:14,rev:38400,files:1284,apps:12,
          paused:{},agent:'rec',atab:'act',wf:'rec',wfv:'canvas',req:false};
-  function biz(){ return S.name || 'Acme Home Services'; }
+  function biz(){ return S.name || I.nm; }
 
-  /* ---------- sample data ---------- */
+  /* ---------- sample data (templates; %words% become the chosen industry's words) ---------- */
   var AIDS=['rec','lead','rev','quote','bill','intake'];
-  var AG={
+  var RAW={};
+  RAW.AG={
     rec:{n:'Receptionist',i:'RC',ac:'#9a7bff',p:'reception/',slug:'receptionist',role:'answers every call',c:['phone','ghl','gcal'],now:'Booking Thu 10:00 AM for a caller',
-      m:[['38','calls today'],['14','booked'],['3','sent to you']],
-      y:['agent: receptionist','runs_on: highlevel.voice_ai','trigger: [call.missed, call.after_hours]','greeting: "Hi, you\'ve reached {biz}\'s AI assistant. This call is recorded."','tools:','  - calendar.book          # google calendar','  - call.transfer          # urgent -> your cell','  - message.take','rules:','  disclose_ai: true','  urgent_words: [leak, flood, no heat, emergency]','  hours: 24/7','report_to: dashboard.overview']},
+      m:[['38','calls today'],['14','%appts% booked'],['3','sent to you']],
+      y:['agent: receptionist','runs_on: highlevel.voice_ai','trigger: [call.missed, call.after_hours]','greeting: "Hi, you\'ve reached {biz}\'s AI assistant. This call is recorded."','tools:','  - calendar.book          # google calendar','  - call.transfer          # urgent -> your cell','  - message.take','rules:','  disclose_ai: true','  urgent_words: %words%','  hours: 24/7','report_to: dashboard.overview']},
     lead:{n:'Speed-to-lead',i:'SL',ac:'#5cc8ff',p:'leads/',slug:'speed_to_lead',role:'replies to every lead',c:['web','ghl','gmail','social'],now:'Replying to a new web form',
       m:[['21','leads today'],['41s','avg reply'],['6','booked']],
       y:['agent: speed_to_lead','trigger: [form.submitted, chat.started, dm.received]','reply_within: 60s','voice: "{biz}, friendly and short"','channels: [email, chat, sms_if_opted_in]','follow_up: [day_1, day_3, day_7]','stop_on: [reply, unsubscribe, booked]','on_booked: calendar.book -> dashboard']},
-    rev:{n:'Reviews',i:'RV',ac:'#56d8a0',p:'reviews/',slug:'reviews',role:'asks happy customers',c:['ghl','greviews'],now:'Asking 3 finished jobs for a review',
+    rev:{n:'Reviews',i:'RV',ac:'#56d8a0',p:'reviews/',slug:'reviews',role:'asks happy %custs%',c:['ghl','greviews'],now:'Asking 3 happy %custs% for a review',
       m:[['17','asked'],['6','new reviews'],['4.8','avg rating']],
-      y:['agent: reviews','trigger: job.completed','wait: 2h','ask_via: [sms_if_opted_in, email]','link: google_business_profile','low_score: route_to_owner      # never auto-posted','report_to: dashboard.reviews']},
-    quote:{n:'Quote follow-up',i:'QF',ac:'#e8c275',p:'quotes/',slug:'quote_follow_up',role:'custom agent',c:['ghl','gmail','qbo'],now:'Nudging a $4,200 estimate, step 2',
-      m:[['11','open quotes'],['3','won this week'],['$9.2k','won value']],
-      y:['agent: quote_follow_up','trigger: estimate.sent','steps:','  - day_2: reminder','  - day_5: nudge','  - day_10: last_call','on_yes: pipeline.move(won) -> invoice.create','on_no: log.reason','approve_over: 4000             # you approve big quotes']},
+      y:['agent: reviews','trigger: %dk%','wait: 2h','ask_via: [sms_if_opted_in, email]','link: google_business_profile','low_score: route_to_owner      # never auto-posted','report_to: dashboard.reviews']},
+    quote:{n:'%qa%',i:'%qi%',ac:'#e8c275',p:'follow_up/',slug:'%qk%_follow_up',role:'custom agent',c:['ind','gmail','qbo'],now:'Nudging a %qamt% %quote%, step 2',
+      m:[['11','open %quotesl%'],['3','%won% this week'],['%qv%','%won% value']],
+      y:['agent: %qk%_follow_up','trigger: %qev%','steps:','  - day_2: reminder','  - day_5: nudge','  - day_10: last_call','on_yes: pipeline.move(%wk%) -> %onyes%','on_no: log.reason','needs_you: [discounts, custom_terms]']},
     bill:{n:'Invoice chaser',i:'IC',ac:'#ff86c8',p:'billing/',slug:'invoice_chaser',role:'custom agent',c:['stripe','qbo','gmail','files'],now:'Reminding a $1,180 overdue invoice',
       m:[['9','chased'],['$5,420','collected'],['3','still due']],
       y:['agent: invoice_chaser','source: [stripe, quickbooks]','trigger: invoice.overdue(3d)','tone: friendly','cadence: [day_3, day_7, day_14]','on_paid: quickbooks.match -> dashboard','never: [late_fees_without_approval]']},
-    intake:{n:'Intake agent',i:'IN',ac:'#c3b0ff',p:'intake/',slug:'intake',role:'custom agent',c:['web','phone','ghl','files','slack'],now:'Waiting for the next request',
+    intake:{n:'Intake agent',i:'IN',ac:'#c3b0ff',p:'intake/',slug:'intake',role:'custom agent',c:['web','phone','ind','files','slack'],now:'Waiting for the next request',
       m:[['16','sorted'],['4','urgent'],['0','missed']],
-      y:['agent: intake','trigger: request.new           # call, form or chat','sort_by: your_rules.yml','ask_for: [photos, address, urgency]','route:','  urgent: slack.dispatch + owner_alert','  normal: crm.create_job','files: save_to("/Jobs/{customer}")']},
-    sys:{n:'Efficio',i:'EF',ac:'#e9e3ff',slug:'efficio',c:[]},
+      y:['agent: intake','trigger: request.new           # call, form or chat','sort_by: your_rules.yml','ask_for: %ask%','route:','  urgent: slack.dispatch + owner_alert','  normal: %appk%.create_%jk%','files: save_to("/%Jobs%/{%cust%}")']},
+    sys:{n:'Efficio',i:'E',ac:'#e9e3ff',slug:'efficio',c:[]},
     you:{n:'You',i:'ME',ac:'#ffffff',slug:'owner',c:[]}
   };
-  var CIDS=['ghl','phone','web','gcal','gmail','greviews','stripe','qbo','social','slack','files','m365','shopify','jobber'];
-  var CN={
-    ghl:{n:'HighLevel',ic:'hl',au:'native',w:'crm, texts, email',on:1,s:4,slug:'highlevel'},
-    phone:{n:'Phone line',ic:'phone',au:'native',w:'calls',on:1,s:9,slug:'phone'},
-    web:{n:'Website chat',ic:'chat',au:'native',w:'chats, forms',on:1,s:2,slug:'website'},
-    gcal:{n:'Google Calendar',ic:'cal',au:'oauth',w:'bookings',on:1,s:6,slug:'google_calendar'},
-    gmail:{n:'Gmail',ic:'mail',au:'oauth',w:'email',on:1,s:3,slug:'gmail'},
-    greviews:{n:'Google reviews',ic:'star',au:'oauth',w:'reviews',on:1,s:21,slug:'google_reviews'},
-    stripe:{n:'Stripe',ic:'card',au:'api key',w:'payments',on:1,s:7,slug:'stripe'},
-    qbo:{n:'QuickBooks',ic:'book',au:'oauth',w:'invoices',on:1,s:11,slug:'quickbooks'},
-    social:{n:'Facebook + IG',ic:'dm',au:'oauth',w:'DMs',on:1,s:8,slug:'meta'},
-    slack:{n:'Slack',ic:'hash',au:'mcp',w:'alerts',on:1,s:12,slug:'slack'},
-    files:{n:'Your files',ic:'folder',au:'drive / sharepoint',w:'docs',on:1,s:5,slug:'files'},
-    m365:{n:'Microsoft 365',ic:'grid',au:'oauth',w:'mail, calendar',on:0,s:0,slug:'microsoft_365'},
-    shopify:{n:'Shopify',ic:'bag',au:'api key',w:'orders',on:0,s:0,slug:'shopify'},
-    jobber:{n:'Jobber',ic:'wrench',au:'api',w:'jobs',on:0,s:0,slug:'jobber'}
-  };
-  var EV=[
+  RAW.EV=[
     ['rec','Answered a missed call, booked <b>Thu 10:00 AM</b>','gcal',1,'call.booked'],
     ['lead','Replied to a new web lead in <b>38s</b>','web',0,'lead.replied'],
     ['bill','Invoice <b>#1042</b> paid, <b>$1,180</b>','stripe',0,'invoice.paid',1180],
-    ['quote','Sent step 2 on a <b>$4,200</b> estimate','gmail',0,'quote.followed_up'],
-    ['rev','New <b>5&#9733;</b> review from a finished job','greviews',0,'review.received'],
+    ['quote','Sent step 2 on a <b>%qamt%</b> %quote%','gmail',0,'%qk%.followed_up'],
+    ['rev','New <b>5&#9733;</b> review from a happy %cust%','greviews',0,'review.received'],
     ['intake','Sorted a new request as <b>urgent</b>','ghl',0,'request.sorted'],
     ['intake','Sent an urgent request to your <b>Slack</b>','slack',0,'request.routed'],
-    ['lead','Answered an Instagram DM, booked a call','social',1,'dm.booked'],
+    ['lead','Answered an Instagram DM, booked a %appt%','social',1,'dm.booked'],
     ['bill','Read a vendor bill from your files, logged <b>$312</b>','files',0,'file.logged'],
     ['rec','Transferred an urgent call to your cell','phone',0,'call.transferred'],
-    ['quote','Estimate accepted, moved to <b>Won</b>','ghl',1,'deal.won'],
-    ['intake','Filed <b>4</b> job photos in the customer&rsquo;s folder','files',0,'file.sorted'],
+    ['quote','%Quote% accepted, moved to <b>%Won%</b>','ind',1,'%qk%.%wk%'],
+    ['intake','Created a new %job% in <b>%app%</b>','ind',0,'%jk%.created'],
     ['bill','Matched <b>12</b> payments in QuickBooks','qbo',0,'payments.matched'],
-    ['rev','Asked <b>3</b> customers for a review','ghl',0,'review.requested'],
+    ['rev','Asked <b>3</b> %custs% for a review','ghl',0,'review.requested'],
     ['rec','Took a message after hours','ghl',0,'message.taken'],
-    ['lead','Booked a consult from website chat','web',1,'chat.booked'],
+    ['lead','Booked a %appt% from website chat','web',1,'chat.booked'],
     ['bill','Sent a friendly reminder on <b>$640</b> due','gmail',0,'invoice.reminded',0],
+    ['intake','Filed <b>4</b> documents in the %cust%&rsquo;s folder','files',0,'file.sorted'],
     ['bill','Invoice <b>#1047</b> paid, <b>$860</b>','stripe',0,'invoice.paid',860],
-    ['intake','Asked a caller for photos of the job','phone',0,'request.info_asked']
+    ['intake','Asked a caller for %asktxt%','phone',0,'request.info_asked']
   ];
-  var NOW={
+  RAW.NOW={
     rec:['Booking Thu 10:00 AM for a caller','Answering an after-hours call','Transferring an urgent call to your cell','Taking a message for you'],
     lead:['Replying to a new web form','Answering an Instagram DM','Following up a chat lead, day 3'],
-    rev:['Asking 3 finished jobs for a review','Thanking a new 5-star reviewer','Flagging a 3-star review for you'],
-    quote:['Nudging a $4,200 estimate, step 2','Logging a yes on a $1,850 quote','Scheduling step 3 for Monday'],
+    rev:['Asking 3 happy %custs% for a review','Thanking a new 5-star reviewer','Flagging a 3-star review for you'],
+    quote:['Nudging a %qamt% %quote%, step 2','Logging a yes on a %quote%','Scheduling step 3 for Monday'],
     bill:['Reminding a $1,180 overdue invoice','Matching payments in QuickBooks','Sending a paid receipt'],
-    intake:['Waiting for the next request','Sorting a new job request','Routing an urgent request to Slack']
+    intake:['Waiting for the next request','Sorting a new request','Creating a %job% in %app%','Routing an urgent request to Slack']
   };
-  var NEEDS=[
-    {id:'q',t:'Approve the $4,200 Johnson quote',s:'Quote follow-up is waiting on you',b:'Approve',ok:'Approved. Quote follow-up sent it.',ev:['quote','Sent the approved <b>$4,200</b> quote to Johnson','gmail',0,'quote.approved'],toast:'Approved. The quote went out to Johnson.'},
-    {id:'c',t:'Call back Maria R., urgent lead',s:'9:12 AM &middot; burst pipe &middot; flagged by Receptionist',b:'Call now',ok:'Calling (555) 014-2291 from your business line&hellip;',ev:['you','Called back an urgent lead from the dashboard','phone',0,'call.outbound'],toast:'Calling Maria from your business line.'},
+  RAW.NEEDS=[
+    {id:'q',t:'Approve the %qamt% Johnson %quote%',s:'%qa% is waiting on you',b:'Approve',ok:'Approved. %qa% sent it.',ev:['quote','Sent the approved <b>%qamt%</b> %quote% to Johnson','gmail',0,'%qk%.approved'],toast:'Approved. The %quote% went out to Johnson.'},
+    {id:'c',t:'Call back Maria R., urgent lead',s:'9:12 AM &middot; %ur% &middot; flagged by Receptionist',b:'Call now',ok:'Calling (555) 014-2291 from your business line&hellip;',ev:['you','Called back an urgent lead from the dashboard','phone',0,'call.outbound'],toast:'Calling Maria from your business line.'},
     {id:'r',t:'Reply to a 3-star review from Dana',s:'Google reviews &middot; 2 days ago',b:'Draft reply',ok:'Draft ready. Nothing posts until you approve it.',ev:['rev','Drafted a reply to a 3&#9733; review for your OK','greviews',0,'review.reply_drafted'],toast:'Draft reply ready for you to approve.'}
   ];
-  var FOLD=[['Contracts',38],['Invoices',412],['Job photos',611],['Quotes',97],['Receipts',84],['Tax',12],['Documents',30]];
-  var RECENT=[['Johnson_service_agreement_SIGNED.pdf','Contracts','2h ago'],['IMG_4460.HEIC','Job photos','3h ago'],['Ferguson_invoice_09-28.pdf','Invoices','yesterday']];
-  var SAMPLES=[
-    {n:'Ferguson_invoice_10-02.pdf',size:'182 KB',f:'Invoices',type:'invoice',x:'vendor: Ferguson Supply &middot; total: $312.40 &middot; due: Oct 15',then:'logged in QuickBooks',ev:['bill','Read a vendor bill from your files, logged <b>$312</b>','files',0,'file.logged']},
-    {n:'Martinez_service_agreement_SIGNED.pdf',size:'96 KB',f:'Contracts',type:'contract',x:'client: Martinez &middot; signed: today &middot; renews: Oct 1, 2027',then:'renewal reminder set',ev:['intake','Filed a signed contract, set a renewal reminder','files',0,'file.sorted']},
-    {n:'IMG_4471.HEIC',size:'2.4 MB',f:'Job photos',type:'job photo',x:'customer: Martinez &middot; job #1188 &middot; taken 8:14 AM',then:'attached to job #1188',ev:['intake','Attached a job photo to job <b>#1188</b>','files',0,'file.sorted']}
+  RAW.FOLD=[['Contracts',38],['Invoices',412],['%photos%',611],['%quotes%',97],['Receipts',84],['Tax',12],['Documents',30]];
+  RAW.RECENT=[['Johnson_agreement_SIGNED.pdf','Contracts','2h ago'],['IMG_4460.HEIC','%photos%','3h ago'],['Northwind_invoice_09-28.pdf','Invoices','yesterday']];
+  RAW.SAMPLES=[
+    {n:'Northwind_invoice_10-02.pdf',size:'182 KB',f:'Invoices',type:'invoice',x:'vendor: Northwind Supply &middot; total: $312.40 &middot; due: Oct 15',then:'logged in QuickBooks',ev:['bill','Read a vendor bill from your files, logged <b>$312</b>','files',0,'file.logged']},
+    {n:'Martinez_agreement_SIGNED.pdf',size:'96 KB',f:'Contracts',type:'contract',x:'%cust%: Martinez &middot; signed: today &middot; renews: Oct 1, 2027',then:'renewal reminder set',ev:['intake','Filed a signed contract, set a renewal reminder','files',0,'file.sorted']},
+    {n:'IMG_4471.HEIC',size:'2.4 MB',f:'%photos%',type:'photo',x:'%cust%: Martinez &middot; %job% #1188 &middot; taken 8:14 AM',then:'attached to %job% #1188',ev:['intake','Attached a photo to %job% <b>#1188</b>','files',0,'file.sorted']}
   ];
-  var QS=['What needs me today?','Revenue vs last month?','Where’s the Johnson contract?','Which leads went cold?'];
-  var WIDS=['rec','lead','rev','quote','bill','intake','files'];
-  var WF={
-    rec:{n:'Missed call → booked job',a:'rec',f:'receptionist.yml',s:[['trigger','Missed call','call.missed &middot; 7:42 PM'],['ai','AI answers','says it&rsquo;s an AI'],['tool','Books the job','calendar.book'],['notify','Confirms','text if opted in'],['log','Dashboard','live']],
+  RAW.QS=['What needs me today?','Revenue vs last month?','Where’s the Johnson contract?','Which leads went cold?'];
+  RAW.WF={
+    rec:{n:'Missed call → booked %appt%',a:'rec',f:'receptionist.yml',s:[['trigger','Missed call','call.missed &middot; 7:42 PM'],['ai','AI answers','says it&rsquo;s an AI'],['tool','Books the %appt%','calendar.book'],['notify','Confirms','text if opted in'],['log','Dashboard','live']],
       l:[['0.01s','trigger','call.missed from (555) 010-4477'],['0.8s','ai','answered: "Hi, you’ve reached {biz}’s AI assistant…"'],['2.1s','tool','calendar.book → Thu 10:00 AM ✓'],['2.3s','notify','text skipped: no opt-in on file'],['2.4s','log','dashboard.overview ✓']]},
     lead:{n:'New lead → reply in 41s',a:'lead',f:'speed_to_lead.yml',s:[['trigger','New lead','form &middot; chat &middot; DM'],['ai','Drafts a reply','in your voice'],['send','Replies','under a minute'],['wait','Follows up','day 1 &middot; 3 &middot; 7'],['log','Dashboard','live']],
-      l:[['0.01s','trigger','form.submitted: "need a quote for a water heater"'],['1.2s','ai','reply drafted in {biz}’s voice'],['1.9s','send','email sent + chat answered ✓'],['2.0s','wait','follow-ups queued: day 1, 3, 7'],['2.1s','log','dashboard.leads ✓']]},
-    rev:{n:'Job done → 5★ review',a:'rev',f:'reviews.yml',s:[['trigger','Job done','job.completed'],['wait','Waits','2 hours'],['send','Asks for a review','text or email'],['branch','Low score?','goes to you'],['log','Dashboard','live']],
-      l:[['0.01s','trigger','job.completed: #1188 Martinez'],['0.3s','wait','2h delay (skipped in test)'],['0.9s','send','review request sent by email ✓'],['1.6s','branch','5★ received → posted to Google'],['1.7s','log','dashboard.reviews ✓']]},
-    quote:{n:'Estimate → yes or no',a:'quote',f:'quote_follow_up.yml',s:[['trigger','Estimate sent','$4,200'],['wait','Reminder','day 2'],['wait','Nudge','day 5'],['branch','Yes or no','logged'],['log','Dashboard','live']],
-      l:[['0.01s','trigger','estimate.sent: $4,200 Johnson'],['0.5s','wait','day 2 reminder sent ✓'],['1.0s','wait','day 5 nudge sent ✓'],['1.6s','branch','customer said yes → moved to Won'],['1.7s','log','dashboard.pipeline ✓']]},
+      l:[['0.01s','trigger','form.submitted: %leadq%'],['1.2s','ai','reply drafted in {biz}’s voice'],['1.9s','send','email sent + chat answered ✓'],['2.0s','wait','follow-ups queued: day 1, 3, 7'],['2.1s','log','dashboard.leads ✓']]},
+    rev:{n:'%Done% → 5★ review',a:'rev',f:'reviews.yml',s:[['trigger','%Done%','%dk%'],['wait','Waits','2 hours'],['send','Asks for a review','text or email'],['branch','Low score?','goes to you'],['log','Dashboard','live']],
+      l:[['0.01s','trigger','%dk%: #1188 Martinez'],['0.3s','wait','2h delay (skipped in test)'],['0.9s','send','review request sent by email ✓'],['1.6s','branch','5★ received → posted to Google'],['1.7s','log','dashboard.reviews ✓']]},
+    quote:{n:'%Quote% → yes or no',a:'quote',f:'%qk%_follow_up.yml',s:[['trigger','%Quote% sent','%qamt%'],['wait','Reminder','day 2'],['wait','Nudge','day 5'],['branch','Yes or no','logged'],['log','Dashboard','live']],
+      l:[['0.01s','trigger','%qev%: %qamt% Johnson'],['0.5s','wait','day 2 reminder sent ✓'],['1.0s','wait','day 5 nudge sent ✓'],['1.6s','branch','%cust% said yes → %won%'],['1.7s','log','dashboard.pipeline ✓']]},
     bill:{n:'Overdue invoice → paid',a:'bill',f:'invoice_chaser.yml',s:[['trigger','Invoice overdue','$1,180 &middot; 3 days'],['send','Reminder','friendly email'],['event','Paid','in Stripe'],['sync','Matched','in QuickBooks'],['log','Dashboard','live']],
       l:[['0.01s','trigger','invoice.overdue: #1042 $1,180'],['0.6s','send','friendly reminder sent ✓'],['1.4s','event','stripe: payment succeeded $1,180'],['1.8s','sync','quickbooks: invoice #1042 matched ✓'],['1.9s','log','dashboard.revenue ✓']]},
-    intake:{n:'New request → routed',a:'intake',f:'intake.yml',s:[['trigger','New request','call &middot; form &middot; chat'],['ai','Asks for photos','and the address'],['ai','Sorts it','by your rules'],['route','Urgent?','Slack + you'],['log','Your CRM','job created']],
-      l:[['0.01s','trigger','request.new: "water coming through the ceiling"'],['0.7s','ai','asked for photos + address ✓'],['1.2s','ai','sorted as urgent (keyword: water)'],['1.5s','route','slack.dispatch + owner alert ✓'],['1.6s','log','crm: job #1203 created ✓']]},
+    intake:{n:'New request → routed',a:'intake',f:'intake.yml',s:[['trigger','New request','call &middot; form &middot; chat'],['ai','Asks for details','%asktxt%'],['ai','Sorts it','by your rules'],['route','Urgent?','Slack + you'],['log','%app%','%job% created']],
+      l:[['0.01s','trigger','request.new: %reqq%'],['0.7s','ai','asked for %asktxt% ✓'],['1.2s','ai','sorted as urgent (keyword: %kw%)'],['1.5s','route','slack.dispatch + owner alert ✓'],['1.6s','log','%appk%: %job% #1203 created ✓']]},
     files:{n:'File dropped → sorted',a:'files',f:'file_sorter.yml',s:[['trigger','File dropped','drive &middot; sharepoint'],['ai','Reads it','type, vendor, total'],['tool','Files it','/Invoices/2026-10'],['sync','Logs it','QuickBooks'],['log','Dashboard','live']],
-      l:[['0.01s','trigger','file.dropped: Ferguson_invoice_10-02.pdf'],['0.9s','ai','invoice · Ferguson Supply · $312.40 · due Oct 15'],['1.2s','tool','filed to /Invoices/2026-10 ✓'],['1.6s','sync','quickbooks: bill created ✓'],['1.7s','log','dashboard.files ✓']]}
+      l:[['0.01s','trigger','file.dropped: Northwind_invoice_10-02.pdf'],['0.9s','ai','invoice · Northwind Supply · $312.40 · due Oct 15'],['1.2s','tool','filed to /Invoices/2026-10 ✓'],['1.6s','sync','quickbooks: bill created ✓'],['1.7s','log','dashboard.files ✓']]}
   };
   var FILEY=['workflow: file_sorter','trigger: file.dropped          # drive or sharepoint folder','read: ai.extract(type, vendor, total, due)','file_to: "/{type}/{yyyy-mm}"','then:','  invoice: quickbooks.bill.create','  contract: calendar.remind(renewal)','report_to: dashboard.files'];
   var WAC={files:'#e9e3ff'};
+  var WIDS=['rec','lead','rev','quote','bill','intake','files'];
+
+  var CIDS=['ghl','phone','web','gcal','gmail','greviews','stripe','qbo','social','slack','files','ind','m365','docusign','zoom'];
+  var CN0={
+    ghl:{n:'HighLevel',ic:'hl',k:'#9a7bff',au:'native',w:'crm, texts, email',on:1,s:4,slug:'highlevel'},
+    phone:{n:'Phone line',ic:'phone',k:'#56d8a0',au:'native',w:'calls',on:1,s:9,slug:'phone'},
+    web:{n:'Website chat',ic:'chat',k:'#5cc8ff',au:'native',w:'chats, forms',on:1,s:2,slug:'website'},
+    gcal:{n:'Google Calendar',ic:'cal',k:'#6ea8ff',au:'oauth',w:'bookings',on:1,s:6,slug:'google_calendar'},
+    gmail:{n:'Gmail',ic:'mail',k:'#ff86c8',au:'oauth',w:'email',on:1,s:3,slug:'gmail'},
+    greviews:{n:'Google reviews',ic:'star',k:'#e8c275',au:'oauth',w:'reviews',on:1,s:21,slug:'google_reviews'},
+    stripe:{n:'Stripe',ic:'card',k:'#a08cff',au:'api key',w:'payments',on:1,s:7,slug:'stripe'},
+    qbo:{n:'QuickBooks',ic:'book',k:'#56d8a0',au:'oauth',w:'invoices',on:1,s:11,slug:'quickbooks'},
+    social:{n:'Facebook + IG',ic:'dm',k:'#ff86c8',au:'oauth',w:'DMs',on:1,s:8,slug:'meta'},
+    slack:{n:'Slack',ic:'hash',k:'#e8c275',au:'mcp',w:'alerts',on:1,s:12,slug:'slack'},
+    files:{n:'Your files',ic:'folder',k:'#e8c275',au:'drive / sharepoint',w:'docs',on:1,s:5,slug:'files'},
+    ind:{n:'HubSpot',ic:'users',k:'#e8c275',au:'oauth',w:'crm, deals',on:1,s:14,slug:'hubspot'},
+    m365:{n:'Microsoft 365',ic:'grid',k:'#6ea8ff',au:'oauth',w:'mail, calendar',on:0,s:0,slug:'microsoft_365'},
+    docusign:{n:'DocuSign',ic:'sign',k:'#e8c275',au:'oauth',w:'e-signatures',on:0,s:0,slug:'docusign'},
+    zoom:{n:'Zoom',ic:'video',k:'#5cc8ff',au:'oauth',w:'meetings',on:0,s:0,slug:'zoom'}
+  };
+  var OFF=['m365','docusign','zoom'];
+  var AG,EV,NOW,NEEDS,FOLD,RECENT,SAMPLES,QS,WF,CN={},hist=[],k=6,t0=Date.now();
+  function resetCN(){
+    CIDS.forEach(function(id){ var c=CN0[id], o={}; for(var x in c) o[x]=c[x]; CN[id]=o; });
+    var a=I.app; CN.ind.n=a[0]; CN.ind.ic=a[1]; CN.ind.au=a[2]; CN.ind.w=a[3]; CN.ind.slug=a[4]; CN.ind.k=a[5];
+  }
+  function localize(){
+    AG=L(RAW.AG); EV=L(RAW.EV); NOW=L(RAW.NOW); NEEDS=L(RAW.NEEDS); FOLD=L(RAW.FOLD); RECENT=L(RAW.RECENT); SAMPLES=L(RAW.SAMPLES); QS=L(RAW.QS); WF=L(RAW.WF);
+    AG.rec.st='working'; AG.lead.st='working'; AG.quote.st='working'; AG.intake.st='idle';
+    resetCN();
+    S.tasks=312; S.booked=14; S.rev=38400; S.files=1284; S.apps=12; S.paused={};
+    hist=[]; k=6; t0=Date.now();
+    for(var i0=0;i0<6;i0++){ var e0=EV[i0]; hist.push({a:e0[0],h:e0[1],c:e0[2],type:e0[4],t:clock(new Date(t0-(i0*3+1)*60000))}); }
+  }
+  localize();
+
+  /* ---------- robots: every agent is a little working bot ---------- */
+  var BOT='<svg class="e7-bot" viewBox="0 0 62 62" aria-hidden="true"><g class="bb"><line class="bw" x1="31" y1="6" x2="31" y2="13"/><circle class="bdot" cx="31" cy="5" r="2.6"/><rect class="bear" x="8" y="25" width="4.5" height="12" rx="2.2"/><rect class="bear" x="49.5" y="25" width="4.5" height="12" rx="2.2"/><rect class="bhead" x="12" y="13" width="38" height="36" rx="13"/><rect class="bvisor" x="17" y="19" width="28" height="22" rx="9"/><g class="beyes"><circle class="beye" cx="26" cy="29" r="3.3"/><circle class="beye" cx="36" cy="29" r="3.3"/></g><path class="bsmile" d="M26 35c2 2 8 2 10 0"/></g></svg>';
+  var BD={rec:'0s',lead:'.9s',rev:'2.1s',quote:'1.4s',bill:'3.1s',intake:'.4s'};
+  var BADGE={rec:'phone',lead:'chat',rev:'star',quote:'file',bill:'card',intake:'grid'};
+  function stOf(id){ if(S.paused[id]) return 'paused'; return AG[id].st||'active'; }
+  function botCls(id){ var s=stOf(id); return s==='working'?' is-working':(s==='paused'?' is-paused':''); }
+  function av(id,cls,badge){
+    var a=AG[id];
+    if(id==='sys'||id==='you') return '<span class="e7-mv'+(cls?' '+cls:'')+'" style="--ac:'+a.ac+'">'+a.i+'</span>';
+    return '<span class="e7-bw'+(cls?' '+cls:'')+botCls(id)+'" data-bot="'+id+'" style="--ac:'+a.ac+';--bd:'+(BD[id]||'0s')+'">'+BOT+(badge?'<span class="bdg">'+icon(BADGE[id])+'</span>':'')+'</span>';
+  }
+  function appIc(id,cls){ var c=CN[id]; return '<span class="e7-ic'+(cls?' '+cls:'')+'" style="--k:'+c.k+'">'+icon(c.ic)+'</span>'; }
 
   /* ---------- shared bits ---------- */
   function yml(a){ var y=(a==='files'?FILEY:AG[a].y).join('\n'); return y.split('{biz}').join(biz()); }
@@ -1961,31 +2267,47 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       return e+com;
     }).join('\n');
   }
-  function stOf(id){ if(S.paused[id]) return 'paused'; return AG[id].st||'active'; }
-  AG.rec.st='working'; AG.lead.st='working'; AG.quote.st='working'; AG.intake.st='idle';
-  var hist=[], k=6, t0=Date.now();
-  for(var i0=0;i0<6;i0++){ var e0=EV[i0]; hist.push({a:e0[0],h:e0[1],c:e0[2],type:e0[4],t:clock(new Date(t0-(i0*3+1)*60000))}); }
-  function frow(e,fresh){
-    return '<li'+(fresh?'':' style="animation:none"')+'><span class="tm">'+e.t+'</span><span><span class="ag" style="color:'+AG[e.a].ac+'">'+AG[e.a].n+'</span>'+e.h+'<span class="via">'+CN[e.c].n+'</span></span></li>';
+  var codeT=null;
+  function typeCode(pre){
+    if(!pre || reduce) return;
+    clearInterval(codeT);
+    var lines=pre.innerHTML.split('\n'), n=0;
+    pre.innerHTML='<span class="e7-cur"></span>';
+    codeT=setInterval(function(){
+      n++; pre.innerHTML=lines.slice(0,n).join('\n')+'<span class="e7-cur"></span>';
+      if(n>=lines.length) clearInterval(codeT);
+    },50);
   }
-  function toast(msg){ var t=$('#e6toast'); t.innerHTML=msg; t.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(function(){ t.classList.remove('show'); },3000); }
+  function frow(e,fresh){
+    return '<li'+(fresh?'':' style="animation:none"')+'><span class="tm">'+e.t+'</span><span><span class="ag" style="color:'+AG[e.a].ac+'">'+av(e.a,'e7-xs')+AG[e.a].n+'</span>'+e.h+'<span class="via">'+CN[e.c].n+'</span></span></li>';
+  }
+  function toast(msg){ var t=$('#e6toast'); t.innerHTML=msg; t.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(function(){ t.classList.remove('show'); },3200); }
 
-  /* engineer console */
-  var conEl=$('#e6con'), conN=0;
+  /* engineer console + the one-line event stream in CEO view */
+  var conEl=$('#e6con'), tkEl=$('#e7ttx'), tkT=null;
+  function ticker(html){
+    if(!tkEl) return;
+    clearInterval(tkT);
+    if(reduce || S.mode==='eng'){ tkEl.innerHTML=html; return; }
+    var text=strip(html), j=0;
+    tkT=setInterval(function(){ j+=3; if(j>=text.length){ clearInterval(tkT); tkEl.innerHTML=html; return; } tkEl.textContent=text.slice(0,j)+'▍'; },14);
+  }
   function con(method,path,obj,code){
-    var line='<div><span class="t">'+stamp()+'</span>  <span class="m">'+method+'</span> <span class="h">'+path+'</span>'+(obj?'  <span class="p">'+esc(JSON.stringify(obj))+'</span>':'')+'  <span class="ok">'+(code||200)+'</span> <span class="t">'+(8+Math.random()*60|0)+'ms</span></div>';
-    conEl.insertAdjacentHTML('beforeend',line); conN++;
+    var ms=(8+Math.random()*60|0), body=obj?esc(JSON.stringify(obj)):'';
+    var line='<div><span class="t">'+stamp()+'</span>  <span class="m">'+method+'</span> <span class="h">'+path+'</span>'+(obj?'  <span class="p">'+body+'</span>':'')+'  <span class="ok">'+(code||200)+'</span> <span class="t">'+ms+'ms</span></div>';
+    conEl.insertAdjacentHTML('beforeend',line);
     while(conEl.children.length>80) conEl.removeChild(conEl.firstChild);
     conEl.scrollTop=conEl.scrollHeight;
+    ticker('<span class="m">'+method+'</span> '+path+(obj?' <span class="p">'+body+'</span>':'')+' <span class="ok">'+(code||200)+'</span> <span class="t">'+ms+'ms</span>');
   }
-  conEl.insertAdjacentHTML('beforeend','<div class="h"># efficio &middot; workspace <span data-slug>'+S.slug+'</span> &middot; 11 connectors &middot; 6 agents &middot; sample data</div>');
-  con('GET','/v1/health',null);
+  function conHead(){ conEl.innerHTML='<div class="h"># efficio &middot; workspace <span data-slug>'+S.slug+'</span> &middot; '+S.apps+' connectors &middot; 6 agents &middot; sample data</div>'; }
+  conHead(); con('GET','/v1/health',null);
 
   /* ---------- views ---------- */
   function pod(){ var h=new Date().getHours(); return h<12?'morning':(h<18?'afternoon':'evening'); }
   function today(){ return new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
-  function kpi(cls,k,v,d){ return '<div class="e6-kpi '+cls+'"><span class="k">'+k+'</span><span class="v">'+v+'</span><span class="d">'+d+'</span></div>'; }
-  function arow(id){ var a=AG[id]; return '<button type="button" class="e6-arow" data-act="agent" data-id="'+id+'" style="--ac:'+a.ac+'"><span class="av6">'+a.i+'</span><span class="t"><b>'+a.n+'</b><span data-now="'+id+'">'+esc(a.now)+'</span></span><span class="x5-st '+stOf(id)+'" data-st="'+id+'">'+stOf(id)+'</span></button>'; }
+  function kpi(cls,k2,v,d){ return '<div class="e6-kpi '+cls+'"><span class="k">'+k2+'</span><span class="v">'+v+'</span><span class="d">'+d+'</span></div>'; }
+  function arow(id){ var a=AG[id]; return '<button type="button" class="e6-arow" data-act="agent" data-id="'+id+'" style="--ac:'+a.ac+'">'+av(id)+'<span class="t"><b>'+a.n+'</b><span data-now="'+id+'">'+esc(a.now)+'</span></span><span class="x5-st '+stOf(id)+'" data-st="'+id+'">'+stOf(id)+'</span></button>'; }
   function needsHTML(){
     var left=NEEDS.filter(function(n){ return !n.done; }).length;
     var h=NEEDS.map(function(n){
@@ -2008,20 +2330,20 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       '<polyline points="'+q.join(' ')+'" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.6" stroke-dasharray="3 4"/>'+
       '<path d="M'+p.join(' L')+' L310,100 L10,100 Z" fill="url(#e6g)"/>'+
       '<polyline class="e6-rpath" points="'+p.join(' ')+'" fill="none" stroke="#9a7bff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>'+
-      '<circle cx="'+p[28].split(',')[0]+'" cy="'+p[28].split(',')[1]+'" r="4" fill="#c3b0ff"/>'+
+      '<circle class="e7-pulse" cx="'+p[28].split(',')[0]+'" cy="'+p[28].split(',')[1]+'" r="4" fill="#c3b0ff"/>'+
       '<g font-size="9" fill="#76768e" font-family="JetBrains Mono,monospace"><text x="10" y="109">Sep 1</text><text x="274" y="109">today</text><text x="120" y="109">- - last month</text></g></svg>';
   }
   function renderOverview(){
     $('[data-view="overview"]').innerHTML=
       '<div class="e6-vh"><h3>Good '+pod()+'</h3><span class="r">'+today()+' &middot; <span data-slug>'+S.slug+'</span> &middot; all systems normal</span></div>'+
-      '<div class="e6-kpis">'+kpi('g','<span class="x5-dot"></span>agents live','<span id="e6kA">6</span>','of 6 deployed')+kpi('','tasks today','<span id="e6kT">'+fmt(S.tasks)+'</span>','and counting')+
-        kpi('c','jobs booked','<span id="e6kB">'+S.booked+'</span>','today')+kpi('p','revenue &middot; mtd','<span id="e6kR">'+money(S.rev)+'</span>','&#9650; 12% vs last month')+'</div>'+
+      '<div class="e6-kpis">'+kpi('g','<span class="x5-dot"></span>agents live','<span id="e6kA">'+AIDS.filter(function(x){ return !S.paused[x]; }).length+'</span>','of 6 deployed')+kpi('','tasks today','<span id="e6kT">'+fmt(S.tasks)+'</span>','and counting')+
+        kpi('c',tk('%appts% booked'),'<span id="e6kB">'+S.booked+'</span>','today')+kpi('p','revenue &middot; mtd','<span id="e6kR">'+money(S.rev)+'</span>','&#9650; 12% vs last month')+'</div>'+
       '<div class="e6-g2"><div class="e6-card"><div class="e6-ch">agents<button type="button" class="lk" data-act="go" data-v="agents">manage &rarr;</button></div><div id="e6arows">'+AIDS.map(arow).join('')+'</div></div>'+
         '<div class="e6-card"><div class="e6-ch"><span class="x5-dot"></span>live activity<span class="r">from every app</span></div><ol class="e6-feed" id="e6feed">'+hist.slice(0,7).map(function(e){ return frow(e,false); }).join('')+'</ol></div></div>'+
-      '<div class="e6-g2"><div class="e6-card"><div class="e6-ch">needs you<span class="r" id="e6nleft">3 left</span></div><div id="e6needs">'+needsHTML()+'</div></div>'+
+      '<div class="e6-g2"><div class="e6-card"><div class="e6-ch">needs you<span class="r" id="e6nleft">'+(NEEDS.filter(function(n){ return !n.done; }).length||'all clear')+(NEEDS.some(function(n){ return !n.done; })?' left':'')+'</span></div><div id="e6needs">'+needsHTML()+'</div></div>'+
         '<div class="e6-card e6-chart" id="e6chart"><div class="e6-ch">revenue &middot; this month<span class="r">stripe + quickbooks</span></div><div><span class="big" id="e6rv">'+money(S.rev)+'</span><span class="up">&#9650; 12% vs last month</span></div>'+chartSVG()+'</div></div>';
   }
-  function acard(id){ var a=AG[id]; return '<button type="button" class="e6-acard" role="option" data-act="agent" data-id="'+id+'" aria-selected="'+(S.agent===id)+'" style="--ac:'+a.ac+'"><span class="av6">'+a.i+'</span><span class="nm">'+a.n+'<small>'+a.p+'</small></span><span class="x5-st '+stOf(id)+'" data-st="'+id+'">'+stOf(id)+'</span></button>'; }
+  function acard(id){ var a=AG[id]; return '<button type="button" class="e6-acard" role="option" data-act="agent" data-id="'+id+'" aria-selected="'+(S.agent===id)+'" style="--ac:'+a.ac+'">'+av(id)+'<span class="nm">'+a.n+'<small>'+a.p+'</small></span><span class="x5-st '+stOf(id)+'" data-st="'+id+'">'+stOf(id)+'</span></button>'; }
   function renderAgents(){
     $('[data-view="agents"]').innerHTML='<div class="e6-vh"><h3>Agents</h3><span class="r">6 deployed &middot; pick one, pause it, read its code</span></div>'+
       '<div class="e6-split"><div class="e6-alist" role="listbox" aria-label="Agents">'+AIDS.map(acard).join('')+'</div><div class="e6-det" id="e6det"></div></div>';
@@ -2034,17 +2356,18 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   function renderDetail(id){
     var a=AG[id], on=!S.paused[id], box=$('#e6det'); if(!box) return;
     backfillAgent(id);
-    box.innerHTML='<div class="e6-dhd" style="--ac:'+a.ac+'"><span class="av6">'+a.i+'</span><div><b>'+a.n+'</b><small>'+a.p+' &middot; '+a.role+'</small></div>'+
+    box.innerHTML='<div class="e6-dhd" style="--ac:'+a.ac+'">'+av(id,'lg',true)+'<div><b>'+a.n+'</b><small>'+a.p+' &middot; '+a.role+'</small></div>'+
       '<label class="e6-sw"><input type="checkbox" data-act="pause" data-id="'+id+'"'+(on?' checked':'')+'><span class="tr"></span><span>'+(on?'running':'paused')+'</span></label></div>'+
-      '<div class="e6-uses">'+a.c.map(function(c){ return '<span>'+icon(CN[c].ic)+CN[c].n+'</span>'; }).join('')+'</div>'+
+      '<div class="e6-uses">'+a.c.map(function(c){ return '<span>'+appIc(c,'sm')+CN[c].n+'</span>'; }).join('')+'</div>'+
       '<div class="e6-dk">'+a.m.map(function(m){ return '<div class="e6-stat"><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'; }).join('')+'</div>'+
       '<div class="e6-tbar"><div class="e6-seg" role="group" aria-label="Detail"><button type="button" data-act="atab" data-t="act" aria-pressed="'+(S.atab==='act')+'">activity</button><button type="button" data-act="atab" data-t="cfg" aria-pressed="'+(S.atab==='cfg')+'">'+a.slug+'.yml</button></div></div>'+
-      (S.atab==='cfg' ? '<pre class="e6-code">'+hl(yml(id))+'</pre>' :
+      (S.atab==='cfg' ? '<pre class="e6-code" id="e7cfg">'+hl(yml(id))+'</pre>' :
         '<ol class="e6-feed" id="e6dfeed">'+hist.filter(function(e){ return e.a===id; }).slice(0,6).map(function(e){ return frow(e,false); }).join('')+'</ol>');
+    if(S.atab==='cfg' && S.view==='agents') typeCode($('#e7cfg'));
   }
   function tile(id){
     var c=CN[id];
-    return '<div class="e6-tile'+(c.on?'':' off')+'" data-tile="'+id+'"><span class="ic">'+icon(c.ic)+'</span><span class="nm">'+c.n+'</span><span class="au">'+c.au+'</span><span class="st">'+
+    return '<div class="e6-tile'+(c.on?'':' off')+'" data-tile="'+id+'"><span class="ic" style="--k:'+c.k+'">'+icon(c.ic)+'</span><span class="nm">'+c.n+'</span><span class="au">'+c.au+'</span><span class="st">'+
       (c.on ? '<span class="on" data-sync="'+id+'">synced '+c.s+'s ago</span><span>'+c.w+'</span>' : '<span>not connected</span><button type="button" class="e6-b2" data-act="connect" data-id="'+id+'">connect</button>')+'</span></div>';
   }
   function renderApps(){
@@ -2055,12 +2378,13 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   function renderFiles(){
     $('[data-view="files"]').innerHTML='<div class="e6-vh"><h3>Files</h3><span class="r">your drop folder &middot; google drive or sharepoint</span></div>'+
       '<div class="e6-fg"><div><div class="e6-drop" id="e6drop" tabindex="0" role="button" data-act="pick" aria-label="Add files to sort. They stay in your browser.">'+icon('up')+'<div><b>Drop any file here</b><small>or click to pick one &middot; it never leaves your browser</small></div></div>'+
-        '<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button type="button" class="e6-btn" data-act="sample" data-k="0">Drop a sample invoice</button><button type="button" class="e6-btn ghost" data-act="sample" data-k="1">a signed contract</button><button type="button" class="e6-btn ghost" data-act="sample" data-k="2">a job photo</button></div>'+
-        '<pre class="e6-code e6-job" id="e6job"><span class="c"># sorter idle &middot; drop something</span></pre></div>'+
+        '<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button type="button" class="e6-btn" data-act="sample" data-k="0">Drop a sample invoice</button><button type="button" class="e6-btn ghost" data-act="sample" data-k="1">a signed contract</button><button type="button" class="e6-btn ghost" data-act="sample" data-k="2">a photo</button></div>'+
+        '<pre class="e6-code e6-job" id="e6job"><span class="c"># sorter idle &middot; drop something</span><span class="e7-cur"></span></pre></div>'+
         '<div class="e6-card"><div class="e6-ch">folders<span class="r" id="e6fcount">'+fmt(S.files)+' files</span></div><ul class="e6-tree" id="e6tree">'+
           FOLD.map(function(f){ return '<li data-f="'+f[0]+'">'+icon('folder')+f[0]+'<b>'+fmt(f[1])+'</b></li>'; }).join('')+'</ul></div></div>'+
       '<div class="e6-card" style="margin-top:12px"><div class="e6-ch">recently sorted</div><ul class="e6-rec" id="e6rec">'+RECENT.map(function(r){ return recRow(r[0],r[1],r[2],false); }).join('')+'</ul></div>'+
       '<input type="file" id="e6fin" multiple hidden>';
+    bindDrop();
   }
   function recRow(name,folder,when,fresh){ return '<li'+(fresh?'':' style="animation:none"')+'>'+icon('file')+'<span style="min-width:0"><b>'+esc(name)+'</b><small>'+when+'</small></span><span class="to">&rarr; /'+folder+'</span></li>'; }
   function renderAsk(){
@@ -2068,6 +2392,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       '<div class="e6-chips">'+QS.map(function(q,i){ return '<button type="button" data-act="ask" data-q="'+i+'">'+esc(q)+'</button>'; }).join('')+'</div>'+
       '<form class="e6-askf" id="e6askf"><input id="e6askin" maxlength="140" placeholder="Ask about your business&hellip;" aria-label="Ask a question" autocomplete="off"><button type="submit" class="e6-btn">Ask &crarr;</button></form>'+
       '<p class="e6-model">demo answers from sample data &middot; live: Claude over your own apps and files, read-only</p></div>';
+    phType($('#e6askin'),['What needs me today?','Revenue vs last month?','Which invoices are overdue?','How many calls did we miss?','Where’s the Johnson contract?'],'Ask: ');
   }
   function wi(id){ var w=WF[id], ac=WAC[id]||AG[w.a].ac; return '<button type="button" class="e6-wi" role="option" data-act="wf" data-id="'+id+'" aria-selected="'+(S.wf===id && !S.req)+'" style="--ac:'+ac+'"><span class="d"></span>'+w.n+'</button>'; }
   function renderFlows(){
@@ -2080,31 +2405,41 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     var w=WF[id];
     $$('.e6-wi[data-id]').forEach(function(b){ b.setAttribute('aria-selected',String(b.getAttribute('data-id')===id)); });
     $('#e6cv').innerHTML='<div class="e6-cbar"><b>'+w.n+'</b><div class="e6-seg" role="group" aria-label="Workflow view"><button type="button" data-act="wfv" data-v="canvas" aria-pressed="'+(S.wfv==='canvas')+'">canvas</button><button type="button" data-act="wfv" data-v="code" aria-pressed="'+(S.wfv==='code')+'">'+w.f+'</button></div><button type="button" class="e6-btn" data-act="run">'+icon('play')+' Run test</button></div>'+
-      (S.wfv==='code' ? '<pre class="e6-code">'+hl(yml(w.a))+'</pre>' : '<div class="e6-nodes" id="e6nodes">'+w.s.map(node).join('<span class="e6-edge"></span>')+'</div>')+
+      (S.wfv==='code' ? '<pre class="e6-code" id="e7wcode">'+hl(yml(w.a))+'</pre>' : '<div class="e6-nodes" id="e6nodes">'+w.s.map(node).join('<span class="e6-edge"></span>')+'</div>')+
       '<pre class="e6-log" id="e6log"><span class="t"># press Run test to watch it work</span></pre>';
+    if(S.wfv==='code' && S.view==='flows') typeCode($('#e7wcode'));
   }
 
   /* ---------- live engine ---------- */
   var typing={};
   function say(id,text){
     $$('[data-now="'+id+'"]').forEach(function(el){
-      clearInterval(typing[id+el.parentNode.className]);
+      var key=id+el.parentNode.className;
+      clearInterval(typing[key]);
       if(reduce){ el.textContent=text; return; }
-      var i=0, key=id+el.parentNode.className; el.textContent='';
+      var i=0; el.textContent='';
       typing[key]=setInterval(function(){ i+=2; el.textContent=text.slice(0,i); if(i>=text.length) clearInterval(typing[key]); },22);
     });
     AG[id].now=text;
   }
   var stT={};
-  function setSt(id,st){ if(AG[id]) AG[id].st=st; $$('[data-st="'+id+'"]').forEach(function(el){ var s=stOf(id); el.className='x5-st '+s; el.textContent=s; }); }
+  function setSt(id,st){
+    if(AG[id]) AG[id].st=st;
+    var s=stOf(id);
+    $$('[data-st="'+id+'"]').forEach(function(el){ el.className='x5-st '+s; el.textContent=s; });
+    $$('[data-bot="'+id+'"]').forEach(function(el){ el.classList.toggle('is-working',s==='working'); el.classList.toggle('is-paused',s==='paused'); });
+  }
   function work(id){ if(!AG[id] || S.paused[id] || AIDS.indexOf(id)<0) return; setSt(id,'working'); clearTimeout(stT[id]); stT[id]=setTimeout(function(){ setSt(id,'active'); },8000); }
+  function pipeHit(id){
+    $$('[data-pipe="'+id+'"]').forEach(function(el){ el.classList.remove('on'); void el.offsetWidth; el.classList.add('on'); clearTimeout(el._t); el._t=setTimeout(function(){ el.classList.remove('on'); },1400); });
+  }
   function hitTile(id){
-    CN[id].s=0;
+    CN[id].s=0; pipeHit(id);
     var t=$('[data-tile="'+id+'"]'); if(!t) return;
     var sy=$('[data-sync]',t); if(sy) sy.textContent='synced just now';
     t.classList.remove('hit'); void t.offsetWidth; t.classList.add('hit'); setTimeout(function(){ t.classList.remove('hit'); },1500);
   }
-  function emit(e,fresh){
+  function emit(e){
     var ev={a:e[0],h:e[1],c:e[2],type:e[4],t:clock(new Date())};
     hist.unshift(ev); if(hist.length>80) hist.pop();
     S.tasks+=1+(Math.random()*3|0); var kT=$('#e6kT'); if(kT){ kT.textContent=fmt(S.tasks); bump(kT); }
@@ -2125,20 +2460,28 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   }
   function rotate(){ var ids=AIDS.filter(function(id){ return !S.paused[id]; }); if(!ids.length) return; var id=ids[Math.random()*ids.length|0], l=NOW[id]; say(id,l[Math.random()*l.length|0]); }
   var live=false, iv=[], inview=false;
-  function start(){ if(live||reduce) return; live=true; iv=[setInterval(tick,2600),setInterval(syncTick,1000),setInterval(rotate,4600)]; }
+  function start(){ if(live||reduce) return; live=true; iv=[setInterval(tick,2400),setInterval(syncTick,1000),setInterval(rotate,4200)]; }
   function stop(){ live=false; iv.forEach(clearInterval); iv=[]; }
   watch(app,function(v){ inview=v; if(v && !document.hidden) start(); else stop(); if(v) drawChart(); },0.1);
   document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(inview) start(); });
 
   /* ---------- actions ---------- */
-  function go(v){
+  var seen={};
+  function go(v,quiet){
     S.view=v;
     $$('.e6-nav').forEach(function(b){ b.setAttribute('aria-current',String(b.getAttribute('data-v')===v)); });
     $$('.e6-view').forEach(function(s){ s.hidden = s.getAttribute('data-view')!==v; });
     var m=$('#e6main'); if(m) m.scrollTop=0;
     if(v==='overview') drawChart();
     if(v==='ask'){ var ms=$('#e6msgs'); if(ms) ms.scrollTop=ms.scrollHeight; }
-    con('GET','/app/'+(v==='flows'?'workflows':v),null);
+    if(!quiet) con('GET','/app/'+(v==='flows'?'workflows':v),null);
+    var first=!seen[v]; seen[v]=true;
+    if(quiet || T.on) return;
+    if(v==='flows') autoRun();
+    if(v==='files' && first) later(function(){ sample(1); },650,ftm);
+    if(v==='ask' && first) later(function(){ ask(QS[0]); },600,ftm);
+    if(v==='agents' && S.atab==='cfg') typeCode($('#e7cfg'));
+    if(v==='flows' && S.wfv==='code') typeCode($('#e7wcode'));
   }
   function drawChart(){ var c=$('#e6chart'); if(c && !c.classList.contains('on') && S.view==='overview') setTimeout(function(){ c.classList.add('on'); },60); }
   function selectAgent(id){ S.agent=id; $$('.e6-acard').forEach(function(b){ b.setAttribute('aria-selected',String(b.getAttribute('data-id')===id)); }); renderDetail(id); }
@@ -2162,41 +2505,39 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     },1500);
   }
   /* files */
-  var fq=[], fbusy=false;
+  var fq=[], fbusy=false, ftm=[];
   function classify(name,type){
     var n=name.toLowerCase();
     if(/receipt/.test(n)) return ['Receipts','receipt'];
     if(/invoice|bill|statement/.test(n)) return ['Invoices','invoice'];
     if(/contract|agreement|nda|signed|lease|terms/.test(n)) return ['Contracts','contract'];
-    if(/quote|estimate|proposal|bid/.test(n)) return ['Quotes','estimate'];
+    if(/quote|estimate|proposal|bid|offer/.test(n)) return [I.quotes,I.quote];
     if(/w-?9|1099|tax|irs/.test(n)) return ['Tax','tax form'];
-    if(/^image\//.test(type||'') || /\.(jpe?g|png|heic|webp|gif)$/.test(n)) return ['Job photos','photo'];
+    if(/^image\//.test(type||'') || /\.(jpe?g|png|heic|webp|gif)$/.test(n)) return [I.photos,'photo'];
     return ['Documents','document'];
   }
   function fsize(b){ return b>1048576 ? (b/1048576).toFixed(1)+' MB' : Math.max(1,Math.round(b/1024))+' KB'; }
-  function sortFile(job){
-    fq.push(job); if(!fbusy) nextFile();
-  }
+  function sortFile(job){ fq.push(job); if(!fbusy) nextFile(); }
   function nextFile(){
     var job=fq.shift(); if(!job){ fbusy=false; return; } fbusy=true;
     var box=$('#e6job'); if(!box){ fbusy=false; return; }
     var ym=new Date(); ym=ym.getFullYear()+'-'+two(ym.getMonth()+1);
-    var L=['<span class="n">$</span> sort <span class="s">'+esc(job.n)+'</span> <span class="c">('+job.size+')</span>',
+    var Ls=['<span class="n">$</span> sort <span class="s">'+esc(job.n)+'</span> <span class="c">('+job.size+')</span>',
            job.real ? '<span class="c">&rarr; reading its name and type (demo: your file never leaves this page)</span>' : '<span class="c">&rarr; reading the file&hellip;</span>',
            '<span class="c">&rarr; looks like:</span> <span class="k">'+job.type+'</span>',
            job.real ? '<span class="c">&rarr; live version: AI also reads it and pulls out the numbers</span>' : '<span class="c">&rarr;</span> '+job.x,
            '<span class="v">&#10003;</span> filed to <span class="k">/'+job.f+'/'+ym+'</span>'+(job.then?' <span class="c">&middot; '+job.then+'</span>':'')];
-    box.innerHTML='';
-    L.forEach(function(l,i){ setTimeout(function(){ box.insertAdjacentHTML('beforeend',(i?'\n':'')+l); }, reduce?0:i*420); });
-    setTimeout(function(){
+    box.innerHTML='<span class="e7-cur"></span>';
+    Ls.forEach(function(l,i){ later(function(){ var c=$('.e7-cur',box); if(c) c.parentNode.removeChild(c); box.insertAdjacentHTML('beforeend',(i?'\n':'')+l+'<span class="e7-cur"></span>'); }, reduce?0:i*420, ftm); });
+    later(function(){
       S.files++; var fc=$('#e6fcount'); if(fc) fc.textContent=fmt(S.files)+' files';
       var nf=$('#e6nFiles'); if(nf){ nf.textContent=fmt(S.files); bump(nf); }
       var li=$('[data-f="'+job.f+'"]');
       if(li){ var b=$('b',li); var cur=parseInt(b.textContent.replace(/,/g,''),10)||0; b.textContent=fmt(cur+1); li.classList.remove('hit'); void li.offsetWidth; li.classList.add('hit'); }
       var rec=$('#e6rec'); if(rec){ rec.insertAdjacentHTML('afterbegin',recRow(job.n,job.f,'just now',true)); while(rec.children.length>5) rec.removeChild(rec.lastChild); }
-      emit(job.ev || ['sys','Sorted <b>'+esc(job.n.length>28?job.n.slice(0,26)+'…':job.n)+'</b> into '+job.f,'files',0,'file.sorted']);
+      emit(job.ev || ['sys','Sorted <b>'+esc(job.n.length>28?job.n.slice(0,26)+'…':job.n)+'</b> into '+esc(job.f),'files',0,'file.sorted']);
       nextFile();
-    }, reduce?0:L.length*420+250);
+    }, reduce?0:Ls.length*420+250, ftm);
   }
   function sample(i){ var s=SAMPLES[i||0]; sortFile({n:s.n,size:s.size,f:s.f,type:s.type,x:s.x,then:s.then,ev:s.ev}); }
   function realFiles(list){
@@ -2205,13 +2546,20 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       sortFile({n:file.name,size:fsize(file.size),f:c[0],type:c[1],real:true});
     });
   }
+  function bindDrop(){
+    var dz=$('#e6drop'); if(!dz) return;
+    ['dragenter','dragover'].forEach(function(n){ dz.addEventListener(n,function(e){ e.preventDefault(); dz.classList.add('over'); }); });
+    ['dragleave','drop'].forEach(function(n){ dz.addEventListener(n,function(e){ e.preventDefault(); dz.classList.remove('over'); }); });
+    dz.addEventListener('drop',function(e){ if(e.dataTransfer && e.dataTransfer.files) realFiles(e.dataTransfer.files); });
+  }
   /* ask */
   var R=[
     [/need|today|to-?do|priorit|urgent|should i/,function(){ var left=NEEDS.filter(function(n){ return !n.done; }); return left.length ? '<b>'+left.length+' thing'+(left.length>1?'s':'')+' need you:</b> '+left.map(function(n){ return n.t.charAt(0).toLowerCase()+n.t.slice(1); }).join('; ')+'. The agents have the rest.' : '<b>Nothing right now.</b> You cleared your list, and the agents have the rest.'; },['HighLevel','Gmail','Google reviews']],
     [/revenue|money|sales|income|made|profit|cash/,function(){ return '<b>Up 12%</b> on last month: '+money(S.rev)+' so far. Your best day was last Friday at $6,120.'; },['Stripe','QuickBooks']],
-    [/contract|agreement|johnson|document|file|find|where/,function(){ return '<b>Your files › Contracts › 2026:</b> Johnson service agreement, signed Sep 12. It renews Mar 1, with 30 days’ notice to cancel.'; },['Your files']],
+    [/quote|estimate|proposal|offer|\bbids?\b|retainer|renewal|engagement/,function(){ return '<b>11 open %quotesl%.</b> 3 were %won% this week (%qv%). %qa% is following up on the rest.'; },['%app%','Gmail']],
+    [/contract|agreement|johnson|document|file|find|where/,function(){ return '<b>Your files › Contracts › 2026:</b> Johnson agreement, signed Sep 12. It renews Mar 1, with 30 days’ notice to cancel.'; },['Your files']],
     [/lead|cold|follow|prospect|pipeline/,function(){ return '<b>4 leads went quiet this week.</b> Speed-to-lead has follow-ups queued for 3. The 4th asked not to be contacted, so it stopped.'; },['HighLevel','Gmail']],
-    [/call|phone|missed|book|appointment|schedul/,function(){ return '<b>38 calls today</b>, 19 after hours. '+S.booked+' jobs booked, and 3 urgent calls went to your cell.'; },['Phone line','Google Calendar']],
+    [/call|phone|missed|book|appointment|schedul/,function(){ return '<b>38 calls today</b>, 19 after hours. '+S.booked+' %appts% booked, and 3 urgent calls went to your cell.'; },['Phone line','Google Calendar']],
     [/review|rating|star/,function(){ return '<b>6 new reviews this week</b>, averaging 4.8. One 3-star review is waiting for your reply.'; },['Google reviews']],
     [/invoice|owe|overdue|paid|collect|receivable|bill/,function(){ return '<b>$5,420 collected this week.</b> 3 invoices are still overdue ($2,140), and the next reminders go out Thursday.'; },['Stripe','QuickBooks']],
     [/agent|bot|doing|busy|work/,function(){ return '<b>'+fmt(S.tasks)+' tasks today</b> across 6 agents. Busiest: Receptionist (38 calls) and Speed-to-lead (21 leads).'; },['Efficio']]
@@ -2224,8 +2572,8 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     box.insertAdjacentHTML('beforeend','<div class="e6-m u">'+esc(q)+'</div>');
     var s=q.toLowerCase(), hit=null;
     for(var i=0;i<R.length;i++){ if(R[i][0].test(s)){ hit=R[i]; break; } }
-    var html= hit ? hit[1]() : 'In the live version I&rsquo;d answer that from your connected apps. In this demo I know revenue, leads, calls, reviews, invoices and files. Try one of those.';
-    var src= hit ? hit[2] : ['demo'];
+    var html= hit ? tk(hit[1]()) : 'In the live version I&rsquo;d answer that from your connected apps. In this demo I know revenue, leads, calls, reviews, invoices and files. Try one of those.';
+    var src= hit ? hit[2].map(tk) : ['demo'];
     var full=html+'<div class="e6-src">'+src.map(function(x){ return '<span>'+x+'</span>'; }).join('')+'</div>';
     box.insertAdjacentHTML('beforeend','<div class="e6-m a typing"></div>');
     var el=box.lastChild; el.setAttribute('data-h',full);
@@ -2236,14 +2584,32 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     el.innerHTML='<span class="cur"></span>'; box.scrollTop=box.scrollHeight;
     askT=setInterval(function(){ j+=3; if(j>=text.length){ clearInterval(askT); askT=null; done(); return; } el.textContent=text.slice(0,j); el.insertAdjacentHTML('beforeend','<span class="cur"></span>'); box.scrollTop=box.scrollHeight; },18);
   }
+  /* placeholder that types itself */
+  function phType(inp,list,prefix){
+    if(!inp || reduce) return;
+    var i=0,j=0,dir=1,base=inp.getAttribute('placeholder');
+    function step(){
+      if(!document.body.contains(inp)) return;
+      if(document.activeElement===inp || inp.value || !phVis(inp)){ inp.setAttribute('placeholder',base); j=0; dir=1; setTimeout(step,1400); return; }
+      var w=list[i%list.length]; j+=dir;
+      inp.setAttribute('placeholder',(prefix||'')+w.slice(0,Math.max(0,j)));
+      if(dir>0 && j>=w.length){ dir=-1; setTimeout(step,1800); return; }
+      if(dir<0 && j<=0){ dir=1; i++; setTimeout(step,300); return; }
+      setTimeout(step,dir>0?65:28);
+    }
+    setTimeout(step,900);
+  }
+  function phVis(el){ var r=el.getBoundingClientRect(); return r.width>0 && r.bottom>0 && r.top<(window.innerHeight||800); }
   /* workflows */
   var runT=[];
   function stopRun(){ runT.forEach(clearTimeout); runT=[]; }
+  function autoRun(){ if(T.on || S.req || S.wfv!=='canvas' || S.view!=='flows') return; later(runWF,450,runT); }
   function runWF(){
     if(S.req) showWF(S.wf);
     if(S.wfv==='code'){ S.wfv='canvas'; showWF(S.wf); }
     stopRun();
     var w=WF[S.wf], nodes=$$('.e6-node',$('#e6nodes')), edges=$$('.e6-edge',$('#e6nodes')), lg=$('#e6log');
+    if(!lg) return;
     nodes.forEach(function(n){ n.classList.remove('on','run'); }); edges.forEach(function(e){ e.classList.remove('on'); });
     var id=4100+(Math.random()*899|0);
     lg.innerHTML='<span class="v">&#9654; test run #'+id+'</span> <span class="t">&middot; sample data</span>';
@@ -2265,7 +2631,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     S.req=true; stopRun();
     $$('.e6-wi[data-id]').forEach(function(b){ b.setAttribute('aria-selected','false'); });
     $('#e6cv').innerHTML='<div class="e6-cbar"><b>Request a build</b><span style="font-family:var(--mono);font-size:10.5px;color:var(--muted)">anything you want automated</span></div>'+
-      '<form class="e6-req" id="e6reqf"><label for="e6reqt">What should we build?</label><textarea id="e6reqt" maxlength="240" placeholder="e.g. When a job is marked done in Jobber, send the invoice from QuickBooks and ask for a review."></textarea>'+
+      '<form class="e6-req" id="e6reqf"><label for="e6reqt">What should we build?</label><textarea id="e6reqt" maxlength="240" placeholder="'+esc(tk('e.g. When a %job% is marked done in %app%, send the invoice from QuickBooks and ask for a review.'))+'"></textarea>'+
       '<div><button type="submit" class="e6-btn">Send to your CTO &rarr;</button></div><ol class="e6-pipe" id="e6pipe"></ol></form>';
   }
   function submitReq(){
@@ -2278,7 +2644,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     con('POST','/v1/builds',{ticket:n,request:short},201);
     $$('li',pipe).forEach(function(li,i){ runT.push(setTimeout(function(){ li.classList.add('on'); $('.dt',li).innerHTML='<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#56d8a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; }, reduce?0:i*700+200)); });
     runT.push(setTimeout(function(){
-      pipe.insertAdjacentHTML('beforeend','<li class="on" style="grid-template-columns:1fr;opacity:1"><span style="color:var(--ink2)">In real life this takes days, not seconds, and your CTO scopes it with you first. <a href="/book.html" style="color:var(--violet-xl);text-decoration:underline">Book a call to scope yours &rarr;</a></span></li>');
+      pipe.insertAdjacentHTML('beforeend','<li class="on" style="grid-template-columns:1fr;opacity:1"><span style="color:var(--ink2)">In real life this takes days, not seconds, and your CTO scopes it with you first. <a href="#book" style="color:var(--violet-xl);text-decoration:underline">Book a call to scope yours &rarr;</a></span></li>');
       emit(['sys','Shipped a new workflow: <b>'+esc(short.length>36?short.slice(0,34)+'…':short)+'</b>','ghl',0,'build.shipped']);
     }, reduce?0:P.length*700+300));
   }
@@ -2290,23 +2656,50 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     con('PATCH','/v1/session',{view:m==='eng'?'engineer':'ceo'},200);
     toast(m==='eng' ? 'Engineer view: every agent shows its code, and the raw event stream runs at the bottom.' : 'CEO view: just the business.');
   }
+  function bookGo(){ var b=$('#book'); if(b) b.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); }
+
+  /* ---------- any industry ---------- */
+  function clearAll(){
+    stopRun(); ftm.forEach(clearTimeout); ftm=[]; fq=[]; fbusy=false;
+    if(askT){ clearInterval(askT); askT=null; }
+    clearInterval(codeT);
+    for(var key in typing) clearInterval(typing[key]);
+    for(var sk in stT) clearTimeout(stT[sk]);
+  }
+  function pipesLabel(){ var p=$('#e7pind'); if(p) p.textContent=I.app[0]; }
+  function setInd(key,quiet){
+    if(!IND[key]) return;
+    IK=key; I=IND[key];
+    if(T.on) tourStop();
+    clearAll(); localize(); seen={};
+    if(!S.name){ S.slug=I.sl; $$('[data-slug]').forEach(function(el){ el.textContent=S.slug; }); }
+    renderOverview(); renderAgents(); renderApps(); renderFiles(); renderAsk(); renderFlows(); go(S.view,true); seen[S.view]=true;
+    $$('#e7ind button').forEach(function(b){ b.setAttribute('aria-pressed',String(b.getAttribute('data-ind')===key)); });
+    pipesLabel();
+    var na=$('#e6nApps'); if(na) na.textContent=S.apps; var nf=$('#e6nFiles'); if(nf) nf.textContent=fmt(S.files);
+    conHead(); con('PATCH','/v1/workspace',{industry:key},200);
+    if(!quiet) toast('Now showing <b>'+esc(biz())+'</b>, '+I.desc+'. Same dashboard, your words.');
+  }
+  var indBox=$('#e7ind');
+  if(indBox) indBox.addEventListener('click',function(e){ var b=e.target.closest('button[data-ind]'); if(!b) return; var key=b.getAttribute('data-ind'); if(key!==IK) setInd(key); });
 
   /* ---------- command menu ---------- */
   var CMDS=[
     ['Go to Overview',function(){ go('overview'); },'view'],['Go to Agents',function(){ go('agents'); },'view'],['Go to Apps',function(){ go('apps'); },'view'],
     ['Go to Files',function(){ go('files'); },'view'],['Go to Ask AI',function(){ go('ask'); },'view'],['Go to Workflows',function(){ go('flows'); },'view'],
     ['Ask: what needs me today?',function(){ go('ask'); ask(QS[0]); },'ai'],['Ask: revenue vs last month?',function(){ go('ask'); ask(QS[1]); },'ai'],
-    ['Connect Shopify',function(){ go('apps'); connect('shopify'); },'apps'],['Connect Microsoft 365',function(){ go('apps'); connect('m365'); },'apps'],
+    ['Connect Microsoft 365',function(){ go('apps'); connect('m365'); },'apps'],['Connect DocuSign',function(){ go('apps'); connect('docusign'); },'apps'],['Connect Zoom',function(){ go('apps'); connect('zoom'); },'apps'],
     ['Drop a sample invoice',function(){ go('files'); sample(0); },'files'],['Run a workflow test',function(){ go('flows'); runWF(); },'workflows'],
     ['Request a custom build',function(){ go('flows'); showReq(); },'workflows'],['Switch to Engineer view',function(){ setMode('eng'); },'view'],['Switch to CEO view',function(){ setMode('ceo'); },'view'],
-    ['Take the tour',function(){ tourStart(); },'demo'],['Book a call with Brady',function(){ location.href='/book.html'; },'↗']
+    ['Take the tour',function(){ tourStart(); },'demo'],['Book a call',function(){ bookGo(); },'↓']
   ];
+  IKS.forEach(function(key){ CMDS.push(['Try it as: '+IND[key].l,function(){ setInd(key); },'industry']); });
   var pal=$('#e6pal'), pin=$('#e6pin'), plist=$('#e6plist'), psel=0, pview=[];
   function palRender(){
     var q=pin.value.toLowerCase().trim();
     pview=CMDS.filter(function(c){ return !q || c[0].toLowerCase().indexOf(q)>-1; });
     if(psel>=pview.length) psel=0;
-    plist.innerHTML= pview.length ? pview.map(function(c,i){ return '<button type="button" role="option" data-pi="'+i+'" aria-selected="'+(i===psel)+'">'+c[0]+'<span class="g">'+c[2]+'</span></button>'; }).join('') : '<div style="padding:12px;color:var(--muted);font-size:13px">No match. Try &ldquo;agents&rdquo; or &ldquo;connect&rdquo;.</div>';
+    plist.innerHTML= pview.length ? pview.map(function(c,i){ return '<button type="button" role="option" data-pi="'+i+'" aria-selected="'+(i===psel)+'">'+c[0]+'<span class="g">'+c[2]+'</span></button>'; }).join('') : '<div style="padding:12px;color:var(--muted);font-size:13px">No match. Try &ldquo;agents&rdquo;, &ldquo;connect&rdquo; or &ldquo;law&rdquo;.</div>';
   }
   function palOpen(){ pal.classList.add('open'); pin.value=''; psel=0; palRender(); setTimeout(function(){ pin.focus(); },0); con('GET','/app/command',null); }
   function palClose(){ pal.classList.remove('open'); }
@@ -2322,14 +2715,14 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   var demoVisible=false; watch($('#demo'),function(v){ demoVisible=v; },0.2);
   document.addEventListener('keydown',function(e){
     if((e.metaKey||e.ctrlKey) && (e.key==='k'||e.key==='K') && demoVisible){
-      var t=e.target, typing=t && (t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable) && t!==pin;
-      if(!typing){ e.preventDefault(); pal.classList.contains('open') ? palClose() : palOpen(); }
+      var t=e.target, typ=t && (t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable) && t!==pin;
+      if(!typ){ e.preventDefault(); pal.classList.contains('open') ? palClose() : palOpen(); }
     }
   });
 
   /* ---------- tour ---------- */
   var TOUR=[
-    ['apps','We connect every app you use.',function(){ T.tm.push(setTimeout(function(){ connect(CN.shopify.on ? (CN.m365.on ? 'jobber' : 'm365') : 'shopify'); },900)); }],
+    ['apps','We connect every app you use.',function(){ T.tm.push(setTimeout(function(){ var id=OFF.filter(function(x){ return !CN[x].on; })[0]; if(id) connect(id); },900)); }],
     ['overview','Your agents get to work. You watch it live.',function(){ T.tm.push(setTimeout(tick,1200)); }],
     ['overview','Only what needs you reaches you.',function(){ var n=$('#e6needs'); if(n && n.scrollIntoView && window.innerWidth>900) n.scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'}); T.tm.push(setTimeout(function(){ var x=NEEDS.filter(function(z){ return !z.done; })[0]; if(x) doNeed(x.id); },1600)); }],
     ['files','Drop any file. It sorts itself.',function(){ T.tm.push(setTimeout(function(){ sample(0); },800)); }],
@@ -2355,17 +2748,18 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   function tourEnd(){
     tourClear(); T.on=false;
     $('#e6tn').textContent='✓'; $('#e6tt').textContent='That’s Efficio. Want it on your business?'; $('#e6tb').style.width='100%';
-    $('#e6tc').innerHTML='<a href="/book.html">Book a call</a><button type="button" data-tour="again">replay</button><button type="button" data-tour="close">explore</button>';
+    $('#e6tc').innerHTML='<a href="#book" data-tour="book">Book a call</a><button type="button" data-tour="again">replay</button><button type="button" data-tour="close">explore</button>';
   }
   function tourStop(){ tourClear(); T.on=false; tour.hidden=true; }
   tour.addEventListener('click',function(e){
     var b=e.target.closest('[data-tour]'); if(!b) return; e.stopPropagation();
     var a=b.getAttribute('data-tour');
+    if(a==='book'){ tourStop(); return; }
     if(a==='skip'||a==='close') tourStop(); else if(a==='again') tourStart(); else if(a==='next'){ tourClear(); T.i++; tourStep(); }
   });
 
   /* ---------- wiring ---------- */
-  renderOverview(); renderAgents(); renderApps(); renderFiles(); renderAsk(); renderFlows(); go('overview');
+  renderOverview(); renderAgents(); renderApps(); renderFiles(); renderAsk(); renderFlows(); go('overview'); seen.overview=true;
   app.addEventListener('click',function(e){
     if(T.on && e.isTrusted && !e.target.closest('#e6tour')) tourStop();
     var t=e.target.closest('[data-act],button[data-v],button[data-mode]'); if(!t || t===app || !app.contains(t)) return;
@@ -2380,8 +2774,8 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     else if(a==='sample') sample(+t.getAttribute('data-k')||0);
     else if(a==='pick'){ var fi=$('#e6fin'); if(fi) fi.click(); }
     else if(a==='ask') ask(QS[+t.getAttribute('data-q')]);
-    else if(a==='wf') showWF(id);
-    else if(a==='wfv'){ S.wfv=t.getAttribute('data-v'); showWF(S.wf); }
+    else if(a==='wf'){ showWF(id); autoRun(); }
+    else if(a==='wfv'){ S.wfv=t.getAttribute('data-v'); showWF(S.wf); autoRun(); }
     else if(a==='run') runWF();
     else if(a==='req') showReq();
   });
@@ -2406,39 +2800,136 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
     var d=e.target.closest && e.target.closest('#e6drop');
     if(d && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); var fi=$('#e6fin'); if(fi) fi.click(); }
   });
-  var dz=$('#e6drop');
-  if(dz){
-    ['dragenter','dragover'].forEach(function(n){ dz.addEventListener(n,function(e){ e.preventDefault(); dz.classList.add('over'); }); });
-    ['dragleave','drop'].forEach(function(n){ dz.addEventListener(n,function(e){ e.preventDefault(); dz.classList.remove('over'); }); });
-    dz.addEventListener('drop',function(e){ if(e.dataTransfer && e.dataTransfer.files) realFiles(e.dataTransfer.files); });
-  }
   $('#e6cmdk').addEventListener('click',function(e){ e.stopPropagation(); palOpen(); });
   $('#e6tourbtn').addEventListener('click',function(){ app.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); setTimeout(tourStart, reduce?0:700); });
 
-  /* ---------- hero: boot the workspace for your business ---------- */
-  function okl(w,c){ return '<span class="g">&#10003;</span> <span class="w">'+w+'</span>'+new Array(Math.max(2,16-w.length)).join(' ')+'<span class="c">'+c+'</span>'; }
-  function boot(slug){
-    var pre=$('#e6boot'); if(!pre) return;
-    var L=['<span class="p">$</span> <span class="w">efficio deploy</span> <span class="k">--business</span> <span class="a">'+slug+'</span>',
-      '<span class="c">&rarr; workspace app.efficio.tech/'+slug+'</span>',
-      okl('highlevel','white-label account ready'),okl('connectors','11 apps &middot; oauth, api keys, mcp'),okl('files','drop folder live &middot; auto-sort on'),
-      okl('agents','6 deployed'),okl('ask-ai','read-only over live data'),
-      '<span class="g">&#10003;</span> <span class="w">dashboard</span>      <span class="k">live</span> <span class="c">&darr; scroll to open it</span>',
-      '<span class="p">$</span> <span class="x4-caret" aria-hidden="true"></span>'];
-    pre.innerHTML=L.map(function(l){ return '<span class="ln">'+l+'</span>'; }).join('');
-    $$('.ln',pre).forEach(function(l,i){ setTimeout(function(){ l.classList.add('on'); }, reduce?0:150+i*280); });
+  /* ---------- hero: a deploy script that never stops running ---------- */
+  var CYCLE=['any','law','re','acct','agency','ins','pm','home','cons','auto'];
+  var SPIN='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏';
+  var BL={tm:[],i:0,vis:true,run:false,started:false};
+  function pad(w){ return new Array(Math.max(2,16-w.length)).join(' '); }
+  function okl(w,c){ return '<span class="g">&#10003;</span> <span class="w">'+w+'</span>'+pad(w)+'<span class="c">'+c+'</span>'; }
+  function spl(w,c,f){ return '<span class="k">'+SPIN.charAt(f%SPIN.length)+'</span> <span class="w">'+w+'</span>'+pad(w)+'<span class="c">'+c+'&hellip;</span>'; }
+  function bootLines(d,slug){
+    return [['highlevel','white-label account ready','creating account'],['connectors','12 apps &middot; '+d.app[0].toLowerCase()+' +11','connecting apps'],['files','drop folder live &middot; auto-sort on','linking drive'],['agents','6 deployed &middot; '+d.qa.toLowerCase(),'deploying agents'],['ask-ai','read-only over live data','indexing']];
   }
-  boot(S.slug);
+  function bootStatic(slug,d){
+    var pre=$('#e6boot'); if(!pre) return;
+    var L2=['<span class="p">$</span> <span class="w">efficio deploy</span> <span class="k">--business</span> <span class="a">'+esc(slug)+'</span>','<span class="c">&rarr; workspace app.efficio.tech/'+esc(slug)+'</span>'];
+    bootLines(d,slug).forEach(function(s){ L2.push(okl(s[0],s[1])); });
+    L2.push('<span class="g">&#10003;</span> <span class="w">dashboard</span>      <span class="k">live</span> <span class="c">&darr; scroll to open it</span>');
+    L2.push('<span class="p">$</span> <span class="x4-caret" aria-hidden="true"></span>');
+    pre.innerHTML=L2.map(function(l){ return '<span class="ln on">'+l+'</span>'; }).join('');
+    $$('[data-bslug]').forEach(function(el){ el.textContent=slug; });
+  }
+  function bootRun(){
+    BL.tm.forEach(clearTimeout); BL.tm=[];
+    var pre=$('#e6boot'); if(!pre) return;
+    var d = S.name ? I : IND[CYCLE[BL.i++ % CYCLE.length]];
+    var slug = S.name ? S.slug : d.sl;
+    if(reduce){ bootStatic(slug,d); return; }
+    BL.run=true;
+    $$('[data-bslug]').forEach(function(el){ el.textContent=slug; });
+    pre.classList.remove('e7-fade');
+    pre.innerHTML='<span class="ln on"><span class="p">$</span> <span class="w" data-c1></span><span class="k" data-c2></span><span class="a" data-c3></span><span class="x4-caret" aria-hidden="true"></span></span>';
+    var segs=[['[data-c1]','efficio deploy '],['[data-c2]','--business '],['[data-c3]',slug]], t=380;
+    segs.forEach(function(sg){ var el=$(sg[0],pre), txt=sg[1]; for(var c=1;c<=txt.length;c++){ (function(n){ later(function(){ el.textContent=txt.slice(0,n); },t,BL.tm); })(c); t+=30+Math.random()*40; } });
+    t+=380;
+    function add(html,at){ later(function(){ var cr=$('.x4-caret',pre); if(cr) cr.parentNode.removeChild(cr); pre.insertAdjacentHTML('beforeend','<span class="ln on">'+html+'</span>'); },at,BL.tm); }
+    add('<span class="c">&rarr; workspace app.efficio.tech/'+esc(slug)+'</span>',t); t+=260;
+    bootLines(d,slug).forEach(function(s){
+      var start=t, dur=380+Math.random()*420, f=0;
+      later(function(){ pre.insertAdjacentHTML('beforeend','<span class="ln on" data-sp>'+spl(s[0],s[2],0)+'</span>'); },start,BL.tm);
+      for(var x=start+80;x<start+dur;x+=80){ (function(fr){ later(function(){ var l=$('[data-sp]',pre); if(l) l.innerHTML=spl(s[0],s[2],fr); },x,BL.tm); })(++f); }
+      later(function(){ var l=$('[data-sp]',pre); if(l){ l.removeAttribute('data-sp'); l.innerHTML=okl(s[0],s[1]); } },start+dur,BL.tm);
+      t=start+dur+120;
+    });
+    add('<span class="g">&#10003;</span> <span class="w">dashboard</span>      <span class="k">live</span> <span class="c">&darr; scroll to open it</span>',t); t+=240;
+    add('<span class="p">$</span> <span class="x4-caret" aria-hidden="true"></span>',t); t+=3600;
+    later(function(){ pre.classList.add('e7-fade'); },t,BL.tm); t+=420;
+    later(function(){ if(BL.vis && !document.hidden) bootRun(); else BL.run=false; },t,BL.tm);
+  }
+  (function(){
+    var box=$('.e6-boot'); if(!box) return;
+    if(reduce){ bootStatic(S.slug,I); return; }
+    watch(box,function(v){ BL.vis=v; if(v && !BL.run && !document.hidden) bootRun(); },0.2);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden && BL.vis && !BL.run) bootRun(); });
+  })();
+  phType($('#e6biz'),['acme law','harbor realty','summit cpa','northside auto','bright plumbing','your business name'],'');
   var form=$('#e6try');
   if(form) form.addEventListener('submit',function(e){
     e.preventDefault();
     var v=$('#e6biz').value.replace(/[<>]/g,'').trim().slice(0,32);
-    S.name=v; S.slug=slugify(v);
+    var g=guessInd(v);
+    S.name=v;
+    if(g && g!==IK) setInd(g,true);
+    S.slug=slugify(v);
     $$('[data-slug]').forEach(function(el){ el.textContent=S.slug; });
-    boot(S.slug); con('POST','/v1/workspaces',{workspace:S.slug},201);
+    bootRun(); con('POST','/v1/workspaces',{workspace:S.slug,industry:IK},201);
     renderDetail(S.agent);
-    setTimeout(function(){ app.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); setTimeout(tourStart, reduce?0:800); }, reduce?0:2700);
+    setTimeout(function(){ app.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); setTimeout(tourStart, reduce?0:800); }, reduce?0:2600);
   });
+
+  /* ---------- hero background: data flowing in from every side ---------- */
+  (function flowBG(){
+    var cv=$('#e7flow'), hero=$('.e6-hero'); if(!cv || !hero || reduce || !cv.getContext) return;
+    var ctx=cv.getContext('2d'), W=0,H=0,dpr=Math.min(2,window.devicePixelRatio||1), P=[], raf=0, on=false, tx=0, ty=0;
+    var COL=['154,123,255','92,200,255','86,216,160','232,194,117','255,134,200','195,176,255'];
+    function size(){
+      var r=hero.getBoundingClientRect(); W=r.width; H=r.height;
+      cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+      var b=$('.e6-boot'), q=b && b.getBoundingClientRect();
+      if(q && q.width){ var wide=W>1020; tx=q.left-r.left+(wide?0:q.width/2); ty=q.top-r.top+(wide?q.height*.45:0); } else { tx=W*.6; ty=H*.5; }
+    }
+    function yAt(p,x){ var kk=Math.max(0,Math.min(1,x/Math.max(1,tx))), e=kk*kk*(3-2*kk); return p.y0+(ty-p.y0)*e+Math.sin(x*.011+p.ph)*16*(1-e); }
+    function seed(p,fresh){ p.x=fresh? Math.random()*tx : -20-Math.random()*120; p.y0=W>1020? Math.random()*H : ty*.62+Math.random()*Math.max(40,H-ty*.62); p.v=.45+Math.random()*1.05; p.c=COL[Math.random()*COL.length|0]; p.r=.7+Math.random()*1.5; p.ph=Math.random()*6.283; return p; }
+    function fill(){ var n=W<700?26:58; P=[]; for(var i=0;i<n;i++) P.push(seed({},true)); }
+    function frame(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){
+        var p=P[i]; p.x+=p.v*1.3;
+        var kk=Math.max(0,Math.min(1,p.x/Math.max(1,tx))), a=(.07+.5*kk*kk)*(kk>.9?Math.max(0,(1-kk)/.1):1)*(W>1020?1:.7);
+        var y=yAt(p,p.x), x0=p.x-30*p.v, y0=yAt(p,x0);
+        ctx.strokeStyle='rgba('+p.c+','+(a*.8).toFixed(3)+')'; ctx.lineWidth=p.r*.8; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(p.x,y); ctx.stroke();
+        ctx.fillStyle='rgba('+p.c+','+Math.min(1,a+.12).toFixed(3)+')'; ctx.beginPath(); ctx.arc(p.x,y,p.r,0,6.283); ctx.fill();
+        if(p.x>=tx) seed(p,false);
+      }
+      raf=requestAnimationFrame(frame);
+    }
+    function go2(v){ if(v && !on && !document.hidden){ on=true; raf=requestAnimationFrame(frame); } else if(!v && on){ on=false; cancelAnimationFrame(raf); } }
+    size(); fill();
+    var vis=false; watch(hero,function(v){ vis=v; go2(v); },0.01);
+    document.addEventListener('visibilitychange',function(){ go2(!document.hidden && vis); });
+    var rt=null; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(function(){ size(); fill(); },200); });
+    setTimeout(size,1200);
+  })();
+
+  /* ---------- the calendar, right on the page ---------- */
+  (function(){
+    var g=$('#e7grid'), mh=$('#e7month');
+    if(g){
+      var now=new Date(), start=new Date(now.getFullYear(),now.getMonth(),now.getDate()-((now.getDay()+6)%7));
+      var h='<b>Mo</b><b>Tu</b><b>We</b><b>Th</b><b>Fr</b><b>Sa</b><b>Su</b>', end=null;
+      for(var i=0;i<35;i++){
+        var d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i), past=d<new Date(now.getFullYear(),now.getMonth(),now.getDate()), isT=d.toDateString()===now.toDateString();
+        h+='<i class="'+(past?'x':(isT?'t':'sw'))+'" style="--d:'+((i%7)*.16+Math.floor(i/7)*.22).toFixed(2)+'s">'+d.getDate()+'</i>'; end=d;
+      }
+      g.innerHTML=h;
+      if(mh){ var soon=new Date(now.getFullYear(),now.getMonth(),now.getDate()+21), m1=now.toLocaleDateString('en-US',{month:'short'}), m2=soon.toLocaleDateString('en-US',{month:'short'}); mh.textContent=(m1===m2?m1:m1+' – '+m2)+' '+soon.getFullYear(); }
+    }
+    var btn=$('#e7show'), fr=$('#ghl_booking_WvKpojD06GrturZhmjBv');
+    if(btn && fr) btn.addEventListener('click',function(){
+      /* same as the cookie banner's "Show available times": loads only the calendar, changes no consent, loads no tags */
+      if(!fr.getAttribute('src')){
+        fr.setAttribute('scrolling','auto');
+        try{ if(window.matchMedia('(min-width: 561px)').matches) fr.style.height='900px'; }catch(e){}
+        fr.setAttribute('src',fr.getAttribute('data-consent-src'));
+      }
+      fr.style.display='';
+      var ph=fr.previousElementSibling; if(ph && ph.classList.contains('ck-embed')) ph.style.display='none';
+      try{ fr.focus(); }catch(e){}
+    });
+  })();
 })();
 </script>
 </body>

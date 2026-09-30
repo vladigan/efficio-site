@@ -248,7 +248,7 @@
         </div>
 
         <div class="field">
-          <label for="email">Email <span style="font-weight:400;opacity:.7">(optional, so Brady can reply)</span></label>
+          <label for="email">Email <span style="font-weight:400;opacity:.7">(optional, so we can reply)</span></label>
           <input type="email" id="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" />
         </div>
 
@@ -343,7 +343,7 @@
     <div class="thank-you" id="thankYou">
       <div class="check-icon">&#10003;</div>
       <h2>Thank You</h2>
-      <p>Your answers are in. Brady will read them before your call.</p>
+      <p>Your answers are in. We will read them before your call.</p>
     </div>
   </div>
 
@@ -378,7 +378,7 @@
         var mailto = 'mailto:brady@efficio.tech?subject=' + encodeURIComponent('Pre-call questionnaire: ' + (answers.company || '')) + '&body=' + encodeURIComponent(lines);
         var n = document.getElementById('intakeFail');
         if (!n) { n = document.createElement('p'); n.id = 'intakeFail'; n.style.cssText = 'color:#f87171;font-size:14px;margin-top:12px'; form.appendChild(n); }
-        n.innerHTML = 'That didn\'t go through. <a href="' + mailto + '" style="text-decoration:underline;color:inherit">Email your answers to Brady instead</a>.';
+        n.innerHTML = 'That didn\'t go through. <a href="' + mailto + '" style="text-decoration:underline;color:inherit">Email your answers instead</a>.';
       }
       var payload = { kind: 'pre_call_intake', ts: new Date().toISOString(), source: 'efficio_precall_intake', company: answers.company || '', name: answers.name || '', email: answers.email || '', phone: answers.phone || '', vertical: answers.industry || '', answers: answers };
       if (consent) payload.consent = consent;   /* `phone` above is the number the consent covers */
@@ -399,6 +399,6 @@
 <p style="text-align:center;font-size:12.5px;padding:24px 16px 40px"><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refund</a> · <a href="/unsubscribe.html">Unsubscribe</a> · <a href="#cookie-settings" data-cookie-settings>Cookie settings</a></p>
 <script src="/assets/chat.js?v=20260927" defer></script>
 <script src="/assets/contact-consent.js?v=20260927" defer></script>
-<script src="/assets/consent.js?v=20260927" defer></script>
+<script src="/assets/consent.js?v=20260929" defer></script>
 </body>
 </html>

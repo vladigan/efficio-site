@@ -1,204 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#06060b"/>
-<script src="/assets/pixels.js?v=20260927"></script>
-<title>How it works — live in 7 business days | Efficio</title>
-<meta name="description" content="What happens after you sign: intake, kickoff, build, test and go-live within 7 business days, or your setup fee back. Built on HighLevel."/>
-<link rel="canonical" href="https://efficio.tech/how-it-works.html"/>
-<meta property="og:title" content="How it works — live in 7 business days | Efficio"/>
-<meta property="og:description" content="What happens after you sign: intake, kickoff, build, test and go-live within 7 business days, or your setup fee back. Built on HighLevel."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://efficio.tech/how-it-works.html"/>
-<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="robots" content="noindex"/>
+<title>Redirecting&hellip; | Efficio</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
-<link rel="stylesheet" href="/assets/v6.css?v=20260927"/>
-<style id="hiw-x">
-/* ── onboarding timeline polish (scoped) — builds on v6 tokens ─────── */
-/* milestone rail: Day 0 → Day 7 → ongoing, lines draw in on reveal */
-.hiw-rail{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:nowrap;
-  margin:clamp(30px,4.5vh,48px) auto 0;max-width:600px;font-family:var(--mono)}
-.hiw-rail .hr-pt{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--violet-l);white-space:nowrap}
-.hiw-rail .hr-pt::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--violet-l);box-shadow:0 0 10px var(--violet-l)}
-.hiw-rail .hr-line{position:relative;flex:1;min-width:20px;height:2px;border-radius:2px;background:rgba(255,255,255,.09);overflow:hidden}
-.hiw-rail .hr-line::after{content:"";position:absolute;inset:0;border-radius:2px;transform:scaleX(0);transform-origin:left;
-  background:linear-gradient(90deg,var(--violet-d),var(--violet-l),var(--cyan))}
-@media(prefers-reduced-motion:no-preference){
-  .hiw-rail.vis .hr-line::after{animation:hrfill 1s var(--ease2) forwards}
-  .hiw-rail.vis .hr-line.l2::after{animation-delay:.45s}
-}
-@media(prefers-reduced-motion:reduce){.hiw-rail .hr-line::after{transform:scaleX(1)}}
-@keyframes hrfill{to{transform:scaleX(1)}}
-/* balance 6 steps into 3+3 (was an uneven 4+2) and add subtle node + accent life */
-.hiw-steps{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.hiw-steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.hiw-steps{grid-template-columns:1fr}}
-.hiw-steps .step::after{content:"";position:absolute;left:0;top:0;height:2px;width:48px;border-radius:0 0 2px 0;
-  background:linear-gradient(90deg,var(--violet-l),transparent);opacity:0;transition:opacity .3s var(--ease)}
-.hiw-steps .step:hover::after{opacity:.9}
-@media(prefers-reduced-motion:no-preference){
-  .hiw-steps.vis .sn{animation:snpop .5s var(--ease2) both}
-  .hiw-steps.vis .step:nth-child(2) .sn{animation-delay:.07s}
-  .hiw-steps.vis .step:nth-child(3) .sn{animation-delay:.14s}
-  .hiw-steps.vis .step:nth-child(4) .sn{animation-delay:.21s}
-  .hiw-steps.vis .step:nth-child(5) .sn{animation-delay:.28s}
-  .hiw-steps.vis .step:nth-child(6) .sn{animation-delay:.35s}
-}
-@keyframes snpop{from{transform:scale(.55);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
-<script>document.documentElement.className='js';</script>
+<link rel="canonical" href="https://efficio.tech/"/>
+<!-- Retired 2026-09-29: the site was consolidated around the fractional-CTO homepage.
+     The live site is on GitHub Pages, which ignores _redirects / netlify.toml, so this stub
+     does the redirect (and keeps any ?utm query string). -->
+<meta http-equiv="refresh" content="0; url=/#build"/>
+<script>window.location.replace("/"+window.location.search+"#build");</script>
+<link rel="stylesheet" href="/assets/theme.css?v=20260927" />
+<style>html,body{background:#0a0612 !important}body{position:relative;isolation:isolate}</style>
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="scrollbar" id="scrollbar"></div>
-<div class="bgfx" aria-hidden="true">
-  <div class="grid"></div>
-  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
-  <div class="noise"></div>
-</div>
-<nav class="nav" id="nav"><div class="nav-in">
-  <a href="/" class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></a>
-  <div class="nav-mid">
-    <a href="/services.html">Services</a>
-    <a href="/how-it-works.html">How it works</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/agents.html">What&rsquo;s included</a>
-    <a href="/why-efficio.html">Why Efficio</a>
-  </div>
-  <a href="/book.html" class="btn-primary">Book a call <span class="arr">&rarr;</span></a>
-</div></nav>
-
-<main id="main" tabindex="-1">
-<header class="phero">
-  <div class="wrap">
-    <div class="eyebrow rv">// how it works &middot; built on HighLevel</div>
-    <h1 class="rv d1">From the sales call to <span class="grad">real calls answered</span> in 7 business days.</h1>
-    <p class="sub rv d1">Here is exactly what happens after you sign, what we need from you (about an hour of your time in total), and what you see when it&rsquo;s live.</p>
-    <div class="hero-cta rv d2">
-      <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
-      <a href="#week-one" class="btn-outline lg">See week one</a>
-    </div>
-    <div class="guarantee">
-        <span class="gck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5 11-11"/></svg></span>
-        <span class="gtxt">
-          <span class="gt">Live in 7 business days, or your setup fee back.</span>
-          <span class="gm">From $1,500/mo + $500 setup &middot; month-to-month &middot; <a href="/refund.html" style="color:inherit;text-decoration:underline">conditions</a></span>
-        </span>
-      </div>
-  </div>
-</header>
-
-<section class="sec" id="week-one" style="padding-top:clamp(30px,4vh,50px)">
-  <div class="wrap center">
-    <div class="eyebrow rv">// week one</div>
-    <h2 class="rv d1">Six steps, most of them ours.</h2>
-    <p class="lede rv d1">Everything is built in your own Efficio account, a HighLevel sub-account. Brady installs it; AI does the drafting and building under his review.</p>
-    <div class="hiw-rail rv d1" aria-hidden="true">
-      <span class="hr-pt">Day 0</span>
-      <span class="hr-line"></span>
-      <span class="hr-pt">Day 7</span>
-      <span class="hr-line l2"></span>
-      <span class="hr-pt">Week 2</span>
-    </div>
-    <div class="steps hiw-steps rv d2">
-      <div class="step"><span class="sn">1</span><h3>Sales call <span class="tag" style="float:none;margin-left:8px">Day 0</span></h3><p>If it&rsquo;s a fit, you pick a plan, sign a short order form and pay the $500 setup by card. You get a welcome email and an intake link.</p></div>
-      <div class="step"><span class="sn">2</span><h3>Intake <span class="tag" style="float:none;margin-left:8px">Day 0&ndash;1 &middot; ~10 min</span></h3><p>Your hours, services, the prices the AI may quote, common questions, the number urgent calls go to, your calendar, and your legal business name and EIN (for texting registration).</p></div>
-      <div class="step"><span class="sn">3</span><h3>Kickoff <span class="tag" style="float:none;margin-left:8px">Day 1&ndash;2 &middot; 30 min</span></h3><p>We create your Efficio account and send your login, get the receptionist&rsquo;s local number, and submit your texting (A2P 10DLC) registration in your business&rsquo;s name.</p></div>
-      <div class="step"><span class="sn">4</span><h3>Build <span class="tag" style="float:none;margin-left:8px">Day 2&ndash;4</span></h3><p>We write the receptionist&rsquo;s script from your intake and website, and set up website chat, reminders, no-show and review follow-ups, and your dashboard. You can review the script.</p></div>
-      <div class="step"><span class="sn">5</span><h3>Connect and test <span class="tag" style="float:none;margin-left:8px">Day 5</span></h3><p>You connect your Google or Outlook calendar and turn on call forwarding (we send instructions for your carrier). We run test calls (after-hours, booking, urgent transfer), a chat, a booking and an opt-out test.</p></div>
-      <div class="step"><span class="sn">6</span><h3>Go live <span class="tag" style="float:none;margin-left:8px">Day 6&ndash;7 &middot; 20 min</span></h3><p>On the go-live call you place your own test call and we walk through your dashboard. The receptionist starts answering real calls, and monthly billing starts that day.</p></div>
-    </div>
-    <p class="pnote rv">Not live in week one: texting, which waits for carrier approval of your A2P registration; any outbound contact; and, on Founding CTO and Full Custom CTO, the custom agent and custom dashboard, which are built after go-live on a timeline we agree at kickoff. Your first weekly results email arrives in week two.</p>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// the promise</div>
-    <h2 class="rv d1">7 business days, or your setup fee back.</h2>
-    <p class="lede rv d1">If your AI receptionist, booking and live dashboard aren&rsquo;t live within 7 business days of kickoff, we refund the $500 setup fee. It applies when kickoff is held within 2 business days of payment and you give us call forwarding and calendar access by day 5. Texting (A2P 10DLC approval) is excluded. <a href="/refund.html" style="color:var(--violet-l);font-weight:700">Refund policy</a>.</p>
-    <div class="stats rv d2">
-      <div class="stat"><div class="n">7</div><div class="l">business days to live</div></div>
-      <div class="stat"><div class="n">30</div><div class="l">days&rsquo; notice to cancel, month-to-month</div></div>
-      <div class="stat"><div class="n">$500</div><div class="l">setup, refunded if we miss it</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap center">
-    <div class="eyebrow rv">// the dashboard</div>
-    <h2 class="rv d1">One screen for your front office.</h2>
-    <p class="lede rv d1">It lives in your Efficio account. You don&rsquo;t manage it; you check it when you want.</p>
-    <div class="cards rv d2" style="max-width:1000px;margin-left:auto;margin-right:auto;text-align:left">
-      <div class="card">
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-        <h3>The numbers</h3>
-        <p>Calls answered, after-hours calls caught, bookings, no-shows, reviews and speed-to-lead.</p>
-      </div>
-      <div class="card">
-        <div class="ci"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <h3>Every conversation</h3>
-        <p>Calls, messages and chats in one inbox, with the receptionist&rsquo;s notes on each call.</p>
-      </div>
-      <div class="card">
-        <div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div>
-        <h3>A weekly results email</h3>
-        <p>Built from your real numbers every week, so you don&rsquo;t have to log in to know what happened.</p>
-      </div>
-    </div>
-    <p class="pnote rv">See everything in each plan on <a href="/agents.html">What&rsquo;s included</a>, or compare plans on <a href="/pricing.html">pricing</a>.</p>
-  </div>
-</section>
-
-<section class="cta rv">
-  <div class="prompt">Talk to Brady</div>
-  <h2>Live in 7 business days.</h2>
-  <p>Start with a short call. We&rsquo;ll tell you honestly whether it fits your business.</p>
-  <a href="/book.html" class="btn-primary lg">Book a call <span class="arr">&rarr;</span></a>
-</section>
-
-</main>
-<footer>
-  <div class="wrap">
-    <div class="fgrid">
-      <div class="fbrand">
-        <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>An AI front office for small businesses: it answers missed calls, books them, follows up and reports on a live dashboard. Built on HighLevel. Installed and run by a licensed engineer.</p>
-      </div>
-      <div class="fcol"><h5>Product</h5>
-        <a href="/services.html">Services</a><a href="/how-it-works.html">How it works</a>
-        <a href="/agents.html">What&rsquo;s included</a><a href="/pricing.html">Pricing</a><a href="/savings.html">Missed-calls calculator</a>
-      </div>
-      <div class="fcol"><h5>Company</h5>
-        <a href="/why-efficio.html">Why Efficio</a><a href="/find-your-tier.html">Find your plan</a>
-        <a href="/book.html">Book a call</a><a href="mailto:brady@efficio.tech">brady@efficio.tech</a>
-      </div>
-      <div class="fcol"><h5>Legal</h5>
-        <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/refund.html">Refund</a><a href="/unsubscribe.html">Unsubscribe</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a>
-      </div>
-    </div>
-    <div class="fbot">
-      <div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
-      <div>Built on HighLevel.</div>
-    </div>
-  </div>
-</footer>
-<script>
-/* reveal safety net — never leave .rv content invisible if IntersectionObserver doesn't fire */
-setTimeout(function(){try{var r=document.querySelectorAll('.rv:not(.vis)');for(var i=0;i<r.length;i++)r[i].classList.add('vis');}catch(e){}},1100);
-</script>
-<script src="/assets/v6.js?v=20260927" defer></script>
-<script src="/assets/chat.js?v=20260927" defer></script>
-<script src="/assets/consent.js?v=20260927" defer></script>
+<body style="background:#08080a;color:#a1a1aa;font-family:Inter,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0">
+<p>Redirecting to What we build&hellip; <a href="/#build" style="color:#9b6cf6">Continue &rarr;</a></p>
 </body>
 </html>

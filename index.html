@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png","description":"Efficio connects the apps a small business uses to one CEO dashboard on HighLevel, builds custom AI agents and automations, and runs it all as a fractional CTO."},{"@type":"WebSite","@id":"https://efficio.tech/#website","url":"https://efficio.tech/","name":"Efficio","publisher":{"@id":"https://efficio.tech/#org"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://efficio.tech/#org","name":"Efficio","url":"https://efficio.tech/","logo":"https://efficio.tech/assets/brand/efficio-og.png","description":"Efficio connects the apps a business uses to one CEO dashboard on HighLevel, builds custom AI agents and automations, and runs it all as a fractional CTO."},{"@type":"WebSite","@id":"https://efficio.tech/#website","url":"https://efficio.tech/","name":"Efficio","publisher":{"@id":"https://efficio.tech/#org"}}]}</script>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#06060b"/>
 <script src="/assets/pixels.js?v=20260927" defer></script>
 <title>Efficio — Every app, every agent, one CEO dashboard</title>
-<meta name="description" content="Every app, every AI agent, one CEO dashboard, for any small business. Efficio plugs everything you use into one dashboard on HighLevel, builds the agents and automations you need, and runs it all as your fractional CTO. Try the live demo. From $1,500/mo + $500 setup." />
+<meta name="description" content="Every app, every AI agent, one CEO dashboard, for any business. Efficio plugs everything you use into one dashboard on HighLevel, builds the agents and automations you need, and runs it all as your fractional CTO. Try the live demo. From $1,500/mo + $500 setup." />
 <link rel="canonical" href="https://efficio.tech/"/>
 <meta property="og:title" content="Efficio — Every app, every agent, one CEO dashboard"/>
-<meta property="og:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any small business. Built on HighLevel, run by your own CTO."/>
+<meta property="og:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any business. Built on HighLevel, run by your own CTO."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://efficio.tech/"/>
 <meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <meta property="og:site_name" content="Efficio"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Efficio — Every app, every agent, one CEO dashboard"/>
-<meta name="twitter:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any small business. Built on HighLevel, run by your own CTO."/>
+<meta name="twitter:description" content="Every app you use and every AI agent, live on one CEO dashboard, for any business. Built on HighLevel, run by your own CTO."/>
 <meta name="twitter:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -26,7 +26,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7c4dff">
-<script>document.documentElement.className='js';</script>
+<script>document.documentElement.className='js';(function(){var d=document.documentElement;try{if(localStorage.getItem('efficio_motion')==='off'){d.classList.add('motion-off');return;}}catch(e){}try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion-soft');}catch(e){}})();</script>
 <style>
 :root{
   --violet:#7C4DFF;--violet-l:#9a7bff;--violet-xl:#c3b0ff;--violet-d:#6a36f0;
@@ -87,7 +87,8 @@ body{-webkit-tap-highlight-color:transparent}
 .skip-link{position:fixed;top:-80px;left:10px;z-index:300;padding:11px 18px;border-radius:12px;background:var(--violet);color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 12px 32px -10px rgba(124,77,255,.85);transition:top .22s var(--ease)}
 .skip-link:focus{top:10px;outline:2px solid #fff;outline-offset:2px}
 main:focus{outline:none}
-@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .skip-link{transition:none}
 
 /* floating glass pill nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:120;width:min(1000px,calc(100% - 24px))}
@@ -152,11 +153,10 @@ a:hover .arr{transform:translateX(4px)}
 .nav-menu .nm-cta{margin-top:6px;justify-content:center;width:100%;min-height:48px}
 @media(max-width:820px){.nav-burger{display:inline-flex}}
 @media(min-width:821px){.nav-menu{display:none}}
-@media(prefers-reduced-motion:reduce){
-  .nav-menu{transition:visibility 0s}
-  .nav.menu-open .nav-menu{transition:none}
-  .nav-burger .nb-lines i{transition:none}
-}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .nav-menu{transition:visibility 0s}
+html.motion-off .nav.menu-open .nav-menu{transition:none}
+html.motion-off .nav-burger .nb-lines i{transition:none}
 
 
 /* HERO */
@@ -193,7 +193,8 @@ a:hover .arr{transform:translateX(4px)}
 .guarantee .gt{font-size:15px;font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.15}
 .guarantee .gm{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--green);letter-spacing:.01em}
 @media(max-width:980px){.guarantee{margin-left:auto;margin-right:auto}}
-@media(prefers-reduced-motion:reduce){.guarantee .gck svg{stroke-dashoffset:0;animation:none}}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .guarantee .gck svg{stroke-dashoffset:0;animation:none}
 
 /* terminal panel */
 .term{position:relative;text-align:left;background:linear-gradient(180deg,var(--panel),#09090f);border:1px solid var(--line2);border-radius:var(--r2);
@@ -492,12 +493,11 @@ footer{padding-bottom:96px}
   .hero h1{font-size:2.2rem;margin-bottom:12px}
   .hero .sub{font-size:.94rem;margin-bottom:16px}
 }
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.001ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
-  html.js .rv{opacity:1;transform:none}
-  html.js .flow .fstep{opacity:1;transform:none}
-}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off{scroll-behavior:auto}
+html.motion-off *,html.motion-off *::before,html.motion-off *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.001ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+html.motion-off.js .rv{opacity:1;transform:none}
+html.motion-off.js .flow .fstep{opacity:1;transform:none}
 /* ===== SEE IT IN ACTION — demo showcase ===== */
 .showcase .sc-wrap{max-width:1040px;margin:0 auto}
 .sc-panel{position:relative;display:block;margin:40px auto 0;border-radius:var(--r2);
@@ -735,62 +735,60 @@ footer{padding-bottom:96px}
 @media(max-width:430px){.hd-stats{grid-template-columns:1fr 1fr}.hd-stat:last-child{grid-column:1/-1}}
 
 /* ── motion (all gated; resting states above are the reduced-motion fallback) ── */
-@media(prefers-reduced-motion:no-preference){
-  .hiw.swap .hiw-sweep{animation:hiwSweep .9s var(--ease2)}
-  .hiw-scene.on .hiw-copy>*{animation:hiwUp .55s var(--ease2) backwards}
-  .hiw-scene.on .hiw-copy>*:nth-child(2){animation-delay:.06s}
-  .hiw-scene.on .hiw-copy>*:nth-child(3){animation-delay:.12s}
-  .hiw-scene.on .hiw-copy>*:nth-child(4){animation-delay:.18s}
-  /* connect */
+/* was @media(prefers-reduced-motion:no-preference) */
+html:not(.motion-off) .hiw.swap .hiw-sweep{animation:hiwSweep .9s var(--ease2)}
+html:not(.motion-off) .hiw-scene.on .hiw-copy>*{animation:hiwUp .55s var(--ease2) backwards}
+html:not(.motion-off) .hiw-scene.on .hiw-copy>*:nth-child(2){animation-delay:.06s}
+html:not(.motion-off) .hiw-scene.on .hiw-copy>*:nth-child(3){animation-delay:.12s}
+html:not(.motion-off) .hiw-scene.on .hiw-copy>*:nth-child(4){animation-delay:.18s}
+html:not(.motion-off) /* connect */
   .hiw-scene.on .c-node{animation:hiwPop .55s var(--ease2) backwards}
-  .hiw-scene.on .c-node:nth-of-type(1){animation-delay:.08s}
-  .hiw-scene.on .c-node:nth-of-type(2){animation-delay:.15s}
-  .hiw-scene.on .c-node:nth-of-type(3){animation-delay:.22s}
-  .hiw-scene.on .c-node:nth-of-type(4){animation-delay:.29s}
-  .hiw-scene.on .c-node:nth-of-type(5){animation-delay:.36s}
-  .hiw-scene.on .c-node:nth-of-type(6){animation-delay:.43s}
-  .hiw-scene.on .c-wire{animation:hiwDraw .7s var(--ease2) .28s backwards}
-  .hiw-scene.on .c-flow{opacity:1;animation:hiwFlow 1.3s linear .8s infinite}
-  .hiw-scene.on .c-check{animation:hiwDraw .5s var(--ease) 1s backwards}
-  .hiw-scene.on .c-coreRing{animation:hiwPulse 2.8s var(--ease2) infinite}
-  /* audit */
-  .hiw-scene.on .a-scan,.hiw-scene.on .a-band{animation:hiwScanY 3.4s var(--ease2) .3s infinite}
-  .hiw-scene.on .a-bar{animation:hiwBar .7s var(--ease2) backwards}
-  .hiw-scene.on .a-bar:nth-of-type(1){animation-delay:.55s}
-  .hiw-scene.on .a-bar:nth-of-type(2){animation-delay:.68s}
-  .hiw-scene.on .a-bar:nth-of-type(3){animation-delay:.81s}
-  .hiw-scene.on .a-bar:nth-of-type(4){animation-delay:.94s}
-  .hiw-scene.on .a-flag{animation:hiwFlag 3.4s var(--ease2) infinite}
-  .hiw-scene.on .a-flag:nth-of-type(1){animation-delay:.3s}
-  .hiw-scene.on .a-flag:nth-of-type(2){animation-delay:1.4s}
-  .hiw-scene.on .a-flag:nth-of-type(3){animation-delay:2.4s}
-  /* deploy */
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(1){animation-delay:.08s}
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(2){animation-delay:.15s}
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(3){animation-delay:.22s}
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(4){animation-delay:.29s}
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(5){animation-delay:.36s}
+html:not(.motion-off) .hiw-scene.on .c-node:nth-of-type(6){animation-delay:.43s}
+html:not(.motion-off) .hiw-scene.on .c-wire{animation:hiwDraw .7s var(--ease2) .28s backwards}
+html:not(.motion-off) .hiw-scene.on .c-flow{opacity:1;animation:hiwFlow 1.3s linear .8s infinite}
+html:not(.motion-off) .hiw-scene.on .c-check{animation:hiwDraw .5s var(--ease) 1s backwards}
+html:not(.motion-off) .hiw-scene.on .c-coreRing{animation:hiwPulse 2.8s var(--ease2) infinite}
+html:not(.motion-off) /* audit */
+  .hiw-scene.on .a-scan,html:not(.motion-off) .hiw-scene.on .a-band{animation:hiwScanY 3.4s var(--ease2) .3s infinite}
+html:not(.motion-off) .hiw-scene.on .a-bar{animation:hiwBar .7s var(--ease2) backwards}
+html:not(.motion-off) .hiw-scene.on .a-bar:nth-of-type(1){animation-delay:.55s}
+html:not(.motion-off) .hiw-scene.on .a-bar:nth-of-type(2){animation-delay:.68s}
+html:not(.motion-off) .hiw-scene.on .a-bar:nth-of-type(3){animation-delay:.81s}
+html:not(.motion-off) .hiw-scene.on .a-bar:nth-of-type(4){animation-delay:.94s}
+html:not(.motion-off) .hiw-scene.on .a-flag{animation:hiwFlag 3.4s var(--ease2) infinite}
+html:not(.motion-off) .hiw-scene.on .a-flag:nth-of-type(1){animation-delay:.3s}
+html:not(.motion-off) .hiw-scene.on .a-flag:nth-of-type(2){animation-delay:1.4s}
+html:not(.motion-off) .hiw-scene.on .a-flag:nth-of-type(3){animation-delay:2.4s}
+html:not(.motion-off) /* deploy */
   .hiw-scene.on .d-line{animation:hiwUp .45s var(--ease2) backwards}
-  .hiw-scene.on .d-line:nth-of-type(2){animation-delay:.14s}
-  .hiw-scene.on .d-line:nth-of-type(3){animation-delay:.24s}
-  .hiw-scene.on .d-row:nth-of-type(1) .d-fill{animation:hiwFill 1s var(--ease2) .4s backwards}
-  .hiw-scene.on .d-row:nth-of-type(2) .d-fill{animation:hiwFill 1s var(--ease2) .56s backwards}
-  .hiw-scene.on .d-row:nth-of-type(3) .d-fill{animation:hiwFill 1s var(--ease2) .72s backwards}
-  .hiw-scene.on .d-bot{animation:hiwPop .6s var(--ease2) .85s backwards}
-  .hiw-scene.on .d-check{animation:hiwDraw .5s var(--ease) 1.2s backwards}
-  .hiw-scene.on .d-online{animation:hiwPulse 2.2s var(--ease2) 1.2s infinite}
-  /* run */
+html:not(.motion-off) .hiw-scene.on .d-line:nth-of-type(2){animation-delay:.14s}
+html:not(.motion-off) .hiw-scene.on .d-line:nth-of-type(3){animation-delay:.24s}
+html:not(.motion-off) .hiw-scene.on .d-row:nth-of-type(1) .d-fill{animation:hiwFill 1s var(--ease2) .4s backwards}
+html:not(.motion-off) .hiw-scene.on .d-row:nth-of-type(2) .d-fill{animation:hiwFill 1s var(--ease2) .56s backwards}
+html:not(.motion-off) .hiw-scene.on .d-row:nth-of-type(3) .d-fill{animation:hiwFill 1s var(--ease2) .72s backwards}
+html:not(.motion-off) .hiw-scene.on .d-bot{animation:hiwPop .6s var(--ease2) .85s backwards}
+html:not(.motion-off) .hiw-scene.on .d-check{animation:hiwDraw .5s var(--ease) 1.2s backwards}
+html:not(.motion-off) .hiw-scene.on .d-online{animation:hiwPulse 2.2s var(--ease2) 1.2s infinite}
+html:not(.motion-off) /* run */
   .hiw-scene.on .hd-stat{animation:hiwUp .55s var(--ease2) backwards}
-  .hiw-scene.on .hd-stat:nth-of-type(2){animation-delay:.08s}
-  .hiw-scene.on .hd-stat:nth-of-type(3){animation-delay:.16s}
-  .hiw-scene.on .hd-chart{animation:hiwUp .55s var(--ease2) .12s backwards}
-  .hiw-scene.on .hd-feed{animation:hiwUp .55s var(--ease2) .2s backwards}
-  .hiw-scene.on .hd-area{animation:hiwFade .9s var(--ease2) .45s forwards}
-  .hiw-scene.on .hd-line{animation:hiwDraw 1.25s var(--ease2) .3s backwards}
-  .hiw-scene.on .hd-row{animation:hiwUp .5s var(--ease2) backwards}
-  .hd-end,.hd-pulse{animation:hiwBlip 1.7s ease-in-out infinite}
-  .hiw-feedrow{animation:hiwSlideIn .5s var(--ease2)}
-}
-@media(prefers-reduced-motion:reduce){
-  .hiw-scene{transition:opacity .001s;transform:none}
-  .hiw-art .hd-area,.hiw-art .a-band{opacity:1}
-  .hiw-art .c-flow{opacity:0}
-}
+html:not(.motion-off) .hiw-scene.on .hd-stat:nth-of-type(2){animation-delay:.08s}
+html:not(.motion-off) .hiw-scene.on .hd-stat:nth-of-type(3){animation-delay:.16s}
+html:not(.motion-off) .hiw-scene.on .hd-chart{animation:hiwUp .55s var(--ease2) .12s backwards}
+html:not(.motion-off) .hiw-scene.on .hd-feed{animation:hiwUp .55s var(--ease2) .2s backwards}
+html:not(.motion-off) .hiw-scene.on .hd-area{animation:hiwFade .9s var(--ease2) .45s forwards}
+html:not(.motion-off) .hiw-scene.on .hd-line{animation:hiwDraw 1.25s var(--ease2) .3s backwards}
+html:not(.motion-off) .hiw-scene.on .hd-row{animation:hiwUp .5s var(--ease2) backwards}
+html:not(.motion-off) .hd-end,html:not(.motion-off) .hd-pulse{animation:hiwBlip 1.7s ease-in-out infinite}
+html:not(.motion-off) .hiw-feedrow{animation:hiwSlideIn .5s var(--ease2)}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .hiw-scene{transition:opacity .001s;transform:none}
+html.motion-off .hiw-art .hd-area,html.motion-off .hiw-art .a-band{opacity:1}
+html.motion-off .hiw-art .c-flow{opacity:0}
 @keyframes hiwUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes hiwPop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
 @keyframes hiwDraw{from{stroke-dashoffset:var(--dl)}to{stroke-dashoffset:0}}
@@ -849,6 +847,55 @@ footer{padding-bottom:96px}
 .ptc-cta:hover{transform:translateY(-2px);filter:brightness(1.08)}
 .ptc-pop{position:absolute;top:-11px;right:22px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;
   color:#fff;background:linear-gradient(90deg,var(--violet-d),var(--violet-l));padding:4px 12px;border-radius:999px}
+</style>
+
+<style id="e71">
+/* v7.1 motion: gentler for visitors whose OS asks for less motion; nothing is frozen unless they press Pause */
+html.motion-soft{scroll-behavior:auto}
+html.motion-soft .e7-track{animation-duration:calc(var(--dur,80s) * 1.6)}
+html.motion-soft .e7-flow{display:none}
+.mo-tg{position:fixed;left:14px;bottom:14px;z-index:90;display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px 0 10px;
+  border-radius:999px;border:1px solid rgba(154,123,255,.28);background:rgba(12,10,22,.78);color:#cfc6ef;
+  font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.02em;cursor:pointer;opacity:.62;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:opacity .2s,border-color .2s}
+body>#moTg{position:fixed;z-index:90}
+html.motion-off .e7-row{-webkit-mask-image:none;mask-image:none}
+html.motion-off .e7-track{width:100%}
+html.motion-off .e7-grp{flex:1 1 100%;flex-wrap:wrap;justify-content:center;row-gap:10px;padding:0 16px}
+.mo-tg:hover,.mo-tg:focus-visible{opacity:1;border-color:rgba(154,123,255,.7)}
+.mo-tg:focus-visible{outline:2px solid #9a7bff;outline-offset:2px}
+.mo-tg svg{width:12px;height:12px;flex:none}
+@media (max-width:560px){.mo-tg{height:30px;padding:0 10px;left:10px;bottom:10px}.mo-tg span{display:none}}
+</style>
+
+<style id="e72">
+.e7-allwrap{text-align:center;margin:14px 0 0}
+.e7-allbtn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid rgba(154,123,255,.45);
+  background:rgba(124,77,255,.10);color:#e9e3ff;font:600 13px/1 var(--mono,ui-monospace,monospace);cursor:pointer;transition:background .2s,border-color .2s}
+.e7-allbtn:hover{background:rgba(124,77,255,.2);border-color:rgba(154,123,255,.8)}
+.e7-allbtn:focus-visible{outline:2px solid #9a7bff;outline-offset:3px}
+.e7-allbtn[aria-expanded="true"] span{display:inline-block;transform:rotate(90deg)}
+.e7-all{max-width:1100px;margin:16px auto 0;padding:18px 20px 16px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.02)}
+.e7-all[hidden]{display:none}
+html:not(.motion-off) .e7-all.open{animation:e72in .35s ease-out}
+@keyframes e72in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.e7-allhd{display:flex;gap:12px;align-items:center;margin:0 0 14px}
+.e7-allhd input{flex:1;min-width:0;height:40px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.35);color:#fff;font-size:14px}
+.e7-allhd input:focus{outline:2px solid #9a7bff;outline-offset:1px}
+.e7-allhd .n{font:500 12px/1 var(--mono,ui-monospace,monospace);color:var(--muted);white-space:nowrap}
+.e7-cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.e7-cat{padding:12px 12px 10px;border:1px solid var(--line);border-radius:14px;background:rgba(10,8,20,.5)}
+.e7-cat[hidden]{display:none}
+.e7-cat h3{margin:0 0 8px;font:500 11px/1.2 var(--mono,ui-monospace,monospace);color:var(--violet-xl,#c3b0ff);letter-spacing:.02em}
+.e7-cat ul{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.e7-cat li{padding:4px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:12.5px;color:var(--ink2,#e8e6f2)}
+.e7-cat li[hidden]{display:none}
+.e7-cat li.hit{border-color:rgba(86,216,160,.6);color:#fff}
+.e7-miss{margin:14px 0 0;text-align:center;font-size:13px;color:var(--muted)}
+.e7-miss b{color:#fff}
+.e7-miss a{color:var(--violet-xl,#c3b0ff)}
+@media (max-width:900px){.e7-cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.e7-cats{grid-template-columns:1fr}.e7-all{margin:14px 12px 0;padding:14px 12px}}
 </style>
 </head>
 <body>
@@ -1020,7 +1067,11 @@ footer .fgrid{grid-template-columns:2fr 1fr 1fr}
 .x4-plan .btn-outline{padding:11px 20px;font-size:14px}
 .x4-fine{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:18px auto 0;max-width:80ch;line-height:1.7}
 .x4-fine a{color:var(--violet-xl)}
-@media(prefers-reduced-motion:reduce){.x4-code .ln{opacity:1!important;transform:none!important;transition:none}.x4-ask .a{opacity:1!important}.x4-path{stroke-dashoffset:0!important;transition:none}.x4-caret{animation:none}}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .x4-code .ln{opacity:1!important;transform:none!important;transition:none}
+html.motion-off .x4-ask .a{opacity:1!important}
+html.motion-off .x4-path{stroke-dashoffset:0!important;transition:none}
+html.motion-off .x4-caret{animation:none}
 </style>
 <style id="e6">
 /* ═══ 2026-09-29 v6: the homepage is a live product demo (sample data, runs in the browser) ═══ */
@@ -1331,7 +1382,10 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
   .e6-stat{padding:8px}.e6-stat b{font-size:16px}
   .e6-m{max-width:92%}
 }
-@media(prefers-reduced-motion:reduce){.x5-dot,.x5-st.working::before,.e6-m .cur{animation:none}.e6-feed li,.e6-rec li,.e6-view,.e6-m{animation:none}.e6-rpath{stroke-dashoffset:0;transition:none}}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .x5-dot,html.motion-off .x5-st.working::before,html.motion-off .e6-m .cur{animation:none}
+html.motion-off .e6-feed li,html.motion-off .e6-rec li,html.motion-off .e6-view,html.motion-off .e6-m{animation:none}
+html.motion-off .e6-rpath{stroke-dashoffset:0;transition:none}
 </style>
 <style id="e7">
 /* ═══ 2026-09-29 v7: rolling app strip, any-industry demo, robot agents, live terminals, calendar on the page ═══ */
@@ -1490,11 +1544,13 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .e7-alt a{color:var(--violet-xl);font-weight:600}
 @media(max-width:760px){.e7-ph{grid-template-columns:1fr}.e7-phx{text-align:center}.e7-mini{max-width:320px;margin:0 auto;width:100%}.e7-phx p{margin-left:auto;margin-right:auto}}
 
-@media(prefers-reduced-motion:reduce){
-  .e7-track{animation:none;width:auto}.e7-grp{flex-wrap:wrap;justify-content:center;padding:0 16px}.e7-grp+.e7-grp{display:none}
-  .e7-row{-webkit-mask-image:none;mask-image:none}.e7-pipes .dots{display:none}
-  .e7-ring::after,.e6-hero h1 .grad,.e7-bot .bb,.e7-bot .beye,.e7-bot .beyes,.e7-bot .bdot,.e7-mg i.sw,.e7-slots i,.e7-app .lv,.e7-pipes .flow path,.e7-cur{animation:none}
-}
+/* was @media(prefers-reduced-motion:reduce) */
+html.motion-off .e7-track{animation:none;width:auto}
+html.motion-off .e7-grp{flex-wrap:wrap;justify-content:center;padding:0 16px}
+html.motion-off .e7-grp+.e7-grp{display:none}
+html.motion-off .e7-row{-webkit-mask-image:none;mask-image:none}
+html.motion-off .e7-pipes .dots{display:none}
+html.motion-off .e7-ring::after,html.motion-off .e6-hero h1 .grad,html.motion-off .e7-bot .bb,html.motion-off .e7-bot .beye,html.motion-off .e7-bot .beyes,html.motion-off .e7-bot .bdot,html.motion-off .e7-mg i.sw,html.motion-off .e7-slots i,html.motion-off .e7-app .lv,html.motion-off .e7-pipes .flow path,html.motion-off .e7-cur{animation:none}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -1541,7 +1597,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
   <canvas class="e7-flow" id="e7flow" aria-hidden="true"></canvas>
   <div class="wrap e6-hg">
     <div class="e6-hc">
-      <div class="status-pill">// fractional AI CTO for any small business</div>
+      <div class="status-pill">// fractional AI CTO for any business</div>
       <h1><span class="ln">Every app.</span> <span class="ln">Every agent.</span> <span class="ln grad">One CEO dashboard.</span></h1>
       <p class="sub">Stop logging into every app. We plug them all into one dashboard, put AI agents to work across it, and build anything else your business needs. Built on HighLevel, run by your own CTO.</p>
       <form class="e6-try" id="e6try" autocomplete="off">
@@ -1561,9 +1617,15 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 
 <section class="e7-apps" aria-label="Apps we connect">
   <p class="cap">// plugs into the apps you already run on &middot; <b>if it has an API, we connect it</b></p>
-  <div class="e7-row" style="--dur:80s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Google Calendar<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-cloud"/></svg></span>Google Drive<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:1.12s"></span></span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Google Calendar<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-cloud"/></svg></span>Google Drive<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:1.12s"></span></span></div></div></div>
-  <div class="e7-row rev" style="--dur:100s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-brief"/></svg></span>Clio<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-brief"/></svg></span>Procore<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>Shopmonkey<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-shield"/></svg></span>AgencyZoom<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Karbon<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-grid"/></svg></span>monday.com<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>SharePoint<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Mailchimp<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google reviews<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-brief"/></svg></span>Clio<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-brief"/></svg></span>Procore<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>Shopmonkey<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-shield"/></svg></span>AgencyZoom<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Karbon<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-grid"/></svg></span>monday.com<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#d9d3f5"><span class="e7-ic" style="--k:#d9d3f5"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>SharePoint<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Mailchimp<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google reviews<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div></div></div>
-  <p class="tm">// app names belong to their owners &middot; listed to show what we connect to, not an endorsement</p>
+  <div class="e7-row" style="--dur:95s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Google Workspace<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Google Ads<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google Business Profile<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-send"/></svg></span>Meta Ads<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bag"/></svg></span>Amazon<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-search"/></svg></span>ZoomInfo<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-users"/></svg></span>LinkedIn<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.57s"></span></span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Google Workspace<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-mail"/></svg></span>Gmail<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-send"/></svg></span>Google Ads<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-star"/></svg></span>Google Business Profile<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-grid"/></svg></span>Microsoft 365<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-mail"/></svg></span>Outlook<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-video"/></svg></span>Teams<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-send"/></svg></span>Meta Ads<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-dm"/></svg></span>Facebook<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-dm"/></svg></span>Instagram<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>WhatsApp<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-users"/></svg></span>Salesforce<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-users"/></svg></span>HubSpot<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-bag"/></svg></span>Shopify<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bag"/></svg></span>Amazon<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-search"/></svg></span>ZoomInfo<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-users"/></svg></span>LinkedIn<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-card"/></svg></span>Stripe<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-card"/></svg></span>PayPal<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-book"/></svg></span>QuickBooks<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-hash"/></svg></span>Slack<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-video"/></svg></span>Zoom<span class="lv" style="--dl:0.57s"></span></span></div></div></div>
+  <div class="e7-row rev" style="--dur:110s"><div class="e7-track"><div class="e7-grp"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-book"/></svg></span>NetSuite<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-mail"/></svg></span>Mailchimp<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-mail"/></svg></span>Klaviyo<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-phone"/></svg></span>RingCentral<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-check"/></svg></span>monday.com<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Gusto<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-brief"/></svg></span>ADP<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-spark"/></svg></span>Canva<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>ServiceTitan<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-shield"/></svg></span>Clio<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-wrench"/></svg></span>Procore<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bag"/></svg></span>Toast<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:2.05s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:0.02s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:0.39s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div><div class="e7-grp" aria-hidden="true"><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-card"/></svg></span>Square<span class="lv" style="--dl:0.00s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-book"/></svg></span>Xero<span class="lv" style="--dl:0.37s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-book"/></svg></span>NetSuite<span class="lv" style="--dl:0.74s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-mail"/></svg></span>Mailchimp<span class="lv" style="--dl:1.11s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-mail"/></svg></span>Klaviyo<span class="lv" style="--dl:1.48s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-phone"/></svg></span>Twilio<span class="lv" style="--dl:1.85s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-phone"/></svg></span>RingCentral<span class="lv" style="--dl:2.22s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-chat"/></svg></span>Zendesk<span class="lv" style="--dl:0.19s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-sign"/></svg></span>DocuSign<span class="lv" style="--dl:0.56s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cloud"/></svg></span>Dropbox<span class="lv" style="--dl:0.93s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-file"/></svg></span>Notion<span class="lv" style="--dl:1.30s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-check"/></svg></span>Asana<span class="lv" style="--dl:1.67s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-check"/></svg></span>monday.com<span class="lv" style="--dl:2.04s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-db"/></svg></span>Airtable<span class="lv" style="--dl:0.01s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bolt"/></svg></span>Zapier<span class="lv" style="--dl:0.38s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-cal"/></svg></span>Calendly<span class="lv" style="--dl:0.75s"></span></span><span class="e7-app" style="--k:#ff86c8"><span class="e7-ic" style="--k:#ff86c8"><svg class="i"><use href="#e6-brief"/></svg></span>Gusto<span class="lv" style="--dl:1.12s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-brief"/></svg></span>ADP<span class="lv" style="--dl:1.49s"></span></span><span class="e7-app" style="--k:#5cc8ff"><span class="e7-ic" style="--k:#5cc8ff"><svg class="i"><use href="#e6-spark"/></svg></span>Canva<span class="lv" style="--dl:1.86s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-wrench"/></svg></span>ServiceTitan<span class="lv" style="--dl:2.23s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-wrench"/></svg></span>Jobber<span class="lv" style="--dl:0.20s"></span></span><span class="e7-app" style="--k:#6ea8ff"><span class="e7-ic" style="--k:#6ea8ff"><svg class="i"><use href="#e6-shield"/></svg></span>Clio<span class="lv" style="--dl:0.57s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-wrench"/></svg></span>Procore<span class="lv" style="--dl:0.94s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-bag"/></svg></span>Toast<span class="lv" style="--dl:1.31s"></span></span><span class="e7-app" style="--k:#56d8a0"><span class="e7-ic" style="--k:#56d8a0"><svg class="i"><use href="#e6-home"/></svg></span>Follow Up Boss<span class="lv" style="--dl:1.68s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-home"/></svg></span>Buildium<span class="lv" style="--dl:2.05s"></span></span><span class="e7-app" style="--k:#9a7bff"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-hl"/></svg></span>HighLevel<span class="lv" style="--dl:0.02s"></span></span><span class="e7-app" style="--k:#e8c275"><span class="e7-ic" style="--k:#e8c275"><svg class="i"><use href="#e6-spark"/></svg></span>Claude<span class="lv" style="--dl:0.39s"></span></span><span class="e7-app more"><span class="e7-ic" style="--k:#9a7bff"><svg class="i"><use href="#e6-api"/></svg></span>+ anything with an API</span></div></div></div>
+  <div class="e7-allwrap"><button type="button" class="e7-allbtn" id="e7allbtn" aria-expanded="false" aria-controls="e7all">See all 128 apps we connect <span aria-hidden="true">&rarr;</span></button></div>
+  <div class="e7-all" id="e7all" hidden>
+    <div class="e7-allhd"><input type="search" id="e7q" placeholder="Search: Shopify, Clio, Toast&hellip;" aria-label="Search the apps we connect" autocomplete="off"><span class="n" id="e7n" aria-live="polite">128 apps</span></div>
+    <div class="e7-cats"><section class="e7-cat"><h3>// google</h3><ul><li>Gmail</li><li>Google Calendar</li><li>Google Drive</li><li>Google Docs</li><li>Google Sheets</li><li>Google Meet</li><li>Google Ads</li><li>Google Analytics</li><li>Google Business Profile</li><li>YouTube</li><li>Looker Studio</li><li>BigQuery</li></ul></section><section class="e7-cat"><h3>// microsoft</h3><ul><li>Microsoft 365</li><li>Outlook</li><li>Teams</li><li>SharePoint</li><li>OneDrive</li><li>Excel</li><li>Word</li><li>Dynamics 365</li><li>Power BI</li><li>Microsoft Bookings</li></ul></section><section class="e7-cat"><h3>// meta &amp; social</h3><ul><li>Meta Ads</li><li>Facebook</li><li>Instagram</li><li>WhatsApp</li><li>Messenger</li><li>LinkedIn</li><li>TikTok</li><li>X</li><li>Pinterest</li><li>Yelp</li></ul></section><section class="e7-cat"><h3>// crm &amp; sales</h3><ul><li>HighLevel</li><li>Salesforce</li><li>HubSpot</li><li>Pipedrive</li><li>Zoho CRM</li><li>Close</li><li>Copper</li><li>ZoomInfo</li><li>Apollo</li><li>Outreach</li><li>Salesloft</li><li>Gong</li><li>Calendly</li></ul></section><section class="e7-cat"><h3>// commerce</h3><ul><li>Shopify</li><li>Amazon Seller Central</li><li>WooCommerce</li><li>BigCommerce</li><li>Wix</li><li>Squarespace</li><li>eBay</li><li>Etsy</li></ul></section><section class="e7-cat"><h3>// payments &amp; accounting</h3><ul><li>Stripe</li><li>PayPal</li><li>Square</li><li>Clover</li><li>QuickBooks</li><li>Xero</li><li>NetSuite</li><li>FreshBooks</li><li>Sage</li><li>BILL</li><li>Expensify</li><li>Ramp</li><li>Brex</li><li>Plaid</li></ul></section><section class="e7-cat"><h3>// phones &amp; texting</h3><ul><li>Twilio</li><li>RingCentral</li><li>Dialpad</li><li>Aircall</li><li>Zoom Phone</li><li>Vonage</li><li>OpenPhone</li></ul></section><section class="e7-cat"><h3>// email &amp; marketing</h3><ul><li>Mailchimp</li><li>Klaviyo</li><li>Constant Contact</li><li>ActiveCampaign</li><li>SendGrid</li><li>Brevo</li><li>Canva</li><li>Hootsuite</li></ul></section><section class="e7-cat"><h3>// support</h3><ul><li>Zendesk</li><li>Intercom</li><li>Freshdesk</li><li>Help Scout</li><li>Gorgias</li></ul></section><section class="e7-cat"><h3>// docs, files &amp; e-sign</h3><ul><li>DocuSign</li><li>Adobe Acrobat Sign</li><li>PandaDoc</li><li>Dropbox</li><li>Box</li><li>Notion</li><li>Airtable</li></ul></section><section class="e7-cat"><h3>// projects &amp; teams</h3><ul><li>Slack</li><li>Zoom</li><li>Asana</li><li>monday.com</li><li>ClickUp</li><li>Trello</li><li>Jira</li><li>Zapier</li><li>Make</li></ul></section><section class="e7-cat"><h3>// hr &amp; payroll</h3><ul><li>Gusto</li><li>ADP</li><li>Paychex</li><li>Rippling</li><li>BambooHR</li><li>Deel</li></ul></section><section class="e7-cat"><h3>// industry apps</h3><ul><li>Clio</li><li>MyCase</li><li>Follow Up Boss</li><li>Lofty</li><li>Buildium</li><li>AppFolio</li><li>Jobber</li><li>Housecall Pro</li><li>ServiceTitan</li><li>Procore</li><li>Shopmonkey</li><li>Karbon</li><li>AgencyZoom</li><li>Applied Epic</li><li>Toast</li><li>Mindbody</li></ul></section><section class="e7-cat"><h3>// ai models</h3><ul><li>Claude</li><li>OpenAI</li><li>Gemini</li></ul></section></div>
+    <p class="e7-miss"><b>Not on the list?</b> If it has an API, we connect it. <a href="#book">Ask about yours on a call</a>.</p>
+  </div>
+  <p class="tm">// app names belong to their owners &middot; listed to show what we connect to, not an endorsement or partnership</p>
 </section>
 
 <section class="e6-demo" id="demo">
@@ -1698,7 +1760,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
     <div class="fgrid">
       <div class="fbrand">
         <div class="logo"><span class="logo-mark"></span><span class="logo-text">Efficio</span></div>
-        <p>Every app, every AI agent, one CEO dashboard for small businesses. Built on HighLevel. Run by your own fractional CTO.</p>
+        <p>Every app, every AI agent, one CEO dashboard for any business. Built on HighLevel. Run by your own fractional CTO.</p>
       </div>
       <div class="fcol"><h5>Efficio</h5>
         <a href="/pricing.html">Pricing</a><a href="#book">Book a call</a><a href="mailto:brady&#64;efficio&#46;tech">brady&#64;efficio&#46;tech</a>
@@ -1717,7 +1779,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 
 <script>
 (function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = document.documentElement.classList.contains('motion-off');
 
   /* scroll progress + nav state */
   var bar=document.getElementById('scrollbar'), nav=document.getElementById('nav'), ticking=false;
@@ -1764,7 +1826,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 <script>
 /* Homepage — How-it-works step-through + Pricing tier selector (accessible tabs). */
 (function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = document.documentElement.classList.contains('motion-off');
   function wireTabs(listSel,opt){
     opt=opt||{};
     var list=document.querySelector(listSel); if(!list) return null;
@@ -1965,7 +2027,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
 (function(){
   var cards = document.querySelectorAll('.agc');
   if(!cards.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = document.documentElement.classList.contains('motion-off');
 
   function countUp(card){
     card.querySelectorAll('.cd-count b[data-to]').forEach(function(b){
@@ -2016,7 +2078,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
    Everything runs in the browser with sample data. Files a visitor drops are only read for their
    name, type and size, and never leave the page. */
 (function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = document.documentElement.classList.contains('motion-off');
   function $(s,r){ return (r||document).querySelector(s); }
   function $$(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); }
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
@@ -2872,7 +2934,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
 
   /* ---------- hero background: data flowing in from every side ---------- */
   (function flowBG(){
-    var cv=$('#e7flow'), hero=$('.e6-hero'); if(!cv || !hero || reduce || !cv.getContext) return;
+    var cv=$('#e7flow'), hero=$('.e6-hero'); if(!cv || !hero || reduce || document.documentElement.classList.contains('motion-soft') || !cv.getContext) return;
     var ctx=cv.getContext('2d'), W=0,H=0,dpr=Math.min(2,window.devicePixelRatio||1), P=[], raf=0, on=false, tx=0, ty=0;
     var COL=['154,123,255','92,200,255','86,216,160','232,194,117','255,134,200','195,176,255'];
     function size(){
@@ -2930,6 +2992,50 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       try{ fr.focus(); }catch(e){}
     });
   })();
+})();
+</script>
+
+<button type="button" class="mo-tg" id="moTg" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".8" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".8" fill="currentColor"/></svg><span>Pause motion</span></button>
+<script>
+(function(){
+  var b=document.getElementById('moTg'); if(!b) return;
+  var d=document.documentElement, off=d.classList.contains('motion-off');
+  if(off){
+    b.setAttribute('aria-pressed','true');
+    b.innerHTML='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.8v8.4L10.2 6z" fill="currentColor"/></svg><span>Play motion</span>';
+  }
+  b.setAttribute('aria-label', off ? 'Play motion' : 'Pause motion');
+  b.addEventListener('click',function(){
+    try{ if(off) localStorage.removeItem('efficio_motion'); else localStorage.setItem('efficio_motion','off'); }catch(e){}
+    if(off) d.classList.remove('motion-off'); else d.classList.add('motion-off');
+    location.reload();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('e7allbtn'), box=document.getElementById('e7all'), q=document.getElementById('e7q'), n=document.getElementById('e7n');
+  if(!btn||!box) return;
+  var cats=[].slice.call(box.querySelectorAll('.e7-cat')), total=box.querySelectorAll('.e7-cat li').length;
+  btn.addEventListener('click',function(){
+    var open=btn.getAttribute('aria-expanded')!=='true';
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    box.hidden=!open; box.classList.toggle('open',open);
+    if(open && q && window.matchMedia && matchMedia('(pointer:fine)').matches) q.focus();
+  });
+  if(q) q.addEventListener('input',function(){
+    var s=q.value.trim().toLowerCase(), shown=0;
+    cats.forEach(function(c){
+      var catHit=s && c.querySelector('h3').textContent.toLowerCase().indexOf(s)>-1, any=false;
+      [].forEach.call(c.querySelectorAll('li'),function(li){
+        var hit=!s || catHit || li.textContent.toLowerCase().indexOf(s)>-1;
+        li.hidden=!hit; li.classList.toggle('hit',!!s && hit && !catHit); if(hit){ any=true; shown++; }
+      });
+      c.hidden=!any;
+    });
+    if(n) n.textContent = s ? (shown ? shown+' match'+(shown===1?'':'es') : 'no match yet') : total+' apps';
+  });
 })();
 </script>
 </body>

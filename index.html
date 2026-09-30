@@ -2071,7 +2071,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   });
 })();
 </script>
-<script src="/assets/consent.js?v=20260929" defer></script>
+<script src="/assets/consent.js?v=20260930" defer></script>
   <!-- W136: GHL Voice AI widget (Efficio Voice - Missed-Call Capture) -->
 <script>
 /* v7 homepage: a live, clickable demo of the Efficio CEO dashboard for any kind of business.
@@ -2985,7 +2985,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       if(!fr.getAttribute('src')){
         fr.setAttribute('scrolling','auto');
         try{ if(window.matchMedia('(min-width: 561px)').matches) fr.style.height='900px'; }catch(e){}
-        fr.setAttribute('src',fr.getAttribute('data-consent-src'));
+        var cs=fr.getAttribute('data-consent-src'); fr.setAttribute('src',(window.EfficioConsent&&EfficioConsent.calSrc)?EfficioConsent.calSrc(cs):cs);
       }
       fr.style.display='';
       var ph=fr.previousElementSibling; if(ph && ph.classList.contains('ck-embed')) ph.style.display='none';

@@ -214,6 +214,19 @@
     fr.parentNode.insertBefore(ph, fr);
     return ph;
   }
+  /* The ad tags a visitor arrived with (utm_* only: no click ids, nothing
+     personal) ride along to the calendar, so a booking shows its source in
+     HighLevel. They come from pixels.js, which keeps them for this tab only. */
+  function calSrc(src) {
+    var u = null;
+    try { u = window._pxUtms ? window._pxUtms() : null; } catch (e) {}
+    if (!src || !u) return src;
+    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'], parts = [];
+    for (var i = 0; i < keys.length; i++) {
+      if (u[keys[i]]) parts.push(keys[i] + '=' + encodeURIComponent(String(u[keys[i]]).slice(0, 120)));
+    }
+    return parts.length ? src + (src.indexOf('?') === -1 ? '?' : '&') + parts.join('&') : src;
+  }
   function loadEmbed(fr, opts) {
     var calendarOnly = !!(opts && opts.calendarOnly);
     if (!fr.getAttribute('src')) {
@@ -222,7 +235,7 @@
         fr.setAttribute('scrolling', 'auto');
         try { if (window.matchMedia('(min-width: 561px)').matches) fr.style.height = '900px'; } catch (e) {}
       }
-      fr.setAttribute('src', fr.getAttribute('data-consent-src'));
+      fr.setAttribute('src', calSrc(fr.getAttribute('data-consent-src')));
       embedsLoaded = true;
     }
     if (!calendarOnly) {
@@ -366,6 +379,7 @@
     grant: grant,
     deny: deny,
     open: function () { show({ immediate: true, focus: true }); },
+    calSrc: calSrc,
     showEmbed: function (fr) {
       if (!fr) return;
       fr.removeAttribute('data-consent-lazy');

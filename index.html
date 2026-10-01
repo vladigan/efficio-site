@@ -1508,6 +1508,8 @@ html.motion-off .e6-rpath{stroke-dashoffset:0;transition:none}
 #x4Log .x4-code .ln{flex:none}
 @media(max-width:560px){#x4Log .x4-code{height:calc(7 * 1.85em + 28px)}}
 .x4-person .av{font-family:var(--mono);font-size:13px}
+.x4-person .av.lg{background:#fff;box-shadow:0 10px 26px -10px rgba(124,77,255,.9),inset 0 0 0 1px rgba(0,0,0,.06)}
+.x4-person .av.lg img{width:28px;height:28px;display:block}
 
 /* book: the calendar, right on the page */
 .e7-book{position:relative;padding:clamp(56px,8vh,100px) 0 clamp(70px,10vh,120px)}
@@ -1689,7 +1691,7 @@ html.motion-off .e7-ring::after,html.motion-off .e6-hero h1 .grad,html.motion-of
         <div class="eyebrow rv">// your CTO</div>
         <h2 class="rv d1">An engineer who <span class="grad">keeps shipping.</span></h2>
         <p class="lede rv d1" style="margin:16px 0 0;max-width:34ch">Anything you want built, we build and run. You ask, it ships, it shows up on your dashboard.</p>
-        <div class="x4-person rv d2"><span class="av">&lt;/&gt;</span><span><span class="n">Your fractional CTO</span><br><span class="r">designs, builds and runs every system</span></span></div>
+        <div class="x4-person rv d2"><span class="av lg"><img src="/assets/logos/apps/efficio.svg" alt="Efficio" width="28" height="28"></span><span><span class="n">Your fractional CTO</span><br><span class="r">designs, builds and runs every system</span></span></div>
       </div>
       <div class="x4-win rv d1" id="x4Log" role="img" aria-label="Illustration of a month of shipped work">
         <div class="x4-bar"><i></i><i></i><i></i><span class="t">git log &mdash; your-business</span><span class="s">illustration</span></div>
@@ -2275,7 +2277,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
 
   var CIDS=['ghl','phone','web','gcal','gmail','greviews','stripe','qbo','social','slack','files','ind','m365','docusign','zoom'];
   var CN0={
-    ghl:{n:'Efficio CRM',ic:'hl',k:'#9a7bff',au:'native',w:'crm, texts, email',on:1,s:4,slug:'crm'},
+    ghl:{n:'Efficio CRM',ic:'hl',lg:'efficio.svg',k:'#9a7bff',au:'native',w:'crm, texts, email',on:1,s:4,slug:'crm'},
     phone:{n:'Phone line',ic:'phone',k:'#56d8a0',au:'native',w:'calls',on:1,s:9,slug:'phone'},
     web:{n:'Website chat',ic:'chat',k:'#5cc8ff',au:'native',w:'chats, forms',on:1,s:2,slug:'website'},
     gcal:{n:'Google Calendar',ic:'cal',lg:'google-calendar.svg',k:'#6ea8ff',au:'oauth',w:'bookings',on:1,s:6,slug:'google_calendar'},

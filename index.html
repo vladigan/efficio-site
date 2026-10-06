@@ -1527,7 +1527,7 @@ html.motion-off .e6-rpath{stroke-dashoffset:0;transition:none}
 .e7-cal .ghl-booking{display:block;width:100%;min-width:320px;height:760px;border:0;background:#fff}
 @media(max-width:560px){.e7-cal .ghl-booking{height:1000px}.e7-cbar .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}}
 .e7-ph{display:grid;grid-template-columns:310px 1fr;gap:clamp(24px,4vw,44px);align-items:center;padding:clamp(24px,4vw,40px) clamp(20px,4vw,48px)}
-.e7-mini{border:1px solid var(--line2);border-radius:14px;padding:14px;background:rgba(255,255,255,.02)}
+.e7-mini{border:1px solid var(--line2);border-radius:14px;padding:14px;background:rgba(255,255,255,.02);cursor:pointer}
 .e7-mini .mh{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#fff;font-weight:700;margin-bottom:10px}
 .e7-mini .mh span{font-family:var(--mono);color:var(--muted);font-weight:400;letter-spacing:.2em}
 .e7-mg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-family:var(--mono);font-size:11px}
@@ -2078,7 +2078,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   });
 })();
 </script>
-<script src="/assets/consent.js?v=20260930" defer></script>
+<script src="/assets/consent.js?v=20261005" defer></script>
   <!-- W136: GHL Voice AI widget (Efficio Voice - Missed-Call Capture) -->
 <script>
 /* v7 homepage: a live, clickable demo of the Efficio CEO dashboard for any kind of business.
@@ -2993,12 +2993,17 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       if(!fr.getAttribute('src')){
         fr.setAttribute('scrolling','auto');
         try{ if(window.matchMedia('(min-width: 561px)').matches) fr.style.height='900px'; }catch(e){}
+        /* size the iframe from the widget's own height reports, so the booking form's button isn't hidden inside it */
+        if(window.EfficioConsent&&EfficioConsent.autoHeight) EfficioConsent.autoHeight(fr);
         var cs=fr.getAttribute('data-consent-src'); fr.setAttribute('src',(window.EfficioConsent&&EfficioConsent.calSrc)?EfficioConsent.calSrc(cs):cs);
       }
       fr.style.display='';
       var ph=fr.previousElementSibling; if(ph && ph.classList.contains('ck-embed')) ph.style.display='none';
       try{ fr.focus(); }catch(e){}
     });
+    /* the picture of a calendar above the button gets tapped too: treat a tap on it as "Show available times" */
+    var mini=document.querySelector('.e7-mini');
+    if(mini && btn) mini.addEventListener('click',function(){ btn.click(); });
   })();
 })();
 </script>

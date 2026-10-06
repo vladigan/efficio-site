@@ -2078,7 +2078,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   });
 })();
 </script>
-<script src="/assets/consent.js?v=20260930" defer></script>
+<script src="/assets/consent.js?v=20261005" defer></script>
   <!-- W136: GHL Voice AI widget (Efficio Voice - Missed-Call Capture) -->
 <script>
 /* v7 homepage: a live, clickable demo of the Efficio CEO dashboard for any kind of business.
@@ -2993,6 +2993,8 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
       if(!fr.getAttribute('src')){
         fr.setAttribute('scrolling','auto');
         try{ if(window.matchMedia('(min-width: 561px)').matches) fr.style.height='900px'; }catch(e){}
+        /* size the iframe from the widget's own height reports, so the booking form's button isn't hidden inside it */
+        if(window.EfficioConsent&&EfficioConsent.autoHeight) EfficioConsent.autoHeight(fr);
         var cs=fr.getAttribute('data-consent-src'); fr.setAttribute('src',(window.EfficioConsent&&EfficioConsent.calSrc)?EfficioConsent.calSrc(cs):cs);
       }
       fr.style.display='';

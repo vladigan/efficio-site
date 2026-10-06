@@ -227,13 +227,55 @@
     }
     return parts.length ? src + (src.indexOf('?') === -1 ? '?' : '&') + parts.join('&') : src;
   }
+  /* Height of a calendar loaded with "Show available times".
+     GHL's form_embed.js (loaded only after Accept) is what normally resizes the
+     iframe. Without it the iframe kept its fixed CSS height and the booking
+     form ran past it: the consent boxes and "Schedule meeting" button sat out
+     of sight inside the iframe, reachable only by scrolling inside it (on a
+     phone, a 1,708px form in a 1,000px frame; on desktop, 1,251px in 900px;
+     checked 10/5). The widget reports its height over postMessage once it gets
+     iframe-resizer's handshake, so we send that handshake from here: plain
+     messages, no third-party script on this page, no cookies, no consent change. */
+  var SIZER = '[iFrameSizer]', sizedFrames = [], sizerListening = false;
+  function frameOrigin(fr) {
+    try { return new URL(fr.getAttribute('src') || fr.getAttribute('data-consent-src'), location.href).origin; } catch (e) { return ''; }
+  }
+  function sizerInit(fr) {
+    var o = frameOrigin(fr);
+    if (!o || !fr.contentWindow) return;
+    /* the same settings GHL's form_embed.js sends (height only, "offset" method) */
+    try { fr.contentWindow.postMessage(SIZER + fr.id + ':8:false:false:32:true:true:null:offset:null:null:0', o); } catch (e) {}
+  }
+  function onSizerMessage(e) {
+    var d = e.data;
+    if (typeof d !== 'string') return;
+    for (var i = 0; i < sizedFrames.length; i++) {
+      var fr = sizedFrames[i];
+      if (e.source !== fr.contentWindow || e.origin !== frameOrigin(fr)) continue;
+      if (d.indexOf('[iFrameResizerChild]Ready') === 0) { sizerInit(fr); return; }
+      if (d.indexOf(SIZER + fr.id + ':') !== 0) return;
+      var p = d.slice(SIZER.length).split(':'), h = parseInt(p[1], 10), type = p[3] || '';
+      /* only size reports; ignore scroll, link and close requests */
+      if (/^(close|message|scrollTo|scrollToOffset|pageInfo|pageInfoStop|inPageLink|autoResize|reset)$/.test(type)) return;
+      if (h > 0 && h < 6000) fr.style.height = Math.max(h + 5, 560) + 'px';
+      return;
+    }
+  }
+  function autoHeight(fr) {
+    if (!fr || sizedFrames.indexOf(fr) !== -1) return;
+    sizedFrames.push(fr);
+    if (!sizerListening) { sizerListening = true; window.addEventListener('message', onSizerMessage); }
+    fr.addEventListener('load', function () { sizerInit(fr); });
+  }
   function loadEmbed(fr, opts) {
     var calendarOnly = !!(opts && opts.calendarOnly);
     if (!fr.getAttribute('src')) {
-      /* without GHL's resizer script the iframe keeps its CSS height, so let it scroll */
+      /* without GHL's resizer script the iframe would keep its CSS height: size it
+         from the widget's own height reports, and let it scroll if those never come */
       if (calendarOnly) {
         fr.setAttribute('scrolling', 'auto');
         try { if (window.matchMedia('(min-width: 561px)').matches) fr.style.height = '900px'; } catch (e) {}
+        autoHeight(fr);
       }
       fr.setAttribute('src', calSrc(fr.getAttribute('data-consent-src')));
       embedsLoaded = true;
@@ -380,6 +422,7 @@
     deny: deny,
     open: function () { show({ immediate: true, focus: true }); },
     calSrc: calSrc,
+    autoHeight: autoHeight,
     showEmbed: function (fr) {
       if (!fr) return;
       fr.removeAttribute('data-consent-lazy');

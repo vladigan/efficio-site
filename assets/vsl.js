@@ -18,15 +18,15 @@
   }
 
   var SLIDES = [
-    { text: 'If you run a small business and <em>calls go unanswered</em> while you\'re busy with a customer, this is for you.', cls: 'lead' },
-    { text: 'Most AI tools hand you software to set up yourself. Answering services take a message. Neither books the job.' },
-    { text: 'Efficio installs and runs an <em>AI front office</em> for you, built on HighLevel.', cls: 'lead' },
-    { text: 'An AI receptionist answers the calls you forward to it. It says it\'s an AI, answers from your FAQs and books into your calendar.' },
-    { text: 'Website chat, booking reminders, review requests, and missed-call text-back once your texting registration is approved.' },
-    { text: 'A live dashboard shows every call, booking and review, and a results email lands every week.' },
-    { text: 'You don\'t configure anything. <em>A licensed engineer installs it, tests it and runs it.</em>' },
+    { text: 'Your business runs on a dozen apps that don\'t talk to each other. <em>That\'s what we fix.</em>', cls: 'lead' },
+    { text: 'Most AI tools hand you software to set up, connect and babysit yourself. Efficio is the done-for-you version.' },
+    { text: 'We connect every app you run on to <em>one live CEO dashboard</em>: your CRM, QuickBooks, Stripe, Google or Microsoft 365 and the rest.', cls: 'lead' },
+    { text: 'Then we put AI agents to work across them: follow-ups, client intake, invoices, scheduling, the phones and reporting.' },
+    { text: 'Whatever the business needs next, a custom agent, a new integration or an automation, we build it.' },
+    { text: 'You see all of it live on one dashboard: every app, every agent and your numbers.' },
+    { text: 'You don\'t configure anything. <em>Your fractional AI CTO designs it, builds it and runs it.</em>' },
     { text: '<em>Live within 7 business days of kickoff</em>, or your $500 setup fee back.', cls: 'close' },
-    { text: 'From $1,500 a month, plus a one-time $500 setup. On the call we look at your numbers and tell you honestly whether it fits.', cls: 'close' }
+    { text: 'From $1,500 a month, plus a one-time $500 setup. On the call we look at how your business runs and tell you honestly whether it fits.', cls: 'close' }
   ];
   var DURATION = 10000;
 

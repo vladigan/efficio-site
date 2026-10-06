@@ -225,7 +225,7 @@
   <div class="wrap">
     <div class="eyebrow rv">// find your plan &middot; ~60 seconds</div>
     <h1 class="rv d1">60 seconds. <span class="grad">Find the plan that fits.</span></h1>
-    <p class="sub rv d1">Seven quick questions about your calls, job size, team and what you want built. We&rsquo;ll point you to AI Operator ($1,500/mo), Founding CTO ($2,500/mo) or Full Custom CTO ($3,500/mo), each plus a one-time $500 setup, or tell you honestly if none is worth it yet.</p>
+    <p class="sub rv d1">Seven quick questions about your leads, job size, team and what you want built. We&rsquo;ll point you to AI Operator ($1,500/mo), Founding CTO ($2,500/mo) or Full Custom CTO ($3,500/mo), each plus a one-time $500 setup, or tell you honestly if none is worth it yet.</p>
     <ul class="qtrust rv d2" aria-label="What to expect">
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>~60 seconds, 7 questions</li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>No email to see your result</li>
@@ -380,7 +380,7 @@
    custom = Full Custom CTO)
    Routing: "not worth it yet" when the average job is under $500 or it's a solo
    shop under $25k a month. Otherwise the plan follows what the owner wants
-   built (question 7): nothing custom = AI Operator; one custom agent plus a
+   built (question 7): the essentials = AI Operator; one custom agent plus a
    dashboard = Founding CTO; ongoing engineering = Full Custom CTO;
    "not sure" = AI Operator.
    Deterministic, no randomness. The result is a recommendation, not a quote.
@@ -397,14 +397,14 @@
     custom: {name:'Full Custom CTO', price:'$3,500', per:' /mo', setup:'+ $500 one-time setup &middot; month-to-month', tag:'Everything in Founding CTO, plus ongoing engineering.',
       get:['<b>Everything in Founding CTO</b>','Ongoing custom engineering: new automations, agents and integrations as you grow','A weekly call','24-hour response time']},
     nofit: {name:'Probably not worth it yet', price:'', per:'', setup:'', tag:'',
-      get:['Return missed calls the same day, before the caller books someone else','Turn on your carrier&rsquo;s voicemail-to-text so no message sits unheard','Come back when your call volume or job size grows']}
+      get:['Write down the three tasks that eat the most hours each week; that list is where AI pays off first','Turn on the automations already built into the apps you pay for','Come back when your volume or job size grows']}
   };
   var ORDER = ['operator','founding','custom'];
 
   /* ---- questions ---- */
   var Q = [
     {
-      q:'How many calls or leads do you get in a month?',
+      q:'How many customers or leads do you handle in a month?',
       hint:'Phone calls, web forms and chats, roughly.',
       opts:[
         {label:'Fewer than 20',        sub:'A few a week'},
@@ -454,20 +454,20 @@
       ]
     },
     {
-      q:'What happens to the calls you miss today?',
-      hint:'Be honest; most owners miss more than they think.',
+      q:'Where does your team lose the most time?',
+      hint:'Pick the one that eats the most hours each week.',
       opts:[
-        {label:'They go to voicemail',               sub:'We call back when we can'},
-        {label:'Someone calls back later',           sub:'Usually the same day'},
-        {label:'An answering service takes a message', sub:'Paid per call or minute'},
-        {label:'We rarely miss calls',               sub:'Someone always picks up'}
+        {label:'Chasing follow-ups',                 sub:'Quotes, leads and proposals that go quiet'},
+        {label:'Admin between apps',                 sub:'Copying the same information from one app to another'},
+        {label:'Billing and invoices',               sub:'Sending, chasing and reconciling'},
+        {label:'Phones and scheduling',              sub:'Answering, booking and rescheduling'}
       ]
     },
     {
-      q:'Beyond answering and booking calls, what do you want built?',
+      q:'What do you want built first?',
       hint:'This decides the plan more than anything else.',
       opts:[
-        {label:'Nothing custom',                      sub:'Answer, book, remind and report'},
+        {label:'The essentials',                      sub:'Your dashboard, the front office agents and one new automation a month'},
         {label:'One custom AI tool',                  sub:'e.g. a quote, intake or triage agent, plus a dashboard over our data'},
         {label:'An engineer building with us',        sub:'New automations, agents and integrations as we grow'},
         {label:'Not sure yet',                        sub:'We&rsquo;ll work it out on the call'}
@@ -579,18 +579,18 @@
     return {key:'operator'};
   }
 
-  /* per-plan "why" line, lightly personalised by the missed-call answer (Q6) */
+  /* per-plan "why" line, lightly personalised by where the team loses time (Q6) */
   function whyText(key){
-    var missed = answers[5];
-    var missWord = missed===0 ? 'Right now missed calls go to voicemail, and many callers won&rsquo;t leave one. '
-                 : missed===1 ? 'Calling back later works until the caller has already booked someone else. '
-                 : missed===2 ? 'An answering service takes a message; the receptionist can book the job instead. '
-                 : missed===3 ? 'If you really do rarely miss calls, this may matter less to you; the call will tell. ' : '';
+    var lost = answers[5];
+    var missWord = lost===0 ? 'Follow-ups that go quiet are money left on the table; an AI agent can chase every one. '
+                 : lost===1 ? 'Retyping the same information between apps is the first thing we connect and automate. '
+                 : lost===2 ? 'Invoicing and billing follow-up make a natural first agent. '
+                 : lost===3 ? 'The front office agents answer, book and remind for you, so those hours come back. ' : '';
     var volume = (answers[0]!==null && answers[0]>=2) || (answers[1]!==null && answers[1]>=2);
     var fitWord = (volume && answers[2]!==null && answers[2]>=2) ? ''
-                : 'At $1,500 a month, it has to catch enough of the jobs you miss to be worth it; on the call we check that against your real numbers. ';
+                : 'At $1,500 a month, it has to save or win you enough to be worth it; on the call we check that against your real numbers. ';
     var map = {
-      operator: missWord+fitWord+'<b>AI Operator</b> fits: the AI receptionist answers the calls you miss and books them, with chat, reminders, review requests, a live dashboard, 2 hours of tuning and one new automation a month, for $1,500 a month plus a $500 setup.',
+      operator: missWord+fitWord+'<b>AI Operator</b> fits: a live dashboard plus the front office agents (AI receptionist, website chat, booking and reminders, review requests), 2 hours of tuning and one new automation a month, for $1,500 a month plus a $500 setup.',
       founding: missWord+'You want something built around how you work, so <b>Founding CTO</b> fits: everything in AI Operator, plus a custom AI agent (for example quote, intake or triage), a custom dashboard over your live data with read-only &ldquo;Ask Efficio&rdquo;, and a call every two weeks, for $2,500 a month plus a $500 setup.',
       custom: missWord+'You want an engineer building with you as you grow, so <b>Full Custom CTO</b> fits: everything in Founding CTO, plus ongoing custom engineering (new automations, agents and integrations), a weekly call and a 24-hour response time, for $3,500 a month plus a $500 setup.',
       nofit: 'Honestly, at your current job size or volume, $1,500 a month plus a setup fee probably wouldn&rsquo;t be worth it for you yet. We&rsquo;d rather tell you that now than sell you something you don&rsquo;t need.'
@@ -793,7 +793,7 @@
 </script>
 <script src="/assets/contact-consent.js?v=20260927" defer></script>
 <script src="/assets/v6.js?v=20260927" defer></script>
-<script src="/assets/consent.js?v=20260929" defer></script>
+<script src="/assets/consent.js?v=20261006" defer></script>
 <script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
 </body>
 </html>

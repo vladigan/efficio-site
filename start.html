@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="/assets/pixels.js?v=20260927"></script>
+<script>try{gtag('event','start_page_view',{event_category:'funnel'});}catch(e){}</script>
+<title>See if you qualify — one CEO dashboard, every AI agent | Efficio</title>
+<meta name="description" content="Efficio connects the apps your business runs on to one live CEO dashboard and puts AI agents to work across them. Answer 3 quick questions and book a free 30-minute call with Brady."/>
+<meta name="robots" content="noindex"/>
+<link rel="canonical" href="https://efficio.tech/start.html"/>
+<meta property="og:title" content="See if you qualify | Efficio"/>
+<meta property="og:description" content="Every app. Every agent. One CEO dashboard. Answer 3 quick questions and book a free 30-minute call."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://efficio.tech/start.html"/>
+<meta property="og:image" content="https://efficio.tech/assets/brand/efficio-og.png"/>
+<meta property="og:site_name" content="Efficio"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/theme.css?v=20260927"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<style>
+/* An ad landing page: one job, get a fit owner onto Brady's calendar.
+   Three one-tap questions, then the calendar (teams of 2+) or a polite exit (just me). */
+.st-shell{max-width:720px;margin:0 auto;padding:104px 20px 64px}
+.st-head{text-align:center;margin-bottom:22px}
+.st-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;
+  border:1px solid var(--bd2);background:rgba(124,58,237,.09);font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--purple3);margin-bottom:16px}
+.st-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 8px rgba(74,222,128,.7)}
+.st-h1{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.08;margin:0 0 12px}
+.st-h1 em{color:var(--purple3);font-style:italic}
+.st-sub{font-size:1.02rem;color:var(--text);line-height:1.6;max-width:600px;margin:0 auto}
+
+.st-card{margin-top:24px;border-radius:16px;border:1px solid rgba(168,85,247,.28);background:var(--surf);
+  box-shadow:0 24px 64px rgba(0,0,0,.45),0 0 40px rgba(124,58,237,.14);padding:22px 20px 20px}
+.st-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.st-step{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple3)}
+.st-back{font:inherit;font-size:13px;font-weight:600;color:var(--text);background:none;border:0;padding:6px 2px;cursor:pointer;min-height:36px}
+.st-back:hover{color:var(--white)}
+.st-back[hidden]{display:none}
+.st-bar{height:4px;border-radius:4px;background:var(--surf3);overflow:hidden;margin-bottom:18px}
+.st-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--purple2));transition:width .3s var(--ease)}
+.st-q{font-size:1.25rem;font-weight:800;color:var(--white);letter-spacing:-.01em;line-height:1.25;margin:0 0 14px;outline:none}
+.st-opts{display:grid;gap:10px}
+.st-opts.two{grid-template-columns:1fr 1fr}
+@media (max-width:420px){.st-opts.two{grid-template-columns:1fr}}
+.st-opt{font:inherit;text-align:left;font-size:15px;font-weight:600;color:var(--w2);background:var(--surf2);
+  border:1px solid var(--bd2);border-radius:12px;padding:14px 16px;min-height:52px;cursor:pointer;
+  transition:border-color .15s var(--ease),background .15s var(--ease)}
+.st-opt:hover,.st-opt:focus-visible{border-color:var(--purple2);background:rgba(124,58,237,.14);outline:none}
+.st-opt[aria-pressed="true"]{border-color:var(--purple2);background:rgba(124,58,237,.2)}
+.st-note{margin-top:14px;font-size:12.5px;color:var(--muted);text-align:center}
+
+.st-result[hidden]{display:none}
+.st-result h2{font-size:clamp(1.45rem,4vw,1.9rem);font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.15;margin:0 0 10px;outline:none}
+.st-result h2 em{color:var(--purple3);font-style:italic}
+.st-result p{font-size:15px;color:var(--text);line-height:1.6;margin:0 0 12px}
+.st-result p b{color:var(--white)}
+.st-cover{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:8px}
+.st-cover li{font-size:14px;color:var(--w2);line-height:1.5;padding-left:26px;position:relative}
+.st-cover li:before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border-radius:50%;
+  background:rgba(124,58,237,.25);box-shadow:inset 0 0 0 1.5px var(--purple2)}
+.cal-wrap{margin-top:18px;border-radius:14px;overflow:hidden;border:1px solid rgba(168,85,247,.28);background:var(--surf)}
+.ghl-booking{min-width:300px;width:100%;height:720px;border:0;display:block}
+.cal-wrap .ck-embed{margin:22px auto;width:calc(100% - 28px)}
+@media (max-width:560px){.ghl-booking{height:1000px}}
+.st-fallback{text-align:center;margin-top:16px;font-size:13px;color:var(--muted)}
+.st-fallback a,.st-result a{color:var(--purple3);font-weight:600}
+.st-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.st-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;
+  font-weight:700;font-size:14px;text-decoration:none;border:1px solid var(--bd2);color:var(--white);background:var(--surf2)}
+.st-btn.primary{background:var(--purple);border-color:var(--purple)}
+.st-redo{font:inherit;font-size:13px;font-weight:600;color:var(--text);background:none;border:0;padding:8px 0;cursor:pointer;margin-top:10px}
+
+.st-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;font-size:13px;color:var(--muted)}
+.st-trust span{display:inline-flex;align-items:center;gap:7px}
+.st-trust svg{color:var(--purple3);flex-shrink:0}
+.st-how{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:680px){.st-how{grid-template-columns:1fr}}
+.st-how div{background:rgba(15,30,51,.5);border:1px solid var(--bd);border-radius:10px;padding:16px}
+.st-how h3{font-size:13px;color:var(--white);font-weight:700;margin:0 0 5px}
+.st-how p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
+/* results scroll into view below the fixed nav (and, on phones, the cookie banner pinned at the top) */
+.st-card{scroll-margin-top:96px}
+@media (max-width:560px){.st-shell{padding-top:92px}.st-sub{font-size:15px;line-height:1.5}.st-card{padding:18px 16px 16px;scroll-margin-top:150px}}
+@media (prefers-reduced-motion:reduce){.st-bar i{transition:none}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="logo"><span class="logo-mark">E</span><span class="logo-text">Efficio</span></a>
+</div></nav>
+
+<main class="st-shell">
+  <div class="st-head">
+    <span class="st-pill"><span class="dot"></span>For owners with a team of 5&ndash;50</span>
+    <h1 class="st-h1">Every app. Every agent. <em>One CEO dashboard.</em></h1>
+    <p class="st-sub">Efficio connects the apps your business runs on to one live dashboard and puts AI agents to work across them: following up on leads and quotes, chasing invoices, reporting your numbers. Brady, your fractional AI CTO, builds it and runs it.</p>
+  </div>
+
+  <section class="st-card" id="quiz" aria-labelledby="stQ">
+    <div class="st-meta">
+      <span class="st-step" id="stStep" aria-live="polite">See if you qualify &middot; 1 of 3</span>
+      <button type="button" class="st-back" id="stBack" hidden>&larr; Back</button>
+    </div>
+    <div class="st-bar" aria-hidden="true"><i id="stBar"></i></div>
+    <h2 class="st-q" id="stQ" tabindex="-1"></h2>
+    <div class="st-opts" id="stOpts"></div>
+    <p class="st-note">3 quick questions, then pick a time. No card, no obligation.</p>
+  </section>
+
+  <section class="st-card st-result" id="fit" hidden aria-labelledby="fitH">
+    <h2 id="fitH" tabindex="-1">You qualify. <em>Pick a time with Brady.</em></h2>
+    <p>A free 30-minute video call. Brady looks at how your business runs today and tells you honestly what he&rsquo;d build first, and whether a plan makes sense for you.</p>
+    <ul class="st-cover" id="fitCover"></ul>
+    <div class="cal-wrap">
+      <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl data-consent-lazy class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book your Efficio call"></iframe>
+    </div>
+    <noscript><p class="st-fallback">The scheduler needs JavaScript. Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
+    <p class="st-fallback">Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time.</p>
+    <button type="button" class="st-redo" data-redo>&larr; Change my answers</button>
+  </section>
+
+  <section class="st-card st-result" id="nofit" hidden aria-labelledby="nofitH">
+    <h2 id="nofitH" tabindex="-1">Efficio is built for teams of 5 to 50 right now.</h2>
+    <p>The AI agents and the CEO dashboard pay off when there&rsquo;s a team&rsquo;s worth of follow-ups, admin and billing to take off its plate. If your business grows into that, we&rsquo;d love to talk.</p>
+    <p>Meanwhile, you&rsquo;re welcome to try the live demo, or email Brady with a question.</p>
+    <div class="st-actions">
+      <a class="st-btn primary" href="/#demo">Try the live demo</a>
+      <a class="st-btn" href="mailto:brady@efficio.tech?subject=Question%20about%20Efficio">Email Brady</a>
+    </div>
+    <button type="button" class="st-redo" data-redo>&larr; Change my answers</button>
+  </section>
+
+  <div class="st-trust">
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Founder-led, no sales reps</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Plans from $1,500/mo + $500 setup</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Your data stays in your own account</span>
+  </div>
+
+  <div class="st-how">
+    <div><h3>1. Connect your apps</h3><p>Your CRM, QuickBooks, calendar, inboxes and the rest feed one live CEO dashboard.</p></div>
+    <div><h3>2. Put AI agents to work</h3><p>Agents follow up on leads and quotes, chase invoices and report your numbers, across the apps you already use.</p></div>
+    <div><h3>3. Brady runs it</h3><p>Your fractional AI CTO builds it with real engineering and keeps it working, month after month.</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-bottom"><div>&copy; 2026 Efficio &middot; BNG Contracting Enterprise LLC &middot; Miami, FL</div>
+    <div><a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/refund.html">Refund</a> &middot; <a href="#cookie-settings" data-cookie-settings>Cookie settings</a></div></div>
+</footer>
+
+<script>
+(function(){
+  var Q = [
+    {id:'team', q:'How many people work in your business?', two:true, opts:[
+      ['solo','Just me'],['t2_5','2–5'],['t6_15','6–15'],['t16_50','16–50'],['t51','51+']]},
+    {id:'time', q:'Where does your team lose the most time?', opts:[
+      ['followups','Following up on leads and quotes'],['admin_apps','Admin between apps'],
+      ['billing','Billing and chasing invoices'],['phones','Answering phones and messages']]},
+    {id:'apps', q:'How many apps does your team use day to day?', two:true, opts:[
+      ['a1_3','1–3'],['a4_7','4–7'],['a8_15','8–15'],['a15p','More than 15']]}
+  ];
+  var COVER = {
+    followups:'Which follow-ups an AI agent would take over first, for leads and quotes',
+    admin_apps:'Where your team re-types the same work between apps, and what an agent would take off them',
+    billing:'How invoices and payment reminders would run on their own',
+    phones:'How calls and messages get answered and booked, around the clock'
+  };
+  var APPS = {a1_3:'1–3', a4_7:'4–7', a8_15:'8–15', a15p:'15+'};
+  var answers = {}, step = 0, started = false;
+  var stepEl = document.getElementById('stStep'), barEl = document.getElementById('stBar'),
+      qEl = document.getElementById('stQ'), optsEl = document.getElementById('stOpts'),
+      backEl = document.getElementById('stBack'), quiz = document.getElementById('quiz'),
+      fit = document.getElementById('fit'), nofit = document.getElementById('nofit');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function track(name, extra){ try{ gtag('event', name, Object.assign({event_category:'funnel'}, extra||{})); }catch(e){} }
+  function scrollTo(el){ try{ el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'}); }catch(e){} }
+
+  function render(focus){
+    var s = Q[step];
+    stepEl.textContent = 'See if you qualify · ' + (step + 1) + ' of ' + Q.length;
+    barEl.style.width = Math.round(step / Q.length * 100) + '%';
+    qEl.textContent = s.q;
+    optsEl.className = 'st-opts' + (s.two ? ' two' : '');
+    optsEl.innerHTML = '';
+    s.opts.forEach(function(o){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'st-opt'; b.textContent = o[1]; b.dataset.v = o[0];
+      b.setAttribute('aria-pressed', answers[s.id] === o[0] ? 'true' : 'false');
+      b.addEventListener('click', function(){ pick(s.id, o[0]); });
+      optsEl.appendChild(b);
+    });
+    backEl.hidden = step === 0;
+    if (focus) { try{ qEl.focus({preventScroll:true}); }catch(e){ qEl.focus(); } }
+  }
+
+  function pick(id, v){
+    answers[id] = v;
+    if (!started) { started = true; try{ if (window.efficioTrackQualifierStart) window.efficioTrackQualifierStart({source:'start'}); }catch(e){} }
+    track('start_answer', {question:id, answer:v});
+    if (step < Q.length - 1) { step++; render(true); return; }
+    finish();
+  }
+
+  function finish(){
+    barEl.style.width = '100%';
+    quiz.hidden = true;
+    var isFit = answers.team !== 'solo';
+    var tag = 'start.' + answers.team + '.' + answers.time + '.' + answers.apps;
+    if (isFit) {
+      var cover = document.getElementById('fitCover');
+      cover.innerHTML = '';
+      [COVER[answers.time],
+       'How your ' + (APPS[answers.apps] || '') + ' apps would feed one live CEO dashboard',
+       'Which plan fits, or whether none does, with prices up front'].forEach(function(t){
+        var li = document.createElement('li'); li.textContent = t; cover.appendChild(li);
+      });
+      /* the answers ride along to HighLevel with the booking (as its utm_term),
+         next to the ad tags consent.js adds; only when the ad link didn't set utm_term */
+      var fr = document.getElementById('ghl_booking_WvKpojD06GrturZhmjBv');
+      var u = {}; try { u = window._pxUtms ? window._pxUtms() : {}; } catch(e){}
+      if (fr && !fr.getAttribute('src')) {
+        var base = 'https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv';
+        fr.setAttribute('data-consent-src', u.utm_term ? base : base + '?utm_term=' + encodeURIComponent(tag));
+      }
+      fit.hidden = false;
+      try { if (window.EfficioConsent && window.EfficioConsent.showEmbed) window.EfficioConsent.showEmbed(fr); } catch(e){}
+      try { if (window.efficioTrackQualifierComplete) window.efficioTrackQualifierComplete({source:'start', fit:true}); } catch(e){}
+      track('start_fit', {team:answers.team, time:answers.time, apps:answers.apps});
+      scrollTo(fit);
+      try{ document.getElementById('fitH').focus({preventScroll:true}); }catch(e){}
+    } else {
+      nofit.hidden = false;
+      track('start_not_fit', {team:answers.team});
+      scrollTo(nofit);
+      try{ document.getElementById('nofitH').focus({preventScroll:true}); }catch(e){}
+    }
+  }
+
+  backEl.addEventListener('click', function(){ if (step > 0) { step--; render(true); } });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-redo]'), function(b){
+    b.addEventListener('click', function(){
+      fit.hidden = true; nofit.hidden = true; quiz.hidden = false; step = 0; render(true); scrollTo(quiz);
+    });
+  });
+
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ if (window.scrollY > 30) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
+  render(false);
+})();
+</script>
+<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
+<script src="/assets/consent.js?v=20261006" defer></script>
+</body>
+</html>

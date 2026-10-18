@@ -121,7 +121,7 @@
       <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl data-consent-lazy class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book your Efficio call"></iframe>
     </div>
     <noscript><p class="st-fallback">The scheduler needs JavaScript. Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
-    <p class="st-fallback">Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time.</p>
+    <p class="st-fallback">Scheduling by HighLevel, which sets its own cookies (<a href="/privacy.html#cookies">details</a>). Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time.</p>
     <button type="button" class="st-redo" data-redo>&larr; Change my answers</button>
   </section>
 
@@ -229,7 +229,11 @@
         fr.setAttribute('data-consent-src', u.utm_term ? base : base + '?utm_term=' + encodeURIComponent(tag));
       }
       fit.hidden = false;
-      try { if (window.EfficioConsent && window.EfficioConsent.showEmbed) window.EfficioConsent.showEmbed(fr); } catch(e){}
+      /* they just asked for times, so show the calendar now (no extra tap) */
+      try {
+        var EC = window.EfficioConsent;
+        if (EC && EC.loadCalendar) EC.loadCalendar(fr); else if (EC && EC.showEmbed) EC.showEmbed(fr);
+      } catch(e){}
       try { if (window.efficioTrackQualifierComplete) window.efficioTrackQualifierComplete({source:'start', fit:true}); } catch(e){}
       track('start_fit', {team:answers.team, time:answers.time, apps:answers.apps});
       scrollTo(fit);
@@ -254,7 +258,6 @@
   render(false);
 })();
 </script>
-<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
-<script src="/assets/consent.js?v=20261006" defer></script>
+<script src="/assets/consent.js?v=20261018" defer></script>
 </body>
 </html>

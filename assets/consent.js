@@ -427,6 +427,16 @@
       if (!fr) return;
       fr.removeAttribute('data-consent-lazy');
       syncEmbed(fr);
+    },
+    /* For pages where the visitor has just asked for times (the /start ad page
+       after its 3 questions): load the scheduler right away instead of the
+       "Show available times" placeholder. Without Accept this is exactly that
+       button's calendar-only load: no consent change, no Google, Meta or
+       LinkedIn tag and no GHL script on this page. */
+    loadCalendar: function (fr) {
+      if (!fr) return;
+      fr.removeAttribute('data-consent-lazy');
+      if (get() === 'granted') loadEmbed(fr); else loadEmbed(fr, { calendarOnly: true });
     }
   };
 

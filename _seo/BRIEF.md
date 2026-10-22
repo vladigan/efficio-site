@@ -5,30 +5,51 @@ what the page is supposed to sell. **Edit this file whenever the offer, pricing 
 
 ## The business
 
-Efficio (efficio.tech) is an **AI front office / AI team for any small business**. It answers the calls
-a business misses, books them, follows up, and shows results on a live dashboard, all inside the
-client's own account (built on HighLevel). It is installed and run by Efficio.
-The customer does no technical setup.
+_Rewritten 2026-10-22 to match the Efficio Brain, section 1. Where anything here disagrees with the Brain, the Brain wins._
+
+Efficio (efficio.tech) is a **fractional AI CTO for any business**; the target market is small and mid-size,
+owner-led businesses. It connects every app a business runs on to one live CEO dashboard, puts AI agents and
+custom automations to work across them, and builds whatever else the business needs. Brady, the founder, is the
+CTO who designs, builds and runs it, inside the client's own Efficio account at app.efficio.tech.
+The customer does no technical setup. Public copy says "built with real engineering".
+
+The pitch in one line: **every app, every agent, one CEO dashboard.** The owner stops logging into a dozen apps
+and checking five inboxes.
+
+How we talk about it: lead with the whole offer (the dashboard, the AI agents doing named jobs, and the CTO who
+builds and runs it). The AI receptionist is one agent among many: mention it, if at all, inside a list, never in a
+title, meta description, h1, opening paragraph or hook. Don't build pages around missed calls.
 
 ## The offer (keep in sync with pricing.html)
 
-| Tier | Price | Who it's for |
-|---|---|---|
-| AI Operator | $1,500/mo + $500 setup | The AI front office: receptionist, booking, follow-up, live dashboard. |
-| Founding CTO | $2,500/mo + $500 setup | Several workflows, embedded fractional CTO. |
-| Full Custom CTO | $3,500/mo + $500 setup | Full custom build across the ops stack. |
+Every plan starts with the front office agents (AI receptionist for forwarded calls, website chat, booking and
+reminders, no-show rebook email, review requests; missed-call text-back once texting registration is approved).
+On top: custom AI agents (quoting, intake, triage, billing follow-up), workflows and automations, integrations
+(Stripe, QuickBooks, Google, Microsoft 365, Slack, the client's CRM and other apps with an API), a file drop folder
+in the client's Google Drive or SharePoint that AI sorts, a custom dashboard with read-only "Ask Efficio", and
+ongoing engineering.
 
-Month-to-month, 30 days' notice. Only guarantee: receptionist, booking and dashboard live within 7 business days of kickoff or the $500 setup is refunded (kickoff within 2 business days of payment; forwarding + calendar access by day 5; texting not covered). First three clients: monthly price locked 12 months in exchange for a 20-minute results review at day 30. No clients, case studies or results exist; never invent them.
+| Plan | Price | What it adds |
+|---|---|---|
+| AI Operator | $1,500/mo + $500 setup | Front office agents, live dashboard, 2 h tuning + 1 new automation a month, monthly review call. |
+| Founding CTO | $2,500/mo + $500 setup | Everything in AI Operator + a custom AI agent (quote, intake or triage), custom dashboard over live data with "Ask Efficio", a call every two weeks. |
+| Full Custom CTO | $3,500/mo + $500 setup | Everything in Founding CTO + ongoing custom engineering (agents, automations, integrations), weekly call, 24-hour response. |
+
+Month-to-month, 30 days' notice. The only promise: live within 7 business days of kickoff or the $500 setup is
+refunded (kickoff within 2 business days of payment; forwarding + calendar access by day 5; texting excluded).
+No results-based refund. First three clients: monthly price locked 12 months in exchange for a 20-minute results
+review at day 30. No clients, case studies, reviews or results exist; never invent them.
 
 ## Who buys
 
-Owners of any US small business where the owner is still the bottleneck on phones, inbound and
-follow-up. The offer is the same for every business; the `/for/*` and industry articles are examples
-of the same any-small-business offer, never an industry-only pitch.
+Owner-led US businesses with about 5-50 staff, 50+ calls or leads a month and jobs worth $500+, in any industry.
+Best fit for content: home services and trades, law, accounting, property management and real estate, then the rest.
+Not for: jobs under $500, anyone who wants outbound robocalls or cold texting, or practices whose calls involve
+patient health information. US only.
 
-They search when something is actively costing them money: missed calls, slow lead follow-up,
-no-shows, after-hours leads, drowning in admin. Those **"ready to act" queries** are the target.
-Curiosity queries ("what is an AI agent") are supporting content, not money pages.
+They search when the office work is the bottleneck: too many apps and inboxes, quotes and leads that go cold,
+invoices nobody chases, scheduling chaos, no clear weekly numbers, "AI for <my industry>". Those **"ready to act"
+queries** are the target. Curiosity queries ("what is an AI agent") are supporting content, not money pages.
 
 ## What counts as a conversion
 
@@ -68,7 +89,7 @@ the session's **landing page**. A page that ranks but never starts a session tha
 - Plain, direct, owner-to-owner. "We build it and run it." No hype words ("revolutionary", "cutting-edge").
 - Never invent customer results, testimonials, logos or numbers. Illustrative scenarios are labelled "hypothetical".
 - Never promise rankings, revenue, or a specific number of leads.
-- Prices, the $500 setup and the 7-business-day setup guarantee must match pricing.html exactly. Every booking CTA links to `/book.html`, never straight to the HighLevel widget.
+- Prices, the $500 setup and the 7-business-day setup promise must match pricing.html exactly. Every booking CTA links to `/book.html`, never straight to the booking widget.
 - Business details (name "Efficio", domain efficio.tech, pricing) must be identical everywhere, on-site and off.
 
 ## Current bet

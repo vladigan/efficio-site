@@ -11,13 +11,13 @@
 
   <!-- Blog (truth pass 2026-09-25: retired posts now redirect and are not listed) -->
   <url><loc>https://efficio.tech/blog/ai-team-for-real-estate-agents.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://efficio.tech/blog/ai-team-for-plumbing-businesses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-team-for-plumbing-businesses.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/ai-receptionist-for-dental-practices.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/how-hvac-owners-use-ai-to-never-miss-a-call.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/best-ai-tools-for-small-law-firms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://efficio.tech/blog/ai-operations-problem.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://efficio.tech/blog/ai-for-hvac-businesses.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://efficio.tech/blog/ai-for-hvac-businesses.html</loc><lastmod>2026-10-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-dental-practices.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://efficio.tech/blog/ai-for-law-firms.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 

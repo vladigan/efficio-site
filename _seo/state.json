@@ -1,5 +1,5 @@
 {
-  "updated_at": null,
+  "updated_at": "2026-10-22",
   "site": "https://efficio.tech",
   "data_on_disk": {
     "gsc_days": "data/gsc/<day>.json, one file per complete day (today-3 and older)",
@@ -7,5 +7,39 @@
   },
   "current_bet": null,
   "active_change": null,
-  "pages": {}
+  "pages": {},
+  "seo_agent": {
+    "queue_built": "2026-10-22",
+    "rewrite_queue": [
+      "blog/how-hvac-owners-use-ai-to-never-miss-a-call.html",
+      "resources/ai-for-home-services.html",
+      "blog/ai-for-law-firms.html",
+      "resources/ai-receptionist-for-law-firms.html",
+      "blog/ai-team-for-real-estate-agents.html",
+      "blog/ai-for-dental-practices.html",
+      "blog/ai-receptionist-for-dental-practices.html",
+      "resources/ai-receptionist-for-dental-offices.html",
+      "resources/stop-missing-customer-calls.html",
+      "resources/ai-receptionist-cost.html",
+      "resources/missed-call-text-back.html",
+      "resources/after-hours-leads.html",
+      "resources/ai-phone-answering-vs-voicemail.html",
+      "resources/choosing-ai-answering-service.html",
+      "resources/ai-vs-answering-service.html"
+    ],
+    "done": [
+      {
+        "path": "blog/ai-for-hvac-businesses.html",
+        "date": "2026-10-22",
+        "pr": 70
+      },
+      {
+        "path": "blog/ai-team-for-plumbing-businesses.html",
+        "date": "2026-10-22",
+        "pr": 70
+      }
+    ],
+    "new_pages_done": [],
+    "notes": "Queue built from sitemap.xml (blog/, resources/; sitemap lists no for/ pages). resources/index.html left out: it is a listing page, not an article. No accounting or property-management page leads with calls."
+  }
 }

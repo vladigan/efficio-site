@@ -1,0 +1,44 @@
+# Efficio
+
+> Efficio is a fractional AI CTO for any business, built for small and mid-size, owner-led businesses in the US.
+
+Efficio connects all the apps a business runs on to one live CEO dashboard, puts AI agents and custom automations to work across them, and builds whatever else the business needs. Brady, the founder, is the CTO who designs, builds and runs it, inside the client's own Efficio account at app.efficio.tech. Every plan starts with the front office agents (an AI receptionist for forwarded calls, website chat, booking and reminders, review requests) and adds custom AI agents (quoting, intake, triage, billing follow-up), integrations and ongoing engineering. It fits owner-led businesses with about 5-50 staff, 50+ calls or leads a month and jobs worth $500+. Plans, each month-to-month with 30 days' notice and a one-time $500 setup: AI Operator $1,500/mo, Founding CTO $2,500/mo, Full Custom CTO $3,500/mo. US only. Contact: brady@efficio.tech.
+
+## Key pages
+
+- [Home: every app, every agent, one CEO dashboard](https://efficio.tech/)
+- [Pricing](https://efficio.tech/pricing.html)
+- [How it works](https://efficio.tech/how-it-works.html)
+- [Book a free 30-minute AI audit](https://efficio.tech/book.html)
+- [Blog](https://efficio.tech/blog/)
+
+## Articles
+
+- [AI for Real Estate Agents](https://efficio.tech/blog/ai-team-for-real-estate-agents.html)
+- [AI for Plumbing Companies: Agents + One Dashboard](https://efficio.tech/blog/ai-team-for-plumbing-businesses.html)
+- [AI Receptionist for Dental Practices — What It Actually Does](https://efficio.tech/blog/ai-receptionist-for-dental-practices.html)
+- [How HVAC Owners Use AI to Never Miss a Service Call](https://efficio.tech/blog/how-hvac-owners-use-ai-to-never-miss-a-call.html)
+- [Best AI Tools for Small Law Firms — Where AI Actually Helps Solo + Small Practices](https://efficio.tech/blog/best-ai-tools-for-small-law-firms.html)
+- [You don't have an AI problem. You have an operations problem.](https://efficio.tech/blog/ai-operations-problem.html)
+- [AI for HVAC Companies: AI Agents + One Dashboard](https://efficio.tech/blog/ai-for-hvac-businesses.html)
+- [AI for dental practices: automate the front desk without losing the human touch](https://efficio.tech/blog/ai-for-dental-practices.html)
+- [AI for law firms: stop losing new-matter calls and drowning in admin](https://efficio.tech/blog/ai-for-law-firms.html)
+- [How to Stop Losing Customers to Missed Calls (Without Hiring)](https://efficio.tech/resources/stop-missing-customer-calls.html)
+- [Why Slow Lead Follow-Up Is Costing You Sales (and How to Fix It)](https://efficio.tech/resources/slow-lead-follow-up.html)
+- [AI Agents vs. Hiring: What Makes Sense for a Small Business](https://efficio.tech/resources/ai-agents-vs-hiring.html)
+- [What Does an AI Receptionist Cost for a Small Business?](https://efficio.tech/resources/ai-receptionist-cost.html)
+- [How to Automate Appointment Booking (So Your Calendar Fills Itself)](https://efficio.tech/resources/automate-appointment-booking.html)
+- [What Is an AI Agent for Business? A Plain-English Guide](https://efficio.tech/resources/what-is-an-ai-agent.html)
+- [Missed-Call Text-Back: What It Is and Why It Works](https://efficio.tech/resources/missed-call-text-back.html)
+- [What to Look for in an AI Answering Service (Owner's Checklist)](https://efficio.tech/resources/choosing-ai-answering-service.html)
+- [AI for Home Services: Stop Missing Jobs While You're On-Site](https://efficio.tech/resources/ai-for-home-services.html)
+- [How to Reduce No-Shows at Your Small Business (Without Nagging)](https://efficio.tech/resources/reduce-no-shows.html)
+- [AI Answering Service vs. Live Answering Service: An Honest Comparison](https://efficio.tech/resources/ai-vs-answering-service.html)
+- [How to Capture After-Hours Leads Automatically (Without Working Nights)](https://efficio.tech/resources/after-hours-leads.html)
+- [7 Signs Your Small Business Is Ready to Automate (A Self-Check)](https://efficio.tech/resources/signs-you-need-automation.html)
+- [How to Respond to Leads in Under 5 Minutes (Without Hiring)](https://efficio.tech/resources/respond-to-leads-in-5-minutes.html)
+- [AI Receptionist for Dental Offices: What It Actually Handles](https://efficio.tech/resources/ai-receptionist-for-dental-offices.html)
+- [How Much Time Do Small Business Owners Lose to Admin Work?](https://efficio.tech/resources/small-business-admin-time.html)
+- [How to Automate Customer Follow-Up for a Service Business](https://efficio.tech/resources/automate-customer-follow-up.html)
+- [AI Phone Answering vs. Voicemail: Which Should Take Your Calls?](https://efficio.tech/resources/ai-phone-answering-vs-voicemail.html)
+- [AI Receptionist for Law Firms: Intake Without the Backlog](https://efficio.tech/resources/ai-receptionist-for-law-firms.html)

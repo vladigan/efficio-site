@@ -142,18 +142,9 @@
 
   <p class="book-early"><b>Our first three clients</b> get their monthly price locked for 12 months in exchange for a 20-minute results review at day 30.</p>
 
-  <!-- BOOKING WIDGET: GoHighLevel booking calendar. assets/consent.js reads
-       data-consent-src: it loads on its own (with form_embed.js) if the visitor
-       accepted cookies; otherwise a "Show available times" button loads ONLY this
-       iframe, without accepting cookies, because the GHL calendar sets its own
-       cookies and may run tracking scripts (including Meta's) inside it. -->
-  <div class="cal-wrap">
-    <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book your Efficio call"></iframe>
-  </div>
-  <noscript><p class="book-fallback">The scheduler needs JavaScript. Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
-  <div class="book-fallback">
-    Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.
-  </div>
+  <!-- BOOKING: assets/booking.js fills this box. The Google booking-page link is the one setting at the top of that file; until it is set the box shows email-to-book. -->
+  <div class="cal-wrap" data-efficio-booking="book"></div>
+  <noscript><p class="book-fallback">Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
 
   <div class="book-after">
     <div class="ba-card"><h4>Before the call</h4><p>Have a rough list handy: the apps you use, the jobs that eat your team&rsquo;s week, and how many customers or leads you handle a month.</p></div>
@@ -166,7 +157,7 @@
     <ul>
       <li><b>Plans:</b> AI Operator $1,500/mo, Founding CTO $2,500/mo or Full Custom CTO $3,500/mo, each plus a one-time $500 setup. Monthly billing starts on go-live day. <a href="/pricing.html">What each includes</a>.</li>
       <li><b>Cancelling:</b> month-to-month, 30 days' notice. No partial-month refunds.</li>
-      <li><b>Go-live promise:</b> if your AI receptionist, booking and live dashboard aren't live within 7 business days of kickoff, we refund the $500 setup fee. It applies when kickoff is held within 2 business days of payment and you give us call forwarding and calendar access by day 5. Texting (A2P 10DLC approval) is excluded. <a href="/refund.html">Refund policy</a>.</li>
+      <li><b>Go-live promise:</b> if your AI agents, booking and live dashboard aren't live within 7 business days of kickoff, we refund the $500 setup fee. It applies when kickoff is held within 2 business days of payment and you give us call forwarding and calendar access by day 5. Texting (A2P 10DLC approval) is excluded. <a href="/refund.html">Refund policy</a>.</li>
     </ul>
   </div>
 </div>
@@ -187,7 +178,7 @@
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{if(window.scrollY>30)nav.classList.add('scrolled');else nav.classList.remove('scrolled');});
 </script>
-<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
+<script src="/assets/booking.js?v=20261119" defer></script>
 <script src="/assets/consent.js?v=20261006" defer></script>
 </body>
 </html>

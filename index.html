@@ -1741,23 +1741,18 @@ html.motion-off .e7-ring::after,html.motion-off .e6-hero h1 .grad,html.motion-of
     </div>
     <div class="e7-cal e7-ring rv d2">
       <div class="e7-cbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="t">book a call &middot; <b>30 min</b> &middot; video</span><span class="s"><span class="x5-dot"></span>live calendar</span></div>
-      <!-- The GoHighLevel calendar. assets/consent.js loads it straight away for visitors who accepted cookies.
-           Everyone else sees the card below, and "Show available times" loads only the calendar (no consent
-           change, no tags), the same as the booking page. The card is the iframe's previous sibling on purpose:
-           consent.js uses it as the placeholder and hides it once the calendar is showing. -->
+      <!-- Booking card: assets/booking.js points the button at the Google booking page (the one setting at the top of that file), or at email-to-book until it is set. -->
       <div class="ck-embed e7-ph">
         <div class="e7-mini" aria-hidden="true"><div class="mh"><b id="e7month">This month</b><span>&lsaquo; &rsaquo;</span></div><div class="e7-mg" id="e7grid"></div><div class="e7-slots"><i></i><i></i><i></i></div></div>
         <div class="e7-phx">
           <b>Pick a time that works for you.</b>
-          <p>A 30-minute video call. The calendar is hosted by HighLevel and sets its own cookies. <a href="/privacy.html#cookies">Details</a></p>
-          <button type="button" class="btn-primary" id="e7show">Show available times <span class="arr">&rarr;</span></button>
+          <p>A 30-minute Google Meet with Brady. We look at the tools your business runs on and tell you what we&rsquo;d automate first.</p>
+          <a class="btn-primary" id="e7show" data-efficio-book-link href="mailto:brady@efficio.tech?subject=Book%20a%20call">Email to book <span class="arr">&rarr;</span></a>
           <span class="or">or email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll find a time</span>
         </div>
       </div>
-      <iframe data-consent-src="https://api.leadconnectorhq.com/widget/booking/WvKpojD06GrturZhmjBv" data-consent-ghl class="ghl-booking" scrolling="no" id="ghl_booking_WvKpojD06GrturZhmjBv" title="Book your Efficio call" style="display:none"></iframe>
     </div>
     <noscript><p class="e7-alt">The calendar needs JavaScript. Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book the call for you.</p></noscript>
-    <p class="e7-alt">Calendar not loading? Email <a href="mailto:brady@efficio.tech?subject=Book%20a%20call">brady@efficio.tech</a> and we&rsquo;ll book it for you.</p>
   </div>
 </section>
 
@@ -1986,7 +1981,6 @@ html.motion-off .e7-ring::after,html.motion-off .e6-hero h1 .grad,html.motion-of
 /* scoped reveal safety net for redesigned nav sections (no transitions.js on homepage) */
 setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),#pricing .rv:not(.vis)');for(var i=0;i<s.length;i++)s[i].classList.add('vis');}catch(e){}},1200);
 </script>
-<script type="text/plain" data-consent-chat data-src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6aa079809fbeb2a21859165b"></script>
 <script>
 /* Inline interactive command-center demo: load demo-embed.html into an isolated iframe (srcdoc bypasses X-Frame-Options; full CSS/JS isolation). */
 (function(){
@@ -2078,6 +2072,7 @@ setTimeout(function(){try{var s=document.querySelectorAll('#build .rv:not(.vis),
   });
 })();
 </script>
+<script src="/assets/booking.js?v=20261119" defer></script>
 <script src="/assets/consent.js?v=20261006" defer></script>
   <!-- W136: GHL Voice AI widget (Efficio Voice - Missed-Call Capture) -->
 <script>

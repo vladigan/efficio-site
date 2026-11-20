@@ -3,7 +3,7 @@
    While it is empty, every booking box and "book" button falls back to email-to-book.
    - A calendar.google.com/calendar/appointments/schedules/... link shows the calendar inline.
    - Any other https link (for example calendar.app.google/...) opens in a new tab. */
-var EFFICIO_BOOKING_URL = "";
+var EFFICIO_BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3s-y4WT6LtZeyoUrNG51HyR9bSGRNEst1xOR01RyYaUgpmhSwAtKYJ-R-0jua0K14qe_RcZoHA";
 
 (function () {
   "use strict";
